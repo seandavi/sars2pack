@@ -1,0 +1,51 @@
+# SERIAL TIME INTERVAL
+GT.cov2 <- generation.time("gamma", c(3.96, 0.41))
+# EUROPE	
+epid.count <- prepare_data(extract_ProvinceState_data("France", my_data))
+R.France <- estimate.R(epid.count, GT = GT.cov2, methods = c("EG"))
+R.France 
+
+epid.count <- prepare_data(extract_country_data("Germany", my_data))
+R.Germany <- estimate.R(epid.count, GT = GT.cov2, methods = c("EG"))
+R.Germany
+
+epid.count <- prepare_data(extract_country_data("Italy", my_data))
+R.Italy <- estimate.R(epid.count, GT = GT.cov2, methods = c("EG"))
+R.Italy
+
+epid.count <- prepare_data(extract_country_data("Spain", my_data))
+R.Spain <- estimate.R(epid.count, GT = GT.cov2, methods = c("EG"))
+R.Spain 
+
+epid.count <- prepare_data(extract_ProvinceState_data("United Kingdom", my_data))
+R.UK <- estimate.R(epid.count, GT = GT.cov2, methods = c("EG"))
+R.UK
+
+# MIDDLE EAST
+epid.count <- prepare_data(extract_country_data("Iran", my_data))
+R.Iran<- estimate.R(epid.count, GT = GT.cov2, methods = c("EG"))
+R.Iran 
+
+# ASIA
+epid.count <- prepare_data(extract_country_data("Korea, South", my_data))
+R.SouthKorea <- estimate.R(epid.count, GT = GT.cov2, methods = c("EG"))
+R.SouthKorea
+
+epid.count <- prepare_data(extract_country_data("Singapore", my_data))
+R.Singapore <- estimate.R(epid.count, GT = GT.cov2, methods = c("EG"))
+R.Singapore
+
+# US States and Regions
+epid.count <- prepare_data(extract_ProvinceState_data("New York", my_data))
+R.NewYork <- estimate.R(epid.count, GT = GT.cov2, methods = c("EG"))
+R.NewYork
+
+epid.count <- prepare_data(extract_ProvinceState_data("New Hampshire", my_data))
+R.NewHampshire <- estimate.R(epid.count, GT = GT.cov2, methods = c("EG"))
+R.NewHampshire
+
+epid.count <- prepare_data(extract_ProvinceState_data("Illinois", my_data))
+R.Illinois <- estimate.R(epid.count, GT = GT.cov2, methods = c("EG"))
+R.Illinois
+
+
