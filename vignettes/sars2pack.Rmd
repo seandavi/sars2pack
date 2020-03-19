@@ -1,0 +1,131 @@
+---
+title: "sars2pack: packaging of C. Morefield code on COVID-19 epidemic modeling"
+author: "Vincent J. Carey, stvjc at channing.harvard.edu"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+vignette: >
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteIndexEntry{sars2pack: packaging of C. Morefield code on COVID-19 epidemic modeling}
+  %\VignetteEncoding{UTF-8}
+output:
+  BiocStyle::html_document:
+    highlight: pygments
+    number_sections: yes
+    theme: united
+    toc: yes
+---
+
+```{r setup,echo=FALSE}
+suppressMessages({
+suppressPackageStartupMessages({
+library(BiocStyle)
+library(sars2pack)
+library(dplyr)
+library(tibble)
+library(lubridate)
+})
+})
+```
+
+# Introduction
+
+John C Mallery conveyed code of Charles Morefield to harvest
+COVID-19 time series data.  Vince Carey has started an R package/github repo
+to manage the relevant code.  The package is called sars2pack in hopes of
+avoiding name conflict with many other packages likely developing.
+
+The main functionalities thus far concern importing data from
+Johns Hopkins Whiting School github repo `github.com/CSSEGISandData` and
+using the `r CRANpkg("R0")` package to perform certain tasks of
+epidemic modeling.  We also retain a snapshot of existing time series
+data from 19 March 2020 to facilitate demonstration.
+
+# Data and updating
+
+## Access
+
+The snapshot looks like:
+```{r lkda}
+as_tibble(mar19df)
+```
+
+We can call `fetch_JHU()_Data` to get a more current instance.
+
+## Structure
+
+There are nested structures in the data.  Provinces or states nest within countries.
+
+```{r lkcou}
+head(sort(table(mar19df$CountryRegion),decreasing=TRUE))
+```
+
+```{r nesting}
+mar19df %>% select(CountryRegion, ProvinceState) %>% 
+   filter(CountryRegion=="France")
+```
+
+The code to assemble information for a country, out of its constituent records,
+needs to be looked at.  The Morefield code for extraction uses data.table idioms -- I am
+not completely sure it is correct.  I would like our extracts to be precisely formulated.
+
+Looking at the raw data seems important to get a clear sense
+of the modeling challenge.
+```{r doser,fig.height=7}
+get_series = function(province="", country, dataset=sars2pack::mar19df) {
+  ans = dataset %>% filter(ProvinceState==province & CountryRegion==country)
+  ans[,-c(1:4)]
+}
+plot_series = function(province="", country, dataset=sars2pack::mar19df, ...) {
+ ser = get_series(province=province, country=country, dataset=dataset)
+ dates = lubridate::as_date(mdy(names(dataset)[-c(1:4)]))
+ plot(dates, ser, main=paste(province, country), ...)
+}
+par(mfrow=c(2,2),mar=c(4,3,2,2))
+plot_series(province="Hubei", country="China")
+plot_series(country="Italy")
+plot_series(country="Thailand")
+plot_series("Massachusetts", country="US")
+```
+
+
+# Modeling illustrated for a simulation
+
+Following code conveyed by John Mallery, we have the following
+approach for estimating R0 using a single realization of
+an epidemic simulation.
+
+Note that there can be failures of `estimate.R` for certain
+inputs.  We are working on that.
+```{r dostraight}
+library(R0)
+# Generating an epidemic with given parameters
+mGT <- generation.time("gamma", c(3,1.5))
+set.seed(5432)  # always initialize when simulating!
+mEpid <- sim.epid(epid.nb=1, GT=mGT, epid.length=30, 
+     family="poisson", R0=1.67, peak.value=500)
+mEpid <- mEpid[,1]
+# Running estimations
+est <- estimate.R(epid=mEpid, GT=mGT, methods=c("EG","ML","TD"), begin=1, end=30)
+```
+
+We modified the plotting function in `r CRANpkg("R0")` which
+was calling `dev.new` too often.  Use `plot2`.
+
+```{r lksim,fig.height=7}
+par(mfrow=c(2,2))
+plot2(est)
+```
+
+The plotfit2 function is also useful.  These fits
+look identical but they are not.
+
+```{r lksim2, fig.height=7}
+par(mfrow=c(2,2))
+plotfit2(est)
+```
+
+# Modeling for a geographic entity
+
+Now we extract information from the time-series table and
+obtain estimates of R0 under different models.
+```{r lkdfra}
+```
