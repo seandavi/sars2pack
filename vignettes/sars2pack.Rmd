@@ -127,5 +127,18 @@ plotfit2(est)
 
 Now we extract information from the time-series table and
 obtain estimates of R0 under different models.
-```{r lkdfra}
+```{r lkdfra, fig.height=7}
+hubdat = as.numeric(get_series(province="Hubei", country="China", 
+    dataset=sars2pack::mar19df))
+est <- estimate.R(epid=hubdat, GT=mGT, 
+    methods=c("EG","ML","TD"), begin=1L, end=length(hubdat))
+par(mfrow=c(2,2))
+est
+plot2(est)
 ```
+
+```{r lkdfra2, fig.height=7}
+par(mfrow=c(2,2), mar=c(4,3,2,2))
+plotfit2(est)
+```
+
