@@ -126,12 +126,16 @@ plotfit2(est)
 # Modeling for a geographic entity
 
 Now we extract information from the time-series table and
-obtain estimates of R0 under different models.
+obtain estimates of R0 under exponential growth.  There
+seems to be a data problem, and with the given
+generation time, the TD and ML models throw errors.
+
 ```{r lkdfra, fig.height=7}
-hubdat = as.numeric(get_series(province="Hubei", country="China", 
+itdat = as.numeric(get_series(province="", country="Italy", 
     dataset=sars2pack::mar19df))
-est <- estimate.R(epid=hubdat, GT=mGT, 
-    methods=c("EG","ML","TD"), begin=1L, end=length(hubdat))
+mGT <- generation.time("gamma", c(5.8, 0.95)) # from DOI 10.7326/M20-0504
+est <- estimate.R(epid=diff(itdat), GT=mGT, 
+    methods=c("EG"), begin=1L, end=length(itdat)-1L)
 par(mfrow=c(2,2))
 est
 plot2(est)
