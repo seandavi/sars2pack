@@ -4,7 +4,11 @@
 \alias{get_series}
 \title{supersimple series extraction}
 \usage{
-get_series(province = "", country, dataset = sars2pack::mar19df)
+get_series(
+  province = "",
+  country,
+  dataset = try(fetch_JHU_Data(as.data.frame = TRUE))
+)
 }
 \arguments{
 \item{province}{character(1) must be found in dataset ProvinceState field, "" is typical for data aggregated only at country level, and that is the default}

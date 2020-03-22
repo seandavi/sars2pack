@@ -4,7 +4,12 @@
 \alias{plot_series}
 \title{supersimple series plotter}
 \usage{
-plot_series(province = "", country, dataset = sars2pack::mar19df, ...)
+plot_series(
+  province = "",
+  country,
+  dataset = try(fetch_JHU_Data(as.data.frame = TRUE)),
+  ...
+)
 }
 \arguments{
 \item{province}{character(1) must be found in dataset ProvinceState field, "" is typical for data aggregated only at country level, and that is the default}
@@ -17,4 +22,11 @@ plot_series(province = "", country, dataset = sars2pack::mar19df, ...)
 }
 \description{
 supersimple series plotter
+}
+\note{
+An effort is made to change dates used as column names to lubridate date objects
+that are respected in plotting.
+}
+\examples{
+plot_series(country="Italy")
 }

@@ -10,22 +10,21 @@
 #' @importFrom lubridate as_date mdy
 #' @import R0
 #' @param as.data.frame logical(1) if TRUE return data.frame otherwise, data.table
-#' @param lubridate.names logical(1) if TRUE, dates from JHU will be turned into date instances and
 #' used as names on the returned table/data.frame
 #' @note Uses https://raw.githubusercontent.com/CSSEGISandData/... as data source, then modifies column names
 #' @return instance of data.table by default; returns data.frame if `as.data.frame` is TRUE
 #' @export
-fetch_JHU_Data <- function(as.data.frame=FALSE, lubridate.names=FALSE) {
+fetch_JHU_Data <- function(as.data.frame=FALSE) {
 	csv <- getURL("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Confirmed.csv")
 	data <- read.csv(text = csv, check.names = F)
 	names(data)[1] <- "ProvinceState"
 	names(data)[2] <- "CountryRegion"
 	numberColumns <- length(names(data))
-        if (lubridate.names) {
-          dts = names(data)[-c(1:4)]
-          dts = gsub("/", "-", dts)
-          names(data)[-c(1:4)] = as_date(mdy(dts))
-          }
+#        if (lubridate.names) {
+#          dts = names(data)[-c(1:4)]
+#          dts = gsub("/", "-", dts)
+#          names(data)[-c(1:4)] = as_date(mdy(dts))
+#          }
 	if (!as.data.frame) return(data.table(data))
         data
 }
