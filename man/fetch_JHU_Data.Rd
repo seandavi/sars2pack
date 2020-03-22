@@ -4,10 +4,13 @@
 \alias{fetch_JHU_Data}
 \title{retrieve confirmed case csv file from CSSEGIS (?)}
 \usage{
-fetch_JHU_Data(as.data.frame = FALSE)
+fetch_JHU_Data(as.data.frame = FALSE, lubridate.names = FALSE)
 }
 \arguments{
 \item{as.data.frame}{logical(1) if TRUE return data.frame otherwise, data.table}
+
+\item{lubridate.names}{logical(1) if TRUE, dates from JHU will be turned into date instances and
+used as names on the returned table/data.frame}
 }
 \value{
 instance of data.table by default; returns data.frame if `as.data.frame` is TRUE
