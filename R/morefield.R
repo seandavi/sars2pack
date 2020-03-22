@@ -28,7 +28,60 @@ fetch_JHU_Data <- function(as.data.frame=FALSE) {
 	if (!as.data.frame) return(data.table(data))
         data
 }
-	
+
+
+#' simple function to munge JHU data into long-form tibble
+#'
+#' This function takes one of three subsets--confirmed,
+#' deaths, recovered--and munges. 
+#'
+#' @param subset character(1) of Confirmed, Deaths, Recovered
+#' 
+#' @importFrom readr read_csv
+#' @importFrom tidyr pivot_longer
+#'
+#' @return a long-form tibble
+#'
+#' 
+.munge_data_from_jhu <- function(subset) {
+    stopifnot(
+        subset %in% c('Confirmed', 'Deaths', 'Recovered')
+    )
+    csv = suppressMessages(readr::read_csv(url(sprintf("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-%s.csv", subset))))
+    csv = tidyr::pivot_longer(csv,-c('Province/State','Country/Region','Lat','Long'),names_to = 'date', values_to='count')
+    names(csv)[1] <- "ProvinceState"
+    names(csv)[2] <- "CountryRegion"
+    csv$subset = tolower(subset)
+    return(csv)
+}
+
+#' retrieve time series dataset from CSSEGIS
+#'
+#' This always does a web call. The assumption here is that
+#' the user is online and that github is up and that URLs are
+#' stable.
+#' 
+#' @importFrom dplyr bind_rows
+#' @importFrom lubridate mdy
+#'
+#' @note Uses https://raw.githubusercontent.com/CSSEGISandData/... as data
+#' source, then modifies column names and munges to long form table.
+#' 
+#' @return an object of class `s2p_long_df` that inherits from tbl_df
+#'
+#' @examples
+#' res = jhu_data()
+#' colnames(res)
+#' head(res)
+#' 
+#' @export
+jhu_data <- function() {
+    res = dplyr::bind_rows(lapply(c('Confirmed', 'Deaths', 'Recovered'), .munge_data_from_jhu))
+    res$date = lubridate::mdy(res$date)
+    class(res) = c('s2p_long_df', class(res))
+    return(res)
+}
+
 #' trim leading repeats of given value
 #' @param x vector of same type as `value`
 #' @param value entity whose repeats are to be removed
