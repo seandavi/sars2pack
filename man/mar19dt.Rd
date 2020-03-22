@@ -4,9 +4,7 @@
 \name{mar19dt}
 \alias{mar19dt}
 \title{march 19 result of CSSEGISandData/COVID-19/ time series data retrieval as data.table}
-\format{
-data.frame
-}
+\format{data.frame}
 \usage{
 mar19dt
 }
