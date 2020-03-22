@@ -7,7 +7,8 @@
 fetch_JHU_Data(as.data.frame = FALSE)
 }
 \arguments{
-\item{as.data.frame}{logical(1) if TRUE return data.frame otherwise, data.table}
+\item{as.data.frame}{logical(1) if TRUE return data.frame otherwise, data.table
+used as names on the returned table/data.frame}
 }
 \value{
 instance of data.table by default; returns data.frame if `as.data.frame` is TRUE

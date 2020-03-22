@@ -80,6 +80,8 @@ plotfit2.R0.sR = function (x, all = TRUE, xscale = "w", SB.dist = TRUE, ...)
     }
 }
 
+fix_slash_dates = function(x) gsub("/", "-", x) # ok if they are already non-slash
+
 #' supersimple series extraction
 #' @importFrom magrittr "%>%"
 #' @importFrom dplyr filter
@@ -87,7 +89,9 @@ plotfit2.R0.sR = function (x, all = TRUE, xscale = "w", SB.dist = TRUE, ...)
 #' @param country character(1) must be found in CountryRegion field
 #' @param dataset data.frame as returned by fetch_JHU_Data
 #' @export
-get_series = function(province="", country, dataset=sars2pack::mar19df) {
+get_series = function(province="", country, 
+     dataset=try(fetch_JHU_Data(as.data.frame=TRUE))) { #sars2pack::mar19df) {
+  if (inherits(dataset, "try-error")) stop("could not get data from fetch_JHU_Data()")
   stopifnot(all(c("ProvinceState", "CountryRegion") %in% colnames(dataset)))
   stopifnot(country %in% dataset$CountryRegion)
   ans = dataset %>% dplyr::filter(ProvinceState==province & CountryRegion==country)
@@ -100,10 +104,15 @@ get_series = function(province="", country, dataset=sars2pack::mar19df) {
 #' @param country character(1) must be found in CountryRegion field
 #' @param dataset data.frame as returned by fetch_JHU_Data
 #' @param \dots passed to base::plot
+#' @note An effort is made to change dates used as column names to lubridate date objects
+#' that are respected in plotting.
+#' @examples
+#' plot_series(country="Italy")
 #' @export
-plot_series = function(province="", country, dataset=sars2pack::mar19df, ...) {
+plot_series = function(province="", country, dataset=try(fetch_JHU_Data(as.data.frame=TRUE)), ...) {
+ if (inherits(dataset, "try-error")) stop("could not get data from fetch_JHU_Data()")
  ser = get_series(province=province, country=country, dataset=dataset)
- dates = lubridate::as_date(mdy(names(dataset)[-c(1:4)]))
+ dates = lubridate::as_date(mdy(fix_slash_dates(names(dataset)[-c(1:4)])))
  plot(dates, ser, main=paste(province, country), ...)
 }
 

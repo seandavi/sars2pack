@@ -1,3 +1,5 @@
+# THIS CODE IS MODIFIED FROM MOREFIELD/MALLERY WITH SOME ADDITIONAL OPTIONS
+# ORIGINAL CODE IS IN SOURCE PACKAGE sars2pack/inst/original
 
 # RUN PATTERN DEVELOPED BY C. MOREFIELD and ABSTRACTED by J. Mallery
 
@@ -5,8 +7,10 @@
 #' @importFrom utils read.csv
 #' @import data.table
 #' @importFrom RCurl getURL
+#' @importFrom lubridate as_date mdy
 #' @import R0
 #' @param as.data.frame logical(1) if TRUE return data.frame otherwise, data.table
+#' used as names on the returned table/data.frame
 #' @note Uses https://raw.githubusercontent.com/CSSEGISandData/... as data source, then modifies column names
 #' @return instance of data.table by default; returns data.frame if `as.data.frame` is TRUE
 #' @export
@@ -16,6 +20,11 @@ fetch_JHU_Data <- function(as.data.frame=FALSE) {
 	names(data)[1] <- "ProvinceState"
 	names(data)[2] <- "CountryRegion"
 	numberColumns <- length(names(data))
+#        if (lubridate.names) {
+#          dts = names(data)[-c(1:4)]
+#          dts = gsub("/", "-", dts)
+#          names(data)[-c(1:4)] = as_date(mdy(dts))
+#          }
 	if (!as.data.frame) return(data.table(data))
         data
 }
