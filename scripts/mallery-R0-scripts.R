@@ -62,9 +62,12 @@ My_Estimate_R <- function (generation_time, incidence_vector) {
 		estimate.R(incidence_vector, GT = generation_time , t = as_date(myd(names(incidence_vector))), begin=1L, end=as.integer(length(incidence_vector)), methods=c("EG"))
 	}
 
+My_Estimate_R <- function (generation_time, incidence_vector) {
+		estimate.R(incidence_vector, GT = generation_time, methods=c("EG"))
+	}
 # SCRIPTS FOR ESTIMATING VARIOUS REGIONS
 
-GT.cov2 <- generation.time("gamma", c(4.75, 3.96))
+GT.cov2 <- generation.time("gamma", c(3.96, 4.75))
 
 data.France <- as_vector(get_series("France", "France"))
 diff.France <- diff_data(data.France)

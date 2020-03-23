@@ -48,7 +48,7 @@ diff_data <- function (cdata) {
 	cdata}
 
 my_plot <- function (title, cumulative_vector)
-	plot(cumulative_vector~as_date(ymd(names(cumulative_vector))), main= title)
+	plot(cumulative_vector~as_date(myd(names(cumulative_vector))), main= title)
 
 # cvec = as_vector(get_series(country="Italy"))
 # ivec = diff(cvec)
@@ -65,7 +65,7 @@ My_Estimate_R <- function (generation_time, incidence_vector) {
 
 # SCRIPTS FOR ESTIMATING VARIOUS REGIONS
 
-GT.cov2 <- generation.time("gamma", c(4.75, 3.96))
+GT.cov2 <- generation.time("gamma", c(3.96, 4.75))
 
 data.France <- as_vector(get_series("France", "France"))
 diff.France <- diff_data(data.France)
