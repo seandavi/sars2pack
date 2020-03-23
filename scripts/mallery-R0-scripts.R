@@ -37,6 +37,15 @@ plot_series = function (province = "", country, dataset = try(fetch_JHU_Data(as.
 
 as_vector = function(x) data.matrix(x)[1,,drop=TRUE]
 
+trimLeading <- function(x, value=0) {
+	w <- which.max(cummax(x != value))
+	x[seq.int(w, length(x))] }
+
+diff_data <- function (cdata) {
+	cdata <- append(cdata[1], diff(cdata))
+	cdata <- trimLeading(cdata, value = 0)
+	cdata}
+
 my_plot <- function (title, cumulative_vector){}
 	plot(cumulative_vector~as_date(ymd(names(cumulative_vector))), main= title)
 
