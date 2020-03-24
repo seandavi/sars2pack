@@ -1,17 +1,20 @@
 Package: sars2pack
 Title: COVID-19 analysis tools
 Description: Provide COVID-19 analysis support.
-Version: 0.0.6
-Date: 2020-03-22
+Version: 0.0.7
+Date: 2020-03-23
 Authors@R: c(person("John C", "Mallery", role = c("aut")),
 	   person("Charles", "Morefield", role = c("aut")),
-	   person("VJ", "Carey", role = c("cre"), email='stvjc@channing.harvard.edu'))
-Suggests: knitr, BiocStyle, dplyr, tibble
+	   person("Sean", "Davis", role = c("aut")),
+	   person("VJ", "Carey", role = c("aut", "cre"), email='stvjc@channing.harvard.edu'))
+Suggests: knitr, BiocStyle
 Depends: R (>= 3.5.0), R0
-Imports: data.table, utils, RCurl, lubridate, magrittr, dplyr, tidyr
+Imports: data.table, utils, RCurl, lubridate, magrittr, dplyr, tidyr, countrycode,
+    openxlsx, tibble
 License: Artistic-2.0
 LazyLoad: yes
 LazyData: yes
 VignetteBuilder: knitr
+Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.0
 Encoding: UTF-8

@@ -7,7 +7,7 @@
 trimLeading(x, value = 0)
 }
 \arguments{
-\item{x}{vector of same type as `value`}
+\item{x}{vector of same type as \code{value}}
 
 \item{value}{entity whose repeats are to be removed}
 }

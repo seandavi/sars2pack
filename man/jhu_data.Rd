@@ -7,7 +7,7 @@
 jhu_data()
 }
 \value{
-an object of class `s2p_long_df` that inherits from tbl_df
+an object of class \code{s2p_long_df} that inherits from tbl_df
 }
 \description{
 This always does a web call. The assumption here is that

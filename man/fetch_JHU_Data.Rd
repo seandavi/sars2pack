@@ -11,7 +11,7 @@ fetch_JHU_Data(as.data.frame = FALSE)
 used as names on the returned table/data.frame}
 }
 \value{
-instance of data.table by default; returns data.frame if `as.data.frame` is TRUE
+instance of data.table by default; returns data.frame if \code{as.data.frame} is TRUE
 }
 \description{
 retrieve confirmed case csv file from CSSEGIS (?)

@@ -9,7 +9,7 @@ extract_ProvinceState_data(name, data)
 \arguments{
 \item{name}{character(1) row selection}
 
-\item{data}{a data.table with field `CountryRegion`}
+\item{data}{a data.table with field \code{CountryRegion}}
 }
 \description{
 extract a sub data.table (row) with specific ProvinceState
