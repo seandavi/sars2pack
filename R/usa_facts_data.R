@@ -24,7 +24,6 @@ usa_facts_data = function() {
     deaths = readr::read_csv('https://static.usafacts.org/public/data/covid-19/covid_deaths_usafacts.csv')
     deaths$subset = 'deaths'
     ret = dplyr::bind_rows(confirmed,deaths)
-    browser()
     colnames(ret)[2] = 'County'
     ret = tidyr::pivot_longer(ret,cols=-c(countyFIPS:stateFIPS,subset),names_to='date',values_to='count')
     ret$date = lubridate::mdy(ret$date)
