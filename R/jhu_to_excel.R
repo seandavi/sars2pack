@@ -3,6 +3,11 @@
 #' The dplyr::bind_rows function does not work with
 #' `data.frame` columns, so simply remove them as needed.
 #'
+#' @param df a `data.frame` that will have all columns of type
+#' `data.frame` removed
+#'
+#' @return df, but without any `data.frame` columns
+#' 
 .remove_df_columns <- function(df) {
     df_cols = which(sapply(df, class)=='data.frame')
     df[, -c(df_cols)]

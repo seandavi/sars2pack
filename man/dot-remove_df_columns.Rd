@@ -6,6 +6,13 @@
 \usage{
 .remove_df_columns(df)
 }
+\arguments{
+\item{df}{a \code{data.frame} that will have all columns of type
+\code{data.frame} removed}
+}
+\value{
+df, but without any \code{data.frame} columns
+}
 \description{
 The dplyr::bind_rows function does not work with
 \code{data.frame} columns, so simply remove them as needed.
