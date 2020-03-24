@@ -3,33 +3,6 @@
 
 # RUN PATTERN DEVELOPED BY C. MOREFIELD and ABSTRACTED by J. Mallery
 
-#' retrieve confirmed case csv file from CSSEGIS (?)
-#' @importFrom utils read.csv
-#' @import data.table
-#' @importFrom RCurl getURL
-#' @importFrom lubridate as_date mdy
-#' @import R0
-#' @param as.data.frame logical(1) if TRUE return data.frame otherwise, data.table
-#' used as names on the returned table/data.frame
-#' @note Uses https://raw.githubusercontent.com/CSSEGISandData/... as data source, then modifies column names
-#' @return instance of data.table by default; returns data.frame if `as.data.frame` is TRUE
-#' @export
-fetch_JHU_Data <- function(as.data.frame=FALSE) {
-	csv <- getURL("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Confirmed.csv")
-	data <- read.csv(text = csv, check.names = F)
-	names(data)[1] <- "ProvinceState"
-	names(data)[2] <- "CountryRegion"
-	numberColumns <- length(names(data))
-#        if (lubridate.names) {
-#          dts = names(data)[-c(1:4)]
-#          dts = gsub("/", "-", dts)
-#          names(data)[-c(1:4)] = as_date(mdy(dts))
-#          }
-	if (!as.data.frame) return(data.table(data))
-        data
-}
-
-
 #' simple function to munge JHU data into long-form tibble
 #'
 #' This function takes one of three subsets--confirmed,
@@ -42,7 +15,7 @@ fetch_JHU_Data <- function(as.data.frame=FALSE) {
 #'
 #' @return a long-form tibble
 #'
-#' 
+#' @keywords internal
 .munge_data_from_jhu <- function(subset) {
     stopifnot(
         subset %in% c('Confirmed', 'Deaths', 'Recovered')
@@ -82,47 +55,28 @@ jhu_data <- function() {
     return(res)
 }
 
-#' trim leading repeats of given value
-#' @param x vector of same type as `value`
-#' @param value entity whose repeats are to be removed
-#' @examples
-#' dat = c(0,0,3,0,4)
-#' trimLeading(dat, value=0)
-#' @export
-trimLeading <- function(x, value=0) {
-	w <- which.max(cummax(x != value))
-	x[seq.int(w, length(x))] }
-
-## NOTA BENE -- THIS IS GETTING DICEY, MAKES
-## ASSUMPTIONS ABOUT FIELD NAMES IN `data` and uses
-## data.table idiom where this is not really necessary
-## A functional approach would probably be more reliable
-## and maintainable in general
-
-#' extract a sub data.table (row) with specific CountryRegion 
+#' extract a set of rows with specific CountryRegion 
 #' @param name character(1) row selection
-#' @param data a data.table with field `CountryRegion`
-extract_country_data <- function (name, data) {
-	cdata <- data[CountryRegion == name] 
-	cdata}
+#' @param df a data.frame with field `CountryRegion`
+#'
+#' @return a filtered data.frame
+#' 
+#' @export
+extract_country_data <- function (data, name) {
+	df %>% dplyr::filter(CountryRegion == name)
+}
 
 #' extract a sub data.table (row) with specific ProvinceState
 #' @param name character(1) row selection
-#' @param data a data.table with field `CountryRegion`
-extract_ProvinceState_data <- function (name, data) {
-       data[ProvinceState == name] 
-}
-
-#' prepare data using data.table idiom, unlist, trimLeading etc.
-#' @param cdata presumably a data.table
+#' @param df a data.frame with field `ProvinceState`
+#'
+#' @return a filtered data.frame
+#'
+#' @examples
+#' jhu_data() %>% extract_ProvinceState_data("Maryland")
+#' 
 #' @export
-prepare_data <- function (cdata) {
-        numberColumns = length(names(cdata))
-	cdata <- cdata[,5:numberColumns] 
-	names(cdata) <- NULL
-	cdata <- unlist(c(cdata))
-	cdata <- append(cdata[1], diff(cdata))
-	cdata <- trimLeading(cdata, value = 0) 
-	cdata
-       }
+extract_ProvinceState_data <- function (df, name) {
+    df %>% dplyr::filter(ProvinceState==name)
+}
 

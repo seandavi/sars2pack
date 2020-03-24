@@ -2,15 +2,18 @@
 % Please edit documentation in R/morefield.R
 \name{extract_country_data}
 \alias{extract_country_data}
-\title{extract a sub data.table (row) with specific CountryRegion}
+\title{extract a set of rows with specific CountryRegion}
 \usage{
-extract_country_data(name, data)
+extract_country_data(data, name)
 }
 \arguments{
 \item{name}{character(1) row selection}
 
-\item{data}{a data.table with field \code{CountryRegion}}
+\item{df}{a data.frame with field \code{CountryRegion}}
+}
+\value{
+a filtered data.frame
 }
 \description{
-extract a sub data.table (row) with specific CountryRegion
+extract a set of rows with specific CountryRegion
 }

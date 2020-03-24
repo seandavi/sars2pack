@@ -4,13 +4,20 @@
 \alias{extract_ProvinceState_data}
 \title{extract a sub data.table (row) with specific ProvinceState}
 \usage{
-extract_ProvinceState_data(name, data)
+extract_ProvinceState_data(df, name)
 }
 \arguments{
-\item{name}{character(1) row selection}
+\item{df}{a data.frame with field \code{ProvinceState}}
 
-\item{data}{a data.table with field \code{CountryRegion}}
+\item{name}{character(1) row selection}
+}
+\value{
+a filtered data.frame
 }
 \description{
 extract a sub data.table (row) with specific ProvinceState
+}
+\examples{
+jhu_data() \%>\% extract_ProvinceState_data("Maryland")
+
 }

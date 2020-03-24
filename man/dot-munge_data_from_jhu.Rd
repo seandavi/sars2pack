@@ -16,3 +16,4 @@ a long-form tibble
 This function takes one of three subsets--confirmed,
 deaths, recovered--and munges.
 }
+\keyword{internal}
