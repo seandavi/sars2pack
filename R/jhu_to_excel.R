@@ -43,7 +43,7 @@
 #' @return A list of three `data.frames` named `deaths`, `confirmed`,
 #' and `recovered`.
 #' 
-#'
+#' @export
 enriched_jhu_data <- function(cols_to_remove = .cols_to_remove) {
     res = jhu_data()
     cmd = country_metadata()
