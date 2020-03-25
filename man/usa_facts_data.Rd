@@ -24,3 +24,10 @@ colnames(res)
 head(res)
 
 }
+\seealso{
+jhu_data()
+
+Other data-import: 
+\code{\link{jhu_data}()}
+}
+\concept{data-import}

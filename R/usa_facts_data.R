@@ -16,6 +16,9 @@
 #' res = usa_facts_data()
 #' colnames(res)
 #' head(res)
+#'
+#' @family data-import
+#' @seealso jhu_data()
 #' 
 #' @export
 usa_facts_data = function() {
