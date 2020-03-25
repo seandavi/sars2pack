@@ -61,7 +61,7 @@ titles are hard to manage, and the code from package R0
 will need to be dissected to improve annotation of figures.
 ```{r dor0, fig.height=7}
 mGT <- generation.time("gamma", c(5.8,.95)) # from DOI 10.7326/M20-0504
-usdat = trimLeading(diff(cumevents))
+usdat = trim_leading_zeros(diff(cumevents))
 est1 = estimate.R( usdat, GT = mGT, t = as_date(ymd(names(usdat))),
   begin=1L, end=as.integer(length(usdat)), methods=c("EG")) # , "ML", "TD"))
 est1

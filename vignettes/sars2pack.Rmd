@@ -143,7 +143,7 @@ hubdat = as.numeric(get_series(province="Hubei", country="China",
     dataset=sars2pack::mar19df))
 names(hubdat) = dates
 mGT <- generation.time("gamma", c(5.8, 0.95)) # from DOI 10.7326/M20-0504
-hubdat.filt = trimLeading(c(hubdat[1], diff(hubdat)))
+hubdat.filt = trim_leading_zeros(c(hubdat[1], diff(hubdat)))
 est.EG <- estimate.R(epid=hubdat.filt, GT=mGT, 
     methods=c("EG", "TD"), begin=1L, end=as.integer(length(hubdat.filt)))
 est.EG
@@ -163,7 +163,7 @@ a reporting gap.
 itdat = as.numeric(get_series(province="", country="Italy", 
     dataset=sars2pack::mar19df))
 names(itdat) = dates
-itdat.filt = trimLeading(c(itdat[1], diff(itdat)))
+itdat.filt = trim_leading_zeros(c(itdat[1], diff(itdat)))
 est.EG <- estimate.R(epid=itdat.filt, GT=mGT, 
     methods=c("EG"), begin=1L, end=as.integer(length(itdat.filt)))
 est.EG
