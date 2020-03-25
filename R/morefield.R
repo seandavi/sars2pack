@@ -28,11 +28,19 @@
     return(csv)
 }
 
-#' retrieve time series dataset from CSSEGIS
+#' Global COVID-19 data from [JHU CSSEGIS](https://github.com/CSSEGISandData/COVID-19/)
 #'
-#' This always does a web call. The assumption here is that
-#' the user is online and that github is up and that URLs are
-#' stable.
+#' This function access and munges the cumulative time series confirmed and
+#' deaths from the data in the repository for the 2019 Novel Coronavirus Visual
+#' Dashboard operated by the Johns Hopkins University Center for
+#' Systems Science and Engineering (JHU CSSE). Also, Supported by ESRI
+#' Living Atlas Team and the Johns Hopkins University Applied Physics
+#' Lab (JHU APL).
+#'
+#' @details
+#' Data are updated daily by JHU. Each call to this function redownloads the data
+#' from github. No data cleansing is performed. Data are downloaded and then munged
+#' into long-form tidy `data.frame`.
 #' 
 #' @importFrom dplyr bind_rows
 #' @importFrom lubridate mdy
@@ -40,12 +48,33 @@
 #' @note Uses https://raw.githubusercontent.com/CSSEGISandData/... as data
 #' source, then modifies column names and munges to long form table.
 #' 
-#' @return an object of class `s2p_long_df` that inherits from tbl_df
+#' @return
+#' A tidy `data.frame` (actually, a `tbl_df`) with columns: 
+#' 
+#' - ProvinceState: <chr> Province or state. **Note**: 
+#' - CountryRegion <chr> This is the main column for finding countries of interest
+#' - Lat: <dbl> Latitude
+#' - Long: <dbl> Longitude
+#' - date: <date>
+#' - count: <dbl> The cumulative count of cases for a given geographic area. 
+#' - subset: <chr> either `confirmed` or `deaths`
 #'
+#' @note
+#'
+#' - US States are treated different from other countries, so are not directly included right now.
+#' - Although numbers are meant to be cumulative, there are instances where a day's count might
+#'   be less than the prior day due to a reclassification of a case. These are not currently corrected
+#'   in the source data
+#' 
 #' @examples
 #' res = jhu_data()
 #' colnames(res)
 #' head(res)
+#'
+#' @source
+#' - \url{https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data/csse_covid_19_time_series}
+#' 
+#' @family data-import
 #' 
 #' @export
 jhu_data <- function() {

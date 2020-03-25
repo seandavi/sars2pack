@@ -2,21 +2,49 @@
 % Please edit documentation in R/morefield.R
 \name{jhu_data}
 \alias{jhu_data}
-\title{retrieve time series dataset from CSSEGIS}
+\title{Global COVID-19 data from \href{https://github.com/CSSEGISandData/COVID-19/}{JHU CSSEGIS}}
+\source{
+\itemize{
+\item \url{https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data/csse_covid_19_time_series}
+}
+}
 \usage{
 jhu_data()
 }
 \value{
-an object of class \code{s2p_long_df} that inherits from tbl_df
+A tidy \code{data.frame} (actually, a \code{tbl_df}) with columns:
+\itemize{
+\item ProvinceState: <chr> Province or state. \strong{Note}:
+\item CountryRegion <chr> This is the main column for finding countries of interest
+\item Lat: <dbl> Latitude
+\item Long: <dbl> Longitude
+\item date: <date>
+\item count: <dbl> The cumulative count of cases for a given geographic area.
+\item subset: <chr> either \code{confirmed} or \code{deaths}
+}
 }
 \description{
-This always does a web call. The assumption here is that
-the user is online and that github is up and that URLs are
-stable.
+This function access and munges the cumulative time series confirmed and
+deaths from the data in the repository for the 2019 Novel Coronavirus Visual
+Dashboard operated by the Johns Hopkins University Center for
+Systems Science and Engineering (JHU CSSE). Also, Supported by ESRI
+Living Atlas Team and the Johns Hopkins University Applied Physics
+Lab (JHU APL).
+}
+\details{
+Data are updated daily by JHU. Each call to this function redownloads the data
+from github.
 }
 \note{
 Uses https://raw.githubusercontent.com/CSSEGISandData/... as data
 source, then modifies column names and munges to long form table.
+
+\itemize{
+\item US States are treated different from other countries, so are not directly included right now.
+\item Although numbers are meant to be cumulative, there are instances where a day's count might
+be less than the prior day due to a reclassification of a case. These are not currently corrected
+in the source data
+}
 }
 \examples{
 res = jhu_data()
@@ -24,3 +52,8 @@ colnames(res)
 head(res)
 
 }
+\seealso{
+Other data-import: 
+\code{\link{usa_facts_data}()}
+}
+\concept{data-import}
