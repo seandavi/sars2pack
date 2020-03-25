@@ -83,29 +83,3 @@ jhu_data <- function() {
     class(res) = c('s2p_long_df', class(res))
     return(res)
 }
-
-#' extract a set of rows with specific CountryRegion 
-#' @param name character(1) row selection
-#' @param df a data.frame with field `CountryRegion`
-#'
-#' @return a filtered data.frame
-#' 
-#' @export
-extract_country_data <- function (data, name) {
-	df %>% dplyr::filter(CountryRegion == name)
-}
-
-#' extract a sub data.table (row) with specific ProvinceState
-#' @param name character(1) row selection
-#' @param df a data.frame with field `ProvinceState`
-#'
-#' @return a filtered data.frame
-#'
-#' @examples
-#' jhu_data() %>% extract_ProvinceState_data("Maryland")
-#' 
-#' @export
-extract_ProvinceState_data <- function (df, name) {
-    df %>% dplyr::filter(ProvinceState==name)
-}
-

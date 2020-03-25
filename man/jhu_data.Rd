@@ -33,7 +33,8 @@ Lab (JHU APL).
 }
 \details{
 Data are updated daily by JHU. Each call to this function redownloads the data
-from github.
+from github. No data cleansing is performed. Data are downloaded and then munged
+into long-form tidy \code{data.frame}.
 }
 \note{
 Uses https://raw.githubusercontent.com/CSSEGISandData/... as data
