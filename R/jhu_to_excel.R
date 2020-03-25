@@ -58,7 +58,7 @@ enriched_jhu_data <- function(cols_to_remove = .cols_to_remove) {
             origin = "country.name.en",
             destination="iso3c",
             ## This is a custom HACK
-            custom_match=c('Kosovo'='XKX', 'Cruise Ship'=NA))
+            custom_match=c('Kosovo'='XKX', 'Diamond Princess'=NA))
         res3 = cmd %>%
             dplyr::right_join(res2,by=c("alpha3Code"="alpha3Code")) %>%
             dplyr::select(-c(cols_to_remove))
