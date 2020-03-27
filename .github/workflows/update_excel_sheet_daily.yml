@@ -29,7 +29,8 @@ env:
 jobs:
   setup-build-deploy:
     name: Setup, Build, and Deploy
-    runs-on: bioconductor/bioconductor_docker:devel
+    container:
+      image: bioconductor/bioconductor_full:devel
 
     steps:
       - name: Checkout
