@@ -22,13 +22,13 @@
 #' 
 #' @export
 usa_facts_data = function() {
-    confirmed = readr::read_csv('https://static.usafacts.org/public/data/covid-19/covid_confirmed_usafacts.csv')
+    dat = readr::read_csv('https://raw.github.com/nytimes/covid-19-data/master/us-counties.csv')
+    confirmed = dat[,1:5]
     confirmed$subset = 'confirmed'
-    deaths = readr::read_csv('https://static.usafacts.org/public/data/covid-19/covid_deaths_usafacts.csv')
-    deaths$subset = 'deaths'
+    deaths = dat[,c(1:4,6)]
+    deaths$subset='deaths'
     ret = dplyr::bind_rows(confirmed,deaths)
     colnames(ret)[2] = 'County'
-    ret = tidyr::pivot_longer(ret,cols=-c(countyFIPS:stateFIPS,subset),names_to='date',values_to='count')
     ret$date = lubridate::mdy(ret$date)
     ret
 }
