@@ -64,7 +64,7 @@ jobs:
       # Install package dependencies
       - name: Install Dependencies
         run: |
-          Rscript -e "devtools::install_deps('.')"
+          Rscript -e "devtools::install_deps('.', dependencies=TRUE)" 
 
       - name: Build package
         run: |
