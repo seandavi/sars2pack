@@ -58,7 +58,7 @@ jobs:
       - name: Create excel file
         run: |
           bash inst/scripts/generate_jhu_excel.R
-      - name: Create excel file
+      - name: Push artifacts to cloud storage
         run: |
           gsutil cp covid-19-data.xlsx \
               gs://gcs.public.cancerdatasci.org/COVID-19/covid-19-data.xlsx
