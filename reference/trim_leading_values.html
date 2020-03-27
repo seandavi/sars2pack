@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>supersimple series extraction — get_series • sars2pack</title>
+<title>trim leading repeats of a given value from a vector — trim_leading_values • sars2pack</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="supersimple series extraction — get_series" />
-<meta property="og:description" content="supersimple series extraction" />
+<meta property="og:title" content="trim leading repeats of a given value from a vector — trim_leading_values" />
+<meta property="og:description" content="trim leading repeats of a given value from a vector" />
 
 
 
@@ -126,38 +126,34 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>supersimple series extraction</h1>
-    <small class="dont-index">Source: <a href='https://github.com/seandavi/sars2pack/blob/master/R/plotter.R'><code>R/plotter.R</code></a></small>
-    <div class="hidden name"><code>get_series.Rd</code></div>
+    <h1>trim leading repeats of a given value from a vector</h1>
+    <small class="dont-index">Source: <a href='https://github.com/seandavi/sars2pack/blob/master/R/trimLeading.R'><code>R/trimLeading.R</code></a></small>
+    <div class="hidden name"><code>trim_leading_values.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>supersimple series extraction</p>
+    <p>trim leading repeats of a given value from a vector</p>
     </div>
 
-    <pre class="usage"><span class='fu'>get_series</span>(<span class='kw'>province</span> <span class='kw'>=</span> <span class='st'>""</span>, <span class='no'>country</span>, <span class='kw'>dataset</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'><a href='jhu_data.html'>jhu_data</a></span>()))</pre>
+    <pre class="usage"><span class='fu'>trim_leading_values</span>(<span class='no'>x</span>, <span class='kw'>value</span> <span class='kw'>=</span> <span class='fl'>0</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>province</th>
-      <td><p>character(1) must be found in dataset ProvinceState field, "" is typical for data aggregated only at country level, and that is the default</p></td>
+      <th>x</th>
+      <td><p>vector of the same type as <code>value</code></p></td>
     </tr>
     <tr>
-      <th>country</th>
-      <td><p>character(1) must be found in CountryRegion field</p></td>
-    </tr>
-    <tr>
-      <th>dataset</th>
-      <td><p>data.frame as returned by jhu_data()</p></td>
+      <th>value</th>
+      <td><p>value of which to remove leading repeats</p></td>
     </tr>
     </table>
 
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A <code>data.frame</code> with two columns</p>
-
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'>trim_leading_values</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>,<span class='fl'>0</span>,<span class='fl'>0</span>,<span class='fl'>1</span>,<span class='fl'>2</span>,<span class='fl'>3</span>))</div><div class='output co'>#&gt; [1] 1 2 3</div><div class='input'><span class='fu'>trim_leading_values</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>'a'</span>,<span class='st'>'a'</span>,<span class='st'>'d'</span>,<span class='st'>'e'</span>), <span class='st'>'a'</span>)</div><div class='output co'>#&gt; [1] "d" "e"</div><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

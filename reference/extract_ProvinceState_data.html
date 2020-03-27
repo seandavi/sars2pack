@@ -104,7 +104,12 @@
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/seandavi/sars2pack">
+    <span class="fa fa-github"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -147,8 +152,22 @@
     <p>a filtered data.frame</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='jhu_data.html'>jhu_data</a></span>() <span class='kw'>%&gt;%</span> <span class='fu'>extract_ProvinceState_data</span>(<span class='st'>"Maryland"</span>)</div><div class='output co'>#&gt; <span class='error'>Error in jhu_data() %&gt;% extract_ProvinceState_data("Maryland"): could not find function "%&gt;%"</span></div><div class='input'>
-</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>magrittr</span>)
+<span class='fu'><a href='jhu_data.html'>jhu_data</a></span>() <span class='kw'>%&gt;%</span> <span class='fu'>extract_ProvinceState_data</span>(<span class='st'>"Hubei"</span>)</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 126 x 7</span><span>
+#&gt;    ProvinceState CountryRegion   Lat  Long date       count subset   
+#&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>         </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>         </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>    
+#&gt; </span><span style='color: #555555;'> 1</span><span> Hubei         China          31.0  112. 2020-01-22   444 confirmed
+#&gt; </span><span style='color: #555555;'> 2</span><span> Hubei         China          31.0  112. 2020-01-23   444 confirmed
+#&gt; </span><span style='color: #555555;'> 3</span><span> Hubei         China          31.0  112. 2020-01-24   549 confirmed
+#&gt; </span><span style='color: #555555;'> 4</span><span> Hubei         China          31.0  112. 2020-01-25   761 confirmed
+#&gt; </span><span style='color: #555555;'> 5</span><span> Hubei         China          31.0  112. 2020-01-26  </span><span style='text-decoration: underline;'>1</span><span>058 confirmed
+#&gt; </span><span style='color: #555555;'> 6</span><span> Hubei         China          31.0  112. 2020-01-27  </span><span style='text-decoration: underline;'>1</span><span>423 confirmed
+#&gt; </span><span style='color: #555555;'> 7</span><span> Hubei         China          31.0  112. 2020-01-28  </span><span style='text-decoration: underline;'>3</span><span>554 confirmed
+#&gt; </span><span style='color: #555555;'> 8</span><span> Hubei         China          31.0  112. 2020-01-29  </span><span style='text-decoration: underline;'>3</span><span>554 confirmed
+#&gt; </span><span style='color: #555555;'> 9</span><span> Hubei         China          31.0  112. 2020-01-30  </span><span style='text-decoration: underline;'>4</span><span>903 confirmed
+#&gt; </span><span style='color: #555555;'>10</span><span> Hubei         China          31.0  112. 2020-01-31  </span><span style='text-decoration: underline;'>5</span><span>806 confirmed
+#&gt; </span><span style='color: #555555;'># … with 116 more rows</span><span></div><div class='input'>
+</div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

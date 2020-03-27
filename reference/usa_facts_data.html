@@ -10,23 +10,27 @@
 
 
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
 <!-- headroom.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -39,7 +43,6 @@
 <meta property="og:description" content="This always does a web call. The assumption here is that
 the user is online and that github is up and that URLs are
 stable." />
-<meta name="twitter:card" content="summary" />
 
 
 
@@ -57,7 +60,7 @@ stable." />
 
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -106,7 +109,12 @@ stable." />
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/seandavi/sars2pack">
+    <span class="fa fa-github"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -121,7 +129,7 @@ stable." />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>retrieve time series dataset from USA Facts</h1>
-    
+    <small class="dont-index">Source: <a href='https://github.com/seandavi/sars2pack/blob/master/R/usa_facts_data.R'><code>R/usa_facts_data.R</code></a></small>
     <div class="hidden name"><code>usa_facts_data.Rd</code></div>
     </div>
 
@@ -143,21 +151,41 @@ stable.</p>
 source, then modifies column names and munges to long form table.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p>Other data-import: 
+    <div class='dont-index'><p>jhu_data()</p>
+<p>Other data-import: 
 <code><a href='jhu_data.html'>jhu_data</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>res</span> <span class='kw'>=</span> <span class='fu'>usa_facts_data</span>()</div><div class='output co'>#&gt; <span class='message'>Parsed with column specification:</span>
+    <pre class="examples"><div class='input'><span class='no'>res</span> <span class='kw'>=</span> <span class='fu'>usa_facts_data</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Missing column names filled in: 'X70' [70], 'X71' [71], 'X72' [72], 'X73' [73], 'X74' [74], 'X75' [75], 'X76' [76], 'X77' [77], 'X78' [78], 'X79' [79], 'X80' [80], 'X81' [81], 'X82' [82], 'X83' [83], 'X84' [84], 'X85' [85], 'X86' [86], 'X87' [87], 'X88' [88], 'X89' [89], 'X90' [90], 'X91' [91], 'X92' [92], 'X93' [93], 'X94' [94], 'X95' [95], 'X96' [96], 'X97' [97], 'X98' [98], 'X99' [99]</span></div><div class='output co'>#&gt; <span class='message'>Parsed with column specification:</span>
 #&gt; <span class='message'>cols(</span>
 #&gt; <span class='message'>  .default = col_double(),</span>
 #&gt; <span class='message'>  `County Name` = <span style='color: #BB0000;'>col_character()</span><span>,</span>
-#&gt; <span class='message'>  State = </span><span style='color: #BB0000;'>col_character()</span><span></span>
+#&gt; <span class='message'>  State = </span><span style='color: #BB0000;'>col_character()</span><span>,</span>
+#&gt; <span class='message'>  X70 = </span><span style='color: #BBBB00;'>col_logical()</span><span>,</span>
+#&gt; <span class='message'>  X71 = </span><span style='color: #BBBB00;'>col_logical()</span><span>,</span>
+#&gt; <span class='message'>  X72 = </span><span style='color: #BBBB00;'>col_logical()</span><span>,</span>
+#&gt; <span class='message'>  X73 = </span><span style='color: #BBBB00;'>col_logical()</span><span>,</span>
+#&gt; <span class='message'>  X74 = </span><span style='color: #BBBB00;'>col_logical()</span><span>,</span>
+#&gt; <span class='message'>  X75 = </span><span style='color: #BBBB00;'>col_logical()</span><span>,</span>
+#&gt; <span class='message'>  X76 = </span><span style='color: #BBBB00;'>col_logical()</span><span>,</span>
+#&gt; <span class='message'>  X77 = </span><span style='color: #BBBB00;'>col_logical()</span><span>,</span>
+#&gt; <span class='message'>  X78 = </span><span style='color: #BBBB00;'>col_logical()</span><span>,</span>
+#&gt; <span class='message'>  X79 = </span><span style='color: #BBBB00;'>col_logical()</span><span>,</span>
+#&gt; <span class='message'>  X80 = </span><span style='color: #BBBB00;'>col_logical()</span><span>,</span>
+#&gt; <span class='message'>  X81 = </span><span style='color: #BBBB00;'>col_logical()</span><span>,</span>
+#&gt; <span class='message'>  X82 = </span><span style='color: #BBBB00;'>col_logical()</span><span>,</span>
+#&gt; <span class='message'>  X83 = </span><span style='color: #BBBB00;'>col_logical()</span><span>,</span>
+#&gt; <span class='message'>  X84 = </span><span style='color: #BBBB00;'>col_logical()</span><span>,</span>
+#&gt; <span class='message'>  X85 = </span><span style='color: #BBBB00;'>col_logical()</span><span>,</span>
+#&gt; <span class='message'>  X86 = </span><span style='color: #BBBB00;'>col_logical()</span><span>,</span>
+#&gt; <span class='message'>  X87 = </span><span style='color: #BBBB00;'>col_logical()</span><span></span>
+#&gt; <span class='message'>  # ... with 12 more columns</span>
 #&gt; <span class='message'>)</span></div><div class='output co'>#&gt; <span class='message'>See spec(...) for full column specifications.</span></div><div class='output co'>#&gt; <span class='message'>Parsed with column specification:</span>
 #&gt; <span class='message'>cols(</span>
 #&gt; <span class='message'>  .default = col_double(),</span>
 #&gt; <span class='message'>  `County Name` = </span><span style='color: #BB0000;'>col_character()</span><span>,</span>
 #&gt; <span class='message'>  State = </span><span style='color: #BB0000;'>col_character()</span><span></span>
-#&gt; <span class='message'>)</span></div><div class='output co'>#&gt; <span class='message'>See spec(...) for full column specifications.</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; [1] "countyFIPS" "County"     "State"      "stateFIPS"  "subset"    
+#&gt; <span class='message'>)</span></div><div class='output co'>#&gt; <span class='message'>See spec(...) for full column specifications.</span></div><div class='output co'>#&gt; <span class='warning'>Warning:  100200 failed to parse.</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; [1] "countyFIPS" "County"     "State"      "stateFIPS"  "subset"    
 #&gt; [6] "date"       "count"     </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 6 x 7</span><span>
 #&gt;   countyFIPS County                State stateFIPS subset    date       count
 #&gt;        </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>                 </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
@@ -169,15 +197,10 @@ source, then modifies column names and munges to long form table.</p>
 #&gt; </span><span style='color: #555555;'>6</span><span>          0 Statewide Unallocated AL            1 confirmed 2020-01-27     0</div><div class='input'>
 </div></span></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#value">Value</a></li>
-      <li><a href="#note">Note</a></li>
-      <li><a href="#see-also">See also</a></li>
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
 
@@ -188,7 +211,7 @@ source, then modifies column names and munges to long form table.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.0.</p>
 </div>
 
       </footer>

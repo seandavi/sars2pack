@@ -6,19 +6,19 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>sars2pack: packaging of C. Morefield code on COVID-19 epidemic modeling • sars2pack</title>
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
+<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
+<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
 <script src="../pkgdown.js"></script><meta property="og:title" content="sars2pack: packaging of C. Morefield code on COVID-19 epidemic modeling">
-<meta property="og:description" content="">
-<meta name="twitter:card" content="summary">
+<meta property="og:description" content="sars2pack">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 </head>
-<body>
+<body data-spy="scroll" data-target="#toc">
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -65,7 +65,14 @@
   </ul>
 </li>
       </ul>
-<ul class="nav navbar-nav navbar-right"></ul>
+<ul class="nav navbar-nav navbar-right">
+<li>
+  <a href="https://github.com/seandavi/sars2pack">
+    <span class="fa fa-github"></span>
+     
+  </a>
+</li>
+      </ul>
 </div>
 <!--/.nav-collapse -->
   </div>
@@ -78,12 +85,12 @@
       </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1>sars2pack: packaging of C. Morefield code on COVID-19 epidemic modeling</h1>
+      <h1 data-toc-skip>sars2pack: packaging of C. Morefield code on COVID-19 epidemic modeling</h1>
                         <h4 class="author">Vincent J. Carey, stvjc at channing.harvard.edu</h4>
             
-            <h4 class="date">March 25, 2020</h4>
+            <h4 class="date">March 27, 2020</h4>
       
-      
+      <small class="dont-index">Source: <a href="https://github.com/seandavi/sars2pack/blob/master/vignettes/sars2pack.Rmd"><code>vignettes/sars2pack.Rmd</code></a></small>
       <div class="hidden name"><code>sars2pack.Rmd</code></div>
 
     </div>
@@ -103,7 +110,7 @@
 <h2 class="hasAnchor">
 <a href="#access" class="anchor"></a>Access</h2>
 <p>The snapshot looks like:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">as_tibble</span>(mar19df)</a></code></pre></div>
+<div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="fu">as_tibble</span>(<span class="no">mar19df</span>)</pre></body></html></div>
 <pre><code>## # A tibble: 462 x 61
 ##    ProvinceState CountryRegion    Lat   Long `1/22/20` `1/23/20` `1/24/20`
 ##    &lt;chr&gt;         &lt;chr&gt;          &lt;dbl&gt;  &lt;dbl&gt;     &lt;int&gt;     &lt;int&gt;     &lt;int&gt;
@@ -138,14 +145,14 @@
 <h2 class="hasAnchor">
 <a href="#structure" class="anchor"></a>Structure</h2>
 <p>There are nested structures in the data. Provinces or states nest within countries.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/sort.html">sort</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/table.html">table</a></span>(mar19df<span class="op">$</span>CountryRegion),<span class="dt">decreasing=</span><span class="ot">TRUE</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb3"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/sort.html">sort</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span>(<span class="no">mar19df</span>$<span class="no">CountryRegion</span>),<span class="kw">decreasing</span><span class="kw">=</span><span class="fl">TRUE</span>))</pre></body></html></div>
 <pre><code>## 
 ##             US          China         Canada      Australia         France 
 ##            247             33             11              9              8 
 ## United Kingdom 
 ##              5</code></pre>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">mar19df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(CountryRegion, ProvinceState) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="st">   </span><span class="kw"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span>(CountryRegion<span class="op">==</span><span class="st">"France"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb5"><html><body><pre class="r"><span class="no">mar19df</span> <span class="kw">%&gt;%</span> <span class="fu">select</span>(<span class="no">CountryRegion</span>, <span class="no">ProvinceState</span>) <span class="kw">%&gt;%</span>
+   <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span>(<span class="no">CountryRegion</span><span class="kw">==</span><span class="st">"France"</span>)</pre></body></html></div>
 <pre><code>##   CountryRegion    ProvinceState
 ## 1        France           France
 ## 2        France        St Martin
@@ -157,20 +164,20 @@
 ## 8        France          Reunion</code></pre>
 <p>The code to assemble information for a country, out of its constituent records, needs to be looked at. The Morefield code for extraction uses data.table idioms – I am not completely sure it is correct. I would like our extracts to be precisely formulated.</p>
 <p>Looking at the raw data seems important to get a clear sense of the modeling challenge.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">get_series =<span class="st"> </span><span class="cf">function</span>(<span class="dt">province=</span><span class="st">""</span>, country, <span class="dt">dataset=</span>sars2pack<span class="op">::</span>mar19df) {</a>
-<a class="sourceLine" id="cb7-2" data-line-number="2">  ans =<span class="st"> </span>dataset <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span>(ProvinceState<span class="op">==</span>province <span class="op">&amp;</span><span class="st"> </span>CountryRegion<span class="op">==</span>country)</a>
-<a class="sourceLine" id="cb7-3" data-line-number="3">  ans[,<span class="op">-</span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>)]</a>
-<a class="sourceLine" id="cb7-4" data-line-number="4">}</a>
-<a class="sourceLine" id="cb7-5" data-line-number="5">plot_series =<span class="st"> </span><span class="cf">function</span>(<span class="dt">province=</span><span class="st">""</span>, country, <span class="dt">dataset=</span>sars2pack<span class="op">::</span>mar19df, ...) {</a>
-<a class="sourceLine" id="cb7-6" data-line-number="6"> ser =<span class="st"> </span><span class="kw"><a href="../reference/get_series.html">get_series</a></span>(<span class="dt">province=</span>province, <span class="dt">country=</span>country, <span class="dt">dataset=</span>dataset)</a>
-<a class="sourceLine" id="cb7-7" data-line-number="7"> dates =<span class="st"> </span>lubridate<span class="op">::</span><span class="kw"><a href="http://lubridate.tidyverse.org/reference/as_date.html">as_date</a></span>(<span class="kw">mdy</span>(<span class="kw"><a href="https://rdrr.io/r/base/names.html">names</a></span>(dataset)[<span class="op">-</span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>)]))</a>
-<a class="sourceLine" id="cb7-8" data-line-number="8"> <span class="kw"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(dates, ser, <span class="dt">main=</span><span class="kw"><a href="https://rdrr.io/r/base/paste.html">paste</a></span>(province, country), ...)</a>
-<a class="sourceLine" id="cb7-9" data-line-number="9">}</a>
-<a class="sourceLine" id="cb7-10" data-line-number="10"><span class="kw"><a href="https://rdrr.io/r/graphics/par.html">par</a></span>(<span class="dt">mfrow=</span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">2</span>,<span class="dv">2</span>),<span class="dt">mar=</span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">4</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">2</span>))</a>
-<a class="sourceLine" id="cb7-11" data-line-number="11"><span class="kw"><a href="../reference/plot_series.html">plot_series</a></span>(<span class="dt">province=</span><span class="st">"Hubei"</span>, <span class="dt">country=</span><span class="st">"China"</span>)</a>
-<a class="sourceLine" id="cb7-12" data-line-number="12"><span class="kw"><a href="../reference/plot_series.html">plot_series</a></span>(<span class="dt">country=</span><span class="st">"Italy"</span>)</a>
-<a class="sourceLine" id="cb7-13" data-line-number="13"><span class="kw"><a href="../reference/plot_series.html">plot_series</a></span>(<span class="dt">country=</span><span class="st">"Thailand"</span>)</a>
-<a class="sourceLine" id="cb7-14" data-line-number="14"><span class="kw"><a href="../reference/plot_series.html">plot_series</a></span>(<span class="st">"Massachusetts"</span>, <span class="dt">country=</span><span class="st">"US"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb7"><html><body><pre class="r"><span class="no">get_series</span> <span class="kw">=</span> <span class="kw">function</span>(<span class="no">province</span><span class="kw">=</span><span class="st">""</span>, <span class="no">country</span>, <span class="no">dataset</span><span class="kw">=</span><span class="kw pkg">sars2pack</span><span class="kw ns">::</span><span class="no"><a href="../reference/mar19df.html">mar19df</a></span>) {
+  <span class="no">ans</span> <span class="kw">=</span> <span class="no">dataset</span> <span class="kw">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span>(<span class="no">ProvinceState</span><span class="kw">==</span><span class="no">province</span> <span class="kw">&amp;</span> <span class="no">CountryRegion</span><span class="kw">==</span><span class="no">country</span>)
+  <span class="no">ans</span>[,-<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">1</span>:<span class="fl">4</span>)]
+}
+<span class="no">plot_series</span> <span class="kw">=</span> <span class="kw">function</span>(<span class="no">province</span><span class="kw">=</span><span class="st">""</span>, <span class="no">country</span>, <span class="no">dataset</span><span class="kw">=</span><span class="kw pkg">sars2pack</span><span class="kw ns">::</span><span class="no"><a href="../reference/mar19df.html">mar19df</a></span>, <span class="no">...</span>) {
+ <span class="no">ser</span> <span class="kw">=</span> <span class="fu"><a href="../reference/get_series.html">get_series</a></span>(<span class="kw">province</span><span class="kw">=</span><span class="no">province</span>, <span class="kw">country</span><span class="kw">=</span><span class="no">country</span>, <span class="kw">dataset</span><span class="kw">=</span><span class="no">dataset</span>)
+ <span class="no">dates</span> <span class="kw">=</span> <span class="kw pkg">lubridate</span><span class="kw ns">::</span><span class="fu"><a href="http://lubridate.tidyverse.org/reference/as_date.html">as_date</a></span>(<span class="fu">mdy</span>(<span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span>(<span class="no">dataset</span>)[-<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">1</span>:<span class="fl">4</span>)]))
+ <span class="fu"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(<span class="no">dates</span>, <span class="no">ser</span>, <span class="kw">main</span><span class="kw">=</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span>(<span class="no">province</span>, <span class="no">country</span>), <span class="no">...</span>)
+}
+<span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span>(<span class="kw">mfrow</span><span class="kw">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">2</span>,<span class="fl">2</span>),<span class="kw">mar</span><span class="kw">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">4</span>,<span class="fl">3</span>,<span class="fl">2</span>,<span class="fl">2</span>))
+<span class="fu"><a href="../reference/plot_series.html">plot_series</a></span>(<span class="kw">province</span><span class="kw">=</span><span class="st">"Hubei"</span>, <span class="kw">country</span><span class="kw">=</span><span class="st">"China"</span>)
+<span class="fu"><a href="../reference/plot_series.html">plot_series</a></span>(<span class="kw">country</span><span class="kw">=</span><span class="st">"Italy"</span>)
+<span class="fu"><a href="../reference/plot_series.html">plot_series</a></span>(<span class="kw">country</span><span class="kw">=</span><span class="st">"Thailand"</span>)
+<span class="fu"><a href="../reference/plot_series.html">plot_series</a></span>(<span class="st">"Massachusetts"</span>, <span class="kw">country</span><span class="kw">=</span><span class="st">"US"</span>)</pre></body></html></div>
 <p><img src="sars2pack_files/figure-html/doser-1.png" width="700"></p>
 </div>
 </div>
@@ -179,27 +186,27 @@
 <a href="#modeling-illustrated-for-a-simulation" class="anchor"></a>Modeling illustrated for a simulation</h1>
 <p>Following code conveyed by John Mallery, we have the following approach for estimating R0 using a single realization of an epidemic simulation.</p>
 <p>Note that there can be failures of <code>estimate.R</code> for certain inputs. We are working on that.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(R0)</a>
-<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="co"># Generating an epidemic with given parameters</span></a>
-<a class="sourceLine" id="cb8-3" data-line-number="3">mGT &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/R0/man/generation.time.html">generation.time</a></span>(<span class="st">"gamma"</span>, <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">3</span>,<span class="fl">1.5</span>))</a>
-<a class="sourceLine" id="cb8-4" data-line-number="4"><span class="kw"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span>(<span class="dv">5432</span>)  <span class="co"># always initialize when simulating!</span></a>
-<a class="sourceLine" id="cb8-5" data-line-number="5">mEpid &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/R0/man/sim.epid.html">sim.epid</a></span>(<span class="dt">epid.nb=</span><span class="dv">1</span>, <span class="dt">GT=</span>mGT, <span class="dt">epid.length=</span><span class="dv">30</span>, </a>
-<a class="sourceLine" id="cb8-6" data-line-number="6">     <span class="dt">family=</span><span class="st">"poisson"</span>, <span class="dt">R0=</span><span class="fl">1.67</span>, <span class="dt">peak.value=</span><span class="dv">500</span>)</a>
-<a class="sourceLine" id="cb8-7" data-line-number="7">mEpid &lt;-<span class="st"> </span>mEpid[,<span class="dv">1</span>]</a>
-<a class="sourceLine" id="cb8-8" data-line-number="8"><span class="co"># Running estimations</span></a>
-<a class="sourceLine" id="cb8-9" data-line-number="9">est &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/R0/man/estimate.R.html">estimate.R</a></span>(<span class="dt">epid=</span>mEpid, <span class="dt">GT=</span>mGT, <span class="dt">methods=</span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"EG"</span>,<span class="st">"ML"</span>,<span class="st">"TD"</span>), <span class="dt">begin=</span><span class="dv">1</span>, <span class="dt">end=</span><span class="dv">30</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb8"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">R0</span>)
+<span class="co"># Generating an epidemic with given parameters</span>
+<span class="no">mGT</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/R0/man/generation.time.html">generation.time</a></span>(<span class="st">"gamma"</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">3</span>,<span class="fl">1.5</span>))
+<span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span>(<span class="fl">5432</span>)  <span class="co"># always initialize when simulating!</span>
+<span class="no">mEpid</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/R0/man/sim.epid.html">sim.epid</a></span>(<span class="kw">epid.nb</span><span class="kw">=</span><span class="fl">1</span>, <span class="kw">GT</span><span class="kw">=</span><span class="no">mGT</span>, <span class="kw">epid.length</span><span class="kw">=</span><span class="fl">30</span>,
+     <span class="kw">family</span><span class="kw">=</span><span class="st">"poisson"</span>, <span class="kw">R0</span><span class="kw">=</span><span class="fl">1.67</span>, <span class="kw">peak.value</span><span class="kw">=</span><span class="fl">500</span>)
+<span class="no">mEpid</span> <span class="kw">&lt;-</span> <span class="no">mEpid</span>[,<span class="fl">1</span>]
+<span class="co"># Running estimations</span>
+<span class="no">est</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/R0/man/estimate.R.html">estimate.R</a></span>(<span class="kw">epid</span><span class="kw">=</span><span class="no">mEpid</span>, <span class="kw">GT</span><span class="kw">=</span><span class="no">mGT</span>, <span class="kw">methods</span><span class="kw">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"EG"</span>,<span class="st">"ML"</span>,<span class="st">"TD"</span>), <span class="kw">begin</span><span class="kw">=</span><span class="fl">1</span>, <span class="kw">end</span><span class="kw">=</span><span class="fl">30</span>)</pre></body></html></div>
 <pre><code>## Waiting for profiling to be done...</code></pre>
 <pre><code>## Warning in est.R0.TD(epid = c(1, 0, 1, 0, 1, 0, 2, 1, 2, 1, 7, 2, 3, 4, :
 ## Simulations may take several minutes.</code></pre>
 <pre><code>## Warning in est.R0.TD(epid = c(1, 0, 1, 0, 1, 0, 2, 1, 2, 1, 7, 2, 3, 4, : Using
 ## initial incidence as initial number of cases.</code></pre>
 <p>We modified the plotting function in <em><a href="https://CRAN.R-project.org/package=R0">R0</a></em> which was calling <code>dev.new</code> too often. Use <code>plot2</code>.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/graphics/par.html">par</a></span>(<span class="dt">mfrow=</span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">2</span>,<span class="dv">2</span>))</a>
-<a class="sourceLine" id="cb12-2" data-line-number="2"><span class="kw"><a href="../reference/plot2.html">plot2</a></span>(est)</a></code></pre></div>
+<div class="sourceCode" id="cb12"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span>(<span class="kw">mfrow</span><span class="kw">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">2</span>,<span class="fl">2</span>))
+<span class="fu"><a href="../reference/plot2.html">plot2</a></span>(<span class="no">est</span>)</pre></body></html></div>
 <p><img src="sars2pack_files/figure-html/lksim-1.png" width="700"></p>
 <p>The plotfit2 function is also useful. These fits look identical but they are not.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/graphics/par.html">par</a></span>(<span class="dt">mfrow=</span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">2</span>,<span class="dv">2</span>))</a>
-<a class="sourceLine" id="cb13-2" data-line-number="2"><span class="kw"><a href="../reference/plotfit2.html">plotfit2</a></span>(est)</a></code></pre></div>
+<div class="sourceCode" id="cb13"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span>(<span class="kw">mfrow</span><span class="kw">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">2</span>,<span class="fl">2</span>))
+<span class="fu"><a href="../reference/plotfit2.html">plotfit2</a></span>(<span class="no">est</span>)</pre></body></html></div>
 <p><img src="sars2pack_files/figure-html/lksim2-1.png" width="700"></p>
 </div>
 <div id="modeling-for-a-geographic-entity" class="section level1">
@@ -211,75 +218,57 @@
 <a href="#hubei-province" class="anchor"></a>Hubei Province</h2>
 <p>We are able to use exponential growth and time-dependent models with this data, using generation time model from a recent <a href="https://annals.org/aim/fullarticle/2762808/incubation-period-coronavirus-disease-2019-covid-19-from-publicly-reported">Annals of Internal Medicine</a> paper.</p>
 <p>The incidence data probably need smoothing, and the time-dependent model has unreasonable fluctuations.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1">dates =<span class="st"> </span>lubridate<span class="op">::</span><span class="kw"><a href="http://lubridate.tidyverse.org/reference/as_date.html">as_date</a></span>(<span class="kw">mdy</span>(<span class="kw"><a href="https://rdrr.io/r/base/names.html">names</a></span>(mar19df)[<span class="op">-</span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>)]))</a>
-<a class="sourceLine" id="cb14-2" data-line-number="2">hubdat =<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span>(<span class="kw"><a href="../reference/get_series.html">get_series</a></span>(<span class="dt">province=</span><span class="st">"Hubei"</span>, <span class="dt">country=</span><span class="st">"China"</span>, </a>
-<a class="sourceLine" id="cb14-3" data-line-number="3">    <span class="dt">dataset=</span>sars2pack<span class="op">::</span>mar19df))</a>
-<a class="sourceLine" id="cb14-4" data-line-number="4"><span class="kw"><a href="https://rdrr.io/r/base/names.html">names</a></span>(hubdat) =<span class="st"> </span>dates</a>
-<a class="sourceLine" id="cb14-5" data-line-number="5">mGT &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/R0/man/generation.time.html">generation.time</a></span>(<span class="st">"gamma"</span>, <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">5.8</span>, <span class="fl">0.95</span>)) <span class="co"># from DOI 10.7326/M20-0504</span></a>
-<a class="sourceLine" id="cb14-6" data-line-number="6">hubdat.filt =<span class="st"> </span><span class="kw">trim_leading_zeros</span>(<span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(hubdat[<span class="dv">1</span>], <span class="kw"><a href="https://rdrr.io/r/base/diff.html">diff</a></span>(hubdat)))</a>
-<a class="sourceLine" id="cb14-7" data-line-number="7">est.EG &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/R0/man/estimate.R.html">estimate.R</a></span>(<span class="dt">epid=</span>hubdat.filt, <span class="dt">GT=</span>mGT, </a>
-<a class="sourceLine" id="cb14-8" data-line-number="8">    <span class="dt">methods=</span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"EG"</span>, <span class="st">"TD"</span>), <span class="dt">begin=</span>1L, <span class="dt">end=</span><span class="kw"><a href="https://rdrr.io/r/base/integer.html">as.integer</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/length.html">length</a></span>(hubdat.filt)))</a></code></pre></div>
+<div class="sourceCode" id="cb14"><html><body><pre class="r"><span class="no">dates</span> <span class="kw">=</span> <span class="kw pkg">lubridate</span><span class="kw ns">::</span><span class="fu"><a href="http://lubridate.tidyverse.org/reference/as_date.html">as_date</a></span>(<span class="fu">mdy</span>(<span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span>(<span class="no">mar19df</span>)[-<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">1</span>:<span class="fl">4</span>)]))
+<span class="no">hubdat</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span>(<span class="fu"><a href="../reference/get_series.html">get_series</a></span>(<span class="kw">province</span><span class="kw">=</span><span class="st">"Hubei"</span>, <span class="kw">country</span><span class="kw">=</span><span class="st">"China"</span>,
+    <span class="kw">dataset</span><span class="kw">=</span><span class="kw pkg">sars2pack</span><span class="kw ns">::</span><span class="no"><a href="../reference/mar19df.html">mar19df</a></span>))
+<span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span>(<span class="no">hubdat</span>) <span class="kw">=</span> <span class="no">dates</span>
+<span class="no">mGT</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/R0/man/generation.time.html">generation.time</a></span>(<span class="st">"gamma"</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">5.8</span>, <span class="fl">0.95</span>)) <span class="co"># from DOI 10.7326/M20-0504</span>
+<span class="no">hubdat.filt</span> <span class="kw">=</span> <span class="fu"><a href="../reference/trim_leading_values.html">trim_leading_values</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="no">hubdat</span>[<span class="fl">1</span>], <span class="fu"><a href="https://rdrr.io/r/base/diff.html">diff</a></span>(<span class="no">hubdat</span>)))
+<span class="no">est.EG</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/R0/man/estimate.R.html">estimate.R</a></span>(<span class="kw">epid</span><span class="kw">=</span><span class="no">hubdat.filt</span>, <span class="kw">GT</span><span class="kw">=</span><span class="no">mGT</span>,
+    <span class="kw">methods</span><span class="kw">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"EG"</span>, <span class="st">"TD"</span>), <span class="kw">begin</span><span class="kw">=</span><span class="fl">1L</span>, <span class="kw">end</span><span class="kw">=</span><span class="fu"><a href="https://rdrr.io/r/base/integer.html">as.integer</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span>(<span class="no">hubdat.filt</span>)))</pre></body></html></div>
 <pre><code>## Waiting for profiling to be done...</code></pre>
 <pre><code>## Warning in est.R0.TD(epid = c(`2020-01-22` = 444, `2020-01-23` = 0, `2020-01-24`
 ## = 105, : Simulations may take several minutes.</code></pre>
 <pre><code>## Warning in est.R0.TD(epid = c(`2020-01-22` = 444, `2020-01-23` = 0, `2020-01-24`
 ## = 105, : Using initial incidence as initial number of cases.</code></pre>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" data-line-number="1">est.EG</a></code></pre></div>
+<div class="sourceCode" id="cb18"><html><body><pre class="r"><span class="no">est.EG</span></pre></body></html></div>
 <pre><code>## Reproduction number estimate using  Exponential Growth  method.
 ## R :  0.8061514[ 0.8035971 , 0.8087093 ]
 ## 
 ## Reproduction number estimate using  Time-Dependent  method.
 ## 7.162571 0 5.216657 5.191665 4.048158 3.631084 3.349247 0 2.835442 2.187792 ...</code></pre>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/graphics/par.html">par</a></span>(<span class="dt">mfrow=</span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">2</span>,<span class="dv">2</span>), <span class="dt">mar=</span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">5</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">2</span>))</a>
-<a class="sourceLine" id="cb20-2" data-line-number="2"><span class="kw"><a href="../reference/plot2.html">plot2</a></span>(est.EG)</a>
-<a class="sourceLine" id="cb20-3" data-line-number="3"><span class="kw"><a href="../reference/plotfit2.html">plotfit2</a></span>(est.EG)</a></code></pre></div>
+<div class="sourceCode" id="cb20"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span>(<span class="kw">mfrow</span><span class="kw">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">2</span>,<span class="fl">2</span>), <span class="kw">mar</span><span class="kw">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">5</span>,<span class="fl">3</span>,<span class="fl">2</span>,<span class="fl">2</span>))
+<span class="fu"><a href="../reference/plot2.html">plot2</a></span>(<span class="no">est.EG</span>)
+<span class="fu"><a href="../reference/plotfit2.html">plotfit2</a></span>(<span class="no">est.EG</span>)</pre></body></html></div>
 <p><img src="sars2pack_files/figure-html/dohub-1.png" width="700"></p>
 </div>
 <div id="italy" class="section level2">
 <h2 class="hasAnchor">
 <a href="#italy" class="anchor"></a>Italy</h2>
 <p>For Italy, only the EG model seems to work, with the Annals of Internal Medicine generation time model. It fits the data reasonably well, but the data seems to include a reporting gap.</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" data-line-number="1">itdat =<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span>(<span class="kw"><a href="../reference/get_series.html">get_series</a></span>(<span class="dt">province=</span><span class="st">""</span>, <span class="dt">country=</span><span class="st">"Italy"</span>, </a>
-<a class="sourceLine" id="cb21-2" data-line-number="2">    <span class="dt">dataset=</span>sars2pack<span class="op">::</span>mar19df))</a>
-<a class="sourceLine" id="cb21-3" data-line-number="3"><span class="kw"><a href="https://rdrr.io/r/base/names.html">names</a></span>(itdat) =<span class="st"> </span>dates</a>
-<a class="sourceLine" id="cb21-4" data-line-number="4">itdat.filt =<span class="st"> </span><span class="kw">trim_leading_zeros</span>(<span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(itdat[<span class="dv">1</span>], <span class="kw"><a href="https://rdrr.io/r/base/diff.html">diff</a></span>(itdat)))</a>
-<a class="sourceLine" id="cb21-5" data-line-number="5">est.EG &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/R0/man/estimate.R.html">estimate.R</a></span>(<span class="dt">epid=</span>itdat.filt, <span class="dt">GT=</span>mGT, </a>
-<a class="sourceLine" id="cb21-6" data-line-number="6">    <span class="dt">methods=</span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"EG"</span>), <span class="dt">begin=</span>1L, <span class="dt">end=</span><span class="kw"><a href="https://rdrr.io/r/base/integer.html">as.integer</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/length.html">length</a></span>(itdat.filt)))</a></code></pre></div>
+<div class="sourceCode" id="cb21"><html><body><pre class="r"><span class="no">itdat</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span>(<span class="fu"><a href="../reference/get_series.html">get_series</a></span>(<span class="kw">province</span><span class="kw">=</span><span class="st">""</span>, <span class="kw">country</span><span class="kw">=</span><span class="st">"Italy"</span>,
+    <span class="kw">dataset</span><span class="kw">=</span><span class="kw pkg">sars2pack</span><span class="kw ns">::</span><span class="no"><a href="../reference/mar19df.html">mar19df</a></span>))
+<span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span>(<span class="no">itdat</span>) <span class="kw">=</span> <span class="no">dates</span>
+<span class="no">itdat.filt</span> <span class="kw">=</span> <span class="fu"><a href="../reference/trim_leading_values.html">trim_leading_values</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="no">itdat</span>[<span class="fl">1</span>], <span class="fu"><a href="https://rdrr.io/r/base/diff.html">diff</a></span>(<span class="no">itdat</span>)))
+<span class="no">est.EG</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/R0/man/estimate.R.html">estimate.R</a></span>(<span class="kw">epid</span><span class="kw">=</span><span class="no">itdat.filt</span>, <span class="kw">GT</span><span class="kw">=</span><span class="no">mGT</span>,
+    <span class="kw">methods</span><span class="kw">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"EG"</span>), <span class="kw">begin</span><span class="kw">=</span><span class="fl">1L</span>, <span class="kw">end</span><span class="kw">=</span><span class="fu"><a href="https://rdrr.io/r/base/integer.html">as.integer</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span>(<span class="no">itdat.filt</span>)))</pre></body></html></div>
 <pre><code>## Waiting for profiling to be done...</code></pre>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" data-line-number="1">est.EG</a></code></pre></div>
+<div class="sourceCode" id="cb23"><html><body><pre class="r"><span class="no">est.EG</span></pre></body></html></div>
 <pre><code>## Reproduction number estimate using  Exponential Growth  method.
 ## R :  2.736957[ 2.708604 , 2.765787 ]</code></pre>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/graphics/par.html">par</a></span>(<span class="dt">mfrow=</span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">2</span>,<span class="dv">2</span>), <span class="dt">mar=</span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">5</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">2</span>))</a>
-<a class="sourceLine" id="cb25-2" data-line-number="2"><span class="kw"><a href="../reference/plot2.html">plot2</a></span>(est.EG, <span class="dt">main=</span><span class="st">"Italy"</span>)</a>
-<a class="sourceLine" id="cb25-3" data-line-number="3"><span class="kw"><a href="../reference/plotfit2.html">plotfit2</a></span>(est.EG, <span class="dt">main=</span><span class="st">"Italy"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb25"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span>(<span class="kw">mfrow</span><span class="kw">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">2</span>,<span class="fl">2</span>), <span class="kw">mar</span><span class="kw">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">5</span>,<span class="fl">3</span>,<span class="fl">2</span>,<span class="fl">2</span>))
+<span class="fu"><a href="../reference/plot2.html">plot2</a></span>(<span class="no">est.EG</span>, <span class="kw">main</span><span class="kw">=</span><span class="st">"Italy"</span>)
+<span class="fu"><a href="../reference/plotfit2.html">plotfit2</a></span>(<span class="no">est.EG</span>, <span class="kw">main</span><span class="kw">=</span><span class="st">"Italy"</span>)</pre></body></html></div>
 <p><img src="sars2pack_files/figure-html/doit-1.png" width="700"></p>
 </div>
 </div>
   </div>
 
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
 
-        <div id="tocnav">
-      <h2 class="hasAnchor">
-<a href="#tocnav" class="anchor"></a>Contents</h2>
-      <ul class="nav nav-pills nav-stacked">
-<li><a href="#introduction">Introduction</a></li>
-      <li>
-<a href="#data-and-updating">Data and updating</a><ul class="nav nav-pills nav-stacked">
-<li><a href="#access">Access</a></li>
-      <li><a href="#structure">Structure</a></li>
-      </ul>
-</li>
-      <li><a href="#modeling-illustrated-for-a-simulation">Modeling illustrated for a simulation</a></li>
-      <li>
-<a href="#modeling-for-a-geographic-entity">Modeling for a geographic entity</a><ul class="nav nav-pills nav-stacked">
-<li><a href="#hubei-province">Hubei Province</a></li>
-      <li><a href="#italy">Italy</a></li>
-      </ul>
-</li>
-      </ul>
+        <nav id="toc" data-toggle="toc"><h2 data-toc-skip>Contents</h2>
+    </nav>
 </div>
-      </div>
 
 </div>
 
@@ -290,7 +279,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.0.</p>
 </div>
 
       </footer>
