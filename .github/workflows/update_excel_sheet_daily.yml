@@ -71,7 +71,7 @@ jobs:
           Rscript -e "devtools::install('.')"
       - name: Create excel file
         run: |
-          bash inst/scripts/generate_jhu_excel.R
+          Rscript inst/scripts/generate_jhu_excel.R
       - name: Push artifacts to cloud storage
         run: |
           gsutil cp covid-19-data.xlsx \
