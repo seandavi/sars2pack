@@ -17,3 +17,4 @@ df, but without any \code{data.frame} columns
 The dplyr::bind_rows function does not work with
 \code{data.frame} columns, so simply remove them as needed.
 }
+\keyword{internal}

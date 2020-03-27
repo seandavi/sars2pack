@@ -61,11 +61,11 @@ titles are hard to manage, and the code from package R0
 will need to be dissected to improve annotation of figures.
 ```{r dor0, fig.height=7}
 mGT <- generation.time("gamma", c(5.8,.95)) # from DOI 10.7326/M20-0504
-usdat = trim_leading_zeros(diff(cumevents))
+usdat = trim_leading_values(diff(cumevents))
 est1 = estimate.R( usdat, GT = mGT, t = as_date(ymd(names(usdat))),
-  begin=1L, end=as.integer(length(usdat)), methods=c("EG")) # , "ML", "TD"))
+  begin=1L, end=as.integer(length(usdat)), methods=c("EG", "TD")) # , "ML", "TD"))
 est1
-par(mfrow=c(1,2))
+par(mfrow=c(2,2))
 plot2(est1)
 plotfit2(est1)
 ```

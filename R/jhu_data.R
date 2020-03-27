@@ -51,13 +51,13 @@
 #' @return
 #' A tidy `data.frame` (actually, a `tbl_df`) with columns: 
 #' 
-#' - ProvinceState: <chr> Province or state. **Note**: 
-#' - CountryRegion <chr> This is the main column for finding countries of interest
-#' - Lat: <dbl> Latitude
-#' - Long: <dbl> Longitude
-#' - date: <date>
-#' - count: <dbl> The cumulative count of cases for a given geographic area. 
-#' - subset: <chr> either `confirmed` or `deaths`
+#' - ProvinceState:  Province or state. **Note**: 
+#' - CountryRegion  This is the main column for finding countries of interest
+#' - Lat:  Latitude
+#' - Long:  Longitude
+#' - date: 
+#' - count:  The cumulative count of cases for a given geographic area. 
+#' - subset:  either `confirmed` or `deaths`
 #'
 #' @note
 #'
@@ -72,7 +72,7 @@
 #' head(res)
 #'
 #' @source
-#' - \url{https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data/csse_covid_19_time_series}
+#' - \url{https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data/csse_covid_19_time_series,mGT, method=c('EG','TD'))}
 #' 
 #' @family data-import
 #' 

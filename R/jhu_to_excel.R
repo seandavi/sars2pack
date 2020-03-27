@@ -7,7 +7,7 @@
 #' `data.frame` removed
 #'
 #' @return df, but without any `data.frame` columns
-#' 
+#' @keywords internal
 .remove_df_columns <- function(df) {
     df_cols = which(sapply(df, class)=='data.frame')
     df[, -c(df_cols)]

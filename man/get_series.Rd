@@ -15,7 +15,10 @@ get_series(
 
 \item{country}{character(1) must be found in CountryRegion field}
 
-\item{dataset}{data.frame as returned by fetch_JHU_Data}
+\item{dataset}{data.frame as returned by jhu_data()}
+}
+\value{
+A \code{data.frame} with two columns
 }
 \description{
 supersimple series extraction
