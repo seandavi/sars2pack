@@ -61,11 +61,20 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
       
-      # Build and push image to Google Container Registry
+      # Install package dependencies
       - name: Install Dependencies
         run: |
           Rscript -e "devtools::install_deps('.')"
-      # Deploy image to Cloud Run
+
+      - name: Build package
+        run: |
+          Rscript -e "devtools::build('.')"
+
+      - name: Check package
+        run: |
+          Rscript -e "devtools::check('.')"
+
+      # Install package for later use
       - name: Install pkg
         run: |
           Rscript -e "devtools::install('.')"
