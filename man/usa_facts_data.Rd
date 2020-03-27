@@ -2,32 +2,73 @@
 % Please edit documentation in R/usa_facts_data.R
 \name{usa_facts_data}
 \alias{usa_facts_data}
-\title{retrieve time series dataset from USA Facts}
+\title{United States state and county level data from USAFacts}
+\source{
+\url{https://usafacts.org/visualizations/coronavirus-covid-19-spread-map/}
+}
 \usage{
 usa_facts_data()
 }
 \value{
-an object of class \code{s2p_long_df} that inherits from tbl_df
+a tidy data 7-column tibble with columns:
+\itemize{
+\item county_fips
+\item county
+\item state (two-letter abbreviation)
+\item state_fips
+\item subset: \code{deaths} or \code{confirmed}
+\item date: observation date
+\item count: case count for that date on that local
+}
 }
 \description{
-This always does a web call. The assumption here is that
-the user is online and that github is up and that URLs are
-stable.
+A single dataset from USAFacts that has state and county
+data included.
+}
+\details{
+From the USAFacts website:
+
+Methodology: This interactive feature aggregates data from the Centers for Disease Control and Prevention (CDC), state- and local-level public health agencies. County-level data is confirmed by referencing state and local agencies directly.
+
+The data for all states was last updated on March 27, 2020, at 7:00 AM Pacific/10:00 AM Eastern Time. We've noted below when we last checked data from the states.
+
+The 21 cases confirmed on the Grand Princess cruise ship on March 5 and 6 are attributed to the state of California, but not to any counties. The national numbers also include the 45 people with coronavirus repatriated from the Diamond Princess.
+
+USAFacts attempts to match each case with a county, but some cases counted at the state level are not allocated to counties due to lack of information.
+
+Because of the frequency with which we are currently updating this data, they may not reflect the exact numbers reported state and local government organizations or the news media. Numbers may also fluctuate as agencies update their own data. At present, we are working on ensuring that we can provide this data with the most up-to-date information possible.
 }
 \note{
 Uses https://usafacts.org/visualizations/coronavirus-covid-19-spread-map/ as data
 source, then modifies column names and munges to long form table.
 }
+\section{Licensing}{
+
+
+From the folks at USAFacts
+
+Want to use USAFacts county-level COVID-19 data? Download it
+here. The data is available under a Creative Commons license. We
+simply request that you cite USAFacts as the data provider and link
+back to this page. Don’t forget to share what you've created with
+the USAFacts data. Please tag @usafacts on social media and use the
+hashtag #MadewithUSAFacts. We'll reshare the posts with the
+data-loving community.
+}
+
 \examples{
 res = usa_facts_data()
 colnames(res)
 head(res)
+# dataset inclusion as of this build
+max(res$date)
 
 }
 \seealso{
 jhu_data()
 
 Other data-import: 
-\code{\link{jhu_data}()}
+\code{\link{jhu_data}()},
+\code{\link{nytimes_county_data}()}
 }
 \concept{data-import}

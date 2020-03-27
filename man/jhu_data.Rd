@@ -5,7 +5,7 @@
 \title{Global COVID-19 data from \href{https://github.com/CSSEGISandData/COVID-19/}{JHU CSSEGIS}}
 \source{
 \itemize{
-\item \url{https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data/csse_covid_19_time_series}
+\item \url{https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data/csse_covid_19_time_series,mGT, method=c('EG','TD'))}
 }
 }
 \usage{
@@ -14,13 +14,13 @@ jhu_data()
 \value{
 A tidy \code{data.frame} (actually, a \code{tbl_df}) with columns:
 \itemize{
-\item ProvinceState: character() Province or state. \strong{Note}:
-\item CountryRegion: character() This is the main column for finding countries of interest
-\item Lat: numeric() Latitude
-\item Long: numeric() Longitude
-\item date: Date()
-\item count: numeric() The cumulative count of cases for a given geographic area.
-\item subset: character() either \code{confirmed} or \code{deaths}
+\item ProvinceState:  Province or state. \strong{Note}:
+\item CountryRegion  This is the main column for finding countries of interest
+\item Lat:  Latitude
+\item Long:  Longitude
+\item date:
+\item count:  The cumulative count of cases for a given geographic area.
+\item subset:  either \code{confirmed} or \code{deaths}
 }
 }
 \description{
@@ -55,6 +55,7 @@ head(res)
 }
 \seealso{
 Other data-import: 
+\code{\link{nytimes_county_data}()},
 \code{\link{usa_facts_data}()}
 }
 \concept{data-import}
