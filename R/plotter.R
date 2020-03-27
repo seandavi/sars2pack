@@ -94,8 +94,8 @@ fix_slash_dates = function(x) gsub("/", "-", x) # ok if they are already non-sla
 #' 
 #' @export
 get_series = function(province="", country,
-     dataset=try(fetch_JHU_Data(as.data.frame=TRUE))) { #sars2pack::mar19df) {
-  if (inherits(dataset, "try-error")) stop("could not get data from fetch_JHU_Data()")
+                      dataset=try(jhu_data())) { #sars2pack::mar19df) {
+  if (inherits(dataset, "try-error")) stop("could not get data from jhu_data()")
   stopifnot(all(c("ProvinceState", "CountryRegion") %in% colnames(dataset)))
   stopifnot(country %in% dataset$CountryRegion)
   ans = dataset %>% dplyr::filter(CountryRegion==country)
@@ -114,9 +114,9 @@ get_series = function(province="", country,
 #' @note An effort is made to change dates used as column names to lubridate date objects
 #' that are respected in plotting.
 #' @examples
-#' plot_series(country="Italy")
+#' #plot_series(country="Italy")
 #' @export
-plot_series = function(province="", country, dataset=try(fetch_JHU_Data(as.data.frame=TRUE)), ...) {
+plot_series = function(province="", country, dataset=try(jhu_data()), ...) {
  if (inherits(dataset, "try-error")) stop("could not get data from fetch_JHU_Data()")
  ser = get_series(province=province, country=country, dataset=dataset)
  dates = lubridate::as_date(mdy(fix_slash_dates(names(dataset)[-c(1:4)])))

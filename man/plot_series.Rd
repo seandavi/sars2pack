@@ -4,12 +4,7 @@
 \alias{plot_series}
 \title{supersimple series plotter}
 \usage{
-plot_series(
-  province = "",
-  country,
-  dataset = try(fetch_JHU_Data(as.data.frame = TRUE)),
-  ...
-)
+plot_series(province = "", country, dataset = try(jhu_data()), ...)
 }
 \arguments{
 \item{province}{character(1) must be found in dataset ProvinceState field, "" is typical for data aggregated only at country level, and that is the default}
@@ -28,5 +23,5 @@ An effort is made to change dates used as column names to lubridate date objects
 that are respected in plotting.
 }
 \examples{
-plot_series(country="Italy")
+#plot_series(country="Italy")
 }
