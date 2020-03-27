@@ -62,9 +62,9 @@ jobs:
             ${{ runner.os }}-
       
       # Install package dependencies
-      - name: Install Dependencies
+      - name: Install package and dependencies
         run: |
-          Rscript -e "devtools::install_deps('.', dependencies=TRUE)" 
+          Rscript -e "devtools::install('.', dependencies=TRUE, repos = BiocManager::repositories())" 
 
       - name: Build package
         run: |
@@ -75,9 +75,6 @@ jobs:
           Rscript -e "devtools::check('.')"
 
       # Install package for later use
-      - name: Install pkg
-        run: |
-          Rscript -e "devtools::install('.')"
       - name: Create excel file
         run: |
           Rscript inst/scripts/generate_jhu_excel.R
