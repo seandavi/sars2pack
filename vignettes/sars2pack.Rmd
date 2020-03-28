@@ -1,10 +1,10 @@
 ---
 title: "sars2pack: packaging of C. Morefield code on COVID-19 epidemic modeling"
-author: "Vincent J. Carey, stvjc at channing.harvard.edu"
+author: "Sean Davis <seandavi@gmail.com> and Vincent J. Carey, stvjc at channing.harvard.edu"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 vignette: >
   %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteIndexEntry{sars2pack: packaging of C. Morefield code on COVID-19 epidemic modeling}
+  %\VignetteIndexEntry{sars2pack: Access and use public COVID-19 datasets}
   %\VignetteEncoding{UTF-8}
 output:
   BiocStyle::html_document:
@@ -26,46 +26,165 @@ library(lubridate)
 })
 ```
 
-# Introduction
+# Motivation
 
-John C Mallery conveyed code of Charles Morefield to harvest
-COVID-19 time series data.  Vince Carey has started an R package/github repo
-to manage the relevant code.  The package is called sars2pack in hopes of
-avoiding name conflict with many other packages likely developing.
+The COVID-19 pandemic is ongoing. The situation on the ground is
+changing daily as captured by data reported around the world. The
+[sars2pack] package aims to:
 
-The main functionalities thus far concern importing data from
-Johns Hopkins Whiting School github repo `github.com/CSSEGISandData` and
-using the `r CRANpkg("R0")` package to perform certain tasks of
-epidemic modeling.  We also retain a snapshot of existing time series
-data from 19 March 2020 to facilitate demonstration.
+- Provide timely, computable, easily accessible data for research,
+   policy-making, and educational purposes.
+- Promote easy computational experimentation with COVID-19 data
+- Serve as a source of documentation and education for available
+   COVID-19 analysis and visualization approaches.
+- House recipes for regularly updated data products such as
+   spreadsheets and maps for use by non-R-savvy data consumers.
+- Collect interesting data stories along with code as data science
+   training resources for the many biomedical researchers who cannot
+   currently perform experiments
 
-# Data and updating
+# Quick start
 
-## Access
+## Installation
 
-The snapshot looks like:
-```{r lkda}
-as_tibble(mar19df)
+```{r}
+BiocManager::install('seandavi/sars2pack')
 ```
 
-We can call `fetch_JHU()_Data` to get a more current instance.
+[sars2pack]: https://github.com/seandavi/sars2pack
+[New York Times]: https://github.com/nytimes/covid-19-data
+[JHU]: https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data/
+[USAFacts]:  https://usafacts.org/visualizations/coronavirus-covid-19-spread-map/
+[pull request]: https://github.com/seandavi/sars2pack/compare
+[issue]: https://github.com/seandavi/sars2pack/issues/new
 
-## Structure
+## COVID-19 resources in this package
 
-There are nested structures in the data.  Provinces or states nest within countries.
+The COVID-19 data in this package are, right now, focused toward 
+time-series descriptions of confirmed cases, deaths, testing, and
+recovered cases. **There is no requirement that this remain the case**.
+Contributions of additional data resources or simple accessor functions
+will only add to our abilities to use data science and modeling
+to understand COVID-19.
 
-```{r lkcou}
-head(sort(table(mar19df$CountryRegion),decreasing=TRUE))
+*Request for help*: I would be more than happy to accept help with 
+defining new data resources. Consider a [pull request] (or an [issue] for
+non-programmer types). 
+
+### Epidemic time-series data
+
+- [JHU] : global deaths, confirmed cases, and recovered time series
+  data; *does not include fine-level United States data*. See
+  `jhu_data()`.
+- [New York Times] : United states state and county level deaths,
+  confirmed cases time series. See `nytimes_county_data()` and
+  `nytimes_state_data`.
+- [USAFacts] : Alternative United states state and county level deaths
+  and confirmed cases time series
+
+## Additional resources described in this vignette
+
+
+
+- 
+
+
+# COVID-19 data resources
+
+This section briefly introduces how to access the data
+resources in this package. Note that many of the functions
+below **require a network connection** to get updated data.
+
+## Epidemic time series data
+
+Accessing the time series datasets follow a similar pattern. 
+
+1. Fetch a tidy `tbl_df` using a function such as `jhu_data()`
+2. The columns `date` (of type `date`) and `count` of type `numeric`
+   columns are standard.
+3. Additional columns describe locations, subsets of data (such as
+   `confirmed`, `deaths`, `recovered`).
+
+Regardless of the original format of the data, the `sars2pack`
+datasets are presented as [tidy data] to facilitate `dplyr`, `ggplot`,
+and other fluid analysis approaches to apply directly.
+
+[tidy data]: https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html
+
+### JHU Dataset
+
+```{r jhu_access}
+jhu = jhu_data()
+class(jhu)
+dim(jhu)
 ```
 
-```{r nesting}
-mar19df %>% select(CountryRegion, ProvinceState) %>% 
-   filter(CountryRegion=="France")
+Column names include:
+
+```{r jhu_cols}
+colnames(jhu)
 ```
 
-The code to assemble information for a country, out of its constituent records,
-needs to be looked at.  The Morefield code for extraction uses data.table idioms -- I am
-not completely sure it is correct.  I would like our extracts to be precisely formulated.
+And a very small subset of the data. 
+
+```{r jhu_example}
+head(jhu,3)
+```
+
+
+### USAFacts Dataset
+
+
+
+```{r usa_facts_access}
+usa_facts = usa_facts_data()
+class(usa_facts)
+dim(usa_facts)
+```
+
+Column names include:
+
+```{r usa_facts_cols}
+colnames(usa_facts)
+```
+
+And a very small subset of the data. 
+
+```{r usa_facts_example}
+head(usa_facts,3)
+```
+
+
+### NYTimes datasets
+
+
+
+```{r nytimes_state_access}
+nytimes_state = nytimes_state_data()
+class(nytimes_state)
+dim(nytimes_state)
+```
+
+Column names include:
+
+```{r nytimes_state_cols}
+colnames(nytimes_state)
+```
+
+And a very small subset of the data. 
+
+```{r nytimes_state_example}
+head(nytimes_state,3)
+```
+
+
+```{r nytimes_county_access}
+nytimes_county = nytimes_county_data()
+class(nytimes_county)
+dim(nytimes_county)
+colnames(nytimes_county)
+```
+
 
 Looking at the raw data seems important to get a clear sense
 of the modeling challenge.
@@ -84,6 +203,21 @@ plot_series(province="Hubei", country="China")
 plot_series(country="Italy")
 plot_series(country="Thailand")
 plot_series("Massachusetts", country="US")
+```
+
+# Using the [incidence] package
+
+```{r incidenceconvert}
+library(incidence)
+as.incidence1 <- function(df) {
+    ret =  df %>% dplyr::select(date,count) %>%
+        dplyr::group_by(date) %>%
+        dplyr::summarise(count = sum(count)) %>%
+        dplyr::arrange(date)
+    ret$count = c(diff(ret$count),0)
+    return(structure(list(dates = ret$date, counts = matrix(ret$count,nc=1), interval  = 1L, timespan = nrow(ret), cumulative=FALSE, n=nrow(ret)), class='incidence'))
+}
+
 ```
 
 
@@ -171,3 +305,13 @@ par(mfrow=c(2,2), mar=c(5,3,2,2))
 plot2(est.EG, main="Italy")
 plotfit2(est.EG, main="Italy")
 ```
+
+
+# Origins of this package
+
+John C. Mallery conveyed code of Charles Morefield to harvest COVID-19
+time series data.  Vince Carey then started an R package/github repo
+to manage the relevant code.  The package was named `sars2pack` in
+hopes of avoiding name conflict with many other packages while
+remaining descriptive and focused.
+
