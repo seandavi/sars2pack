@@ -30,13 +30,19 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
 
+
       - name: Install package and dependencies
         run: |
-          Rscript -e "devtools::install('.', dependencies=TRUE, repos = BiocManager::repositories())" 
+           Rscript -e "devtools::install('.', dependencies=TRUE, repos = BiocManager::repositories())"
             
       - name: Build pkgdown
         run: |
           Rscript -e 'pkgdown::build_site(".")'
+
+      # deploy needs rsync? Seems so.
+      - name: Install deploy dependencies
+        run: |
+          apt-get -y install rsync
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@releases/v3
