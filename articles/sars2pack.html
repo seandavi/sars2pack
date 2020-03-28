@@ -5,13 +5,13 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>sars2pack: packaging of C. Morefield code on COVID-19 epidemic modeling • sars2pack</title>
+<title>Exploring the COVID-19 pandemic using sars2pack • sars2pack</title>
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="../bootstrap-toc.css">
 <script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
-<script src="../pkgdown.js"></script><meta property="og:title" content="sars2pack: packaging of C. Morefield code on COVID-19 epidemic modeling">
+<script src="../pkgdown.js"></script><meta property="og:title" content="Exploring the COVID-19 pandemic using sars2pack">
 <meta property="og:description" content="sars2pack">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sars2pack</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.11</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.12</span>
       </span>
     </div>
 
@@ -48,18 +48,6 @@
 </li>
 <li>
   <a href="../reference/index.html">Reference</a>
-</li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Articles
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-<li>
-      <a href="../articles/basic.html">sars2pack demonstration: working with new data</a>
-    </li>
-  </ul>
 </li>
 <li>
   <a href="../news/index.html">Changelog</a>
@@ -82,11 +70,15 @@
 
       
 
-      </header><div class="row">
+      </header><script src="sars2pack_files/htmlwidgets-1.5.1/htmlwidgets.js"></script><script src="sars2pack_files/jquery-1.12.4/jquery.min.js"></script><link href="sars2pack_files/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
+<script src="sars2pack_files/datatables-binding-0.11/datatables.js"></script><link href="sars2pack_files/dt-core-1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
+<link href="sars2pack_files/dt-core-1.10.19/css/jquery.dataTables.extra.css" rel="stylesheet">
+<script src="sars2pack_files/dt-core-1.10.19/js/jquery.dataTables.min.js"></script><link href="sars2pack_files/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet">
+<script src="sars2pack_files/crosstalk-1.0.0/js/crosstalk.min.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1 data-toc-skip>sars2pack: packaging of C. Morefield code on COVID-19 epidemic modeling</h1>
-                        <h4 class="author">Vincent J. Carey, stvjc at channing.harvard.edu</h4>
+      <h1 data-toc-skip>Exploring the COVID-19 pandemic using sars2pack</h1>
+                        <h4 class="author">Sean Davis <a href="mailto:seandavi@gmail.com" class="email">seandavi@gmail.com</a> and Vincent J. Carey, stvjc at channing.harvard.edu</h4>
             
             <h4 class="date">March 28, 2020</h4>
       
@@ -97,88 +89,314 @@
 
     
     
-<div id="introduction" class="section level1">
+<div id="motivation" class="section level1">
 <h1 class="hasAnchor">
-<a href="#introduction" class="anchor"></a>Introduction</h1>
-<p>John C Mallery conveyed code of Charles Morefield to harvest COVID-19 time series data. Vince Carey has started an R package/github repo to manage the relevant code. The package is called sars2pack in hopes of avoiding name conflict with many other packages likely developing.</p>
-<p>The main functionalities thus far concern importing data from Johns Hopkins Whiting School github repo <code>github.com/CSSEGISandData</code> and using the <em><a href="https://CRAN.R-project.org/package=R0">R0</a></em> package to perform certain tasks of epidemic modeling. We also retain a snapshot of existing time series data from 19 March 2020 to facilitate demonstration.</p>
+<a href="#motivation" class="anchor"></a>Motivation</h1>
+<p>The COVID-19 pandemic is ongoing. The situation on the ground is changing daily as captured by data reported around the world. The <a href="https://github.com/seandavi/sars2pack">sars2pack</a> package aims to:</p>
+<ul>
+<li>Provide timely, computable, easily accessible data for research, policy-making, and educational purposes.</li>
+<li>Promote easy computational experimentation with COVID-19 data</li>
+<li>Serve as a source of documentation and education for available COVID-19 analysis and visualization approaches.</li>
+<li>House recipes for regularly updated data products such as spreadsheets and maps for use by non-R-savvy data consumers.</li>
+<li>Collect interesting data stories along with code as data science training resources for the many biomedical researchers who cannot currently perform experiments</li>
+</ul>
 </div>
-<div id="data-and-updating" class="section level1">
+<div id="quick-start" class="section level1">
 <h1 class="hasAnchor">
-<a href="#data-and-updating" class="anchor"></a>Data and updating</h1>
-<div id="access" class="section level2">
+<a href="#quick-start" class="anchor"></a>Quick start</h1>
+<div id="installation" class="section level2">
 <h2 class="hasAnchor">
-<a href="#access" class="anchor"></a>Access</h2>
-<p>The snapshot looks like:</p>
-<div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="fu">as_tibble</span>(<span class="no">mar19df</span>)</pre></body></html></div>
-<pre><code>## # A tibble: 462 x 61
-##    ProvinceState CountryRegion    Lat   Long `1/22/20` `1/23/20` `1/24/20`
-##    &lt;chr&gt;         &lt;chr&gt;          &lt;dbl&gt;  &lt;dbl&gt;     &lt;int&gt;     &lt;int&gt;     &lt;int&gt;
-##  1 ""            Thailand       15     101           2         3         5
-##  2 ""            Japan          36     138           2         1         2
-##  3 ""            Singapore       1.28  104.          0         1         3
-##  4 ""            Nepal          28.2    84.2         0         0         0
-##  5 ""            Malaysia        2.5   112.          0         0         0
-##  6 "British Col… Canada         49.3  -123.          0         0         0
-##  7 "New South W… Australia     -33.9   151.          0         0         0
-##  8 "Victoria"    Australia     -37.8   145.          0         0         0
-##  9 "Queensland"  Australia     -28.0   153.          0         0         0
-## 10 ""            Cambodia       11.6   105.          0         0         0
-## # … with 452 more rows, and 54 more variables: `1/25/20` &lt;int&gt;,
-## #   `1/26/20` &lt;int&gt;, `1/27/20` &lt;int&gt;, `1/28/20` &lt;int&gt;, `1/29/20` &lt;int&gt;,
-## #   `1/30/20` &lt;int&gt;, `1/31/20` &lt;int&gt;, `2/1/20` &lt;int&gt;, `2/2/20` &lt;int&gt;,
-## #   `2/3/20` &lt;int&gt;, `2/4/20` &lt;int&gt;, `2/5/20` &lt;int&gt;, `2/6/20` &lt;int&gt;,
-## #   `2/7/20` &lt;int&gt;, `2/8/20` &lt;int&gt;, `2/9/20` &lt;int&gt;, `2/10/20` &lt;int&gt;,
-## #   `2/11/20` &lt;int&gt;, `2/12/20` &lt;int&gt;, `2/13/20` &lt;int&gt;, `2/14/20` &lt;int&gt;,
-## #   `2/15/20` &lt;int&gt;, `2/16/20` &lt;int&gt;, `2/17/20` &lt;int&gt;, `2/18/20` &lt;int&gt;,
-## #   `2/19/20` &lt;int&gt;, `2/20/20` &lt;int&gt;, `2/21/20` &lt;int&gt;, `2/22/20` &lt;int&gt;,
-## #   `2/23/20` &lt;int&gt;, `2/24/20` &lt;int&gt;, `2/25/20` &lt;int&gt;, `2/26/20` &lt;int&gt;,
-## #   `2/27/20` &lt;int&gt;, `2/28/20` &lt;int&gt;, `2/29/20` &lt;int&gt;, `3/1/20` &lt;int&gt;,
-## #   `3/2/20` &lt;int&gt;, `3/3/20` &lt;int&gt;, `3/4/20` &lt;int&gt;, `3/5/20` &lt;int&gt;,
-## #   `3/6/20` &lt;int&gt;, `3/7/20` &lt;int&gt;, `3/8/20` &lt;int&gt;, `3/9/20` &lt;int&gt;,
-## #   `3/10/20` &lt;int&gt;, `3/11/20` &lt;int&gt;, `3/12/20` &lt;int&gt;, `3/13/20` &lt;int&gt;,
-## #   `3/14/20` &lt;int&gt;, `3/15/20` &lt;int&gt;, `3/16/20` &lt;int&gt;, `3/17/20` &lt;int&gt;,
-## #   `3/18/20` &lt;int&gt;</code></pre>
-<p>We can call <code>fetch_JHU()_Data</code> to get a more current instance.</p>
+<a href="#installation" class="anchor"></a>Installation</h2>
+<div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="kw pkg">BiocManager</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/BiocManager/man/install.html">install</a></span>(<span class="st">'seandavi/sars2pack'</span>)</pre></body></html></div>
 </div>
-<div id="structure" class="section level2">
+<div id="covid-19-resources-in-this-package" class="section level2">
 <h2 class="hasAnchor">
-<a href="#structure" class="anchor"></a>Structure</h2>
-<p>There are nested structures in the data. Provinces or states nest within countries.</p>
-<div class="sourceCode" id="cb3"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/sort.html">sort</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span>(<span class="no">mar19df</span>$<span class="no">CountryRegion</span>),<span class="kw">decreasing</span><span class="kw">=</span><span class="fl">TRUE</span>))</pre></body></html></div>
-<pre><code>## 
-##             US          China         Canada      Australia         France 
-##            247             33             11              9              8 
-## United Kingdom 
-##              5</code></pre>
-<div class="sourceCode" id="cb5"><html><body><pre class="r"><span class="no">mar19df</span> <span class="kw">%&gt;%</span> <span class="fu">select</span>(<span class="no">CountryRegion</span>, <span class="no">ProvinceState</span>) <span class="kw">%&gt;%</span>
-   <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span>(<span class="no">CountryRegion</span><span class="kw">==</span><span class="st">"France"</span>)</pre></body></html></div>
-<pre><code>##   CountryRegion    ProvinceState
-## 1        France           France
-## 2        France        St Martin
-## 3        France Saint Barthelemy
-## 4        France French Polynesia
-## 5        France    French Guiana
-## 6        France          Mayotte
-## 7        France       Guadeloupe
-## 8        France          Reunion</code></pre>
-<p>The code to assemble information for a country, out of its constituent records, needs to be looked at. The Morefield code for extraction uses data.table idioms – I am not completely sure it is correct. I would like our extracts to be precisely formulated.</p>
-<p>Looking at the raw data seems important to get a clear sense of the modeling challenge.</p>
-<div class="sourceCode" id="cb7"><html><body><pre class="r"><span class="no">get_series</span> <span class="kw">=</span> <span class="kw">function</span>(<span class="no">province</span><span class="kw">=</span><span class="st">""</span>, <span class="no">country</span>, <span class="no">dataset</span><span class="kw">=</span><span class="kw pkg">sars2pack</span><span class="kw ns">::</span><span class="no"><a href="../reference/mar19df.html">mar19df</a></span>) {
-  <span class="no">ans</span> <span class="kw">=</span> <span class="no">dataset</span> <span class="kw">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span>(<span class="no">ProvinceState</span><span class="kw">==</span><span class="no">province</span> <span class="kw">&amp;</span> <span class="no">CountryRegion</span><span class="kw">==</span><span class="no">country</span>)
-  <span class="no">ans</span>[,-<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">1</span>:<span class="fl">4</span>)]
-}
-<span class="no">plot_series</span> <span class="kw">=</span> <span class="kw">function</span>(<span class="no">province</span><span class="kw">=</span><span class="st">""</span>, <span class="no">country</span>, <span class="no">dataset</span><span class="kw">=</span><span class="kw pkg">sars2pack</span><span class="kw ns">::</span><span class="no"><a href="../reference/mar19df.html">mar19df</a></span>, <span class="no">...</span>) {
- <span class="no">ser</span> <span class="kw">=</span> <span class="fu"><a href="../reference/get_series.html">get_series</a></span>(<span class="kw">province</span><span class="kw">=</span><span class="no">province</span>, <span class="kw">country</span><span class="kw">=</span><span class="no">country</span>, <span class="kw">dataset</span><span class="kw">=</span><span class="no">dataset</span>)
- <span class="no">dates</span> <span class="kw">=</span> <span class="kw pkg">lubridate</span><span class="kw ns">::</span><span class="fu"><a href="http://lubridate.tidyverse.org/reference/as_date.html">as_date</a></span>(<span class="fu">mdy</span>(<span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span>(<span class="no">dataset</span>)[-<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">1</span>:<span class="fl">4</span>)]))
- <span class="fu"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(<span class="no">dates</span>, <span class="no">ser</span>, <span class="kw">main</span><span class="kw">=</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span>(<span class="no">province</span>, <span class="no">country</span>), <span class="no">...</span>)
-}
-<span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span>(<span class="kw">mfrow</span><span class="kw">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">2</span>,<span class="fl">2</span>),<span class="kw">mar</span><span class="kw">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">4</span>,<span class="fl">3</span>,<span class="fl">2</span>,<span class="fl">2</span>))
-<span class="fu"><a href="../reference/plot_series.html">plot_series</a></span>(<span class="kw">province</span><span class="kw">=</span><span class="st">"Hubei"</span>, <span class="kw">country</span><span class="kw">=</span><span class="st">"China"</span>)
-<span class="fu"><a href="../reference/plot_series.html">plot_series</a></span>(<span class="kw">country</span><span class="kw">=</span><span class="st">"Italy"</span>)
-<span class="fu"><a href="../reference/plot_series.html">plot_series</a></span>(<span class="kw">country</span><span class="kw">=</span><span class="st">"Thailand"</span>)
-<span class="fu"><a href="../reference/plot_series.html">plot_series</a></span>(<span class="st">"Massachusetts"</span>, <span class="kw">country</span><span class="kw">=</span><span class="st">"US"</span>)</pre></body></html></div>
-<p><img src="sars2pack_files/figure-html/doser-1.png" width="700"></p>
+<a href="#covid-19-resources-in-this-package" class="anchor"></a>COVID-19 resources in this package</h2>
+<p>The COVID-19 data in this package are, right now, focused toward time-series descriptions of confirmed cases, deaths, testing, and recovered cases. <strong>There is no requirement that this remain the case</strong>. Contributions of additional data resources or simple accessor functions will only add to our abilities to use data science and modeling to understand COVID-19.</p>
+<p><em>Request for help</em>: I would be more than happy to accept help with defining new data resources. Consider a <a href="https://github.com/seandavi/sars2pack/compare">pull request</a> (or an <a href="https://github.com/seandavi/sars2pack/issues/new">issue</a> for non-programmer types).</p>
+<div id="epidemic-time-series-data" class="section level3">
+<h3 class="hasAnchor">
+<a href="#epidemic-time-series-data" class="anchor"></a>Epidemic time-series data</h3>
+<ul>
+<li>
+<a href="https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data/">JHU</a> : global deaths, confirmed cases, and recovered time series data; <em>does not include fine-level United States data</em>. See <code><a href="../reference/jhu_data.html">jhu_data()</a></code>.</li>
+<li>
+<a href="https://github.com/nytimes/covid-19-data">New York Times</a> : United states state and county level deaths, confirmed cases time series. See <code><a href="../reference/nytimes_data.html">nytimes_county_data()</a></code> and <code>nytimes_state_data</code>.</li>
+<li>
+<a href="https://usafacts.org/visualizations/coronavirus-covid-19-spread-map/">USAFacts</a> : Alternative United states state and county level deaths and confirmed cases time series</li>
+</ul>
+</div>
+</div>
+<div id="additional-resources-described-in-this-vignette" class="section level2">
+<h2 class="hasAnchor">
+<a href="#additional-resources-described-in-this-vignette" class="anchor"></a>Additional resources described in this vignette</h2>
+<ul>
+<li>
+</ul>
+</div>
+</div>
+<div id="epidemic-time-series-data-1" class="section level1">
+<h1 class="hasAnchor">
+<a href="#epidemic-time-series-data-1" class="anchor"></a>Epidemic time series data</h1>
+<p>Usage of each of the time series datasets follows a similar pattern.</p>
+<ol style="list-style-type: decimal">
+<li>Fetch a tidy <code>tbl_df</code> using a function such as <code><a href="../reference/jhu_data.html">jhu_data()</a></code>
+</li>
+<li>In the resulting <code>tbl_df</code>, the columns <code>date</code> (of type <code>date</code>) and <code>count</code> of type <code>numeric</code> columns are standard.</li>
+<li>Additional columns describe locations, subsets of data (such as <code>confirmed</code>, <code>deaths</code>, <code>recovered</code>) and vary from dataset to dataset.</li>
+</ol>
+<p>Regardless of the original format of the data, the <code>sars2pack</code> datasets are presented as <a href="https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html">tidy data</a> to facilitate <code>dplyr</code>, <code>ggplot</code>, and other fluid analysis approaches to apply directly.</p>
+<div id="access-data" class="section level2">
+<h2 class="hasAnchor">
+<a href="#access-data" class="anchor"></a>Access data</h2>
+<p>This section briefly introduces how to access the data resources in this package. Note that many of the functions below <strong>require a network connection</strong> to get updated data.</p>
+<div id="jhu-dataset" class="section level3">
+<h3 class="hasAnchor">
+<a href="#jhu-dataset" class="anchor"></a>JHU Dataset</h3>
+<div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="no">jhu</span> <span class="kw">=</span> <span class="fu"><a href="../reference/jhu_data.html">jhu_data</a></span>()
+<span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span>(<span class="no">jhu</span>)</pre></body></html></div>
+<pre><code>## [1] "s2p_long_df" "tbl_df"      "tbl"         "data.frame"</code></pre>
+<div class="sourceCode" id="cb4"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span>(<span class="no">jhu</span>)</pre></body></html></div>
+<pre><code>## [1] 32868     7</code></pre>
+<p>Column names include:</p>
+<div class="sourceCode" id="cb6"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span>(<span class="no">jhu</span>)</pre></body></html></div>
+<pre><code>## [1] "ProvinceState" "CountryRegion" "Lat"           "Long"         
+## [5] "date"          "count"         "subset"</code></pre>
+<p>And a very small subset of the data.</p>
+<div class="sourceCode" id="cb8"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="no">jhu</span>,<span class="fl">3</span>)</pre></body></html></div>
+<pre><code>## # A tibble: 3 x 7
+##   ProvinceState CountryRegion   Lat  Long date       count subset   
+##   &lt;chr&gt;         &lt;chr&gt;         &lt;dbl&gt; &lt;dbl&gt; &lt;date&gt;     &lt;dbl&gt; &lt;chr&gt;    
+## 1 &lt;NA&gt;          Afghanistan      33    65 2020-01-22     0 confirmed
+## 2 &lt;NA&gt;          Afghanistan      33    65 2020-01-23     0 confirmed
+## 3 &lt;NA&gt;          Afghanistan      33    65 2020-01-24     0 confirmed</code></pre>
+</div>
+<div id="usafacts-dataset" class="section level3">
+<h3 class="hasAnchor">
+<a href="#usafacts-dataset" class="anchor"></a>USAFacts Dataset</h3>
+<div class="sourceCode" id="cb10"><html><body><pre class="r"><span class="no">usa_facts</span> <span class="kw">=</span> <span class="fu"><a href="../reference/usa_facts_data.html">usa_facts_data</a></span>()</pre></body></html></div>
+<pre><code>## Parsed with column specification:
+## cols(
+##   .default = col_double(),
+##   `County Name` = col_character(),
+##   State = col_character()
+## )</code></pre>
+<pre><code>## See spec(...) for full column specifications.</code></pre>
+<pre><code>## Warning: Missing column names filled in: 'X71' [71]</code></pre>
+<pre><code>## Parsed with column specification:
+## cols(
+##   .default = col_double(),
+##   `County Name` = col_character(),
+##   State = col_character(),
+##   X71 = col_logical()
+## )
+## See spec(...) for full column specifications.</code></pre>
+<pre><code>## Warning: 1 parsing failure.
+##  row col           expected actual                                                                         file
+## 1791 X71 1/0/T/F/TRUE/FALSE      ` 'https://static.usafacts.org/public/data/covid-19/covid_deaths_usafacts.csv'</code></pre>
+<pre><code>## Warning: 6394 failed to parse.</code></pre>
+<div class="sourceCode" id="cb17"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span>(<span class="no">usa_facts</span>)</pre></body></html></div>
+<pre><code>## [1] "tbl_df"     "tbl"        "data.frame"</code></pre>
+<div class="sourceCode" id="cb19"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span>(<span class="no">usa_facts</span>)</pre></body></html></div>
+<pre><code>## [1] 428398      7</code></pre>
+<p>Column names include:</p>
+<div class="sourceCode" id="cb21"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span>(<span class="no">usa_facts</span>)</pre></body></html></div>
+<pre><code>## [1] "county_fips" "state"       "State"       "state_fips"  "subset"     
+## [6] "date"        "count"</code></pre>
+<p>And a very small subset of the data.</p>
+<div class="sourceCode" id="cb23"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="no">usa_facts</span>,<span class="fl">3</span>)</pre></body></html></div>
+<pre><code>## # A tibble: 3 x 7
+##   county_fips state                 State state_fips subset    date       count
+##         &lt;dbl&gt; &lt;chr&gt;                 &lt;chr&gt;      &lt;dbl&gt; &lt;chr&gt;     &lt;date&gt;     &lt;dbl&gt;
+## 1           0 Statewide Unallocated AL             1 confirmed 2020-01-22     0
+## 2           0 Statewide Unallocated AL             1 confirmed 2020-01-23     0
+## 3           0 Statewide Unallocated AL             1 confirmed 2020-01-24     0</code></pre>
+</div>
+<div id="nytimes-datasets" class="section level3">
+<h3 class="hasAnchor">
+<a href="#nytimes-datasets" class="anchor"></a>NYTimes datasets</h3>
+<div class="sourceCode" id="cb25"><html><body><pre class="r"><span class="no">nytimes_state</span> <span class="kw">=</span> <span class="fu"><a href="../reference/nytimes_data.html">nytimes_state_data</a></span>()</pre></body></html></div>
+<pre><code>## Parsed with column specification:
+## cols(
+##   date = col_date(format = ""),
+##   state = col_character(),
+##   fips = col_character(),
+##   cases = col_double(),
+##   deaths = col_double()
+## )</code></pre>
+<div class="sourceCode" id="cb27"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span>(<span class="no">nytimes_state</span>)</pre></body></html></div>
+<pre><code>## [1] "tbl_df"     "tbl"        "data.frame"</code></pre>
+<div class="sourceCode" id="cb29"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span>(<span class="no">nytimes_state</span>)</pre></body></html></div>
+<pre><code>## [1] 2772    5</code></pre>
+<p>Column names include:</p>
+<div class="sourceCode" id="cb31"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span>(<span class="no">nytimes_state</span>)</pre></body></html></div>
+<pre><code>## [1] "date"   "state"  "fips"   "count"  "subset"</code></pre>
+<p>And a very small subset of the data.</p>
+<div class="sourceCode" id="cb33"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="no">nytimes_state</span>,<span class="fl">3</span>)</pre></body></html></div>
+<pre><code>## # A tibble: 3 x 5
+##   date       state       fips count subset   
+##   &lt;date&gt;     &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;    
+## 1 2020-01-21 Washington    53     1 confirmed
+## 2 2020-01-22 Washington    53     1 confirmed
+## 3 2020-01-23 Washington    53     1 confirmed</code></pre>
+<div class="sourceCode" id="cb35"><html><body><pre class="r"><span class="no">nytimes_county</span> <span class="kw">=</span> <span class="fu"><a href="../reference/nytimes_data.html">nytimes_county_data</a></span>()</pre></body></html></div>
+<pre><code>## Parsed with column specification:
+## cols(
+##   date = col_date(format = ""),
+##   county = col_character(),
+##   state = col_character(),
+##   fips = col_character(),
+##   cases = col_double(),
+##   deaths = col_double()
+## )</code></pre>
+<div class="sourceCode" id="cb37"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span>(<span class="no">nytimes_county</span>)</pre></body></html></div>
+<pre><code>## [1] "tbl_df"     "tbl"        "data.frame"</code></pre>
+<div class="sourceCode" id="cb39"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span>(<span class="no">nytimes_county</span>)</pre></body></html></div>
+<pre><code>## [1] 31672     6</code></pre>
+<div class="sourceCode" id="cb41"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span>(<span class="no">nytimes_county</span>)</pre></body></html></div>
+<pre><code>## [1] "date"   "county" "state"  "fips"   "count"  "subset"</code></pre>
+</div>
+</div>
+</div>
+<div id="use-cases" class="section level1">
+<h1 class="hasAnchor">
+<a href="#use-cases" class="anchor"></a>Use cases</h1>
+<div id="basic-data-exploration" class="section level2">
+<h2 class="hasAnchor">
+<a href="#basic-data-exploration" class="anchor"></a>Basic data exploration</h2>
+<p>In this section, we will be using a combination of [dplyr] and [ggplot2] to explore the COVID-19 global data from JHU. For details on this dataset, see the help using <code><a href="../reference/jhu_data.html">?jhu_data</a></code>.</p>
+<p>The next line of code will do a (set of) network calls to fetch the most up-to-date dataset from the JHU github repository.</p>
+<div class="sourceCode" id="cb43"><html><body><pre class="r"><span class="no">jhu</span> <span class="kw">=</span> <span class="fu"><a href="../reference/jhu_data.html">jhu_data</a></span>()
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="no">jhu</span>,<span class="fl">3</span>)</pre></body></html></div>
+<pre><code>## # A tibble: 3 x 7
+##   ProvinceState CountryRegion   Lat  Long date       count subset   
+##   &lt;chr&gt;         &lt;chr&gt;         &lt;dbl&gt; &lt;dbl&gt; &lt;date&gt;     &lt;dbl&gt; &lt;chr&gt;    
+## 1 &lt;NA&gt;          Afghanistan      33    65 2020-01-22     0 confirmed
+## 2 &lt;NA&gt;          Afghanistan      33    65 2020-01-23     0 confirmed
+## 3 &lt;NA&gt;          Afghanistan      33    65 2020-01-24     0 confirmed</code></pre>
+<p>We now want to ask a series of questions about the dataset.</p>
+<ul>
+<li><strong>How many records are in the dataset?</strong></li>
+</ul>
+<div class="sourceCode" id="cb45"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span>(<span class="no">jhu</span>)</pre></body></html></div>
+<pre><code>## [1] 32868</code></pre>
+<ul>
+<li><strong>How many different countries are represented?</strong></li>
+</ul>
+<div class="sourceCode" id="cb47"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span>(<span class="no">jhu</span>$<span class="no">CountryRegion</span>))</pre></body></html></div>
+<pre><code>## [1] 176</code></pre>
+<p>Most records have no listing for <code>ProvinceState</code> column. Let’s look at a few of those to get an idea of what is there when not empty:</p>
+<ul>
+<li><strong>What is in the <code>ProvinceState</code> column?</strong></li>
+</ul>
+<p>To answer this question, we will be using <code>dplyr</code>, so some familiarity with that package will be helpful to follow this code.</p>
+<div class="sourceCode" id="cb49"><html><body><pre class="r"><span class="no">jhu</span> <span class="kw">%&gt;%</span>
+    <span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(!<span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span>(<span class="no">ProvinceState</span>)) <span class="kw">%&gt;%</span>
+    <span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span>(<span class="no">ProvinceState</span>, <span class="no">CountryRegion</span>) <span class="kw">%&gt;%</span>
+    <span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span>() <span class="kw">%&gt;%</span>
+    <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="fl">10</span>)</pre></body></html></div>
+<pre><code>## # A tibble: 10 x 2
+##    ProvinceState                CountryRegion
+##    &lt;chr&gt;                        &lt;chr&gt;        
+##  1 Australian Capital Territory Australia    
+##  2 New South Wales              Australia    
+##  3 Northern Territory           Australia    
+##  4 Queensland                   Australia    
+##  5 South Australia              Australia    
+##  6 Tasmania                     Australia    
+##  7 Victoria                     Australia    
+##  8 Western Australia            Australia    
+##  9 Alberta                      Canada       
+## 10 British Columbia             Canada</code></pre>
+<p>We still have not looked at the most valuable information, the <code>date</code> and <code>count</code> columns in any detail.</p>
+<ul>
+<li><strong>What is the current count of confirmed cases by country, ordered by highest count down?</strong></li>
+</ul>
+<p>There is a lot to unpack in the next code block, but the results are quite useful. We will use the <a href="https://rstudio.github.io/DT/">DT</a> package to make the dataset searchable and sortable.</p>
+<div class="sourceCode" id="cb51"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">DT</span>)
+<span class="no">latest_jhu_data</span> <span class="kw">=</span> <span class="no">jhu</span> <span class="kw">%&gt;%</span>
+    <span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(<span class="no">subset</span><span class="kw">==</span><span class="st">'confirmed'</span> <span class="kw">&amp;</span> <span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span>(<span class="no">ProvinceState</span>)) <span class="kw">%&gt;%</span>
+    <span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span>(<span class="no">CountryRegion</span>) <span class="kw">%&gt;%</span>
+    <span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/which.min.html">which.max</a></span>(<span class="no">date</span>)) <span class="kw">%&gt;%</span>
+    <span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span>(<span class="fu">desc</span>(<span class="no">count</span>))
+<span class="kw pkg">DT</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/DT/man/datatable.html">datatable</a></span>(<span class="no">latest_jhu_data</span>, <span class="kw">rownames</span><span class="kw">=</span><span class="fl">FALSE</span>)</pre></body></html></div>
+<div id="htmlwidget-85ec5403882751c4eb6e" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-85ec5403882751c4eb6e">{"x":{"filter":"none","data":[[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],["US","Italy","Spain","Germany","France","Iran","United Kingdom","Switzerland","Korea, South","Netherlands","Austria","Belgium","Turkey","Portugal","Norway","Brazil","Sweden","Israel","Czechia","Malaysia","Ireland","Denmark","Chile","Luxembourg","Ecuador","Japan","Poland","Pakistan","Romania","South Africa","Thailand","Saudi Arabia","Indonesia","Finland","Russia","Greece","Iceland","India","Philippines","Singapore","Diamond Princess","Panama","Peru","Slovenia","Argentina","Croatia","Mexico","Dominican Republic","Estonia","Qatar","Colombia","Egypt","Bahrain","Iraq","Serbia","Algeria","United Arab Emirates","Lebanon","New Zealand","Lithuania","Morocco","Armenia","Ukraine","Hungary","Bulgaria","Latvia","Slovakia","Andorra","Taiwan*","Costa Rica","Uruguay","Bosnia and Herzegovina","Jordan","Tunisia","Kuwait","San Marino","North Macedonia","Moldova","Albania","Burkina Faso","Azerbaijan","Vietnam","Cyprus","Kazakhstan","Malta","Ghana","Oman","Senegal","Brunei","Afghanistan","Venezuela","Sri Lanka","Cote d'Ivoire","Cambodia","Belarus","Mauritius","Cameroon","West Bank and Gaza","Uzbekistan","Kosovo","Georgia","Montenegro","Cuba","Nigeria","Honduras","Trinidad and Tobago","Bolivia","Kyrgyzstan","Liechtenstein","Rwanda","Paraguay","Congo (Kinshasa)","Bangladesh","Monaco","Kenya","Guatemala","Jamaica","Madagascar","Togo","Barbados","Uganda","Zambia","Ethiopia","Maldives","El Salvador","Tanzania","Djibouti","Equatorial Guinea","Dominica","Mali","Mongolia","Bahamas","Niger","Eswatini","Burma","Guinea","Haiti","Namibia","Suriname","Antigua and Barbuda","Gabon","Grenada","Mozambique","Seychelles","Benin","Eritrea","Laos","Cabo Verde","Fiji","Guyana","Syria","Zimbabwe","Angola","Congo (Brazzaville)","Holy See","Nepal","Bhutan","Central African Republic","Chad","Gambia","Liberia","Mauritania","Saint Lucia","Somalia","Sudan","Belize","Guinea-Bissau","Nicaragua","Saint Kitts and Nevis","Libya","Papua New Guinea","Saint Vincent and the Grenadines","Timor-Leste"],[37.0902,43,40,51,46.2276,32,55.3781,46.8182,36,52.1326,47.5162,50.8333,38.9637,39.3999,60.472,-14.235,63,31,49.8175,2.5,53.1424,56.2639,-35.6751,49.8153,-1.8312,36,51.9194,30.3753,45.9432,-30.5595,15,24,-0.7893,64,60,39.0742,64.9631,21,13,1.2833,0,8.538,-9.19,46.1512,-38.4161,45.1,23.6345,18.7357,58.5953,25.3548,4.5709,26,26.0275,33,44.0165,28.0339,24,33.8547,-40.9006,55.1694,31.7917,40.0691,48.3794,47.1625,42.7339,56.8796,48.669,42.5063,23.7,9.7489,-32.5228,43.9159,31.24,34,29.5,43.9424,41.6086,47.4116,41.1533,12.2383,40.1431,16,35.1264,48.0196,35.9375,7.9465,21,14.4974,4.5353,33,6.4238,7,7.54,11.55,53.7098,-20.2,3.848,31.9522,41.3775,42.602636,42.3154,42.5,22,9.082,15.2,10.6918,-16.2902,41.2044,47.14,-1.9403,-23.4425,-4.0383,23.685,43.7333,-0.0236,15.7835,18.1096,-18.7669,8.6195,13.1939,1,-15.4167,9.145,3.2028,13.7942,-6.369,11.8251,1.5,15.415,17.570692,46.8625,25.0343,17.6078,-26.5225,21.9162,9.9456,18.9712,-22.9576,3.9193,17.0608,-0.8037,12.1165,-18.665695,-4.6796,9.3077,15.1794,19.85627,16.5388,-17.7134,5,34.802075,-20,-11.2027,-4.0383,41.9029,28.1667,27.5142,6.6111,15.4542,13.4432,6.4281,21.0079,13.9094,5.1521,12.8628,13.1939,11.8037,12.8654,17.357822,26.3351,-6.315,12.9843,-8.874217],[-95.7129,12,-4,9,2.2137,53,-3.436,8.2275,128,5.2913,14.5501,4,35.2433,-8.2245,8.4689,-51.9253,16,35,15.473,112.5,-7.6921,9.5018,-71.543,6.1296,-78.1834,138,19.1451,69.3451,24.9668,22.9375,101,45,113.9213,26,90,21.8243,-19.0208,78,122,103.8333,0,-80.7821,-75.0152,14.9955,-63.6167,15.2,-102.5528,-70.1627,25.0136,51.1839,-74.2973,30,50.55,44,21.0059,1.6596,54,35.8623,174.886,23.8813,-7.0926,45.0382,31.1656,19.5033,25.4858,24.6032,19.699,1.5218,121,-83.7534,-55.7658,17.6791,36.51,9,47.75,12.4578,21.7453,28.3699,20.1683,-1.5616,47.5769,108,33.4299,66.9237,14.3754,-1.0232,57,-14.4524,114.7277,65,-66.5897,81,-5.5471,104.9167,27.9534,57.5,11.5021,35.2332,64.5853,20.902977,43.3569,19.3,-80,8.6753,-86.2419,-61.2225,-63.5887,74.7661,9.55,29.8739,-58.4438,21.7587,90.3563,7.4167,37.9062,-90.2308,-77.2975,46.8691,0.8248,-59.5432,32,28.2833,40.4897,73.2207,-88.8965,34.8888,42.5903,10,-61.371,-3.996166,103.8467,-77.3963,8.0817,31.4659,95.956,-9.6966,-72.2852,18.4904,-56.0278,-61.7964,11.6094,-61.679,35.529562,55.492,2.3158,39.7823,102.495496,-23.0418,178.065,-58.75,38.996815,30,17.8739,21.7587,12.4534,84.25,90.4336,20.9394,18.7322,-15.3101,-9.4295,10.9408,-60.9789,46.1996,30.2176,-59.5432,-15.1804,-85.2072,-62.782998,17.228331,143.9555,-61.2872,125.727539],["2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27","2020-03-27"],[101657,86498,65719,50871,32964,32332,14543,12928,9332,8603,7657,7284,5698,4268,3755,3417,3069,3035,2279,2161,2121,2046,1610,1605,1595,1468,1389,1373,1292,1170,1136,1104,1046,1041,1036,966,890,887,803,732,712,674,635,632,589,586,585,581,575,562,539,536,466,458,457,409,405,391,368,358,345,329,310,300,293,280,269,267,267,263,238,237,235,227,225,223,219,199,186,180,165,163,162,150,139,137,131,119,115,110,107,106,101,99,94,94,91,91,88,86,83,82,80,70,68,66,61,58,56,54,52,51,48,42,31,28,26,26,25,24,23,22,16,16,13,13,12,12,11,11,11,10,10,9,8,8,8,8,8,7,7,7,7,7,6,6,6,5,5,5,5,5,4,4,4,4,3,3,3,3,3,3,3,3,3,2,2,2,2,1,1,1,1],["confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed","confirmed"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>ProvinceState<\/th>\n      <th>CountryRegion<\/th>\n      <th>Lat<\/th>\n      <th>Long<\/th>\n      <th>date<\/th>\n      <th>count<\/th>\n      <th>subset<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[2,3,5]}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script><p><strong>Note</strong>: I included a little <code>is.na</code> in the filtering above to remove records where country data are split out over subparts. We revisit this below.</p>
+<p>The data here could be usefully displayed as a graph as well.</p>
+<div class="sourceCode" id="cb52"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span>(<span class="kw">las</span><span class="kw">=</span><span class="fl">2</span>, <span class="kw">mar</span><span class="kw">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">8</span>,<span class="fl">5</span>,<span class="fl">5</span>,<span class="fl">1</span>))
+<span class="fu"><a href="https://rdrr.io/r/graphics/barplot.html">barplot</a></span>(<span class="no">count</span> ~ <span class="no">CountryRegion</span>, <span class="kw">xlab</span> <span class="kw">=</span> <span class="st">''</span>,
+        <span class="kw">data</span><span class="kw">=</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="no">latest_jhu_data</span>,<span class="fl">10</span>),
+        <span class="kw">main</span><span class="kw">=</span><span class="st">'Confirmed cases, top 10 countries'</span>)</pre></body></html></div>
+<p><img src="sars2pack_files/figure-html/latest_jhu_bargraph-1.png" width="700"></p>
+<p>We note here that China is not shown. That is because we limited the data to only rows that had empty ProvinceState records. To add those records back in, we sum all the China rows (and those of other countries like Australia, etc.) by country and then perform similar work to produce a final plot.</p>
+<div class="sourceCode" id="cb53"><html><body><pre class="r"><span class="no">latest_jhu_data</span> <span class="kw">=</span> <span class="no">jhu</span> <span class="kw">%&gt;%</span>
+    <span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(<span class="no">subset</span><span class="kw">==</span><span class="st">'confirmed'</span>) <span class="kw">%&gt;%</span>
+    <span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span>(-<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="no">ProvinceState</span>,<span class="no">Lat</span>,<span class="no">Long</span>)) <span class="kw">%&gt;%</span>
+    <span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span>(<span class="no">CountryRegion</span>,<span class="no">date</span>) <span class="kw">%&gt;%</span>
+    <span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span>(<span class="kw">count</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span>(<span class="no">count</span>)) <span class="kw">%&gt;%</span>
+    <span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/which.min.html">which.max</a></span>(<span class="no">date</span>)) <span class="kw">%&gt;%</span>
+    <span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span>(<span class="fu">desc</span>(<span class="no">count</span>))
+<span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span>(<span class="kw">las</span><span class="kw">=</span><span class="fl">2</span>, <span class="kw">mar</span><span class="kw">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">8</span>,<span class="fl">5</span>,<span class="fl">5</span>,<span class="fl">1</span>))
+<span class="fu"><a href="https://rdrr.io/r/graphics/barplot.html">barplot</a></span>(<span class="no">count</span> ~ <span class="no">CountryRegion</span>, <span class="kw">xlab</span> <span class="kw">=</span> <span class="st">''</span>,
+        <span class="kw">data</span><span class="kw">=</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="no">latest_jhu_data</span>,<span class="fl">10</span>),
+        <span class="kw">main</span><span class="kw">=</span><span class="st">'Confirmed cases, top 10 countries'</span>)</pre></body></html></div>
+<p><img src="sars2pack_files/figure-html/unnamed-chunk-2-1.png" width="700"></p>
+</div>
+<div id="visualize-time-series-data" class="section level2">
+<h2 class="hasAnchor">
+<a href="#visualize-time-series-data" class="anchor"></a>Visualize time series data</h2>
+<p>Up to now, we have ignored the time series aspects of the data and have sliced the dataset by country. In this section, we will be using dplyr and ggplot2 to visualize disease infection and deaths over time.</p>
+<ul>
+<li><strong>How have the cases in Italy changed over time?</strong></li>
+</ul>
+<div class="sourceCode" id="cb54"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">ggplot2</span>)
+<span class="no">italy_cc_ts</span> <span class="kw">=</span> <span class="no">jhu</span> <span class="kw">%&gt;%</span>
+    <span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(<span class="no">CountryRegion</span> <span class="kw">==</span> <span class="st">'Italy'</span> <span class="kw">&amp;</span> <span class="no">subset</span><span class="kw">==</span><span class="st">'confirmed'</span>)
+<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="no">italy_cc_ts</span>,<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="kw">x</span><span class="kw">=</span><span class="no">date</span>, <span class="kw">y</span><span class="kw">=</span><span class="no">count</span>)) +
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span>() +
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span>(<span class="st">'Confirmed cases'</span>)</pre></body></html></div>
+<p><img src="sars2pack_files/figure-html/italy_ts_1-1.png" width="700"></p>
+<ul>
+<li><strong>How do the confirmed cases in China, US, Italy, Spain, Germany, and Russia compare over time?</strong></li>
+</ul>
+<p>We have to play the same game of summing all values by country and date. Here, we filter the countries to be in a list of countries.</p>
+<div class="sourceCode" id="cb55"><html><body><pre class="r"><span class="no">countries_of_interest</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">'China'</span>,<span class="st">'US'</span>,<span class="st">'Italy'</span>,<span class="st">'Spain'</span>,<span class="st">'Germany'</span>,<span class="st">'Russia'</span>)
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">ggplot2</span>)
+<span class="no">cc_ts</span> <span class="kw">=</span> <span class="no">jhu</span> <span class="kw">%&gt;%</span>
+    <span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span>(<span class="no">CountryRegion</span>,<span class="no">date</span>) <span class="kw">%&gt;%</span>
+    <span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(<span class="no">CountryRegion</span> <span class="kw">%in%</span> <span class="no">countries_of_interest</span> <span class="kw">&amp;</span> <span class="no">subset</span><span class="kw">==</span><span class="st">'confirmed'</span>) <span class="kw">%&gt;%</span>
+    <span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span>(<span class="kw">count</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span>(<span class="no">count</span>))
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="no">cc_ts</span>)</pre></body></html></div>
+<pre><code>## # A tibble: 6 x 3
+## # Groups:   CountryRegion [1]
+##   CountryRegion date       count
+##   &lt;chr&gt;         &lt;date&gt;     &lt;dbl&gt;
+## 1 China         2020-01-22   548
+## 2 China         2020-01-23   643
+## 3 China         2020-01-24   920
+## 4 China         2020-01-25  1406
+## 5 China         2020-01-26  2075
+## 6 China         2020-01-27  2877</code></pre>
+<p>To make the plot, we use the ggplot2 grouping and coloring to provide curves for each country on the same axis.</p>
+<div class="sourceCode" id="cb57"><html><body><pre class="r"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="no">cc_ts</span>,<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="kw">x</span><span class="kw">=</span><span class="no">date</span>, <span class="kw">y</span><span class="kw">=</span><span class="no">count</span>, <span class="kw">group</span><span class="kw">=</span><span class="no">CountryRegion</span>)) +
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span>(<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="kw">color</span><span class="kw">=</span><span class="no">CountryRegion</span>)) +
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span>(<span class="st">'Confirmed cases'</span>)</pre></body></html></div>
+<p><img src="sars2pack_files/figure-html/cc_ts_plot-1.png" width="700"></p>
+<p>Changing to log scale can give a sense of the “exponentialness” of these data. Also, to remove zeros from the data (which cause problems when taking logs), we can filter data to include only values &gt;=50. Note that ggplot2 will “do the right thing”.</p>
+<div class="sourceCode" id="cb58"><html><body><pre class="r"><span class="no">cc_ts</span> <span class="kw">%&gt;%</span>
+    <span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(<span class="no">count</span><span class="kw">&gt;=</span><span class="fl">50</span>) <span class="kw">%&gt;%</span>
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="kw">x</span><span class="kw">=</span><span class="no">date</span>, <span class="kw">y</span><span class="kw">=</span><span class="no">count</span>, <span class="kw">group</span><span class="kw">=</span><span class="no">CountryRegion</span>)) +
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span>(<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="kw">color</span><span class="kw">=</span><span class="no">CountryRegion</span>)) +
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span>(<span class="st">'Confirmed cases'</span>) +
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_log10</a></span>()</pre></body></html></div>
+<p><img src="sars2pack_files/figure-html/cc_ts_plot_log-1.png" width="700"></p>
+<p>Consider the following questions based on the figure:</p>
+<ul>
+<li>What does the slope of the lines in this plot represent?</li>
+<li>What is the difference between China and other countries? What does this difference mean in terms of how the disease is spreading?</li>
+<li>What does each</li>
+<li>Pick an arbitrary level on the y-axis and look at the dates associated with each country’s curve with respect to that level. What do differences along the x-axis tell us about where the countries are with respect to disease process?</li>
+</ul>
 </div>
 </div>
 <div id="modeling-illustrated-for-a-simulation" class="section level1">
@@ -186,7 +404,7 @@
 <a href="#modeling-illustrated-for-a-simulation" class="anchor"></a>Modeling illustrated for a simulation</h1>
 <p>Following code conveyed by John Mallery, we have the following approach for estimating R0 using a single realization of an epidemic simulation.</p>
 <p>Note that there can be failures of <code>estimate.R</code> for certain inputs. We are working on that.</p>
-<div class="sourceCode" id="cb8"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">R0</span>)
+<div class="sourceCode" id="cb59"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">R0</span>)
 <span class="co"># Generating an epidemic with given parameters</span>
 <span class="no">mGT</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/R0/man/generation.time.html">generation.time</a></span>(<span class="st">"gamma"</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">3</span>,<span class="fl">1.5</span>))
 <span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span>(<span class="fl">5432</span>)  <span class="co"># always initialize when simulating!</span>
@@ -201,11 +419,11 @@
 <pre><code>## Warning in est.R0.TD(epid = c(1, 0, 1, 0, 1, 0, 2, 1, 2, 1, 7, 2, 3, 4, : Using
 ## initial incidence as initial number of cases.</code></pre>
 <p>We modified the plotting function in <em><a href="https://CRAN.R-project.org/package=R0">R0</a></em> which was calling <code>dev.new</code> too often. Use <code>plot2</code>.</p>
-<div class="sourceCode" id="cb12"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span>(<span class="kw">mfrow</span><span class="kw">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">2</span>,<span class="fl">2</span>))
+<div class="sourceCode" id="cb63"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span>(<span class="kw">mfrow</span><span class="kw">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">2</span>,<span class="fl">2</span>))
 <span class="fu"><a href="../reference/plot2.html">plot2</a></span>(<span class="no">est</span>)</pre></body></html></div>
 <p><img src="sars2pack_files/figure-html/lksim-1.png" width="700"></p>
 <p>The plotfit2 function is also useful. These fits look identical but they are not.</p>
-<div class="sourceCode" id="cb13"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span>(<span class="kw">mfrow</span><span class="kw">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">2</span>,<span class="fl">2</span>))
+<div class="sourceCode" id="cb64"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span>(<span class="kw">mfrow</span><span class="kw">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">2</span>,<span class="fl">2</span>))
 <span class="fu"><a href="../reference/plotfit2.html">plotfit2</a></span>(<span class="no">est</span>)</pre></body></html></div>
 <p><img src="sars2pack_files/figure-html/lksim2-1.png" width="700"></p>
 </div>
@@ -218,7 +436,7 @@
 <a href="#hubei-province" class="anchor"></a>Hubei Province</h2>
 <p>We are able to use exponential growth and time-dependent models with this data, using generation time model from a recent <a href="https://annals.org/aim/fullarticle/2762808/incubation-period-coronavirus-disease-2019-covid-19-from-publicly-reported">Annals of Internal Medicine</a> paper.</p>
 <p>The incidence data probably need smoothing, and the time-dependent model has unreasonable fluctuations.</p>
-<div class="sourceCode" id="cb14"><html><body><pre class="r"><span class="no">dates</span> <span class="kw">=</span> <span class="kw pkg">lubridate</span><span class="kw ns">::</span><span class="fu"><a href="http://lubridate.tidyverse.org/reference/as_date.html">as_date</a></span>(<span class="fu">mdy</span>(<span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span>(<span class="no">mar19df</span>)[-<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">1</span>:<span class="fl">4</span>)]))
+<div class="sourceCode" id="cb65"><html><body><pre class="r"><span class="no">dates</span> <span class="kw">=</span> <span class="kw pkg">lubridate</span><span class="kw ns">::</span><span class="fu"><a href="http://lubridate.tidyverse.org/reference/as_date.html">as_date</a></span>(<span class="fu">mdy</span>(<span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span>(<span class="no">mar19df</span>)[-<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">1</span>:<span class="fl">4</span>)]))
 <span class="no">hubdat</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span>(<span class="fu"><a href="../reference/get_series.html">get_series</a></span>(<span class="kw">province</span><span class="kw">=</span><span class="st">"Hubei"</span>, <span class="kw">country</span><span class="kw">=</span><span class="st">"China"</span>,
     <span class="kw">dataset</span><span class="kw">=</span><span class="kw pkg">sars2pack</span><span class="kw ns">::</span><span class="no"><a href="../reference/mar19df.html">mar19df</a></span>))
 <span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span>(<span class="no">hubdat</span>) <span class="kw">=</span> <span class="no">dates</span>
@@ -231,13 +449,13 @@
 ## = 105, : Simulations may take several minutes.</code></pre>
 <pre><code>## Warning in est.R0.TD(epid = c(`2020-01-22` = 444, `2020-01-23` = 0, `2020-01-24`
 ## = 105, : Using initial incidence as initial number of cases.</code></pre>
-<div class="sourceCode" id="cb18"><html><body><pre class="r"><span class="no">est.EG</span></pre></body></html></div>
+<div class="sourceCode" id="cb69"><html><body><pre class="r"><span class="no">est.EG</span></pre></body></html></div>
 <pre><code>## Reproduction number estimate using  Exponential Growth  method.
 ## R :  0.8061514[ 0.8035971 , 0.8087093 ]
 ## 
 ## Reproduction number estimate using  Time-Dependent  method.
 ## 7.162571 0 5.216657 5.191665 4.048158 3.631084 3.349247 0 2.835442 2.187792 ...</code></pre>
-<div class="sourceCode" id="cb20"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span>(<span class="kw">mfrow</span><span class="kw">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">2</span>,<span class="fl">2</span>), <span class="kw">mar</span><span class="kw">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">5</span>,<span class="fl">3</span>,<span class="fl">2</span>,<span class="fl">2</span>))
+<div class="sourceCode" id="cb71"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span>(<span class="kw">mfrow</span><span class="kw">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">2</span>,<span class="fl">2</span>), <span class="kw">mar</span><span class="kw">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">5</span>,<span class="fl">3</span>,<span class="fl">2</span>,<span class="fl">2</span>))
 <span class="fu"><a href="../reference/plot2.html">plot2</a></span>(<span class="no">est.EG</span>)
 <span class="fu"><a href="../reference/plotfit2.html">plotfit2</a></span>(<span class="no">est.EG</span>)</pre></body></html></div>
 <p><img src="sars2pack_files/figure-html/dohub-1.png" width="700"></p>
@@ -246,21 +464,26 @@
 <h2 class="hasAnchor">
 <a href="#italy" class="anchor"></a>Italy</h2>
 <p>For Italy, only the EG model seems to work, with the Annals of Internal Medicine generation time model. It fits the data reasonably well, but the data seems to include a reporting gap.</p>
-<div class="sourceCode" id="cb21"><html><body><pre class="r"><span class="no">itdat</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span>(<span class="fu"><a href="../reference/get_series.html">get_series</a></span>(<span class="kw">province</span><span class="kw">=</span><span class="st">""</span>, <span class="kw">country</span><span class="kw">=</span><span class="st">"Italy"</span>,
+<div class="sourceCode" id="cb72"><html><body><pre class="r"><span class="no">itdat</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span>(<span class="fu"><a href="../reference/get_series.html">get_series</a></span>(<span class="kw">province</span><span class="kw">=</span><span class="st">""</span>, <span class="kw">country</span><span class="kw">=</span><span class="st">"Italy"</span>,
     <span class="kw">dataset</span><span class="kw">=</span><span class="kw pkg">sars2pack</span><span class="kw ns">::</span><span class="no"><a href="../reference/mar19df.html">mar19df</a></span>))
 <span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span>(<span class="no">itdat</span>) <span class="kw">=</span> <span class="no">dates</span>
 <span class="no">itdat.filt</span> <span class="kw">=</span> <span class="fu"><a href="../reference/trim_leading_values.html">trim_leading_values</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="no">itdat</span>[<span class="fl">1</span>], <span class="fu"><a href="https://rdrr.io/r/base/diff.html">diff</a></span>(<span class="no">itdat</span>)))
 <span class="no">est.EG</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/R0/man/estimate.R.html">estimate.R</a></span>(<span class="kw">epid</span><span class="kw">=</span><span class="no">itdat.filt</span>, <span class="kw">GT</span><span class="kw">=</span><span class="no">mGT</span>,
     <span class="kw">methods</span><span class="kw">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"EG"</span>), <span class="kw">begin</span><span class="kw">=</span><span class="fl">1L</span>, <span class="kw">end</span><span class="kw">=</span><span class="fu"><a href="https://rdrr.io/r/base/integer.html">as.integer</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span>(<span class="no">itdat.filt</span>)))</pre></body></html></div>
 <pre><code>## Waiting for profiling to be done...</code></pre>
-<div class="sourceCode" id="cb23"><html><body><pre class="r"><span class="no">est.EG</span></pre></body></html></div>
+<div class="sourceCode" id="cb74"><html><body><pre class="r"><span class="no">est.EG</span></pre></body></html></div>
 <pre><code>## Reproduction number estimate using  Exponential Growth  method.
 ## R :  2.736957[ 2.708604 , 2.765787 ]</code></pre>
-<div class="sourceCode" id="cb25"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span>(<span class="kw">mfrow</span><span class="kw">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">2</span>,<span class="fl">2</span>), <span class="kw">mar</span><span class="kw">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">5</span>,<span class="fl">3</span>,<span class="fl">2</span>,<span class="fl">2</span>))
+<div class="sourceCode" id="cb76"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span>(<span class="kw">mfrow</span><span class="kw">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">2</span>,<span class="fl">2</span>), <span class="kw">mar</span><span class="kw">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">5</span>,<span class="fl">3</span>,<span class="fl">2</span>,<span class="fl">2</span>))
 <span class="fu"><a href="../reference/plot2.html">plot2</a></span>(<span class="no">est.EG</span>, <span class="kw">main</span><span class="kw">=</span><span class="st">"Italy"</span>)
 <span class="fu"><a href="../reference/plotfit2.html">plotfit2</a></span>(<span class="no">est.EG</span>, <span class="kw">main</span><span class="kw">=</span><span class="st">"Italy"</span>)</pre></body></html></div>
 <p><img src="sars2pack_files/figure-html/doit-1.png" width="700"></p>
 </div>
+</div>
+<div id="origins-of-this-package" class="section level1">
+<h1 class="hasAnchor">
+<a href="#origins-of-this-package" class="anchor"></a>Origins of this package</h1>
+<p>John C. Mallery conveyed code of Charles Morefield to harvest COVID-19 time series data. Vince Carey then started an R package/github repo to manage the relevant code. The package was named <code>sars2pack</code> in hopes of avoiding name conflict with many other packages while remaining descriptive and focused.</p>
 </div>
   </div>
 
