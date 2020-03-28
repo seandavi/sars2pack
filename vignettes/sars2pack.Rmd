@@ -1,10 +1,10 @@
 ---
-title: "sars2pack: packaging of C. Morefield code on COVID-19 epidemic modeling"
+title: "Exploring the COVID-19 pandemic using sars2pack"
 author: "Sean Davis <seandavi@gmail.com> and Vincent J. Carey, stvjc at channing.harvard.edu"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 vignette: >
   %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteIndexEntry{sars2pack: Access and use public COVID-19 datasets}
+  %\VignetteIndexEntry{Usage and Data Exploration}
   %\VignetteEncoding{UTF-8}
 output:
   BiocStyle::html_document:
@@ -20,8 +20,10 @@ suppressPackageStartupMessages({
 library(BiocStyle)
 library(sars2pack)
 library(dplyr)
+library(ggplot2)
 library(tibble)
 library(lubridate)
+library(DT)
 })
 })
 ```
@@ -47,7 +49,7 @@ changing daily as captured by data reported around the world. The
 
 ## Installation
 
-```{r}
+```{r eval=FALSE}
 BiocManager::install('seandavi/sars2pack')
 ```
 
@@ -89,27 +91,28 @@ non-programmer types).
 - 
 
 
-# COVID-19 data resources
+# Epidemic time series data
 
-This section briefly introduces how to access the data
-resources in this package. Note that many of the functions
-below **require a network connection** to get updated data.
-
-## Epidemic time series data
-
-Accessing the time series datasets follow a similar pattern. 
+Usage of each of the time series datasets follows a similar pattern. 
 
 1. Fetch a tidy `tbl_df` using a function such as `jhu_data()`
-2. The columns `date` (of type `date`) and `count` of type `numeric`
-   columns are standard.
+2. In the resulting `tbl_df`, the columns `date` (of type `date`) and
+   `count` of type `numeric` columns are standard.
 3. Additional columns describe locations, subsets of data (such as
-   `confirmed`, `deaths`, `recovered`).
+   `confirmed`, `deaths`, `recovered`) and vary from dataset to
+   dataset. 
 
 Regardless of the original format of the data, the `sars2pack`
 datasets are presented as [tidy data] to facilitate `dplyr`, `ggplot`,
 and other fluid analysis approaches to apply directly.
 
 [tidy data]: https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html
+
+## Access data
+
+This section briefly introduces how to access the data
+resources in this package. Note that many of the functions
+below **require a network connection** to get updated data.
 
 ### JHU Dataset
 
@@ -185,41 +188,175 @@ dim(nytimes_county)
 colnames(nytimes_county)
 ```
 
+# Use cases
 
-Looking at the raw data seems important to get a clear sense
-of the modeling challenge.
-```{r doser,fig.height=7}
-get_series = function(province="", country, dataset=sars2pack::mar19df) {
-  ans = dataset %>% filter(ProvinceState==province & CountryRegion==country)
-  ans[,-c(1:4)]
-}
-plot_series = function(province="", country, dataset=sars2pack::mar19df, ...) {
- ser = get_series(province=province, country=country, dataset=dataset)
- dates = lubridate::as_date(mdy(names(dataset)[-c(1:4)]))
- plot(dates, ser, main=paste(province, country), ...)
-}
-par(mfrow=c(2,2),mar=c(4,3,2,2))
-plot_series(province="Hubei", country="China")
-plot_series(country="Italy")
-plot_series(country="Thailand")
-plot_series("Massachusetts", country="US")
+## Basic data exploration
+
+In this section, we will be using a combination of [dplyr] and
+[ggplot2] to explore the COVID-19 global data from JHU. For details on
+this dataset, see the help using `?jhu_data`.
+
+The next line of code will do a (set of) network calls to fetch the
+most up-to-date dataset from the JHU github repository.
+
+```{r global_ts_init}
+jhu = jhu_data()
+head(jhu,3)
 ```
 
-# Using the [incidence] package
+We now want to ask a series of questions about the dataset. 
 
-```{r incidenceconvert}
-library(incidence)
-as.incidence1 <- function(df) {
-    ret =  df %>% dplyr::select(date,count) %>%
-        dplyr::group_by(date) %>%
-        dplyr::summarise(count = sum(count)) %>%
-        dplyr::arrange(date)
-    ret$count = c(diff(ret$count),0)
-    return(structure(list(dates = ret$date, counts = matrix(ret$count,nc=1), interval  = 1L, timespan = nrow(ret), cumulative=FALSE, n=nrow(ret)), class='incidence'))
-}
+- **How many records are in the dataset?**
 
+```{r jhu_count}
+nrow(jhu)
 ```
 
+- **How many different countries are represented?**
+
+```{r jhu_unique_countries}
+length(unique(jhu$CountryRegion))
+```
+
+Most records have no listing for `ProvinceState` column. Let's look at
+a few of those to get an idea of what is there when not empty:
+
+- **What is in the `ProvinceState` column?**
+
+To answer this question, we will be using `dplyr`, so some familiarity
+with that package will be helpful to follow this code.
+
+```{r jhu_prov_state}
+jhu %>%
+    dplyr::filter(!is.na(ProvinceState)) %>%
+    dplyr::select(ProvinceState, CountryRegion) %>%
+    unique() %>%
+    head(10)
+```
+
+We still have not looked at the most valuable information, the `date`
+and `count` columns in any detail.
+
+- **What is the current count of confirmed cases by country, ordered
+  by highest count down?**
+
+There is a lot to unpack in the next code block, but the results are
+quite useful. We will use the [DT] package to make the dataset searchable
+and sortable.
+
+```{r global_latest_date}
+library(DT)
+latest_jhu_data = jhu %>%
+    dplyr::filter(subset=='confirmed' & is.na(ProvinceState)) %>%
+    dplyr::group_by(CountryRegion) %>%
+    dplyr::slice(which.max(date)) %>%
+    dplyr::arrange(desc(count))
+DT::datatable(latest_jhu_data, rownames=FALSE)
+```
+
+**Note**: I included a little `is.na` in the filtering above to remove
+records where country data are split out over subparts. We revisit
+this below.
+
+[DT]: https://rstudio.github.io/DT/
+
+The data here could be usefully displayed as a graph as well.
+
+```{r latest_jhu_bargraph}
+par(las=2, mar=c(8,5,5,1))
+barplot(count ~ CountryRegion, xlab = '',
+        data=head(latest_jhu_data,10),
+        main='Confirmed cases, top 10 countries')
+```
+
+We note here that China is not shown. That is because we limited the
+data to only rows that had empty ProvinceState records. To add those
+records back in, we sum all the China rows (and those of other
+countries like Australia, etc.) by country and then perform similar
+work to produce a final plot.
+
+```{r}
+latest_jhu_data = jhu %>%
+    dplyr::filter(subset=='confirmed') %>%
+    dplyr::select(-c(ProvinceState,Lat,Long)) %>%
+    dplyr::group_by(CountryRegion,date) %>%
+    dplyr::summarize(count = sum(count)) %>%
+    dplyr::slice(which.max(date)) %>%
+    dplyr::arrange(desc(count))
+par(las=2, mar=c(8,5,5,1))
+barplot(count ~ CountryRegion, xlab = '',
+        data=head(latest_jhu_data,10),
+        main='Confirmed cases, top 10 countries')
+```
+
+
+
+## Visualize time series data
+
+Up to now, we have ignored the time series aspects of the data and
+have sliced the dataset by country. In this section, we will be using
+dplyr and ggplot2 to visualize disease infection and deaths over time.
+
+- **How have the cases in Italy changed over time?**
+
+```{r italy_ts_1}
+library(ggplot2)
+italy_cc_ts = jhu %>%
+    dplyr::filter(CountryRegion == 'Italy' & subset=='confirmed')
+ggplot(italy_cc_ts,aes(x=date, y=count)) +
+    geom_line() +
+    ggtitle('Confirmed cases') 
+```
+
+- **How do the confirmed cases in China, US, Italy, Spain, Germany,
+  and Russia compare over time?**
+
+We have to play the same game of summing all values by country and
+date. Here, we filter the countries to be in a list of countries.
+
+```{r cc_ts_data}
+countries_of_interest = c('China','US','Italy','Spain','Germany','Russia')
+library(ggplot2)
+cc_ts = jhu %>%
+    dplyr::group_by(CountryRegion,date) %>%
+    dplyr::filter(CountryRegion %in% countries_of_interest & subset=='confirmed') %>%
+    dplyr::summarize(count = sum(count))
+head(cc_ts)
+```
+
+To make the plot, we use the ggplot2 grouping and coloring to provide
+curves for each country on the same axis.
+
+```{r cc_ts_plot}
+ggplot(cc_ts,aes(x=date, y=count, group=CountryRegion)) +
+    geom_line(aes(color=CountryRegion)) +
+    ggtitle('Confirmed cases') 
+```
+
+Changing to log scale can give a sense of the "exponentialness" of
+these data. Also, to remove zeros from the data (which cause problems
+when taking logs), we can filter data to include only values
+>=50. Note that ggplot2 will "do the right thing".
+
+```{r cc_ts_plot_log}
+cc_ts %>%
+    dplyr::filter(count>=50) %>%
+    ggplot(aes(x=date, y=count, group=CountryRegion)) +
+    geom_line(aes(color=CountryRegion)) +
+    ggtitle('Confirmed cases') +
+    scale_y_log10()
+```
+
+Consider the following questions based on the figure:
+
+- What does the slope of the lines in this plot represent?
+- What is the difference between China and other countries? What does
+  this difference mean in terms of how the disease is spreading?
+- What does each
+- Pick an arbitrary level on the y-axis and look at the dates
+  associated with each country's curve with respect to that
+  level. What do differences along the x-axis tell us about where the
+  countries are with respect to disease process?
 
 # Modeling illustrated for a simulation
 

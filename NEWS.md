@@ -1,3 +1,10 @@
+# sars2pack 0.0.12
+
+## Major changes
+
+- Vignette updates to include data exploration
+  and time series visualization
+
 # sars2pack 0.0.11
 
 ## Major changes
