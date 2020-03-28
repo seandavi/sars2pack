@@ -24,11 +24,7 @@ jobs:
           cache-name: r-site-library-bioc-devel-docker
         with:
           path: /usr/local/lib/R/site-library
-          key: ${{ runner.os }}-build-${{ env.cache-name }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('DESCRIPTION') }}
 
 
       - name: Install package and dependencies
