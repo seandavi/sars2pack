@@ -1,4 +1,11 @@
+# Workflow statuses
+
+![Publish artifacts](https://github.com/seandavi/sars2pack/workflows/Publish%20artifacts/badge.svg)
+
+
 # sars2pack
+
+
 covid-19 work from John Mallery and Charles Morefield
 
 Mostly mediating to R0 package from CRAN -- from Obedia Haneef and Boelle DOI 10.1186/1472-6947-12-147
