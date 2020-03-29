@@ -9,6 +9,8 @@
 #'
 #' @return a data frame with county names, FIPS codes, areas, and lat/long
 #'
+#' @family data-import
+#' 
 #' @examples
 #' us_county_geo_details()
 #'

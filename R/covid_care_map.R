@@ -16,6 +16,8 @@
 #'
 #' @examples
 #' us_healthcare_capacity()
+#'
+#' @family data-import
 #' 
 #' @export
 us_healthcare_capacity <- function() {
