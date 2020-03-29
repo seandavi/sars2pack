@@ -99,6 +99,7 @@ head(res)
 jhu_data(), usa_facts_data()
 
 Other data-import: 
+\code{\link{covidtracker_data}()},
 \code{\link{jhu_data}()},
 \code{\link{usa_facts_data}()}
 }

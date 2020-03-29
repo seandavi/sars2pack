@@ -55,6 +55,7 @@ head(res)
 }
 \seealso{
 Other data-import: 
+\code{\link{covidtracker_data}()},
 \code{\link{nytimes_county_data}()},
 \code{\link{usa_facts_data}()}
 }
