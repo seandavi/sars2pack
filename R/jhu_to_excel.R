@@ -47,6 +47,63 @@
 enriched_jhu_data <- function(cols_to_remove = .cols_to_remove) {
     res = jhu_data()
     cmd = country_metadata()
+    res$alpha3Code = countrycode(
+        res$CountryRegion,
+        origin = "country.name.en",
+        destination="iso3c",
+        ## This is a custom HACK
+        custom_match=c('Kosovo'='XKX', 'Diamond Princess'=NA))
+    res3 = cmd %>%
+        dplyr::right_join(res,by=c("alpha3Code"="alpha3Code")) %>%
+        dplyr::select(-c(cols_to_remove))
+    if(nrow(res3) != nrow(res)) {
+        stop('row numbers do not match')
+    }
+    return(res3)
+}
+
+#' Create +/- write excel format of enriched JHU global data
+#'
+#' The purpose of this function is to enrich the JHU dataset
+#' with additional country-level metadata and then get the
+#' data into a form that can be easily written to excel or used
+#' as a "wide-format" tabular dataset.
+#'
+#' @importFrom openxlsx write.xlsx
+#' @importFrom countrycode countrycode
+#' @importFrom dplyr filter
+#' @importFrom tidyr pivot_wider
+#' @importFrom dplyr select
+#' @importFrom dplyr right_join
+#'
+#' @param cols_to_remove a character vector of column names from
+#'     [country_metadata()] to remove.
+#' @param excel_filename character(1) filename to which to save excel
+#'     file
+#' @param dat a data.frame-like object with at least column
+#'     `CountryRegion` that will be joined with country data.
+#'
+#' 
+#' @return A list of three `data.frames` named `deaths`, `confirmed`,
+#' and `recovered`.
+jhu_data_to_excel <- function(dat = jhu_data(),
+                              excel_filename=NA,
+                              cols_to_remove =
+                                  c(
+                                      "callingCodes",
+                                      "altSpellings",
+                                      "latlng",
+                                      "demonym",
+                                      "timezones",
+                                      "nativeName",
+                                      "currencies",
+                                      "languages",
+                                      "translations",
+                                      "flag",
+                                      "regionalBlocs"
+                                  ), ...) {
+    res = dat
+    cmd = country_metadata()
     subsets = unique(res$subset)
     ret = lapply(subsets,function(x) {
         res2 = res %>%
@@ -68,6 +125,8 @@ enriched_jhu_data <- function(cols_to_remove = .cols_to_remove) {
         return(res3)
     })
     names(ret) = unique(res$subset)
+    if(!is.na(excel_filename)) {
+        write.xlsx(ret, file=excel_filename, ...)
+    }
     ret
 }
-
