@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • sars2pack</title>
+<title>Create +/- write excel format of enriched JHU global data — jhu_data_to_excel • sars2pack</title>
 
 
 <!-- jquery -->
@@ -39,7 +39,11 @@
 
 
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="Create +/- write excel format of enriched JHU global data — jhu_data_to_excel" />
+<meta property="og:description" content="The purpose of this function is to enrich the JHU dataset
+with additional country-level metadata and then get the
+data into a form that can be easily written to excel or used
+as a &quot;wide-format&quot; tabular dataset." />
 
 
 
@@ -58,7 +62,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -111,138 +115,54 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>Create +/- write excel format of enriched JHU global data</h1>
+    <small class="dont-index">Source: <a href='https://github.com/seandavi/sars2pack/blob/master/R/jhu_to_excel.R'><code>R/jhu_to_excel.R</code></a></small>
+    <div class="hidden name"><code>jhu_data_to_excel.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    <p>The purpose of this function is to enrich the JHU dataset
+with additional country-level metadata and then get the
+data into a form that can be easily written to excel or used
+as a "wide-format" tabular dataset.</p>
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
+    <pre class="usage"><span class='fu'>jhu_data_to_excel</span>(
+  <span class='kw'>dat</span> <span class='kw'>=</span> <span class='fu'><a href='jhu_data.html'>jhu_data</a></span>(),
+  <span class='kw'>excel_filename</span> <span class='kw'>=</span> <span class='fl'>NA</span>,
+  <span class='kw'>cols_to_remove</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"callingCodes"</span>, <span class='st'>"altSpellings"</span>, <span class='st'>"latlng"</span>, <span class='st'>"demonym"</span>, <span class='st'>"timezones"</span>,
+    <span class='st'>"nativeName"</span>, <span class='st'>"currencies"</span>, <span class='st'>"languages"</span>, <span class='st'>"translations"</span>, <span class='st'>"flag"</span>, <span class='st'>"regionalBlocs"</span>),
+  <span class='no'>...</span>
+)</pre>
 
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="country_metadata.html">country_metadata()</a></code> </p>
-        </td>
-        <td><p>Get basic country data</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="demo_simulation.html">demo_simulation()</a></code> </p>
-        </td>
-        <td><p>set up a simulation as demonstrated by John C Mallery</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="enriched_jhu_data.html">enriched_jhu_data()</a></code> </p>
-        </td>
-        <td><p>Get enriched jhu dataset as a list of three data.frames</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="get_series.html">get_series()</a></code> </p>
-        </td>
-        <td><p>supersimple series extraction</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="integer_to_fips.html">integer_to_fips()</a></code> </p>
-        </td>
-        <td><p>convert an integer to fips</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="jhu_data.html">jhu_data()</a></code> </p>
-        </td>
-        <td><p>Global COVID-19 data from <a href='https://github.com/CSSEGISandData/COVID-19/'>JHU CSSEGIS</a></p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="jhu_data_to_excel.html">jhu_data_to_excel()</a></code> </p>
-        </td>
-        <td><p>Create +/- write excel format of enriched JHU global data</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="mar19df.html">mar19df</a></code> </p>
-        </td>
-        <td><p>march 19 result of CSSEGISandData/COVID-19/ time series data retrieval as data.frame</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="mar19dt.html">mar19dt</a></code> </p>
-        </td>
-        <td><p>march 19 result of CSSEGISandData/COVID-19/ time series data retrieval as data.table</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="nytimes_data.html">nytimes_county_data()</a></code> <code><a href="nytimes_data.html">nytimes_state_data()</a></code> </p>
-        </td>
-        <td><p>United States county and state level data from the New York Times</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="plot2.R0.sR.html">plot2(<i>&lt;R0.sR&gt;</i>)</a></code> </p>
-        </td>
-        <td><p>version of R0:::plot.R0.sR that does not use dev.new</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="plot2.html">plot2()</a></code> </p>
-        </td>
-        <td><p>generic for simpler plotter for R0.sR</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="plot_series.html">plot_series()</a></code> </p>
-        </td>
-        <td><p>supersimple series plotter</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="plotfit2.R0.sR.html">plotfit2(<i>&lt;R0.sR&gt;</i>)</a></code> </p>
-        </td>
-        <td><p>version of R0:::plotfit.R0.sR that does not use dev.new</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="plotfit2.html">plotfit2()</a></code> </p>
-        </td>
-        <td><p>generic for simpler plotter for plotfit for R0.sR</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="trim_leading_values.html">trim_leading_values()</a></code> </p>
-        </td>
-        <td><p>trim leading repeats of a given value from a vector</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="usa_facts_data.html">usa_facts_data()</a></code> </p>
-        </td>
-        <td><p>United States state and county level data from USAFacts</p></td>
-      </tr>
-    </tbody>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>dat</th>
+      <td><p>a data.frame-like object with at least column
+<code>CountryRegion</code> that will be joined with country data.</p></td>
+    </tr>
+    <tr>
+      <th>excel_filename</th>
+      <td><p>character(1) filename to which to save excel
+file</p></td>
+    </tr>
+    <tr>
+      <th>cols_to_remove</th>
+      <td><p>a character vector of column names from
+<code><a href='country_metadata.html'>country_metadata()</a></code> to remove.</p></td>
+    </tr>
     </table>
-  </div>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A list of three <code>data.frames</code> named <code>deaths</code>, <code>confirmed</code>,
+and <code>recovered</code>.</p>
+
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
       <h2 data-toc-skip>Contents</h2>
