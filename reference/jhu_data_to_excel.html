@@ -131,7 +131,7 @@ as a "wide-format" tabular dataset.</p>
 
     <pre class="usage"><span class='fu'>jhu_data_to_excel</span>(
   <span class='kw'>dat</span> <span class='kw'>=</span> <span class='fu'><a href='jhu_data.html'>jhu_data</a></span>(),
-  <span class='kw'>excel_filename</span> <span class='kw'>=</span> <span class='fl'>NA</span>,
+  <span class='kw'>file</span> <span class='kw'>=</span> <span class='fl'>NA</span>,
   <span class='kw'>cols_to_remove</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"callingCodes"</span>, <span class='st'>"altSpellings"</span>, <span class='st'>"latlng"</span>, <span class='st'>"demonym"</span>, <span class='st'>"timezones"</span>,
     <span class='st'>"nativeName"</span>, <span class='st'>"currencies"</span>, <span class='st'>"languages"</span>, <span class='st'>"translations"</span>, <span class='st'>"flag"</span>, <span class='st'>"regionalBlocs"</span>),
   <span class='no'>...</span>
@@ -146,9 +146,12 @@ as a "wide-format" tabular dataset.</p>
 <code>CountryRegion</code> that will be joined with country data.</p></td>
     </tr>
     <tr>
-      <th>excel_filename</th>
+      <th>file</th>
       <td><p>character(1) filename to which to save excel
-file</p></td>
+file. If specified, use the write.xlsx() function from the
+openxlsx package to create (or overwrite) the file of that
+name. The excel file will have one tab for each of the <code>subset</code>
+records from the supplied data.frame in <code>dat</code>.</p></td>
     </tr>
     <tr>
       <th>cols_to_remove</th>
@@ -162,6 +165,9 @@ file</p></td>
     <p>A list of three <code>data.frames</code> named <code>deaths</code>, <code>confirmed</code>,
 and <code>recovered</code>.</p>
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='no'>xls_form</span> <span class='kw'>=</span> <span class='fu'>jhu_data_to_excel</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Some values were not matched unambiguously: MS Zaandam</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Some values were not matched unambiguously: MS Zaandam</span></div><div class='output co'>#&gt; <span class='error'>Error in jhu_data_to_excel(): object 'excel_filename' not found</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='no'>xls_form</span>)</div><div class='output co'>#&gt; <span class='error'>Error in eval(expr, envir, enclos): object 'xls_form' not found</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>xls_form</span><span class='kw'>[[</span><span class='fl'>1</span>]])</div><div class='output co'>#&gt; <span class='error'>Error in head(xls_form[[1]]): object 'xls_form' not found</span></div><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
