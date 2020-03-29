@@ -76,18 +76,27 @@ enriched_jhu_data <- function(cols_to_remove = .cols_to_remove) {
 #' @importFrom dplyr select
 #' @importFrom dplyr right_join
 #'
-#' @param cols_to_remove a character vector of column names from
-#'     [country_metadata()] to remove.
-#' @param excel_filename character(1) filename to which to save excel
-#'     file
 #' @param dat a data.frame-like object with at least column
 #'     `CountryRegion` that will be joined with country data.
+#' @param file character(1) filename to which to save excel
+#'     file. If specified, use the write.xlsx() function from the
+#'     openxlsx package to create (or overwrite) the file of that
+#'     name. The excel file will have one tab for each of the `subset`
+#'     records from the supplied data.frame in `dat`.
+#' @param cols_to_remove a character vector of column names from
+#'     [country_metadata()] to remove.
 #'
-#' 
 #' @return A list of three `data.frames` named `deaths`, `confirmed`,
 #' and `recovered`.
+#'
+#' @examples
+#' xls_form = jhu_data_to_excel()
+#' names(xls_form)
+#' head(xls_form[[1]])
+#' 
+#' @export
 jhu_data_to_excel <- function(dat = jhu_data(),
-                              excel_filename=NA,
+                              file=NA,
                               cols_to_remove =
                                   c(
                                       "callingCodes",

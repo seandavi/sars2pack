@@ -6,7 +6,7 @@
 \usage{
 jhu_data_to_excel(
   dat = jhu_data(),
-  excel_filename = NA,
+  file = NA,
   cols_to_remove = c("callingCodes", "altSpellings", "latlng", "demonym", "timezones",
     "nativeName", "currencies", "languages", "translations", "flag", "regionalBlocs"),
   ...
@@ -16,8 +16,11 @@ jhu_data_to_excel(
 \item{dat}{a data.frame-like object with at least column
 \code{CountryRegion} that will be joined with country data.}
 
-\item{excel_filename}{character(1) filename to which to save excel
-file}
+\item{file}{character(1) filename to which to save excel
+file. If specified, use the write.xlsx() function from the
+openxlsx package to create (or overwrite) the file of that
+name. The excel file will have one tab for each of the \code{subset}
+records from the supplied data.frame in \code{dat}.}
 
 \item{cols_to_remove}{a character vector of column names from
 \code{\link[=country_metadata]{country_metadata()}} to remove.}
@@ -31,4 +34,10 @@ The purpose of this function is to enrich the JHU dataset
 with additional country-level metadata and then get the
 data into a form that can be easily written to excel or used
 as a "wide-format" tabular dataset.
+}
+\examples{
+xls_form = jhu_data_to_excel()
+names(xls_form)
+head(xls_form[[1]])
+
 }
