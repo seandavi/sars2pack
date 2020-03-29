@@ -1,3 +1,16 @@
+# sars2pack 0.0.15
+
+## Major changes
+
+- added `coronatracker_data` data resource for detailed United States
+  data. This is the only data resource that includes US testing
+  numbers, including positive and negatives.
+- added `us_county_geo_details` from US census gazetteer files to
+  provide geographic details of US counties (area, lat/long, etc.)
+- significantly expanded vignette to include data exploration and
+  plotting of time course data for prominent pandemic sites.
+
+
 # sars2pack 0.0.13
 
 ## Major changes
