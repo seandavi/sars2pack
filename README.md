@@ -8,15 +8,7 @@ devtools::install_github('seandavi/sars2pack')
 
 # Features
 
-- [X] Access data from multiple sources:
-
-```
-jhu_data()
-usa_facts_data()
-nytimes_county_data()
-nytimes_state_data()
-```
-
+- [X] Access data from multiple sources: jhu_data(), usa_facts_data(), nytimes_county_data(), nytimes_state_data(), covidtracker_data()
 - [X] Estimate R0 for localities or countries.
 - [X] Visualize time series pandemic case growth
 - [X] Perform data mashups between COVID-19 pandemic data and
