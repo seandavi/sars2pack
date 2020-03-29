@@ -1,6 +1,9 @@
-# Workflow statuses
+# Workflow status
 
-![Publish artifacts](https://github.com/seandavi/sars2pack/workflows/Publish%20artifacts/badge.svg)
+| Workflow Status | Description |
+| --- | --- |
+| ![Publish artifacts](https://github.com/seandavi/sars2pack/workflows/Publish%20artifacts/badge.svg) | Produces regularly updated data resources and products |
+| ![pkgdown site](https://github.com/seandavi/sars2pack/workflows/pkgdown%20site/badge.svg) | Prepare and publish [pkgdown documentation](https://seandavi.github.io/sars2pack/ |
 
 
 # sars2pack
