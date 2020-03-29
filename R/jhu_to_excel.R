@@ -138,8 +138,8 @@ jhu_data_to_excel <- function(dat = jhu_data(),
         return(res3)
     })
     names(ret) = unique(res$subset)
-    if(!is.na(excel_filename)) {
-        write.xlsx(ret, file=excel_filename, ...)
+    if(!is.na(file)) {
+        write.xlsx(ret, file=file, ...)
     }
     ret
 }
