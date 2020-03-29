@@ -69,6 +69,10 @@ enriched_jhu_data <- function(cols_to_remove = .cols_to_remove) {
 #' data into a form that can be easily written to excel or used
 #' as a "wide-format" tabular dataset.
 #'
+#' @note This function is really a utility function to provide
+#' an excel format of data to folks more familiar with excel than
+#' with R.
+#'
 #' @importFrom openxlsx write.xlsx
 #' @importFrom countrycode countrycode
 #' @importFrom dplyr filter

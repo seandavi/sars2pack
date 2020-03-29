@@ -35,6 +35,11 @@ with additional country-level metadata and then get the
 data into a form that can be easily written to excel or used
 as a "wide-format" tabular dataset.
 }
+\note{
+This function is really a utility function to provide
+an excel format of data to folks more familiar with excel than
+with R.
+}
 \examples{
 xls_form = jhu_data_to_excel()
 names(xls_form)
