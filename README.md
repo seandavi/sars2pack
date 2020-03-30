@@ -46,6 +46,13 @@ devtools::install_github('seandavi/sars2pack')
 - [ ] Create static and interactive maps of COVID-19 data for states,
       countries, or even counties.
 
+## Visualization
+
+![](man/figures/africa_geo.png)
+![](man/figures/cc_ts_plot_log-1.png)
+![](man/figures/epicurve_and_model.png)
+
+
 # Workflow status
 
 Automated workflows and current status.
