@@ -74,7 +74,7 @@ earlier entries in the data when they receive new information." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sars2pack</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.13</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.15</span>
       </span>
     </div>
 
@@ -118,7 +118,7 @@ earlier entries in the data when they receive new information." />
     <div class="page-header">
     <h1>United States county and state level data from the New York Times</h1>
     <small class="dont-index">Source: <a href='https://github.com/seandavi/sars2pack/blob/master/R/nytimes_data.R'><code>R/nytimes_data.R</code></a></small>
-    <div class="hidden name"><code>nytimes_data.Rd</code></div>
+    <div class="hidden name"><code>nytimes_county_data.Rd</code></div>
     </div>
 
     <div class="ref-description">
@@ -175,12 +175,6 @@ the outbreak.</p>
 <p>The data begins with the first reported coronavirus case in
 Washington State on Jan. 21, 2020. We will publish regular updates
 to the data in this repository.</p>
-    <h2 class="hasAnchor" id="functions"><a class="anchor" href="#functions"></a>Functions</h2>
-
-    
-<ul>
-<li><p><code>nytimes_state_data</code>:</p></li>
-</ul>
     <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
 
     <p>see <a href='https://github.com/nytimes/covid-19-data#geographic-exceptions'>https://github.com/nytimes/covid-19-data#geographic-exceptions</a></p>
@@ -204,43 +198,34 @@ you would link to our U.S. tracking page at
 
     <div class='dont-index'><p>jhu_data(), usa_facts_data()</p>
 <p>Other data-import: 
+<code>covidtracker_data()</code>,
 <code><a href='jhu_data.html'>jhu_data</a>()</code>,
+<code>us_county_geo_details()</code>,
+<code>us_healthcare_capacity()</code>,
 <code><a href='usa_facts_data.html'>usa_facts_data</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>res</span> <span class='kw'>=</span> <span class='fu'>nytimes_state_data</span>()</div><div class='output co'>#&gt; <span class='message'>Parsed with column specification:</span>
-#&gt; <span class='message'>cols(</span>
-#&gt; <span class='message'>  date = col_date(format = ""),</span>
-#&gt; <span class='message'>  state = col_character(),</span>
-#&gt; <span class='message'>  fips = col_character(),</span>
-#&gt; <span class='message'>  cases = col_double(),</span>
-#&gt; <span class='message'>  deaths = col_double()</span>
-#&gt; <span class='message'>)</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; [1] "date"   "state"  "fips"   "count"  "subset"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; # A tibble: 6 x 5
+    <pre class="examples"><div class='input'><span class='no'>res</span> <span class='kw'>=</span> <span class='fu'>nytimes_state_data</span>()
+<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; [1] "date"   "state"  "fips"   "count"  "subset"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 6 x 5</span><span>
 #&gt;   date       state       fips count subset   
-#&gt;   &lt;date&gt;     &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;    
-#&gt; 1 2020-01-21 Washington    53     1 confirmed
-#&gt; 2 2020-01-22 Washington    53     1 confirmed
-#&gt; 3 2020-01-23 Washington    53     1 confirmed
-#&gt; 4 2020-01-24 Illinois      17     1 confirmed
-#&gt; 5 2020-01-24 Washington    53     1 confirmed
-#&gt; 6 2020-01-25 California     6     1 confirmed</div><div class='input'><span class='no'>res</span> <span class='kw'>=</span> <span class='fu'>nytimes_county_data</span>()</div><div class='output co'>#&gt; <span class='message'>Parsed with column specification:</span>
-#&gt; <span class='message'>cols(</span>
-#&gt; <span class='message'>  date = col_date(format = ""),</span>
-#&gt; <span class='message'>  county = col_character(),</span>
-#&gt; <span class='message'>  state = col_character(),</span>
-#&gt; <span class='message'>  fips = col_character(),</span>
-#&gt; <span class='message'>  cases = col_double(),</span>
-#&gt; <span class='message'>  deaths = col_double()</span>
-#&gt; <span class='message'>)</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; [1] "date"   "county" "state"  "fips"   "count"  "subset"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; # A tibble: 6 x 6
+#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>    
+#&gt; </span><span style='color: #555555;'>1</span><span> 2020-01-21 Washington    53     1 confirmed
+#&gt; </span><span style='color: #555555;'>2</span><span> 2020-01-22 Washington    53     1 confirmed
+#&gt; </span><span style='color: #555555;'>3</span><span> 2020-01-23 Washington    53     1 confirmed
+#&gt; </span><span style='color: #555555;'>4</span><span> 2020-01-24 Illinois      17     1 confirmed
+#&gt; </span><span style='color: #555555;'>5</span><span> 2020-01-24 Washington    53     1 confirmed
+#&gt; </span><span style='color: #555555;'>6</span><span> 2020-01-25 California     6     1 confirmed</div><div class='input'><span class='no'>res</span> <span class='kw'>=</span> <span class='fu'>nytimes_county_data</span>()
+<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; [1] "date"   "county" "state"  "fips"   "count"  "subset"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 6 x 6</span><span>
 #&gt;   date       county    state       fips count subset   
-#&gt;   &lt;date&gt;     &lt;chr&gt;     &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;    
-#&gt; 1 2020-01-21 Snohomish Washington 53061     1 confirmed
-#&gt; 2 2020-01-22 Snohomish Washington 53061     1 confirmed
-#&gt; 3 2020-01-23 Snohomish Washington 53061     1 confirmed
-#&gt; 4 2020-01-24 Cook      Illinois   17031     1 confirmed
-#&gt; 5 2020-01-24 Snohomish Washington 53061     1 confirmed
-#&gt; 6 2020-01-25 Orange    California  6059     1 confirmed</div><div class='input'>
-</div></pre>
+#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>    
+#&gt; </span><span style='color: #555555;'>1</span><span> 2020-01-21 Snohomish Washington </span><span style='text-decoration: underline;'>53</span><span>061     1 confirmed
+#&gt; </span><span style='color: #555555;'>2</span><span> 2020-01-22 Snohomish Washington </span><span style='text-decoration: underline;'>53</span><span>061     1 confirmed
+#&gt; </span><span style='color: #555555;'>3</span><span> 2020-01-23 Snohomish Washington </span><span style='text-decoration: underline;'>53</span><span>061     1 confirmed
+#&gt; </span><span style='color: #555555;'>4</span><span> 2020-01-24 Cook      Illinois   </span><span style='text-decoration: underline;'>17</span><span>031     1 confirmed
+#&gt; </span><span style='color: #555555;'>5</span><span> 2020-01-24 Snohomish Washington </span><span style='text-decoration: underline;'>53</span><span>061     1 confirmed
+#&gt; </span><span style='color: #555555;'>6</span><span> 2020-01-25 Orange    California  </span><span style='text-decoration: underline;'>6</span><span>059     1 confirmed</div><div class='input'>
+ 
+</div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

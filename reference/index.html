@@ -71,7 +71,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sars2pack</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.13</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.15</span>
       </span>
     </div>
 
@@ -127,8 +127,8 @@
     <tbody>
       <tr>
         <th colspan="2">
-          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
-          <p class="section-desc"></p>
+          <h2 id="section-data-resources" class="hasAnchor"><a href="#section-data-resources" class="anchor"></a>Data resources</h2>
+          <p class="section-desc"><p>Functions for accessing (typically web-based) data resources.</p></p>
         </th>
       </tr>
       
@@ -145,15 +145,64 @@
       </tr><tr>
         
         <td>
-          <p><code><a href="demo_simulation.html">demo_simulation()</a></code> </p>
+          <p><code><a href="covidtracker_data.html">covidtracker_data()</a></code> </p>
         </td>
-        <td><p>set up a simulation as demonstrated by John C Mallery</p></td>
+        <td><p>US State-level data including test results</p></td>
       </tr><tr>
         
         <td>
           <p><code><a href="enriched_jhu_data.html">enriched_jhu_data()</a></code> </p>
         </td>
         <td><p>Get enriched jhu dataset as a list of three data.frames</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="jhu_data.html">jhu_data()</a></code> </p>
+        </td>
+        <td><p>Global COVID-19 data from <a href='https://github.com/CSSEGISandData/COVID-19/'>JHU CSSEGIS</a></p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="nytimes_county_data.html">nytimes_county_data()</a></code> <code><a href="nytimes_county_data.html">nytimes_state_data()</a></code> </p>
+        </td>
+        <td><p>United States county and state level data from the New York Times</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="usa_facts_data.html">usa_facts_data()</a></code> </p>
+        </td>
+        <td><p>United States state and county level data from USAFacts</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-additional" class="hasAnchor"><a href="#section-additional" class="anchor"></a>Additional</h2>
+          <p class="section-desc"></p>
+        </th>
+      </tr>
+      
+      
+    </tbody><tbody>
+      
+      
+      <tr>
+        
+        <td>
+          <p><code><a href="cumulative_events_ejhu.html">cumulative_events_ejhu()</a></code> </p>
+        </td>
+        <td><p>constructor for covid_events</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="demo_simulation.html">demo_simulation()</a></code> </p>
+        </td>
+        <td><p>set up a simulation as demonstrated by John C Mallery</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="form_incident_events.html">form_incident_events()</a></code> </p>
+        </td>
+        <td><p>transform cumulative data to daily incidence</p></td>
       </tr><tr>
         
         <td>
@@ -166,12 +215,6 @@
           <p><code><a href="integer_to_fips.html">integer_to_fips()</a></code> </p>
         </td>
         <td><p>convert an integer to fips</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="jhu_data.html">jhu_data()</a></code> </p>
-        </td>
-        <td><p>Global COVID-19 data from <a href='https://github.com/CSSEGISandData/COVID-19/'>JHU CSSEGIS</a></p></td>
       </tr><tr>
         
         <td>
@@ -193,9 +236,9 @@
       </tr><tr>
         
         <td>
-          <p><code><a href="nytimes_data.html">nytimes_county_data()</a></code> <code><a href="nytimes_data.html">nytimes_state_data()</a></code> </p>
+          <p><code><a href="plot.covid_events.html">plot.covid_events()</a></code> </p>
         </td>
-        <td><p>United States county and state level data from the New York Times</p></td>
+        <td><p>plot for covid_events</p></td>
       </tr><tr>
         
         <td>
@@ -229,15 +272,39 @@
       </tr><tr>
         
         <td>
+          <p><code><a href="print.covid_events.html">print(<i>&lt;covid_events&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>print for a covid_events instance</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="trim_from.html">trim_from()</a></code> </p>
+        </td>
+        <td><p>trim early part of series, generic</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="trim_from.covid_events.html">trim_from(<i>&lt;covid_events&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>trim early part of series</p></td>
+      </tr><tr>
+        
+        <td>
           <p><code><a href="trim_leading_values.html">trim_leading_values()</a></code> </p>
         </td>
         <td><p>trim leading repeats of a given value from a vector</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="usa_facts_data.html">usa_facts_data()</a></code> </p>
+          <p><code><a href="us_county_geo_details.html">us_county_geo_details()</a></code> </p>
         </td>
-        <td><p>United States state and county level data from USAFacts</p></td>
+        <td><p>United States county-level geographic details</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="us_healthcare_capacity.html">us_healthcare_capacity()</a></code> </p>
+        </td>
+        <td><p>United States healthcare system capacity by provider</p></td>
       </tr>
     </tbody>
     </table>

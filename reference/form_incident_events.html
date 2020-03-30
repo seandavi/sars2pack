@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>march 19 result of CSSEGISandData/COVID-19/ time series data retrieval as data.table — mar19dt • sars2pack</title>
+<title>transform cumulative data to daily incidence — form_incident_events • sars2pack</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="march 19 result of CSSEGISandData/COVID-19/ time series data retrieval as data.table — mar19dt" />
-<meta property="og:description" content="march 19 result of CSSEGISandData/COVID-19/ time series data retrieval as data.table" />
+<meta property="og:title" content="transform cumulative data to daily incidence — form_incident_events" />
+<meta property="og:description" content="transform cumulative data to daily incidence" />
 
 
 
@@ -114,27 +114,40 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>march 19 result of CSSEGISandData/COVID-19/ time series data retrieval as data.table</h1>
-    <small class="dont-index">Source: <a href='https://github.com/seandavi/sars2pack/blob/master/R/data.R'><code>R/data.R</code></a></small>
-    <div class="hidden name"><code>mar19dt.Rd</code></div>
+    <h1>transform cumulative data to daily incidence</h1>
+    <small class="dont-index">Source: <a href='https://github.com/seandavi/sars2pack/blob/master/R/ejhu.R'><code>R/ejhu.R</code></a></small>
+    <div class="hidden name"><code>form_incident_events.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>march 19 result of CSSEGISandData/COVID-19/ time series data retrieval as data.table</p>
+    <p>transform cumulative data to daily incidence</p>
     </div>
 
-    <pre class="usage"><span class='no'>mar19dt</span></pre>
+    <pre class="usage"><span class='fu'>form_incident_events</span>(<span class='no'>cum</span>)</pre>
 
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>cum</th>
+      <td><p>cumulative events instance</p></td>
+    </tr>
+    </table>
 
-    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
-
-    <p>data.frame</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>mar19dt</span>[<span class='fl'>1</span>:<span class='fl'>3</span>, <span class='fl'>1</span>:<span class='fl'>8</span>]</div><div class='output co'>#&gt;   ProvinceState CountryRegion     Lat     Long 1/22/20 1/23/20 1/24/20 1/25/20
-#&gt; 1                    Thailand 15.0000 101.0000       2       3       5       7
-#&gt; 2                       Japan 36.0000 138.0000       2       1       2       2
-#&gt; 3                   Singapore  1.2833 103.8333       0       1       3       3</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/warning.html'>suppressWarnings</a></span>({<span class='no'>dat</span> <span class='kw'>=</span> <span class='fu'><a href='enriched_jhu_data.html'>enriched_jhu_data</a></span>()})
+<span class='no'>cusa</span> <span class='kw'>=</span> <span class='fu'>cumulative_events_ejhu</span>(<span class='no'>dat</span>, <span class='kw'>eventtype</span><span class='kw'>=</span><span class='st'>"confirmed"</span>,
+ <span class='kw'>alpha3</span><span class='kw'>=</span><span class='st'>"USA"</span>)
+<span class='no'>cusa</span></div><div class='output co'>#&gt; cumulative event data for USA, 2020-01-22 to 2020-03-29 
+#&gt; use plot() to visualize.</div><div class='input'><span class='no'>cusa</span> <span class='kw'>=</span> <span class='fu'>trim_from</span>(<span class='no'>cusa</span>, <span class='st'>"2020-03-01"</span>)
+<span class='no'>iusa</span> <span class='kw'>=</span> <span class='fu'>form_incident_events</span>(<span class='no'>cusa</span>)
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='no'>iusa</span>)</div><div class='img'><img src='form_incident_events-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='no'>gt</span> <span class='kw'>=</span> <span class='kw pkg'>R0</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/R0/man/generation.time.html'>generation.time</a></span>(<span class='st'>"gamma"</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>3.5</span>, <span class='fl'>4.8</span>))
+<span class='no'>est1</span> <span class='kw'>=</span> <span class='kw pkg'>R0</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/R0/man/estimate.R.html'>estimate.R</a></span>( <span class='no'>iusa</span>$<span class='no'>count</span>, <span class='kw'>GT</span><span class='kw'>=</span><span class='no'>gt</span>,
+   <span class='kw'>t</span><span class='kw'>=</span><span class='no'>iusa</span>$<span class='no'>dates</span>, <span class='kw'>begin</span><span class='kw'>=</span><span class='no'>iusa</span>$<span class='no'>dates</span>[<span class='fl'>1</span>], <span class='kw'>end</span><span class='kw'>=</span><span class='no'>iusa</span>$<span class='no'>dates</span>[<span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span>(<span class='no'>iusa</span>$<span class='no'>dates</span>)],
+   <span class='kw'>methods</span><span class='kw'>=</span><span class='st'>"EG"</span>)</div><div class='output co'>#&gt; <span class='message'>Waiting for profiling to be done...</span></div><div class='input'><span class='no'>est1</span></div><div class='output co'>#&gt; Reproduction number estimate using  Exponential Growth  method.
+#&gt; R :  2.23148[ 2.223805 , 2.23919 ]
+#&gt; </div><div class='input'><span class='fu'><a href='plot2.html'>plot2</a></span>(<span class='no'>est1</span>)</div><div class='img'><img src='form_incident_events-2.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='plotfit2.html'>plotfit2</a></span>(<span class='no'>est1</span>)</div><div class='img'><img src='form_incident_events-3.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
