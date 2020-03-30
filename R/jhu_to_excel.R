@@ -27,7 +27,7 @@
     "regionalBlocs"
 )
 
-#' Get enriched jhu dataset as a list of three data.frames
+#' Get enriched jhu dataset enriched with country-level metadata
 #'
 #' The purpose of this function is to enrich the JHU dataset
 #' with additional country-level metadata and then get the
@@ -42,6 +42,13 @@
 #' 
 #' @return A list of three `data.frames` named `deaths`, `confirmed`,
 #' and `recovered`.
+#'
+#' @examples
+#' res = enriched_jhu_data()
+#' colnames(res)
+#' library(dplyr)
+#' head(res)
+#' glimpse(res)
 #' 
 #' @export
 enriched_jhu_data <- function(cols_to_remove = .cols_to_remove) {
