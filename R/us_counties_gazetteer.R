@@ -13,7 +13,7 @@
 #' 
 #' @examples
 #' usc = us_county_geo_details()
-#' glimpse(usc)
+#' dplyr::glimpse(usc)
 #' usc
 #' 
 #'

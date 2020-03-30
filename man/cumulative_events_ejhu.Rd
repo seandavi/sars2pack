@@ -8,7 +8,7 @@ cumulative_events_ejhu(
   src,
   eventtype = "confirmed",
   alpha3 = "USA",
-  ProvinceState = NULL
+  ProvinceStateName = NULL
 )
 }
 \arguments{
@@ -18,8 +18,15 @@ cumulative_events_ejhu(
 
 \item{alpha3}{character(1) code for country}
 
-\item{ProvinceState}{character(1) for province, default to NULL}
+\item{ProvinceStateName}{character(1) for province, default to NULL}
 }
 \description{
 constructor for covid_events
+}
+\examples{
+dat = enriched_jhu_data()
+cchn = cumulative_events_ejhu(dat, alpha3="CHN", ProvinceStateName="Hubei")
+ichn = form_incident_events(cchn)
+plot(cchn$count[-1], ichn$count, log="xy", xlab="cumulative", ylab="new", 
+ main="Hubei province") # like https://youtu.be/54XLXg4fYsc
 }
