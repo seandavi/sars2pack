@@ -82,7 +82,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sars2pack</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.15</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.16</span>
       </span>
     </div>
 
@@ -137,7 +137,7 @@
   <span class='no'>src</span>,
   <span class='kw'>eventtype</span> <span class='kw'>=</span> <span class='st'>"confirmed"</span>,
   <span class='kw'>alpha3</span> <span class='kw'>=</span> <span class='st'>"USA"</span>,
-  <span class='kw'>ProvinceState</span> <span class='kw'>=</span> <span class='kw'>NULL</span>
+  <span class='kw'>ProvinceStateName</span> <span class='kw'>=</span> <span class='kw'>NULL</span>
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -156,12 +156,17 @@
       <td><p>character(1) code for country</p></td>
     </tr>
     <tr>
-      <th>ProvinceState</th>
+      <th>ProvinceStateName</th>
       <td><p>character(1) for province, default to NULL</p></td>
     </tr>
     </table>
 
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='no'>dat</span> <span class='kw'>=</span> <span class='fu'><a href='enriched_jhu_data.html'>enriched_jhu_data</a></span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Some values were not matched unambiguously: MS Zaandam</span></div><div class='input'><span class='no'>cchn</span> <span class='kw'>=</span> <span class='fu'>cumulative_events_ejhu</span>(<span class='no'>dat</span>, <span class='kw'>alpha3</span><span class='kw'>=</span><span class='st'>"CHN"</span>, <span class='kw'>ProvinceStateName</span><span class='kw'>=</span><span class='st'>"Hubei"</span>)
+<span class='no'>ichn</span> <span class='kw'>=</span> <span class='fu'>form_incident_events</span>(<span class='no'>cchn</span>)
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='no'>cchn</span>$<span class='no'>count</span>[-<span class='fl'>1</span>], <span class='no'>ichn</span>$<span class='no'>count</span>, <span class='kw'>log</span><span class='kw'>=</span><span class='st'>"xy"</span>, <span class='kw'>xlab</span><span class='kw'>=</span><span class='st'>"cumulative"</span>, <span class='kw'>ylab</span><span class='kw'>=</span><span class='st'>"new"</span>,
+ <span class='kw'>main</span><span class='kw'>=</span><span class='st'>"Hubei province"</span>) <span class='co'># like https://youtu.be/54XLXg4fYsc</span></div><div class='output co'>#&gt; <span class='warning'>Warning: 14 y values &lt;= 0 omitted from logarithmic plot</span></div><div class='img'><img src='cumulative_events_ejhu-1.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
