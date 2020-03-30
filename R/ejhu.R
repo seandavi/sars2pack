@@ -45,19 +45,25 @@ plot.covid_events = function (x, main=NULL, ylab=NULL, xlab=NULL,  ...) {
 #' @param src as retrieved with enhanced_jhu_data
 #' @param eventtype character(1) 'confirmed' or 'deaths'
 #' @param alpha3 character(1) code for country
-#' @param ProvinceState character(1) for province, default to NULL
+#' @param ProvinceStateName character(1) for province, default to NULL
+#' @examples
+#' dat = enriched_jhu_data()
+#' cchn = cumulative_events_ejhu(dat, alpha3="CHN", ProvinceStateName="Hubei")
+#' ichn = form_incident_events(cchn)
+#' plot(cchn$count[-1], ichn$count, log="xy", xlab="cumulative", ylab="new", 
+#'  main="Hubei province") # like https://youtu.be/54XLXg4fYsc
 #' @export
 cumulative_events_ejhu = function(src, eventtype = "confirmed", 
-   alpha3="USA", ProvinceState=NULL) {
+   alpha3="USA", ProvinceStateName=NULL) {
  cur = src %>% filter(subset == eventtype &
                 alpha3Code == alpha3 )
- if (!is.null(ProvinceState))
-   cur = cur %>% filter(ProvinceState == ProvinceState)
+ if (!is.null(ProvinceStateName))
+   cur = cur %>% filter(ProvinceState == ProvinceStateName)
  cumul = cur$count
  dates = cur$date
  ans = list(count=cumul, dates=dates)
  attr(ans, "alpha3") = alpha3
- attr(ans, "ProvinceState") = ProvinceState
+ attr(ans, "ProvinceState") = ProvinceStateName
  attr(ans, "dtype") = "cumulative"
  class(ans) = c("cumulative_events", "covid_events")
  ans
