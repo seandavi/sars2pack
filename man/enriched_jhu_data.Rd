@@ -20,3 +20,11 @@ with additional country-level metadata and then get the
 data into a form that can be easily written to excel or used
 as a "wide-format" tabular dataset.
 }
+\examples{
+res = enriched_jhu_data()
+colnames(res)
+library(dplyr)
+head(res)
+glimpse(res)
+
+}

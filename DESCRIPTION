@@ -1,12 +1,14 @@
 Package: sars2pack
-Title: COVID-19 analysis tools
-Description: Provide COVID-19 analysis support.
+Title: COVID-19 data resources and analysis tools
+Description: The sars2pack package includes COVID-19 data resources, analysis tools, and workflows in R.
 Version: 0.0.16
 Date: 2020-03-28
-Authors@R: c(person("John C", "Mallery", role = c("aut")),
-	   person("Charles", "Morefield", role = c("aut")),
-	   person("Sean", "Davis", role = c("aut"), email = 'seandavi@gmail.com'),
-	   person("VJ", "Carey", role = c("aut", "cre"), email='stvjc@channing.harvard.edu'))
+Authors@R: c(person("Sean", "Davis", role = c("aut","cre"),
+                    email = 'seandavi@gmail.com',
+                    comment = c('ORCID'="0000-0002-8991-6458")),
+             person("John C", "Mallery", role = c("aut")),
+             person("Charles", "Morefield", role = c("aut")),
+             person("VJ", "Carey", role = c("aut"), email='stvjc@channing.harvard.edu'))
 Suggests: 
     knitr,
     BiocStyle,
@@ -15,14 +17,13 @@ Suggests:
     pkgdown,
     ggplot2,
     DT,
-    tmap,
-    sf
-Depends: R (>= 3.5.0), R0
+    tmap
+Depends: R (>= 3.5.0), R0, sf
 Imports: utils, lubridate, magrittr, dplyr, tidyr, countrycode,
     openxlsx, tibble, jsonlite, httr, readr, BiocFileCache
 Url: https://github.com/seandavi/sars2pack
 BugReports: https://github.com/seandavi/sars2pack/issues/new
-License: Artistic-2.0
+License: MIT
 LazyLoad: yes
 LazyData: yes
 VignetteBuilder: knitr
