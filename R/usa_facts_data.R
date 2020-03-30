@@ -20,7 +20,7 @@
 #' 
 #' @importFrom dplyr bind_rows
 #' @importFrom lubridate mdy
-#' @importFrom readr read_csv
+#' @importFrom readr read_csv cols
 #'
 #' @source \url{https://usafacts.org/visualizations/coronavirus-covid-19-spread-map/}
 #'
@@ -63,9 +63,13 @@
 #' 
 #' @export
 usa_facts_data = function() {
-    confirmed = readr::read_csv('https://static.usafacts.org/public/data/covid-19/covid_confirmed_usafacts.csv')
+    confirmed_path = s2p_cached_url('https://static.usafacts.org/public/data/covid-19/covid_confirmed_usafacts.csv')
+    confirmed = readr::read_csv(confirmed_path,
+                                col_types = cols())
     confirmed$subset = 'confirmed'
-    deaths = readr::read_csv('https://static.usafacts.org/public/data/covid-19/covid_deaths_usafacts.csv')
+    deaths_path = s2p_cached_url('https://static.usafacts.org/public/data/covid-19/covid_deaths_usafacts.csv')
+    deaths = readr::read_csv(deaths_path,
+                             col_types=cols())
     deaths$subset = 'deaths'
     ret = dplyr::bind_rows(confirmed,deaths)
     colnames(ret)[2] = 'county'

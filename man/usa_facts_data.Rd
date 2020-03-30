@@ -68,7 +68,10 @@ max(res$date)
 jhu_data()
 
 Other data-import: 
+\code{\link{covidtracker_data}()},
 \code{\link{jhu_data}()},
-\code{\link{nytimes_county_data}()}
+\code{\link{nytimes_county_data}()},
+\code{\link{us_county_geo_details}()},
+\code{\link{us_healthcare_capacity}()}
 }
 \concept{data-import}

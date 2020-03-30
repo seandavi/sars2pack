@@ -31,7 +31,7 @@
 #' 
 #' @importFrom dplyr bind_rows
 #' @importFrom lubridate ymd
-#' @importFrom readr read_csv
+#' @importFrom readr read_csv cols
 #'
 #' @note see \url{https://github.com/nytimes/covid-19-data#geographic-exceptions}
 #' 
@@ -79,14 +79,15 @@
 #' colnames(res)
 #' head(res)
 #'
-#' @rdname nytimes_data
-#' 
+#'  
 #' @family data-import
+#' 
 #' @seealso jhu_data(), usa_facts_data()
 #'
 #' @export
 nytimes_county_data = function() {
-    dat = readr::read_csv('https://raw.github.com/nytimes/covid-19-data/master/us-counties.csv')
+    dat = readr::read_csv('https://raw.github.com/nytimes/covid-19-data/master/us-counties.csv',
+                          col_types=cols())
     confirmed = dat[,1:5]
     confirmed$subset = 'confirmed'
     deaths = dat[,c(1:4,6)]
@@ -100,11 +101,16 @@ nytimes_county_data = function() {
     ret
 }
 
-#' @describeIn nytimes_data
+#' @rdname nytimes_county_data
+#'
+#' @importFrom readr read_csv cols
+#' @importFrom dplyr bind_rows
+#' @importFrom lubridate ymd
 #'
 #' @export
 nytimes_state_data = function() {
-    dat = readr::read_csv('https://raw.github.com/nytimes/covid-19-data/master/us-states.csv')
+    dat = readr::read_csv('https://raw.github.com/nytimes/covid-19-data/master/us-states.csv',
+                          col_types=cols())
     confirmed = dat[,1:4]
     confirmed$subset = 'confirmed'
     deaths = dat[,c(1:3,5)]

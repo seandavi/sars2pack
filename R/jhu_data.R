@@ -10,7 +10,7 @@
 #'
 #' @param subset character(1) of Confirmed, Deaths, Recovered
 #' 
-#' @importFrom readr read_csv
+#' @importFrom readr read_csv cols
 #' @importFrom tidyr pivot_longer
 #'
 #' @return a long-form tibble
@@ -20,7 +20,7 @@
     stopifnot(
         subset %in% c('confirmed', 'deaths')
     )
-    csv = suppressMessages(readr::read_csv(url(sprintf("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_%s_global.csv", subset))))
+    csv = readr::read_csv(url(sprintf("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_%s_global.csv", subset)),col_types=cols())
     csv = tidyr::pivot_longer(csv,-c('Province/State','Country/Region','Lat','Long'),names_to = 'date', values_to='count')
     names(csv)[1] <- "ProvinceState"
     names(csv)[2] <- "CountryRegion"
@@ -70,7 +70,7 @@
 #' res = jhu_data()
 #' colnames(res)
 #' head(res)
-#'
+#' 
 #' @source
 #' - \url{https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data/csse_covid_19_time_series,mGT, method=c('EG','TD'))}
 #' 
@@ -80,6 +80,5 @@
 jhu_data <- function() {
     res = dplyr::bind_rows(lapply(c('confirmed', 'deaths'), .munge_data_from_jhu))
     res$date = lubridate::mdy(res$date)
-    class(res) = c('s2p_long_df', class(res))
     return(res)
 }

@@ -55,7 +55,10 @@ head(res)
 }
 \seealso{
 Other data-import: 
+\code{\link{covidtracker_data}()},
 \code{\link{nytimes_county_data}()},
+\code{\link{us_county_geo_details}()},
+\code{\link{us_healthcare_capacity}()},
 \code{\link{usa_facts_data}()}
 }
 \concept{data-import}
