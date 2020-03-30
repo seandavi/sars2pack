@@ -59,11 +59,6 @@ The data begins with the first reported coronavirus case in
 Washington State on Jan. 21, 2020. We will publish regular updates
 to the data in this repository.
 }
-\section{Functions}{
-\itemize{
-\item \code{nytimes_state_data}: 
-}}
-
 \note{
 see \url{https://github.com/nytimes/covid-19-data#geographic-exceptions}
 }
@@ -94,6 +89,7 @@ res = nytimes_county_data()
 colnames(res)
 head(res)
 
+ 
 }
 \seealso{
 jhu_data(), usa_facts_data()

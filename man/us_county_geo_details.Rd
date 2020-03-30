@@ -16,7 +16,10 @@ a data frame with county names, FIPS codes, areas, and lat/long
 United States county-level geographic details
 }
 \examples{
-us_county_geo_details()
+usc = us_county_geo_details()
+glimpse(usc)
+usc
+
 
 }
 \seealso{

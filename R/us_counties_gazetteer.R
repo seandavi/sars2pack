@@ -1,7 +1,7 @@
 #' United States county-level geographic details
 #'
 #'
-#' @importFrom readr read_tsv
+#' @importFrom readr read_tsv cols
 #' 
 #' @source \url{https://raw.githubusercontent.com/josh-byster/fips_lat_long/master/counties.txt}
 #'
@@ -12,9 +12,13 @@
 #' @family data-import
 #' 
 #' @examples
-#' us_county_geo_details()
+#' usc = us_county_geo_details()
+#' glimpse(usc)
+#' usc
+#' 
 #'
 #' @export
 us_county_geo_details <- function() {
-    read_tsv('https://raw.githubusercontent.com/josh-byster/fips_lat_long/master/counties.txt')
+    readr::read_tsv('https://raw.githubusercontent.com/josh-byster/fips_lat_long/master/counties.txt',
+                    col_types = readr::cols())
 }
