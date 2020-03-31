@@ -15,12 +15,9 @@
 name: Publish artifacts
 
 on:
-  push:
-    branches:
-    - master
   schedule:
     # uses UTC
-    - cron:  '0 08 * * *'
+    - cron:  '0 */4 * * *'
 
 # Environment variables available to all jobs and steps in this workflow
 env:
