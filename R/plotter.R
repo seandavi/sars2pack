@@ -87,14 +87,21 @@ fix_slash_dates = function(x) gsub("/", "-", x) # ok if they are already non-sla
 #' @importFrom dplyr filter
 #' @param province character(1) must be found in dataset ProvinceState field, "" is typical for data aggregated only at country level, and that is the default
 #' @param country character(1) must be found in CountryRegion field
-#' @param dataset data.frame as returned by fetch_JHU_Data
+#' @param dataset data.frame as returned by jhu_data()
+#'
+#' @return
+#' A `data.frame` with two columns
+#' 
 #' @export
-get_series = function(province="", country, 
-     dataset=try(fetch_JHU_Data(as.data.frame=TRUE))) { #sars2pack::mar19df) {
-  if (inherits(dataset, "try-error")) stop("could not get data from fetch_JHU_Data()")
+get_series = function(province="", country,
+                      dataset=try(jhu_data())) { #sars2pack::mar19df) {
+  if (inherits(dataset, "try-error")) stop("could not get data from jhu_data()")
   stopifnot(all(c("ProvinceState", "CountryRegion") %in% colnames(dataset)))
   stopifnot(country %in% dataset$CountryRegion)
-  ans = dataset %>% dplyr::filter(ProvinceState==province & CountryRegion==country)
+  ans = dataset %>% dplyr::filter(CountryRegion==country)
+  if(!is.na(province)) {
+      ans = ans %>% dplyr::filter(ProvinceState==province)
+  }
   ans[,-c(1:4)]
 }
 
@@ -107,12 +114,21 @@ get_series = function(province="", country,
 #' @note An effort is made to change dates used as column names to lubridate date objects
 #' that are respected in plotting.
 #' @examples
-#' plot_series(country="Italy")
+#' #plot_series(country="Italy")
 #' @export
-plot_series = function(province="", country, dataset=try(fetch_JHU_Data(as.data.frame=TRUE)), ...) {
+plot_series = function(province="", country, dataset=try(jhu_data()), ...) {
  if (inherits(dataset, "try-error")) stop("could not get data from fetch_JHU_Data()")
  ser = get_series(province=province, country=country, dataset=dataset)
  dates = lubridate::as_date(mdy(fix_slash_dates(names(dataset)[-c(1:4)])))
  plot(dates, ser, main=paste(province, country), ...)
 }
 
+estimate_R <- function(df, ...) {
+    df = df %>% group_by(date) %>%
+        summarise(count = sum(count)) %>%
+        arrange(date)
+    res = trim_leading_zeros(c(df$count[1],diff(df$count)))
+    res[res<0]=0
+    dates = df$date[(nrow(df) -  length(res)):nrow(df)]
+    return(estimate.R(epid = res, ...))
+}

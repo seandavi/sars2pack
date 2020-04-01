@@ -17,26 +17,26 @@ demo_simulation(
 )
 }
 \arguments{
-\item{gt.type}{character(1) `type` setting for `R0:generation.time`}
+\item{gt.type}{character(1) \code{type} setting for \code{R0:generation.time}}
 
-\item{gt.val}{numeric() `val` setting for `R0:generation.time`}
+\item{gt.val}{numeric() \code{val} setting for \code{R0:generation.time}}
 
-\item{begin}{numeric(1) passed to `R0::estimate.R`}
+\item{begin}{numeric(1) passed to \code{R0::estimate.R}}
 
-\item{end}{numeric(1) passed to `R0::estimate.R`}
+\item{end}{numeric(1) passed to \code{R0::estimate.R}}
 
-\item{epid.nb}{numeric(1) passed to `R0:sim.epid`}
+\item{epid.nb}{numeric(1) passed to \code{R0:sim.epid}}
 
-\item{epid.length}{numeric(1) passed to `R0:sim.epid`}
+\item{epid.length}{numeric(1) passed to \code{R0:sim.epid}}
 
-\item{family}{character(1) passed to `R0:sim.epid`}
+\item{family}{character(1) passed to \code{R0:sim.epid}}
 
-\item{R0}{numeric(1) passed to `R0:sim.epid`}
+\item{R0}{numeric(1) passed to \code{R0:sim.epid}}
 
-\item{peak.value}{numeric(1) passed to `R0:sim.epid`}
+\item{peak.value}{numeric(1) passed to \code{R0:sim.epid}}
 }
 \value{
-result of `estimate.R`
+result of \code{estimate.R}
 }
 \description{
 set up a simulation as demonstrated by John C Mallery
