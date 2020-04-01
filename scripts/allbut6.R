@@ -60,9 +60,12 @@ my_plot <- function (title, cumulative_vector)
 
 # pass in the time vector and diff data	
 My_Estimate_R <- function (generation_time, incidence_vector) {
-		estimate.R(incidence_vector, GT = generation_time , t = as_date(myd(names(incidence_vector))), begin=1L, end=as.integer(length(incidence_vector)), methods=c("EG"))
-	}
-
+  estimate.R(incidence_vector, GT = generation_time ,methods=c("EG"))
+}
+# this one generates dubious values for R0 - jcma 3/23/2020
+# My_Estimate_R <- function (generation_time, incidence_vector) {
+#   estimate.R(incidence_vector, GT = generation_time , t = as_date(myd(names(incidence_vector))), begin=1L, end=as.integer(length(incidence_vector)), methods=c("EG"))
+# }
 # SCRIPTS FOR ESTIMATING VARIOUS REGIONS
 
 GT.cov2 <- generation.time("gamma", c(3.96, 4.75))
@@ -71,16 +74,19 @@ data.France <- as_vector(get_series("France", "France"))
 diff.France <- diff_data(data.France)
 R.France <- My_Estimate_R (GT.cov2, diff.France)
 R.France
+plotfit(R.France)
 
 data.Germany <- as_vector(get_series("", "Germany"))
 diff.Germany <- diff_data(data.Germany)
 R.Germany <- My_Estimate_R (GT.cov2, diff.Germany)
 R.Germany
+plotfit(R.Germany)
 
 data.Italy <- as_vector(get_series("", "Italy"))
 diff.Italy <- diff_data(data.Italy)
 R.Italy <- My_Estimate_R (GT.cov2, diff.Italy)
 R.Italy
+plotfit(R.Italy)
 
 data.Spain <- as_vector(get_series("", "Spain"))
 diff.Spain <- diff_data(data.Spain)
@@ -94,11 +100,12 @@ R.UK
 
 # Middle East
 
-#data.Iran <- as_vector(get_series("", "Iran"))
-#diff.Iran <- diff_data(data.Iran)
-#R.Iran <- My_Estimate_R (GT.cov2, diff.Iran)
-#R.Iran
+data.Iran <- as_vector(get_series("", "Iran"))
+diff.Iran <- diff_data(data.Iran)
+R.Iran <- My_Estimate_R (GT.cov2, diff.Iran)
+R.Iran
 
+# Asia
 data.SouthKorea <- as_vector(get_series("", "Korea, South"))
 diff.SouthKorea <- diff_data(data.SouthKorea)
 R.SouthKorea <- My_Estimate_R (GT.cov2, diff.SouthKorea)
@@ -109,12 +116,19 @@ diff.Singapore <- diff_data(data.Singapore)
 R.Singapore <- My_Estimate_R (GT.cov2, diff.Singapore)
 R.Singapore
 
+# Africa
+
+data.SouthAfrica <- as_vector(get_series("", "South Africa"))
+diff.SouthAfrica <- diff_data(data.SouthAfrica)
+R.SouthAfrica <- My_Estimate_R (GT.cov2, diff.SouthAfrica)
+R.SouthAfrica
+
 # US States and Regions
 
-#data.NewYork <- as_vector(get_series("New York","US"))
-#diff.NewYork <- diff_data(data.NewYork)
-#R.NewYork <- My_Estimate_R (GT.cov2, diff.NewYork)
-#R.NewYork
+data.NewYork <- as_vector(get_series("New York","US"))
+diff.NewYork <- diff_data(data.NewYork)
+R.NewYork <- My_Estimate_R (GT.cov2, diff.NewYork)
+R.NewYork
 
 #data.Illinois <- as_vector(get_series("Illinois", "US"))
 #diff.Illinois <- diff_data(data.Illinois)
