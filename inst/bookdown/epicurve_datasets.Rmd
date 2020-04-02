@@ -1,0 +1,16 @@
+# epicurves
+
+```{r}
+library(sars2pack)
+library(DT)
+library(dplyr)
+```
+
+## European Datasets
+
+```{r}
+eucov = eu_data_cache_data()
+DT::datatable(eucov[sample(1:nrow(eucov),100),] %>%
+              dplyr::arrange(country, date),
+              extensions = 'Scroller', options = list(scrollX=TRUE))
+```

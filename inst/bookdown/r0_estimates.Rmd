@@ -1,0 +1,92 @@
+# Modeling Replication rate
+
+```{r include=FALSE}
+library(sars2pack)
+library(BiocStyle)
+```
+
+## Simulated epidemic model
+
+Following code conveyed by John Mallery, we have the following
+approach for estimating R0 using a single realization of
+an epidemic simulation.
+
+Note that there can be failures of `estimate.R` for certain
+inputs.  We are working on that.
+```{r dostraight}
+library(R0)
+library(lubridate)
+# Generating an epidemic with given parameters
+mGT <- generation.time("gamma", c(3,1.5))
+set.seed(5432)  # always initialize when simulating!
+mEpid <- sim.epid(epid.nb=1, GT=mGT, epid.length=30, 
+     family="poisson", R0=1.67, peak.value=500)
+mEpid <- mEpid[,1]
+# Running estimations
+est <- estimate.R(epid=mEpid, GT=mGT, methods=c("EG","ML","TD"), begin=1, end=30)
+```
+
+We modified the plotting function in `r CRANpkg("R0")` which
+was calling `dev.new` too often.  Use `plot2`.
+
+```{r lksim,fig.height=7}
+par(mfrow=c(2,2))
+plot2(est)
+```
+
+The plotfit2 function is also useful.  These fits
+look identical but they are not.
+
+```{r lksim2, fig.height=7}
+par(mfrow=c(2,2))
+plotfit2(est)
+```
+
+## Real data examples
+
+Now we extract information from the time-series table and
+obtain estimates of R0 under exponential growth.
+
+### Hubei Province
+
+We are able to use exponential growth and time-dependent models
+with this data, using generation time model from a
+recent [Annals of Internal Medicine](https://annals.org/aim/fullarticle/2762808/incubation-period-coronavirus-disease-2019-covid-19-from-publicly-reported) paper.
+
+The incidence data probably need smoothing, and the time-dependent
+model has unreasonable fluctuations.
+
+```{r dohub,fig.height=7}
+dates = lubridate::as_date(mdy(names(mar19df)[-c(1:4)]))
+hubdat = as.numeric(get_series(province="Hubei", country="China", 
+    dataset=sars2pack::mar19df))
+names(hubdat) = dates
+mGT <- generation.time("gamma", c(5.8, 0.95)) # from DOI 10.7326/M20-0504
+hubdat.filt = trim_leading_values(c(hubdat[1], diff(hubdat)))
+est.EG <- estimate.R(epid=hubdat.filt, GT=mGT, 
+    methods=c("EG", "TD"), begin=1L, end=as.integer(length(hubdat.filt)))
+est.EG
+par(mfrow=c(2,2), mar=c(5,3,2,2))
+plot2(est.EG)
+plotfit2(est.EG)
+```
+
+### Italy
+
+For Italy, only the EG model seems to work, with the
+Annals of Internal Medicine generation time model.  It
+fits the data reasonably well, but the data seems to include
+a reporting gap.
+
+```{r doit,fig.height=7}
+itdat = as.numeric(get_series(province="", country="Italy", 
+    dataset=sars2pack::mar19df))
+names(itdat) = dates
+itdat.filt = trim_leading_values(c(itdat[1], diff(itdat)))
+est.EG <- estimate.R(epid=itdat.filt, GT=mGT, 
+    methods=c("EG"), begin=1L, end=as.integer(length(itdat.filt)))
+est.EG
+par(mfrow=c(2,2), mar=c(5,3,2,2))
+plot2(est.EG, main="Italy")
+plotfit2(est.EG, main="Italy")
+```

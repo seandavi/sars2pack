@@ -1,0 +1,42 @@
+# European datasets
+
+```{r init_knit}
+library(knitr)
+knitr::opts_chunk$set(message=FALSE)
+```
+
+```{r init}
+library(sars2pack)
+library(eurostat)
+library(dplyr)
+library(tmap)
+library(sf)
+```
+
+```{r eu_data_cache_data}
+eucov = eu_data_cache_data()
+```
+
+```{r eurostat_load}
+geodata = get_eurostat_geospatial(output_class = "sf",
+                                  resolution = "60",
+                                  nuts_level = 2,
+                                  year=2016)
+## The names here need to be initialized to NULL
+## for the join below to working
+## See https://github.com/r-spatial/sf/issues/1177#issuecomment-541858742
+head(names(geodata$geometry))
+names(geodata$geometry)=NULL
+```
+
+```{r new_dat}
+x = left_join(geodata, eucov, by=c('NUTS_NAME'='nuts_2'))
+```
+
+```{r}
+tmap::tm_shape(geodata) + tm_polygons() 
+```
+
+```{r}
+x %>% filter(date=='2020-04-01') %>% tmap::tm_shape() + tm_polygons(col='cases') 
+```
