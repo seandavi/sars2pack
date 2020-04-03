@@ -55,7 +55,9 @@ head(res)
 }
 \seealso{
 Other data-import: 
+\code{\link{beoutbreakprepared_data}()},
 \code{\link{covidtracker_data}()},
+\code{\link{kff_icu_beds}()},
 \code{\link{nytimes_county_data}()},
 \code{\link{us_county_geo_details}()},
 \code{\link{us_healthcare_capacity}()},

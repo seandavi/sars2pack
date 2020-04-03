@@ -1,0 +1,45 @@
+# Epicurves
+
+```{r}
+library(sars2pack)
+library(DT)
+library(dplyr)
+```
+
+## Worldwide datasets
+
+```{r}
+jhu = jhu_data()
+DT::datatable(jhu[sample(1:nrow(jhu),500),] %>%
+              dplyr::arrange(CountryRegion, date),
+              extensions = 'Scroller', options = list(scrollX=TRUE))
+```
+
+## European datasets
+
+```{r}
+eucov = eu_data_cache_data()
+DT::datatable(eucov[sample(1:nrow(eucov),500),] %>%
+              dplyr::arrange(country, date),
+              extensions = 'Scroller', options = list(scrollX=TRUE))
+```
+
+## United States datasets
+
+### USAFacts
+
+```{r us_epicurves}
+usa_facts = usa_facts_data()
+DT::datatable(usa_facts[sample(1:nrow(usa_facts),500),] %>%
+              dplyr::arrange(state, county, date, subset),
+              extensions = 'Scroller', options = list(scrollX=TRUE))
+```
+
+### New York Times
+
+```{r nyt_epicurves}
+nytimes = nytimes_county_data()
+DT::datatable(nytimes[sample(1:nrow(nytimes),500),] %>%
+              dplyr::arrange(state, county, date, subset),
+              extensions = 'Scroller', options = list(scrollX=TRUE))
+```

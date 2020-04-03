@@ -123,12 +123,23 @@ plot_series = function(province="", country, dataset=try(jhu_data()), ...) {
  plot(dates, ser, main=paste(province, country), ...)
 }
 
-estimate_R <- function(df, ...) {
-    df = df %>% group_by(date) %>%
+
+
+#' estimate R0
+#'
+#'
+#'
+#'
+#' @export
+estimate_R <- function(x, ...) UseMethod('estimate_R', x)
+
+#' @export
+estimate_R.data.frame <- function(x, ...) {
+    x = x %>% group_by(date) %>%
         summarise(count = sum(count)) %>%
         arrange(date)
-    res = trim_leading_zeros(c(df$count[1],diff(df$count)))
+    res = trim_leading_values(c(x$count[1],diff(x$count)))
     res[res<0]=0
-    dates = df$date[(nrow(df) -  length(res)):nrow(df)]
+    dates = x$date[(nrow(x) -  length(res)):nrow(x)]
     return(estimate.R(epid = res, ...))
 }
