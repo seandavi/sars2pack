@@ -21,7 +21,7 @@ eu_data_cache_data <- function(datasets = eu_data_cache_datasets(include_ecdc = 
     .local = function(abbrev) {
         fpath = s2p_cached_url(sprintf('https://covid19-eu-data-cache.now.sh/covid-19-%s.csv', abbrev))
 
-        ret = suppressWarnings(readr::read_csv(fpath, col_types = cols()))
+        ret = suppressWarnings(readr::read_csv(fpath, col_types = cols(), guess_max=20000))
         ret$date = lubridate::as_date(ret$datetime)
         ret$cases = suppressWarnings(as.numeric(ret$cases))
         ## these are either unused or not well-sourced, so remove
