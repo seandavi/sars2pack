@@ -15,6 +15,12 @@ kff_icu_beds()
 \description{
 Kaiser Family Foundation US County-level ICU bed data
 }
+\examples{
+res = kff_icu_beds()
+colnames(res)
+head(res)
+
+}
 \seealso{
 Other data-import: 
 \code{\link{beoutbreakprepared_data}()},

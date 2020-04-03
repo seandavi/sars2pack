@@ -23,11 +23,10 @@ beoutbreakprepared_data = function() {
     fpath = s2p_cached_url('https://raw.githubusercontent.com/beoutbreakprepared/nCoV2019/master/latest_data/latestdata.csv')
     dat = readr::read_csv(fpath,
                           col_types = cols(),
-                          guess_max = 50000
-                          )
+                          # needed for col types to be correct
+                          guess_max = 50000)
     date_cols = grep('date',colnames(dat),value=TRUE)
-    browser()
-    dat[[date_cols]] = lapply(date_cols,function(d) lubridate::as_date(gsub('\\.','-',dat[[d]])))
+    dat[,c(date_cols)] = lapply(date_cols,function(d) lubridate::as_date(gsub('\\.','-',dat[[d]])))
     dat
 }
 
