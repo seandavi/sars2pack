@@ -4,11 +4,14 @@
 \alias{enriched_jhu_data}
 \title{Get enriched jhu dataset enriched with country-level metadata}
 \usage{
-enriched_jhu_data(cols_to_remove = .cols_to_remove)
+enriched_jhu_data(cols_to_remove = .cols_to_remove, warn = FALSE)
 }
 \arguments{
 \item{cols_to_remove}{a character vector of column names from
 \code{\link[=country_metadata]{country_metadata()}} to remove.}
+
+\item{warn}{logical(1) defaults to FALSE, sent to \code{countrycode::countrycode} to
+determine whether failed matches should be reported.}
 }
 \value{
 A list of three \code{data.frames} named \code{deaths}, \code{confirmed},

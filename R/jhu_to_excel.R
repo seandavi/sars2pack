@@ -39,6 +39,8 @@
 #'
 #' @param cols_to_remove a character vector of column names from
 #' [country_metadata()] to remove.
+#' @param warn logical(1) defaults to FALSE, sent to `countrycode::countrycode` to
+#' determine whether failed matches should be reported.
 #' 
 #' @return A list of three `data.frames` named `deaths`, `confirmed`,
 #' and `recovered`.
@@ -51,7 +53,7 @@
 #' glimpse(res)
 #' 
 #' @export
-enriched_jhu_data <- function(cols_to_remove = .cols_to_remove) {
+enriched_jhu_data <- function(cols_to_remove = .cols_to_remove, warn=FALSE) {
     res = jhu_data()
     cmd = country_metadata()
     res$alpha3Code = countrycode(
@@ -59,7 +61,7 @@ enriched_jhu_data <- function(cols_to_remove = .cols_to_remove) {
         origin = "country.name.en",
         destination="iso3c",
         ## This is a custom HACK
-        custom_match=c('Kosovo'='XKX', 'Diamond Princess'=NA))
+        custom_match=c('Kosovo'='XKX', 'Diamond Princess'=NA), warn=warn)
     res3 = cmd %>%
         dplyr::right_join(res,by=c("alpha3Code"="alpha3Code")) %>%
         dplyr::select(-c(cols_to_remove))
