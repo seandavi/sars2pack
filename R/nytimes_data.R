@@ -97,7 +97,7 @@ nytimes_county_data = function() {
     ret = dplyr::bind_rows(confirmed,deaths)
     colnames(ret)[2] = 'county'
     ret$date = lubridate::ymd(ret$date)
-    ret$fips = as.numeric(ret$fips)
+    ret$fips = integer_to_fips(as.numeric(ret$fips))
     ret
 }
 
@@ -119,6 +119,6 @@ nytimes_state_data = function() {
     colnames(confirmed)[4]='count'
     ret = dplyr::bind_rows(confirmed,deaths)
     ret$date = lubridate::ymd(ret$date)
-    ret$fips = as.numeric(ret$fips)
+    ret$fips = integer_to_fips(as.numeric(ret$fips))
     ret
 }

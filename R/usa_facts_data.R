@@ -73,7 +73,7 @@ usa_facts_data = function() {
     deaths$subset = 'deaths'
     ret = dplyr::bind_rows(confirmed,deaths)
     colnames(ret)[2] = 'county'
-    colnames(ret)[2] = 'state'
+    colnames(ret)[3] = 'state'
     colnames(ret)[1] = 'county_fips'
     colnames(ret)[4] = 'state_fips'
     ret = tidyr::pivot_longer(ret,cols=-c(county_fips:state_fips,subset),names_to='date',values_to='count')

@@ -29,8 +29,10 @@ us_healthcare_capacity()
 }
 \seealso{
 Other data-import: 
+\code{\link{beoutbreakprepared_data}()},
 \code{\link{covidtracker_data}()},
 \code{\link{jhu_data}()},
+\code{\link{kff_icu_beds}()},
 \code{\link{nytimes_county_data}()},
 \code{\link{us_county_geo_details}()},
 \code{\link{usa_facts_data}()}
