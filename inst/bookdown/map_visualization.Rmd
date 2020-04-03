@@ -105,9 +105,11 @@ w2 = geo_ejhu %>%
     filter(!is.na(date) & subset=='confirmed') %>%
     group_by(iso_a3) %>%
     filter(date==max(date)) %>%
-    mutate(cases_per_million = 1000000*count/pop_est)
-tm_shape(w2,id='name.x', name=c('cases_per_million'),popup=c('pop_est')) +
-    tm_polygons(c('cases_per_million','count','well_being'),
+    mutate(cases_per_million = 1000000*count/pop_est) %>%
+    filter(region == 'Africa')
+m = tm_shape(w2,id='name.x', name=c('cases_per_million'),popup=c('pop_est')) +
+    tm_polygons(c('Cases Per Million' = 'cases_per_million','Cases' = 'count',"Well-being index"='well_being', 'GINI'='gini'),
+                selected='cases_per_million',
                 border.alpha = 0.5,
                 alpha=0.6,
                 popup.vars=c('Cases Per Million'='cases_per_million',
@@ -116,6 +118,7 @@ tm_shape(w2,id='name.x', name=c('cases_per_million'),popup=c('pop_est')) +
                              'gini'             ='gini',
                              'Life Expectancy'  ='life_exp')) +
     tm_facets(as.layers = TRUE)
+tmap_save(m, filename='abc.html')
 ```
 
 ![](images/tmap_world_screen_shot.png)
