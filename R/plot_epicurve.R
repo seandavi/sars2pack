@@ -37,14 +37,14 @@ plot_epicurve <- function(df, date_column = 'date', case_column = 'count',
     if(!is.na(grouping_column)) {
         df = df %>% 
             dplyr::group_by_(grouping_column, date_column) %>% 
-            dplyr::summarize(count=sum(count))
+            dplyr::mutate(count=sum(.data[[case_column]]))
     }
     if(log) {
         df = df %>% dplyr::filter(count>0)
     }
     p = ggplot(df, aes_string(x=date_column, y=case_column))
     if(!is.na(grouping_column)) {
-        p = ggplot(df, aes_string(x=date_column, y=case_column, group= subset, color=grouping_column))
+        p = ggplot(df, aes_string(x=date_column, y=case_column, color=grouping_column))
     }
     p = p + geom_line()
     if(log) {
