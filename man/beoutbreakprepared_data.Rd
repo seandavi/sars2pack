@@ -7,7 +7,12 @@
 https://github.com/beoutbreakprepared/nCoV2019
 }
 \usage{
-beoutbreakprepared_data()
+beoutbreakprepared_data(quietly = TRUE)
+}
+\arguments{
+\item{quietly}{logical(1) defaults to TRUE.  If FALSE, warnings generated during
+parsing will be displayed.  These often relate to nonstandard date values that
+occur idiosyncratically.}
 }
 \value{
 
@@ -16,7 +21,11 @@ beoutbreakprepared_data()
 United States state and county level data from USAFacts
 }
 \note{
-
+This is individual level data, collected upstream of
+this package from diverse sources.  Date values in particular
+can be non-standard.  If you wish to introduce corrections for
+poorly formated data, see the argument to \code{read.csv} in the source
+code of this function and acquire the table manually.
 }
 \examples{
 res = beoutbreakprepared_data()
