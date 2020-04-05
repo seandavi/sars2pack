@@ -2,7 +2,7 @@
 % Please edit documentation in R/jhu_to_excel.R
 \name{enriched_jhu_data}
 \alias{enriched_jhu_data}
-\title{Get enriched jhu dataset as a list of three data.frames}
+\title{Get enriched jhu dataset enriched with country-level metadata}
 \usage{
 enriched_jhu_data(cols_to_remove = .cols_to_remove)
 }
