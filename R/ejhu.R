@@ -1,11 +1,21 @@
+get_region = function(x) UseMethod("get_region")
+get_region.covid_events = function(x) {
+  al3 = attr(x, "alpha3")
+  provst = attr(x, "ProvinceState")
+  region_name = ifelse(!is.null(al3), al3, provst)
+  if (is.null(region_name)) region_name = "missing"
+  region_name
+}
+
 #' print for a covid_events instance
 #' @param x covid_events instance
 #' @param \dots not used
 #' @export
 print.covid_events = function(x, ...)  {
-cat(sprintf("%s event data for %s, %s to %s", attr(x, "dtype"),
-  attr(x, "alpha3"), min(x$dates), max(x$dates)), "\n")
-cat("use plot() to visualize.\n")
+ region_name = get_region(x)
+ cat(sprintf("%s event data for %s, %s to %s", attr(x, "dtype"),
+   region_name, min(x$dates), max(x$dates)), "\n")
+ cat("use plot() to visualize.\n")
 }
 
 #' trim early part of series, generic
@@ -34,8 +44,9 @@ trim_from.covid_events = function(x, date = "2020-02-15") {
 #' @param \dots not used
 #' @export
 plot.covid_events = function (x, main=NULL, ylab=NULL, xlab=NULL,  ...) {
+  region_name = get_region(x)
   if (is.null(main)) main = paste0(attr(x, "dtype"), 
-            " events for ", attr(x, "alpha3"))
+            " events for ", region_name)
   if (is.null(ylab)) ylab = paste0(attr(x, "dtype"))
   if (is.null(xlab)) xlab = "Date"
   plot(x$dates, x$count, main=main, ylab=ylab, xlab=xlab, ...)
