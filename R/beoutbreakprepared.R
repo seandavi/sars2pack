@@ -14,6 +14,7 @@
 #' poorly formated data, see the argument to `read.csv` in the source
 #' code of this function and acquire the table manually.  
 #' @return
+#' tidy data.frame of content
 #' 
 #' @examples
 #' res = beoutbreakprepared_data()

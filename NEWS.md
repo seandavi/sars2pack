@@ -1,3 +1,12 @@
+# sars2pack 0.0.22
+
+## Major changes
+
+- Added `available_datasets` convenience function
+  that reads from a yaml file to give a nice catalog
+  of available data resources in sars2pack.
+
+
 # sars2pack 0.0.15
 
 ## Major changes
