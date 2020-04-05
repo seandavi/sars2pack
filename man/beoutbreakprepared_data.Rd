@@ -15,7 +15,7 @@ parsing will be displayed.  These often relate to nonstandard date values that
 occur idiosyncratically.}
 }
 \value{
-
+tidy data.frame of content
 }
 \description{
 United States state and county level data from USAFacts
