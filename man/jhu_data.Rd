@@ -20,12 +20,12 @@ A tidy \code{data.frame} (actually, a \code{tbl_df}) with columns:
 \item Long:  Longitude
 \item date:
 \item count:  The cumulative count of cases for a given geographic area.
-\item subset:  either \code{confirmed} or \code{deaths}
+\item subset: either \code{confirmed}, \code{deaths}, or \code{recovered}.
 }
 }
 \description{
-This function access and munges the cumulative time series confirmed and
-deaths from the data in the repository for the 2019 Novel Coronavirus Visual
+This function access and munges the cumulative time series confirmed,
+deaths and recovered from the data in the repository for the 2019 Novel Coronavirus Visual
 Dashboard operated by the Johns Hopkins University Center for
 Systems Science and Engineering (JHU CSSE). Also, Supported by ESRI
 Living Atlas Team and the Johns Hopkins University Applied Physics
