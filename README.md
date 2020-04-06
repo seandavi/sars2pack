@@ -24,6 +24,10 @@ Install
     # OR
     devtools::install_github('seandavi/sars2pack')
 
+# Extended Documentation
+
+- https://seandavi.github.io/COVID19Book/
+
 Features
 ========
 
