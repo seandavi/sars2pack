@@ -164,7 +164,7 @@ jhu_data <- function() {
 #' 
 #' @family data-import
 #' 
-#' @expor2t
+#' @export
 jhu_us_data <- function() {
     res = dplyr::bind_rows(lapply(c('confirmed', 'deaths'), .munge_us_data_from_jhu))
     res$date = lubridate::mdy(res$date)
