@@ -36,7 +36,10 @@ trim_from.covid_events = function(x, date = "2020-02-15") {
   x
 }
 
+# not clear why plot method not getting emitted by devtools::document NAMESPACE building
+
 #' plot for covid_events
+#' @rawNamespace S3method(plot,covid_events)  
 #' @param x covid_events instance
 #' @param main defaults to NULL, can be character(1)
 #' @param ylab defaults to NULL, can be character(1)
