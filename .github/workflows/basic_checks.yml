@@ -1,0 +1,33 @@
+name: pkgdown site
+on:
+  push:
+    branches:
+    - master
+  pull_request:
+    branches:
+    - master
+jobs:
+  basic_checks:
+    name: basic checks
+    runs-on: ubuntu-latest
+    container:
+      image: bioconductor/bioconductor_full:devel
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2 # If you're using actions/checkout@v2 you must set persist-credentials to false in most cases for the deployment to work correctly.
+        with:
+          persist-credentials: false
+
+      # cache package dependencies
+      - name: Get package dependency cache
+        uses: actions/cache@v1
+        env:
+          cache-name: r-site-library-bioc-devel-docker
+        with:
+          path: /usr/local/lib/R/site-library
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('DESCRIPTION') }}
+
+
+      - name: Install package and dependencies
+        run: |
+           Rscript -e "devtools::install('.', dependencies=TRUE, repos = BiocManager::repositories())"
