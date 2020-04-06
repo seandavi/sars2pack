@@ -1,3 +1,11 @@
+# sars2pack 0.0.26
+
+## Major changes
+
+- Added Oxford Government Policy Intervention
+  time series dataset
+
+
 # sars2pack 0.0.22
 
 ## Major changes
