@@ -18,7 +18,7 @@
 #' @keywords internal
 .munge_data_from_jhu <- function(subset) {
     stopifnot(
-        subset %in% c('confirmed', 'deaths')
+        subset %in% c('confirmed', 'deaths', 'recovered')
     )
     csv = readr::read_csv(url(sprintf("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_%s_global.csv", subset)),col_types=cols())
     csv = tidyr::pivot_longer(csv,-c('Province/State','Country/Region','Lat','Long'),names_to = 'date', values_to='count')
@@ -30,8 +30,8 @@
 
 #' Global COVID-19 data from [JHU CSSEGIS](https://github.com/CSSEGISandData/COVID-19/)
 #'
-#' This function access and munges the cumulative time series confirmed and
-#' deaths from the data in the repository for the 2019 Novel Coronavirus Visual
+#' This function access and munges the cumulative time series confirmed,
+#' deaths and recovered from the data in the repository for the 2019 Novel Coronavirus Visual
 #' Dashboard operated by the Johns Hopkins University Center for
 #' Systems Science and Engineering (JHU CSSE). Also, Supported by ESRI
 #' Living Atlas Team and the Johns Hopkins University Applied Physics
@@ -57,7 +57,7 @@
 #' - Long:  Longitude
 #' - date: 
 #' - count:  The cumulative count of cases for a given geographic area. 
-#' - subset:  either `confirmed` or `deaths`
+#' - subset: either `confirmed`, `deaths`, or `recovered`.
 #'
 #' @note
 #'
@@ -78,7 +78,7 @@
 #' 
 #' @export
 jhu_data <- function() {
-    res = dplyr::bind_rows(lapply(c('confirmed', 'deaths'), .munge_data_from_jhu))
+    res = dplyr::bind_rows(lapply(c('confirmed', 'deaths', 'recovered'), .munge_data_from_jhu))
     res$date = lubridate::mdy(res$date)
     return(res)
 }
