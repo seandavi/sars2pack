@@ -2,7 +2,7 @@
 % Please edit documentation in R/beoutbreakprepared.R
 \name{beoutbreakprepared_data}
 \alias{beoutbreakprepared_data}
-\title{United States state and county level data from USAFacts}
+\title{Individual-level data contributed from around the world}
 \source{
 https://github.com/beoutbreakprepared/nCoV2019
 }
@@ -18,15 +18,24 @@ occur idiosyncratically.}
 tidy data.frame of content
 }
 \description{
-United States state and county level data from USAFacts
+Individual-level data contributed from around the world
 }
 \note{
-This is individual level data, collected upstream of
-this package from diverse sources.  Date values in particular
-can be non-standard.  If you wish to introduce corrections for
-poorly formated data, see the argument to \code{read.csv} in the source
-code of this function and acquire the table manually.
+This is individual level data, collected from diverse sources. Data may be messy
+and we have made limited attempts at clean up.
 }
+\section{Citation}{
+
+misc{kraemer2020epidemiological,
+author =       {nCoV-2019 Data Working Group},
+title =        {{Epidemiological Data from the nCoV-2019 Outbreak: Early
+Descriptions from Publicly Available Data}},
+howpublished = {Accessed on yyyy-mm-dd from
+\url{http://virological.org/t/epidemiological-data-from-the-ncov-2019-outbreak-early-descriptions-from-publicly-available-data/337}},
+year =         2020
+}
+}
+
 \examples{
 res = beoutbreakprepared_data()
 colnames(res)

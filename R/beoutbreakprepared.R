@@ -1,4 +1,4 @@
-#' United States state and county level data from USAFacts
+#' Individual-level data contributed from around the world
 #'
 #' @importFrom lubridate mdy
 #' @importFrom readr read_csv cols
@@ -7,12 +7,20 @@
 #' @param quietly logical(1) defaults to TRUE.  If FALSE, warnings generated during
 #' parsing will be displayed.  These often relate to nonstandard date values that
 #' occur idiosyncratically.
+#' 
+#' @section Citation:
+#' misc{kraemer2020epidemiological,
+#' author =       {nCoV-2019 Data Working Group},
+#' title =        {{Epidemiological Data from the nCoV-2019 Outbreak: Early
+#'     Descriptions from Publicly Available Data}},
+#' howpublished = {Accessed on yyyy-mm-dd from
+#'    \url{http://virological.org/t/epidemiological-data-from-the-ncov-2019-outbreak-early-descriptions-from-publicly-available-data/337}},
+#' year =         2020
+#' }
 #'
-#' @note This is individual level data, collected upstream of
-#' this package from diverse sources.  Date values in particular
-#' can be non-standard.  If you wish to introduce corrections for 
-#' poorly formated data, see the argument to `read.csv` in the source
-#' code of this function and acquire the table manually.  
+#' @note This is individual level data, collected from diverse sources. Data may be messy
+#' and we have made limited attempts at clean up. 
+#' 
 #' @return
 #' tidy data.frame of content
 #' 
