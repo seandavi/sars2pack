@@ -7,7 +7,7 @@
 available_datasets()
 }
 \value{
-A data.frame with columns:
+A data.frame in which each row represents an available dataset.
 \itemize{
 \item name: the short name of the dataset
 \item accessor: accessor function
@@ -17,6 +17,10 @@ A data.frame with columns:
 list and detail available sars2pack datasets
 }
 \examples{
-available_datasets()
+res = available_datasets()
+res
+# and how to use the accessor programmatically
+get(res[1,]$accessor)()
+
 
 }
