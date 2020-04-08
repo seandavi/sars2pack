@@ -103,8 +103,12 @@ jhu_data <- function() {
     csv = readr::read_csv(url(sprintf("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_%s_US.csv", subset)),col_types=cols())
     if (is.null(csv[["Population"]])) csv[["Population"]] <- NA_integer_
     csv = tidyr::pivot_longer(csv,-c("UID", "iso2", "iso3", "code3", "FIPS", "Admin2", "Province_State",  "Country_Region", "Lat", "Long_", "Combined_Key", "Population"), names_to = 'date', values_to='count')
-    names(csv)[7] <- "ProvinceState"
-    names(csv)[8] <- "CountryRegion"
+    names(csv)[names(csv)=='FIPS'] <- 'fips'
+    csv$fips = integer_to_fips(csv$fips)
+    names(csv)[names(csv)=='Admin2'] <- 'county'
+    names(csv)[names(csv)=='Province_State'] <- 'state'
+    names(csv)[names(csv)=='Country_Region'] <- 'country'
+    names(csv)[names(csv)=='Long_'] <- "Long"
     csv$subset = tolower(subset)
     return(csv)
 }
