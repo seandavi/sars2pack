@@ -36,6 +36,7 @@ covidtracker_data()
 
 Other data-import: 
 \code{\link{beoutbreakprepared_data}()},
+\code{\link{healthdata_projections_data}()},
 \code{\link{jhu_data}()},
 \code{\link{jhu_us_data}()},
 \code{\link{kff_icu_beds}()},

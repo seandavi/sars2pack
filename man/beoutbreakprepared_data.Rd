@@ -45,6 +45,7 @@ head(res)
 \seealso{
 Other data-import: 
 \code{\link{covidtracker_data}()},
+\code{\link{healthdata_projections_data}()},
 \code{\link{jhu_data}()},
 \code{\link{jhu_us_data}()},
 \code{\link{kff_icu_beds}()},
