@@ -15,6 +15,13 @@ datasets:
     resolution: country
     geographical: true
     geospatial: false
+  - name: Johns Hopkins US-centric data
+    accessor: jhu_us_data
+    data_type: time series cumulative cases
+    region: United States
+    resolution: county
+    geographical: true
+    geospatial: false
   - name: New York Times county level data
     accessor: nytimes_county_data
     data_type: time series cumulative cases
@@ -73,3 +80,15 @@ datasets:
     resolution: county
     geospatial: false
     geographical: true
+  - name: Healthdata.org projections of hospital utilization and deaths
+    accessor: healthdata_projections_data
+    data_type: time series projections
+    region:
+      - United States
+      - International
+    resolution:
+      - state
+      - country
+    geospatial: false
+    geographical: true
+  

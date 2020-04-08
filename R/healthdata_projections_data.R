@@ -21,7 +21,13 @@
 #' 
 #' @author Sean Davis <seandavi@gmail.com>
 #'
-#' @return data.frame after downloading data
+#' @return data.frame with columns for:
+#'
+#' - location_name
+#' - date
+#' - metric: such as all beds needed
+#' - mean, upper, lower: mean, upper
+#'   confidence interval, lower confidence interval
 #'
 #' @examples
 #' res = healthdata_projections_data()
@@ -38,9 +44,16 @@ healthdata_projections_data <- function() {
                   destfile=destfile,
                   method="curl",
                   extra='-L')
+    
     unzip(destfile, exdir=tmpd)
     unzip_dir = dir(tmpd, pattern='.*\\.all', full.names=TRUE)[1]
     projections = readr::read_csv(file.path(unzip_dir, 'Hospitalization_all_locs.csv'))
+    projections = projections %>%
+        dplyr::select(-V1) %>%
+        tidyr::pivot_longer(cols=-c('location_name', 'date'),
+                            names_to='metric', values_to='count') %>%
+        tidyr::separate(metric, c('metric','quantity')) %>%
+        tidyr::pivot_wider(names_from = quantity, values_from = count, values_fill = list(count=0))
     attr(projections, 'class') = c('covid_projections_df', class(projections))
     projections
 }
