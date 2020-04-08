@@ -25,7 +25,9 @@ head(res)
 Other data-import: 
 \code{\link{beoutbreakprepared_data}()},
 \code{\link{covidtracker_data}()},
+\code{\link{healthdata_projections_data}()},
 \code{\link{jhu_data}()},
+\code{\link{jhu_us_data}()},
 \code{\link{nytimes_county_data}()},
 \code{\link{us_county_geo_details}()},
 \code{\link{us_healthcare_capacity}()},

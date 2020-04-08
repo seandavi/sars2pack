@@ -24,33 +24,17 @@ Install
     # OR
     devtools::install_github('seandavi/sars2pack')
 
+# Extended Documentation
+
+- https://seandavi.github.io/COVID19Book/
+
 Features
 ========
 
 Data resources available
 ------------------------
 
--   Johns Hopkins global pandemic time series
--   USAFacts county-level US epidemic data
--   NYTimes state and county-level US epidemic data
--   COVIDTracker.com US state- and county-level epidemic data that
-    includes detailed positive, negative, and pending test data
--   US Healthcare Capacity dataset, including details on US hospital
-    capacity and capabilities.
--   US County-level metadata, including geospatial data
-
-Capabilities
-------------
-
--   Access data from multiple sources: jhu\_data(), usa\_facts\_data(),
-    nytimes\_county\_data(), nytimes\_state\_data(),
-    covidtracker\_data(), etc.
--   Estimate R0 for localities or countries.
--   Visualize time series pandemic case growth
--   Perform data mashups between COVID-19 pandemic data and additional
-    geographic, financial, and demographic datasets
--   Create static and interactive maps of COVID-19 data for states,
-    countries, or even counties.
+Epidemiologic, health risk, demographic, and healthcare system datasets from multiple sources are available and documented.
 
 Visualization
 -------------

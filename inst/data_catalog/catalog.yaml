@@ -3,19 +3,73 @@ datasets:
     accessor: beoutbreakprepared_data
   - name: USA Facts
     accessor: usa_facts_data
+    data_type: time series cumulative cases
+    region: United States
+    resolution: county
+    geographical: true
+    geospatial: false
   - name: Johns Hopkins dataset
     accessor: jhu_data
+    data_type: time series cumulative cases
+    region: World
+    resolution: country
+    geographical: true
+    geospatial: false
   - name: New York Times county level data
     accessor: nytimes_county_data
-  - name: New York Times county level data
+    data_type: time series cumulative cases
+    region: United States
+    resolution: county
+    geographical: true
+    geospatial: false
+  - name: New York Times state level data
     accessor: nytimes_state_data
+    data_type: time series cumulative cases
+    region: United States
+    resolution: state
+    geographical: true
+    geospatial: false
   - name: Kaiser Family Foundation ICU bed data
     accessor: kff_icu_beds
+    data_type: healthcare capacity 
+    region: United States
+    resolution: Individual hospital
+    geospatial: true
+    geographical: true
   - name: United States county-level geographic details
     accessor: us_county_geo_details
+    data_type: 
+      - demographic
+      - geographic
+    region: United States
+    resolution: county
+    geospatial: true
+    geographical: true
   - name: CovidTracker data
     accessor: covidtracker_data
+    data_type: healthcare capacity 
+    region: United States
+    resolution: Individual hospital
+    geospatial: false
+    geographical: true
   - name: CovidCare United States Healthcare Capacity
     accessor: us_healthcare_capacity
+    data_type: healthcare capacity 
+    region: United States
+    resolution: Individual hospital
+    geospatial: true
+    geographical: true
   - name: Oxford Government Policy Intervention time series
     accessor: government_policy_timeline
+    data_type: public policy 
+    region: United States
+    resolution: Individual hospital
+    geospatial: false
+    geographical: true
+  - name: Johns Hopkins United States specific dataset
+    accessor: jhu_us_data
+    data_type: time series cumulative cases
+    region: United States
+    resolution: county
+    geospatial: false
+    geographical: true

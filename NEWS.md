@@ -1,3 +1,11 @@
+# sars2pack 0.0.28
+
+## Major changes
+
+- Add healthdata.org COVID-19 morbidity and mortality
+  projections data
+
+
 # sars2pack 0.0.26
 
 ## Major changes
