@@ -12,7 +12,14 @@
 healthdata_projections_data()
 }
 \value{
-data.frame after downloading data
+data.frame with columns for:
+\itemize{
+\item location_name
+\item date
+\item metric: such as all beds needed
+\item mean, upper, lower: mean, upper
+confidence interval, lower confidence interval
+}
 }
 \description{
 These are time-series data that forecaset the COVID-19 impact
