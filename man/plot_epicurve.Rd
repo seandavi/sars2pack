@@ -8,6 +8,7 @@ plot_epicurve(
   df,
   date_column = "date",
   case_column = "count",
+  grouping_column = NA,
   ...,
   log = TRUE,
   shift = FALSE
@@ -20,6 +21,9 @@ least a date column and an integer count column}
 \item{date_column}{character(1) the column name of the \code{date} type column}
 
 \item{case_column}{character(1) the column name of the \verb{count of cases} column}
+
+\item{grouping_column}{character(1) the optional column name of the \code{grouping} column,
+typically for drawing multiple countries or states, for example}
 
 \item{log}{logical(1) TRUE for log10 based y-scale, FALSE for linear}
 }

@@ -2,9 +2,11 @@ get_region = function(x) UseMethod("get_region")
 get_region.covid_events = function(x) {
   al3 = attr(x, "alpha3")
   provst = attr(x, "ProvinceState")
-  region_name = ifelse(!is.null(al3), al3, provst)
-  if (is.null(region_name)) region_name = "missing"
-  region_name
+  if (!is.null(provst) & !is.null(al3)) reg = paste(provst, al3, sep="/")
+  else if (!is.null(provst)) reg = provst
+  else if (!is.null(al3)) reg = al3
+  if (is.null(reg)) region_name = "missing"
+  reg
 }
 
 #' print for a covid_events instance
@@ -24,6 +26,13 @@ print.covid_events = function(x, ...)  {
 #' @export
 trim_from = function(x, date) UseMethod("trim_from")
 
+#' trim part of series, generic
+#' @param x covid_events instance
+#' @param date1 string representing date in yyyy-mm-dd form
+#' @param date2 string representing date in yyyy-mm-dd form
+#' @export
+trim_between = function(x, date1, date2) UseMethod("trim_between")
+
 #' trim early part of series
 #' @param x covid_events instance
 #' @param date string representing date in yyyy-mm-dd form
@@ -31,6 +40,20 @@ trim_from = function(x, date) UseMethod("trim_from")
 trim_from.covid_events = function(x, date = "2020-02-15") {
   st = lubridate::as_date(date)
   ok = which(x$dates >= st)
+  x$dates = x$dates[ok]
+  x$count = x$count[ok]
+  x
+}
+
+#' focus on segment of series delimited by two dates
+#' @param x covid_events instance
+#' @param date1 string representing date in yyyy-mm-dd form
+#' @param date2 string representing date in yyyy-mm-dd form
+#' @export
+trim_between.covid_events = function(x, date1 = "2020-02-15", date2="2020-03-15") {
+  st = lubridate::as_date(date1)
+  en = lubridate::as_date(date2)
+  ok = which(x$dates >= st & x$dates <= en)
   x$dates = x$dates[ok]
   x$count = x$count[ok]
   x
