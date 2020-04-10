@@ -1,3 +1,10 @@
+# sars2pack 0.0.30
+
+## Major changes
+
+- Add Descartes Labs Mobility dataset
+
+
 # sars2pack 0.0.28
 
 ## Major changes
