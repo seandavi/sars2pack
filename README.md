@@ -1,7 +1,6 @@
 sars2pack
 =========
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/seandavi/sars2pack/master)
 
 The sars2pack R package includes data resources, workflows, and data
 science tools to understand and interpret the COVID-19 pandemic. Access
