@@ -1,3 +1,12 @@
+# sars2pack 0.0.32
+
+## Major changes
+
+- Add vignette, `Datasets`, that offers quick, sortable,
+  searchable dataset descriptions and column names across
+  all available datasets. 
+
+
 # sars2pack 0.0.30
 
 ## Major changes

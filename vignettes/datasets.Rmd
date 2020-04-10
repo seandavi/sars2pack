@@ -1,0 +1,43 @@
+---
+title: "Available datasets"
+author: "Sean Davis <seandavi@gmail.com> and Vincent J. Carey, stvjc at channing.harvard.edu"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+vignette: >
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteIndexEntry{Datasets}
+  %\VignetteEncoding{UTF-8}
+output:
+  BiocStyle::html_document:
+    highlight: pygments
+    number_sections: yes
+    theme: united
+    toc: yes
+---
+
+# Available datasets
+
+```{r message=FALSE}
+library(DT)
+library(sars2pack)
+```
+
+
+```{r message=FALSE, warning=FALSE}
+ad = available_datasets()
+datatable(ad)
+```
+
+# Column names by dataset
+
+```{r message=FALSE, warning=FALSE}
+cd = lapply(ad$accessor, function(accessor_name) {
+    fn = get(accessor_name)
+    res = column_summaries(fn())
+    res$dataset = accessor_name
+    res
+})
+library(dplyr)
+dplyr::bind_rows(cd) %>%
+    dplyr::select(name, dataset) %>%
+    datatable(rownames=FALSE)
+```
