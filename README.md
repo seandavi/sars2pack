@@ -38,6 +38,8 @@ Data resources available
 
 Epidemiologic, health risk, demographic, and healthcare system datasets from multiple sources are available and documented.
 
+- [Complete details](https://seandavi.github.io/sars2pack/articles/datasets.html)
+
 Visualization
 -------------
 
