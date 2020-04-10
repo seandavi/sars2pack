@@ -48,6 +48,7 @@ res[sample(1:nrow(res),6),]
 Other data-import: 
 \code{\link{beoutbreakprepared_data}()},
 \code{\link{covidtracker_data}()},
+\code{\link{decartes_mobility_data}()},
 \code{\link{jhu_data}()},
 \code{\link{jhu_us_data}()},
 \code{\link{kff_icu_beds}()},
