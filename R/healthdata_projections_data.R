@@ -46,8 +46,8 @@ healthdata_projections_data <- function() {
                   extra='-L')
     
     unzip(destfile, exdir=tmpd)
-    unzip_dir = dir(tmpd, pattern='.*\\.all', full.names=TRUE)[1]
-    projections = readr::read_csv(file.path(unzip_dir, 'Hospitalization_all_locs.csv'))
+    datafile = dir(tmpd, pattern='^Hospitalization_all_locs\\.csv$', recursive = TRUE, full.names=TRUE)[1]
+    projections = readr::read_csv(datafile, col_types=cols(), guess_max=5000)
     projections = projections %>%
         dplyr::select(-V1) %>%
         tidyr::pivot_longer(cols=-c('location_name', 'date'),

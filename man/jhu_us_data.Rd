@@ -64,7 +64,7 @@ head(res)
 Other data-import: 
 \code{\link{beoutbreakprepared_data}()},
 \code{\link{covidtracker_data}()},
-\code{\link{decartes_mobility_data}()},
+\code{\link{descartes_mobility_data}()},
 \code{\link{healthdata_projections_data}()},
 \code{\link{jhu_data}()},
 \code{\link{kff_icu_beds}()},

@@ -24,7 +24,7 @@
 #' @family data-import
 #' 
 #' @export
-decartes_mobility_data = function() {
+descartes_mobility_data = function() {
     rpath = s2p_cached_url('https://raw.githubusercontent.com/descarteslabs/DL-COVID-19/master/DL-us-mobility-daterow.csv')
     res = readr::read_csv(rpath)
     res$date = lubridate::mdy(res$date)

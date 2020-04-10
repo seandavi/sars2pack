@@ -3,6 +3,8 @@
 #' This function takes a data.frame and returns a simple
 #' summary of the columns and their content as a data.frame.
 #'
+#' @importFrom tibble tibble
+#'
 #' @return
 #' a `tibble` with two columns, `name` and `column_details`.
 #' The name column is the column name. The `column_details`
