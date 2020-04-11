@@ -2,7 +2,7 @@
 
 ```
 docker build -t sars2packapi .
-docker run -p 8080:8080 sars2pack
+docker run -p 8080:8080 sars2packapi
 ```
 
 Then, access:
