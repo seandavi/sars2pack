@@ -1,3 +1,11 @@
+# sars2pack 0.0.34
+
+## Major changes
+
+- Add `plot_projection()` functionality to plot projections from 
+  `healthdata_projections_data()` from
+  https://covid19.healthdata.org/projections
+
 # sars2pack 0.0.32
 
 ## Major changes

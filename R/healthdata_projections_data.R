@@ -7,6 +7,8 @@
 #'
 #' @importFrom readr read_csv
 #' @importFrom utils unzip
+#' @importFrom tidyr pivot_wider separate
+#' @importFrom dplyr select
 #'
 #' @seealso
 #' - \url{http://www.healthdata.org/covid}
@@ -40,11 +42,8 @@
 healthdata_projections_data <- function() {
     tmpd = tempdir()
     destfile = file.path(tmpd,"projections.zip")
-    download.file("https://ihmecovid19storage.blob.core.windows.net/latest/ihme-covid19.zip", 
-                  destfile=destfile,
-                  method="curl",
-                  extra='-L')
-    
+    rpath = "https://ihmecovid19storage.blob.core.windows.net/latest/ihme-covid19.zip"
+    destfile = s2p_cached_url(rpath)
     unzip(destfile, exdir=tmpd)
     datafile = dir(tmpd, pattern='^Hospitalization_all_locs\\.csv$', recursive = TRUE, full.names=TRUE)[1]
     projections = readr::read_csv(datafile, col_types=cols(), guess_max=5000)
