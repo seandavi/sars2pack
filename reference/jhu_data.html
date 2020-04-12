@@ -40,8 +40,8 @@
 
 
 <meta property="og:title" content="Global COVID-19 data from <a href='https://github.com/CSSEGISandData/COVID-19/'>JHU CSSEGIS</a> — jhu_data" />
-<meta property="og:description" content="This function access and munges the cumulative time series confirmed and
-deaths from the data in the repository for the 2019 Novel Coronavirus Visual
+<meta property="og:description" content="This function access and munges the cumulative time series confirmed,
+deaths and recovered from the data in the repository for the 2019 Novel Coronavirus Visual
 Dashboard operated by the Johns Hopkins University Center for
 Systems Science and Engineering (JHU CSSE). Also, Supported by ESRI
 Living Atlas Team and the Johns Hopkins University Applied Physics
@@ -87,7 +87,7 @@ Lab (JHU APL)." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sars2pack</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.16</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.32</span>
       </span>
     </div>
 
@@ -104,6 +104,18 @@ Lab (JHU APL)." />
 </li>
 <li>
   <a href="../reference/index.html">Reference</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/datasets.html">Available datasets</a>
+    </li>
+  </ul>
 </li>
 <li>
   <a href="../news/index.html">Changelog</a>
@@ -135,8 +147,8 @@ Lab (JHU APL)." />
     </div>
 
     <div class="ref-description">
-    <p>This function access and munges the cumulative time series confirmed and
-deaths from the data in the repository for the 2019 Novel Coronavirus Visual
+    <p>This function access and munges the cumulative time series confirmed,
+deaths and recovered from the data in the repository for the 2019 Novel Coronavirus Visual
 Dashboard operated by the Johns Hopkins University Center for
 Systems Science and Engineering (JHU CSSE). Also, Supported by ESRI
 Living Atlas Team and the Johns Hopkins University Applied Physics
@@ -157,12 +169,12 @@ Lab (JHU APL).</p>
 
     <p>A tidy <code>data.frame</code> (actually, a <code>tbl_df</code>) with columns:</p><ul>
 <li><p>ProvinceState:  Province or state. <strong>Note</strong>:</p></li>
-<li><p>CountryRegion  This is the main column for finding countries of interest</p></li>
+<li><p>CountryRegion:  This is the main column for finding countries of interest</p></li>
 <li><p>Lat:  Latitude</p></li>
 <li><p>Long:  Longitude</p></li>
-<li><p>date:</p></li>
+<li><p>date:  Date</p></li>
 <li><p>count:  The cumulative count of cases for a given geographic area.</p></li>
-<li><p>subset:  either <code>confirmed</code> or <code>deaths</code></p></li>
+<li><p>subset: either <code>confirmed</code>, <code>deaths</code>, or <code>recovered</code>.</p></li>
 </ul>
 
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
@@ -184,10 +196,15 @@ in the source data</p></li>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>Other data-import: 
-<code>covidtracker_data()</code>,
-<code>nytimes_county_data()</code>,
-<code>us_county_geo_details()</code>,
-<code>us_healthcare_capacity()</code>,
+<code><a href='beoutbreakprepared_data.html'>beoutbreakprepared_data</a>()</code>,
+<code><a href='covidtracker_data.html'>covidtracker_data</a>()</code>,
+<code><a href='descartes_mobility_data.html'>descartes_mobility_data</a>()</code>,
+<code><a href='healthdata_projections_data.html'>healthdata_projections_data</a>()</code>,
+<code><a href='jhu_us_data.html'>jhu_us_data</a>()</code>,
+<code><a href='kff_icu_beds.html'>kff_icu_beds</a>()</code>,
+<code><a href='nytimes_county_data.html'>nytimes_county_data</a>()</code>,
+<code><a href='us_county_geo_details.html'>us_county_geo_details</a>()</code>,
+<code><a href='us_healthcare_capacity.html'>us_healthcare_capacity</a>()</code>,
 <code><a href='usa_facts_data.html'>usa_facts_data</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>

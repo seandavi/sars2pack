@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Get enriched jhu dataset as a list of three data.frames — enriched_jhu_data • sars2pack</title>
+<title>Get enriched jhu dataset enriched with country-level metadata — enriched_jhu_data • sars2pack</title>
 
 
 <!-- jquery -->
@@ -39,7 +39,7 @@
 
 
 
-<meta property="og:title" content="Get enriched jhu dataset as a list of three data.frames — enriched_jhu_data" />
+<meta property="og:title" content="Get enriched jhu dataset enriched with country-level metadata — enriched_jhu_data" />
 <meta property="og:description" content="The purpose of this function is to enrich the JHU dataset
 with additional country-level metadata and then get the
 data into a form that can be easily written to excel or used
@@ -85,7 +85,7 @@ as a &quot;wide-format&quot; tabular dataset." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sars2pack</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.16</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.32</span>
       </span>
     </div>
 
@@ -102,6 +102,18 @@ as a &quot;wide-format&quot; tabular dataset." />
 </li>
 <li>
   <a href="../reference/index.html">Reference</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/datasets.html">Available datasets</a>
+    </li>
+  </ul>
 </li>
 <li>
   <a href="../news/index.html">Changelog</a>
@@ -127,7 +139,7 @@ as a &quot;wide-format&quot; tabular dataset." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Get enriched jhu dataset as a list of three data.frames</h1>
+    <h1>Get enriched jhu dataset enriched with country-level metadata</h1>
     <small class="dont-index">Source: <a href='https://github.com/seandavi/sars2pack/blob/master/R/jhu_to_excel.R'><code>R/jhu_to_excel.R</code></a></small>
     <div class="hidden name"><code>enriched_jhu_data.Rd</code></div>
     </div>
@@ -139,7 +151,7 @@ data into a form that can be easily written to excel or used
 as a "wide-format" tabular dataset.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>enriched_jhu_data</span>(<span class='kw'>cols_to_remove</span> <span class='kw'>=</span> <span class='no'>.cols_to_remove</span>)</pre>
+    <pre class="usage"><span class='fu'>enriched_jhu_data</span>(<span class='kw'>cols_to_remove</span> <span class='kw'>=</span> <span class='no'>.cols_to_remove</span>, <span class='kw'>warn</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -149,6 +161,11 @@ as a "wide-format" tabular dataset.</p>
       <td><p>a character vector of column names from
 <code><a href='country_metadata.html'>country_metadata()</a></code> to remove.</p></td>
     </tr>
+    <tr>
+      <th>warn</th>
+      <td><p>logical(1) defaults to FALSE, sent to <code><a href='https://rdrr.io/pkg/countrycode/man/countrycode.html'>countrycode::countrycode</a></code> to
+determine whether failed matches should be reported.</p></td>
+    </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
@@ -157,7 +174,8 @@ as a "wide-format" tabular dataset.</p>
 and <code>recovered</code>.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>res</span> <span class='kw'>=</span> <span class='fu'>enriched_jhu_data</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Some values were not matched unambiguously: MS Zaandam</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt;  [1] "name"           "topLevelDomain" "alpha2Code"     "alpha3Code"    
+    <pre class="examples"><div class='input'><span class='no'>res</span> <span class='kw'>=</span> <span class='fu'>enriched_jhu_data</span>()
+<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt;  [1] "name"           "topLevelDomain" "alpha2Code"     "alpha3Code"    
 #&gt;  [5] "capital"        "region"         "subregion"      "population"    
 #&gt;  [9] "area"           "gini"           "borders"        "numericCode"   
 #&gt; [13] "cioc"           "ProvinceState"  "CountryRegion"  "Lat"           
@@ -177,10 +195,10 @@ and <code>recovered</code>.</p>
 #&gt; </span><span style='color: #555555;'>4</span><span> Afgh… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span>      AF         AFG        Kabul   Asia   Southern…   27</span><span style='text-decoration: underline;'>657</span><span>145
 #&gt; </span><span style='color: #555555;'>5</span><span> Afgh… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span>      AF         AFG        Kabul   Asia   Southern…   27</span><span style='text-decoration: underline;'>657</span><span>145
 #&gt; </span><span style='color: #555555;'>6</span><span> Afgh… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span>      AF         AFG        Kabul   Asia   Southern…   27</span><span style='text-decoration: underline;'>657</span><span>145
-#&gt; </span><span style='color: #555555;'># … with 12 more variables: area </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, gini </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, borders </span><span style='color: #555555;font-style: italic;'>&lt;list&gt;</span><span style='color: #555555;'>,
-#&gt; #   numericCode </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, cioc </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, ProvinceState </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, CountryRegion </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>,
-#&gt; #   Lat </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, Long </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, date </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span style='color: #555555;'>, count </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, subset </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span></div><div class='input'><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Observations: 34,408
-#&gt; Variables: 20
+#&gt; </span><span style='color: #555555;'># … with 12 more variables: area </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, gini </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, borders </span><span style='color: #555555;font-style: italic;'>&lt;list&gt;</span><span style='color: #555555;'>,</span><span>
+#&gt; </span><span style='color: #555555;'>#   numericCode </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, cioc </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, ProvinceState </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, CountryRegion </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>,</span><span>
+#&gt; </span><span style='color: #555555;'>#   Lat </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, Long </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, date </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span style='color: #555555;'>, count </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, subset </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span></div><div class='input'><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Rows: 63,018
+#&gt; Columns: 20
 #&gt; $ name           </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Afghanistan", "Afghanistan", "Afghanistan", "Afghanis…
 #&gt; $ topLevelDomain </span><span style='color: #555555;font-style: italic;'>&lt;list&gt;</span><span> [".af", ".af", ".af", ".af", ".af", ".af", ".af", ".a…
 #&gt; $ alpha2Code     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "AF", "AF", "AF", "AF", "AF", "AF", "AF", "AF", "AF", …

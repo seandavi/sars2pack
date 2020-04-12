@@ -81,7 +81,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sars2pack</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.16</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.32</span>
       </span>
     </div>
 
@@ -98,6 +98,18 @@
 </li>
 <li>
   <a href="../reference/index.html">Reference</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/datasets.html">Available datasets</a>
+    </li>
+  </ul>
 </li>
 <li>
   <a href="../news/index.html">Changelog</a>
@@ -149,6 +161,18 @@
       <tr>
         
         <td>
+          <p><code><a href="available_datasets.html">available_datasets()</a></code> </p>
+        </td>
+        <td><p>list and detail available sars2pack datasets</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="beoutbreakprepared_data.html">beoutbreakprepared_data()</a></code> </p>
+        </td>
+        <td><p>Individual-level data contributed from around the world</p></td>
+      </tr><tr>
+        
+        <td>
           <p><code><a href="country_metadata.html">country_metadata()</a></code> </p>
         </td>
         <td><p>Get basic country data</p></td>
@@ -161,15 +185,39 @@
       </tr><tr>
         
         <td>
+          <p><code><a href="descartes_mobility_data.html">descartes_mobility_data()</a></code> </p>
+        </td>
+        <td><p>Get US daily mobility data from Descarte Labs</p></td>
+      </tr><tr>
+        
+        <td>
           <p><code><a href="enriched_jhu_data.html">enriched_jhu_data()</a></code> </p>
         </td>
-        <td><p>Get enriched jhu dataset as a list of three data.frames</p></td>
+        <td><p>Get enriched jhu dataset enriched with country-level metadata</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="eu_data_cache_data.html">eu_data_cache_data()</a></code> <code><a href="eu_data_cache_data.html">eu_data_cache_datasets()</a></code> </p>
+        </td>
+        <td><p>Country, region, and province level COVID-19 time series for Europe</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="healthdata_projections_data.html">healthdata_projections_data()</a></code> </p>
+        </td>
+        <td><p>healthdata.org covid19 morbidity and hospitalization estimates</p></td>
       </tr><tr>
         
         <td>
           <p><code><a href="jhu_data.html">jhu_data()</a></code> </p>
         </td>
         <td><p>Global COVID-19 data from <a href='https://github.com/CSSEGISandData/COVID-19/'>JHU CSSEGIS</a></p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="jhu_us_data.html">jhu_us_data()</a></code> </p>
+        </td>
+        <td><p>US counties COVID-19 data from <a href='https://github.com/CSSEGISandData/COVID-19/'>JHU CSSEGIS</a></p></td>
       </tr><tr>
         
         <td>
@@ -182,6 +230,30 @@
           <p><code><a href="usa_facts_data.html">usa_facts_data()</a></code> </p>
         </td>
         <td><p>United States state and county level data from USAFacts</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="us_county_geo_details.html">us_county_geo_details()</a></code> </p>
+        </td>
+        <td><p>United States county-level geographic details</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="us_healthcare_capacity.html">us_healthcare_capacity()</a></code> </p>
+        </td>
+        <td><p>United States healthcare system capacity by provider</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="kff_icu_beds.html">kff_icu_beds()</a></code> </p>
+        </td>
+        <td><p>Kaiser Family Foundation US County-level ICU bed data</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="government_policy_timeline.html">government_policy_timeline()</a></code> </p>
+        </td>
+        <td><p>Longitudinal tracking of government interventions to combat COVID-19</p></td>
       </tr>
     </tbody><tbody>
       <tr>
@@ -198,15 +270,39 @@
       <tr>
         
         <td>
+          <p><code><a href="column_summaries.html">column_summaries()</a></code> </p>
+        </td>
+        <td><p>convenience function for summarizing data.frame columns</p></td>
+      </tr><tr>
+        
+        <td>
           <p><code><a href="cumulative_events_ejhu.html">cumulative_events_ejhu()</a></code> </p>
         </td>
         <td><p>constructor for covid_events</p></td>
       </tr><tr>
         
         <td>
+          <p><code><a href="cumulative_events_nyt_state.html">cumulative_events_nyt_state()</a></code> </p>
+        </td>
+        <td><p>create cumulative_events instance for state data from NYT</p></td>
+      </tr><tr>
+        
+        <td>
           <p><code><a href="demo_simulation.html">demo_simulation()</a></code> </p>
         </td>
         <td><p>set up a simulation as demonstrated by John C Mallery</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="easyEG_eucache.html">easyEG_eucache()</a></code> </p>
+        </td>
+        <td><p>simplify production of EG fit using eu_data_cache_data</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="estimate_R.html">estimate_R()</a></code> </p>
+        </td>
+        <td><p>estimate R0</p></td>
       </tr><tr>
         
         <td>
@@ -234,6 +330,12 @@
       </tr><tr>
         
         <td>
+          <p><code><a href="make_cumulative_events.html">make_cumulative_events()</a></code> </p>
+        </td>
+        <td><p>generic cumulative_events generator</p></td>
+      </tr><tr>
+        
+        <td>
           <p><code><a href="mar19df.html">mar19df</a></code> </p>
         </td>
         <td><p>march 19 result of CSSEGISandData/COVID-19/ time series data retrieval as data.frame</p></td>
@@ -252,6 +354,12 @@
       </tr><tr>
         
         <td>
+          <p><code><a href="plot.easyEG.html">plot(<i>&lt;easyEG&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>plotter for easyEG run</p></td>
+      </tr><tr>
+        
+        <td>
           <p><code><a href="plot2.R0.sR.html">plot2(<i>&lt;R0.sR&gt;</i>)</a></code> </p>
         </td>
         <td><p>version of R0:::plot.R0.sR that does not use dev.new</p></td>
@@ -261,6 +369,18 @@
           <p><code><a href="plot2.html">plot2()</a></code> </p>
         </td>
         <td><p>generic for simpler plotter for R0.sR</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="plot_epicurve.html">plot_epicurve()</a></code> </p>
+        </td>
+        <td><p>Plot a (set of) epidemic curve(s)</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="plot_projection.html">plot_projection()</a></code> </p>
+        </td>
+        <td><p>plot the disease course and death projections</p></td>
       </tr><tr>
         
         <td>
@@ -288,6 +408,18 @@
       </tr><tr>
         
         <td>
+          <p><code><a href="trim_between.html">trim_between()</a></code> </p>
+        </td>
+        <td><p>trim part of series, generic</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="trim_between.covid_events.html">trim_between(<i>&lt;covid_events&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>focus on segment of series delimited by two dates</p></td>
+      </tr><tr>
+        
+        <td>
           <p><code><a href="trim_from.html">trim_from()</a></code> </p>
         </td>
         <td><p>trim early part of series, generic</p></td>
@@ -303,18 +435,6 @@
           <p><code><a href="trim_leading_values.html">trim_leading_values()</a></code> </p>
         </td>
         <td><p>trim leading repeats of a given value from a vector</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="us_county_geo_details.html">us_county_geo_details()</a></code> </p>
-        </td>
-        <td><p>United States county-level geographic details</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="us_healthcare_capacity.html">us_healthcare_capacity()</a></code> </p>
-        </td>
-        <td><p>United States healthcare system capacity by provider</p></td>
       </tr>
     </tbody>
     </table>
