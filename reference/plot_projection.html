@@ -345,17 +345,8 @@ examples for details.</p>
 <span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='no'>nyp</span>)</div><div class='img'><img src='plot_projection-1.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Zoomable html version using plotly</span>
 <span class='kw'>if</span>(<span class='fu'><a href='https://rdrr.io/r/base/library.html'>require</a></span>(<span class='no'>plotly</span>)) {
-  <span class='fu'><a href='https://rdrr.io/pkg/plotly/man/ggplotly.html'>ggplotly</a></span>(<span class='no'>nyp</span>)
-}</div><div class='output co'>#&gt; <span class='message'>Loading required package: plotly</span></div><div class='output co'>#&gt; <span class='message'></span>
-#&gt; <span class='message'>Attaching package: ‘plotly’</span></div><div class='output co'>#&gt; <span class='message'>The following object is masked from ‘package:ggplot2’:</span>
-#&gt; <span class='message'></span>
-#&gt; <span class='message'>    last_plot</span></div><div class='output co'>#&gt; <span class='message'>The following object is masked from ‘package:MASS’:</span>
-#&gt; <span class='message'></span>
-#&gt; <span class='message'>    select</span></div><div class='output co'>#&gt; <span class='message'>The following object is masked from ‘package:stats’:</span>
-#&gt; <span class='message'></span>
-#&gt; <span class='message'>    filter</span></div><div class='output co'>#&gt; <span class='message'>The following object is masked from ‘package:graphics’:</span>
-#&gt; <span class='message'></span>
-#&gt; <span class='message'>    layout</span></div><div class='input'>
+  <span class='fu'>ggplotly</span>(<span class='no'>nyp</span>)
+}</div><div class='output co'>#&gt; <span class='message'>Loading required package: plotly</span></div><div class='output co'>#&gt; <span class='warning'>Warning: there is no package called ‘plotly’</span></div><div class='input'>
 <span class='co'># California</span>
 <span class='no'>calip</span> <span class='kw'>=</span> <span class='fu'>plot_projection</span>(<span class='kw'>projections</span> <span class='kw'>=</span> <span class='no'>hdp</span>,
     <span class='kw'>location_name</span><span class='kw'>=</span><span class='st'>'California'</span>)
@@ -370,10 +361,8 @@ examples for details.</p>
 <span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='no'>spain_proj</span>)</div><div class='img'><img src='plot_projection-4.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='no'>portugal_proj</span>)</div><div class='img'><img src='plot_projection-5.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># plot both on same plot</span>
 <span class='kw'>if</span>(<span class='fu'><a href='https://rdrr.io/r/base/library.html'>require</a></span>(<span class='no'>cowplot</span>)) {
-  <span class='fu'><a href='https://rdrr.io/pkg/cowplot/man/plot_grid.html'>plot_grid</a></span>(<span class='no'>spain_proj</span>, <span class='no'>portugal_proj</span>)
-}</div><div class='output co'>#&gt; <span class='message'>Loading required package: cowplot</span></div><div class='output co'>#&gt; <span class='message'></span>
-#&gt; <span class='message'>********************************************************</span></div><div class='output co'>#&gt; <span class='message'>Note: As of version 1.0.0, cowplot does not change the</span></div><div class='output co'>#&gt; <span class='message'>  default ggplot2 theme anymore. To recover the previous</span></div><div class='output co'>#&gt; <span class='message'>  behavior, execute:</span>
-#&gt; <span class='message'>  theme_set(theme_cowplot())</span></div><div class='output co'>#&gt; <span class='message'>********************************************************</span></div><div class='img'><img src='plot_projection-6.png' alt='' width='700' height='433' /></div><div class='input'>
+  <span class='fu'>plot_grid</span>(<span class='no'>spain_proj</span>, <span class='no'>portugal_proj</span>)
+}</div><div class='output co'>#&gt; <span class='message'>Loading required package: cowplot</span></div><div class='output co'>#&gt; <span class='warning'>Warning: there is no package called ‘cowplot’</span></div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -390,7 +379,7 @@ examples for details.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
 
       </footer>
