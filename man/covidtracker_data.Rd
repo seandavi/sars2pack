@@ -25,7 +25,11 @@ results, pending tests, and total people tested for each state or
 district currently reporting that data.
 }
 \examples{
-covidtracker_data()
+res = covidtracker_data()
+colnames(res)
+dim(res)
+glimpse(res)
+
 
 }
 \seealso{

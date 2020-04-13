@@ -36,7 +36,11 @@
 #' @return A tidy `tbl_df`
 #'
 #' @examples
-#' covidtracker_data()
+#' res = covidtracker_data()
+#' colnames(res)
+#' dim(res)
+#' glimpse(res)
+#' 
 #'
 #' @family data-import 
 #' 
