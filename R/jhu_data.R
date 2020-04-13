@@ -20,7 +20,9 @@
     stopifnot(
         subset %in% c('confirmed', 'deaths', 'recovered')
     )
-    csv = readr::read_csv(url(sprintf("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_%s_global.csv", subset)), col_types=cols())
+    url = sprintf("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_%s_global.csv", subset)
+    rpath = s2p_cached_url(url)
+    csv = readr::read_csv(rpath, col_types=cols(), guess_max=5000)
     csv = tidyr::pivot_longer(csv,-c('Province/State','Country/Region','Lat','Long'), names_to = 'date', values_to='count')
     names(csv)[1] <- "ProvinceState"
     names(csv)[2] <- "CountryRegion"
@@ -70,6 +72,7 @@
 #' res = jhu_data()
 #' colnames(res)
 #' head(res)
+#' glimpse(res)
 #' 
 #' @source
 #' - \url{https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data/csse_covid_19_time_series,mGT, method=c('EG','TD'))}
