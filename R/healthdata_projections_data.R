@@ -40,8 +40,6 @@
 #' 
 #' @export
 healthdata_projections_data <- function() {
-    tmpd = tempdir()
-    destfile = file.path(tmpd,"projections.zip")
     rpath = "https://ihmecovid19storage.blob.core.windows.net/latest/ihme-covid19.zip"
     destfile = s2p_cached_url(rpath)
     unzip(destfile, exdir=tmpd)
