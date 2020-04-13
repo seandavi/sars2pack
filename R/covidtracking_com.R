@@ -42,7 +42,9 @@
 #' 
 #' @export
 covidtracker_data <- function() {
-    res = readr::read_csv('http://covidtracking.com/api/states/daily.csv')
+    rpath = 'http://covidtracking.com/api/states/daily.csv'
+    fname = s2p_cached_url(rpath)
+    res = readr::read_csv(fname, col_types=cols())
     ret = res %>%
         ## this little trick lets us use a vector
         ## of names in select statement.
