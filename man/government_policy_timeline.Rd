@@ -24,9 +24,11 @@ OxCGRT collects publicly available information on 11 indicators of government re
 Recommended citation for database: Hale, Thomas and Samuel Webster (2020). Oxford COVID-19 Government Response Tracker. Data use policy: Creative Commons Attribution CC BY standard.
 }
 \examples{
+library(dplyr)
 res = government_policy_timeline()
 head(res)
 colnames(res)
+dplyr::glimpse(res)
 
 }
 \author{
