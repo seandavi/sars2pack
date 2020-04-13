@@ -1,3 +1,10 @@
+# sars2pack 0.0.36
+
+## Bug fixes
+
+- Fixed caching bug that caused data resources that
+  needed updates to be missed. 
+
 # sars2pack 0.0.34
 
 ## Major changes

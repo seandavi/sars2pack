@@ -24,7 +24,7 @@ s2p_cached_url <- function(url, rname = url, ask_on_update=FALSE, ...) {
     }
     # if needs update, do the download
     if(!isFALSE(bfcneedsupdate(bfc, rid))) {
-        bfcupdate(bfc, rid, ask=FALSE)
+        bfcdownload(bfc, rid, ask=FALSE, ...)
     }
     bfcrpath(bfc, rids = rid)
 }
