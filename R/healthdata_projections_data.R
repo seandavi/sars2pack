@@ -42,6 +42,7 @@
 healthdata_projections_data <- function() {
     rpath = "https://ihmecovid19storage.blob.core.windows.net/latest/ihme-covid19.zip"
     destfile = s2p_cached_url(rpath)
+    tmpd = tempdir()
     unzip(destfile, exdir=tmpd)
     datafile = dir(tmpd, pattern='^Hospitalization_all_locs\\.csv$', recursive = TRUE, full.names=TRUE)[1]
     projections = readr::read_csv(datafile, col_types=cols(), guess_max=5000)

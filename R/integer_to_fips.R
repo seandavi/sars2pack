@@ -23,6 +23,5 @@
 #' 
 #' @export
 integer_to_fips <- function(v) {
-    stopifnot(all(is.integer(v)))
     sprintf('%05d', v)
 }
