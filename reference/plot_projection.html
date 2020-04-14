@@ -96,9 +96,6 @@ render a plot or return a ggplot object for further manipulation." />
   </a>
 </li>
 <li>
-  <a href="../articles/sars2pack.html">Get started</a>
-</li>
-<li>
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
@@ -110,6 +107,18 @@ render a plot or return a ggplot object for further manipulation." />
   <ul class="dropdown-menu" role="menu">
     <li>
       <a href="../articles/datasets.html">Available datasets</a>
+    </li>
+    <li>
+      <a href="../articles/index.html">Introduction to sars2pack</a>
+    </li>
+    <li>
+      <a href="../articles/map_visualization.html">Geospatial visualization of COVID-19 datasets</a>
+    </li>
+    <li>
+      <a href="../articles/overview.html">Exploring the COVID-19 pandemic using sars2pack</a>
+    </li>
+    <li>
+      <a href="../articles/r0_estimates.html">Estimating the replication rate, $R_0$</a>
     </li>
   </ul>
 </li>
@@ -248,95 +257,96 @@ examples for details.</p>
 #&gt;  [50] "Hawaii"                                                      
 #&gt;  [51] "Hesse"                                                       
 #&gt;  [52] "Hungary"                                                     
-#&gt;  [53] "Idaho"                                                       
-#&gt;  [54] "Illinois"                                                    
-#&gt;  [55] "Indiana"                                                     
-#&gt;  [56] "Iowa"                                                        
-#&gt;  [57] "Ireland"                                                     
-#&gt;  [58] "Italy"                                                       
-#&gt;  [59] "Kansas"                                                      
-#&gt;  [60] "Kentucky"                                                    
-#&gt;  [61] "King and Snohomish Counties (excluding Life Care Center), WA"
-#&gt;  [62] "La Rioja"                                                    
-#&gt;  [63] "Latvia"                                                      
-#&gt;  [64] "Lazio"                                                       
-#&gt;  [65] "Life Care Center, Kirkland, WA"                              
-#&gt;  [66] "Liguria"                                                     
-#&gt;  [67] "Lithuania"                                                   
-#&gt;  [68] "Lombardia"                                                   
-#&gt;  [69] "Louisiana"                                                   
-#&gt;  [70] "Lower Saxony"                                                
-#&gt;  [71] "Luxembourg"                                                  
-#&gt;  [72] "Maine"                                                       
-#&gt;  [73] "Malta"                                                       
-#&gt;  [74] "Marche"                                                      
-#&gt;  [75] "Maryland"                                                    
-#&gt;  [76] "Massachusetts"                                               
-#&gt;  [77] "Mecklenburg-Vorpommern"                                      
-#&gt;  [78] "Melilla"                                                     
-#&gt;  [79] "Michigan"                                                    
-#&gt;  [80] "Minnesota"                                                   
-#&gt;  [81] "Mississippi"                                                 
-#&gt;  [82] "Missouri"                                                    
-#&gt;  [83] "Molise"                                                      
-#&gt;  [84] "Montana"                                                     
-#&gt;  [85] "Murcia"                                                      
-#&gt;  [86] "Navarre"                                                     
-#&gt;  [87] "Nebraska"                                                    
-#&gt;  [88] "Netherlands"                                                 
-#&gt;  [89] "Nevada"                                                      
-#&gt;  [90] "New Hampshire"                                               
-#&gt;  [91] "New Jersey"                                                  
-#&gt;  [92] "New Mexico"                                                  
-#&gt;  [93] "New York"                                                    
-#&gt;  [94] "North Carolina"                                              
-#&gt;  [95] "North Dakota"                                                
-#&gt;  [96] "North Rhine-Westphalia"                                      
-#&gt;  [97] "Norway"                                                      
-#&gt;  [98] "Ohio"                                                        
-#&gt;  [99] "Oklahoma"                                                    
-#&gt; [100] "Oregon"                                                      
-#&gt; [101] "Other Counties, WA"                                          
-#&gt; [102] "Pennsylvania"                                                
-#&gt; [103] "Piemonte"                                                    
-#&gt; [104] "Poland"                                                      
-#&gt; [105] "Portugal"                                                    
-#&gt; [106] "Provincia autonoma di Bolzano"                               
-#&gt; [107] "Provincia autonoma di Trento"                                
-#&gt; [108] "Puglia"                                                      
-#&gt; [109] "Rhineland-Palatinate"                                        
-#&gt; [110] "Rhode Island"                                                
-#&gt; [111] "Romania"                                                     
-#&gt; [112] "Saarland"                                                    
-#&gt; [113] "Sardegna"                                                    
-#&gt; [114] "Saxony"                                                      
-#&gt; [115] "Saxony-Anhalt"                                               
-#&gt; [116] "Schleswig-Holstein"                                          
-#&gt; [117] "Sicilia"                                                     
-#&gt; [118] "Slovakia"                                                    
-#&gt; [119] "Slovenia"                                                    
-#&gt; [120] "South Carolina"                                              
-#&gt; [121] "South Dakota"                                                
-#&gt; [122] "Spain"                                                       
-#&gt; [123] "Sweden"                                                      
-#&gt; [124] "Switzerland"                                                 
-#&gt; [125] "Tennessee"                                                   
-#&gt; [126] "Texas"                                                       
-#&gt; [127] "Thuringia"                                                   
-#&gt; [128] "Toscana"                                                     
-#&gt; [129] "Umbria"                                                      
-#&gt; [130] "United Kingdom"                                              
-#&gt; [131] "United States of America"                                    
-#&gt; [132] "Utah"                                                        
-#&gt; [133] "Valencian Community"                                         
-#&gt; [134] "Valle d'Aosta"                                               
-#&gt; [135] "Veneto"                                                      
-#&gt; [136] "Vermont"                                                     
-#&gt; [137] "Virginia"                                                    
-#&gt; [138] "Washington"                                                  
-#&gt; [139] "West Virginia"                                               
-#&gt; [140] "Wisconsin"                                                   
-#&gt; [141] "Wyoming"                                                     </div><div class='input'>
+#&gt;  [53] "Iceland"                                                     
+#&gt;  [54] "Idaho"                                                       
+#&gt;  [55] "Illinois"                                                    
+#&gt;  [56] "Indiana"                                                     
+#&gt;  [57] "Iowa"                                                        
+#&gt;  [58] "Ireland"                                                     
+#&gt;  [59] "Italy"                                                       
+#&gt;  [60] "Kansas"                                                      
+#&gt;  [61] "Kentucky"                                                    
+#&gt;  [62] "King and Snohomish Counties (excluding Life Care Center), WA"
+#&gt;  [63] "La Rioja"                                                    
+#&gt;  [64] "Latvia"                                                      
+#&gt;  [65] "Lazio"                                                       
+#&gt;  [66] "Life Care Center, Kirkland, WA"                              
+#&gt;  [67] "Liguria"                                                     
+#&gt;  [68] "Lithuania"                                                   
+#&gt;  [69] "Lombardia"                                                   
+#&gt;  [70] "Louisiana"                                                   
+#&gt;  [71] "Lower Saxony"                                                
+#&gt;  [72] "Luxembourg"                                                  
+#&gt;  [73] "Maine"                                                       
+#&gt;  [74] "Malta"                                                       
+#&gt;  [75] "Marche"                                                      
+#&gt;  [76] "Maryland"                                                    
+#&gt;  [77] "Massachusetts"                                               
+#&gt;  [78] "Mecklenburg-Vorpommern"                                      
+#&gt;  [79] "Melilla"                                                     
+#&gt;  [80] "Michigan"                                                    
+#&gt;  [81] "Minnesota"                                                   
+#&gt;  [82] "Mississippi"                                                 
+#&gt;  [83] "Missouri"                                                    
+#&gt;  [84] "Molise"                                                      
+#&gt;  [85] "Montana"                                                     
+#&gt;  [86] "Murcia"                                                      
+#&gt;  [87] "Navarre"                                                     
+#&gt;  [88] "Nebraska"                                                    
+#&gt;  [89] "Netherlands"                                                 
+#&gt;  [90] "Nevada"                                                      
+#&gt;  [91] "New Hampshire"                                               
+#&gt;  [92] "New Jersey"                                                  
+#&gt;  [93] "New Mexico"                                                  
+#&gt;  [94] "New York"                                                    
+#&gt;  [95] "North Carolina"                                              
+#&gt;  [96] "North Dakota"                                                
+#&gt;  [97] "North Rhine-Westphalia"                                      
+#&gt;  [98] "Norway"                                                      
+#&gt;  [99] "Ohio"                                                        
+#&gt; [100] "Oklahoma"                                                    
+#&gt; [101] "Oregon"                                                      
+#&gt; [102] "Other Counties, WA"                                          
+#&gt; [103] "Pennsylvania"                                                
+#&gt; [104] "Piemonte"                                                    
+#&gt; [105] "Poland"                                                      
+#&gt; [106] "Portugal"                                                    
+#&gt; [107] "Provincia autonoma di Bolzano"                               
+#&gt; [108] "Provincia autonoma di Trento"                                
+#&gt; [109] "Puglia"                                                      
+#&gt; [110] "Rhineland-Palatinate"                                        
+#&gt; [111] "Rhode Island"                                                
+#&gt; [112] "Romania"                                                     
+#&gt; [113] "Saarland"                                                    
+#&gt; [114] "Sardegna"                                                    
+#&gt; [115] "Saxony"                                                      
+#&gt; [116] "Saxony-Anhalt"                                               
+#&gt; [117] "Schleswig-Holstein"                                          
+#&gt; [118] "Sicilia"                                                     
+#&gt; [119] "Slovakia"                                                    
+#&gt; [120] "Slovenia"                                                    
+#&gt; [121] "South Carolina"                                              
+#&gt; [122] "South Dakota"                                                
+#&gt; [123] "Spain"                                                       
+#&gt; [124] "Sweden"                                                      
+#&gt; [125] "Switzerland"                                                 
+#&gt; [126] "Tennessee"                                                   
+#&gt; [127] "Texas"                                                       
+#&gt; [128] "Thuringia"                                                   
+#&gt; [129] "Toscana"                                                     
+#&gt; [130] "Umbria"                                                      
+#&gt; [131] "United Kingdom"                                              
+#&gt; [132] "United States of America"                                    
+#&gt; [133] "Utah"                                                        
+#&gt; [134] "Valencian Community"                                         
+#&gt; [135] "Valle d'Aosta"                                               
+#&gt; [136] "Veneto"                                                      
+#&gt; [137] "Vermont"                                                     
+#&gt; [138] "Virginia"                                                    
+#&gt; [139] "Washington"                                                  
+#&gt; [140] "West Virginia"                                               
+#&gt; [141] "Wisconsin"                                                   
+#&gt; [142] "Wyoming"                                                     </div><div class='input'>
 <span class='co'># create a ggplot2 object</span>
 <span class='no'>nyp</span> <span class='kw'>=</span> <span class='fu'>plot_projection</span>(<span class='kw'>projections</span> <span class='kw'>=</span> <span class='no'>hdp</span>,
     <span class='kw'>location_name</span><span class='kw'>=</span><span class='st'>'New York'</span>)
@@ -345,8 +355,17 @@ examples for details.</p>
 <span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='no'>nyp</span>)</div><div class='img'><img src='plot_projection-1.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Zoomable html version using plotly</span>
 <span class='kw'>if</span>(<span class='fu'><a href='https://rdrr.io/r/base/library.html'>require</a></span>(<span class='no'>plotly</span>)) {
-  <span class='fu'>ggplotly</span>(<span class='no'>nyp</span>)
-}</div><div class='output co'>#&gt; <span class='message'>Loading required package: plotly</span></div><div class='output co'>#&gt; <span class='warning'>Warning: there is no package called ‘plotly’</span></div><div class='input'>
+  <span class='fu'><a href='https://rdrr.io/pkg/plotly/man/ggplotly.html'>ggplotly</a></span>(<span class='no'>nyp</span>)
+}</div><div class='output co'>#&gt; <span class='message'>Loading required package: plotly</span></div><div class='output co'>#&gt; <span class='message'></span>
+#&gt; <span class='message'>Attaching package: ‘plotly’</span></div><div class='output co'>#&gt; <span class='message'>The following object is masked from ‘package:ggplot2’:</span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'>    last_plot</span></div><div class='output co'>#&gt; <span class='message'>The following object is masked from ‘package:MASS’:</span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'>    select</span></div><div class='output co'>#&gt; <span class='message'>The following object is masked from ‘package:stats’:</span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'>    filter</span></div><div class='output co'>#&gt; <span class='message'>The following object is masked from ‘package:graphics’:</span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'>    layout</span></div><div class='input'>
 <span class='co'># California</span>
 <span class='no'>calip</span> <span class='kw'>=</span> <span class='fu'>plot_projection</span>(<span class='kw'>projections</span> <span class='kw'>=</span> <span class='no'>hdp</span>,
     <span class='kw'>location_name</span><span class='kw'>=</span><span class='st'>'California'</span>)

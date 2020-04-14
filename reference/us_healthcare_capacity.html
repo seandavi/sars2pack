@@ -95,9 +95,6 @@
   </a>
 </li>
 <li>
-  <a href="../articles/sars2pack.html">Get started</a>
-</li>
-<li>
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
@@ -109,6 +106,18 @@
   <ul class="dropdown-menu" role="menu">
     <li>
       <a href="../articles/datasets.html">Available datasets</a>
+    </li>
+    <li>
+      <a href="../articles/index.html">Introduction to sars2pack</a>
+    </li>
+    <li>
+      <a href="../articles/map_visualization.html">Geospatial visualization of COVID-19 datasets</a>
+    </li>
+    <li>
+      <a href="../articles/overview.html">Exploring the COVID-19 pandemic using sars2pack</a>
+    </li>
+    <li>
+      <a href="../articles/r0_estimates.html">Estimating the replication rate, $R_0$</a>
     </li>
   </ul>
 </li>
@@ -178,40 +187,44 @@ resolution (by facility, daily, all USA to start).</p>
 <code><a href='usa_facts_data.html'>usa_facts_data</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>us_healthcare_capacity</span>()</div><div class='output co'>#&gt; <span class='message'>Parsed with column specification:</span>
-#&gt; <span class='message'>cols(</span>
-#&gt; <span class='message'>  .default = col_character(),</span>
-#&gt; <span class='message'>  Zipcode = col_double(),</span>
-#&gt; <span class='message'>  Latitude = col_double(),</span>
-#&gt; <span class='message'>  Longitude = col_double(),</span>
-#&gt; <span class='message'>  `Staffed All Beds` = col_double(),</span>
-#&gt; <span class='message'>  `Staffed ICU Beds` = col_double(),</span>
-#&gt; <span class='message'>  `Licensed All Beds` = col_double(),</span>
-#&gt; <span class='message'>  `All Bed Occupancy Rate` = col_double(),</span>
-#&gt; <span class='message'>  `ICU Bed Occupancy Rate` = col_double(),</span>
-#&gt; <span class='message'>  CCM_ID = col_double(),</span>
-#&gt; <span class='message'>  `DH-ID` = col_double(),</span>
-#&gt; <span class='message'>  `HIFLD-ID` = col_double()</span>
-#&gt; <span class='message'>)</span></div><div class='output co'>#&gt; <span class='message'>See spec(...) for full column specifications.</span></div><div class='output co'>#&gt; # A tibble: 7,146 x 24
-#&gt;    Name  `Hospital Type` Address Address_2 City  State Zipcode County Latitude
-#&gt;    &lt;chr&gt; &lt;chr&gt;           &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt;
-#&gt;  1 IU H… GENERAL ACUTE … 550 UN… &lt;NA&gt;      INDI… IN      46202 MARION     39.8
-#&gt;  2 HEAL… REHABILITATION  800 CU… &lt;NA&gt;      BEVE… MA       1915 ESSEX      42.6
-#&gt;  3 ST. … CRITICAL ACCESS 12886 … &lt;NA&gt;      HIGH… IL      62249 MADIS…     38.8
-#&gt;  4 HOSP… GENERAL ACUTE … 550 CO… &lt;NA&gt;      MOCA  PR        676 MOCA       18.4
-#&gt;  5 RIVE… GENERAL ACUTE … 1 RIVE… &lt;NA&gt;      RED … NJ       7701 MONMO…     40.4
-#&gt;  6 HELE… REHABILITATION  51 NOR… &lt;NA&gt;      WEST… NY      10993 ROCKL…     41.2
-#&gt;  7 VA M… MILITARY        76 VET… &lt;NA&gt;      BATH  NY      14810 STEUB…     42.3
-#&gt;  8 MOSE… GENERAL ACUTE … 700 QU… &lt;NA&gt;      SCRA… PA      18510 LACKA…     41.4
-#&gt;  9 TUFT… GENERAL ACUTE … 800 WA… &lt;NA&gt;      BOST… MA       2111 SUFFO…     42.3
-#&gt; 10 HEAL… REHABILITATION  5700 F… &lt;NA&gt;      RICH… VA      23226 HENRI…     37.6
-#&gt; # … with 7,136 more rows, and 15 more variables: Longitude &lt;dbl&gt;, `Staffed All
-#&gt; #   Beds` &lt;dbl&gt;, `Staffed ICU Beds` &lt;dbl&gt;, `Licensed All Beds` &lt;dbl&gt;, `All Bed
-#&gt; #   Occupancy Rate` &lt;dbl&gt;, `ICU Bed Occupancy Rate` &lt;dbl&gt;, `Staffed All Beds -
-#&gt; #   SOURCE` &lt;chr&gt;, `Staffed ICU Beds - SOURCE` &lt;chr&gt;, `Licensed All Beds -
-#&gt; #   SOURCE` &lt;chr&gt;, `All Bed Occupancy Rate - SOURCE` &lt;chr&gt;, `ICU Bed Occupancy
-#&gt; #   Rate - SOURCE` &lt;chr&gt;, CCM_ID &lt;dbl&gt;, `DH-ID` &lt;dbl&gt;, `HCRIS-ID` &lt;chr&gt;,
-#&gt; #   `HIFLD-ID` &lt;dbl&gt;</div><div class='input'>
+    <pre class="examples"><div class='input'><span class='no'>res</span> <span class='kw'>=</span> <span class='fu'>us_healthcare_capacity</span>()
+<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt;  [1] "Name"                            "Hospital Type"                  
+#&gt;  [3] "Address"                         "Address_2"                      
+#&gt;  [5] "City"                            "State"                          
+#&gt;  [7] "Zipcode"                         "County"                         
+#&gt;  [9] "Latitude"                        "Longitude"                      
+#&gt; [11] "Staffed All Beds"                "Staffed ICU Beds"               
+#&gt; [13] "Licensed All Beds"               "All Bed Occupancy Rate"         
+#&gt; [15] "ICU Bed Occupancy Rate"          "Staffed All Beds - SOURCE"      
+#&gt; [17] "Staffed ICU Beds - SOURCE"       "Licensed All Beds - SOURCE"     
+#&gt; [19] "All Bed Occupancy Rate - SOURCE" "ICU Bed Occupancy Rate - SOURCE"
+#&gt; [21] "CCM_ID"                          "DH-ID"                          
+#&gt; [23] "HCRIS-ID"                        "HIFLD-ID"                       </div><div class='input'><span class='fu'>glimpse</span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Rows: 7,146
+#&gt; Columns: 24
+#&gt; $ Name                              &lt;chr&gt; "IU HEALTH UNIVERSITY HOSPITAL", "H…
+#&gt; $ `Hospital Type`                   &lt;chr&gt; "GENERAL ACUTE CARE", "REHABILITATI…
+#&gt; $ Address                           &lt;chr&gt; "550 UNIVERSITY BLVD", "800 CUMMING…
+#&gt; $ Address_2                         &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+#&gt; $ City                              &lt;chr&gt; "INDIANAPOLIS", "BEVERLY", "HIGHLAN…
+#&gt; $ State                             &lt;chr&gt; "IN", "MA", "IL", "PR", "NJ", "NY",…
+#&gt; $ Zipcode                           &lt;dbl&gt; 46202, 1915, 62249, 676, 7701, 1099…
+#&gt; $ County                            &lt;chr&gt; "MARION", "ESSEX", "MADISON", "MOCA…
+#&gt; $ Latitude                          &lt;dbl&gt; 39.77528, 42.56099, 38.75458, 18.39…
+#&gt; $ Longitude                         &lt;dbl&gt; -86.17656, -70.88724, -89.66760, -6…
+#&gt; $ `Staffed All Beds`                &lt;dbl&gt; NA, NA, NA, 106, 274, 155, NA, 161,…
+#&gt; $ `Staffed ICU Beds`                &lt;dbl&gt; NA, NA, NA, 7, 27, NA, NA, 11, 98, …
+#&gt; $ `Licensed All Beds`               &lt;dbl&gt; NA, 20, NA, 106, 468, 155, NA, 213,…
+#&gt; $ `All Bed Occupancy Rate`          &lt;dbl&gt; NA, NA, NA, 0.4900000, 0.5900000, N…
+#&gt; $ `ICU Bed Occupancy Rate`          &lt;dbl&gt; NA, NA, NA, 0.73, 0.42, NA, NA, 0.5…
+#&gt; $ `Staffed All Beds - SOURCE`       &lt;chr&gt; "None", "None", "None", "HCRIS-Tota…
+#&gt; $ `Staffed ICU Beds - SOURCE`       &lt;chr&gt; "None", "None", "None", "HCRIS-ICU …
+#&gt; $ `Licensed All Beds - SOURCE`      &lt;chr&gt; NA, "HIFLD-BEDS", NA, "DH-NUM_LICEN…
+#&gt; $ `All Bed Occupancy Rate - SOURCE` &lt;chr&gt; "None", "None", "None", "HCRIS-Tota…
+#&gt; $ `ICU Bed Occupancy Rate - SOURCE` &lt;chr&gt; "None", "None", "None", "HCRIS-ICU …
+#&gt; $ CCM_ID                            &lt;dbl&gt; 100, 10001915, 100062249, 1000676, …
+#&gt; $ `DH-ID`                           &lt;dbl&gt; NA, NA, NA, 4294, 2512, 2695, 2705,…
+#&gt; $ `HCRIS-ID`                        &lt;chr&gt; NA, NA, NA, "400111", "310034", "33…
+#&gt; $ `HIFLD-ID`                        &lt;dbl&gt; 100, 10001915, 100062249, 1000676, …</div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

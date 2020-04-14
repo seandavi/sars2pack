@@ -100,9 +100,6 @@ Lab (JHU APL)." />
   </a>
 </li>
 <li>
-  <a href="../articles/sars2pack.html">Get started</a>
-</li>
-<li>
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
@@ -114,6 +111,18 @@ Lab (JHU APL)." />
   <ul class="dropdown-menu" role="menu">
     <li>
       <a href="../articles/datasets.html">Available datasets</a>
+    </li>
+    <li>
+      <a href="../articles/index.html">Introduction to sars2pack</a>
+    </li>
+    <li>
+      <a href="../articles/map_visualization.html">Geospatial visualization of COVID-19 datasets</a>
+    </li>
+    <li>
+      <a href="../articles/overview.html">Exploring the COVID-19 pandemic using sars2pack</a>
+    </li>
+    <li>
+      <a href="../articles/r0_estimates.html">Estimating the replication rate, $R_0$</a>
     </li>
   </ul>
 </li>
@@ -218,7 +227,15 @@ in the source data</p></li>
 #&gt; 3 &lt;NA&gt;          Afghanistan      33    65 2020-01-24     0 confirmed
 #&gt; 4 &lt;NA&gt;          Afghanistan      33    65 2020-01-25     0 confirmed
 #&gt; 5 &lt;NA&gt;          Afghanistan      33    65 2020-01-26     0 confirmed
-#&gt; 6 &lt;NA&gt;          Afghanistan      33    65 2020-01-27     0 confirmed</div><div class='input'>
+#&gt; 6 &lt;NA&gt;          Afghanistan      33    65 2020-01-27     0 confirmed</div><div class='input'><span class='fu'>glimpse</span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Rows: 64,574
+#&gt; Columns: 7
+#&gt; $ ProvinceState &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+#&gt; $ CountryRegion &lt;chr&gt; "Afghanistan", "Afghanistan", "Afghanistan", "Afghanist…
+#&gt; $ Lat           &lt;dbl&gt; 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33,…
+#&gt; $ Long          &lt;dbl&gt; 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65,…
+#&gt; $ date          &lt;date&gt; 2020-01-22, 2020-01-23, 2020-01-24, 2020-01-25, 2020-0…
+#&gt; $ count         &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
+#&gt; $ subset        &lt;chr&gt; "confirmed", "confirmed", "confirmed", "confirmed", "co…</div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

@@ -97,9 +97,6 @@ earlier entries in the data when they receive new information." />
   </a>
 </li>
 <li>
-  <a href="../articles/sars2pack.html">Get started</a>
-</li>
-<li>
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
@@ -111,6 +108,18 @@ earlier entries in the data when they receive new information." />
   <ul class="dropdown-menu" role="menu">
     <li>
       <a href="../articles/datasets.html">Available datasets</a>
+    </li>
+    <li>
+      <a href="../articles/index.html">Introduction to sars2pack</a>
+    </li>
+    <li>
+      <a href="../articles/map_visualization.html">Geospatial visualization of COVID-19 datasets</a>
+    </li>
+    <li>
+      <a href="../articles/overview.html">Exploring the COVID-19 pandemic using sars2pack</a>
+    </li>
+    <li>
+      <a href="../articles/r0_estimates.html">Estimating the replication rate, $R_0$</a>
     </li>
   </ul>
 </li>
@@ -232,25 +241,25 @@ you would link to our U.S. tracking page at
 <code><a href='usa_facts_data.html'>usa_facts_data</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>res</span> <span class='kw'>=</span> <span class='fu'>nytimes_state_data</span>()
-<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; [1] "date"   "state"  "fips"   "count"  "subset"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; # A tibble: 6 x 5
-#&gt;   date       state      fips  count subset   
-#&gt;   &lt;date&gt;     &lt;chr&gt;      &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;    
-#&gt; 1 2020-01-21 Washington 00053     1 confirmed
-#&gt; 2 2020-01-22 Washington 00053     1 confirmed
-#&gt; 3 2020-01-23 Washington 00053     1 confirmed
-#&gt; 4 2020-01-24 Illinois   00017     1 confirmed
-#&gt; 5 2020-01-24 Washington 00053     1 confirmed
-#&gt; 6 2020-01-25 California 00006     1 confirmed</div><div class='input'><span class='no'>res</span> <span class='kw'>=</span> <span class='fu'>nytimes_county_data</span>()
-<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; [1] "date"   "county" "state"  "fips"   "count"  "subset"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; # A tibble: 6 x 6
-#&gt;   date       county    state      fips  count subset   
-#&gt;   &lt;date&gt;     &lt;chr&gt;     &lt;chr&gt;      &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;    
-#&gt; 1 2020-01-21 Snohomish Washington 53061     1 confirmed
-#&gt; 2 2020-01-22 Snohomish Washington 53061     1 confirmed
-#&gt; 3 2020-01-23 Snohomish Washington 53061     1 confirmed
-#&gt; 4 2020-01-24 Cook      Illinois   17031     1 confirmed
-#&gt; 5 2020-01-24 Snohomish Washington 53061     1 confirmed
-#&gt; 6 2020-01-25 Orange    California 06059     1 confirmed</div><div class='input'>
+    <pre class="examples"><div class='input'><span class='co'># state data</span>
+<span class='no'>res</span> <span class='kw'>=</span> <span class='fu'>nytimes_state_data</span>()
+<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; [1] "date"   "state"  "fips"   "count"  "subset"</div><div class='input'><span class='fu'>glimpse</span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Rows: 4,658
+#&gt; Columns: 5
+#&gt; $ date   &lt;date&gt; 2020-01-21, 2020-01-22, 2020-01-23, 2020-01-24, 2020-01-24, 2…
+#&gt; $ state  &lt;chr&gt; "Washington", "Washington", "Washington", "Illinois", "Washing…
+#&gt; $ fips   &lt;chr&gt; "00053", "00053", "00053", "00017", "00053", "00006", "00017",…
+#&gt; $ count  &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1,…
+#&gt; $ subset &lt;chr&gt; "confirmed", "confirmed", "confirmed", "confirmed", "confirmed…</div><div class='input'>
+<span class='co'># county data</span>
+<span class='no'>res</span> <span class='kw'>=</span> <span class='fu'>nytimes_county_data</span>()
+<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; [1] "date"   "county" "state"  "fips"   "count"  "subset"</div><div class='input'><span class='fu'>glimpse</span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Rows: 113,082
+#&gt; Columns: 6
+#&gt; $ date   &lt;date&gt; 2020-01-21, 2020-01-22, 2020-01-23, 2020-01-24, 2020-01-24, 2…
+#&gt; $ county &lt;chr&gt; "Snohomish", "Snohomish", "Snohomish", "Cook", "Snohomish", "O…
+#&gt; $ state  &lt;chr&gt; "Washington", "Washington", "Washington", "Illinois", "Washing…
+#&gt; $ fips   &lt;chr&gt; "53061", "53061", "53061", "17031", "53061", "06059", "17031",…
+#&gt; $ count  &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…
+#&gt; $ subset &lt;chr&gt; "confirmed", "confirmed", "confirmed", "confirmed", "confirmed…</div><div class='input'>
  
 </div></pre>
   </div>
