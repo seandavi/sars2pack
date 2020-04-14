@@ -27,7 +27,7 @@ Install
 
 # Extended Documentation
 
-- https://seandavi.github.io/COVID19Book/
+- https://seandavi.github.io/sars2pack
 
 Features
 ========
