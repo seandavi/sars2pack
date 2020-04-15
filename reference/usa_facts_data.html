@@ -165,10 +165,9 @@ data included.</p>
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>a tidy data 7-column tibble with columns:</p><ul>
-<li><p>county_fips</p></li>
+<li><p>fips</p></li>
 <li><p>county</p></li>
 <li><p>state (two-letter abbreviation)</p></li>
-<li><p>state_fips</p></li>
 <li><p>subset: <code>deaths</code> or <code>confirmed</code></p></li>
 <li><p>date: observation date</p></li>
 <li><p>count: case count for that date on that local</p></li>
@@ -216,16 +215,15 @@ data-loving community.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>res</span> <span class='kw'>=</span> <span class='fu'>usa_facts_data</span>()
-<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; [1] "county_fips" "county"      "state"       "state_fips"  "subset"     
-#&gt; [6] "date"        "count"      </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; # A tibble: 6 x 7
-#&gt;   county_fips county                state state_fips subset    date       count
-#&gt;   &lt;chr&gt;       &lt;chr&gt;                 &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;     &lt;date&gt;     &lt;dbl&gt;
-#&gt; 1 00000       Statewide Unallocated AL    00001      confirmed 2020-01-22     0
-#&gt; 2 00000       Statewide Unallocated AL    00001      confirmed 2020-01-23     0
-#&gt; 3 00000       Statewide Unallocated AL    00001      confirmed 2020-01-24     0
-#&gt; 4 00000       Statewide Unallocated AL    00001      confirmed 2020-01-25     0
-#&gt; 5 00000       Statewide Unallocated AL    00001      confirmed 2020-01-26     0
-#&gt; 6 00000       Statewide Unallocated AL    00001      confirmed 2020-01-27     0</div><div class='input'><span class='co'># dataset inclusion as of this build</span>
+<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; [1] "fips"   "county" "state"  "subset" "date"   "count" </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; # A tibble: 6 x 6
+#&gt;   fips  county                state subset    date       count
+#&gt;   &lt;chr&gt; &lt;chr&gt;                 &lt;chr&gt; &lt;chr&gt;     &lt;date&gt;     &lt;dbl&gt;
+#&gt; 1 00000 Statewide Unallocated AL    confirmed 2020-01-22     0
+#&gt; 2 00000 Statewide Unallocated AL    confirmed 2020-01-23     0
+#&gt; 3 00000 Statewide Unallocated AL    confirmed 2020-01-24     0
+#&gt; 4 00000 Statewide Unallocated AL    confirmed 2020-01-25     0
+#&gt; 5 00000 Statewide Unallocated AL    confirmed 2020-01-26     0
+#&gt; 6 00000 Statewide Unallocated AL    confirmed 2020-01-27     0</div><div class='input'><span class='co'># dataset inclusion as of this build</span>
 <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span>(<span class='no'>res</span>$<span class='no'>date</span>)</div><div class='output co'>#&gt; [1] "2020-04-14"</div><div class='input'>
 </div></pre>
   </div>
