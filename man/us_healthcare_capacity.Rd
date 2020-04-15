@@ -24,7 +24,9 @@ COVID19 patients (especially ICU-level care) at high spatiotemporal
 resolution (by facility, daily, all USA to start).
 }
 \examples{
-us_healthcare_capacity()
+res = us_healthcare_capacity()
+colnames(res)
+glimpse(res)
 
 }
 \seealso{

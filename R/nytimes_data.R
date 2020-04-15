@@ -69,15 +69,18 @@
 #'   - count: number of cases (cumulative)
 #'   - subset: `deaths` or `confirmed`
 #'
-#' @author seandavi@gmail.com
+#' @author Sean Davis <seandavi@gmail.com>
 #'
 #' @examples
+#' # state data
 #' res = nytimes_state_data()
 #' colnames(res)
-#' head(res)
+#' glimpse(res)
+#'
+#' # county data
 #' res = nytimes_county_data()
 #' colnames(res)
-#' head(res)
+#' glimpse(res)
 #'
 #'  
 #' @family data-import
@@ -86,8 +89,8 @@
 #'
 #' @export
 nytimes_county_data = function() {
-    dat = readr::read_csv('https://raw.github.com/nytimes/covid-19-data/master/us-counties.csv',
-                          col_types=cols())
+    rpath = s2p_cached_url('https://raw.github.com/nytimes/covid-19-data/master/us-counties.csv')
+    dat = readr::read_csv(rpath, col_types=cols())
     confirmed = dat[,1:5]
     confirmed$subset = 'confirmed'
     deaths = dat[,c(1:4,6)]
@@ -109,8 +112,8 @@ nytimes_county_data = function() {
 #'
 #' @export
 nytimes_state_data = function() {
-    dat = readr::read_csv('https://raw.github.com/nytimes/covid-19-data/master/us-states.csv',
-                          col_types=cols())
+    rpath = s2p_cached_url('https://raw.github.com/nytimes/covid-19-data/master/us-states.csv')
+    dat = readr::read_csv(rpath, col_types=cols())
     confirmed = dat[,1:4]
     confirmed$subset = 'confirmed'
     deaths = dat[,c(1:3,5)]

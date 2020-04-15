@@ -82,12 +82,15 @@ you would link to our U.S. tracking page at
 }
 
 \examples{
+# state data
 res = nytimes_state_data()
 colnames(res)
-head(res)
+glimpse(res)
+
+# county data
 res = nytimes_county_data()
 colnames(res)
-head(res)
+glimpse(res)
 
  
 }
@@ -107,6 +110,6 @@ Other data-import:
 \code{\link{usa_facts_data}()}
 }
 \author{
-seandavi@gmail.com
+Sean Davis \href{mailto:seandavi@gmail.com}{seandavi@gmail.com}
 }
 \concept{data-import}

@@ -1,4 +1,4 @@
-name: pkgdown site
+name: Basic installation check
 on:
   push:
     branches:
@@ -30,4 +30,6 @@ jobs:
 
       - name: Install package and dependencies
         run: |
+           apt-get update
+           apt-get install -y pkg-config
            Rscript -e "devtools::install('.', dependencies=TRUE, repos = BiocManager::repositories())"

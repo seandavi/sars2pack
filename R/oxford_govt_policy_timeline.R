@@ -15,16 +15,17 @@
 #' @source 
 #' - \url{https://www.bsg.ox.ac.uk/research/research-projects/oxford-covid-19-government-response-tracker}
 #' 
-#' @examples 
+#' @examples
+#' library(dplyr)
 #' res = government_policy_timeline()
 #' head(res)
 #' colnames(res)
+#' dplyr::glimpse(res)
 #' 
 #' @export
 government_policy_timeline = function () {
-    tmpfile = tempfile(fileext='.xls')
-    download.file('https://www.bsg.ox.ac.uk/sites/default/files/OxCGRT_Download_latest_data.xlsx', tmpfile)
-    dat = readxl::read_xlsx(tmpfile,guess_max = 50000)
+    rpath = s2p_cached_url('https://www.bsg.ox.ac.uk/sites/default/files/OxCGRT_Download_latest_data.xlsx')
+    dat = readxl::read_xlsx(rpath, guess_max = 50000)
     dat$Date = lubridate::ymd(dat$Date)
     colnames(dat)[1:3]=c('country', 'iso3c', 'date')
     dat

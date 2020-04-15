@@ -27,7 +27,7 @@ Install
 
 # Extended Documentation
 
-- https://seandavi.github.io/COVID19Book/
+- https://seandavi.github.io/sars2pack
 
 Features
 ========
@@ -91,3 +91,4 @@ Similar work
     COVID-19](https://www.youtube.com/watch?v=D_CNmYkGRUc)
 -   [DataCamp: Visualize the rise of COVID-19 cases globally with
     ggplot2](https://www.datacamp.com/projects/870)
+-   [MackLavielle/covidix R package](https://github.com/MarcLavielle/covidix/)

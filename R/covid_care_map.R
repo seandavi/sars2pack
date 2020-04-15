@@ -15,11 +15,14 @@
 #' - \url{https://raw.githubusercontent.com/covidcaremap/covid19-healthsystemcapacity/master/data/published/us_healthcare_capacity-facility-CovidCareMap.csv}
 #'
 #' @examples
-#' us_healthcare_capacity()
+#' res = us_healthcare_capacity()
+#' colnames(res)
+#' glimpse(res)
 #'
 #' @family data-import
 #' 
 #' @export
 us_healthcare_capacity <- function() {
-    readr::read_csv('https://raw.githubusercontent.com/covidcaremap/covid19-healthsystemcapacity/master/data/published/us_healthcare_capacity-facility-CovidCareMap.csv')
+    fpath = s2p_cached_url('https://raw.githubusercontent.com/covidcaremap/covid19-healthsystemcapacity/master/data/published/us_healthcare_capacity-facility-CovidCareMap.csv')
+    readr::read_csv(fpath, col_types = cols(), guess_max=5000)
 }
