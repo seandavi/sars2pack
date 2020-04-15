@@ -25,3 +25,32 @@
 integer_to_fips <- function(v) {
     sprintf('%05d', v)
 }
+
+#' @describeIn integer_to_fips
+#' 
+#' @param fips character vector of county or state-level fips (5-digit zero-padded string)
+#'   to be converted
+#'   
+#' @details A county-level fips code can be truncated to a state fips code since the 
+#'   last two digits in the county fips code are the state fips code.
+#'   
+#' @author Sean Davis <seandavi@gmail.com>
+#' 
+#' @examples 
+#' sl = county_to_state_fips('00050')
+#' sl
+#' sl_from_cy = county_to_state_fips('12350')
+#' sl_from_cy
+#' sl == sl_from_cy
+#' 
+#' @export
+county_to_state_fips = function(fips) {
+    if(!is.character(fips)) {
+        stop("argument should be a character vector")
+    }
+    if(!all(nchar(fips)==5)) {
+        stop("FIPS codes should all be 5-digit character strings")
+    }
+    return(paste0('000',substr(fips,4,5)))
+}
+
