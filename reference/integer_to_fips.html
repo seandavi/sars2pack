@@ -162,11 +162,18 @@ raw integers (non-0-padded) to 5-digit numeric strings. This
 function does that.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>integer_to_fips</span>(<span class='no'>v</span>)</pre>
+    <pre class="usage"><span class='fu'>integer_to_fips</span>(<span class='no'>v</span>)
+
+<span class='fu'>county_to_state_fips</span>(<span class='no'>fips</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>fips</th>
+      <td><p>character vector of county or state-level fips (5-digit zero-padded string)
+to be converted</p></td>
+    </tr>
     <tr>
       <th>integer</th>
       <td><p>vector of length 1 or more</p></td>
@@ -177,12 +184,25 @@ function does that.</p>
 
     <p>character vector with each member a 0-padded representation of the original
 integer value.</p>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>A county-level fips code can be truncated to a state fips code since the
+last two digits in the county fips code are the state fips code.</p>
+    <h2 class="hasAnchor" id="functions"><a class="anchor" href="#functions"></a>Functions</h2>
+
+    
+<ul>
+<li><p><code>county_to_state_fips</code>:</p></li>
+</ul>
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
     <p>List of United States FIPS codes by county: <a href='https://en.wikipedia.org/wiki/List_of_United_States_FIPS_codes_by_county'>https://en.wikipedia.org/wiki/List_of_United_States_FIPS_codes_by_county</a>.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>integer_to_fips</span>(<span class='fl'>50</span>)</div><div class='output co'>#&gt; [1] "00050"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/class.html'>class</a></span>(<span class='fu'>integer_to_fips</span>(<span class='fl'>50</span>))</div><div class='output co'>#&gt; [1] "character"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/nchar.html'>nchar</a></span>(<span class='fu'>integer_to_fips</span>(<span class='fl'>50</span>))<span class='kw'>==</span><span class='fl'>5</span></div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>integer_to_fips</span>(<span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span>(<span class='fl'>1</span>:<span class='fl'>50000</span>,<span class='fl'>5</span>))</div><div class='output co'>#&gt; [1] "18259" "24348" "30539" "01315" "36695"</div><div class='input'>
+<span class='no'>sl</span> <span class='kw'>=</span> <span class='fu'>county_to_state_fips</span>(<span class='st'>'00050'</span>)
+<span class='no'>sl</span></div><div class='output co'>#&gt; [1] "00050"</div><div class='input'><span class='no'>sl_from_cy</span> <span class='kw'>=</span> <span class='fu'>county_to_state_fips</span>(<span class='st'>'12350'</span>)
+<span class='no'>sl_from_cy</span></div><div class='output co'>#&gt; [1] "00050"</div><div class='input'><span class='no'>sl</span> <span class='kw'>==</span> <span class='no'>sl_from_cy</span></div><div class='output co'>#&gt; [1] TRUE</div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

@@ -154,7 +154,9 @@
     <p>list and detail available sars2pack datasets</p>
     </div>
 
-    <pre class="usage"><span class='fu'>available_datasets</span>()</pre>
+    <pre class="usage"><span class='fu'>available_datasets</span>()
+
+<span class='fu'>dataset_details</span>()</pre>
 
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
@@ -164,60 +166,40 @@
 <li><p>accessor: accessor function</p></li>
 </ul>
 
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p><code>dataset_details</code>: returns a pre-computed set of column names and types,
+dimensions of the datasets, and for datasets with a date (time course),
+the min and max dates included in the dataset. Each dataset is an item
+in the list. See examples for details and for viewing suggestions.</p>
+    <h2 class="hasAnchor" id="functions"><a class="anchor" href="#functions"></a>Functions</h2>
+
+    
+<ul>
+<li><p><code>dataset_details</code>:</p></li>
+</ul>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>res</span> <span class='kw'>=</span> <span class='fu'>available_datasets</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Unequal factor levels: coercing to character</span></div><div class='output co'>#&gt; <span class='warning'>Warning: binding character and factor vector, coercing into character vector</span></div><div class='output co'>#&gt; <span class='warning'>Warning: binding character and factor vector, coercing into character vector</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Unequal factor levels: coercing to character</span></div><div class='output co'>#&gt; <span class='warning'>Warning: binding character and factor vector, coercing into character vector</span></div><div class='output co'>#&gt; <span class='warning'>Warning: binding character and factor vector, coercing into character vector</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Unequal factor levels: coercing to character</span></div><div class='output co'>#&gt; <span class='warning'>Warning: binding character and factor vector, coercing into character vector</span></div><div class='output co'>#&gt; <span class='warning'>Warning: binding character and factor vector, coercing into character vector</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Unequal factor levels: coercing to character</span></div><div class='output co'>#&gt; <span class='warning'>Warning: binding character and factor vector, coercing into character vector</span></div><div class='output co'>#&gt; <span class='warning'>Warning: binding character and factor vector, coercing into character vector</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Unequal factor levels: coercing to character</span></div><div class='output co'>#&gt; <span class='warning'>Warning: binding character and factor vector, coercing into character vector</span></div><div class='output co'>#&gt; <span class='warning'>Warning: binding character and factor vector, coercing into character vector</span></div><div class='output co'>#&gt; <span class='warning'>Warning: binding character and factor vector, coercing into character vector</span></div><div class='output co'>#&gt; <span class='warning'>Warning: binding character and factor vector, coercing into character vector</span></div><div class='output co'>#&gt; <span class='warning'>Warning: binding character and factor vector, coercing into character vector</span></div><div class='output co'>#&gt; <span class='warning'>Warning: binding character and factor vector, coercing into character vector</span></div><div class='output co'>#&gt; <span class='warning'>Warning: binding character and factor vector, coercing into character vector</span></div><div class='output co'>#&gt; <span class='warning'>Warning: binding character and factor vector, coercing into character vector</span></div><div class='output co'>#&gt; <span class='warning'>Warning: binding character and factor vector, coercing into character vector</span></div><div class='output co'>#&gt; <span class='warning'>Warning: binding character and factor vector, coercing into character vector</span></div><div class='output co'>#&gt; <span class='warning'>Warning: binding character and factor vector, coercing into character vector</span></div><div class='output co'>#&gt; <span class='warning'>Warning: binding character and factor vector, coercing into character vector</span></div><div class='output co'>#&gt; <span class='warning'>Warning: binding character and factor vector, coercing into character vector</span></div><div class='output co'>#&gt; <span class='warning'>Warning: binding character and factor vector, coercing into character vector</span></div><div class='output co'>#&gt; <span class='warning'>Warning: binding character and factor vector, coercing into character vector</span></div><div class='output co'>#&gt; <span class='warning'>Warning: binding character and factor vector, coercing into character vector</span></div><div class='output co'>#&gt; <span class='warning'>Warning: binding character and factor vector, coercing into character vector</span></div><div class='output co'>#&gt; <span class='warning'>Warning: binding character and factor vector, coercing into character vector</span></div><div class='output co'>#&gt; <span class='warning'>Warning: binding character and factor vector, coercing into character vector</span></div><div class='output co'>#&gt; <span class='warning'>Warning: binding character and factor vector, coercing into character vector</span></div><div class='output co'>#&gt; <span class='warning'>Warning: binding character and factor vector, coercing into character vector</span></div><div class='output co'>#&gt; <span class='warning'>Warning: binding character and factor vector, coercing into character vector</span></div><div class='output co'>#&gt; <span class='warning'>Warning: binding character and factor vector, coercing into character vector</span></div><div class='output co'>#&gt; <span class='warning'>Warning: binding character and factor vector, coercing into character vector</span></div><div class='output co'>#&gt; <span class='warning'>Warning: binding character and factor vector, coercing into character vector</span></div><div class='output co'>#&gt; <span class='warning'>Warning: binding character and factor vector, coercing into character vector</span></div><div class='output co'>#&gt; <span class='warning'>Warning: binding character and factor vector, coercing into character vector</span></div><div class='output co'>#&gt; <span class='warning'>Warning: binding character and factor vector, coercing into character vector</span></div><div class='output co'>#&gt; <span class='warning'>Warning: binding character and factor vector, coercing into character vector</span></div><div class='output co'>#&gt; <span class='warning'>Warning: binding character and factor vector, coercing into character vector</span></div><div class='output co'>#&gt; <span class='warning'>Warning: binding character and factor vector, coercing into character vector</span></div><div class='output co'>#&gt; <span class='warning'>Warning: binding character and factor vector, coercing into character vector</span></div><div class='output co'>#&gt; <span class='warning'>Warning: binding character and factor vector, coercing into character vector</span></div><div class='output co'>#&gt; <span class='warning'>Warning: binding character and factor vector, coercing into character vector</span></div><div class='output co'>#&gt; <span class='warning'>Warning: binding character and factor vector, coercing into character vector</span></div><div class='output co'>#&gt; <span class='warning'>Warning: binding character and factor vector, coercing into character vector</span></div><div class='output co'>#&gt; <span class='warning'>Warning: binding character and factor vector, coercing into character vector</span></div><div class='output co'>#&gt; <span class='warning'>Warning: binding character and factor vector, coercing into character vector</span></div><div class='output co'>#&gt; <span class='warning'>Warning: binding character and factor vector, coercing into character vector</span></div><div class='output co'>#&gt; <span class='warning'>Warning: binding character and factor vector, coercing into character vector</span></div><div class='output co'>#&gt; <span class='warning'>Warning: binding character and factor vector, coercing into character vector</span></div><div class='output co'>#&gt; <span class='warning'>Warning: binding character and factor vector, coercing into character vector</span></div><div class='output co'>#&gt; <span class='warning'>Warning: binding character and factor vector, coercing into character vector</span></div><div class='output co'>#&gt; <span class='warning'>Warning: binding character and factor vector, coercing into character vector</span></div><div class='output co'>#&gt; <span class='warning'>Warning: binding character and factor vector, coercing into character vector</span></div><div class='output co'>#&gt; <span class='warning'>Warning: binding character and factor vector, coercing into character vector</span></div><div class='output co'>#&gt; <span class='warning'>Warning: binding character and factor vector, coercing into character vector</span></div><div class='output co'>#&gt; <span class='warning'>Warning: binding character and factor vector, coercing into character vector</span></div><div class='output co'>#&gt; <span class='warning'>Warning: binding character and factor vector, coercing into character vector</span></div><div class='output co'>#&gt; <span class='warning'>Warning: binding character and factor vector, coercing into character vector</span></div><div class='output co'>#&gt; <span class='warning'>Warning: binding character and factor vector, coercing into character vector</span></div><div class='output co'>#&gt; <span class='warning'>Warning: binding character and factor vector, coercing into character vector</span></div><div class='output co'>#&gt; <span class='warning'>Warning: binding character and factor vector, coercing into character vector</span></div><div class='output co'>#&gt; <span class='warning'>Warning: binding character and factor vector, coercing into character vector</span></div><div class='output co'>#&gt; <span class='warning'>Warning: binding character and factor vector, coercing into character vector</span></div><div class='output co'>#&gt; <span class='warning'>Warning: binding character and factor vector, coercing into character vector</span></div><div class='output co'>#&gt; <span class='warning'>Warning: binding character and factor vector, coercing into character vector</span></div><div class='output co'>#&gt; <span class='warning'>Warning: binding character and factor vector, coercing into character vector</span></div><div class='output co'>#&gt; <span class='warning'>Warning: binding character and factor vector, coercing into character vector</span></div><div class='output co'>#&gt; <span class='warning'>Warning: binding character and factor vector, coercing into character vector</span></div><div class='output co'>#&gt; <span class='warning'>Warning: binding character and factor vector, coercing into character vector</span></div><div class='output co'>#&gt; <span class='warning'>Warning: binding character and factor vector, coercing into character vector</span></div><div class='input'><span class='no'>res</span></div><div class='output co'>#&gt;                                                             name
-#&gt; 1                                             beoutbreakprepared
-#&gt; 2                                   Descartes Labs Mobility Data
-#&gt; 3                                                      USA Facts
-#&gt; 4                                          Johns Hopkins dataset
-#&gt; 5                                  Johns Hopkins US-centric data
-#&gt; 6                               New York Times county level data
-#&gt; 7                                New York Times state level data
-#&gt; 8                          Kaiser Family Foundation ICU bed data
-#&gt; 9                  United States county-level geographic details
-#&gt; 10                 United States county-level geographic details
-#&gt; 11                                             CovidTracker data
-#&gt; 12                   CovidCare United States Healthcare Capacity
-#&gt; 13             Oxford Government Policy Intervention time series
-#&gt; 14                  Johns Hopkins United States specific dataset
-#&gt; 15 Healthdata.org projections of hospital utilization and deaths
-#&gt; 16 Healthdata.org projections of hospital utilization and deaths
-#&gt;                       accessor                     data_type        region
-#&gt; 1      beoutbreakprepared_data individual patient level data         World
-#&gt; 2      descartes_mobility_data                      mobility United States
-#&gt; 3               usa_facts_data  time series cumulative cases United States
-#&gt; 4                     jhu_data  time series cumulative cases         World
-#&gt; 5                  jhu_us_data  time series cumulative cases United States
-#&gt; 6          nytimes_county_data  time series cumulative cases United States
-#&gt; 7           nytimes_state_data  time series cumulative cases United States
-#&gt; 8                 kff_icu_beds           healthcare capacity United States
-#&gt; 9        us_county_geo_details                   demographic United States
-#&gt; 10       us_county_geo_details                    geographic United States
-#&gt; 11           covidtracker_data           healthcare capacity United States
-#&gt; 12      us_healthcare_capacity           healthcare capacity United States
-#&gt; 13  government_policy_timeline                 public policy United States
-#&gt; 14                 jhu_us_data  time series cumulative cases United States
-#&gt; 15 healthdata_projections_data       time series projections United States
-#&gt; 16 healthdata_projections_data       time series projections International
-#&gt;             resolution geographical geospatial
-#&gt; 1              patient         TRUE      FALSE
-#&gt; 2               county         TRUE      FALSE
-#&gt; 3               county         TRUE      FALSE
-#&gt; 4              country         TRUE      FALSE
-#&gt; 5               county         TRUE      FALSE
-#&gt; 6               county         TRUE      FALSE
-#&gt; 7                state         TRUE      FALSE
-#&gt; 8  Individual hospital         TRUE       TRUE
-#&gt; 9               county         TRUE       TRUE
-#&gt; 10              county         TRUE       TRUE
-#&gt; 11 Individual hospital         TRUE      FALSE
-#&gt; 12 Individual hospital         TRUE       TRUE
-#&gt; 13 Individual hospital         TRUE      FALSE
-#&gt; 14              county         TRUE      FALSE
-#&gt; 15               state         TRUE      FALSE
-#&gt; 16             country         TRUE      FALSE</div><div class='input'><span class='co'># and how to use the accessor programmatically</span>
-<span class='fu'><a href='https://rdrr.io/r/base/get.html'>get</a></span>(<span class='no'>res</span>[<span class='fl'>1</span>,]$<span class='no'>accessor</span>)()</div><div class='output co'>#&gt; <span class='message'>using temporary cache /tmp/RtmpaOqPTv/BiocFileCache</span></div><div class='output co'>#&gt; # A tibble: 267,492 x 33
+    <pre class="examples"><div class='input'><span class='no'>res</span> <span class='kw'>=</span> <span class='fu'>available_datasets</span>()
+<span class='no'>res</span></div><div class='output co'>#&gt; # A tibble: 15 x 8
+#&gt;    name    accessor  data_type  region resolution geographical geospatial url   
+#&gt;    &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt;      &lt;chr&gt;  &lt;chr&gt;      &lt;lgl&gt;        &lt;lgl&gt;      &lt;chr&gt; 
+#&gt;  1 beoutb… beoutbre… individua… World  patient    TRUE         FALSE      https…
+#&gt;  2 Descar… descarte… mobility   Unite… county     TRUE         FALSE      https…
+#&gt;  3 USA Fa… usa_fact… time seri… Unite… county     TRUE         FALSE      https…
+#&gt;  4 Johns … jhu_data  time seri… World  country    TRUE         FALSE      https…
+#&gt;  5 Johns … jhu_us_d… time seri… Unite… county     TRUE         FALSE      https…
+#&gt;  6 New Yo… nytimes_… time seri… Unite… county     TRUE         FALSE      https…
+#&gt;  7 New Yo… nytimes_… time seri… Unite… state      TRUE         FALSE      https…
+#&gt;  8 Kaiser… kff_icu_… healthcar… Unite… Individua… TRUE         TRUE       https…
+#&gt;  9 United… us_count… demograph… Unite… county     TRUE         TRUE       https…
+#&gt; 10 United… us_count… geographic Unite… county     TRUE         TRUE       https…
+#&gt; 11 CovidT… covidtra… healthcar… Unite… Individua… TRUE         FALSE      https…
+#&gt; 12 CovidC… us_healt… healthcar… Unite… Individua… TRUE         TRUE       https…
+#&gt; 13 Oxford… governme… public po… Unite… Individua… TRUE         FALSE      https…
+#&gt; 14 Health… healthda… time seri… Unite… state      TRUE         FALSE      http:…
+#&gt; 15 Health… healthda… time seri… Inter… country    TRUE         FALSE      http:…</div><div class='input'><span class='co'># and how to use the accessor programmatically</span>
+<span class='fu'><a href='https://rdrr.io/r/base/get.html'>get</a></span>(<span class='no'>res</span>[<span class='fl'>1</span>,]$<span class='no'>accessor</span>)()</div><div class='output co'>#&gt; <span class='message'>using temporary cache /tmp/RtmpiqEZ3J/BiocFileCache</span></div><div class='output co'>#&gt; # A tibble: 267,492 x 33
 #&gt;    ID    age   sex   city  province country latitude longitude geo_resolution
 #&gt;    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt;      &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;         
 #&gt;  1 000-… 60-69 fema… What… Washing… United…     48.8   -122.   admin2        
@@ -240,6 +222,49 @@
 #&gt; #   location &lt;chr&gt;, admin3 &lt;chr&gt;, admin2 &lt;chr&gt;, admin1 &lt;chr&gt;,
 #&gt; #   country_new &lt;chr&gt;, admin_id &lt;dbl&gt;, data_moderator_initials &lt;chr&gt;,
 #&gt; #   travel_history_binary &lt;lgl&gt;</div><div class='input'>
+
+<span class='no'>dd</span> <span class='kw'>=</span> <span class='fu'>dataset_details</span>()
+<span class='fu'><a href='https://rdrr.io/r/utils/str.html'>str</a></span>(<span class='no'>dd</span>,<span class='kw'>list.len</span><span class='kw'>=</span><span class='fl'>3</span>)</div><div class='output co'>#&gt; List of 14
+#&gt;  $ beoutbreakprepared_data    :List of 2
+#&gt;   ..$ columns   :List of 33
+#&gt;   .. ..$ ID                      : chr "character"
+#&gt;   .. ..$ age                     : chr "character"
+#&gt;   .. ..$ sex                     : chr "character"
+#&gt;   .. .. [list output truncated]
+#&gt;   ..$ dimensions:List of 2
+#&gt;   .. ..$ nrow: int 267492
+#&gt;   .. ..$ ncol: int 33
+#&gt;  $ descartes_mobility_data    :List of 3
+#&gt;   ..$ columns   :List of 9
+#&gt;   .. ..$ date        : chr "Date"
+#&gt;   .. ..$ country_code: chr "character"
+#&gt;   .. ..$ admin_level : chr "numeric"
+#&gt;   .. .. [list output truncated]
+#&gt;   ..$ dimensions:List of 2
+#&gt;   .. ..$ nrow: int 114677
+#&gt;   .. ..$ ncol: int 9
+#&gt;   ..$ dates     :List of 2
+#&gt;   .. ..$ min: chr NA
+#&gt;   .. ..$ max: chr NA
+#&gt;  $ usa_facts_data             :List of 3
+#&gt;   ..$ columns   :List of 6
+#&gt;   .. ..$ fips  : chr "character"
+#&gt;   .. ..$ county: chr "character"
+#&gt;   .. ..$ state : chr "character"
+#&gt;   .. .. [list output truncated]
+#&gt;   ..$ dimensions:List of 2
+#&gt;   .. ..$ nrow: int 536760
+#&gt;   .. ..$ ncol: int 6
+#&gt;   ..$ dates     :List of 2
+#&gt;   .. ..$ min: chr "2020-01-22"
+#&gt;   .. ..$ max: chr "2020-04-14"
+#&gt;   [list output truncated]</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='no'>dd</span>)</div><div class='output co'>#&gt;  [1] "beoutbreakprepared_data"     "descartes_mobility_data"    
+#&gt;  [3] "usa_facts_data"              "jhu_data"                   
+#&gt;  [5] "jhu_us_data"                 "nytimes_county_data"        
+#&gt;  [7] "nytimes_state_data"          "kff_icu_beds"               
+#&gt;  [9] "us_county_geo_details"       "covidtracker_data"          
+#&gt; [11] "us_healthcare_capacity"      "government_policy_timeline" 
+#&gt; [13] "healthdata_projections_data" "NA"                         </div><div class='input'>
 
 </div></pre>
   </div>
