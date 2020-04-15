@@ -4,7 +4,7 @@
 \alias{plot.covid_events}
 \title{plot for covid_events}
 \usage{
-\method{plot}{covid_events}(x, main = NULL, ylab = NULL, xlab = NULL, ...)
+plot.covid_events(x, main = NULL, ylab = NULL, xlab = NULL, ...)
 }
 \arguments{
 \item{x}{covid_events instance}
