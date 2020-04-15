@@ -12,10 +12,9 @@ usa_facts_data()
 \value{
 a tidy data 7-column tibble with columns:
 \itemize{
-\item county_fips
+\item fips
 \item county
 \item state (two-letter abbreviation)
-\item state_fips
 \item subset: \code{deaths} or \code{confirmed}
 \item date: observation date
 \item count: case count for that date on that local
