@@ -74,7 +74,7 @@ usa_facts_data = function() {
     colnames(ret)[2] = 'county'
     colnames(ret)[3] = 'state'
     colnames(ret)[1] = 'fips'
-    ret = res[-4]
+    ret = ret[-4]
     ret$fips = integer_to_fips(ret$fips)
     ret = tidyr::pivot_longer(ret,cols=-c(fips,state,county,subset),names_to='date',values_to='count')
     ret$date = lubridate::mdy(ret$date)
