@@ -14,7 +14,7 @@ output:
     toc: yes
 ---
 
-# Available datasets
+# Dataset catalog
 
 ```{r message=FALSE}
 library(DT)
@@ -27,17 +27,10 @@ ad = available_datasets()
 datatable(ad)
 ```
 
-# Column names by dataset
+# Dataset details
 
 ```{r message=FALSE, warning=FALSE}
-cd = lapply(ad$accessor, function(accessor_name) {
-    fn = get(accessor_name)
-    res = column_summaries(fn())
-    res$dataset = accessor_name
-    res
-})
-library(dplyr)
-dplyr::bind_rows(cd) %>%
-    dplyr::select(name, dataset) %>%
-    datatable(rownames=FALSE)
+dd = dataset_details()
+library(listviewer)
+listviewer::jsonedit(dd)
 ```
