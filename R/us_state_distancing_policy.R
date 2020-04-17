@@ -8,6 +8,7 @@
 #' @source 
 #' - https://github.com/COVID19StatePolicy/SocialDistancing/
 #' 
+#' 
 #' @section Kudos:
 #' - Joe Wasserman: http://www.joewasserman.com/
 #' 
