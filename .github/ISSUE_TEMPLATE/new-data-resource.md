@@ -2,7 +2,9 @@
 name: New data resource
 about: Suggest new data resource
 title: "[New Data Resource]"
-labels: enhancement
+labels: 
+  - enhancement
+  - New Dataset
 assignees: ''
 
 ---
