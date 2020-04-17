@@ -31,7 +31,7 @@
 #' - \url{https://covidtracking.com/notes/}
 #' 
 #' @importFrom readr read_csv
-#' @importFrom dplyr select_
+#' @importFrom dplyr select
 #'
 #' @return A tidy `tbl_df`
 #'
@@ -52,7 +52,7 @@ covidtracker_data <- function() {
     ret = res %>%
         ## this little trick lets us use a vector
         ## of names in select statement.
-        dplyr::select_(quote(.covidtracker_cols_to_keep))
+        dplyr::select(.covidtracker_cols_to_keep)
     ret$date = lubridate::as_date(as.character(res$date))
     ret$fips = integer_to_fips(as.numeric(ret$fips))
     ret
