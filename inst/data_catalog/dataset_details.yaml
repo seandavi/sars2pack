@@ -51,8 +51,8 @@ descartes_mobility_data:
     nrow: 119979
     ncol: 9
   dates:
-    min: .na.character
-    max: .na.character
+    min: '2020-03-01'
+    max: '2020-04-14'
 usa_facts_data:
   columns:
     fips: character
@@ -269,5 +269,25 @@ healthdata_projections_data:
   dates:
     min: '2020-01-03'
     max: '2020-08-04'
-eval_date: '2020-04-16'
+us_state_distancing_policy:
+  columns:
+    location_id: numeric
+    StateFIPS: numeric
+    StatePostal: character
+    StateName: character
+    StatePolicy: character
+    Mandate: numeric
+    DateIssued: numeric
+    DateEnacted: numeric
+    DateExpiry: numeric
+    DateEnded: logical
+    PolicyCodingNotes: character
+    PolicySource: character
+    StateWide: numeric
+    LastUpdated: numeric
+    LastUpdatedNotes: character
+  dimensions:
+    nrow: 528
+    ncol: 15
+eval_date: '2020-04-17'
 
