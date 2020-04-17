@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>US State-level data including test results — covidtracker_data • sars2pack</title>
+<title>United States social distancing policies for COVID-19 — us_state_distancing_policy • sars2pack</title>
 
 
 <!-- jquery -->
@@ -39,10 +39,9 @@
 
 
 
-<meta property="og:title" content="US State-level data including test results — covidtracker_data" />
-<meta property="og:description" content="Get data from the COVID tracking project
-https://covidtracking.com/ including daily historical data on
-testing results, hospitalizations, and deaths." />
+<meta property="og:title" content="United States social distancing policies for COVID-19 — us_state_distancing_policy" />
+<meta property="og:description" content="An updated, curated set of social distancing and non-pharmaceutical interventions
+for a subset of the states in the United States." />
 
 
 
@@ -147,42 +146,39 @@ testing results, hospitalizations, and deaths." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>US State-level data including test results</h1>
-    <small class="dont-index">Source: <a href='https://github.com/seandavi/sars2pack/blob/master/R/covidtracking_com.R'><code>R/covidtracking_com.R</code></a></small>
-    <div class="hidden name"><code>covidtracker_data.Rd</code></div>
+    <h1>United States social distancing policies for COVID-19</h1>
+    <small class="dont-index">Source: <a href='https://github.com/seandavi/sars2pack/blob/master/R/us_state_distancing_policy.R'><code>R/us_state_distancing_policy.R</code></a></small>
+    <div class="hidden name"><code>us_state_distancing_policy.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Get data from the COVID tracking project
-<a href='https://covidtracking.com/'>https://covidtracking.com/</a> including daily historical data on
-testing results, hospitalizations, and deaths.</p>
+    <p>An updated, curated set of social distancing and non-pharmaceutical interventions
+for a subset of the states in the United States.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>covidtracker_data</span>()</pre>
+    <pre class="usage"><span class='fu'>us_state_distancing_policy</span>()</pre>
 
 
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+    <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
 
-    <p>A tidy <code>tbl_df</code></p>
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
-
-    <p>From the COVID Tracking Project website:</p>
-<p>The COVID Tracking Project collects information from 50 US states,
-the District of Columbia, and 5 other US territories to provide the
-most comprehensive testing data we can collect for the novel
-coronavirus, SARS-CoV-2. We attempt to report positive and negative
-results, pending tests, and total people tested for each state or
-district currently reporting that data.</p>
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
-
-    <div class='dont-index'>
+    
 <ul>
-<li><p><a href='https://covidtracking.com/about-tracker/'>https://covidtracking.com/about-tracker/</a></p></li>
-<li><p><a href='https://covidtracking.com/notes/'>https://covidtracking.com/notes/</a></p></li>
+<li><p>https://github.com/COVID19StatePolicy/SocialDistancing/</p></li>
 </ul>
 
-<p>Other data-import: 
+    <h2 class="hasAnchor" id="kudos"><a class="anchor" href="#kudos"></a>Kudos</h2>
+
+    
+
+<ul>
+<li><p>Joe Wasserman: http://www.joewasserman.com/</p></li>
+</ul>
+
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p>Other data-import: 
 <code><a href='beoutbreakprepared_data.html'>beoutbreakprepared_data</a>()</code>,
+<code><a href='covidtracker_data.html'>covidtracker_data</a>()</code>,
 <code><a href='descartes_mobility_data.html'>descartes_mobility_data</a>()</code>,
 <code><a href='healthdata_projections_data.html'>healthdata_projections_data</a>()</code>,
 <code><a href='jhu_data.html'>jhu_data</a>()</code>,
@@ -191,14 +187,32 @@ district currently reporting that data.</p>
 <code><a href='nytimes_county_data.html'>nytimes_county_data</a>()</code>,
 <code><a href='us_county_geo_details.html'>us_county_geo_details</a>()</code>,
 <code><a href='us_healthcare_capacity.html'>us_healthcare_capacity</a>()</code>,
-<code><a href='us_state_distancing_policy.html'>us_state_distancing_policy</a>()</code>,
 <code><a href='usa_facts_data.html'>usa_facts_data</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>res</span> <span class='kw'>=</span> <span class='fu'>covidtracker_data</span>()
-<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; [1] "date"         "state"        "positive"     "negative"     "pending"     
-#&gt; [6] "hospitalized" "death"        "dateChecked"  "fips"        </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/dim.html'>dim</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; [1] 2340    9</div><div class='input'><span class='fu'>glimpse</span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; <span class='error'>Error in glimpse(res): could not find function "glimpse"</span></div><div class='input'>
-
+    <pre class="examples"><div class='input'><span class='no'>res</span> <span class='kw'>=</span> <span class='fu'>us_state_distancing_policy</span>()
+<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt;  [1] "location_id"       "StateFIPS"         "StatePostal"      
+#&gt;  [4] "StateName"         "StatePolicy"       "Mandate"          
+#&gt;  [7] "DateIssued"        "DateEnacted"       "DateExpiry"       
+#&gt; [10] "DateEnded"         "PolicyCodingNotes" "PolicySource"     
+#&gt; [13] "StateWide"         "LastUpdated"       "LastUpdatedNotes" </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>dplyr</span>)
+<span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Rows: 528
+#&gt; Columns: 15
+#&gt; $ location_id       &lt;dbl&gt; 523, 523, 523, 523, 523, 523, 523, 523, 523, 523, 5…
+#&gt; $ StateFIPS         &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, …
+#&gt; $ StatePostal       &lt;chr&gt; "AL", "AL", "AL", "AL", "AL", "AL", "AL", "AL", "AL…
+#&gt; $ StateName         &lt;chr&gt; "Alabama", "Alabama", "Alabama", "Alabama", "Alabam…
+#&gt; $ StatePolicy       &lt;chr&gt; "EmergDec", "SchoolClose", "GathRestrict25", "GathR…
+#&gt; $ Mandate           &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, …
+#&gt; $ DateIssued        &lt;dbl&gt; 20200313, 20200314, 20200319, 20200319, 20200319, 2…
+#&gt; $ DateEnacted       &lt;dbl&gt; 20200313, 20200318, 20200320, 20200320, 20200320, 2…
+#&gt; $ DateExpiry        &lt;dbl&gt; NA, NA, NA, NA, NA, NA, 20200403, 20200417, 2020041…
+#&gt; $ DateEnded         &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+#&gt; $ PolicyCodingNotes &lt;chr&gt; "Public Health Emergency", "in effect 20200318. 202…
+#&gt; $ PolicySource      &lt;chr&gt; "https://governor.alabama.gov/newsroom/2020/03/thir…
+#&gt; $ StateWide         &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, …
+#&gt; $ LastUpdated       &lt;dbl&gt; 20200324, 20200324, 20200324, 20200324, 20200324, 2…
+#&gt; $ LastUpdatedNotes  &lt;chr&gt; NA, NA, NA, NA, NA, NA, "Added Birmingham only Stay…</div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
