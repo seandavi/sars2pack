@@ -8,5 +8,10 @@ for(dset in names(dsets)) {
     accessor = get(dset)
     res = accessor()
     message(dset)
-    test_that(dset, expect_equal(colnames(res), names(dsets[[dset]]$columns)))
+    cnames = colnames(res)
+    test_that(paste0(dset, " column names match"), 
+              expect_equal(cnames, names(dsets[[dset]]$columns)))
+    ctypes = lapply(res, class)
+    test_that(paste0(dset, " column types match"),
+              expect_equal(ctypes, dsets[[dset]]$columns))
 }
