@@ -24,7 +24,6 @@ make_full_map = function(nytc, cg, date.start="2020-04-01", date.end="2020-04-01
 #'  if (!exists("county_geom")) county_geom = tidycensus::county_laea
 #'  regapp( nyt_counties, county_geom, indate="2020-03-15")
 #' }
-#' @export
 regapp = function(nytc, cg, indate="2020-03-15") {
 ui = fluidPage(
  sidebarLayout(
