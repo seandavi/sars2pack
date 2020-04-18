@@ -20,8 +20,8 @@ have these rapidly-developing resources.
 
 ## Experimental Binder Launch
 
-Click here:
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/seandavi/sars2pack/master?urlpath=rstudio)
+Click here: <br/>
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/seandavi/sars2pack/01c2677?urlpath=rstudio)
 
 This could take 15-30 minutes if the most recent commit has not been built at binder yet. Generally, it takes about a minute, though. 
 
