@@ -190,14 +190,14 @@ for a subset of the states in the United States.</p>
 <code><a href='usa_facts_data.html'>usa_facts_data</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>res</span> <span class='kw'>=</span> <span class='fu'>us_state_distancing_policy</span>()
-<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt;  [1] "location_id"       "StateFIPS"         "StatePostal"      
+    <pre class="examples"><div class='input'><span class='no'>res</span> <span class='kw'>=</span> <span class='fu'>us_state_distancing_policy</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Missing column names filled in: 'X16' [16]</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt;  [1] "location_id"       "StateFIPS"         "StatePostal"      
 #&gt;  [4] "StateName"         "StatePolicy"       "Mandate"          
 #&gt;  [7] "DateIssued"        "DateEnacted"       "DateExpiry"       
 #&gt; [10] "DateEnded"         "PolicyCodingNotes" "PolicySource"     
-#&gt; [13] "StateWide"         "LastUpdated"       "LastUpdatedNotes" </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>dplyr</span>)
-<span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Rows: 528
-#&gt; Columns: 15
+#&gt; [13] "StateWide"         "LastUpdated"       "LastUpdatedNotes" 
+#&gt; [16] "X16"              </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>dplyr</span>)
+<span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Rows: 530
+#&gt; Columns: 16
 #&gt; $ location_id       &lt;dbl&gt; 523, 523, 523, 523, 523, 523, 523, 523, 523, 523, 5…
 #&gt; $ StateFIPS         &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, …
 #&gt; $ StatePostal       &lt;chr&gt; "AL", "AL", "AL", "AL", "AL", "AL", "AL", "AL", "AL…
@@ -212,7 +212,8 @@ for a subset of the states in the United States.</p>
 #&gt; $ PolicySource      &lt;chr&gt; "https://governor.alabama.gov/newsroom/2020/03/thir…
 #&gt; $ StateWide         &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, …
 #&gt; $ LastUpdated       &lt;dbl&gt; 20200324, 20200324, 20200324, 20200324, 20200324, 2…
-#&gt; $ LastUpdatedNotes  &lt;chr&gt; NA, NA, NA, NA, NA, NA, "Added Birmingham only Stay…</div><div class='input'>
+#&gt; $ LastUpdatedNotes  &lt;chr&gt; NA, NA, NA, NA, NA, NA, "Added Birmingham only Stay…
+#&gt; $ X16               &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…</div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
