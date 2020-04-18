@@ -10,7 +10,7 @@
 usa_facts_data()
 }
 \value{
-a tidy data 7-column tibble with columns:
+a tidy data tibble with columns:
 \itemize{
 \item fips
 \item county
