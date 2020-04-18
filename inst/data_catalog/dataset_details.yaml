@@ -18,7 +18,7 @@ beoutbreakprepared_data:
     travel_history_location: character
     reported_market_exposure: character
     additional_information: character
-    chronic_disease_binary: character
+    chronic_disease_binary: logical
     chronic_disease: character
     source: character
     sequence_available: character
@@ -34,7 +34,7 @@ beoutbreakprepared_data:
     data_moderator_initials: character
     travel_history_binary: logical
   dimensions:
-    nrow: 267492
+    nrow: 419904
     ncol: 33
 descartes_mobility_data:
   columns:
@@ -48,11 +48,11 @@ descartes_mobility_data:
     m50: numeric
     m50_index: numeric
   dimensions:
-    nrow: 114677
+    nrow: 119979
     ncol: 9
   dates:
-    min: .na.character
-    max: .na.character
+    min: '2020-03-01'
+    max: '2020-04-14'
 usa_facts_data:
   columns:
     fips: character
@@ -62,11 +62,11 @@ usa_facts_data:
     date: Date
     count: numeric
   dimensions:
-    nrow: 536760
+    nrow: 543150
     ncol: 6
   dates:
     min: '2020-01-22'
-    max: '2020-04-14'
+    max: '2020-04-15'
 jhu_data:
   columns:
     ProvinceState: character
@@ -77,11 +77,11 @@ jhu_data:
     count: numeric
     subset: character
   dimensions:
-    nrow: 65352
+    nrow: 66908
     ncol: 7
   dates:
     min: '2020-01-22'
-    max: '2020-04-14'
+    max: '2020-04-16'
 jhu_us_data:
   columns:
     UID: numeric
@@ -100,11 +100,11 @@ jhu_us_data:
     count: numeric
     subset: character
   dimensions:
-    nrow: 547008
+    nrow: 560032
     ncol: 15
   dates:
     min: '2020-01-22'
-    max: '2020-04-14'
+    max: '2020-04-16'
 nytimes_county_data:
   columns:
     date: Date
@@ -114,11 +114,11 @@ nytimes_county_data:
     count: numeric
     subset: character
   dimensions:
-    nrow: 118498
+    nrow: 123942
     ncol: 6
   dates:
     min: '2020-01-21'
-    max: '2020-04-14'
+    max: '2020-04-15'
 nytimes_state_data:
   columns:
     date: Date
@@ -127,11 +127,11 @@ nytimes_state_data:
     count: numeric
     subset: character
   dimensions:
-    nrow: 4770
+    nrow: 4882
     ncol: 5
   dates:
     min: '2020-01-21'
-    max: '2020-04-14'
+    max: '2020-04-15'
 kff_icu_beds:
   columns:
     fips: character
@@ -178,11 +178,11 @@ covidtracker_data:
     - POSIXt
     fips: character
   dimensions:
-    nrow: 2284
+    nrow: 2340
     ncol: 9
   dates:
     min: '2020-02-28'
-    max: '2020-04-15'
+    max: '2020-04-16'
 us_healthcare_capacity:
   columns:
     Name: character
@@ -269,5 +269,25 @@ healthdata_projections_data:
   dates:
     min: '2020-01-03'
     max: '2020-08-04'
-NA: '2020-04-15'
+us_state_distancing_policy:
+  columns:
+    location_id: numeric
+    StateFIPS: numeric
+    StatePostal: character
+    StateName: character
+    StatePolicy: character
+    Mandate: numeric
+    DateIssued: numeric
+    DateEnacted: numeric
+    DateExpiry: numeric
+    DateEnded: logical
+    PolicyCodingNotes: character
+    PolicySource: character
+    StateWide: numeric
+    LastUpdated: numeric
+    LastUpdatedNotes: character
+  dimensions:
+    nrow: 528
+    ncol: 15
+eval_date: '2020-04-17'
 

@@ -107,6 +107,7 @@ Other data-import:
 \code{\link{kff_icu_beds}()},
 \code{\link{us_county_geo_details}()},
 \code{\link{us_healthcare_capacity}()},
+\code{\link{us_state_distancing_policy}()},
 \code{\link{usa_facts_data}()}
 }
 \author{

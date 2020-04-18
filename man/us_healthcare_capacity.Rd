@@ -40,6 +40,7 @@ Other data-import:
 \code{\link{kff_icu_beds}()},
 \code{\link{nytimes_county_data}()},
 \code{\link{us_county_geo_details}()},
+\code{\link{us_state_distancing_policy}()},
 \code{\link{usa_facts_data}()}
 }
 \concept{data-import}

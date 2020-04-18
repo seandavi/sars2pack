@@ -26,8 +26,7 @@
 #' @export
 descartes_mobility_data = function() {
     rpath = s2p_cached_url('https://raw.githubusercontent.com/descarteslabs/DL-COVID-19/master/DL-us-mobility-daterow.csv')
-    res = readr::read_csv(rpath)
-    res$date = lubridate::mdy(res$date)
+    res = readr::read_csv(rpath, col_types = cols())
     class(res) = c('s2p_mobility', class(res))
     res
 }
