@@ -39,5 +39,6 @@ http "$URL/eu_data_cache/estimate?location_key=NA,świętokrzyskie,NA,PL&mean_si
 ```
 export PROJECT_ID='YOUR_PROJECT_ID'
 docker build -t gcr.io/${PROJECT_ID}/sars2pack_api .
+docker push gcr.io/${PROJECT_ID}/sars2pack_api
 gcloud run deploy sars2packapi --image gcr.io/${PROJECT_ID}/sars2pack_api
 ```
