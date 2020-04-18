@@ -18,6 +18,13 @@ Thanks to the armies of people providing data for the rest of the world,
 often on a volunteer basis. Without their tireless work, we would not
 have these rapidly-developing resources.
 
+## Experimental Binder Launch
+
+Click here:
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/seandavi/sars2pack/master?urlpath=rstudio)
+
+This could take 15-30 minutes if the most recent commit has not been built at binder yet. Generally, it takes about a minute, though. 
+
 Install
 =======
 
