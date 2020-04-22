@@ -44,6 +44,7 @@ head(res)
 }
 \seealso{
 Other data-import: 
+\code{\link{apple_mobility_data}()},
 \code{\link{covidtracker_data}()},
 \code{\link{descartes_mobility_data}()},
 \code{\link{healthdata_projections_data}()},

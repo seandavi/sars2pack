@@ -26,6 +26,7 @@ usc
 \url{https://www.census.gov/geographies/reference-files/time-series/geo/gazetteer-files.html}
 
 Other data-import: 
+\code{\link{apple_mobility_data}()},
 \code{\link{beoutbreakprepared_data}()},
 \code{\link{covidtracker_data}()},
 \code{\link{descartes_mobility_data}()},
