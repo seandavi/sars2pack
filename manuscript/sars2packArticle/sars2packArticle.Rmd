@@ -3,16 +3,16 @@ title:
 author:
   - name: Vincent J. Carey
     email: stvjc@channing.harvard.edu
-    affiliation: Channing Laboratory, Brigham And Women's Hospital
+    affiliation: channing
   - name: Sean R. Davis
     email: seandavi@gmail.com
     corresponding: seandavi@gmail.com
-    affiliation: Center for Cancer Research, National Cancer Institute, National Institutes of Health
+    affiliation: ccr
 address:
-  - code: Channing Laboratory, Brigham And Women's Hospital
-    address: 75 Francis St, Boston, MA 02115
-  - code: Center for Cancer Research, National Cancer Institute, National Institutes of Health
-    address: 37 Convent Drive, Bldg 37, Room 6138, Bethesda, MD 20891
+  - code: channing
+    address: Channing Laboratory, Brigham And Women's Hospital, 75 Francis St, Boston, MA 02115
+  - code: ccr
+    address: Center for Cancer Research, National Cancer Institute, National Institutes of Health, 37 Convent Drive, Bldg 37, Room 6138, Bethesda, MD 20891
 abstract: |
   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget porta erat. Morbi consectetur est vel gravida pretium. Suspendisse ut dui eu ante cursus gravida non sed sem. Nullam sapien tellus, commodo id velit id, eleifend volutpat quam. Phasellus mauris velit, dapibus finibus elementum vel, pulvinar non tellus. Nunc pellentesque pretium diam, quis maximus dolor faucibus id. Nunc convallis sodales ante, ut ullamcorper est egestas vitae. Nam sit amet enim ultrices, ultrices elit pulvinar, volutpat risus.
   
@@ -20,7 +20,7 @@ author_summary: |
   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget porta erat. Morbi consectetur est vel gravida pretium. Suspendisse ut dui eu ante cursus gravida non sed sem. Nullam sapien tellus, commodo id velit id, eleifend volutpat quam. Phasellus mauris velit, dapibus finibus elementum vel, pulvinar non tellus. Nunc pellentesque pretium diam, quis maximus dolor faucibus id. Nunc convallis sodales ante, ut ullamcorper est egestas vitae. Nam sit amet enim ultrices, ultrices elit pulvinar, volutpat risus.
 
 #bibliography: mybibfile.bib
-output: rticles::plos_article
+output: pdf_document
 #csl: plos.csl
 ---
 
@@ -37,7 +37,7 @@ more quickly and with a much higher death toll. However, the current
 pandemic is occurring in a more digital and interconnected world.
 Traditional public health organizations as well as data-mature
 organizations not traditionally involved directly in public health
-have rapidly developed digital disease surveillance infrastructure
+have rapidly developed digital disease surveillance infrastructuree
 that provides nearly realtime epidemic tracking data. These data
 resources have proven invaluable to understanding disease spread, to
 drive non-pharmacologic intervention (NPI), and, when combined with
@@ -101,6 +101,24 @@ R function documentation (GITHUB PAGES).
 In a mix of both defined facts and uncertainty, open data science
 helps clarify possible outcomes of interventions, and opens a path to
 sharper understanding as facts harden in various domains.
+
+# Results
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(sars2pack)
+library(knitr)
+library(kableExtra)
+ad = available_datasets()
+library(dplyr)
+colnames(ad) = stringr::str_to_title(colnames(ad))
+ad %>%
+    dplyr::mutate(Data_type=stringr::str_to_sentence(Data_type)) %>%
+    dplyr::select(-Accessor, -Geographical, -Geospatial) %>%
+    knitr::kable("latex", booktabs=TRUE) %>%
+    kableExtra::column_spec(1, width = "18em") %>% 
+    kableExtra::column_spec(2, width = "8em") 
+
+```
 
 # References {#references .unnumbered}
 
