@@ -29,12 +29,11 @@
 #' 
 #' @return
 #'
-#' a tidy data 7-column tibble with columns:
+#' a tidy data tibble with columns:
 #'
-#'   - county_fips
+#'   - fips
 #'   - county
 #'   - state (two-letter abbreviation)
-#'   - state_fips
 #'   - subset: `deaths` or `confirmed`
 #'   - date: observation date
 #'   - count: case count for that date on that local
@@ -74,11 +73,10 @@ usa_facts_data = function() {
     ret = dplyr::bind_rows(confirmed,deaths)
     colnames(ret)[2] = 'county'
     colnames(ret)[3] = 'state'
-    colnames(ret)[1] = 'county_fips'
-    colnames(ret)[4] = 'state_fips'
-    ret$county_fips = integer_to_fips(ret$county_fips)
-    ret$state_fips = integer_to_fips(ret$state_fips)
-    ret = tidyr::pivot_longer(ret,cols=-c(county_fips:state_fips,subset),names_to='date',values_to='count')
+    colnames(ret)[1] = 'fips'
+    ret = ret[-4]
+    ret$fips = integer_to_fips(ret$fips)
+    ret = tidyr::pivot_longer(ret,cols=-c(fips,state,county,subset),names_to='date',values_to='count')
     ret$date = lubridate::mdy(ret$date)
     ret
 }

@@ -2,9 +2,12 @@
 % Please edit documentation in R/data_catalog.R
 \name{available_datasets}
 \alias{available_datasets}
+\alias{dataset_details}
 \title{list and detail available sars2pack datasets}
 \usage{
 available_datasets()
+
+dataset_details()
 }
 \value{
 A data.frame in which each row represents an available dataset.
@@ -16,11 +19,27 @@ A data.frame in which each row represents an available dataset.
 \description{
 list and detail available sars2pack datasets
 }
+\details{
+\code{dataset_details}: returns a pre-computed set of column names and types,
+dimensions of the datasets, and for datasets with a date (time course),
+the min and max dates included in the dataset. Each dataset is an item
+in the list. See examples for details and for viewing suggestions.
+}
+\section{Functions}{
+\itemize{
+\item \code{dataset_details}: 
+}}
+
 \examples{
 res = available_datasets()
 res
 # and how to use the accessor programmatically
 get(res[1,]$accessor)()
+
+
+dd = dataset_details()
+str(dd,list.len=3)
+names(dd)
 
 
 }

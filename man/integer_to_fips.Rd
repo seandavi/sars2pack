@@ -2,11 +2,17 @@
 % Please edit documentation in R/integer_to_fips.R
 \name{integer_to_fips}
 \alias{integer_to_fips}
+\alias{county_to_state_fips}
 \title{convert an integer to fips}
 \usage{
 integer_to_fips(v)
+
+county_to_state_fips(fips)
 }
 \arguments{
+\item{fips}{character vector of county or state-level fips (5-digit zero-padded string)
+to be converted}
+
 \item{integer}{vector of length 1 or more}
 }
 \value{
@@ -20,13 +26,31 @@ these codes for joins across datasets, one may need to convert
 raw integers (non-0-padded) to 5-digit numeric strings. This
 function does that.
 }
+\details{
+A county-level fips code can be truncated to a state fips code since the
+last two digits in the county fips code are the state fips code.
+}
+\section{Functions}{
+\itemize{
+\item \code{county_to_state_fips}: 
+}}
+
 \examples{
 integer_to_fips(50)
 class(integer_to_fips(50))
 nchar(integer_to_fips(50))==5
 integer_to_fips(sample(1:50000,5))
 
+sl = county_to_state_fips('00050')
+sl
+sl_from_cy = county_to_state_fips('12350')
+sl_from_cy
+sl == sl_from_cy
+
 }
 \references{
 List of United States FIPS codes by county: \url{https://en.wikipedia.org/wiki/List_of_United_States_FIPS_codes_by_county}.
+}
+\author{
+Sean Davis \href{mailto:seandavi@gmail.com}{seandavi@gmail.com}
 }
