@@ -7,6 +7,14 @@ datasets:
     geographical: true
     geospatial: false
     url: https://github.com/beoutbreakprepared/nCoV2019
+  - name: EU data Github aggregator
+    accessor: eu_data_cache_data
+    data_type: time series cumulative cases
+    region: Europe
+    resolution: country and sub-country
+    geographical: true
+    geospatial: false
+    url: https://github.com/covid19-eu-zh/covid19-eu-data
   - name: Descartes Labs Mobility Data
     accessor: descartes_mobility_data
     data_type:
@@ -16,6 +24,15 @@ datasets:
     geographical: true
     geospatial: false
     url: https://raw.githubusercontent.com/descarteslabs/DL-COVID-19
+  - name: Apple mobility data from maps
+    accessor: apple_mobility_data
+    data_type:
+      - mobility
+    region: World
+    resolution: country and sub-country
+    geographical: true
+    geospatial: false
+    url: https://www.apple.com/covid19/mobility
   - name: USA Facts
     accessor: usa_facts_data
     data_type: time series cumulative cases
