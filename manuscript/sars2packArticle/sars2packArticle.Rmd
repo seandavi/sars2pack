@@ -20,8 +20,17 @@ author_summary: |
   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget porta erat. Morbi consectetur est vel gravida pretium. Suspendisse ut dui eu ante cursus gravida non sed sem. Nullam sapien tellus, commodo id velit id, eleifend volutpat quam. Phasellus mauris velit, dapibus finibus elementum vel, pulvinar non tellus. Nunc pellentesque pretium diam, quis maximus dolor faucibus id. Nunc convallis sodales ante, ut ullamcorper est egestas vitae. Nam sit amet enim ultrices, ultrices elit pulvinar, volutpat risus.
 
 #bibliography: mybibfile.bib
-output: pdf_document
+output:
+  bookdown::pdf_document2:
+    number_sections: TRUE
+#    base_format: rticles:plos_article (or something else)
 #csl: plos.csl
+header-includes:
+  \let\counterwithout\relax
+  \let\counterwithin\relax
+  \usepackage{chngcntr}
+  \counterwithout{table}{section}
+  \counterwithout{figure}{section}
 ---
 
 _Text based on plos sample manuscript, see [http://journals.plos.org/ploscompbiol/s/latex](http://journals.plos.org/ploscompbiol/s/latex)_
@@ -48,13 +57,19 @@ for timely, robust, and granular datasets will inform business,
 policy, and even personal decisions for months or even years to
 come.
 
-1. Collect and provide principled approach to COVID-19 epidemic
-   dataset reuse.
-2. Capitalize on the large, existing multidisciplinary data science
+This project proposes to:
+
+1. Collect COVID-19 related public health and disease tracking
+   resourcesand provide principled approach date reuse and
+   reproducible computational research.
+2. Provide a data science environment for researchers, media, policy
+   makers, and data scientists to collaborate while promoting
+   reproducible computational research best practices.
+3. Capitalize on the large, existing multidisciplinary data science
    workforce already familiar with the R programming environment.
-3. Create opportunities for individuals not well-versed in data
+4. Create opportunities for individuals not well-versed in data
    science to learn and experiment with COVID-19 datasets.
-4. Incorporate examplar workflows that leverage the extensive R data
+5. Incorporate examplar workflows that leverage the extensive R data
    science ecosystem to visualize, analyze, and integrate COVID-19
    data resources. 
 
@@ -74,8 +89,7 @@ spread of disease, the impact of disease on the healthcare system and
 communities, or that quantified or cataloged non-pharmaceutical
 interventions. To be included, the data resource needed to be openly
 accessible with data in a computationally readable format such as csv,
-json, or Excel. The set of collected datasets is available in TABLE
-XXXXX.
+json, or Excel. The set of collected datasets is available in Table \@ref(tab:availData).
 
 ## Robustness
 
@@ -104,19 +118,24 @@ sharper understanding as facts harden in various domains.
 
 # Results
 
-```{r echo=FALSE, message=FALSE, warning=FALSE}
+```{r availData, echo=FALSE, message=FALSE, warning=FALSE, results='asis'}
 library(sars2pack)
 library(knitr)
-library(kableExtra)
+library(xtable)
 ad = available_datasets()
 library(dplyr)
 colnames(ad) = stringr::str_to_title(colnames(ad))
 ad %>%
     dplyr::mutate(Data_type=stringr::str_to_sentence(Data_type)) %>%
-    dplyr::select(-Accessor, -Geographical, -Geospatial) %>%
-    knitr::kable("latex", booktabs=TRUE) %>%
-    kableExtra::column_spec(1, width = "18em") %>% 
-    kableExtra::column_spec(2, width = "8em") 
+    dplyr::select(-Accessor, -Geographical, -Geospatial, -Region, -Resolution) %>%
+    xtable(label='tab:availData') %>%
+    print(comment = FALSE)
+
+    ## knitr::kable("latex",
+    ##              caption = "Datasets available.",
+    ##              booktabs=TRUE) %>%
+    ## kableExtra::column_spec(1, width = "18em") %>% 
+    ## kableExtra::column_spec(2, width = "8em") 
 
 ```
 
