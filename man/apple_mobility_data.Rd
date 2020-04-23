@@ -85,7 +85,7 @@ if(require(plotly)) {
 }
 \references{
 \itemize{
-\item https://www.apple.com/covid19/mobility
+\item \url{https://www.apple.com/covid19/mobility}
 }
 }
 \seealso{

@@ -32,11 +32,11 @@
 #' 
 #' @references
 #'
-#' - https://www.apple.com/covid19/mobility
+#' - \url{https://www.apple.com/covid19/mobility}
 #'
 #' @author Sean Davis <seandavi@gmail.com>
 #'
-#' @importFrom webdriver run_phantomjs
+#' @importFrom webdriver run_phantomjs Session
 #' @importFrom readr read_csv
 #' 
 #' @note
@@ -88,7 +88,7 @@
 #' @family data-import
 #' 
 #' @export
-apple_mobility_data = function(agree_to_terms=TRUE) {
+apple_mobility_data = function(agree_to_terms=TRUE, max_tries=3) {
     ## apple uses javascript to change the download
     ## URL every day to force users to examine terms
     ## The code below uses webdriver to render the
@@ -100,13 +100,22 @@ apple_mobility_data = function(agree_to_terms=TRUE) {
     if(is(pjs, 'try-error')) {
         stop('The webdriver package requires phantomJS. Be sure to run webdriver::install_phantomjs before continuing')
     }
-    ses = Session$new(port=pjs$port)
-    ses$go('https://www.apple.com/covid19/mobility')
-    ses$getUrl()
-    surl = ses$findElement('div.download-button-container')$findElement('a')$getAttribute('href')
+    surl = NULL
+    tries = 1
+    ## Error handling for download--apple seems to need this sometimes
+    while(is.null(surl) & tries<max_tries) {
+        ses = webdriver::Session$new(port=pjs$port)
+        ses$go('https://www.apple.com/covid19/mobility')
+        ses$getUrl()
+        surl = ses$findElement('div.download-button-container')$findElement('a')$getAttribute('href')
+        if(is.null(surl)) {
+            Sys.sleep(1)
+            tries = tries + 1
+        }
+    }
     message(sprintf("Download url: %s",surl))
     ## rpath = s2p_cached_url(url) ## TODO: fix caching to use only one url
-    dat = readr::read_csv(url(surl), col_types = cols()) %>%
+    dat = readr::read_csv(surl, col_types = cols()) %>%
         tidyr::pivot_longer(
                    cols = -c('geo_type','region','transportation_type'),
                    names_to = "date",
