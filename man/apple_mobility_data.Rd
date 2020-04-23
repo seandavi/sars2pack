@@ -45,7 +45,7 @@ table(dat$transportation_type)
 }
 \references{
 \itemize{
-\item https://www.apple.com/covid19/mobility}.
+\item https://www.apple.com/covid19/mobility
 }
 }
 \seealso{
