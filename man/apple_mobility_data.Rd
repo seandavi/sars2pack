@@ -4,7 +4,11 @@
 \alias{apple_mobility_data}
 \title{Access Apple mobility data}
 \usage{
-apple_mobility_data()
+apple_mobility_data(agree_to_terms = TRUE)
+}
+\arguments{
+\item{agree_to_terms}{logical, when TRUE, implies that the user
+has agreed to Apple's terms of use. See references and note.}
 }
 \description{
 From Apple's website:
@@ -43,13 +47,15 @@ head(res)
 table(res$transportation_type)
 
 require(ggplot2)
-res \%>\%
+
+pl = res \%>\%
     dplyr::filter(region \%in\% c('Russia','New York City','Italy')) \%>\%
     ggplot(aes(x=date)) +
         geom_line(aes(y=mobility_index,color=transportation_type)) +
         scale_x_date(date_breaks = '1 week', date_labels='\%b-\%d') +
         facet_grid(rows=vars(region)) +
         ggtitle('Changes in Apple Mobility Index over time')
+pl
 
 regs_of_interest = c('Seattle', 'New York City',
                      'Chicago', 'Italy',
@@ -70,6 +76,10 @@ res \%>\%
         facet_grid(rows=vars(transportation_type)) +
         scale_fill_viridis() +
         ggtitle('Changes in Apple Mobility Index over time')
+}
+
+if(require(plotly)) {
+    ggplotly(pl)
 }
 
 }
