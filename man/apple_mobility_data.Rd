@@ -45,7 +45,6 @@ table(res$transportation_type)
 require(ggplot2)
 res \%>\%
     dplyr::filter(region \%in\% c('Russia','New York City','Italy')) \%>\%
-    mutate(date=date+1) \%>\%
     ggplot(aes(x=date)) +
         geom_line(aes(y=mobility_index,color=transportation_type)) +
         scale_x_date(date_breaks = '1 week', date_labels='\%b-\%d') +
