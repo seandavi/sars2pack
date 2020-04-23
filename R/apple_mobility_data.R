@@ -38,10 +38,41 @@
 #' See \url{https://www.apple.com/covid19/mobility}.
 #' 
 #' @examples
-#' dat = apple_mobility_data()
+#' res = apple_mobility_data()
 #' colnames(res)
 #' head(res)
-#' table(dat$transportation_type)
+#' table(res$transportation_type)
+#'
+#' require(ggplot2)
+#' res %>%
+#'     dplyr::filter(region %in% c('Russia','New York City','Italy')) %>%
+#'     mutate(date=date+1) %>%
+#'     ggplot(aes(x=date)) +
+#'         geom_line(aes(y=mobility_index,color=transportation_type)) +
+#'         scale_x_date(date_breaks = '1 week', date_labels='%b-%d') +
+#'         facet_grid(rows=vars(region)) +
+#'         ggtitle('Changes in Apple Mobility Index over time')
+#'
+#' regs_of_interest = c('Seattle', 'New York City',
+#'                      'Chicago', 'Italy',
+#'                      'Russia', 'UK',
+#'                      'Brazil'))
+#' res %>%
+#'     dplyr::filter(region %in% regs_of_interest) %>%
+#'     ggplot(aes(x=date, y=region, fill=mobility_index)) +
+#'         geom_tile() +
+#'         facet_grid(rows=vars(transportation_type)) +
+#'         ggtitle('Changes in Apple Mobility Index over time')
+#' 
+#' if(require(viridis)) {
+#' res %>%
+#'     dplyr::filter(region %in% regs_of_interest) %>%
+#'     ggplot(aes(x=date, y=region, fill=mobility_index)) +
+#'         geom_tile() +
+#'         facet_grid(rows=vars(transportation_type)) +
+#'         scale_fill_viridis() +
+#'         ggtitle('Changes in Apple Mobility Index over time')
+#' }
 #'
 #' @family data-import
 #' 
@@ -53,7 +84,7 @@ apple_mobility_data = function() {
         tidyr::pivot_longer(
                    cols = -c('geo_type','region','transportation_type'),
                    names_to = "date",
-                   values_to = "count"
+                   values_to = "mobility_index"
                ) %>%
         dplyr::mutate(date = lubridate::ymd(date))
     dat
