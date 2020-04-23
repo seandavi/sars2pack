@@ -2,7 +2,7 @@
 % Please edit documentation in R/descartes_mobility.R
 \name{descartes_mobility_data}
 \alias{descartes_mobility_data}
-\title{Get US daily mobility data from Descarte Labs}
+\title{Get US daily mobility data from Descartes Labs}
 \source{
 \itemize{
 \item https://raw.githubusercontent.com/descarteslabs/DL-COVID-19/master/DL-us-mobility-daterow.csv
@@ -24,13 +24,32 @@ descartes_mobility_data()
 }
 }
 \description{
-Get US daily mobility data from Descarte Labs
+Descartes Labs quantify the level of human mobility in the US at
+the state level. Their methodology looks at a collection of mobile
+devices reporting consistently throughout the day. They calculate the
+maximum distance moved in kilometers (excluding outliers) from the
+first reported location. Using this value, they calculate the median
+across all devices in the sample to generate a mobility metric for
+selected states.
 }
+\section{License}{
+
+
+Creative Commons Attribution (CC BY 4.0), see https://github.com/descarteslabs/DL-COVID-19
+}
+
 \examples{
+library(dplyr)
 res = descartes_mobility_data()
 colnames(res)
 glimpse(res)
 
+}
+\references{
+\itemize{
+\item https://www.descarteslabs.com/mobility-v097/
+\item https://www.descarteslabs.com/wp-content/uploads/2020/03/mobility-v097.pdf
+}
 }
 \seealso{
 Other data-import: 
