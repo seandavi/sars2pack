@@ -27,11 +27,17 @@
 #' These data are available from a URL that changes daily. The parent
 #' page is the place to check to see what is going on if there are problems.
 #'
+#' @param agree_to_terms logical, when TRUE, implies that the user
+#'     has agreed to Apple's terms of use. See references and note.
+#' 
 #' @references
 #'
-#' - https://www.apple.com/covid19/mobility
+#' - \url{https://www.apple.com/covid19/mobility}
 #'
 #' @author Sean Davis <seandavi@gmail.com>
+#'
+#' @importFrom webdriver run_phantomjs Session
+#' @importFrom readr read_csv
 #' 
 #' @note
 #' Apple requires that all users agree to their terms of use.
@@ -44,15 +50,16 @@
 #' table(res$transportation_type)
 #'
 #' require(ggplot2)
-#' res %>%
+#' 
+#' pl = res %>%
 #'     dplyr::filter(region %in% c('Russia','New York City','Italy')) %>%
-#'     mutate(date=date+1) %>%
 #'     ggplot(aes(x=date)) +
 #'         geom_line(aes(y=mobility_index,color=transportation_type)) +
 #'         scale_x_date(date_breaks = '1 week', date_labels='%b-%d') +
 #'         facet_grid(rows=vars(region)) +
 #'         ggtitle('Changes in Apple Mobility Index over time')
-#'
+#' pl
+#' 
 #' regs_of_interest = c('Seattle', 'New York City',
 #'                      'Chicago', 'Italy',
 #'                      'Russia', 'UK',
@@ -74,13 +81,41 @@
 #'         ggtitle('Changes in Apple Mobility Index over time')
 #' }
 #'
+#' if(require(plotly)) {
+#'     ggplotly(pl)
+#' }
+#'
 #' @family data-import
 #' 
 #' @export
-apple_mobility_data = function() {
-    url = 'https://covid19-static.cdn-apple.com/covid19-mobility-data/2006HotfixDev12/v1/en-us/applemobilitytrends-2020-04-21.csv'
-    rpath = s2p_cached_url(url)
-    dat = readr::read_csv(rpath, col_types = cols()) %>%
+apple_mobility_data = function(agree_to_terms=TRUE, max_tries=3) {
+    ## apple uses javascript to change the download
+    ## URL every day to force users to examine terms
+    ## The code below uses webdriver to render the
+    ##
+    stopifnot(agree_to_terms)
+    pjs = try(
+        webdriver::run_phantomjs()
+    )
+    if(is(pjs, 'try-error')) {
+        stop('The webdriver package requires phantomJS. Be sure to run webdriver::install_phantomjs before continuing')
+    }
+    surl = NULL
+    tries = 1
+    ## Error handling for download--apple seems to need this sometimes
+    while(is.null(surl) & tries<max_tries) {
+        ses = webdriver::Session$new(port=pjs$port)
+        ses$go('https://www.apple.com/covid19/mobility')
+        ses$getUrl()
+        surl = ses$findElement('div.download-button-container')$findElement('a')$getAttribute('href')
+        if(is.null(surl)) {
+            Sys.sleep(1)
+            tries = tries + 1
+        }
+    }
+    message(sprintf("Download url: %s",surl))
+    ## rpath = s2p_cached_url(url) ## TODO: fix caching to use only one url
+    dat = readr::read_csv(surl, col_types = cols()) %>%
         tidyr::pivot_longer(
                    cols = -c('geo_type','region','transportation_type'),
                    names_to = "date",
