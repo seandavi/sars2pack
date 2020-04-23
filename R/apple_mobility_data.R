@@ -29,7 +29,7 @@
 #'
 #' @references
 #'
-#' - https://www.apple.com/covid19/mobility}.
+#' - https://www.apple.com/covid19/mobility
 #'
 #' @author Sean Davis <seandavi@gmail.com>
 #' 
