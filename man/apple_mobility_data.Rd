@@ -4,7 +4,7 @@
 \alias{apple_mobility_data}
 \title{Access Apple mobility data}
 \usage{
-apple_mobility_data(agree_to_terms = TRUE)
+apple_mobility_data(agree_to_terms = TRUE, max_tries = 3)
 }
 \arguments{
 \item{agree_to_terms}{logical, when TRUE, implies that the user
