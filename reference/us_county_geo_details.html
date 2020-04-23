@@ -181,40 +181,15 @@
 <code><a href='usa_facts_data.html'>usa_facts_data</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>usc</span> <span class='kw'>=</span> <span class='fu'>us_county_geo_details</span>()
-<span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>usc</span>)</div><div class='output co'>#&gt; Rows: 3,220
-#&gt; Columns: 9
-#&gt; $ state           <span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "AL", "AL", "AL", "AL", "AL", "AL", "AL", "AL", "AL",…
-#&gt; $ fips            </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "01001", "01003", "01005", "01007", "01009", "01011",…
-#&gt; $ ansicode        </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "00161526", "00161527", "00161528", "00161529", "0016…
-#&gt; $ county          </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Autauga County", "Baldwin County", "Barbour County",…
-#&gt; $ area_land       </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 1539602137, 4117621645, 2292160139, 1612167476, 16701…
-#&gt; $ area_water      </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 25706961, 1132980868, 50523213, 9602089, 15015467, 60…
-#&gt; $ area_land_sqmi  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 594.444, 1589.823, 885.008, 622.461, 644.831, 622.812…
-#&gt; $ area_water_sqmi </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 9.926, 437.446, 19.507, 3.707, 5.798, 2.331, 1.043, 6…
-#&gt; $ geometry        </span><span style='color: #555555;font-style: italic;'>&lt;POINT&gt;</span><span> POINT (-86.64644 32.53224), POINT (-87.74607 30.659…</div><div class='input'><span class='no'>usc</span></div><div class='output co'>#&gt; Simple feature collection with 3220 features and 8 fields
-#&gt; geometry type:  POINT
-#&gt; dimension:      XY
-#&gt; bbox:           xmin: -164.1889 ymin: 17.94805 xmax: 179.6212 ymax: 69.44934
-#&gt; epsg (SRID):    NA
-#&gt; proj4string:    NA
-#&gt; </span><span style='color: #555555;'># A tibble: 3,220 x 9</span><span>
-#&gt;    state fips  ansicode county area_land area_water area_land_sqmi
-#&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>      </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>          </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #555555;'> 1</span><span> AL    01001 00161526 Autau…    1.54</span><span style='color: #555555;'>e</span><span>9   25</span><span style='text-decoration: underline;'>706</span><span>961           594.
-#&gt; </span><span style='color: #555555;'> 2</span><span> AL    01003 00161527 Baldw…    4.12</span><span style='color: #555555;'>e</span><span>9 </span><span style='text-decoration: underline;'>1</span><span>132</span><span style='text-decoration: underline;'>980</span><span>868          </span><span style='text-decoration: underline;'>1</span><span>590.
-#&gt; </span><span style='color: #555555;'> 3</span><span> AL    01005 00161528 Barbo…    2.29</span><span style='color: #555555;'>e</span><span>9   50</span><span style='text-decoration: underline;'>523</span><span>213           885.
-#&gt; </span><span style='color: #555555;'> 4</span><span> AL    01007 00161529 Bibb …    1.61</span><span style='color: #555555;'>e</span><span>9    9</span><span style='text-decoration: underline;'>602</span><span>089           622.
-#&gt; </span><span style='color: #555555;'> 5</span><span> AL    01009 00161530 Bloun…    1.67</span><span style='color: #555555;'>e</span><span>9   15</span><span style='text-decoration: underline;'>015</span><span>467           645.
-#&gt; </span><span style='color: #555555;'> 6</span><span> AL    01011 00161531 Bullo…    1.61</span><span style='color: #555555;'>e</span><span>9    6</span><span style='text-decoration: underline;'>038</span><span>093           623.
-#&gt; </span><span style='color: #555555;'> 7</span><span> AL    01013 00161532 Butle…    2.01</span><span style='color: #555555;'>e</span><span>9    2</span><span style='text-decoration: underline;'>701</span><span>198           777.
-#&gt; </span><span style='color: #555555;'> 8</span><span> AL    01015 00161533 Calho…    1.57</span><span style='color: #555555;'>e</span><span>9   16</span><span style='text-decoration: underline;'>587</span><span>192           606.
-#&gt; </span><span style='color: #555555;'> 9</span><span> AL    01017 00161534 Chamb…    1.55</span><span style='color: #555555;'>e</span><span>9   16</span><span style='text-decoration: underline;'>971</span><span>700           597.
-#&gt; </span><span style='color: #555555;'>10</span><span> AL    01019 00161535 Chero…    1.43</span><span style='color: #555555;'>e</span><span>9  120</span><span style='text-decoration: underline;'>308</span><span>342           554.
-#&gt; </span><span style='color: #555555;'># … with 3,210 more rows, and 2 more variables: area_water_sqmi </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   geometry </span><span style='color: #555555;font-style: italic;'>&lt;POINT&gt;</span><span></div><div class='input'>
+    <pre class="examples"><div class='input'><span class='no'>usc</span> <span class='kw'>=</span> <span class='fu'>us_county_geo_details</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: download failed</span>
+#&gt; <span class='warning'>  web resource path: ‘https://raw.githubusercontent.com/josh-byster/fips_lat_long/master/counties.txt’</span>
+#&gt; <span class='warning'>  local file path: ‘/Users/sdavis2/Library/Caches/sars2pack/file1475868ed0499’</span>
+#&gt; <span class='warning'>  reason: Internal Server Error (HTTP 500).</span></div><div class='output co'>#&gt; <span class='warning'>Warning: bfcdownload() failed</span>
+#&gt; <span class='warning'>  rid: BFC2</span>
+#&gt; <span class='warning'>  file: ‘https://raw.githubusercontent.com/josh-byster/fips_lat_long/master/counties.txt’</span>
+#&gt; <span class='warning'>  reason: download failed</span></div><div class='output co'>#&gt; <span class='error'>Error: download failed; see warnings()</span></div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>usc</span>)</div><div class='output co'>#&gt; <span class='error'>Error in dplyr::glimpse(usc): object 'usc' not found</span></div><div class='input'><span class='no'>usc</span></div><div class='output co'>#&gt; <span class='error'>Error in eval(expr, envir, enclos): object 'usc' not found</span></div><div class='input'>
 
-</div></span></pre>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

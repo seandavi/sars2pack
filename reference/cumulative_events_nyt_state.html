@@ -179,12 +179,14 @@
 
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>nyt</span> <span class='kw'>=</span> <span class='fu'><a href='nytimes_county_data.html'>nytimes_state_data</a></span>()
-<span class='no'>mass</span> <span class='kw'>=</span> <span class='fu'>cumulative_events_nyt_state</span>(<span class='no'>nyt</span>, <span class='kw'>eventtype</span> <span class='kw'>=</span> <span class='st'>"confirmed"</span>,
-   <span class='kw'>statename</span> <span class='kw'>=</span> <span class='st'>"Massachusetts"</span>)
-<span class='no'>mass</span></div><div class='output co'>#&gt; cumulative event data for Massachusetts, 2020-02-01 to 2020-04-21 
-#&gt; use plot() to visualize.</div><div class='input'><span class='no'>imass</span> <span class='kw'>=</span> <span class='fu'><a href='form_incident_events.html'>form_incident_events</a></span>(<span class='fu'><a href='trim_from.html'>trim_from</a></span>(<span class='no'>mass</span>, <span class='st'>"2020-03-01"</span>))
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='no'>imass</span>)</div><div class='img'><img src='cumulative_events_nyt_state-1.png' alt='' width='700' height='433' /></div></pre>
+    <pre class="examples"><div class='input'><span class='no'>nyt</span> <span class='kw'>=</span> <span class='fu'><a href='nytimes_county_data.html'>nytimes_state_data</a></span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: download failed</span>
+#&gt; <span class='warning'>  web resource path: ‘https://raw.github.com/nytimes/covid-19-data/master/us-states.csv’</span>
+#&gt; <span class='warning'>  local file path: ‘/Users/sdavis2/Library/Caches/sars2pack/file14758c1ab6ca’</span>
+#&gt; <span class='warning'>  reason: Internal Server Error (HTTP 500).</span></div><div class='output co'>#&gt; <span class='warning'>Warning: bfcdownload() failed</span>
+#&gt; <span class='warning'>  rid: BFC28</span>
+#&gt; <span class='warning'>  file: ‘https://raw.github.com/nytimes/covid-19-data/master/us-states.csv’</span>
+#&gt; <span class='warning'>  reason: download failed</span></div><div class='output co'>#&gt; <span class='error'>Error: download failed; see warnings()</span></div><div class='input'><span class='no'>mass</span> <span class='kw'>=</span> <span class='fu'>cumulative_events_nyt_state</span>(<span class='no'>nyt</span>, <span class='kw'>eventtype</span> <span class='kw'>=</span> <span class='st'>"confirmed"</span>,
+   <span class='kw'>statename</span> <span class='kw'>=</span> <span class='st'>"Massachusetts"</span>)</div><div class='output co'>#&gt; <span class='error'>Error in statename %in% src$state: object 'nyt' not found</span></div><div class='input'><span class='no'>mass</span></div><div class='output co'>#&gt; <span class='error'>Error in eval(expr, envir, enclos): object 'mass' not found</span></div><div class='input'><span class='no'>imass</span> <span class='kw'>=</span> <span class='fu'><a href='form_incident_events.html'>form_incident_events</a></span>(<span class='fu'><a href='trim_from.html'>trim_from</a></span>(<span class='no'>mass</span>, <span class='st'>"2020-03-01"</span>))</div><div class='output co'>#&gt; <span class='error'>Error in trim_from(mass, "2020-03-01"): object 'mass' not found</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='no'>imass</span>)</div><div class='output co'>#&gt; <span class='error'>Error in plot(imass): object 'imass' not found</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
