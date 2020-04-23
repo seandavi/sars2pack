@@ -55,7 +55,7 @@ res \%>\%
 regs_of_interest = c('Seattle', 'New York City',
                      'Chicago', 'Italy',
                      'Russia', 'UK',
-                     'Brazil'))
+                     'Brazil')
 res \%>\%
     dplyr::filter(region \%in\% regs_of_interest) \%>\%
     ggplot(aes(x=date, y=region, fill=mobility_index)) +
