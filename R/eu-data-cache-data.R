@@ -16,6 +16,8 @@
 #' - \url{https://covid19-eu-data-cache.now.sh/}
 #' - \url{https://github.com/covid19-eu-zh/covid19-eu-data}
 #'
+#' @family data-import
+#' 
 #' @export
 eu_data_cache_data <- function(datasets = eu_data_cache_datasets(include_ecdc = FALSE)) {
     .local = function(abbrev) {
