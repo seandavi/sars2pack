@@ -68,7 +68,7 @@
 #' colnames(ecdc)
 #' dplyr::glimpse(ecdc)
 #'
-#' 
+#' @family data-import
 #' 
 #' @export
 ecdc_data <- function() {
