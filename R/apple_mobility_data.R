@@ -29,6 +29,9 @@
 #'
 #' @param agree_to_terms logical, when TRUE, implies that the user
 #'     has agreed to Apple's terms of use. See references and note.
+#' @param max_tries integer, the number of tries to attempt downloading
+#' @param message_url logical, output a message with the URL for the day
+#'     since Apple changes it daily.
 #' 
 #' @references
 #'
@@ -88,7 +91,7 @@
 #' @family data-import
 #' 
 #' @export
-apple_mobility_data = function(agree_to_terms=TRUE, max_tries=3) {
+apple_mobility_data = function(agree_to_terms=TRUE, max_tries=3, message_url=FALSE) {
     ## apple uses javascript to change the download
     ## URL every day to force users to examine terms
     ## The code below uses webdriver to render the
@@ -113,7 +116,7 @@ apple_mobility_data = function(agree_to_terms=TRUE, max_tries=3) {
             tries = tries + 1
         }
     }
-    message(sprintf("Download url: %s",surl))
+    if(message_url) message(sprintf("Download url: %s",surl))
     ## rpath = s2p_cached_url(url) ## TODO: fix caching to use only one url
     dat = readr::read_csv(surl, col_types = cols()) %>%
         tidyr::pivot_longer(

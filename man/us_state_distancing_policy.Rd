@@ -18,7 +18,7 @@ for a subset of the states in the United States.
 \section{Kudos}{
 
 \itemize{
-\item Joe Wasserman: http://www.joewasserman.com/
+\item Joe Wasserman: \url{http://www.joewasserman.com/}
 }
 }
 
