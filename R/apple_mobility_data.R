@@ -91,7 +91,8 @@
 #' @family data-import
 #' 
 #' @export
-apple_mobility_data = function(agree_to_terms=TRUE, max_tries=3, message_url=FALSE) {
+apple_mobility_data = function(agree_to_terms=TRUE, max_tries=3,
+                               message_url=FALSE) {
     ## apple uses javascript to change the download
     ## URL every day to force users to examine terms
     ## The code below uses webdriver to render the
@@ -102,6 +103,7 @@ apple_mobility_data = function(agree_to_terms=TRUE, max_tries=3, message_url=FAL
     )
     if(is(pjs, 'try-error')) {
         stop('The webdriver package requires phantomJS. Be sure to run webdriver::install_phantomjs before continuing')
+        
     }
     surl = NULL
     tries = 1
