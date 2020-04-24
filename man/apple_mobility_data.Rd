@@ -4,11 +4,16 @@
 \alias{apple_mobility_data}
 \title{Access Apple mobility data}
 \usage{
-apple_mobility_data(agree_to_terms = TRUE, max_tries = 3)
+apple_mobility_data(agree_to_terms = TRUE, max_tries = 3, message_url = FALSE)
 }
 \arguments{
 \item{agree_to_terms}{logical, when TRUE, implies that the user
 has agreed to Apple's terms of use. See references and note.}
+
+\item{max_tries}{integer, the number of tries to attempt downloading}
+
+\item{message_url}{logical, output a message with the URL for the day
+since Apple changes it daily.}
 }
 \description{
 From Apple's website:
