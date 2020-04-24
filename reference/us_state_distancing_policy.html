@@ -171,7 +171,7 @@ for a subset of the states in the United States.</p>
     
 
 <ul>
-<li><p>Joe Wasserman: http://www.joewasserman.com/</p></li>
+<li><p>Joe Wasserman: <a href='http://www.joewasserman.com/'>http://www.joewasserman.com/</a></p></li>
 </ul>
 
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
@@ -191,15 +191,13 @@ for a subset of the states in the United States.</p>
 <code><a href='usa_facts_data.html'>usa_facts_data</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>res</span> <span class='kw'>=</span> <span class='fu'>us_state_distancing_policy</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Missing column names filled in: 'X16' [16], 'X17' [17], 'X18' [18], 'X19' [19], 'X20' [20]</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt;  [1] "location_id"       "StateFIPS"         "StatePostal"      
+    <pre class="examples"><div class='input'><span class='no'>res</span> <span class='kw'>=</span> <span class='fu'>us_state_distancing_policy</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Missing column names filled in: 'X16' [16], 'X17' [17], 'X18' [18], 'X19' [19], 'X20' [20], 'X21' [21]</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt;  [1] "location_id"       "StateFIPS"         "StatePostal"      
 #&gt;  [4] "StateName"         "StatePolicy"       "Mandate"          
 #&gt;  [7] "DateIssued"        "DateEnacted"       "DateExpiry"       
 #&gt; [10] "DateEnded"         "PolicyCodingNotes" "PolicySource"     
-#&gt; [13] "StateWide"         "LastUpdated"       "LastUpdatedNotes" 
-#&gt; [16] "X16"               "X17"               "X18"              
-#&gt; [19] "X19"               "X20"              </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>dplyr</span>)
-<span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Rows: 532
-#&gt; Columns: 20
+#&gt; [13] "StateWide"         "LastUpdated"       "LastUpdatedNotes" </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>dplyr</span>)
+<span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Rows: 531
+#&gt; Columns: 15
 #&gt; $ location_id       <span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 523, 523, 523, 523, 523, 523, 523, 523, 523, 523, 5…
 #&gt; $ StateFIPS         </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, …
 #&gt; $ StatePostal       </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "AL", "AL", "AL", "AL", "AL", "AL", "AL", "AL", "AL…
@@ -214,12 +212,7 @@ for a subset of the states in the United States.</p>
 #&gt; $ PolicySource      </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "https://governor.alabama.gov/newsroom/2020/03/thir…
 #&gt; $ StateWide         </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, …
 #&gt; $ LastUpdated       </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 20200324, 20200324, 20200420, 20200420, 20200420, 2…
-#&gt; $ LastUpdatedNotes  </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> NA, NA, "Updated DateEnacted to 20200319 per state …
-#&gt; $ X16               </span><span style='color: #555555;font-style: italic;'>&lt;lgl&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
-#&gt; $ X17               </span><span style='color: #555555;font-style: italic;'>&lt;lgl&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
-#&gt; $ X18               </span><span style='color: #555555;font-style: italic;'>&lt;lgl&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
-#&gt; $ X19               </span><span style='color: #555555;font-style: italic;'>&lt;lgl&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
-#&gt; $ X20               </span><span style='color: #555555;font-style: italic;'>&lt;lgl&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…</div><div class='input'>
+#&gt; $ LastUpdatedNotes  </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> NA, NA, "Updated DateEnacted to 20200319 per state …</div><div class='input'>
 </div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

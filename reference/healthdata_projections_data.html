@@ -211,8 +211,36 @@ confidence interval, lower confidence interval</p></li>
 <code><a href='usa_facts_data.html'>usa_facts_data</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>res</span> <span class='kw'>=</span> <span class='fu'>healthdata_projections_data</span>()</div><div class='output co'>#&gt; <span class='error'>Error: </span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; <span class='error'>Error in is.data.frame(x): object 'res' not found</span></div><div class='input'><span class='no'>res</span>[<span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span>(<span class='fl'>1</span>:<span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span>(<span class='no'>res</span>),<span class='fl'>6</span>),]</div><div class='output co'>#&gt; <span class='error'>Error in eval(expr, envir, enclos): object 'res' not found</span></div><div class='input'>
-</div></pre>
+    <pre class="examples"><div class='input'><span class='no'>res</span> <span class='kw'>=</span> <span class='fu'>healthdata_projections_data</span>()
+<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; [1] "location_name" "date"          "metric"        "mean"         
+#&gt; [5] "lower"         "upper"        </div><div class='input'><span class='no'>res</span>[<span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span>(<span class='fl'>1</span>:<span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span>(<span class='no'>res</span>),<span class='fl'>6</span>),]</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 6 x 6</span><span>
+#&gt;   location_name                            date       metric   mean  lower upper
+#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>                                    </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
+#&gt; </span><span style='color: #555555;'>1</span><span> Montana                                  2020-04-17 ICUbed   7.41   5.75  12.4
+#&gt; </span><span style='color: #555555;'>2</span><span> King and Snohomish Counties (excluding … 2020-05-19 ICUbed   4.67   0     24.2
+#&gt; </span><span style='color: #555555;'>3</span><span> Schleswig-Holstein                       2020-07-21 newICU   0      0      0  
+#&gt; </span><span style='color: #555555;'>4</span><span> Indiana                                  2020-02-05 newICU   0      0      0  
+#&gt; </span><span style='color: #555555;'>5</span><span> Provincia autonoma di Bolzano            2020-06-17 totdea 275.   255.   317. 
+#&gt; </span><span style='color: #555555;'>6</span><span> Rhineland-Palatinate                     2020-06-22 icuov…   0      0      0  </div><div class='input'>
+<span class='co'>#plot the predictions</span>
+
+<span class='no'>regs_of_interest</span> <span class='kw'>=</span> <span class='st'>'Georgia'</span>
+<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>ggplot2</span>)
+<span class='no'>pl</span> <span class='kw'>=</span> <span class='no'>res</span> <span class='kw'>%&gt;%</span>
+    <span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span>(<span class='no'>location_name</span> <span class='kw'>%in%</span> <span class='no'>regs_of_interest</span>) <span class='kw'>%&gt;%</span>
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>x</span><span class='kw'>=</span><span class='no'>date</span>)) + <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>y</span><span class='kw'>=</span><span class='no'>mean</span>, <span class='kw'>color</span><span class='kw'>=</span><span class='no'>metric</span>))
+
+<span class='co'># plot the "mean" prediction</span>
+<span class='no'>pl</span></div><div class='img'><img src='healthdata_projections_data-1.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='co'># add 95% confidence bounds</span>
+<span class='no'>pl</span> + <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_ribbon.html'>geom_ribbon</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>ymin</span><span class='kw'>=</span><span class='no'>lower</span>, <span class='kw'>ymax</span><span class='kw'>=</span><span class='no'>upper</span>, <span class='kw'>fill</span><span class='kw'>=</span><span class='no'>metric</span>), <span class='kw'>alpha</span><span class='kw'>=</span><span class='fl'>0.25</span>)</div><div class='img'><img src='healthdata_projections_data-2.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='no'>regs_of_interest</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>'New York'</span>, <span class='st'>'Italy'</span>)
+<span class='no'>pl</span> <span class='kw'>=</span> <span class='no'>res</span> <span class='kw'>%&gt;%</span>
+    <span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span>(<span class='no'>location_name</span> <span class='kw'>%in%</span> <span class='no'>regs_of_interest</span>) <span class='kw'>%&gt;%</span>
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>x</span><span class='kw'>=</span><span class='no'>date</span>)) + <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>y</span><span class='kw'>=</span><span class='no'>mean</span>, <span class='kw'>color</span><span class='kw'>=</span><span class='no'>metric</span>)) +
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/facet_grid.html'>facet_grid</a></span>(<span class='kw'>rows</span> <span class='kw'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/vars.html'>vars</a></span>(<span class='no'>location_name</span>))
+<span class='no'>pl</span></div><div class='img'><img src='healthdata_projections_data-3.png' alt='' width='700' height='433' /></div><div class='input'>
+</div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

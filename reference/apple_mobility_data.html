@@ -156,7 +156,7 @@
 "Learn about COVID‑19 mobility trends in countries/regions and cities. Reports are published daily and reflect requests for directions in Apple Maps. Privacy is one of our core values, so Maps doesn’t associate your data with your Apple ID, and Apple doesn’t keep a history of where you’ve been."</p>
     </div>
 
-    <pre class="usage"><span class='fu'>apple_mobility_data</span>(<span class='kw'>agree_to_terms</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
+    <pre class="usage"><span class='fu'>apple_mobility_data</span>(<span class='kw'>agree_to_terms</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>max_tries</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>message_url</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -165,6 +165,15 @@
       <th>agree_to_terms</th>
       <td><p>logical, when TRUE, implies that the user
 has agreed to Apple's terms of use. See references and note.</p></td>
+    </tr>
+    <tr>
+      <th>max_tries</th>
+      <td><p>integer, the number of tries to attempt downloading</p></td>
+    </tr>
+    <tr>
+      <th>message_url</th>
+      <td><p>logical, output a message with the URL for the day
+since Apple changes it daily.</p></td>
     </tr>
     </table>
 
@@ -215,7 +224,8 @@ See <a href='https://www.apple.com/covid19/mobility'>https://www.apple.com/covid
 <code><a href='usa_facts_data.html'>usa_facts_data</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>res</span> <span class='kw'>=</span> <span class='fu'>apple_mobility_data</span>()</div><div class='output co'>#&gt; <span class='message'>Download url: https://covid19-static.cdn-apple.com/covid19-mobility-data/2006HotfixDev12/v1/en-us/applemobilitytrends-2020-04-21.csv</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; [1] "geo_type"            "region"              "transportation_type"
+    <pre class="examples"><div class='input'><span class='no'>res</span> <span class='kw'>=</span> <span class='fu'>apple_mobility_data</span>()
+<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; [1] "geo_type"            "region"              "transportation_type"
 #&gt; [4] "date"                "mobility_index"     </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 6 x 5</span><span>
 #&gt;   geo_type       region  transportation_type date       mobility_index
 #&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>          </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>               </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>              </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
@@ -226,7 +236,7 @@ See <a href='https://www.apple.com/covid19/mobility'>https://www.apple.com/covid
 #&gt; </span><span style='color: #555555;'>5</span><span> country/region Albania driving             2020-01-17          104. 
 #&gt; </span><span style='color: #555555;'>6</span><span> country/region Albania driving             2020-01-18          113. </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span>(<span class='no'>res</span>$<span class='no'>transportation_type</span>)</div><div class='output co'>#&gt; 
 #&gt; driving transit walking 
-#&gt;   15200    9100   15200 </div><div class='input'>
+#&gt;   15352    9191   15352 </div><div class='input'>
 <span class='fu'><a href='https://rdrr.io/r/base/library.html'>require</a></span>(<span class='no'>ggplot2</span>)</div><div class='output co'>#&gt; <span class='message'>Loading required package: ggplot2</span></div><div class='input'>
 <span class='no'>pl</span> <span class='kw'>=</span> <span class='no'>res</span> <span class='kw'>%&gt;%</span>
     <span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span>(<span class='no'>region</span> <span class='kw'>%in%</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>'Russia'</span>,<span class='st'>'New York City'</span>,<span class='st'>'Italy'</span>)) <span class='kw'>%&gt;%</span>
