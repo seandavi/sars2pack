@@ -30,8 +30,11 @@ jobs:
       - name: Install package and dependencies
         run: |
            Rscript -e "devtools::install('.', dependencies=TRUE, repos = BiocManager::repositories())"
+
+      - name: Install phantomjs dependency
+        run: |
            Rscript -e "webdriver::install_phantomjs()"
-            
+  
       - name: Build pkgdown
         run: |
           Rscript -e 'pkgdown::build_site(".")'
