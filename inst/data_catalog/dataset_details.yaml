@@ -1,3 +1,19 @@
+ecdc_data:
+  columns:
+    date: Date
+    location_name: character
+    iso2c: character
+    iso3c: character
+    population_2018: numeric
+    continent: character
+    subset: character
+    count: numeric
+  dimensions:
+    nrow: 25602
+    ncol: 8
+  dates:
+    min: '2019-12-31'
+    max: '2020-04-24'
 beoutbreakprepared_data:
   columns:
     ID: character
@@ -18,7 +34,7 @@ beoutbreakprepared_data:
     travel_history_location: character
     reported_market_exposure: character
     additional_information: character
-    chronic_disease_binary: character
+    chronic_disease_binary: logical
     chronic_disease: character
     source: character
     sequence_available: character
@@ -34,12 +50,37 @@ beoutbreakprepared_data:
     data_moderator_initials: character
     travel_history_binary: logical
   dimensions:
-    nrow: 267492
+    nrow: 441082
     ncol: 33
+eu_data_cache_data:
+  columns:
+    country: character
+    nuts_2: character
+    cases: numeric
+    recovered: numeric
+    deaths: numeric
+    tests: numeric
+    hospitalized: numeric
+    intensive_care: numeric
+    datetime:
+    - POSIXct
+    - POSIXt
+    date: Date
+    nuts_3: character
+    nuts_1: character
+    quarantine: numeric
+    lau: character
+    hospitalized/100k pop.: numeric
+  dimensions:
+    nrow: 29829
+    ncol: 15
+  dates:
+    min: '2020-02-24'
+    max: '2020-04-16'
 descartes_mobility_data:
   columns:
     date: Date
-    country_code: character
+    iso2: character
     admin_level: numeric
     admin1: character
     admin2: character
@@ -48,11 +89,24 @@ descartes_mobility_data:
     m50: numeric
     m50_index: numeric
   dimensions:
-    nrow: 114677
+    nrow: 135997
     ncol: 9
   dates:
-    min: .na.character
-    max: .na.character
+    min: '2020-03-01'
+    max: '2020-04-21'
+apple_mobility_data:
+  columns:
+    geo_type: character
+    region: character
+    transportation_type: character
+    date: Date
+    mobility_index: numeric
+  dimensions:
+    nrow: 39895
+    ncol: 5
+  dates:
+    min: '2020-01-13'
+    max: '2020-04-22'
 usa_facts_data:
   columns:
     fips: character
@@ -62,11 +116,11 @@ usa_facts_data:
     date: Date
     count: numeric
   dimensions:
-    nrow: 536760
+    nrow: 594270
     ncol: 6
   dates:
     min: '2020-01-22'
-    max: '2020-04-14'
+    max: '2020-04-23'
 jhu_data:
   columns:
     ProvinceState: character
@@ -77,11 +131,11 @@ jhu_data:
     count: numeric
     subset: character
   dimensions:
-    nrow: 65352
+    nrow: 72354
     ncol: 7
   dates:
     min: '2020-01-22'
-    max: '2020-04-14'
+    max: '2020-04-23'
 jhu_us_data:
   columns:
     UID: numeric
@@ -100,11 +154,11 @@ jhu_us_data:
     count: numeric
     subset: character
   dimensions:
-    nrow: 547008
+    nrow: 606732
     ncol: 15
   dates:
     min: '2020-01-22'
-    max: '2020-04-14'
+    max: '2020-04-23'
 nytimes_county_data:
   columns:
     date: Date
@@ -114,11 +168,11 @@ nytimes_county_data:
     count: numeric
     subset: character
   dimensions:
-    nrow: 118498
+    nrow: 168286
     ncol: 6
   dates:
     min: '2020-01-21'
-    max: '2020-04-14'
+    max: '2020-04-23'
 nytimes_state_data:
   columns:
     date: Date
@@ -127,11 +181,11 @@ nytimes_state_data:
     count: numeric
     subset: character
   dimensions:
-    nrow: 4770
+    nrow: 5778
     ncol: 5
   dates:
     min: '2020-01-21'
-    max: '2020-04-14'
+    max: '2020-04-23'
 kff_icu_beds:
   columns:
     fips: character
@@ -178,11 +232,11 @@ covidtracker_data:
     - POSIXt
     fips: character
   dimensions:
-    nrow: 2284
+    nrow: 2769
     ncol: 9
   dates:
-    min: '2020-02-28'
-    max: '2020-04-15'
+    min: '2020-01-22'
+    max: '2020-04-23'
 us_healthcare_capacity:
   columns:
     Name: character
@@ -264,10 +318,30 @@ healthdata_projections_data:
     lower: numeric
     upper: numeric
   dimensions:
-    nrow: 274770
+    nrow: 303795
     ncol: 6
   dates:
     min: '2020-01-03'
     max: '2020-08-04'
-NA: '2020-04-15'
+us_state_distancing_policy:
+  columns:
+    location_id: numeric
+    StateFIPS: numeric
+    StatePostal: character
+    StateName: character
+    StatePolicy: character
+    Mandate: numeric
+    DateIssued: numeric
+    DateEnacted: numeric
+    DateExpiry: numeric
+    DateEnded: logical
+    PolicyCodingNotes: character
+    PolicySource: character
+    StateWide: numeric
+    LastUpdated: numeric
+    LastUpdatedNotes: character
+  dimensions:
+    nrow: 531
+    ncol: 15
+eval_date: '2020-04-24'
 

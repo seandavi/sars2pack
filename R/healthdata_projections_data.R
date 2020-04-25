@@ -36,6 +36,27 @@
 #' colnames(res)
 #' res[sample(1:nrow(res),6),]
 #'
+#' #plot the predictions
+#'
+#' regs_of_interest = 'Georgia'
+#' library(ggplot2)
+#' pl = res %>%
+#'     dplyr::filter(location_name %in% regs_of_interest) %>%
+#'     ggplot(aes(x=date)) + geom_line(aes(y=mean, color=metric))
+#'
+#' # plot the "mean" prediction
+#' pl
+#'
+#' # add 95% confidence bounds
+#' pl + geom_ribbon(aes(ymin=lower, ymax=upper, fill=metric), alpha=0.25)
+#'
+#' regs_of_interest = c('New York', 'Italy')
+#' pl = res %>%
+#'     dplyr::filter(location_name %in% regs_of_interest) %>%
+#'     ggplot(aes(x=date)) + geom_line(aes(y=mean, color=metric)) +
+#'     facet_grid(rows = vars(location_name))
+#' pl
+#' 
 #' @family data-import
 #' 
 #' @export
@@ -47,7 +68,6 @@ healthdata_projections_data <- function() {
     datafile = dir(tmpd, pattern='^Hospitalization_all_locs\\.csv$', recursive = TRUE, full.names=TRUE)[1]
     projections = readr::read_csv(datafile, col_types=cols(), guess_max=5000)
     projections = projections %>%
-        dplyr::select(-V1) %>%
         tidyr::pivot_longer(cols=-c('location_name', 'date'),
                             names_to='metric', values_to='count') %>%
         tidyr::separate(metric, c('metric','quantity')) %>%

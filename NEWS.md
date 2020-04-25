@@ -1,3 +1,20 @@
+# sars2pack 0.0.38
+
+## Minor updates
+
+- FIPS variable in usa_facts_data() now 5-digit 
+  string to match other datasets.
+- Add county_to_state_fips() function to convert
+  from US county FIPS to state FIPS; no need to 
+  carry both values in a dataset.
+
+## Major changes
+
+- Add `dataset_details()` to catalog column names, date 
+  ranges (for datasets with dates), and dimensions
+- All dataset tests pass
+
+
 # sars2pack 0.0.36
 
 ## Bug fixes

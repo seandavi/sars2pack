@@ -1,4 +1,12 @@
 datasets:
+  - name: European CDC world tracking
+    accessor: ecdc_data
+    data_type: time series cumulative cases
+    region: World
+    resolution: country
+    geographical: true
+    geospatial: false
+    url: https://www.ecdc.europa.eu/en/covid-19
   - name: beoutbreakprepared
     accessor: beoutbreakprepared_data
     data_type: individual patient level data
@@ -7,6 +15,14 @@ datasets:
     geographical: true
     geospatial: false
     url: https://github.com/beoutbreakprepared/nCoV2019
+  - name: EU data Github aggregator
+    accessor: eu_data_cache_data
+    data_type: time series cumulative cases
+    region: Europe
+    resolution: country and sub-country
+    geographical: true
+    geospatial: false
+    url: https://github.com/covid19-eu-zh/covid19-eu-data
   - name: Descartes Labs Mobility Data
     accessor: descartes_mobility_data
     data_type:
@@ -16,6 +32,15 @@ datasets:
     geographical: true
     geospatial: false
     url: https://raw.githubusercontent.com/descarteslabs/DL-COVID-19
+  - name: Apple mobility data from maps
+    accessor: apple_mobility_data
+    data_type:
+      - mobility
+    region: World
+    resolution: country and sub-country
+    geographical: true
+    geospatial: false
+    url: https://www.apple.com/covid19/mobility
   - name: USA Facts
     accessor: usa_facts_data
     data_type: time series cumulative cases
@@ -93,8 +118,8 @@ datasets:
   - name: Oxford Government Policy Intervention time series
     accessor: government_policy_timeline
     data_type: public policy 
-    region: United States
-    resolution: Individual hospital
+    region: International
+    resolution: country
     geospatial: false
     geographical: true
     url: https://www.bsg.ox.ac.uk/research/research-projects/oxford-covid-19-government-response-tracker
@@ -110,4 +135,12 @@ datasets:
     geospatial: false
     geographical: true
     url: http://www.healthdata.org/covid
-    
+  - name: United States social distancing policies
+    accessor: us_state_distancing_policy
+    data_type: public policy
+    region: United States
+    resolution: state
+    geospatial: false
+    geographical: true
+    url: https://github.com/COVID19StatePolicy/SocialDistancing/
+

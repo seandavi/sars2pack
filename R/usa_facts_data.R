@@ -29,7 +29,7 @@
 #' 
 #' @return
 #'
-#' a tidy data 7-column tibble with columns:
+#' a tidy data tibble with columns:
 #'
 #'   - fips
 #'   - county

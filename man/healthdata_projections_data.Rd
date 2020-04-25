@@ -32,6 +32,27 @@ res = healthdata_projections_data()
 colnames(res)
 res[sample(1:nrow(res),6),]
 
+#plot the predictions
+
+regs_of_interest = 'Georgia'
+library(ggplot2)
+pl = res \%>\%
+    dplyr::filter(location_name \%in\% regs_of_interest) \%>\%
+    ggplot(aes(x=date)) + geom_line(aes(y=mean, color=metric))
+
+# plot the "mean" prediction
+pl
+
+# add 95\% confidence bounds
+pl + geom_ribbon(aes(ymin=lower, ymax=upper, fill=metric), alpha=0.25)
+
+regs_of_interest = c('New York', 'Italy')
+pl = res \%>\%
+    dplyr::filter(location_name \%in\% regs_of_interest) \%>\%
+    ggplot(aes(x=date)) + geom_line(aes(y=mean, color=metric)) +
+    facet_grid(rows = vars(location_name))
+pl
+
 }
 \references{
 \itemize{
@@ -46,15 +67,19 @@ res[sample(1:nrow(res),6),]
 }
 
 Other data-import: 
+\code{\link{apple_mobility_data}()},
 \code{\link{beoutbreakprepared_data}()},
 \code{\link{covidtracker_data}()},
 \code{\link{descartes_mobility_data}()},
+\code{\link{ecdc_data}()},
+\code{\link{eu_data_cache_data}()},
 \code{\link{jhu_data}()},
 \code{\link{jhu_us_data}()},
 \code{\link{kff_icu_beds}()},
 \code{\link{nytimes_county_data}()},
 \code{\link{us_county_geo_details}()},
 \code{\link{us_healthcare_capacity}()},
+\code{\link{us_state_distancing_policy}()},
 \code{\link{usa_facts_data}()}
 }
 \author{
