@@ -38,7 +38,7 @@ jobs:
   
       - name: Build pkgdown
         run: |
-           PATH=$PATH:$HOME/bin/ Rscript -e 'webdriver::install_phantomjs();print(Sys.getenv("PATH");pkgdown::build_site(".")'
+           PATH=$PATH:$HOME/bin/ Rscript -e 'webdriver::install_phantomjs();print(Sys.getenv("PATH")); print(Sys.getenv("HOME"));pkgdown::build_site(".")'
 
       # deploy needs rsync? Seems so.
       - name: Install deploy dependencies
