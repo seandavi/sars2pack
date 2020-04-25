@@ -19,12 +19,12 @@ abstract: |
 author_summary: |
   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget porta erat. Morbi consectetur est vel gravida pretium. Suspendisse ut dui eu ante cursus gravida non sed sem. Nullam sapien tellus, commodo id velit id, eleifend volutpat quam. Phasellus mauris velit, dapibus finibus elementum vel, pulvinar non tellus. Nunc pellentesque pretium diam, quis maximus dolor faucibus id. Nunc convallis sodales ante, ut ullamcorper est egestas vitae. Nam sit amet enim ultrices, ultrices elit pulvinar, volutpat risus.
 
-#bibliography: mybibfile.bib
+bibliography: references.bib
+link-citations: true  
 output:
   bookdown::pdf_document2:
     number_sections: TRUE
-#    base_format: rticles:plos_article (or something else)
-#csl: plos.csl
+    toc: false
 header-includes:
   \let\counterwithout\relax
   \let\counterwithin\relax
@@ -33,8 +33,6 @@ header-includes:
   \counterwithout{figure}{section}
 ---
 
-_Text based on plos sample manuscript, see [http://journals.plos.org/ploscompbiol/s/latex](http://journals.plos.org/ploscompbiol/s/latex)_
-
 # Background and Motivation
 
 On January 30, 2020, the World Health Organization declared
@@ -42,7 +40,7 @@ coronavirus disease 2019 (COVID-19) a Public Health Emergency of
 International concern (PHEIC) and within six weeks had characterized
 the outbreak as a pandemic. Compared to the 2003-2004 severe acute
 respiratory syndrome (SARS) PHEIC, the COVID-19 pandemic is spreading
-more quickly and with a much higher death toll. However, the current
+more quickly and with a much higher death toll and the current
 pandemic is occurring in a more digital and interconnected world.
 Traditional public health organizations as well as data-mature
 organizations not traditionally involved directly in public health
@@ -52,10 +50,11 @@ resources have proven invaluable to understanding disease spread, to
 drive non-pharmacologic intervention (NPI), and, when combined with
 additional data resources, to project impacts to communities and
 healthcare systems around the world. Even as the urgency of the
-initial "hammer" of the COVID-19 pandemic begins to abate, the need
+initial "hammer" of the COVID-19 pandemic begins to abate @Pueyo2020-sh, the need
 for timely, robust, and granular datasets will inform business,
 policy, and even personal decisions for months or even years to
 come.
+
 
 This project proposes to:
 
@@ -80,6 +79,29 @@ of national and international efforts to understand the spread of the
 disease and to mitigate its impact on communities and nation states.
 The sars2pack adopts a principled approach to deliver tested and
 documented code and data resources.
+
+# Datasets
+
+
+## COVID-19 case tracking (prob remove headings)
+
+
+We include nine datasets from six distinct data providers that track
+the disease outbreak. Datasets differ by geographic region(s) covered
+(eg. whole world, continent, or country),
+by geographic resolution (eg., country level down to county level),
+and by metrics that they track such as confirmed cases, deaths,
+hospitalizations, and positive and negative test results.  
+
+## Healthcare capacity
+
+## Non-pharmaceutical Interventions
+
+
+
+## Mobility
+
+
 
 # Methods
 
@@ -148,17 +170,47 @@ COVID-19: Responses from the perspective of open data science
 
 1) Audience: data scientists and their supporters
 
-2) Message: In a mix of hard and uncertain facts, open data science helps clarify possible outcomes of interventions, and opens a path to sharper understanding as facts harden in various domains
+2) Message: In a mix of hard and uncertain facts, open data science
+helps clarify possible outcomes of interventions, and opens a path to
+sharper understanding as facts harden in various domains
 
-Overview on facts and uncertainties: a) When was "patient zero" infected, for the pandemic as a whole and for outbreaks in specific localities?  b) What are the incubation period, serial interval, latent period, period of communicability, modes of transmission of SARS-Cov-2? c) What are the rates of transition between infection, symptoms, death, and how do factors at levels of host, pathogen, and environment affect these? d) what are the actual transmission dynamics in human societies and which health systems are best suited to defining them?  e) What non-pharmacologic interventions (NPI) have been used for the 2020 pandemic, where and when were they implemented, and what have their effects been?  How can inference on NPI effects be properly protected from bias due to confounding, measurement error, and other threats to validity?  
+Overview on facts and uncertainties: a) When was "patient zero"
+infected, for the pandemic as a whole and for outbreaks in specific
+localities?  b) What are the incubation period, serial interval,
+latent period, period of communicability, modes of transmission of
+SARS-Cov-2? c) What are the rates of transition between infection,
+symptoms, death, and how do factors at levels of host, pathogen, and
+environment affect these? d) what are the actual transmission dynamics
+in human societies and which health systems are best suited to
+defining them?  e) What non-pharmacologic interventions (NPI) have
+been used for the 2020 pandemic, where and when were they implemented,
+and what have their effects been?  How can inference on NPI effects be
+properly protected from bias due to confounding, measurement error,
+and other threats to validity?
 
-The Lipsitch NYT Op-Ed piece on immunity is a good collection of open questions to be addressed through observation, experiment and data analysis.  The Santa Clara seroprevalence report uses a structured sample of 3300 residents to obtain weighted estimates of prevalence of antibodies to SARS-Cov-2.  The UT study of mobility data for assessing social distancing implementation for incidence projection provides a quantitative representation of dynamic social distancing processes.
+The Lipsitch NYT Op-Ed piece on immunity is a good collection of open
+questions to be addressed through observation, experiment and data
+analysis.  The Santa Clara seroprevalence report uses a structured
+sample of 3300 residents to obtain weighted estimates of prevalence of
+antibodies to SARS-Cov-2.  The UT study of mobility data for assessing
+social distancing implementation for incidence projection provides a
+quantitative representation of dynamic social distancing processes.
 
-Objectives of data science in this context: Once a problem is clearly formulated, identify data features that contribute to its solution, derive the solution and present it in the context of remaining uncertainty.  Respond to changes in problem formulation and data resources, updating solutions and uncertainty measures.
+Objectives of data science in this context: Once a problem is clearly
+formulated, identify data features that contribute to its solution,
+derive the solution and present it in the context of remaining
+uncertainty.  Respond to changes in problem formulation and data
+resources, updating solutions and uncertainty measures.
 
-Coordination of data science: Can researchers "divide and conquer" the large collection of problems underlying analysis and response to pandemic spread of possibly highly lethal pathogens?
+Coordination of data science: Can researchers "divide and conquer" the
+large collection of problems underlying analysis and response to
+pandemic spread of possibly highly lethal pathogens?
 
-Application of data science: Can policymakers and scientists responsible for policy guidance and administration of new investigations rapidly consume and interpret data patterns and inferences to drive social and government responses towards cost-effective responses?
+Application of data science: Can policymakers and scientists
+responsible for policy guidance and administration of new
+investigations rapidly consume and interpret data patterns and
+inferences to drive social and government responses towards
+cost-effective responses?
 
 ## Facts addressible with sars2pack
 
@@ -168,4 +220,5 @@ c) health care system capacity, collected at Kaiser Health Network and healthdat
 d) mobility data in US, collected at Descartes Labs
 e) Projections of disease morbidity, mortality, and healthcare utilization
 
+# References {-}
 
