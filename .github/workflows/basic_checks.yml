@@ -19,17 +19,18 @@ jobs:
           persist-credentials: false
 
       # cache package dependencies
-#      - name: Get package dependency cache
-#        uses: actions/cache@v1
-#        env:
-#          cache-name: r-site-library-bioc-devel-docker
-#        with:
-#          path: /usr/local/lib/R/site-library
-#          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('DESCRIPTION') }}
+      - name: Get package dependency cache
+        uses: actions/cache@v1
+        env:
+          cache-name: r-site-library-bioc-devel-docker
+        with:
+          path: /usr/local/lib/R/site-library
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('DESCRIPTION') }}
 
 
       - name: Install package and dependencies
         run: |
            apt-get update
            apt-get install -y pkg-config
+           Rscript -e "install.packages('pkgbuild')"
            Rscript -e "devtools::install('.', dependencies=TRUE, repos = BiocManager::repositories())"
