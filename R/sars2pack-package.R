@@ -61,5 +61,5 @@
 #'
 #' 
 #' @docType package
-#' @name sars2pack
+#' @name sars2pack-package
 NULL
