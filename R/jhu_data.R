@@ -143,12 +143,12 @@ jhu_data <- function() {
 #' - iso2:  ISO 3166-1 alpha-2 code
 #' - iso3:  ISO 3166-1 alpha-3 code
 #' - code3
-#' - FIPS:  Federal Information Processing Standard Publication code
-#' - Admin2:  County
-#' - ProvinceState:  Province or state.
-#' - CountryRegion:  US
+#' - fips:  Federal Information Processing Standard Publication code
+#' - county:  County
+#' - state:  Province or state.
+#' - country:  US
 #' - Lat:  Latitude
-#' - Long_:  Longitude
+#' - Long:  Longitude
 #' - Combined_Key:  Comma-separated combination of columns `Admin2`, `ProvinceState`, and `CountryRegion`
 #' - date:  Date
 #' - count:  The cumulative count of cases for a given geographic area. 
@@ -156,7 +156,6 @@ jhu_data <- function() {
 #'
 #' @note
 #'
-#' - US States are treated different from other countries, so are not directly included right now.
 #' - Although numbers are meant to be cumulative, there are instances where a day's count might
 #'   be less than the prior day due to a reclassification of a case. These are not currently corrected
 #'   in the source data
@@ -165,9 +164,12 @@ jhu_data <- function() {
 #' res = jhu_data()
 #' colnames(res)
 #' head(res)
+#'
+#' table(res$state)
+#'
 #' 
 #' @source
-#' - \url{https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data/csse_covid_19_time_series,mGT, method=c('EG','TD'))}
+#' - \url{https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data/csse_covid_19_time_series}
 #' 
 #' @family data-import
 #' 

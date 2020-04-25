@@ -44,6 +44,56 @@ res = descartes_mobility_data()
 colnames(res)
 glimpse(res)
 
+# plot data for Georgia
+library(dplyr)
+library(ggplot2)
+
+# this gets us state-level data
+GA = res \%>\% dplyr::filter(admin1=='Georgia' & admin_level==1)
+
+ggplot(GA, aes(x=date, y=m50_index)) + geom_line() + ggtitle('M50 index over time in Georgia')
+
+#limit to dates of interest around time that GA is reopening
+
+GA = GA \%>\% dplyr::filter(date>as.Date('2020-01-01') & date < as.Date('2020-06-01'))
+ggplot(GA, aes(x=date, y=m50_index)) +
+    geom_line() +
+    ggtitle('M50 index over time in Georgia')
+# Obviously, there are day-specific effects, so use
+# R to "regress out" the effects of day of week to better
+# observe trend.
+GA = GA \%>\% dplyr::mutate(dow = lubridate::wday(date, label=TRUE))
+lmfit = lm(m50_index ~ dow, data = GA)
+
+# We are interested in the residuals, or
+# the variation in the data not explained by
+# the day of the week.
+GA$m50_index_regressed = residuals(lmfit)
+
+ggplot(GA, aes(x=date, y=m50_index_regressed)) +
+    geom_smooth() +
+    geom_point()
+
+# Compare states
+states = c("New York", "California", "Nevada",
+           "Texas", "Georgia", "Florida")
+ST = res \%>\%
+          dplyr::filter(admin1 \%in\% states & admin_level==1) \%>\%
+          dplyr::mutate(dow = lubridate::wday(date, label=TRUE))
+lmfit = lm(m50_index ~ dow + admin1, data = ST)
+ST$m50_index_regressed = residuals(lmfit)
+
+ggplot(ST, aes(x=date, y=m50_index_regressed)) +
+    geom_smooth() +
+    geom_point() +
+    facet_wrap('admin1', nrow=2) +
+    ggtitle('Mobility index differences across states')
+
+
+
+
+
+
 }
 \references{
 \itemize{

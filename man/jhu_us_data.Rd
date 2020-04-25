@@ -5,7 +5,7 @@
 \title{US counties COVID-19 data from \href{https://github.com/CSSEGISandData/COVID-19/}{JHU CSSEGIS}}
 \source{
 \itemize{
-\item \url{https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data/csse_covid_19_time_series,mGT, method=c('EG','TD'))}
+\item \url{https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data/csse_covid_19_time_series}
 }
 }
 \usage{
@@ -18,12 +18,12 @@ A tidy \code{data.frame} (actually, a \code{tbl_df}) with columns:
 \item iso2:  ISO 3166-1 alpha-2 code
 \item iso3:  ISO 3166-1 alpha-3 code
 \item code3
-\item FIPS:  Federal Information Processing Standard Publication code
-\item Admin2:  County
-\item ProvinceState:  Province or state.
-\item CountryRegion:  US
+\item fips:  Federal Information Processing Standard Publication code
+\item county:  County
+\item state:  Province or state.
+\item country:  US
 \item Lat:  Latitude
-\item Long_:  Longitude
+\item Long:  Longitude
 \item Combined_Key:  Comma-separated combination of columns \code{Admin2}, \code{ProvinceState}, and \code{CountryRegion}
 \item date:  Date
 \item count:  The cumulative count of cases for a given geographic area.
@@ -48,7 +48,6 @@ Uses https://raw.githubusercontent.com/CSSEGISandData/... as data
 source, then modifies column names and munges to long form table.
 
 \itemize{
-\item US States are treated different from other countries, so are not directly included right now.
 \item Although numbers are meant to be cumulative, there are instances where a day's count might
 be less than the prior day due to a reclassification of a case. These are not currently corrected
 in the source data
@@ -58,6 +57,9 @@ in the source data
 res = jhu_data()
 colnames(res)
 head(res)
+
+table(res$state)
+
 
 }
 \seealso{
