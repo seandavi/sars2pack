@@ -4,13 +4,14 @@
 #' for a subset of the states in the United States.
 #' 
 #' @importFrom readr read_csv
+#' @importFrom dplyr select starts_with
 #' 
 #' @source 
 #' - https://github.com/COVID19StatePolicy/SocialDistancing/
 #' 
 #' 
 #' @section Kudos:
-#' - Joe Wasserman: http://www.joewasserman.com/
+#' - Joe Wasserman: \url{http://www.joewasserman.com/}
 #' 
 #' 
 #' @author Sean Davis <seandavi@gmail.com>
@@ -27,5 +28,5 @@
 us_state_distancing_policy = function() {
     rpath = s2p_cached_url('https://raw.githubusercontent.com/COVID19StatePolicy/SocialDistancing/master/data/USstatesCov19distancingpolicy.csv')
     res = readr::read_csv(rpath,col_types = cols())
-    res
+    res %>% dplyr::select(-dplyr::starts_with('X'))
 }
