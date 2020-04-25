@@ -25,12 +25,14 @@ Click here: <br/>
 
 This could take 15-30 minutes if the most recent commit has not been built at binder yet. Generally, it takes about a minute, though. 
 
-Install
-=======
+# Get Started
 
-    BioManager::install('seandavi/sars2pack')
-    # OR
-    devtools::install_github('seandavi/sars2pack')
+    # If you do not have BiocManager installed:
+	install.packages('BiocManager')
+	
+	# Then, if sars2pack is not already installed:
+    BiocManager::install('seandavi/sars2pack')
+	
     # Then, to use:
     library(sars2pack)
 
