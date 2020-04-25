@@ -31,6 +31,8 @@ Install
     BioManager::install('seandavi/sars2pack')
     # OR
     devtools::install_github('seandavi/sars2pack')
+    # Then, to use:
+    library(sars2pack)
 
 # Extended Documentation
 
