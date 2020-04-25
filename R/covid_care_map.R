@@ -18,7 +18,7 @@
 #' @examples
 #' res = us_healthcare_capacity()
 #' colnames(res)
-#' glimpse(res)
+#' dplyr::glimpse(res)
 #'
 #' @family data-import
 #' 

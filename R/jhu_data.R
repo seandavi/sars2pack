@@ -72,7 +72,7 @@
 #' res = jhu_data()
 #' colnames(res)
 #' head(res)
-#' glimpse(res)
+#' dplyr::glimpse(res)
 #' 
 #' @source
 #' - \url{https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data/csse_covid_19_time_series,mGT, method=c('EG','TD'))}

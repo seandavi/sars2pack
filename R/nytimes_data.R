@@ -75,12 +75,12 @@
 #' # state data
 #' res = nytimes_state_data()
 #' colnames(res)
-#' glimpse(res)
+#' dplyr::glimpse(res)
 #'
 #' # county data
 #' res = nytimes_county_data()
 #' colnames(res)
-#' glimpse(res)
+#' dplyr::glimpse(res)
 #'
 #'  
 #' @family data-import
