@@ -28,7 +28,7 @@ district currently reporting that data.
 res = covidtracker_data()
 colnames(res)
 dim(res)
-glimpse(res)
+dplyr::glimpse(res)
 
 
 }

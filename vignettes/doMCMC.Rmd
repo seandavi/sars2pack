@@ -4,7 +4,7 @@ author: "Vincent J. Carey, stvjc at channing.harvard.edu"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 vignette: >
   %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteIndexEntry{}
+  %\VignetteIndexEntry{"Building MCMC-based models of SI for SARS-Cov-2"}
   %\VignetteEncoding{UTF-8}
 output:
   BiocStyle::html_document:
@@ -63,6 +63,11 @@ with onset date known only to lie in an interval of length 28 days, ending
 one day before the onset date reported for the secondary case.
 
 ## MCMC estimation of the SI distribution
+
+The crucial resource here is the approach to
+fitting models to (potentially) doubly interval-censored
+event time data as 
+developed by [N. Reich et al., Statistics in Medicine 2009](http://doi.wiley.com/10.1002/sim.3659).
 
 ### Using the censored data representation
 

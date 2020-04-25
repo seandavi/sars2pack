@@ -39,7 +39,7 @@
 #' res = covidtracker_data()
 #' colnames(res)
 #' dim(res)
-#' glimpse(res)
+#' dplyr::glimpse(res)
 #' 
 #'
 #' @family data-import 
