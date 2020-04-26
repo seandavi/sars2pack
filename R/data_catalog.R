@@ -34,7 +34,9 @@ available_datasets <- function() {
 #' @examples 
 #' dd = dataset_details()
 #' str(dd,list.len=3)
-#' names(dd)
+#' names(dd$datasets)
+#' # evaluated
+#' dd$eval_date
 #' 
 #' 
 #' @export
@@ -100,6 +102,7 @@ create_dataset_details = function(fname='inst/data_catalog/dataset_details.yaml'
         ret
     })
     names(res) = unique(z$accessor)
+    res = list(datasets=res)
     res[['eval_date']] = as.character(Sys.Date())
     writeLines(yaml::as.yaml(res),fname)
 }
