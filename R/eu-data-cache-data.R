@@ -17,6 +17,19 @@
 #' - \url{https://github.com/covid19-eu-zh/covid19-eu-data}
 #'
 #' @family data-import
+#'
+#' @examples
+#' eudata = eu_data_cache_data()
+#' colnames(eudata)
+#' dim(eudata)
+#' head(eudata)
+#' dplyr::glimpse(eudata)
+#' summary(eudata)
+#'
+#' # You may wish to look at only one or a few
+#' # of the available datasets. Here is the list
+#' eu_data_cache_datasets()
+#' 
 #' 
 #' @export
 eu_data_cache_data <- function(datasets = eu_data_cache_datasets(include_ecdc = FALSE)) {
