@@ -58,6 +58,7 @@ jobs:
       # Install package dependencies
       - name: Install package and dependencies
         run: |
+          Rscript -e "install.packages('pkgbuild')"
           Rscript -e "devtools::install('.', dependencies=TRUE, repos = BiocManager::repositories())" 
 
       - name: Build package
