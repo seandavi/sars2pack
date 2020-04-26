@@ -31,6 +31,8 @@ are those used here \url{https://covid19.healthdata.org/projections}.
 res = healthdata_projections_data()
 colnames(res)
 res[sample(1:nrow(res),6),]
+glimpse(res)
+summary(res)
 
 #plot the predictions
 

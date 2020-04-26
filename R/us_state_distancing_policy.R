@@ -23,6 +23,7 @@
 #' colnames(res)
 #' library(dplyr)
 #' dplyr::glimpse(res)
+#' summary(res)
 #' 
 #' @export
 us_state_distancing_policy = function() {

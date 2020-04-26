@@ -27,6 +27,7 @@ res = us_state_distancing_policy()
 colnames(res)
 library(dplyr)
 dplyr::glimpse(res)
+summary(res)
 
 }
 \seealso{

@@ -16,6 +16,7 @@
 #' usc = us_county_geo_details()
 #' dplyr::glimpse(usc)
 #' usc
+#' summary(usc)
 #' 
 #'
 #' @export

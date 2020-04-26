@@ -19,6 +19,8 @@ Kaiser Family Foundation US County-level ICU bed data
 res = kff_icu_beds()
 colnames(res)
 head(res)
+dplyr::glimpse(res)
+summary(res)
 
 }
 \seealso{

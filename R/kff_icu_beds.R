@@ -12,6 +12,8 @@
 #' res = kff_icu_beds()
 #' colnames(res)
 #' head(res)
+#' dplyr::glimpse(res)
+#' summary(res)
 #' 
 #' @export
 kff_icu_beds <- function() {
