@@ -51,7 +51,7 @@ in the source data
 res = jhu_data()
 colnames(res)
 head(res)
-glimpse(res)
+dplyr::glimpse(res)
 
 }
 \seealso{

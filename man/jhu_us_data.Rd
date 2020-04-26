@@ -57,6 +57,7 @@ in the source data
 res = jhu_data()
 colnames(res)
 head(res)
+dplyr::glimpse(res)
 
 table(res$state)
 
