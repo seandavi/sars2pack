@@ -26,7 +26,7 @@ resolution (by facility, daily, all USA to start).
 \examples{
 res = us_healthcare_capacity()
 colnames(res)
-glimpse(res)
+dplyr::glimpse(res)
 
 }
 \seealso{

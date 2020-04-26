@@ -42,10 +42,9 @@ Creative Commons Attribution (CC BY 4.0), see https://github.com/descarteslabs/D
 library(dplyr)
 res = descartes_mobility_data()
 colnames(res)
-glimpse(res)
+dplyr::glimpse(res)
 
 # plot data for Georgia
-library(dplyr)
 library(ggplot2)
 
 # this gets us state-level data
