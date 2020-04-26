@@ -18,7 +18,7 @@ address:
   - code: ccr
     address: Center for Cancer Research, National Cancer Institute, National Institutes of Health, 37 Convent Drive, Bldg 37, Room 6138, Bethesda, MD 20891
 abstract: |
-  Open data resources tracking the nearly real-time global spread of COVID-19 pandemic have become the cornerstone of local, national, and international interventions to mitigate public health impacts. We have created software that collates and documents these data resources into the  more findable, accessible, and usable 
+  Open data resources tracking the nearly real-time global spread of COVID-19 pandemic have become the cornerstone of local, national, and international interventions to mitigate public health impacts. We have created software that collates and documents these data resources into the  more findable, accessible, and usable. 
  
 #bibliography: mybibfile.bib
 document_class: article
@@ -34,6 +34,15 @@ output:
 #  \counterwithout{figure}{section}
 ---
 
+```{r include=FALSE}
+library(sars2pack)
+dsd = dataset_details()
+total_datapoints = sum(sapply(dsd$datasets, function(ds) {
+    ds$dimensions[[1]] * ds$dimensions[[2]]
+}))
+```
+
+total data points: `r total_datapoints`
 
 # Background and Motivation
 
@@ -127,7 +136,7 @@ library(dplyr)
 colnames(ad) = stringr::str_to_title(colnames(ad))
 ad %>%
     dplyr::mutate(Data_type=stringr::str_to_sentence(Data_type)) %>%
-    dplyr::select(-Accessor, -Geographical, -Geospatial, -Region, -Resolution) %>%
+    dplyr::select(-Name, -Geographical, -Geospatial, -Region, -Resolution) %>%
     xtable(label='tab:availData') %>%
     print.xtable(comment = FALSE, include.rownames = FALSE)
 ```
