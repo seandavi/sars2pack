@@ -85,9 +85,6 @@
 #'     ggtitle('Mobility index differences across states')
 #' 
 #' 
-#' 
-#' 
-#' 
 #'
 #' @family data-import
 #' 

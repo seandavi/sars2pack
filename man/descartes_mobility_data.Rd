@@ -90,9 +90,6 @@ ggplot(ST, aes(x=date, y=m50_index_regressed)) +
 
 
 
-
-
-
 }
 \references{
 \itemize{
