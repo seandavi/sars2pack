@@ -52,6 +52,9 @@ The foo functions ...
 }
 
 \examples{
+
+library(sars2pack)
+
 # Show me all the available datasets
 available_datasets()
 
