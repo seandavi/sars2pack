@@ -29,6 +29,7 @@ res = government_policy_timeline()
 head(res)
 colnames(res)
 dplyr::glimpse(res)
+summary(res)
 
 }
 \author{

@@ -21,6 +21,7 @@
 #' head(res)
 #' colnames(res)
 #' dplyr::glimpse(res)
+#' summary(res)
 #' 
 #' @export
 government_policy_timeline = function () {

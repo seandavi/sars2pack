@@ -27,15 +27,30 @@ data included.
 \details{
 From the USAFacts website:
 
-Methodology: This interactive feature aggregates data from the Centers for Disease Control and Prevention (CDC), state- and local-level public health agencies. County-level data is confirmed by referencing state and local agencies directly.
+Methodology: This interactive feature aggregates data from the
+Centers for Disease Control and Prevention (CDC), state- and
+local-level public health agencies. County-level data is confirmed
+by referencing state and local agencies directly.
 
-The data for all states was last updated on March 27, 2020, at 7:00 AM Pacific/10:00 AM Eastern Time. We've noted below when we last checked data from the states.
+The data for all states was last updated on March 27, 2020, at 7:00
+AM Pacific/10:00 AM Eastern Time. We've noted below when we last
+checked data from the states.
 
-The 21 cases confirmed on the Grand Princess cruise ship on March 5 and 6 are attributed to the state of California, but not to any counties. The national numbers also include the 45 people with coronavirus repatriated from the Diamond Princess.
+The 21 cases confirmed on the Grand Princess cruise ship on March 5
+and 6 are attributed to the state of California, but not to any
+counties. The national numbers also include the 45 people with
+coronavirus repatriated from the Diamond Princess.
 
-USAFacts attempts to match each case with a county, but some cases counted at the state level are not allocated to counties due to lack of information.
+USAFacts attempts to match each case with a county, but some cases
+counted at the state level are not allocated to counties due to
+lack of information.
 
-Because of the frequency with which we are currently updating this data, they may not reflect the exact numbers reported state and local government organizations or the news media. Numbers may also fluctuate as agencies update their own data. At present, we are working on ensuring that we can provide this data with the most up-to-date information possible.
+Because of the frequency with which we are currently updating this
+data, they may not reflect the exact numbers reported state and
+local government organizations or the news media. Numbers may also
+fluctuate as agencies update their own data. At present, we are
+working on ensuring that we can provide this data with the most
+up-to-date information possible.
 }
 \note{
 Uses https://usafacts.org/visualizations/coronavirus-covid-19-spread-map/ as data
@@ -59,13 +74,15 @@ data-loving community.
 res = usa_facts_data()
 colnames(res)
 head(res)
+dplyr::glimpse(res)
+summary(res)
+
 # dataset inclusion as of this build
 max(res$date)
 
+
 }
 \seealso{
-jhu_data()
-
 Other data-import: 
 \code{\link{apple_mobility_data}()},
 \code{\link{beoutbreakprepared_data}()},
@@ -73,6 +90,7 @@ Other data-import:
 \code{\link{descartes_mobility_data}()},
 \code{\link{ecdc_data}()},
 \code{\link{eu_data_cache_data}()},
+\code{\link{google_mobility_data}()},
 \code{\link{healthdata_projections_data}()},
 \code{\link{jhu_data}()},
 \code{\link{jhu_us_data}()},

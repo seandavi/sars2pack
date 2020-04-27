@@ -30,6 +30,20 @@ Some oddities of the dataset are captured on the original
 site at
 \url{https://github.com/covid19-eu-zh/covid19-eu-data#notes}
 }
+\examples{
+eudata = eu_data_cache_data()
+colnames(eudata)
+dim(eudata)
+head(eudata)
+dplyr::glimpse(eudata)
+summary(eudata)
+
+# You may wish to look at only one or a few
+# of the available datasets. Here is the list
+eu_data_cache_datasets()
+
+
+}
 \seealso{
 Other data-import: 
 \code{\link{apple_mobility_data}()},
@@ -37,6 +51,7 @@ Other data-import:
 \code{\link{covidtracker_data}()},
 \code{\link{descartes_mobility_data}()},
 \code{\link{ecdc_data}()},
+\code{\link{google_mobility_data}()},
 \code{\link{healthdata_projections_data}()},
 \code{\link{jhu_data}()},
 \code{\link{jhu_us_data}()},

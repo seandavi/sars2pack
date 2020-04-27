@@ -8,7 +8,6 @@ plot_epicurve(
   df,
   date_column = "date",
   case_column = "count",
-  grouping_column = NA,
   ...,
   log = TRUE,
   shift = FALSE
@@ -22,8 +21,7 @@ least a date column and an integer count column}
 
 \item{case_column}{character(1) the column name of the \verb{count of cases} column}
 
-\item{grouping_column}{character(1) the optional column name of the \code{grouping} column,
-typically for drawing multiple countries or states, for example}
+\item{...}{passed to ggplot2::aes}
 
 \item{log}{logical(1) TRUE for log10 based y-scale, FALSE for linear}
 }
@@ -36,18 +34,15 @@ data frame should contain at least:
 \itemize{
 \item a date column (or any data type that has a natural time order); this will become the x-axis
 \item a cumulative \code{count} column; this will become the y-axis
-\item an optional grouping column to produce multiple colored curves; y-axis curves will be colored by this column
 }
 }
 \examples{
 library(dplyr)
 jhu = jhu_data() \%>\% 
-    filter(CountryRegion \%in\% c('US','Italy',"China") & subset=='confirmed') \%>\% 
+    filter(CountryRegion=='China' & subset=='confirmed') \%>\% 
     group_by(CountryRegion,date) \%>\% summarize(count=sum(count)) 
     
 jhu \%>\% plot_epicurve(log=FALSE)
-jhu \%>\% plot_epicurve(grouping_column='CountryRegion')
-jhu \%>\% plot_epicurve(grouping_column='CountryRegion', log=TRUE)
 
 
 }

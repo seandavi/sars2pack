@@ -172,8 +172,6 @@ plotfit2(est.EG, main="Italy")
 
 ### New York City
 
-**TODO**: plot of incidence along with $R_0(t)$
-
 ```{r warning=FALSE, message=FALSE}
 nyt = nytimes_county_data() %>%
     dplyr::filter(county=='New York City' & subset=='confirmed') %>%
@@ -195,7 +193,28 @@ epiestim = EpiEstim::estimate_R(nytdat.filt, method = "parametric_si",
 invisible(plot(epiestim))
 ```
 
-```{r}
+## Italy from JHU dataset
+
+This example uses data 
+
+```{r, warning=FALSE}
+jhu = jhu_data() %>%
+    dplyr::filter(CountryRegion=='Italy' & is.na(ProvinceState) & subset=='confirmed') %>%
+    dplyr::arrange(date)
+jhucases = jhu$count
+# do we need to chop zeros off? Seems like not.
+jhucases.inc = c(jhucases[1], diff(jhucases))
+jhucases.inc[jhucases.inc<0] = 0
+epiestim = EpiEstim::estimate_R(jhucases.inc, method = "parametric_si",
+                                config = EpiEstim::make_config(list(
+                                                       mean_si = 3.96, std_si = 4.75)))
+meanR = epiestim$R$`Mean(R)`
+plot(meanR, type='l', ylim=c(0,5),main='R(t) for Italy', ylab='R', xlab='date')
+abline(h=1, lty=2)
+```
+
+
+```{r include=FALSE}
 fn = function(df, location_name,
               count_column='count',
               date_column='date',
@@ -218,4 +237,4 @@ fn = function(df, location_name,
     ret$date = as.Date(epiestim$dates[1:nrow(ret)])
     ret
 }
-```   
+```

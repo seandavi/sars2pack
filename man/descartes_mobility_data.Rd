@@ -5,7 +5,7 @@
 \title{Get US daily mobility data from Descartes Labs}
 \source{
 \itemize{
-\item https://raw.githubusercontent.com/descarteslabs/DL-COVID-19/master/DL-us-mobility-daterow.csv
+\item \url{https://raw.githubusercontent.com/descarteslabs/DL-COVID-19/master/DL-us-mobility-daterow.csv}
 }
 }
 \usage{
@@ -35,20 +35,66 @@ selected states.
 \section{License}{
 
 
-Creative Commons Attribution (CC BY 4.0), see https://github.com/descarteslabs/DL-COVID-19
+Creative Commons Attribution (CC BY 4.0), see \url{https://github.com/descarteslabs/DL-COVID-19}
 }
 
 \examples{
 library(dplyr)
 res = descartes_mobility_data()
 colnames(res)
-glimpse(res)
+dplyr::glimpse(res)
+
+# plot data for Georgia
+library(ggplot2)
+
+# this gets us state-level data
+GA = res \%>\% dplyr::filter(admin1=='Georgia' & admin_level==1)
+
+ggplot(GA, aes(x=date, y=m50_index)) + geom_line() + ggtitle('M50 index over time in Georgia')
+
+#limit to dates of interest around time that GA is reopening
+
+GA = GA \%>\% dplyr::filter(date>as.Date('2020-01-01') & date < as.Date('2020-06-01'))
+ggplot(GA, aes(x=date, y=m50_index)) +
+    geom_line() +
+    ggtitle('M50 index over time in Georgia')
+# Obviously, there are day-specific effects, so use
+# R to "regress out" the effects of day of week to better
+# observe trend.
+GA = GA \%>\% dplyr::mutate(dow = lubridate::wday(date, label=TRUE))
+lmfit = lm(m50_index ~ dow, data = GA)
+
+# We are interested in the residuals, or
+# the variation in the data not explained by
+# the day of the week.
+GA$m50_index_regressed = residuals(lmfit)
+
+ggplot(GA, aes(x=date, y=m50_index_regressed)) +
+    geom_smooth() +
+    geom_point()
+
+# Compare states
+states = c("New York", "California", "Nevada",
+           "Texas", "Georgia", "Florida")
+ST = res \%>\%
+          dplyr::filter(admin1 \%in\% states & admin_level==1) \%>\%
+          dplyr::mutate(dow = lubridate::wday(date, label=TRUE))
+lmfit = lm(m50_index ~ dow + admin1, data = ST)
+ST$m50_index_regressed = residuals(lmfit)
+
+ggplot(ST, aes(x=date, y=m50_index_regressed)) +
+    geom_smooth() +
+    geom_point() +
+    facet_wrap('admin1', nrow=2) +
+    ggtitle('Mobility index differences across states')
+
+
 
 }
 \references{
 \itemize{
-\item https://www.descarteslabs.com/mobility-v097/
-\item https://www.descarteslabs.com/wp-content/uploads/2020/03/mobility-v097.pdf
+\item \url{https://www.descarteslabs.com/mobility-v097/}
+\item \url{https://www.descarteslabs.com/wp-content/uploads/2020/03/mobility-v097.pdf}
 }
 }
 \seealso{
@@ -58,6 +104,7 @@ Other data-import:
 \code{\link{covidtracker_data}()},
 \code{\link{ecdc_data}()},
 \code{\link{eu_data_cache_data}()},
+\code{\link{google_mobility_data}()},
 \code{\link{healthdata_projections_data}()},
 \code{\link{jhu_data}()},
 \code{\link{jhu_us_data}()},
@@ -67,8 +114,13 @@ Other data-import:
 \code{\link{us_healthcare_capacity}()},
 \code{\link{us_state_distancing_policy}()},
 \code{\link{usa_facts_data}()}
+
+Other mobility: 
+\code{\link{apple_mobility_data}()},
+\code{\link{google_mobility_data}()}
 }
 \author{
 Sean Davis \href{mailto:seandavi@gmail.com}{seandavi@gmail.com}
 }
 \concept{data-import}
+\concept{mobility}

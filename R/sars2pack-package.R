@@ -49,6 +49,9 @@
 #'
 #'
 #' @examples
+#'
+#' library(sars2pack)
+#' 
 #' # Show me all the available datasets
 #' available_datasets()
 #'
@@ -61,5 +64,5 @@
 #'
 #' 
 #' @docType package
-#' @name sars2pack
+#' @name sars2pack-package
 NULL

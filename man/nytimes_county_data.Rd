@@ -85,12 +85,12 @@ you would link to our U.S. tracking page at
 # state data
 res = nytimes_state_data()
 colnames(res)
-glimpse(res)
+dplyr::glimpse(res)
 
 # county data
 res = nytimes_county_data()
 colnames(res)
-glimpse(res)
+dplyr::glimpse(res)
 
  
 }
@@ -104,6 +104,7 @@ Other data-import:
 \code{\link{descartes_mobility_data}()},
 \code{\link{ecdc_data}()},
 \code{\link{eu_data_cache_data}()},
+\code{\link{google_mobility_data}()},
 \code{\link{healthdata_projections_data}()},
 \code{\link{jhu_data}()},
 \code{\link{jhu_us_data}()},

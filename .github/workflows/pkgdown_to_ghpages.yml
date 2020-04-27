@@ -10,7 +10,7 @@ jobs:
     name: Setup, Build, and Deploy
     runs-on: ubuntu-latest
     container:
-      image: bioconductor/bioconductor_full:devel
+      image: bioconductor/bioconductor_docker:devel
     steps:
       - name: Checkout
         uses: actions/checkout@v2 # If you're using actions/checkout@v2 you must set persist-credentials to false in most cases for the deployment to work correctly.
@@ -29,15 +29,17 @@ jobs:
 
       - name: Install package and dependencies
         run: |
+           Rscript -e "install.packages('pkgbuild')"
            Rscript -e "devtools::install('.', dependencies=TRUE, repos = BiocManager::repositories())"
 
       - name: Install phantomjs dependency
         run: |
            Rscript -e "webdriver::install_phantomjs()"
+           PATH=$PATH:$HOME/bin/ echo `which phantomjs`
   
       - name: Build pkgdown
         run: |
-           PATH=$PATH:$HOME/bin/ Rscript -e 'pkgdown::build_site(".")'
+           PATH=$PATH:$HOME/bin/ Rscript -e 'webdriver::install_phantomjs();print(Sys.getenv("PATH")); print(Sys.getenv("HOME"));pkgdown::build_site(".")'
 
       # deploy needs rsync? Seems so.
       - name: Install deploy dependencies

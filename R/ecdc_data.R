@@ -2,7 +2,7 @@
 #'
 #'  
 #' @importFrom readr read_csv
-#' @importFrom dplyr rename select mutate `%>%`
+#' @importFrom dplyr rename select mutate `%>%` group_by arrange
 #' @importFrom lubridate dmy
 #' @importFrom tidyr pivot_longer
 #' 
@@ -85,10 +85,10 @@ ecdc_data <- function() {
         dplyr::select(-c(.data$day,
                          .data$month,
                          .data$year)) %>%
-        mutate(date=lubridate::dmy(.data$date)) %>%
-        group_by(location_name) %>%
-        arrange(location_name, date) %>%
-        mutate(deaths = cumsum(deaths), confirmed= cumsum(confirmed)) %>%
+        dplyr::mutate(date=lubridate::dmy(.data$date)) %>%
+        dplyr::group_by(location_name) %>%
+        dplyr::arrange(location_name, date) %>%
+        dplyr::mutate(deaths = cumsum(deaths), confirmed= cumsum(confirmed)) %>%
         tidyr::pivot_longer(cols=c('deaths','confirmed'),
                             names_to='subset',
                             values_to='count')

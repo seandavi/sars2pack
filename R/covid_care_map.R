@@ -9,6 +9,7 @@
 #' resolution (by facility, daily, all USA to start).
 #' 
 #' @importFrom readr read_csv
+#' @importFrom dplyr glimpse
 #' 
 #' @source
 #' - \url{https://github.com/covidcaremap/covid19-healthsystemcapacity}
@@ -17,7 +18,7 @@
 #' @examples
 #' res = us_healthcare_capacity()
 #' colnames(res)
-#' glimpse(res)
+#' dplyr::glimpse(res)
 #'
 #' @family data-import
 #' 

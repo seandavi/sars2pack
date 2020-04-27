@@ -19,6 +19,7 @@ United States county-level geographic details
 usc = us_county_geo_details()
 dplyr::glimpse(usc)
 usc
+summary(usc)
 
 
 }
@@ -32,6 +33,7 @@ Other data-import:
 \code{\link{descartes_mobility_data}()},
 \code{\link{ecdc_data}()},
 \code{\link{eu_data_cache_data}()},
+\code{\link{google_mobility_data}()},
 \code{\link{healthdata_projections_data}()},
 \code{\link{jhu_data}()},
 \code{\link{jhu_us_data}()},
