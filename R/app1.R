@@ -70,6 +70,7 @@ eesi = function(src,
    ccur = cumulative_events_nyt_state(src, eventtype = "confirmed",
     statename=input$stsel)
    icur = form_incident_events(trim_from(ccur, input$inidat))
+   icurdf = data.frame(I=icur$count, dates=icur$date)
    nt = length(icur$count)
    starts = seq_len(nt)
    ends = starts + input$winsz - 1
@@ -78,12 +79,12 @@ eesi = function(src,
    ends = ends[-drop][-1]
    if (input$sitype == "2009 flu") {
      data("Flu2009", package="EpiEstim")
-     ans = EpiEstim::estimate_R(incid = icur$count, method="non_parametric_si",
+     ans = EpiEstim::estimate_R(incid = icurdf, method="non_parametric_si",
                         config = make_config(list(si_distr = Flu2009$si_distr,
                           t_start=starts, t_end=ends)))
      } else {
      print(c(minm=input$parmn-mean_si_trunc_radius, m=input$parmn, maxm=input$parmn+mean_si_trunc_radius))
-     ans = EpiEstim::estimate_R(incid = icur$count, method="uncertain_si",
+     ans = EpiEstim::estimate_R(incid = icurdf, method="uncertain_si",
       config=make_config(list(mean_si=input$parmn, std_si=input$parmnsd,
              std_mean_si=std_mean_si, min_mean_si=max(c(1,input$parmn-mean_si_trunc_radius)),
              max_mean_si=input$parmn+mean_si_trunc_radius,
