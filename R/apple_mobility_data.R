@@ -89,6 +89,7 @@
 #' }
 #'
 #' @family data-import
+#' @family mobility
 #' 
 #' @export
 apple_mobility_data = function(agree_to_terms=TRUE, max_tries=3,

@@ -10,15 +10,15 @@
 #' 
 #' 
 #' @source
-#' - https://raw.githubusercontent.com/descarteslabs/DL-COVID-19/master/DL-us-mobility-daterow.csv
+#' - \url{https://raw.githubusercontent.com/descarteslabs/DL-COVID-19/master/DL-us-mobility-daterow.csv}
 #'
 #' @references
-#' - https://www.descarteslabs.com/mobility-v097/
-#' - https://www.descarteslabs.com/wp-content/uploads/2020/03/mobility-v097.pdf
+#' - \url{https://www.descarteslabs.com/mobility-v097/}
+#' - \url{https://www.descarteslabs.com/wp-content/uploads/2020/03/mobility-v097.pdf}
 #'
 #' @section License:
 #'
-#' Creative Commons Attribution (CC BY 4.0), see https://github.com/descarteslabs/DL-COVID-19
+#' Creative Commons Attribution (CC BY 4.0), see \url{https://github.com/descarteslabs/DL-COVID-19}
 #'
 #' @importFrom readr read_csv
 #' 
@@ -87,6 +87,7 @@
 #' 
 #'
 #' @family data-import
+#' @family mobility
 #' 
 #' @export
 descartes_mobility_data = function() {
