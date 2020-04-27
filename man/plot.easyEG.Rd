@@ -4,7 +4,7 @@
 \alias{plot.easyEG}
 \title{plotter for easyEG run}
 \usage{
-plot.easyEG(x, y, ...)
+\method{plot}{easyEG}(x, y, ...)
 }
 \arguments{
 \item{x}{instance of S3 class easyEG}
