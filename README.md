@@ -24,7 +24,7 @@ Experimental Binder Launch
 --------------------------
 
 Click here: <br/>
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/seandavi/sars2pack/a01150a?urlpath=rstudio)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/seandavi/sars2pack/fe0ea63?urlpath=rstudio)
 
 This could take 15-30 minutes if the most recent commit has not been
 built at binder yet. Generally, it takes about a minute, though.
