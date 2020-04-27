@@ -72,10 +72,10 @@
 #' # analyze the "admin levels" available for each
 #' # country:
 #'
-#' admin_by_country = d %>%
+#' admin_by_country = res %>%
 #'     dplyr::group_by(iso2c) %>%
 #'     dplyr::filter(date == max(date))
-#' admin_by_country = table(admin_by_country$admin_level, admin_by_country$iso2c)/length(unique(d$places_category))
+#' admin_by_country = table(admin_by_country$admin_level, admin_by_country$iso2c)/length(unique(res$places_category))
 #' admin_by_country
 #'
 #' # Italy mobility over time
@@ -83,7 +83,7 @@
 #'
 #' library(ggplot2)
 #' 
-#' d %>%
+#' res %>%
 #' ## Italy, whole country(admin == 0)
 #'     filter(iso2c == "IT" & admin_level==0) %>%
 #'     ggplot(aes(x=date,y=percent_change_from_baseline,color = places_category)) +
