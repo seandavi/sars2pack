@@ -184,88 +184,74 @@ in the list. See examples for details and for viewing suggestions.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>res</span> <span class='kw'>=</span> <span class='fu'>available_datasets</span>()
-<span class='no'>res</span></div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 19 x 8</span><span>
-#&gt;    name    accessor  data_type  region resolution geographical geospatial url   
-#&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #555555;font-style: italic;'>&lt;lgl&gt;</span><span>        </span><span style='color: #555555;font-style: italic;'>&lt;lgl&gt;</span><span>      </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> 
-#&gt; </span><span style='color: #555555;'> 1</span><span> Europe… ecdc_data time seri… World  country    TRUE         FALSE      https…
-#&gt; </span><span style='color: #555555;'> 2</span><span> beoutb… beoutbre… individua… World  patient    TRUE         FALSE      https…
-#&gt; </span><span style='color: #555555;'> 3</span><span> EU dat… eu_data_… time seri… Europe country a… TRUE         FALSE      https…
-#&gt; </span><span style='color: #555555;'> 4</span><span> Descar… descarte… mobility   Unite… county     TRUE         FALSE      https…
-#&gt; </span><span style='color: #555555;'> 5</span><span> Apple … apple_mo… mobility   World  country a… TRUE         FALSE      https…
-#&gt; </span><span style='color: #555555;'> 6</span><span> USA Fa… usa_fact… time seri… Unite… county     TRUE         FALSE      https…
-#&gt; </span><span style='color: #555555;'> 7</span><span> Johns … jhu_data  time seri… World  country    TRUE         FALSE      https…
-#&gt; </span><span style='color: #555555;'> 8</span><span> Johns … jhu_us_d… time seri… Unite… county     TRUE         FALSE      https…
-#&gt; </span><span style='color: #555555;'> 9</span><span> New Yo… nytimes_… time seri… Unite… county     TRUE         FALSE      https…
-#&gt; </span><span style='color: #555555;'>10</span><span> New Yo… nytimes_… time seri… Unite… state      TRUE         FALSE      https…
-#&gt; </span><span style='color: #555555;'>11</span><span> Kaiser… kff_icu_… healthcar… Unite… Individua… TRUE         TRUE       https…
-#&gt; </span><span style='color: #555555;'>12</span><span> United… us_count… demograph… Unite… county     TRUE         TRUE       https…
-#&gt; </span><span style='color: #555555;'>13</span><span> United… us_count… geographic Unite… county     TRUE         TRUE       https…
-#&gt; </span><span style='color: #555555;'>14</span><span> CovidT… covidtra… healthcar… Unite… Individua… TRUE         FALSE      https…
-#&gt; </span><span style='color: #555555;'>15</span><span> CovidC… us_healt… healthcar… Unite… Individua… TRUE         TRUE       https…
-#&gt; </span><span style='color: #555555;'>16</span><span> Oxford… governme… public po… Inter… country    TRUE         FALSE      https…
-#&gt; </span><span style='color: #555555;'>17</span><span> Health… healthda… time seri… Unite… state      TRUE         FALSE      http:…
-#&gt; </span><span style='color: #555555;'>18</span><span> Health… healthda… time seri… Inter… country    TRUE         FALSE      http:…
-#&gt; </span><span style='color: #555555;'>19</span><span> United… us_state… public po… Unite… state      TRUE         FALSE      https…</div><div class='input'><span class='co'># and how to use the accessor programmatically</span>
-<span class='fu'><a href='https://rdrr.io/r/base/get.html'>get</a></span>(<span class='no'>res</span>[<span class='fl'>1</span>,]$<span class='no'>accessor</span>)()</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 26,836 x 8</span><span>
-#&gt; </span><span style='color: #555555;'># Groups:   location_name [207]</span><span>
-#&gt;    date       location_name iso2c iso3c population_2018 continent subset   count
-#&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>         </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>           </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #555555;'> 1</span><span> 2019-12-31 Afghanistan   AF    AFG          37</span><span style='text-decoration: underline;'>172</span><span>386 Asia      deaths       0
-#&gt; </span><span style='color: #555555;'> 2</span><span> 2019-12-31 Afghanistan   AF    AFG          37</span><span style='text-decoration: underline;'>172</span><span>386 Asia      confirm…     0
-#&gt; </span><span style='color: #555555;'> 3</span><span> 2020-01-01 Afghanistan   AF    AFG          37</span><span style='text-decoration: underline;'>172</span><span>386 Asia      deaths       0
-#&gt; </span><span style='color: #555555;'> 4</span><span> 2020-01-01 Afghanistan   AF    AFG          37</span><span style='text-decoration: underline;'>172</span><span>386 Asia      confirm…     0
-#&gt; </span><span style='color: #555555;'> 5</span><span> 2020-01-02 Afghanistan   AF    AFG          37</span><span style='text-decoration: underline;'>172</span><span>386 Asia      deaths       0
-#&gt; </span><span style='color: #555555;'> 6</span><span> 2020-01-02 Afghanistan   AF    AFG          37</span><span style='text-decoration: underline;'>172</span><span>386 Asia      confirm…     0
-#&gt; </span><span style='color: #555555;'> 7</span><span> 2020-01-03 Afghanistan   AF    AFG          37</span><span style='text-decoration: underline;'>172</span><span>386 Asia      deaths       0
-#&gt; </span><span style='color: #555555;'> 8</span><span> 2020-01-03 Afghanistan   AF    AFG          37</span><span style='text-decoration: underline;'>172</span><span>386 Asia      confirm…     0
-#&gt; </span><span style='color: #555555;'> 9</span><span> 2020-01-04 Afghanistan   AF    AFG          37</span><span style='text-decoration: underline;'>172</span><span>386 Asia      deaths       0
-#&gt; </span><span style='color: #555555;'>10</span><span> 2020-01-04 Afghanistan   AF    AFG          37</span><span style='text-decoration: underline;'>172</span><span>386 Asia      confirm…     0
-#&gt; </span><span style='color: #555555;'># … with 26,826 more rows</span><span></div><div class='input'>
+<span class='no'>res</span></div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 22 x 8</span><span>
+#&gt;    name   accessor  data_type  region resolution geographical geospatial url    
+#&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #555555;font-style: italic;'>&lt;lgl&gt;</span><span>        </span><span style='color: #555555;font-style: italic;'>&lt;lgl&gt;</span><span>      </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>  
+#&gt; </span><span style='color: #555555;'> 1</span><span> Googl… google_m… mobility   World  admin0     TRUE         FALSE      https:…
+#&gt; </span><span style='color: #555555;'> 2</span><span> Googl… google_m… mobility   World  admin1     TRUE         FALSE      https:…
+#&gt; </span><span style='color: #555555;'> 3</span><span> Googl… google_m… mobility   World  admin2     TRUE         FALSE      https:…
+#&gt; </span><span style='color: #555555;'> 4</span><span> Europ… ecdc_data time seri… World  country    TRUE         FALSE      https:…
+#&gt; </span><span style='color: #555555;'> 5</span><span> beout… beoutbre… individua… World  patient    TRUE         FALSE      https:…
+#&gt; </span><span style='color: #555555;'> 6</span><span> EU da… eu_data_… time seri… Europe country a… TRUE         FALSE      https:…
+#&gt; </span><span style='color: #555555;'> 7</span><span> Desca… descarte… mobility   Unite… county     TRUE         FALSE      https:…
+#&gt; </span><span style='color: #555555;'> 8</span><span> Apple… apple_mo… mobility   World  country a… TRUE         FALSE      https:…
+#&gt; </span><span style='color: #555555;'> 9</span><span> USA F… usa_fact… time seri… Unite… county     TRUE         FALSE      https:…
+#&gt; </span><span style='color: #555555;'>10</span><span> Johns… jhu_data  time seri… World  country    TRUE         FALSE      https:…
+#&gt; </span><span style='color: #555555;'># … with 12 more rows</span><span></div><div class='input'><span class='co'># and how to use the accessor programmatically</span>
+<span class='fu'><a href='https://rdrr.io/r/base/get.html'>get</a></span>(<span class='no'>res</span>[<span class='fl'>1</span>,]$<span class='no'>accessor</span>)()</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 1,384,968 x 8</span><span>
+#&gt;    iso2c country_region admin1 admin2 date       admin_level places_category
+#&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>          </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>           </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>          
+#&gt; </span><span style='color: #555555;'> 1</span><span> AE    United Arab E… </span><span style='color: #BB0000;'>NA</span><span>     </span><span style='color: #BB0000;'>NA</span><span>     2020-02-15           0 retail_and_rec…
+#&gt; </span><span style='color: #555555;'> 2</span><span> AE    United Arab E… </span><span style='color: #BB0000;'>NA</span><span>     </span><span style='color: #BB0000;'>NA</span><span>     2020-02-15           0 grocery_and_ph…
+#&gt; </span><span style='color: #555555;'> 3</span><span> AE    United Arab E… </span><span style='color: #BB0000;'>NA</span><span>     </span><span style='color: #BB0000;'>NA</span><span>     2020-02-15           0 parks          
+#&gt; </span><span style='color: #555555;'> 4</span><span> AE    United Arab E… </span><span style='color: #BB0000;'>NA</span><span>     </span><span style='color: #BB0000;'>NA</span><span>     2020-02-15           0 transit_statio…
+#&gt; </span><span style='color: #555555;'> 5</span><span> AE    United Arab E… </span><span style='color: #BB0000;'>NA</span><span>     </span><span style='color: #BB0000;'>NA</span><span>     2020-02-15           0 workplaces     
+#&gt; </span><span style='color: #555555;'> 6</span><span> AE    United Arab E… </span><span style='color: #BB0000;'>NA</span><span>     </span><span style='color: #BB0000;'>NA</span><span>     2020-02-15           0 residential    
+#&gt; </span><span style='color: #555555;'> 7</span><span> AE    United Arab E… </span><span style='color: #BB0000;'>NA</span><span>     </span><span style='color: #BB0000;'>NA</span><span>     2020-02-16           0 retail_and_rec…
+#&gt; </span><span style='color: #555555;'> 8</span><span> AE    United Arab E… </span><span style='color: #BB0000;'>NA</span><span>     </span><span style='color: #BB0000;'>NA</span><span>     2020-02-16           0 grocery_and_ph…
+#&gt; </span><span style='color: #555555;'> 9</span><span> AE    United Arab E… </span><span style='color: #BB0000;'>NA</span><span>     </span><span style='color: #BB0000;'>NA</span><span>     2020-02-16           0 parks          
+#&gt; </span><span style='color: #555555;'>10</span><span> AE    United Arab E… </span><span style='color: #BB0000;'>NA</span><span>     </span><span style='color: #BB0000;'>NA</span><span>     2020-02-16           0 transit_statio…
+#&gt; </span><span style='color: #555555;'># … with 1,384,958 more rows, and 1 more variable:</span><span>
+#&gt; </span><span style='color: #555555;'>#   percent_change_from_baseline </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span></div><div class='input'>
 
 <span class='no'>dd</span> <span class='kw'>=</span> <span class='fu'>dataset_details</span>()
-<span class='fu'><a href='https://rdrr.io/r/utils/str.html'>str</a></span>(<span class='no'>dd</span>,<span class='kw'>list.len</span><span class='kw'>=</span><span class='fl'>3</span>)</div><div class='output co'>#&gt; List of 18
-#&gt;  $ ecdc_data                  :List of 3
-#&gt;   ..$ columns   :List of 8
-#&gt;   .. ..$ date           : chr "Date"
-#&gt;   .. ..$ location_name  : chr "character"
-#&gt;   .. ..$ iso2c          : chr "character"
-#&gt;   .. .. [list output truncated]
-#&gt;   ..$ dimensions:List of 2
-#&gt;   .. ..$ nrow: int 25602
-#&gt;   .. ..$ ncol: int 8
-#&gt;   ..$ dates     :List of 2
-#&gt;   .. ..$ min: chr "2019-12-31"
-#&gt;   .. ..$ max: chr "2020-04-24"
-#&gt;  $ beoutbreakprepared_data    :List of 2
-#&gt;   ..$ columns   :List of 33
-#&gt;   .. ..$ ID                      : chr "character"
-#&gt;   .. ..$ age                     : chr "character"
-#&gt;   .. ..$ sex                     : chr "character"
-#&gt;   .. .. [list output truncated]
-#&gt;   ..$ dimensions:List of 2
-#&gt;   .. ..$ nrow: int 441082
-#&gt;   .. ..$ ncol: int 33
-#&gt;  $ eu_data_cache_data         :List of 3
-#&gt;   ..$ columns   :List of 15
-#&gt;   .. ..$ country               : chr "character"
-#&gt;   .. ..$ nuts_2                : chr "character"
-#&gt;   .. ..$ cases                 : chr "numeric"
-#&gt;   .. .. [list output truncated]
-#&gt;   ..$ dimensions:List of 2
-#&gt;   .. ..$ nrow: int 29829
-#&gt;   .. ..$ ncol: int 15
-#&gt;   ..$ dates     :List of 2
-#&gt;   .. ..$ min: chr "2020-02-24"
-#&gt;   .. ..$ max: chr "2020-04-16"
-#&gt;   [list output truncated]</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='no'>dd</span>)</div><div class='output co'>#&gt;  [1] "ecdc_data"                   "beoutbreakprepared_data"    
-#&gt;  [3] "eu_data_cache_data"          "descartes_mobility_data"    
-#&gt;  [5] "apple_mobility_data"         "usa_facts_data"             
-#&gt;  [7] "jhu_data"                    "jhu_us_data"                
-#&gt;  [9] "nytimes_county_data"         "nytimes_state_data"         
-#&gt; [11] "kff_icu_beds"                "us_county_geo_details"      
-#&gt; [13] "covidtracker_data"           "us_healthcare_capacity"     
-#&gt; [15] "government_policy_timeline"  "healthdata_projections_data"
-#&gt; [17] "us_state_distancing_policy"  "eval_date"                  </div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/utils/str.html'>str</a></span>(<span class='no'>dd</span>,<span class='kw'>list.len</span><span class='kw'>=</span><span class='fl'>3</span>)</div><div class='output co'>#&gt; List of 2
+#&gt;  $ datasets :List of 18
+#&gt;   ..$ google_mobility_data       :List of 3
+#&gt;   .. ..$ columns   :List of 8
+#&gt;   .. .. ..$ iso2c                       : chr "character"
+#&gt;   .. .. ..$ country_region              : chr "character"
+#&gt;   .. .. ..$ admin1                      : chr "character"
+#&gt;   .. .. .. [list output truncated]
+#&gt;   .. ..$ dimensions:List of 2
+#&gt;   .. .. ..$ nrow: int 1384968
+#&gt;   .. .. ..$ ncol: int 8
+#&gt;   .. ..$ dates     :List of 2
+#&gt;   .. .. ..$ min: chr "2020-02-15"
+#&gt;   .. .. ..$ max: chr "2020-04-17"
+#&gt;   ..$ ecdc_data                  :List of 3
+#&gt;   .. ..$ columns   :List of 8
+#&gt;   .. .. ..$ date           : chr "Date"
+#&gt;   .. .. ..$ location_name  : chr "character"
+#&gt;   .. .. ..$ iso2c          : chr "character"
+#&gt;   .. .. .. [list output truncated]
+#&gt;   .. ..$ dimensions:List of 2
+#&gt;   .. .. ..$ nrow: int 26836
+#&gt;   .. .. ..$ ncol: int 8
+#&gt;   .. ..$ dates     :List of 2
+#&gt;   .. .. ..$ min: chr "2019-12-31"
+#&gt;   .. .. ..$ max: chr "2020-04-27"
+#&gt;   ..$ beoutbreakprepared_data    :List of 2
+#&gt;   .. ..$ columns   :List of 33
+#&gt;   .. .. ..$ ID                      : chr "character"
+#&gt;   .. .. ..$ age                     : chr "character"
+#&gt;   .. .. ..$ sex                     : chr "character"
+#&gt;   .. .. .. [list output truncated]
+#&gt;   .. ..$ dimensions:List of 2
+#&gt;   .. .. ..$ nrow: int 442315
+#&gt;   .. .. ..$ ncol: int 33
+#&gt;   .. [list output truncated]
+#&gt;  $ eval_date: chr "2020-04-27"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='no'>dd</span>)</div><div class='output co'>#&gt; [1] "datasets"  "eval_date"</div><div class='input'>
 
 </div></span></pre>
   </div>
@@ -283,7 +269,7 @@ in the list. See examples for details and for viewing suggestions.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
 </div>
 
       </footer>
