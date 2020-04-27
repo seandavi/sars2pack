@@ -46,48 +46,47 @@ Apple requires that all users agree to their terms of use.
 See \url{https://www.apple.com/covid19/mobility}.
 }
 \examples{
-if (interactive()) {
- res = apple_mobility_data()
- colnames(res)
- head(res)
- table(res$transportation_type)
+res = apple_mobility_data()
+colnames(res)
+head(res)
+table(res$transportation_type)
 
- require(ggplot2)
+require(ggplot2)
 
- pl = res \%>\%
+pl = res \%>\%
     dplyr::filter(region \%in\% c('Russia','New York City','Italy')) \%>\%
     ggplot(aes(x=date)) +
         geom_line(aes(y=mobility_index,color=transportation_type)) +
         scale_x_date(date_breaks = '1 week', date_labels='\%b-\%d') +
         facet_grid(rows=vars(region)) +
         ggtitle('Changes in Apple Mobility Index over time')
- pl
+pl
 
- regs_of_interest = c('Seattle', 'New York City',
+regs_of_interest = c('Seattle', 'New York City',
                      'Chicago', 'Italy',
                      'Russia', 'UK',
                      'Brazil')
- res \%>\%
+res \%>\%
     dplyr::filter(region \%in\% regs_of_interest) \%>\%
     ggplot(aes(x=date, y=region, fill=mobility_index)) +
         geom_tile() +
         facet_grid(rows=vars(transportation_type)) +
         ggtitle('Changes in Apple Mobility Index over time')
 
- if(require(viridis)) {
- res \%>\%
+if(require(viridis)) {
+res \%>\%
     dplyr::filter(region \%in\% regs_of_interest) \%>\%
     ggplot(aes(x=date, y=region, fill=mobility_index)) +
         geom_tile() +
         facet_grid(rows=vars(transportation_type)) +
         scale_fill_viridis() +
         ggtitle('Changes in Apple Mobility Index over time')
- }
-
- if(require(plotly)) {
-     ggplotly(pl)
- }
 }
+
+if(require(plotly)) {
+    ggplotly(pl)
+}
+
 }
 \references{
 \itemize{
