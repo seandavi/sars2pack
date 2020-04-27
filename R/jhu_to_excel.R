@@ -50,7 +50,7 @@
 #' colnames(res)
 #' library(dplyr)
 #' head(res)
-#' glimpse(res)
+#' dplyr::glimpse(res)
 #' 
 #' @export
 enriched_jhu_data <- function(cols_to_remove = .cols_to_remove, warn=FALSE) {

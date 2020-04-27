@@ -28,6 +28,6 @@ res = enriched_jhu_data()
 colnames(res)
 library(dplyr)
 head(res)
-glimpse(res)
+dplyr::glimpse(res)
 
 }

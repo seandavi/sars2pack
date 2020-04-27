@@ -4,23 +4,44 @@
 \alias{eesi}
 \title{demonstrative app for EpiEstim R\link{t} sensitivity analysis}
 \usage{
-eesi(src)
+eesi(
+  src,
+  mean_si_trunc_radius = 3,
+  std_si_trunc_radius = 3,
+  std_mean_si = 3,
+  std_std_si = 5,
+  n1 = 100,
+  n2 = 100
+)
 }
 \arguments{
 \item{src}{intended to be the result of sars2pack::nytimes_state_data(), no checking is done.}
+
+\item{mean_si_trunc_radius}{numeric(1)}
+
+\item{std_si_trunc_radius}{numeric(1)}
+
+\item{std_mean_si}{numeric(1) used with 'uncertain' serial interval option, see EpiEstim::make_config}
+
+\item{std_std_si}{numeric(1) used with 'uncertain' serial interval option, see EpiEstim::make_config}
+
+\item{n1}{numeric(1) used with 'uncertain' serial interval option, see EpiEstim::make_config}
+
+\item{n2}{numeric(1) used with 'uncertain' serial interval option, see EpiEstim::make_config}
 }
 \description{
 demonstrative app for EpiEstim R\link{t} sensitivity analysis
 }
 \note{
-This app is currently incomplete.  Additions needed include 1) accommodation of
-standard deviation of parametric serial interval distribution, 2) additional
+This app is currently incomplete.  Additions needed include
+2) additional
 approaches to serial interval modeling, 3) enhancement of displays to present actual
 calendar dates, 4) an approach to supporting comparative displays, particularly allowing
 overlay of different R\link{t} fits for different serial interval modeling assumptions.
 }
 \examples{
-\dontrun{
+# must run example(eesi, ask=FALSE)
+if (interactive()) {
  nytdat = nytimes_state_data()
  eesi(nytdat)
 }

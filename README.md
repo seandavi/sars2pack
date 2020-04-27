@@ -1,7 +1,8 @@
-# sars2pack
+sars2pack
+=========
 
-
-## Introduction 
+Introduction
+------------
 
 The sars2pack R package includes data resources, workflows, and data
 science tools to understand and interpret the COVID-19 pandemic. Access
@@ -19,27 +20,31 @@ Thanks to the armies of people providing data for the rest of the world,
 often on a volunteer basis. Without their tireless work, we would not
 have these rapidly-developing resources.
 
-## Experimental Binder Launch
+Experimental Binder Launch
+--------------------------
 
 Click here: <br/>
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/seandavi/sars2pack/a01150a?urlpath=rstudio)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/seandavi/sars2pack/fe0ea63?urlpath=rstudio)
 
-This could take 15-30 minutes if the most recent commit has not been built at binder yet. Generally, it takes about a minute, though. 
+This could take 15-30 minutes if the most recent commit has not been
+built at binder yet. Generally, it takes about a minute, though.
 
-# Get Started
+Get Started
+===========
 
     # If you do not have BiocManager installed:
-	install.packages('BiocManager')
-	
-	# Then, if sars2pack is not already installed:
+    install.packages('BiocManager')
+
+    # Then, if sars2pack is not already installed:
     BiocManager::install('seandavi/sars2pack')
-	
+
     # Then, to use:
     library(sars2pack)
 
-# Extended Documentation
+Extended Documentation
+======================
 
-- https://seandavi.github.io/sars2pack
+-   <https://seandavi.github.io/sars2pack>
 
 Features
 ========
@@ -47,9 +52,11 @@ Features
 Data resources available
 ------------------------
 
-Epidemiologic, health risk, demographic, and healthcare system datasets from multiple sources are available and documented.
+Epidemiologic, health risk, demographic, and healthcare system datasets
+from multiple sources are available and documented.
 
-- [Complete details](https://seandavi.github.io/sars2pack/articles/datasets.html)
+-   [Complete
+    details](https://seandavi.github.io/sars2pack/articles/datasets.html)
 
 Visualization
 -------------
@@ -65,22 +72,35 @@ Automated workflows and current status.
 <table>
 <thead>
 <tr class="header">
-<th>Workflow Status</th>
-<th>Description</th>
+<th>
+Workflow Status
+</th>
+<th>
+Description
+</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><img src="https://github.com/seandavi/sars2pack/workflows/Publish%20artifacts/badge.svg" alt="Publish artifacts" /></td>
-<td>Produces regularly updated data resources and products</td>
+<td>
+<img src="https://github.com/seandavi/sars2pack/workflows/Publish%20artifacts/badge.svg" alt="Publish artifacts" />
+</td>
+<td>
+Produces regularly updated data resources and products
+</td>
 </tr>
 <tr class="even">
-<td><img src="https://github.com/seandavi/sars2pack/workflows/pkgdown%20site/badge.svg" alt="pkgdown site" /></td>
-<td>Prepare and publish <a href="https://seandavi.github.io/sars2pack/">pkgdown documentation</a></td>
+<td>
+<img src="https://github.com/seandavi/sars2pack/workflows/pkgdown%20site/badge.svg" alt="pkgdown site" />
+</td>
+<td>
+Prepare and publish
+<a href="https://seandavi.github.io/sars2pack/">pkgdown
+documentation</a>
+</td>
 </tr>
 </tbody>
 </table>
-
 Contribute
 ==========
 
@@ -103,4 +123,5 @@ Similar work
     COVID-19](https://www.youtube.com/watch?v=D_CNmYkGRUc)
 -   [DataCamp: Visualize the rise of COVID-19 cases globally with
     ggplot2](https://www.datacamp.com/projects/870)
--   [MackLavielle/covidix R package](https://github.com/MarcLavielle/covidix/)
+-   [MackLavielle/covidix R
+    package](https://github.com/MarcLavielle/covidix/)
