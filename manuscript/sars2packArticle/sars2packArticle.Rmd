@@ -1,28 +1,25 @@
 ---
-title: 
+title: 'stuff'
 author:
-  - name: Vincent J. Carey
-    email: stvjc@channing.harvard.edu
-    affiliation: channing
-  - name: Sean R. Davis
-    email: seandavi@gmail.com
-    corresponding: seandavi@gmail.com
-    affiliation: ccr
+  - Vincent J. Carey^[stvjc@channing.harvard.edu], Channing Laboratory, Brigham And Women's Hospital, Boston, MA
+  - John C. Mallery^[jcmallery@gmail.com]
+  - Charles Moorefield^[chuck.morefield@icloud.com] 
+  - Sean R. Davis^[seandavi@gmail.com], Center for Cancer Research, National Cancer Institute, National Institutes of Health, Bethesda, MD
 address:
   - code: channing
     address: Channing Laboratory, Brigham And Women's Hospital, 75 Francis St, Boston, MA 02115
   - code: ccr
     address: Center for Cancer Research, National Cancer Institute, National Institutes of Health, 37 Convent Drive, Bldg 37, Room 6138, Bethesda, MD 20891
 abstract: |
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget porta erat. Morbi consectetur est vel gravida pretium. Suspendisse ut dui eu ante cursus gravida non sed sem. Nullam sapien tellus, commodo id velit id, eleifend volutpat quam. Phasellus mauris velit, dapibus finibus elementum vel, pulvinar non tellus. Nunc pellentesque pretium diam, quis maximus dolor faucibus id. Nunc convallis sodales ante, ut ullamcorper est egestas vitae. Nam sit amet enim ultrices, ultrices elit pulvinar, volutpat risus.
-  
-author_summary: |
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget porta erat. Morbi consectetur est vel gravida pretium. Suspendisse ut dui eu ante cursus gravida non sed sem. Nullam sapien tellus, commodo id velit id, eleifend volutpat quam. Phasellus mauris velit, dapibus finibus elementum vel, pulvinar non tellus. Nunc pellentesque pretium diam, quis maximus dolor faucibus id. Nunc convallis sodales ante, ut ullamcorper est egestas vitae. Nam sit amet enim ultrices, ultrices elit pulvinar, volutpat risus.
-
-bibliography: references.bib
 link-citations: true  
+  Open data resources tracking the nearly real-time global spread of COVID-19 pandemic have become the cornerstone of local, national, and international interventions to mitigate public health impacts. Here, we present sars2pack, a principled, open development, open source software package for accessing high-value COVID-19 related data sources in familiar tidy data form from within the R statistical environment. We foresee continued importance for fit-for-use COVID-19 data resources enhance data-driven decisions across multiple domains. 
+ 
+bibliography: references.bib
+nocite: | 
+  @Wickham2014-ye, @testthat-hw, @sf-ep, @lovelace_geocomputation_2019
+document_class: article
 output:
-  bookdown::pdf_document2:
+  bookdown::pdf_book:
     number_sections: TRUE
     toc: false
 header-includes:
@@ -31,7 +28,18 @@ header-includes:
   \usepackage{chngcntr}
   \counterwithout{table}{section}
   \counterwithout{figure}{section}
+  \usepackage{authblk}
 ---
+
+```{r include=FALSE}
+library(sars2pack)
+dsd = dataset_details()
+total_datapoints = sum(sapply(dsd$datasets, function(ds) {
+    ds$dimensions[[1]] * ds$dimensions[[2]]
+}))
+```
+
+total data points: `r total_datapoints`
 
 # Background and Motivation
 
@@ -105,7 +113,10 @@ hospitalizations, and positive and negative test results.
 
 # Methods
 
-We collected openly available data resources for inclusion in the
+## Choice of datasets
+
+We used a combination of informal literature searches, attributed sources from media reports, popular online portals, and crowd-sourced data collections to find candidates for inclusion as a data resource in sars2pack. Additionally, we required each candidate dataset be available online machine readable format, be open access, and have an adequate description of methods of collection (evaluated subjectively by the authors). Datasets were prio collected openly available data resources for inclusion in the XXXXXXXX
+
 package, focusing on regularly updated datasets that tracked the
 spread of disease, the impact of disease on the healthcare system and
 communities, or that quantified or cataloged non-pharmaceutical
@@ -115,8 +126,7 @@ json, or Excel. The set of collected datasets is available in Table \@ref(tab:av
 
 ## Robustness
 
-Standard unit testing ensures that existing functionality remains in
-the midst of ongoing changes and the addition of new features. All
+We utilize the R package `testthat` @testthat-hw for formal testing of R functions. The same testing framwork   All
 datasets are checked each day using automated integration
 testing. Details such as the number, type, and names of columns are
 checked against exported norms with developers and interested users
@@ -149,20 +159,12 @@ library(dplyr)
 colnames(ad) = stringr::str_to_title(colnames(ad))
 ad %>%
     dplyr::mutate(Data_type=stringr::str_to_sentence(Data_type)) %>%
-    dplyr::select(-Accessor, -Geographical, -Geospatial, -Region, -Resolution) %>%
+    dplyr::select(-Name, -Geographical, -Geospatial, -Region, -Resolution) %>%
     xtable(label='tab:availData') %>%
-    print(comment = FALSE)
-
-    ## knitr::kable("latex",
-    ##              caption = "Datasets available.",
-    ##              booktabs=TRUE) %>%
-    ## kableExtra::column_spec(1, width = "18em") %>% 
-    ## kableExtra::column_spec(2, width = "8em") 
-
+    print.xtable(comment = FALSE, include.rownames = FALSE)
 ```
 
 # References {#references .unnumbered}
-
 
 # EXTRA
 
