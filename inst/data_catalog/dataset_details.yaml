@@ -1,3 +1,19 @@
+google_mobility_data:
+  columns:
+    iso2c: character
+    country_region: character
+    admin1: character
+    admin2: character
+    date: Date
+    admin_level: numeric
+    places_category: character
+    percent_change_from_baseline: numeric
+  dimensions:
+    nrow: 1384968
+    ncol: 8
+  dates:
+    min: '2020-02-15'
+    max: '2020-04-17'
 ecdc_data:
   columns:
     date: Date
@@ -9,11 +25,11 @@ ecdc_data:
     subset: character
     count: numeric
   dimensions:
-    nrow: 25602
+    nrow: 26836
     ncol: 8
   dates:
     min: '2019-12-31'
-    max: '2020-04-24'
+    max: '2020-04-27'
 beoutbreakprepared_data:
   columns:
     ID: character
@@ -50,7 +66,7 @@ beoutbreakprepared_data:
     data_moderator_initials: character
     travel_history_binary: logical
   dimensions:
-    nrow: 441082
+    nrow: 442315
     ncol: 33
 eu_data_cache_data:
   columns:
@@ -89,11 +105,11 @@ descartes_mobility_data:
     m50: numeric
     m50_index: numeric
   dimensions:
-    nrow: 135997
+    nrow: 144141
     ncol: 9
   dates:
     min: '2020-03-01'
-    max: '2020-04-21'
+    max: '2020-04-24'
 apple_mobility_data:
   columns:
     geo_type: character
@@ -102,11 +118,11 @@ apple_mobility_data:
     date: Date
     mobility_index: numeric
   dimensions:
-    nrow: 39895
+    nrow: 41080
     ncol: 5
   dates:
     min: '2020-01-13'
-    max: '2020-04-22'
+    max: '2020-04-25'
 usa_facts_data:
   columns:
     fips: character
@@ -116,11 +132,11 @@ usa_facts_data:
     date: Date
     count: numeric
   dimensions:
-    nrow: 594270
+    nrow: 613440
     ncol: 6
   dates:
     min: '2020-01-22'
-    max: '2020-04-23'
+    max: '2020-04-26'
 jhu_data:
   columns:
     ProvinceState: character
@@ -131,11 +147,11 @@ jhu_data:
     count: numeric
     subset: character
   dimensions:
-    nrow: 72354
+    nrow: 74688
     ncol: 7
   dates:
     min: '2020-01-22'
-    max: '2020-04-23'
+    max: '2020-04-26'
 jhu_us_data:
   columns:
     UID: numeric
@@ -154,11 +170,11 @@ jhu_us_data:
     count: numeric
     subset: character
   dimensions:
-    nrow: 606732
+    nrow: 626304
     ncol: 15
   dates:
     min: '2020-01-22'
-    max: '2020-04-23'
+    max: '2020-04-26'
 nytimes_county_data:
   columns:
     date: Date
@@ -168,11 +184,11 @@ nytimes_county_data:
     count: numeric
     subset: character
   dimensions:
-    nrow: 168286
+    nrow: 185184
     ncol: 6
   dates:
     min: '2020-01-21'
-    max: '2020-04-23'
+    max: '2020-04-26'
 nytimes_state_data:
   columns:
     date: Date
@@ -181,11 +197,11 @@ nytimes_state_data:
     count: numeric
     subset: character
   dimensions:
-    nrow: 5778
+    nrow: 6078
     ncol: 5
   dates:
     min: '2020-01-21'
-    max: '2020-04-23'
+    max: '2020-04-26'
 kff_icu_beds:
   columns:
     fips: character
@@ -232,11 +248,11 @@ covidtracker_data:
     - POSIXt
     fips: character
   dimensions:
-    nrow: 2769
+    nrow: 2937
     ncol: 9
   dates:
     min: '2020-01-22'
-    max: '2020-04-23'
+    max: '2020-04-26'
 us_healthcare_capacity:
   columns:
     Name: character
@@ -334,14 +350,15 @@ us_state_distancing_policy:
     DateIssued: numeric
     DateEnacted: numeric
     DateExpiry: numeric
-    DateEnded: logical
+    DateEased: numeric
+    DateEnded: numeric
     PolicyCodingNotes: character
     PolicySource: character
     StateWide: numeric
     LastUpdated: numeric
     LastUpdatedNotes: character
   dimensions:
-    nrow: 531
-    ncol: 15
-eval_date: '2020-04-24'
+    nrow: 1133
+    ncol: 16
+eval_date: '2020-04-27'
 
