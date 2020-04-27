@@ -82,7 +82,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sars2pack</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.44</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.46</span>
       </span>
     </div>
 
@@ -106,6 +106,9 @@
   <ul class="dropdown-menu" role="menu">
     <li>
       <a href="../articles/datasets.html">Available datasets</a>
+    </li>
+    <li>
+      <a href="../articles/doMCMC.html">Building MCMC-based models of SI for SARS-Cov-2</a>
     </li>
     <li>
       <a href="../articles/index.html">Introduction to sars2pack</a>
@@ -174,6 +177,7 @@
 <code><a href='descartes_mobility_data.html'>descartes_mobility_data</a>()</code>,
 <code><a href='ecdc_data.html'>ecdc_data</a>()</code>,
 <code><a href='eu_data_cache_data.html'>eu_data_cache_data</a>()</code>,
+<code><a href='google_mobility_data.html'>google_mobility_data</a>()</code>,
 <code><a href='healthdata_projections_data.html'>healthdata_projections_data</a>()</code>,
 <code><a href='jhu_data.html'>jhu_data</a>()</code>,
 <code><a href='jhu_us_data.html'>jhu_us_data</a>()</code>,
@@ -200,7 +204,42 @@
 #&gt; </span><span style='color: #555555;'>5</span><span> 01009 Blount AL    Alab…                1               1       6     </span><span style='text-decoration: underline;'>57</span><span>667
 #&gt; </span><span style='color: #555555;'>6</span><span> 01011 Bullo… AL    Alab…                1               1       0     </span><span style='text-decoration: underline;'>10</span><span>478
 #&gt; </span><span style='color: #555555;'># … with 3 more variables: `60plus` </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, `60plus_pct` </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   `60plus_per_each_icu_bed` </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span></div><div class='input'>
+#&gt; </span><span style='color: #555555;'>#   `60plus_per_each_icu_bed` </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span></div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Rows: 3,142
+#&gt; Columns: 11
+#&gt; $ fips                      </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "01001", "01003", "01005", "01007", "01009"…
+#&gt; $ county                    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Autauga", "Baldwin", "Barbour", "Bibb", "B…
+#&gt; $ st                        </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "AL", "AL", "AL", "AL", "AL", "AL", "AL", "…
+#&gt; $ state                     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Alabama", "Alabama", "Alabama", "Alabama",…
+#&gt; $ hospitals_in_cost_reports </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 1, 3, 1, 1, 1, 1, 1, 2, 0, 1, 1, 1, 2, 1, 0…
+#&gt; $ Hospitals_in_HC           </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 1, 3, 1, 1, 1, 1, 1, 2, 0, 1, 1, 1, 2, 1, 0…
+#&gt; $ all_icu                   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 6, 51, 5, 0, 6, 0, 7, 24, 0, 0, 6, 0, 0, 4,…
+#&gt; $ Total_pop                 </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 55036, 203360, 26201, 22580, 57667, 10478, …
+#&gt; $ `60plus`                  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 10523, 53519, 6150, 4773, 13600, 2371, 5151…
+#&gt; $ `60plus_pct`              </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0.191, 0.263, 0.235, 0.211, 0.236, 0.226, 0…
+#&gt; $ `60plus_per_each_icu_bed` </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 1754, 1049, 1230, NA, 2267, NA, 736, 1130, …</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt;      fips              county               st               state          
+#&gt;  Length:3142        Length:3142        Length:3142        Length:3142       
+#&gt;  Class :character   Class :character   Class :character   Class :character  
+#&gt;  Mode  :character   Mode  :character   Mode  :character   Mode  :character  
+#&gt;                                                                             
+#&gt;                                                                             
+#&gt;                                                                             
+#&gt;                                                                             
+#&gt;  hospitals_in_cost_reports Hospitals_in_HC     all_icu       
+#&gt;  Min.   : 0.000            Min.   : 0.000   Min.   :   0.00  
+#&gt;  1st Qu.: 1.000            1st Qu.: 1.000   1st Qu.:   0.00  
+#&gt;  Median : 1.000            Median : 1.000   Median :   0.00  
+#&gt;  Mean   : 1.439            Mean   : 1.457   Mean   :  23.64  
+#&gt;  3rd Qu.: 2.000            3rd Qu.: 2.000   3rd Qu.:  12.00  
+#&gt;  Max.   :74.000            Max.   :76.000   Max.   :2126.00  
+#&gt;                                                              
+#&gt;    Total_pop            60plus          60plus_pct     60plus_per_each_icu_bed
+#&gt;  Min.   :      74   Min.   :     27   Min.   :0.0580   Min.   :  40           
+#&gt;  1st Qu.:   10945   1st Qu.:   2813   1st Qu.:0.2120   1st Qu.: 715           
+#&gt;  Median :   25692   Median :   6307   Median :0.2440   Median :1089           
+#&gt;  Mean   :  102166   Mean   :  21310   Mean   :0.2473   Mean   :1300           
+#&gt;  3rd Qu.:   67445   3rd Qu.:  16084   3rd Qu.:0.2780   3rd Qu.:1639           
+#&gt;  Max.   :10105722   Max.   :1800341   Max.   :0.6420   Max.   :8469           
+#&gt;                                                        NA's   :1665           </div><div class='input'>
 </div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

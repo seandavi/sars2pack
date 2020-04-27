@@ -83,7 +83,7 @@ data included." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sars2pack</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.44</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.46</span>
       </span>
     </div>
 
@@ -107,6 +107,9 @@ data included." />
   <ul class="dropdown-menu" role="menu">
     <li>
       <a href="../articles/datasets.html">Available datasets</a>
+    </li>
+    <li>
+      <a href="../articles/doMCMC.html">Building MCMC-based models of SI for SARS-Cov-2</a>
     </li>
     <li>
       <a href="../articles/index.html">Introduction to sars2pack</a>
@@ -176,11 +179,26 @@ data included.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>From the USAFacts website:</p>
-<p>Methodology: This interactive feature aggregates data from the Centers for Disease Control and Prevention (CDC), state- and local-level public health agencies. County-level data is confirmed by referencing state and local agencies directly.</p>
-<p>The data for all states was last updated on March 27, 2020, at 7:00 AM Pacific/10:00 AM Eastern Time. We've noted below when we last checked data from the states.</p>
-<p>The 21 cases confirmed on the Grand Princess cruise ship on March 5 and 6 are attributed to the state of California, but not to any counties. The national numbers also include the 45 people with coronavirus repatriated from the Diamond Princess.</p>
-<p>USAFacts attempts to match each case with a county, but some cases counted at the state level are not allocated to counties due to lack of information.</p>
-<p>Because of the frequency with which we are currently updating this data, they may not reflect the exact numbers reported state and local government organizations or the news media. Numbers may also fluctuate as agencies update their own data. At present, we are working on ensuring that we can provide this data with the most up-to-date information possible.</p>
+<p>Methodology: This interactive feature aggregates data from the
+Centers for Disease Control and Prevention (CDC), state- and
+local-level public health agencies. County-level data is confirmed
+by referencing state and local agencies directly.</p>
+<p>The data for all states was last updated on March 27, 2020, at 7:00
+AM Pacific/10:00 AM Eastern Time. We've noted below when we last
+checked data from the states.</p>
+<p>The 21 cases confirmed on the Grand Princess cruise ship on March 5
+and 6 are attributed to the state of California, but not to any
+counties. The national numbers also include the 45 people with
+coronavirus repatriated from the Diamond Princess.</p>
+<p>USAFacts attempts to match each case with a county, but some cases
+counted at the state level are not allocated to counties due to
+lack of information.</p>
+<p>Because of the frequency with which we are currently updating this
+data, they may not reflect the exact numbers reported state and
+local government organizations or the news media. Numbers may also
+fluctuate as agencies update their own data. At present, we are
+working on ensuring that we can provide this data with the most
+up-to-date information possible.</p>
     <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
 
     <p>Uses https://usafacts.org/visualizations/coronavirus-covid-19-spread-map/ as data
@@ -200,14 +218,14 @@ hashtag #MadewithUSAFacts. We'll reshare the posts with the
 data-loving community.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p>jhu_data()</p>
-<p>Other data-import: 
+    <div class='dont-index'><p>Other data-import: 
 <code><a href='apple_mobility_data.html'>apple_mobility_data</a>()</code>,
 <code><a href='beoutbreakprepared_data.html'>beoutbreakprepared_data</a>()</code>,
 <code><a href='covidtracker_data.html'>covidtracker_data</a>()</code>,
 <code><a href='descartes_mobility_data.html'>descartes_mobility_data</a>()</code>,
 <code><a href='ecdc_data.html'>ecdc_data</a>()</code>,
 <code><a href='eu_data_cache_data.html'>eu_data_cache_data</a>()</code>,
+<code><a href='google_mobility_data.html'>google_mobility_data</a>()</code>,
 <code><a href='healthdata_projections_data.html'>healthdata_projections_data</a>()</code>,
 <code><a href='jhu_data.html'>jhu_data</a>()</code>,
 <code><a href='jhu_us_data.html'>jhu_us_data</a>()</code>,
@@ -227,8 +245,30 @@ data-loving community.</p>
 #&gt; </span><span style='color: #555555;'>3</span><span> 00000 Statewide Unallocated AL    confirmed 2020-01-24     0
 #&gt; </span><span style='color: #555555;'>4</span><span> 00000 Statewide Unallocated AL    confirmed 2020-01-25     0
 #&gt; </span><span style='color: #555555;'>5</span><span> 00000 Statewide Unallocated AL    confirmed 2020-01-26     0
-#&gt; </span><span style='color: #555555;'>6</span><span> 00000 Statewide Unallocated AL    confirmed 2020-01-27     0</div><div class='input'><span class='co'># dataset inclusion as of this build</span>
-<span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span>(<span class='no'>res</span>$<span class='no'>date</span>)</div><div class='output co'>#&gt; [1] "2020-04-24"</div><div class='input'>
+#&gt; </span><span style='color: #555555;'>6</span><span> 00000 Statewide Unallocated AL    confirmed 2020-01-27     0</div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Rows: 613,440
+#&gt; Columns: 6
+#&gt; $ fips   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "00000", "00000", "00000", "00000", "00000", "00000", "00000",…
+#&gt; $ county </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Statewide Unallocated", "Statewide Unallocated", "Statewide U…
+#&gt; $ state  </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "AL", "AL", "AL", "AL", "AL", "AL", "AL", "AL", "AL", "AL", "A…
+#&gt; $ subset </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "confirmed", "confirmed", "confirmed", "confirmed", "confirmed…
+#&gt; $ date   </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2020-01-22, 2020-01-23, 2020-01-24, 2020-01-25, 2020-01-26, 2…
+#&gt; $ count  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt;      fips              county             state              subset         
+#&gt;  Length:613440      Length:613440      Length:613440      Length:613440     
+#&gt;  Class :character   Class :character   Class :character   Class :character  
+#&gt;  Mode  :character   Mode  :character   Mode  :character   Mode  :character  
+#&gt;                                                                             
+#&gt;                                                                             
+#&gt;                                                                             
+#&gt;       date                count         
+#&gt;  Min.   :2020-01-22   Min.   :    0.00  
+#&gt;  1st Qu.:2020-02-14   1st Qu.:    0.00  
+#&gt;  Median :2020-03-09   Median :    0.00  
+#&gt;  Mean   :2020-03-09   Mean   :   27.89  
+#&gt;  3rd Qu.:2020-04-02   3rd Qu.:    0.00  
+#&gt;  Max.   :2020-04-26   Max.   :48745.00  </div><div class='input'>
+<span class='co'># dataset inclusion as of this build</span>
+<span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span>(<span class='no'>res</span>$<span class='no'>date</span>)</div><div class='output co'>#&gt; [1] "2020-04-26"</div><div class='input'>
+
 </div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

@@ -85,7 +85,7 @@ are those used here https://covid19.healthdata.org/projections." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sars2pack</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.44</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.46</span>
       </span>
     </div>
 
@@ -109,6 +109,9 @@ are those used here https://covid19.healthdata.org/projections." />
   <ul class="dropdown-menu" role="menu">
     <li>
       <a href="../articles/datasets.html">Available datasets</a>
+    </li>
+    <li>
+      <a href="../articles/doMCMC.html">Building MCMC-based models of SI for SARS-Cov-2</a>
     </li>
     <li>
       <a href="../articles/index.html">Introduction to sars2pack</a>
@@ -203,6 +206,7 @@ confidence interval, lower confidence interval</p></li>
 <code><a href='descartes_mobility_data.html'>descartes_mobility_data</a>()</code>,
 <code><a href='ecdc_data.html'>ecdc_data</a>()</code>,
 <code><a href='eu_data_cache_data.html'>eu_data_cache_data</a>()</code>,
+<code><a href='google_mobility_data.html'>google_mobility_data</a>()</code>,
 <code><a href='jhu_data.html'>jhu_data</a>()</code>,
 <code><a href='jhu_us_data.html'>jhu_us_data</a>()</code>,
 <code><a href='kff_icu_beds.html'>kff_icu_beds</a>()</code>,
@@ -223,7 +227,27 @@ confidence interval, lower confidence interval</p></li>
 #&gt; </span><span style='color: #555555;'>3</span><span> Schleswig-Holstein                       2020-07-21 newICU   0      0      0  
 #&gt; </span><span style='color: #555555;'>4</span><span> Indiana                                  2020-02-05 newICU   0      0      0  
 #&gt; </span><span style='color: #555555;'>5</span><span> Provincia autonoma di Bolzano            2020-06-17 totdea 275.   255.   317. 
-#&gt; </span><span style='color: #555555;'>6</span><span> Rhineland-Palatinate                     2020-06-22 icuov…   0      0      0  </div><div class='input'>
+#&gt; </span><span style='color: #555555;'>6</span><span> Rhineland-Palatinate                     2020-06-22 icuov…   0      0      0  </div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Rows: 303,795
+#&gt; Columns: 6
+#&gt; $ location_name </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Abruzzo", "Abruzzo", "Abruzzo", "Abruzzo", "Abruzzo", …
+#&gt; $ date          </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2020-01-03, 2020-01-03, 2020-01-03, 2020-01-03, 2020-0…
+#&gt; $ metric        </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "allbed", "ICUbed", "InvVen", "deaths", "admis", "newIC…
+#&gt; $ mean          </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
+#&gt; $ lower         </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
+#&gt; $ upper         </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt;  location_name           date               metric               mean        
+#&gt;  Length:303795      Min.   :2020-01-03   Length:303795      Min.   :    0.0  
+#&gt;  Class :character   1st Qu.:2020-02-25   Class :character   1st Qu.:    0.0  
+#&gt;  Mode  :character   Median :2020-04-19   Mode  :character   Median :    0.0  
+#&gt;                     Mean   :2020-04-19                      Mean   :  199.9  
+#&gt;                     3rd Qu.:2020-06-12                      3rd Qu.:    2.2  
+#&gt;                     Max.   :2020-08-04                      Max.   :67641.1  
+#&gt;      lower             upper          
+#&gt;  Min.   :    0.0   Min.   :     0.00  
+#&gt;  1st Qu.:    0.0   1st Qu.:     0.00  
+#&gt;  Median :    0.0   Median :     0.00  
+#&gt;  Mean   :  154.6   Mean   :   341.70  
+#&gt;  3rd Qu.:    0.0   3rd Qu.:     5.75  
+#&gt;  Max.   :59053.1   Max.   :139102.60  </div><div class='input'>
 <span class='co'>#plot the predictions</span>
 
 <span class='no'>regs_of_interest</span> <span class='kw'>=</span> <span class='st'>'Georgia'</span>

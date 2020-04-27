@@ -82,7 +82,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sars2pack</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.44</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.46</span>
       </span>
     </div>
 
@@ -106,6 +106,9 @@
   <ul class="dropdown-menu" role="menu">
     <li>
       <a href="../articles/datasets.html">Available datasets</a>
+    </li>
+    <li>
+      <a href="../articles/doMCMC.html">Building MCMC-based models of SI for SARS-Cov-2</a>
     </li>
     <li>
       <a href="../articles/index.html">Introduction to sars2pack</a>
@@ -154,7 +157,15 @@
     <p>demonstrative app for EpiEstim R<a href='https://rdrr.io/r/base/t.html'>t</a> sensitivity analysis</p>
     </div>
 
-    <pre class="usage"><span class='fu'>eesi</span>(<span class='no'>src</span>)</pre>
+    <pre class="usage"><span class='fu'>eesi</span>(
+  <span class='no'>src</span>,
+  <span class='kw'>mean_si_trunc_radius</span> <span class='kw'>=</span> <span class='fl'>3</span>,
+  <span class='kw'>std_si_trunc_radius</span> <span class='kw'>=</span> <span class='fl'>3</span>,
+  <span class='kw'>std_mean_si</span> <span class='kw'>=</span> <span class='fl'>3</span>,
+  <span class='kw'>std_std_si</span> <span class='kw'>=</span> <span class='fl'>5</span>,
+  <span class='kw'>n1</span> <span class='kw'>=</span> <span class='fl'>100</span>,
+  <span class='kw'>n2</span> <span class='kw'>=</span> <span class='fl'>100</span>
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -163,18 +174,43 @@
       <th>src</th>
       <td><p>intended to be the result of sars2pack::nytimes_state_data(), no checking is done.</p></td>
     </tr>
+    <tr>
+      <th>mean_si_trunc_radius</th>
+      <td><p>numeric(1)</p></td>
+    </tr>
+    <tr>
+      <th>std_si_trunc_radius</th>
+      <td><p>numeric(1)</p></td>
+    </tr>
+    <tr>
+      <th>std_mean_si</th>
+      <td><p>numeric(1) used with 'uncertain' serial interval option, see EpiEstim::make_config</p></td>
+    </tr>
+    <tr>
+      <th>std_std_si</th>
+      <td><p>numeric(1) used with 'uncertain' serial interval option, see EpiEstim::make_config</p></td>
+    </tr>
+    <tr>
+      <th>n1</th>
+      <td><p>numeric(1) used with 'uncertain' serial interval option, see EpiEstim::make_config</p></td>
+    </tr>
+    <tr>
+      <th>n2</th>
+      <td><p>numeric(1) used with 'uncertain' serial interval option, see EpiEstim::make_config</p></td>
+    </tr>
     </table>
 
     <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
 
-    <p>This app is currently incomplete.  Additions needed include 1) accommodation of
-standard deviation of parametric serial interval distribution, 2) additional
+    <p>This app is currently incomplete.  Additions needed include
+2) additional
 approaches to serial interval modeling, 3) enhancement of displays to present actual
 calendar dates, 4) an approach to supporting comparative displays, particularly allowing
 overlay of different R<a href='https://rdrr.io/r/base/t.html'>t</a> fits for different serial interval modeling assumptions.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
+    <pre class="examples"><div class='input'><span class='co'># must run example(eesi, ask=FALSE)</span>
+<span class='kw'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
  <span class='no'>nytdat</span> <span class='kw'>=</span> <span class='fu'><a href='nytimes_county_data.html'>nytimes_state_data</a></span>()
  <span class='fu'>eesi</span>(<span class='no'>nytdat</span>)
 }</div></pre>

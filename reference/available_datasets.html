@@ -82,7 +82,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sars2pack</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.44</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.46</span>
       </span>
     </div>
 
@@ -106,6 +106,9 @@
   <ul class="dropdown-menu" role="menu">
     <li>
       <a href="../articles/datasets.html">Available datasets</a>
+    </li>
+    <li>
+      <a href="../articles/doMCMC.html">Building MCMC-based models of SI for SARS-Cov-2</a>
     </li>
     <li>
       <a href="../articles/index.html">Introduction to sars2pack</a>
@@ -203,8 +206,8 @@ in the list. See examples for details and for viewing suggestions.</p>
 #&gt; </span><span style='color: #555555;'>17</span><span> Health… healthda… time seri… Unite… state      TRUE         FALSE      http:…
 #&gt; </span><span style='color: #555555;'>18</span><span> Health… healthda… time seri… Inter… country    TRUE         FALSE      http:…
 #&gt; </span><span style='color: #555555;'>19</span><span> United… us_state… public po… Unite… state      TRUE         FALSE      https…</div><div class='input'><span class='co'># and how to use the accessor programmatically</span>
-<span class='fu'><a href='https://rdrr.io/r/base/get.html'>get</a></span>(<span class='no'>res</span>[<span class='fl'>1</span>,]$<span class='no'>accessor</span>)()</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 26,012 x 8</span><span>
-#&gt; </span><span style='color: #555555;'># Groups:   location_name [206]</span><span>
+<span class='fu'><a href='https://rdrr.io/r/base/get.html'>get</a></span>(<span class='no'>res</span>[<span class='fl'>1</span>,]$<span class='no'>accessor</span>)()</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 26,836 x 8</span><span>
+#&gt; </span><span style='color: #555555;'># Groups:   location_name [207]</span><span>
 #&gt;    date       location_name iso2c iso3c population_2018 continent subset   count
 #&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>         </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>           </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
 #&gt; </span><span style='color: #555555;'> 1</span><span> 2019-12-31 Afghanistan   AF    AFG          37</span><span style='text-decoration: underline;'>172</span><span>386 Asia      deaths       0
@@ -217,7 +220,7 @@ in the list. See examples for details and for viewing suggestions.</p>
 #&gt; </span><span style='color: #555555;'> 8</span><span> 2020-01-03 Afghanistan   AF    AFG          37</span><span style='text-decoration: underline;'>172</span><span>386 Asia      confirm…     0
 #&gt; </span><span style='color: #555555;'> 9</span><span> 2020-01-04 Afghanistan   AF    AFG          37</span><span style='text-decoration: underline;'>172</span><span>386 Asia      deaths       0
 #&gt; </span><span style='color: #555555;'>10</span><span> 2020-01-04 Afghanistan   AF    AFG          37</span><span style='text-decoration: underline;'>172</span><span>386 Asia      confirm…     0
-#&gt; </span><span style='color: #555555;'># … with 26,002 more rows</span><span></div><div class='input'>
+#&gt; </span><span style='color: #555555;'># … with 26,826 more rows</span><span></div><div class='input'>
 
 <span class='no'>dd</span> <span class='kw'>=</span> <span class='fu'>dataset_details</span>()
 <span class='fu'><a href='https://rdrr.io/r/utils/str.html'>str</a></span>(<span class='no'>dd</span>,<span class='kw'>list.len</span><span class='kw'>=</span><span class='fl'>3</span>)</div><div class='output co'>#&gt; List of 18
