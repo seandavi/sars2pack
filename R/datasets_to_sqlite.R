@@ -33,7 +33,7 @@
 #'   sql = DBI::dbConnect(RSQLite::SQLite(), ':memory:')
 #'   datasets_to_sql(sql, dataset_accessors = "apple_mobility_data")
 #'   DBI::dbListTables(sql)
-#'   DBI::dbDicsonnect(sql)
+#'   DBI::dbDiscgonnect(sql)
 #' } else {
 #'   print("install.packages('RSQLite') to run this example")
 #' }
