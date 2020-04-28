@@ -7,9 +7,9 @@
 #'
 #' @details
 #'
-#'  It’s RSQLite::SQLite() for RSQLite, RMariaDB::MariaDB() for
-#'  RMariaDB, RPostgres::Postgres() for RPostgres, odbc::odbc() for
-#'  odbc, and bigrquery::bigquery() for BigQuery.
+#'  Create connections using [RSQLite::SQLite()] for RSQLite, [RMariaDB::MariaDB()] for
+#'  RMariaDB, [RPostgres::Postgres()] for RPostgres, [odbc::odbc()] for
+#'  odbc, and [bigrquery::bigquery()] for BigQuery.
 #'
 #' @param con a remote data source. See [dplyr::copy_to()]
 #' @param dataset_accessors character() vector of accessors for datasets.
@@ -18,7 +18,7 @@
 #' @param overwrite If TRUE, will overwrite an existing table with name
 #'        name. If FALSE, will throw an error if name already
 #'        exists.
-#' @param \\dots passed on to [dplyr::copy_to()]
+#' @param \dots passed on to [dplyr::copy_to()]
 #'
 #' @importFrom dplyr copy_to
 #'

@@ -22,7 +22,7 @@ that all data.frame-like datasets will be written to the SQL destination.}
 name. If FALSE, will throw an error if name already
 exists.}
 
-\item{\\dots}{passed on to \code{\link[dplyr:copy_to]{dplyr::copy_to()}}}
+\item{\dots}{passed on to \code{\link[dplyr:copy_to]{dplyr::copy_to()}}}
 }
 \description{
 SQL databases are the cornerstone of many data science efforts.
@@ -31,9 +31,9 @@ datasets in \code{available_datasets()} to any relational database
 supported by dbplyr.
 }
 \details{
-It’s RSQLite::SQLite() for RSQLite, RMariaDB::MariaDB() for
-RMariaDB, RPostgres::Postgres() for RPostgres, odbc::odbc() for
-odbc, and bigrquery::bigquery() for BigQuery.
+Create connections using \code{\link[RSQLite:SQLite]{RSQLite::SQLite()}} for RSQLite, \code{\link[RMariaDB:MariaDB]{RMariaDB::MariaDB()}} for
+RMariaDB, \code{\link[RPostgres:Postgres]{RPostgres::Postgres()}} for RPostgres, \code{\link[odbc:odbc]{odbc::odbc()}} for
+odbc, and \code{\link[bigrquery:bigquery]{bigrquery::bigquery()}} for BigQuery.
 }
 \examples{
 if(require(RSQLite)) {
