@@ -30,6 +30,7 @@
 #' head(res)
 #'
 #' @family data-import
+#' @family case-tracking
 #' 
 #' @export
 beoutbreakprepared_data = function(quietly=TRUE) {

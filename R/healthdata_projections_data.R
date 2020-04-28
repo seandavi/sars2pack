@@ -60,6 +60,8 @@
 #' pl
 #' 
 #' @family data-import
+#' @family healthcare-system
+#' @family projections
 #' 
 #' @export
 healthdata_projections_data <- function() {

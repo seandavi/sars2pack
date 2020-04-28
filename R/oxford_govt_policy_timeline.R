@@ -14,6 +14,10 @@
 #' 
 #' @source 
 #' - \url{https://www.bsg.ox.ac.uk/research/research-projects/oxford-covid-19-government-response-tracker}
+#'
+#' @family data-import
+#' @family non-pharmaceutical-interventions
+#' 
 #' 
 #' @examples
 #' library(dplyr)

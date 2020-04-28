@@ -72,6 +72,7 @@ Other data-import:
 \code{\link{ecdc_data}()},
 \code{\link{eu_data_cache_data}()},
 \code{\link{google_mobility_data}()},
+\code{\link{government_policy_timeline}()},
 \code{\link{healthdata_projections_data}()},
 \code{\link{jhu_data}()},
 \code{\link{kff_icu_beds}()},

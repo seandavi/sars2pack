@@ -21,6 +21,7 @@
 #' dplyr::glimpse(res)
 #'
 #' @family data-import
+#' @family healthcare-system
 #' 
 #' @export
 us_healthcare_capacity <- function() {

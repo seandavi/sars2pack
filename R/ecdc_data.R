@@ -69,6 +69,7 @@
 #' dplyr::glimpse(ecdc)
 #'
 #' @family data-import
+#' @family case-tracking
 #' 
 #' @export
 ecdc_data <- function() {

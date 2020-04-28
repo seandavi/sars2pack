@@ -7,6 +7,7 @@
 #' @importFrom readxl read_xlsx
 #'
 #' @family data-import
+#' @family healthcare-systems
 #'
 #' @examples
 #' res = kff_icu_beds()
