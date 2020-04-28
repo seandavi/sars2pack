@@ -17,6 +17,7 @@
 #' - \url{https://github.com/covid19-eu-zh/covid19-eu-data}
 #'
 #' @family data-import
+#' @family case-tracking
 #'
 #' @examples
 #' eudata = eu_data_cache_data()

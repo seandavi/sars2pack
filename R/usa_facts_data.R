@@ -77,6 +77,7 @@
 #' 
 #'
 #' @family data-import
+#' @family case-tracking
 #'  
 #' @export
 usa_facts_data = function() {
