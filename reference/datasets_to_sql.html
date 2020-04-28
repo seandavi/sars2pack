@@ -190,16 +190,16 @@ name. If FALSE, will throw an error if name already
 exists.</p></td>
     </tr>
     <tr>
-      <th>\dots</th>
+      <th>...</th>
       <td><p>passed on to <code><a href='https://dplyr.tidyverse.org/reference/copy_to.html'>dplyr::copy_to()</a></code></p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>It’s RSQLite::SQLite() for RSQLite, RMariaDB::MariaDB() for
-RMariaDB, RPostgres::Postgres() for RPostgres, odbc::odbc() for
-odbc, and bigrquery::bigquery() for BigQuery.</p>
+    <p>Create connections using <code><a href='https://rsqlite.r-dbi.org/reference/SQLite.html'>RSQLite::SQLite()</a></code> for RSQLite, <code>RMariaDB::MariaDB()</code> for
+RMariaDB, <code>RPostgres::Postgres()</code> for RPostgres, <code>odbc::odbc()</code> for
+odbc, and <code><a href='https://rdrr.io/pkg/bigrquery/man/bigquery.html'>bigrquery::bigquery()</a></code> for BigQuery.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><code><a href='https://dplyr.tidyverse.org/reference/copy_to.html'>dplyr::copy_to()</a></code></p></div>
@@ -209,10 +209,10 @@ odbc, and bigrquery::bigquery() for BigQuery.</p>
   <span class='no'>sql</span> <span class='kw'>=</span> <span class='kw pkg'>DBI</span><span class='kw ns'>::</span><span class='fu'><a href='https://dbi.r-dbi.org/reference/dbConnect.html'>dbConnect</a></span>(<span class='kw pkg'>RSQLite</span><span class='kw ns'>::</span><span class='fu'><a href='https://rsqlite.r-dbi.org/reference/SQLite.html'>SQLite</a></span>(), <span class='st'>':memory:'</span>)
   <span class='fu'>datasets_to_sql</span>(<span class='no'>sql</span>, <span class='kw'>dataset_accessors</span> <span class='kw'>=</span> <span class='st'>"apple_mobility_data"</span>)
   <span class='kw pkg'>DBI</span><span class='kw ns'>::</span><span class='fu'><a href='https://dbi.r-dbi.org/reference/dbListTables.html'>dbListTables</a></span>(<span class='no'>sql</span>)
-  <span class='kw pkg'>DBI</span><span class='kw ns'>::</span><span class='fu'>dbDicsonnect</span>(<span class='no'>sql</span>)
+  <span class='kw pkg'>DBI</span><span class='kw ns'>::</span><span class='fu'><a href='https://dbi.r-dbi.org/reference/dbDisconnect.html'>dbDisconnect</a></span>(<span class='no'>sql</span>)
 } <span class='kw'>else</span> {
   <span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='st'>"install.packages('RSQLite') to run this example"</span>)
-}</div><div class='output co'>#&gt; <span class='message'>Loading required package: RSQLite</span></div><div class='output co'>#&gt; <span class='error'>Error: object of type 'closure' is not subsettable</span></div><div class='input'>
+}</div><div class='output co'>#&gt; <span class='message'>Loading required package: RSQLite</span></div><div class='output co'>#&gt; <span class='message'>apple_mobility_data</span></div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
