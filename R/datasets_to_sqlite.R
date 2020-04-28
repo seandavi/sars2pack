@@ -33,7 +33,7 @@
 #'   sql = DBI::dbConnect(RSQLite::SQLite(), ':memory:')
 #'   datasets_to_sql(sql, dataset_accessors = "apple_mobility_data")
 #'   DBI::dbListTables(sql)
-#'   DBI::dbDiscgonnect(sql)
+#'   DBI::dbDisconnect(sql)
 #' } else {
 #'   print("install.packages('RSQLite') to run this example")
 #' }
@@ -42,7 +42,7 @@
 datasets_to_sql <- function(con, dataset_accessors = available_datasets()$accessor,
                             overwrite=TRUE, ...) {
     dataset_accessors = unique(dataset_accessors)
-    if(length(dataset_accessors) > intersect(dataset_accessors, available_datasets$accessor)) {
+    if(length(dataset_accessors) > intersect(dataset_accessors, available_datasets()$accessor)) {
         stop('Dataset accessors must be included in available_datasets()$accessor')
     }
     for(i in dataset_accessors) {
