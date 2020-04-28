@@ -97,6 +97,7 @@ res \%>\%
 Other data-import: 
 \code{\link{apple_mobility_data}()},
 \code{\link{beoutbreakprepared_data}()},
+\code{\link{cdc_aggregated_projections}()},
 \code{\link{covidtracker_data}()},
 \code{\link{descartes_mobility_data}()},
 \code{\link{ecdc_data}()},
