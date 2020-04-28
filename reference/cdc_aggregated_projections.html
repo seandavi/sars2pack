@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>US State-level data including test results — covidtracker_data • sars2pack</title>
+<title>Projected deaths from COVID-19 models — cdc_aggregated_projections • sars2pack</title>
 
 
 <!-- jquery -->
@@ -39,10 +39,10 @@
 
 
 
-<meta property="og:title" content="US State-level data including test results — covidtracker_data" />
-<meta property="og:description" content="Get data from the COVID tracking project
-https://covidtracking.com/ including daily historical data on
-testing results, hospitalizations, and deaths." />
+<meta property="og:title" content="Projected deaths from COVID-19 models — cdc_aggregated_projections" />
+<meta property="og:description" content="The US CDC gathers projections from several groups around
+the world and aggregates them into a single data resource.
+See the reference below for details of the models." />
 
 
 
@@ -150,49 +150,41 @@ testing results, hospitalizations, and deaths." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>US State-level data including test results</h1>
-    <small class="dont-index">Source: <a href='https://github.com/seandavi/sars2pack/blob/master/R/covidtracking_com.R'><code>R/covidtracking_com.R</code></a></small>
-    <div class="hidden name"><code>covidtracker_data.Rd</code></div>
+    <h1>Projected deaths from COVID-19 models</h1>
+    <small class="dont-index">Source: <a href='https://github.com/seandavi/sars2pack/blob/master/R/cdc_aggregated_projections.R'><code>R/cdc_aggregated_projections.R</code></a></small>
+    <div class="hidden name"><code>cdc_aggregated_projections.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Get data from the COVID tracking project
-<a href='https://covidtracking.com/'>https://covidtracking.com/</a> including daily historical data on
-testing results, hospitalizations, and deaths.</p>
+    <p>The US CDC gathers projections from several groups around
+the world and aggregates them into a single data resource.
+See the reference below for details of the models.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>covidtracker_data</span>()</pre>
+    <pre class="usage"><span class='fu'>cdc_aggregated_projections</span>()</pre>
 
 
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
-
-    <p>A tidy <code>tbl_df</code></p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>From the COVID Tracking Project website:</p>
-<p>The COVID Tracking Project collects information from 50 US states,
-the District of Columbia, and 5 other US territories to provide the
-most comprehensive testing data we can collect for the novel
-coronavirus, SARS-CoV-2. We attempt to report positive and negative
-results, pending tests, and total people tested for each state or
-district currently reporting that data.</p>
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+    <p>These models are not updated daily but more like weekly.
+This function will attempt to grab the latest version.</p>
+    <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
-    <div class='dont-index'>
+    
 <ul>
-<li><p><a href='https://covidtracking.com/about-tracker/'>https://covidtracking.com/about-tracker/</a></p></li>
-<li><p><a href='https://covidtracking.com/notes/'>https://covidtracking.com/notes/</a></p></li>
+<li><p><a href='https://www.cdc.gov/coronavirus/2019-ncov/covid-data/forecasting-us.html'>https://www.cdc.gov/coronavirus/2019-ncov/covid-data/forecasting-us.html</a></p></li>
 </ul>
 
-<p>Other data-import: 
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p>Other data-import: 
 <code><a href='apple_mobility_data.html'>apple_mobility_data</a>()</code>,
 <code><a href='beoutbreakprepared_data.html'>beoutbreakprepared_data</a>()</code>,
-<code><a href='cdc_aggregated_projections.html'>cdc_aggregated_projections</a>()</code>,
+<code><a href='covidtracker_data.html'>covidtracker_data</a>()</code>,
 <code><a href='descartes_mobility_data.html'>descartes_mobility_data</a>()</code>,
 <code><a href='ecdc_data.html'>ecdc_data</a>()</code>,
 <code><a href='eu_data_cache_data.html'>eu_data_cache_data</a>()</code>,
 <code><a href='google_mobility_data.html'>google_mobility_data</a>()</code>,
-<code><a href='government_policy_timeline.html'>government_policy_timeline</a>()</code>,
 <code><a href='healthdata_projections_data.html'>healthdata_projections_data</a>()</code>,
 <code><a href='jhu_data.html'>jhu_data</a>()</code>,
 <code><a href='jhu_us_data.html'>jhu_us_data</a>()</code>,
@@ -201,30 +193,44 @@ district currently reporting that data.</p>
 <code><a href='us_county_geo_details.html'>us_county_geo_details</a>()</code>,
 <code><a href='us_healthcare_capacity.html'>us_healthcare_capacity</a>()</code>,
 <code><a href='us_state_distancing_policy.html'>us_state_distancing_policy</a>()</code>,
-<code><a href='usa_facts_data.html'>usa_facts_data</a>()</code></p>
-<p>Other case-tracking: 
-<code><a href='beoutbreakprepared_data.html'>beoutbreakprepared_data</a>()</code>,
-<code><a href='ecdc_data.html'>ecdc_data</a>()</code>,
-<code><a href='eu_data_cache_data.html'>eu_data_cache_data</a>()</code>,
-<code><a href='jhu_data.html'>jhu_data</a>()</code>,
-<code><a href='nytimes_county_data.html'>nytimes_county_data</a>()</code>,
 <code><a href='usa_facts_data.html'>usa_facts_data</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>res</span> <span class='kw'>=</span> <span class='fu'>covidtracker_data</span>()
-<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; [1] "date"         "state"        "positive"     "negative"     "pending"     
-#&gt; [6] "hospitalized" "death"        "dateChecked"  "fips"        </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/dim.html'>dim</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; [1] 2985    9</div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Rows: 2,985
-#&gt; Columns: 9
-#&gt; $ date         <span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2020-04-27, 2020-04-27, 2020-04-27, 2020-04-27, 2020-04…
-#&gt; $ state        </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "AK", "AL", "AR", "AS", "AZ", "CA", "CO", "CT", "DC", "D…
-#&gt; $ positive     </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 345, 6499, 3017, 0, 6716, 43464, 13441, 25269, 3892, 416…
-#&gt; $ negative     </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 15911, 67498, 37440, 3, 59827, 509945, 49833, 54542, 145…
-#&gt; $ pending      </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> NA, NA, NA, 17, NA, NA, NA, NA, NA, NA, 1099, NA, NA, NA…
-#&gt; $ hospitalized </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> NA, 872, NA, NA, 1051, NA, 2438, NA, NA, NA, 5211, 4681,…
-#&gt; $ death        </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 9, 222, 50, 0, 275, 1755, 680, 1998, 185, 125, 1101, 971…
-#&gt; $ dateChecked  </span><span style='color: #555555;font-style: italic;'>&lt;dttm&gt;</span><span> 2020-04-27 20:00:00, 2020-04-27 20:00:00, 2020-04-27 20…
-#&gt; $ fips         </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "00002", "00001", "00005", "00060", "00004", "00006", "0…</div><div class='input'>
-
+    <pre class="examples"><div class='input'><span class='no'>res</span> <span class='kw'>=</span> <span class='fu'>cdc_aggregated_projections</span>()
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 6 x 8</span><span>
+#&gt;   model forecast_date target target_week_end… location_name point quantile_0.025
+#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>        </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>           </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>         </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>          </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
+#&gt; </span><span style='color: #555555;'>1</span><span> Univ… 2020-04-20    1 wk … 2020-04-25       US            </span><span style='text-decoration: underline;'>49</span><span>766             </span><span style='color: #BB0000;'>NA</span><span>
+#&gt; </span><span style='color: #555555;'>2</span><span> CU 4… 2020-04-20    1 wk … 2020-04-25       Alabama         184            157
+#&gt; </span><span style='color: #555555;'>3</span><span> CU 4… 2020-04-20    1 wk … 2020-04-25       Alaska           15             15
+#&gt; </span><span style='color: #555555;'>4</span><span> CU 4… 2020-04-20    1 wk … 2020-04-25       Arizona         265            222
+#&gt; </span><span style='color: #555555;'>5</span><span> CU 4… 2020-04-20    1 wk … 2020-04-25       Arkansas         50             42
+#&gt; </span><span style='color: #555555;'>6</span><span> CU 4… 2020-04-20    1 wk … 2020-04-25       California     </span><span style='text-decoration: underline;'>2</span><span>012           </span><span style='text-decoration: underline;'>1</span><span>792
+#&gt; </span><span style='color: #555555;'># … with 1 more variable: quantile_0.975 </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span></div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Rows: 1,645
+#&gt; Columns: 8
+#&gt; $ model                </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "University of Geneva", "CU 40% contact reductio…
+#&gt; $ forecast_date        </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2020-04-20, 2020-04-20, 2020-04-20, 2020-04-20,…
+#&gt; $ target               </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "1 wk ahead cum death", "1 wk ahead cum death", …
+#&gt; $ target_week_end_date </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2020-04-25, 2020-04-25, 2020-04-25, 2020-04-25,…
+#&gt; $ location_name        </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "US", "Alabama", "Alaska", "Arizona", "Arkansas"…
+#&gt; $ point                </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 49766, 184, 15, 265, 50, 2012, 585, 2153, 232, 1…
+#&gt; $ quantile_0.025       </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> NA, 157, 15, 222, 42, 1792, 525, 1748, 175, 1162…
+#&gt; $ quantile_0.975       </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> NA, 226, 18, 325, 62, 2520, 650, 2483, 306, 1715…</div><div class='input'>
+<span class='co'># available models</span>
+<span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span>(<span class='no'>res</span>$<span class='no'>model</span>)</div><div class='output co'>#&gt; 
+#&gt; CU 20% contact reduction CU 30% contact reduction CU 40% contact reduction 
+#&gt;                      204                      204                      204 
+#&gt;                     IHME                     LANL                     MOBS 
+#&gt;                      208                      212                      180 
+#&gt;     University of Geneva                UT Austin                      YYG 
+#&gt;                        1                      208                      224 </div><div class='input'>
+<span class='co'># projection targets</span>
+<span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span>(<span class='no'>res</span>$<span class='no'>target</span>)</div><div class='output co'>#&gt; 
+#&gt; 1 wk ahead cum death 2 wk ahead cum death 3 wk ahead cum death 
+#&gt;                  412                  411                  411 
+#&gt; 4 wk ahead cum death 
+#&gt;                  411 </div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>min</a></span>(<span class='no'>res</span>$<span class='no'>forecast_date</span>)</div><div class='output co'>#&gt; [1] "2020-04-20"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span>(<span class='no'>res</span>$<span class='no'>target_week_end_date</span>)</div><div class='output co'>#&gt; [1] "2020-05-16"</div><div class='input'>
 </div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
