@@ -84,6 +84,7 @@
 #'
 #'  
 #' @family data-import
+#' @family case-tracking
 #' 
 #' @seealso jhu_data(), usa_facts_data()
 #'

@@ -27,16 +27,20 @@ res = us_state_distancing_policy()
 colnames(res)
 library(dplyr)
 dplyr::glimpse(res)
+summary(res)
 
 }
 \seealso{
 Other data-import: 
 \code{\link{apple_mobility_data}()},
 \code{\link{beoutbreakprepared_data}()},
+\code{\link{cdc_aggregated_projections}()},
 \code{\link{covidtracker_data}()},
 \code{\link{descartes_mobility_data}()},
 \code{\link{ecdc_data}()},
 \code{\link{eu_data_cache_data}()},
+\code{\link{google_mobility_data}()},
+\code{\link{government_policy_timeline}()},
 \code{\link{healthdata_projections_data}()},
 \code{\link{jhu_data}()},
 \code{\link{jhu_us_data}()},
@@ -45,8 +49,12 @@ Other data-import:
 \code{\link{us_county_geo_details}()},
 \code{\link{us_healthcare_capacity}()},
 \code{\link{usa_facts_data}()}
+
+Other non-pharmaceutical-interventions: 
+\code{\link{government_policy_timeline}()}
 }
 \author{
 Sean Davis \href{mailto:seandavi@gmail.com}{seandavi@gmail.com}
 }
 \concept{data-import}
+\concept{non-pharmaceutical-interventions}

@@ -35,6 +35,8 @@
 #' res = healthdata_projections_data()
 #' colnames(res)
 #' res[sample(1:nrow(res),6),]
+#' dplyr::glimpse(res)
+#' summary(res)
 #'
 #' #plot the predictions
 #'
@@ -58,6 +60,8 @@
 #' pl
 #' 
 #' @family data-import
+#' @family healthcare-system
+#' @family projections
 #' 
 #' @export
 healthdata_projections_data <- function() {

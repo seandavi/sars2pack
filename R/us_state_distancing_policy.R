@@ -17,12 +17,14 @@
 #' @author Sean Davis <seandavi@gmail.com>
 #' 
 #' @family data-import
+#' @family non-pharmaceutical-interventions
 #' 
 #' @examples 
 #' res = us_state_distancing_policy()
 #' colnames(res)
 #' library(dplyr)
 #' dplyr::glimpse(res)
+#' summary(res)
 #' 
 #' @export
 us_state_distancing_policy = function() {

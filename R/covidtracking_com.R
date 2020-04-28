@@ -42,7 +42,8 @@
 #' dplyr::glimpse(res)
 #' 
 #'
-#' @family data-import 
+#' @family data-import
+#' @family case-tracking
 #' 
 #' @export
 covidtracker_data <- function() {

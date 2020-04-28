@@ -10,5 +10,8 @@ COPY api.R api.R
 
 ENV PORT=8080
 EXPOSE $PORT
+ARG GIT_COMMIT=unspecified
+
+LABEL git_commit=$GIT_COMMIT
 
 CMD exec Rscript -e 'plumber::plumb("api.R")$run(host="0.0.0.0", swagger=TRUE, port=as.integer(Sys.getenv("PORT")))'

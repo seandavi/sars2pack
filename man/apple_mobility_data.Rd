@@ -46,48 +46,47 @@ Apple requires that all users agree to their terms of use.
 See \url{https://www.apple.com/covid19/mobility}.
 }
 \examples{
-if (interactive()) {
- res = apple_mobility_data()
- colnames(res)
- head(res)
- table(res$transportation_type)
+res = apple_mobility_data()
+colnames(res)
+head(res)
+table(res$transportation_type)
 
- require(ggplot2)
+require(ggplot2)
 
- pl = res \%>\%
+pl = res \%>\%
     dplyr::filter(region \%in\% c('Russia','New York City','Italy')) \%>\%
     ggplot(aes(x=date)) +
         geom_line(aes(y=mobility_index,color=transportation_type)) +
         scale_x_date(date_breaks = '1 week', date_labels='\%b-\%d') +
         facet_grid(rows=vars(region)) +
         ggtitle('Changes in Apple Mobility Index over time')
- pl
+pl
 
- regs_of_interest = c('Seattle', 'New York City',
+regs_of_interest = c('Seattle', 'New York City',
                      'Chicago', 'Italy',
                      'Russia', 'UK',
                      'Brazil')
- res \%>\%
+res \%>\%
     dplyr::filter(region \%in\% regs_of_interest) \%>\%
     ggplot(aes(x=date, y=region, fill=mobility_index)) +
         geom_tile() +
         facet_grid(rows=vars(transportation_type)) +
         ggtitle('Changes in Apple Mobility Index over time')
 
- if(require(viridis)) {
- res \%>\%
+if(require(viridis)) {
+res \%>\%
     dplyr::filter(region \%in\% regs_of_interest) \%>\%
     ggplot(aes(x=date, y=region, fill=mobility_index)) +
         geom_tile() +
         facet_grid(rows=vars(transportation_type)) +
         scale_fill_viridis() +
         ggtitle('Changes in Apple Mobility Index over time')
- }
-
- if(require(plotly)) {
-     ggplotly(pl)
- }
 }
+
+if(require(plotly)) {
+    ggplotly(pl)
+}
+
 }
 \references{
 \itemize{
@@ -97,10 +96,13 @@ if (interactive()) {
 \seealso{
 Other data-import: 
 \code{\link{beoutbreakprepared_data}()},
+\code{\link{cdc_aggregated_projections}()},
 \code{\link{covidtracker_data}()},
 \code{\link{descartes_mobility_data}()},
 \code{\link{ecdc_data}()},
 \code{\link{eu_data_cache_data}()},
+\code{\link{google_mobility_data}()},
+\code{\link{government_policy_timeline}()},
 \code{\link{healthdata_projections_data}()},
 \code{\link{jhu_data}()},
 \code{\link{jhu_us_data}()},
@@ -110,8 +112,13 @@ Other data-import:
 \code{\link{us_healthcare_capacity}()},
 \code{\link{us_state_distancing_policy}()},
 \code{\link{usa_facts_data}()}
+
+Other mobility: 
+\code{\link{descartes_mobility_data}()},
+\code{\link{google_mobility_data}()}
 }
 \author{
 Sean Davis \href{mailto:seandavi@gmail.com}{seandavi@gmail.com}
 }
 \concept{data-import}
+\concept{mobility}

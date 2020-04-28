@@ -31,6 +31,8 @@ are those used here \url{https://covid19.healthdata.org/projections}.
 res = healthdata_projections_data()
 colnames(res)
 res[sample(1:nrow(res),6),]
+dplyr::glimpse(res)
+summary(res)
 
 #plot the predictions
 
@@ -69,10 +71,13 @@ pl
 Other data-import: 
 \code{\link{apple_mobility_data}()},
 \code{\link{beoutbreakprepared_data}()},
+\code{\link{cdc_aggregated_projections}()},
 \code{\link{covidtracker_data}()},
 \code{\link{descartes_mobility_data}()},
 \code{\link{ecdc_data}()},
 \code{\link{eu_data_cache_data}()},
+\code{\link{google_mobility_data}()},
+\code{\link{government_policy_timeline}()},
 \code{\link{jhu_data}()},
 \code{\link{jhu_us_data}()},
 \code{\link{kff_icu_beds}()},
@@ -81,8 +86,13 @@ Other data-import:
 \code{\link{us_healthcare_capacity}()},
 \code{\link{us_state_distancing_policy}()},
 \code{\link{usa_facts_data}()}
+
+Other healthcare-system: 
+\code{\link{us_healthcare_capacity}()}
 }
 \author{
 Sean Davis \href{mailto:seandavi@gmail.com}{seandavi@gmail.com}
 }
 \concept{data-import}
+\concept{healthcare-system}
+\concept{projections}

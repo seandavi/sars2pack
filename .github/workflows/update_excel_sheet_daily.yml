@@ -1,0 +1,79 @@
+# Copyright 2019 Google, LLC.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#    http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+name: Publish artifacts
+
+on:
+  schedule:
+    # uses UTC
+    - cron:  '0 */4 * * *'
+
+# Environment variables available to all jobs and steps in this workflow
+env:
+  PROJECT_ID: ${{ secrets.RUN_PROJECT }}
+  RUN_REGION: us-central1
+
+jobs:
+  setup-build-deploy:
+    name: Setup, Build, and Deploy
+    runs-on: ubuntu-18.04
+    container:
+      image: bioconductor/bioconductor_full:devel
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      # Setup gcloud CLI
+      - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+        with:
+          service_account_email: ${{ secrets.SA_EMAIL }}
+          service_account_key: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS}}
+
+      # Configure gcloud CLI
+      - name: gcloud Set up
+        run: |
+          gcloud config set project $PROJECT_ID
+
+      # cache package dependencies
+      - name: Get package dependency cache
+        uses: actions/cache@v1
+        env:
+          cache-name: r-site-library-bioc-devel-docker
+        with:
+          path: /usr/local/lib/R/site-library
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('DESCRIPTION') }}
+      
+      # Install package dependencies
+      - name: Install package and dependencies
+        run: |
+          Rscript -e "install.packages('pkgbuild')"
+          Rscript -e "devtools::install('.', dependencies=TRUE, repos = BiocManager::repositories())" 
+
+      - name: Build package
+        run: |
+          Rscript -e "devtools::build('.')"
+
+#      - name: Check package
+#        run: |
+#          Rscript -e "devtools::check('.')"
+
+      # Install package for later use
+      - name: Create excel file
+        run: |
+          Rscript inst/scripts/generate_jhu_excel.R
+      - name: Push artifacts to cloud storage
+        run: |
+          gsutil cp covid-19-data.xlsx \
+              gs://gcs.public.cancerdatasci.org/COVID-19/covid-19-data.xlsx
