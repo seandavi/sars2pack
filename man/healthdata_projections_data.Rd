@@ -90,6 +90,9 @@ Other data-import:
 
 Other healthcare-system: 
 \code{\link{us_healthcare_capacity}()}
+
+Other projections: 
+\code{\link{cdc_aggregated_projections}()}
 }
 \author{
 Sean Davis \href{mailto:seandavi@gmail.com}{seandavi@gmail.com}

@@ -14,7 +14,16 @@ output:
     toc: yes
 ---
 
-# Dataset catalog
+# Available datasets
+
+## Searchable dataset catalog
+
+Use the searchable, sortable table below to find datasets of interest
+based on criteria in the table. To then access and get the dataset in 
+R, use the `accessor` column as a function. For example, `google_mobility_data()` 
+will return all currently available Google mobility. For more details
+about a dataset, see the next section or type `?<accessor>`, replacing `<accessor>` 
+by the value in the `accessor` column. 
 
 ```{r message=FALSE}
 library(DT)
@@ -22,12 +31,33 @@ library(sars2pack)
 ```
 
 
+
+
 ```{r message=FALSE, warning=FALSE}
 ad = available_datasets()
-datatable(ad)
+ad$data_type = as.factor(ad$data_type)
+ad$region = as.factor(ad$region)
+ad$resolution = as.factor(ad$resolution)
+ad$url = sprintf('<a href="%s">[LINK]</a>', ad$url)
+datatable(ad, escape = which(colnames(ad)=='url'),
+          filter = list(position = 'top', clear = FALSE))
 ```
 
-# Dataset details
+## Dataset details
+
+We track relatively updated details of each dataset in the package. These 
+numbers will likely be a few days out-of-date (see the `eval-date` entry below)
+and will not refresh after installed.
+For the most recent details, simply collect the metrics after accessing
+the dataset. Information tracked here about datasets includes:
+
+- Column names
+- Column types
+- Dimensions (rows X columns)
+- For datasets that are time series, the first and last date included
+
+Click the triangles in the table below to expand any dataset of interest.
+
 
 ```{r message=FALSE, warning=FALSE}
 dd = dataset_details()
