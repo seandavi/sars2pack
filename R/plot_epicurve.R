@@ -70,7 +70,7 @@
 #' 
 #' @export
 plot_epicurve <- function(df, date_column = 'date', case_column = 'count', 
-                          ..., log=TRUE, shift = FALSE) {
+                          ..., log=TRUE) {
     if(log) {
         df = df[df[[case_column]]>0,]
     }
