@@ -64,6 +64,7 @@ Other data-import:
 \code{\link{usa_facts_data}()}
 
 Other case-tracking: 
+\code{\link{align_to_baseline}()},
 \code{\link{covidtracker_data}()},
 \code{\link{ecdc_data}()},
 \code{\link{eu_data_cache_data}()},

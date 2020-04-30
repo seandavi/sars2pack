@@ -104,6 +104,7 @@ Other data-import:
 \code{\link{us_state_distancing_policy}()}
 
 Other case-tracking: 
+\code{\link{align_to_baseline}()},
 \code{\link{beoutbreakprepared_data}()},
 \code{\link{covidtracker_data}()},
 \code{\link{ecdc_data}()},

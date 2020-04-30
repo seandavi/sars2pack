@@ -83,6 +83,7 @@ if(require(cowplot)) {
 healthdata_projections_data()
 
 Other plotting: 
+\code{\link{align_to_baseline}()},
 \code{\link{plot_epicurve}()}
 }
 \author{

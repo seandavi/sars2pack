@@ -4,14 +4,7 @@
 \alias{plot_epicurve}
 \title{Plot a (set of) epidemic curve(s)}
 \usage{
-plot_epicurve(
-  df,
-  date_column = "date",
-  case_column = "count",
-  ...,
-  log = TRUE,
-  shift = FALSE
-)
+plot_epicurve(df, date_column = "date", case_column = "count", ..., log = TRUE)
 }
 \arguments{
 \item{df}{a data frame with columns that include at
@@ -86,9 +79,11 @@ if(require(tidycensus)) {
 }
 \seealso{
 Other plotting: 
+\code{\link{align_to_baseline}()},
 \code{\link{plot_projection}()}
 
 Other case-tracking: 
+\code{\link{align_to_baseline}()},
 \code{\link{beoutbreakprepared_data}()},
 \code{\link{covidtracker_data}()},
 \code{\link{ecdc_data}()},
