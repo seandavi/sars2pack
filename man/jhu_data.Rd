@@ -81,6 +81,7 @@ Other case-tracking:
 \code{\link{ecdc_data}()},
 \code{\link{eu_data_cache_data}()},
 \code{\link{nytimes_county_data}()},
+\code{\link{plot_epicurve}()},
 \code{\link{usa_facts_data}()}
 }
 \concept{case-tracking}
