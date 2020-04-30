@@ -1,0 +1,185 @@
+---
+title: "Opinionated visualization of COVID-19 datasets"
+author: "Joe A. Wasserman <jwasserman@rti.org> and Crystal T. Nguyen <ctnguyen@rti.org>"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+vignette: >
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteIndexEntry{Viz}
+  %\VignetteEncoding{UTF-8}
+output:
+  BiocStyle::html_document:
+    highlight: pygments
+    number_sections: yes
+    theme: united
+    toc: yes
+---
+
+# Visualizating location-varying data, but not on a map
+
+```{r include=FALSE}
+library(knitr)
+library(Cairo)
+knitr::opts_chunk$set(message=FALSE, warning=FALSE, message=FALSE,
+                      dev.args = list(png = list(type = "cairo")), dpi = 192)
+```
+
+```{r}
+library(dplyr)
+library(tidyr)
+library(purrr)
+library(ggplot2)
+library(tidyquant)
+library(plotly)
+library(geofacet)
+library(sars2pack)
+```
+
+Let's start with US county-level data from JHU and state-level data from the COVID Tracking Project.
+```{r load jhu}
+cusa = jhu_us_data()
+glimpse(cusa)
+```
+
+
+```{r load covid tracking}
+ctp = covidtracker_data()
+glimpse(ctp)
+```
+
+We're focusing just on US states, so we filter our data to just US states. Then we very lightly clean cumulative data that *should* be monotonically increasing day-over-day (but isn't always) and convert to incidents. The data are in different formats, so we'll use different data wrangling approaches to keep them resembling their original format for now. The JHU doesn't contain a value for every location-date-subset combination, so we need to fill in those gaps.
+```{r wrangle jhu}
+iusa <- cusa %>% 
+  filter(iso2 == "US") %>% 
+  arrange(Combined_Key, subset, date) %>% 
+  group_by(Combined_Key, subset) %>% 
+  mutate(incidents =  pmax.int(coalesce(count - dplyr::lag(count, order_by = date), count), 0)) %>% 
+  ungroup() %>% 
+  complete(date, subset, 
+           nesting(UID, iso2, iso3, code3, fips, county, state, country, Lat, Long, Combined_Key, Population),
+           fill = list(incidents = 0)) %>% 
+  filter(date >= "2020-03-01")
+
+glimpse(iusa)
+```
+
+The COVID Tracking Project data doesn't have a record for every location-date combination and can contain NA values, so we also need to deal with all that by filling in the gaps.
+```{r wrangle covid tracking}
+US_states <- c('AL', 'AK', 'AR', 'AZ', 'CA', 'CO', 'CT', 'DC', 'DE', 'FL', 'GA',
+               'HI', 'IA', 'ID', 'IL', 'IN', 'KS', 'KY' ,'LA', 'MA', 'MD', 'ME',
+               'MI', 'MN', 'MO', 'MS', 'MT', 'NC', 'ND', 'NE', 'NH', 'NJ', 'NM',
+               'NV', 'NY', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX',
+               'UT', 'VA', 'VT', 'WA', 'WI', 'WV', 'WY')
+
+ictp <- ctp %>% 
+  filter(state %in% US_states) %>% 
+  replace_na(list(positive = 0, negative = 0, death = 0)) %>%
+  group_by(state) %>% 
+  mutate_at(c("positive", "negative", "death"),
+            list(new = ~ pmax.int(coalesce(. - dplyr::lag(., order_by = date), .), 0))) %>%
+  ungroup() %>% 
+  complete(date, nesting(state, fips),
+           fill = list(positive_new = 0, negative_new = 0, death_new = 0)) %>% 
+  filter(date >= "2020-03-01") %>% 
+  mutate(test_new = pmap_dbl(list(positive_new, negative_new), sum),
+         pos_pct = positive_new / test_new) %>% 
+  group_by(state) %>%
+  arrange(date) %>% 
+  mutate_at(vars(ends_with("_new")), list(ma7 = ~ rollmean(., k = 7, fill = NA, align = "left"))) %>% 
+  mutate(pos_pct_ma7 = positive_new_ma7 / test_new_ma7) %>% 
+  ungroup()
+
+glimpse(ictp)
+```
+
+Before plotting anything, I'm going to prepare some "geoms" (short for geometries) by creating new versions with my preferred for some of the parameters. You can print a function by entering it without parentheses, like so:
+```{r}
+geom_col
+
+geom_col1 <- function (mapping = NULL, data = NULL, position = "stack",
+    ..., width = 1, na.rm = FALSE, show.legend = NA, inherit.aes = TRUE) 
+{
+    layer(data = data, mapping = mapping, stat = "identity", 
+        geom = GeomCol, position = position, show.legend = show.legend, 
+        inherit.aes = inherit.aes, params = list(width = width, 
+            na.rm = na.rm, ...))
+}
+
+geom_ma7 <- function (mapping = NULL, data = NULL, position = "identity",
+    na.rm = TRUE, show.legend = NA, inherit.aes = TRUE, ma_fun = SMA, 
+    n = 7, wilder = FALSE, ratio = NULL, v = 1, wts = 1:n, ...) 
+{
+    ma_fun <- deparse(substitute(ma_fun))
+    geom_ma_(mapping = mapping, data = data, position = position, 
+        na.rm = na.rm, show.legend = show.legend, inherit.aes = inherit.aes, 
+        ma_fun = ma_fun, n = n, wilder = wilder, ratio = ratio, 
+        v = v, wts = wts, ...)
+}
+
+```
+
+Let's start by plotting confirmed positive cases and deaths in a single state. As you can see, these data are noisy. Because these data are frequently under-reported around weekends, we add a line for rolling 7-day means, which also smooth the data. To facilitate interpretation of these data, we include a line for the proportion of positive tests. Confirmed positive cases and COVID-19 deaths depend on testing--with insufficient tests, these numbers are under-counted. Heuristically, when 10% or fewer tests return positive, testing can be considered sufficient.
+```{r}
+g <- ictp %>% 
+  filter(state == "NY") %>% 
+  ggplot(aes(x = date))
+
+g + 
+  geom_col1(aes(y = positive_new, fill = "positive_new"), alpha = .3) +
+  geom_ma7(aes(y = positive_new, color = "positive_new"), linetype = "solid") +
+  geom_col1(aes(y = death_new, fill = "death_new"), alpha = .3) +
+  geom_ma7(aes(y = death_new, color = "death_new"), linetype = "solid") +
+  geom_ma7(aes(y = 10^(pos_pct*4), color = "pos_pct"), linetype = "solid") +
+  scale_y_log10(name = "Incidents", breaks = c(1, 10, 100, 1000, 10000),
+                     sec.axis = sec_axis(~log10(.)/4, breaks = seq(.1, .9, .2), name = "Positive Test Rate [%]")) +
+  scale_color_viridis_d(end = .8) +
+  scale_fill_viridis_d(end = .8) +
+  guides(alpha = "none", fill = "none") +
+  theme_minimal() +
+  theme(panel.grid = element_blank())
+```
+
+Now let's plot all US states (and DC) simultaneously. I like {geofacet}, which provides a convenient way to arrange plots approximately in the relationship of their geographies.
+```{r}
+g_state <- ictp %>% 
+  ggplot(aes(x = date))
+
+g_state + 
+  geom_col1(aes(y = positive_new, fill = "positive_new"), alpha = .3) +
+  geom_ma7(aes(y = positive_new, color = "positive_new"), linetype = "solid") +
+  geom_col1(aes(y = death_new, fill = "death_new"), alpha = .3) +
+  geom_ma7(aes(y = death_new, color = "death_new"), linetype = "solid") +
+  geom_ma7(aes(y = 10^(pos_pct*4), color = "pos_pct"), linetype = "solid") +
+  scale_y_log10(name = "Incidents", breaks = c(1, 10, 100, 1000, 10000),
+                     sec.axis = sec_axis(~log10(.)/4, breaks = seq(.1, .9, .2), name = "Positive Test Rate [%]")) +
+  scale_color_viridis_d(end = .8) +
+  scale_fill_viridis_d(end = .8) +
+  guides(alpha = "none", fill = "none") +
+  theme_minimal() +
+  theme(panel.grid = element_blank(),
+        legend.position = "bottom",
+        strip.text.x = element_text(size = 6)) +
+  facet_geo(~ state, label = "name", move_axes = FALSE)
+
+```
+
+We can do the same at a county level within states using JHU data. At the county level, the data are even noisier. Some counties don't have any data, while others don't have sufficient data to calculate rolling averages.
+```{r}
+g_wa <- iusa %>% 
+  filter(state == "Washington") %>% 
+  mutate(code_fips = substr(fips, 3, 5)) %>% 
+  ggplot(aes(x = date, y = incidents))
+
+g_wa + 
+  geom_col1(aes(fill = subset), alpha = .3) +
+  geom_ma7(aes(color = subset), linetype = "solid") +
+  scale_y_log10(name = "Incidents", breaks = c(1, 10, 100, 1000, 10000)) +
+  scale_color_viridis_d(end = .8, direction = -1) +
+  scale_fill_viridis_d(end = .8, direction = -1) +
+  guides(alpha = "none", fill = "none") +
+  theme_minimal() +
+  theme(panel.grid = element_blank(),
+        legend.position = "bottom",
+        strip.text.x = element_text(size = 6)) +
+  facet_geo(~ code_fips, grid = "us_wa_counties_grid1", label = "name", move_axes = FALSE)
+```
+
