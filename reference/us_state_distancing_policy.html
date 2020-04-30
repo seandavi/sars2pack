@@ -106,6 +106,9 @@ for a subset of the states in the United States." />
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
+      <a href="../articles/add_a_dataset.html">How to add a new dataset to sars2pack</a>
+    </li>
+    <li>
       <a href="../articles/datasets.html">Available datasets</a>
     </li>
     <li>
@@ -194,6 +197,7 @@ for a subset of the states in the United States.</p>
 <code><a href='jhu_us_data.html'>jhu_us_data</a>()</code>,
 <code><a href='kff_icu_beds.html'>kff_icu_beds</a>()</code>,
 <code><a href='nytimes_county_data.html'>nytimes_county_data</a>()</code>,
+<code><a href='param_estimates_published.html'>param_estimates_published</a>()</code>,
 <code><a href='us_county_geo_details.html'>us_county_geo_details</a>()</code>,
 <code><a href='us_healthcare_capacity.html'>us_healthcare_capacity</a>()</code>,
 <code><a href='usa_facts_data.html'>usa_facts_data</a>()</code></p>
@@ -208,7 +212,7 @@ for a subset of the states in the United States.</p>
 #&gt; [10] "DateEased"         "DateEnded"         "PolicyCodingNotes"
 #&gt; [13] "PolicySource"      "StateWide"         "LastUpdated"      
 #&gt; [16] "LastUpdatedNotes" </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>dplyr</span>)
-<span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Rows: 1,133
+<span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Rows: 1,134
 #&gt; Columns: 16
 #&gt; $ location_id       <span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 523, 523, 523, 523, 523, 523, 523, 523, 523, 523, 5…
 #&gt; $ StateFIPS         </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, …
@@ -226,36 +230,36 @@ for a subset of the states in the United States.</p>
 #&gt; $ StateWide         </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, …
 #&gt; $ LastUpdated       </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 20200324, 20200324, 20200420, 20200420, 20200420, 2…
 #&gt; $ LastUpdatedNotes  </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> NA, NA, "Updated DateEnacted to 20200319 per state …</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt;   location_id      StateFIPS     StatePostal         StateName        
-#&gt;  Min.   :523.0   Min.   : 1.00   Length:1133        Length:1133       
-#&gt;  1st Qu.:535.5   1st Qu.:16.50   Class :character   Class :character  
+#&gt;  Min.   :523.0   Min.   : 1.00   Length:1134        Length:1134       
+#&gt;  1st Qu.:535.8   1st Qu.:16.75   Class :character   Class :character  
 #&gt;  Median :549.0   Median :30.00   Mode  :character   Mode  :character  
-#&gt;  Mean   :548.6   Mean   :29.59                                        
+#&gt;  Mean   :548.5   Mean   :29.51                                        
 #&gt;  3rd Qu.:561.0   3rd Qu.:42.00                                        
 #&gt;  Max.   :573.0   Max.   :56.00                                        
 #&gt;  NA's   :582     NA's   :582                                          
 #&gt;  StatePolicy           Mandate         DateIssued        DateEnacted      
-#&gt;  Length:1133        Min.   :0.0000   Min.   :20200229   Min.   :20200229  
+#&gt;  Length:1134        Min.   :0.0000   Min.   :20200229   Min.   :20200229  
 #&gt;  Class :character   1st Qu.:1.0000   1st Qu.:20200315   1st Qu.:20200316  
 #&gt;  Mode  :character   Median :1.0000   Median :20200319   Median :20200319  
-#&gt;                     Mean   :0.9196   Mean   :20200328   Mean   :20200330  
-#&gt;                     3rd Qu.:1.0000   3rd Qu.:20200324   3rd Qu.:20200325  
-#&gt;                     Max.   :1.0000   Max.   :20200424   Max.   :20200501  
-#&gt;                     NA's   :586      NA's   :588        NA's   :589       
+#&gt;                     Mean   :0.9165   Mean   :20200328   Mean   :20200330  
+#&gt;                     3rd Qu.:1.0000   3rd Qu.:20200325   3rd Qu.:20200325  
+#&gt;                     Max.   :1.0000   Max.   :20200428   Max.   :20200501  
+#&gt;                     NA's   :583      NA's   :584        NA's   :585       
 #&gt;    DateExpiry         DateEased          DateEnded        PolicyCodingNotes 
-#&gt;  Min.   :20200327   Min.   :20200420   Min.   :20200424   Length:1133       
-#&gt;  1st Qu.:20200422   1st Qu.:20200424   1st Qu.:20200424   Class :character  
-#&gt;  Median :20200430   Median :20200424   Median :20200424   Mode  :character  
-#&gt;  Mean   :20200459   Mean   :20200440   Mean   :20200424                     
-#&gt;  3rd Qu.:20200508   3rd Qu.:20200426   3rd Qu.:20200424                     
-#&gt;  Max.   :20200909   Max.   :20200501   Max.   :20200424                     
-#&gt;  NA's   :878        NA's   :1119       NA's   :1131                         
+#&gt;  Min.   :20200330   Min.   :20200420   Min.   :20200424   Length:1134       
+#&gt;  1st Qu.:20200430   1st Qu.:20200424   1st Qu.:20200424   Class :character  
+#&gt;  Median :20200502   Median :20200427   Median :20200424   Mode  :character  
+#&gt;  Mean   :20200475   Mean   :20200442   Mean   :20200424                     
+#&gt;  3rd Qu.:20200514   3rd Qu.:20200429   3rd Qu.:20200424                     
+#&gt;  Max.   :20200909   Max.   :20200504   Max.   :20200424                     
+#&gt;  NA's   :872        NA's   :1106       NA's   :1132                         
 #&gt;  PolicySource         StateWide       LastUpdated       LastUpdatedNotes  
-#&gt;  Length:1133        Min.   :0.0000   Min.   :20200324   Length:1133       
+#&gt;  Length:1134        Min.   :0.0000   Min.   :20200324   Length:1134       
 #&gt;  Class :character   1st Qu.:1.0000   1st Qu.:20200324   Class :character  
 #&gt;  Mode  :character   Median :1.0000   Median :20200412   Mode  :character  
-#&gt;                     Mean   :0.9201   Mean   :20200380                     
-#&gt;                     3rd Qu.:1.0000   3rd Qu.:20200415                     
-#&gt;                     Max.   :1.0000   Max.   :20200426                     
+#&gt;                     Mean   :0.9275   Mean   :20200385                     
+#&gt;                     3rd Qu.:1.0000   3rd Qu.:20200420                     
+#&gt;                     Max.   :1.0000   Max.   :20200429                     
 #&gt;                     NA's   :582      NA's   :582                          </div><div class='input'>
 </div></span></pre>
   </div>

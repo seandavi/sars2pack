@@ -107,6 +107,9 @@ data frame should contain at least:" />
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
+      <a href="../articles/add_a_dataset.html">How to add a new dataset to sars2pack</a>
+    </li>
+    <li>
       <a href="../articles/datasets.html">Available datasets</a>
     </li>
     <li>
@@ -161,14 +164,7 @@ produce curves of cumulative cases versus time. The input
 data frame should contain at least:</p>
     </div>
 
-    <pre class="usage"><span class='fu'>plot_epicurve</span>(
-  <span class='no'>df</span>,
-  <span class='kw'>date_column</span> <span class='kw'>=</span> <span class='st'>"date"</span>,
-  <span class='kw'>case_column</span> <span class='kw'>=</span> <span class='st'>"count"</span>,
-  <span class='no'>...</span>,
-  <span class='kw'>log</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>shift</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>
-)</pre>
+    <pre class="usage"><span class='fu'>plot_epicurve</span>(<span class='no'>df</span>, <span class='kw'>date_column</span> <span class='kw'>=</span> <span class='st'>"date"</span>, <span class='kw'>case_column</span> <span class='kw'>=</span> <span class='st'>"count"</span>, <span class='no'>...</span>, <span class='kw'>log</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -188,7 +184,8 @@ least a date column and an integer count column</p></td>
     </tr>
     <tr>
       <th>...</th>
-      <td><p>passed to ggplot2::aes</p></td>
+      <td><p>passed to <code><a href='https://ggplot2.tidyverse.org/reference/aes_.html'>ggplot2::aes_string()</a></code>, useful providing colors or
+line types to separate out datasets.</p></td>
     </tr>
     <tr>
       <th>log</th>
@@ -204,16 +201,79 @@ least a date column and an integer count column</p></td>
 <li><p>a cumulative <code>count</code> column; this will become the y-axis</p></li>
 </ul>
 
+<p>An additional common use case is to provide a grouping variable
+in the data.frame; specifying <code>color=...</code> will draw group-specific
+curves on the same plot. See examples.</p>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p>Other plotting: 
+<code><a href='align_to_baseline.html'>align_to_baseline</a>()</code>,
+<code><a href='plot_projection.html'>plot_projection</a>()</code></p>
+<p>Other case-tracking: 
+<code><a href='align_to_baseline.html'>align_to_baseline</a>()</code>,
+<code><a href='beoutbreakprepared_data.html'>beoutbreakprepared_data</a>()</code>,
+<code><a href='covidtracker_data.html'>covidtracker_data</a>()</code>,
+<code><a href='ecdc_data.html'>ecdc_data</a>()</code>,
+<code><a href='eu_data_cache_data.html'>eu_data_cache_data</a>()</code>,
+<code><a href='jhu_data.html'>jhu_data</a>()</code>,
+<code><a href='nytimes_county_data.html'>nytimes_county_data</a>()</code>,
+<code><a href='usa_facts_data.html'>usa_facts_data</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>dplyr</span>)
+
+
 <span class='no'>jhu</span> <span class='kw'>=</span> <span class='fu'><a href='jhu_data.html'>jhu_data</a></span>() <span class='kw'>%&gt;%</span>
     <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span>(<span class='no'>CountryRegion</span><span class='kw'>==</span><span class='st'>'China'</span> <span class='kw'>&amp;</span> <span class='no'>subset</span><span class='kw'>==</span><span class='st'>'confirmed'</span>) <span class='kw'>%&gt;%</span>
     <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span>(<span class='no'>CountryRegion</span>,<span class='no'>date</span>) <span class='kw'>%&gt;%</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarize</a></span>(<span class='kw'>count</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span>(<span class='no'>count</span>))
 
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>jhu</span>)</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 6 x 3</span><span>
+#&gt; </span><span style='color: #555555;'># Groups:   CountryRegion [1]</span><span>
+#&gt;   CountryRegion date       count
+#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>         </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
+#&gt; </span><span style='color: #555555;'>1</span><span> China         2020-01-22   548
+#&gt; </span><span style='color: #555555;'>2</span><span> China         2020-01-23   643
+#&gt; </span><span style='color: #555555;'>3</span><span> China         2020-01-24   920
+#&gt; </span><span style='color: #555555;'>4</span><span> China         2020-01-25  </span><span style='text-decoration: underline;'>1</span><span>406
+#&gt; </span><span style='color: #555555;'>5</span><span> China         2020-01-26  </span><span style='text-decoration: underline;'>2</span><span>075
+#&gt; </span><span style='color: #555555;'>6</span><span> China         2020-01-27  </span><span style='text-decoration: underline;'>2</span><span>877</div><div class='input'>
 <span class='no'>jhu</span> <span class='kw'>%&gt;%</span> <span class='fu'>plot_epicurve</span>(<span class='kw'>log</span><span class='kw'>=</span><span class='fl'>FALSE</span>)</div><div class='img'><img src='plot_epicurve-1.png' alt='' width='700' height='433' /></div><div class='input'>
-
-</div></pre>
+<span class='co'># add a title</span>
+<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>ggplot2</span>)
+<span class='no'>jhu</span> <span class='kw'>%&gt;%</span> <span class='fu'>plot_epicurve</span>() + <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span>(<span class='st'>'Cumulative cases for China'</span>)</div><div class='img'><img src='plot_epicurve-2.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='co'># Work with testing data</span>
+<span class='no'>cc</span> <span class='kw'>=</span> <span class='fu'><a href='covidtracker_data.html'>covidtracker_data</a></span>() <span class='kw'>%&gt;%</span>
+    <span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span>(<span class='kw'>total_tests</span> <span class='kw'>=</span> <span class='no'>positive</span>+<span class='no'>negative</span>) <span class='kw'>%&gt;%</span>
+    <span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span>(<span class='no'>total_tests</span><span class='kw'>&gt;</span><span class='fl'>0</span>)
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>cc</span>)</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 6 x 10</span><span>
+#&gt;   date       state positive negative pending hospitalized death
+#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>        </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
+#&gt; </span><span style='color: #555555;'>1</span><span> 2020-04-30 AK         355    </span><span style='text-decoration: underline;'>18</span><span>764      </span><span style='color: #BB0000;'>NA</span><span>           </span><span style='color: #BB0000;'>NA</span><span>     9
+#&gt; </span><span style='color: #555555;'>2</span><span> 2020-04-30 AL        </span><span style='text-decoration: underline;'>7</span><span>019    </span><span style='text-decoration: underline;'>80</span><span>177      </span><span style='color: #BB0000;'>NA</span><span>          978   269
+#&gt; </span><span style='color: #555555;'>3</span><span> 2020-04-30 AR        </span><span style='text-decoration: underline;'>3</span><span>255    </span><span style='text-decoration: underline;'>45</span><span>124      </span><span style='color: #BB0000;'>NA</span><span>          402    61
+#&gt; </span><span style='color: #555555;'>4</span><span> 2020-04-30 AS           0        3      17           </span><span style='color: #BB0000;'>NA</span><span>     0
+#&gt; </span><span style='color: #555555;'>5</span><span> 2020-04-30 AZ        </span><span style='text-decoration: underline;'>7</span><span>648    </span><span style='text-decoration: underline;'>64</span><span>138      </span><span style='color: #BB0000;'>NA</span><span>         </span><span style='text-decoration: underline;'>1</span><span>169   320
+#&gt; </span><span style='color: #555555;'>6</span><span> 2020-04-30 CA       </span><span style='text-decoration: underline;'>48</span><span>917   </span><span style='text-decoration: underline;'>576</span><span>420      </span><span style='color: #BB0000;'>NA</span><span>           </span><span style='color: #BB0000;'>NA</span><span>  </span><span style='text-decoration: underline;'>1</span><span>982
+#&gt; </span><span style='color: #555555;'># … with 3 more variables: dateChecked </span><span style='color: #555555;font-style: italic;'>&lt;dttm&gt;</span><span style='color: #555555;'>, fips </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, total_tests </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span></div><div class='input'>
+<span class='fu'>plot_epicurve</span>(<span class='no'>cc</span>, <span class='kw'>case_column</span><span class='kw'>=</span><span class='st'>'total_tests'</span>, <span class='kw'>color</span><span class='kw'>=</span><span class='st'>'state'</span>, <span class='kw'>log</span><span class='kw'>=</span><span class='fl'>FALSE</span>) +
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span>(<span class='st'>'Total tests by state'</span>) +
+    <span class='kw pkg'>ggplot2</span><span class='kw ns'>::</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span>(<span class='kw'>legend.position</span><span class='kw'>=</span><span class='st'>'bottom'</span>)</div><div class='img'><img src='plot_epicurve-3.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='co'># get tests per 100k population</span>
+<span class='co'># use the tidycensus package to get</span>
+<span class='co'># population data</span>
+<span class='kw'>if</span>(<span class='fu'><a href='https://rdrr.io/r/base/library.html'>require</a></span>(<span class='no'>tidycensus</span>)) {
+    <span class='no'>pop</span> <span class='kw'>=</span> <span class='kw pkg'>tidycensus</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/tidycensus/man/get_estimates.html'>get_estimates</a></span>(<span class='kw'>geography</span><span class='kw'>=</span><span class='st'>'state'</span>,<span class='kw'>product</span><span class='kw'>=</span><span class='st'>'population'</span>) <span class='kw'>%&gt;%</span>
+        <span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span>(<span class='no'>variable</span><span class='kw'>==</span><span class='st'>'POP'</span>)
+    <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>pop</span>)
+    <span class='co'># fix GEOID column to be 5-digit fips</span>
+    <span class='no'>pop</span>$<span class='no'>GEOID</span><span class='kw'>=</span><span class='fu'><a href='integer_to_fips.html'>integer_to_fips</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/integer.html'>as.integer</a></span>(<span class='no'>pop</span>$<span class='no'>GEOID</span>))
+    <span class='no'>cc_pop</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/merge.html'>merge</a></span>(<span class='no'>cc</span>,<span class='no'>pop</span>, <span class='kw'>by.x</span><span class='kw'>=</span><span class='st'>'fips'</span>, <span class='kw'>by.y</span><span class='kw'>=</span><span class='st'>'GEOID'</span>, <span class='kw'>all.x</span><span class='kw'>=</span><span class='fl'>FALSE</span>, <span class='kw'>all.y</span><span class='kw'>=</span><span class='fl'>FALSE</span>)
+    <span class='no'>cc_pop</span> <span class='kw'>=</span> <span class='no'>cc_pop</span> <span class='kw'>%&gt;%</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span>(<span class='kw'>tests_per_100k</span> <span class='kw'>=</span> <span class='no'>total_tests</span>/<span class='no'>value</span> * <span class='fl'>100000</span>)
+    <span class='fu'>plot_epicurve</span>(<span class='no'>cc_pop</span>, <span class='kw'>case_column</span><span class='kw'>=</span><span class='st'>'tests_per_100k'</span>, <span class='kw'>color</span><span class='kw'>=</span><span class='st'>'state'</span>, <span class='kw'>log</span><span class='kw'>=</span><span class='fl'>FALSE</span>) +
+        <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span>(<span class='st'>'Total tests per 100,000 people'</span>) +
+        <span class='kw pkg'>ggplot2</span><span class='kw ns'>::</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span>(<span class='kw'>legend.position</span><span class='kw'>=</span><span class='st'>'bottom'</span>)
+}</div><div class='output co'>#&gt; <span class='message'>Loading required package: tidycensus</span></div><div class='img'><img src='plot_epicurve-4.png' alt='' width='700' height='433' /></div><div class='input'>
+</div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
