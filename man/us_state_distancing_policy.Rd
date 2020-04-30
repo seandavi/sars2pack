@@ -46,6 +46,7 @@ Other data-import:
 \code{\link{jhu_us_data}()},
 \code{\link{kff_icu_beds}()},
 \code{\link{nytimes_county_data}()},
+\code{\link{param_estimates_published}()},
 \code{\link{us_county_geo_details}()},
 \code{\link{us_healthcare_capacity}()},
 \code{\link{usa_facts_data}()}
