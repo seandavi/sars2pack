@@ -47,7 +47,7 @@
 #' 
 #' @export
 covidtracker_data <- function() {
-    rpath = 'http://covidtracking.com/api/states/daily.csv'
+    rpath = 'http://covidtracking.com/api/v1/states/daily.csv'
     fname = s2p_cached_url(rpath)
     res = readr::read_csv(fname, col_types=cols())
     ret = res %>%
