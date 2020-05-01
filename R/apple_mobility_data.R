@@ -41,6 +41,7 @@
 #'
 #' @importFrom RSelenium rsDriver
 #' @importFrom readr read_csv
+#' @importFrom wdman phantomjs
 #' @importFrom dplyr `%>%` mutate
 #' @importFrom tidyr pivot_longer
 #' 
@@ -101,6 +102,7 @@ apple_mobility_data = function(agree_to_terms=TRUE, max_tries=3,
     ## The code below uses webdriver to render the
     ##
     stopifnot(agree_to_terms)
+    pjs = wdman::phantomjs(port = 4444L)
     Sys.sleep(2)
     remDr <- RSelenium::remoteDriver(browserName = 'phantomjs')
     remDr$open(silent = TRUE)
