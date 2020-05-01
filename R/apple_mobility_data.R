@@ -102,8 +102,9 @@ apple_mobility_data = function(agree_to_terms=TRUE, max_tries=3,
     ## The code below uses webdriver to render the
     ##
     stopifnot(agree_to_terms)
-    pjs = wdman::phantomjs(port = 4444L)
-    Sys.sleep(2)
+    pjs = wdman::phantomjs()
+    # wait for phantomjs server to start
+    Sys.sleep(5)
     remDr <- RSelenium::remoteDriver(browserName = 'phantomjs')
     remDr$open(silent = TRUE)
     surl = NULL
@@ -122,6 +123,7 @@ apple_mobility_data = function(agree_to_terms=TRUE, max_tries=3,
         }
     }
     remDr$close()
+    pjs$stop()
     if(message_url) message(sprintf("Download url: %s",surl))
     ## rpath = s2p_cached_url(url) ## TODO: fix caching to use only one url
     dat = readr::read_csv(surl, col_types = cols()) %>%
