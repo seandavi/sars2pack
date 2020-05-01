@@ -20,18 +20,37 @@ reference:
       arbitrarily divided into general groupings. For details of each
       dataset, click on the link. For an overview of data resources, see
       the Datasets vignette.
+
   - subtitle: All data resources
     desc: >-
       Access (typically web-based) data resources related to COVID-19.
     contents:
       - available_datasets
       - has_concept("data-import")
+
   - subtitle: Mobility data resources
     desc: >-
       Access datasets that provide insight into how much and where
       people are moving and how those metrics change over time.
     contents:
       - has_concept("mobility")
+      - has_concept("data-import")
+
+  - subtitle: Case/test tracking data resources
+    desc: >-
+      Access datasets that provide insight into how much and where
+      people are moving and how those metrics change over time.
+    contents:
+      - has_concept("case-tracking")
+      - has_concept("data-import")
+      - -has_concept("plotting")
+
+  - title: Plotting and visualization
+    desc: >-
+      These are special purpose helper plots for sars2pack. Note
+      that most are simply wrappers around ggplot2 and friends.
+    contents:
+      - has_concept("plotting")
       
   - title: Additional functionality
     desc: >-
@@ -40,7 +59,7 @@ reference:
     contents:
       - -available_datasets
       - -has_concept("data-import")
-      - -has_concept("mobility")
+      - -has_concept("plotting")
   
 navbar:
   right:

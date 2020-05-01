@@ -29,6 +29,19 @@ table(res$target)
 min(res$forecast_date)
 max(res$target_week_end_date)
 
+res \%>\%
+    filter(location_name=='US') \%>\%
+    ggplot(aes(x=model, y=point, color=model)) +
+    geom_errorbar(aes(ymin= quantile_0.025, ymax =  quantile_0.975)) +
+    facet_wrap(facets='target_week_end_date') +
+    geom_point() +
+    labs(y='Projected Deaths') +
+    theme_bw() +
+    theme(axis.text.x=element_blank()) +
+    ggtitle('Projected deaths for week ending with date')
+
+
+
 }
 \references{
 \itemize{
