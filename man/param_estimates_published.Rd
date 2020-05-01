@@ -18,10 +18,11 @@ members and approved by authors. For complete information on each
 estimate, see the actual dataset items.
 }
 \examples{
+library(dplyr)
 params = param_estimates_published()
 colnames(params)
 head(params)
-dlpyr::glimpse(params)
+dplyr::glimpse(params)
 
 summary(params)
 

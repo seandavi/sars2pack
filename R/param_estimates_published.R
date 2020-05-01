@@ -16,10 +16,11 @@
 #' @family data-import
 #'
 #' @examples
+#' library(dplyr)
 #' params = param_estimates_published()
 #' colnames(params)
 #' head(params)
-#' dlpyr::glimpse(params)
+#' dplyr::glimpse(params)
 #'
 #' summary(params)
 #' 
