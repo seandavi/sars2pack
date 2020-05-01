@@ -138,6 +138,9 @@ personal decisions for months or even years to come." />
       <a href="../articles/map_visualization.html">Geospatial visualization of COVID-19 datasets</a>
     </li>
     <li>
+      <a href="../articles/minority_death_rate.html">COVID-19 infection rates and deaths by race</a>
+    </li>
+    <li>
       <a href="../articles/overview.html">Exploring the COVID-19 pandemic using sars2pack</a>
     </li>
     <li>
@@ -273,8 +276,7 @@ COVID-19 data resources.</p></li>
 #&gt; $ count         </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
 #&gt; $ subset        </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "confirmed", "confirmed", "confirmed", "confirmed", "co…</div><div class='input'>
 <span class='fu'><a href='https://rdrr.io/r/utils/example.html'>example</a></span>(<span class='no'>apple_mobility_data</span>)</div><div class='output co'>#&gt; 
-#&gt; appl__&gt; res = apple_mobility_data()
-#&gt; 
+#&gt; appl__&gt; res = apple_mobility_data()</div><div class='output co'>#&gt; <span class='message'>checking phantomjs versions:</span></div><div class='output co'>#&gt; <span class='message'>BEGIN: PREDOWNLOAD</span></div><div class='output co'>#&gt; <span class='message'>BEGIN: DOWNLOAD</span></div><div class='output co'>#&gt; <span class='message'>BEGIN: POSTDOWNLOAD</span></div><div class='output co'>#&gt; 
 #&gt; appl__&gt; colnames(res)
 #&gt; [1] "geo_type"            "region"              "transportation_type"
 #&gt; [4] "alternative_name"    "date"                "mobility_index"     
@@ -337,14 +339,14 @@ COVID-19 data resources.</p></li>
 #&gt; 
 #&gt; hlth__&gt; res[sample(1:nrow(res),6),]
 #&gt; </span><span style='color: #555555;'># A tibble: 6 x 8</span><span>
-#&gt;   location_name  date       metric   `NA`    id  mean lower upper
-#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>          </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #555555;'>1</span><span> France         2020-07-22 newICU      0     0  0        0  0   
-#&gt; </span><span style='color: #555555;'>2</span><span> Estonia        2020-01-09 InvVen      0     0  0        0  0   
-#&gt; </span><span style='color: #555555;'>3</span><span> Delaware       2020-07-21 bedover     0     0  0        0  0   
-#&gt; </span><span style='color: #555555;'>4</span><span> Alabama        2020-05-22 allbed      0     0  1.11     0  5.90
-#&gt; </span><span style='color: #555555;'>5</span><span> Canary Islands 2020-01-14 V1       </span><span style='text-decoration: underline;'>5</span><span>042     0  0        0  0   
-#&gt; </span><span style='color: #555555;'>6</span><span> Arkansas       2020-02-17 newICU      0     0  0        0  0   
+#&gt;   location_name    date       metric  `NA`    id  mean lower upper
+#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>            </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
+#&gt; </span><span style='color: #555555;'>1</span><span> Georgia          2020-07-02 V1      </span><span style='text-decoration: underline;'>9</span><span>910     0   0    0      0  
+#&gt; </span><span style='color: #555555;'>2</span><span> Castile and Leon 2020-03-09 allbed     0     0  11.6  8.77  15.8
+#&gt; </span><span style='color: #555555;'>3</span><span> Brandenburg      2020-04-16 V1      </span><span style='text-decoration: underline;'>3</span><span>439     0   0    0      0  
+#&gt; </span><span style='color: #555555;'>4</span><span> South Carolina   2020-05-09 allbed     0     0 228.  34.1  982. 
+#&gt; </span><span style='color: #555555;'>5</span><span> Wisconsin        2020-07-27 V1     </span><span style='text-decoration: underline;'>29</span><span>253     0   0    0      0  
+#&gt; </span><span style='color: #555555;'>6</span><span> Catalonia        2020-03-04 ICUbed     0     0   1    1      1  
 #&gt; 
 #&gt; hlth__&gt; dplyr::glimpse(res)
 #&gt; Rows: 324,203

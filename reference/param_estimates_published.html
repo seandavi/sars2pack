@@ -123,6 +123,9 @@ estimate, see the actual dataset items." />
       <a href="../articles/map_visualization.html">Geospatial visualization of COVID-19 datasets</a>
     </li>
     <li>
+      <a href="../articles/minority_death_rate.html">COVID-19 infection rates and deaths by race</a>
+    </li>
+    <li>
       <a href="../articles/overview.html">Exploring the COVID-19 pandemic using sars2pack</a>
     </li>
     <li>
@@ -206,9 +209,8 @@ estimate, see the actual dataset items.</p>
 <code><a href='usa_facts_data.html'>usa_facts_data</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>params</span> <span class='kw'>=</span> <span class='fu'>param_estimates_published</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: 1 parsing failure.</span>
-#&gt; <span class='warning'>row      col   expected     actual                                                                 file</span>
-#&gt; <span class='warning'>141 end_date valid date 2020-28-02 '/Users/sdavis2/Library/Caches/sars2pack/16733a743e7a_estimates.csv'</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>params</span>)</div><div class='output co'>#&gt;  [1] "id"                   "peer_review"          "peer_review_location"
+    <pre class="examples"><div class='input'><span class='no'>params</span> <span class='kw'>=</span> <span class='fu'>param_estimates_published</span>()
+<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>params</span>)</div><div class='output co'>#&gt;  [1] "id"                   "peer_review"          "peer_review_location"
 #&gt;  [4] "name"                 "abbreviation"         "units"               
 #&gt;  [7] "country"              "location_name"        "location_type"       
 #&gt; [10] "start_date"           "end_date"             "value_type"          
@@ -253,11 +255,11 @@ estimate, see the actual dataset items.</p>
 #&gt;  location_type        start_date            end_date         
 #&gt;  Length:537         Min.   :2019-11-01   Min.   :2019-02-04  
 #&gt;  Class :character   1st Qu.:2020-01-08   1st Qu.:2020-02-10  
-#&gt;  Mode  :character   Median :2020-01-18   Median :2020-03-03  
+#&gt;  Mode  :character   Median :2020-01-18   Median :2020-03-02  
 #&gt;                     Mean   :2020-01-23   Mean   :2020-03-13  
 #&gt;                     3rd Qu.:2020-01-23   3rd Qu.:2020-04-22  
 #&gt;                     Max.   :2020-12-24   Max.   :2020-07-25  
-#&gt;                     NA's   :222          NA's   :30          
+#&gt;                     NA's   :222          NA's   :29          
 #&gt;   value_type           value           uncertainty_type   lower_bound       
 #&gt;  Length:537         Length:537         Length:537         Length:537        
 #&gt;  Class :character   Class :character   Class :character   Class :character  
