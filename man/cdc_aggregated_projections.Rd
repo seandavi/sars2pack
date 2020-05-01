@@ -34,7 +34,7 @@ library(ggplot2)
 
 # FACET view
 res \%>\%
-    filter(location_name=='US') \%>\%
+    dplyr::filter(location_name=='New York') \%>\%
     ggplot(aes(x=model, y=point, color=model)) +
     geom_errorbar(aes(ymin= quantile_0.025, ymax =  quantile_0.975)) +
     facet_wrap(facets='target_week_end_date') +
@@ -42,12 +42,12 @@ res \%>\%
     labs(y='Projected Deaths') +
     theme_bw() +
     theme(axis.text.x=element_blank()) +
-    ggtitle('Projected US deaths for week ending with date')
+    ggtitle('Projected New York deaths for week ending')
 
 # combined view
 pd <- position_dodge(width = 3) # use this to offset points and error bars
 res \%>\%
-    filter(location_name=='US') \%>\%
+    dplyr::filter(location_name=='New York') \%>\%
     ggplot(aes(x=target_week_end_date, y=point, color=model)) +
     geom_errorbar(aes(ymin= quantile_0.025, ymax =  quantile_0.975), position=pd) +
     geom_point(position=pd) +
@@ -55,7 +55,7 @@ res \%>\%
     geom_line(position=pd) +
     theme_bw() +
     theme(legend.position='bottom') +
-    ggtitle('Projected US deaths for week ending with date')
+    ggtitle('Projected New York deaths for week ending')
 
 
 }
