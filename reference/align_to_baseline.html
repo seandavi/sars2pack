@@ -246,9 +246,9 @@ direct comparison of the shapes of the countries' curves.</p>
 #&gt; </span><span style='color: #555555;'>3</span><span> 2020-01-01 Afghanistan   AF    AFG          37</span><span style='text-decoration: underline;'>172</span><span>386 Asia      deaths        0
 #&gt; </span><span style='color: #555555;'>4</span><span> 2020-01-01 Afghanistan   AF    AFG          37</span><span style='text-decoration: underline;'>172</span><span>386 Asia      confirmed     0
 #&gt; </span><span style='color: #555555;'>5</span><span> 2020-01-02 Afghanistan   AF    AFG          37</span><span style='text-decoration: underline;'>172</span><span>386 Asia      deaths        0
-#&gt; </span><span style='color: #555555;'>6</span><span> 2020-01-02 Afghanistan   AF    AFG          37</span><span style='text-decoration: underline;'>172</span><span>386 Asia      confirmed     0</div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>ecdc</span>)</div><div class='output co'>#&gt; Rows: 28,070
+#&gt; </span><span style='color: #555555;'>6</span><span> 2020-01-02 Afghanistan   AF    AFG          37</span><span style='text-decoration: underline;'>172</span><span>386 Asia      confirmed     0</div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>ecdc</span>)</div><div class='output co'>#&gt; Rows: 28,484
 #&gt; Columns: 8
-#&gt; Groups: location_name [207]
+#&gt; Groups: location_name [208]
 #&gt; $ date            </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2019-12-31, 2019-12-31, 2020-01-01, 2020-01-01, 2020…
 #&gt; $ location_name   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Afghanistan", "Afghanistan", "Afghanistan", "Afghani…
 #&gt; $ iso2c           </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "AF", "AF", "AF", "AF", "AF", "AF", "AF", "AF", "AF",…
@@ -269,16 +269,16 @@ direct comparison of the shapes of the countries' curves.</p>
 <span class='no'>top_10</span></div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 10 x 2</span><span>
 #&gt;    location_name            count
 #&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>                    </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #555555;'> 1</span><span> United_States_of_America </span><span style='text-decoration: underline;'>60</span><span>966
-#&gt; </span><span style='color: #555555;'> 2</span><span> Italy                    </span><span style='text-decoration: underline;'>27</span><span>682
-#&gt; </span><span style='color: #555555;'> 3</span><span> United_Kingdom           </span><span style='text-decoration: underline;'>26</span><span>097
-#&gt; </span><span style='color: #555555;'> 4</span><span> Spain                    </span><span style='text-decoration: underline;'>24</span><span>275
-#&gt; </span><span style='color: #555555;'> 5</span><span> France                   </span><span style='text-decoration: underline;'>24</span><span>087
-#&gt; </span><span style='color: #555555;'> 6</span><span> Belgium                   </span><span style='text-decoration: underline;'>7</span><span>501
+#&gt; </span><span style='color: #555555;'> 1</span><span> United_States_of_America </span><span style='text-decoration: underline;'>63</span><span>006
+#&gt; </span><span style='color: #555555;'> 2</span><span> Italy                    </span><span style='text-decoration: underline;'>27</span><span>967
+#&gt; </span><span style='color: #555555;'> 3</span><span> United_Kingdom           </span><span style='text-decoration: underline;'>26</span><span>771
+#&gt; </span><span style='color: #555555;'> 4</span><span> Spain                    </span><span style='text-decoration: underline;'>24</span><span>543
+#&gt; </span><span style='color: #555555;'> 5</span><span> France                   </span><span style='text-decoration: underline;'>24</span><span>376
+#&gt; </span><span style='color: #555555;'> 6</span><span> Belgium                   </span><span style='text-decoration: underline;'>7</span><span>594
 #&gt; </span><span style='color: #555555;'> 7</span><span> Germany                   </span><span style='text-decoration: underline;'>6</span><span>288
-#&gt; </span><span style='color: #555555;'> 8</span><span> Iran                      </span><span style='text-decoration: underline;'>5</span><span>957
-#&gt; </span><span style='color: #555555;'> 9</span><span> Brazil                    </span><span style='text-decoration: underline;'>5</span><span>466
-#&gt; </span><span style='color: #555555;'>10</span><span> Netherlands               </span><span style='text-decoration: underline;'>4</span><span>711</div><div class='input'>
+#&gt; </span><span style='color: #555555;'> 8</span><span> Iran                      </span><span style='text-decoration: underline;'>6</span><span>028
+#&gt; </span><span style='color: #555555;'> 9</span><span> Brazil                    </span><span style='text-decoration: underline;'>5</span><span>901
+#&gt; </span><span style='color: #555555;'>10</span><span> Netherlands               </span><span style='text-decoration: underline;'>4</span><span>795</div><div class='input'>
 <span class='co'># limit ecdc data to "deaths" and</span>
 <span class='co'># top 10 countries</span>
 

@@ -238,6 +238,18 @@ This function will attempt to grab the latest version.</p>
 #&gt; 4 wk ahead cum death 
 #&gt;                  411 </div><div class='input'>
 <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>min</a></span>(<span class='no'>res</span>$<span class='no'>forecast_date</span>)</div><div class='output co'>#&gt; [1] "2020-04-20"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span>(<span class='no'>res</span>$<span class='no'>target_week_end_date</span>)</div><div class='output co'>#&gt; [1] "2020-05-16"</div><div class='input'>
+<span class='no'>res</span> <span class='kw'>%&gt;%</span>
+    <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span>(<span class='no'>location_name</span><span class='kw'>==</span><span class='st'>'US'</span>) <span class='kw'>%&gt;%</span>
+    <span class='fu'>ggplot</span>(<span class='fu'>aes</span>(<span class='kw'>x</span><span class='kw'>=</span><span class='no'>model</span>, <span class='kw'>y</span><span class='kw'>=</span><span class='no'>point</span>, <span class='kw'>color</span><span class='kw'>=</span><span class='no'>model</span>)) +
+    <span class='fu'>geom_errorbar</span>(<span class='fu'>aes</span>(<span class='kw'>ymin</span><span class='kw'>=</span> <span class='no'>quantile_0.025</span>, <span class='kw'>ymax</span> <span class='kw'>=</span>  <span class='no'>quantile_0.975</span>)) +
+    <span class='fu'>facet_wrap</span>(<span class='kw'>facets</span><span class='kw'>=</span><span class='st'>'target_week_end_date'</span>) +
+    <span class='fu'>geom_point</span>() +
+    <span class='fu'>labs</span>(<span class='kw'>y</span><span class='kw'>=</span><span class='st'>'Projected Deaths'</span>) +
+    <span class='fu'>theme_bw</span>() +
+    <span class='fu'>theme</span>(<span class='kw'>axis.text.x</span><span class='kw'>=</span><span class='fu'>element_blank</span>()) +
+    <span class='fu'>ggtitle</span>(<span class='st'>'Projected deaths for week ending with date'</span>)</div><div class='img'><img src='cdc_aggregated_projections-1.png' alt='' width='700' height='433' /></div><div class='input'>
+
+
 </div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
