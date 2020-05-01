@@ -1,4 +1,19 @@
 datasets:
+  - name: Published epidemic parameters for COVID-19
+    accessor: param_estimates_published
+    data_type: miscellaneous
+    geographical: false
+    geospatial: false
+    url: https://github.com/midas-network/COVID-19/blob/master/parameter_estimates/2019_novel_coronavirus/estimates.csv
+  - name: Aggregated projections from US CDC
+    accessor: cdc_aggregated_projections
+    data_type: projections
+    resolution:
+      - country
+      - admin1
+    geographical: true
+    geospatial: false
+    url: https://www.cdc.gov/coronavirus/2019-ncov/covid-data/forecasting-us.html
   - name: Google mobility data
     accessor: google_mobility_data
     data_type:

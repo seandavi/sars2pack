@@ -45,6 +45,7 @@ res \%>\%
     ggtitle('Projected US deaths for week ending with date')
 
 # combined view
+pd <- position_dodge(width = 3) # use this to offset points and error bars
 res \%>\%
     filter(location_name=='US') \%>\%
     ggplot(aes(x=target_week_end_date, y=point, color=model)) +
@@ -53,7 +54,7 @@ res \%>\%
     labs(y='Projected Deaths') +
     geom_line(position=pd) +
     theme_bw() +
-    theme(legend.position='bottom')
+    theme(legend.position='bottom') +
     ggtitle('Projected US deaths for week ending with date')
 
 

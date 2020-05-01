@@ -1,4 +1,51 @@
 datasets:
+  param_estimates_published:
+    columns:
+      id: character
+      peer_review: character
+      peer_review_location: character
+      name: character
+      abbreviation: character
+      units: character
+      country: character
+      location_name: character
+      location_type: character
+      start_date: Date
+      end_date: Date
+      value_type: character
+      value: character
+      uncertainty_type: character
+      lower_bound: character
+      upper_bound: character
+      population: character
+      age_range: character
+      method_description: character
+      data_description: character
+      data_URL: character
+      date_publication: Date
+      title_publication: character
+      type_publication: character
+      authors: character
+      publication_URL: character
+      entry_date: Date
+      entry_person: character
+      entry_email: character
+    dimensions:
+      nrow: 537
+      ncol: 29
+  cdc_aggregated_projections:
+    columns:
+      model: character
+      forecast_date: Date
+      target: character
+      target_week_end_date: Date
+      location_name: character
+      point: numeric
+      quantile_0.025: numeric
+      quantile_0.975: numeric
+    dimensions:
+      nrow: 5209
+      ncol: 8
   google_mobility_data:
     columns:
       iso2c: character
@@ -10,11 +57,11 @@ datasets:
       places_category: character
       percent_change_from_baseline: numeric
     dimensions:
-      nrow: 1384968
+      nrow: 1706934
       ncol: 8
     dates:
       min: '2020-02-15'
-      max: '2020-04-17'
+      max: '2020-04-26'
   ecdc_data:
     columns:
       date: Date
@@ -26,11 +73,11 @@ datasets:
       subset: character
       count: numeric
     dimensions:
-      nrow: 26836
+      nrow: 28484
       ncol: 8
     dates:
       min: '2019-12-31'
-      max: '2020-04-27'
+      max: '2020-05-01'
   beoutbreakprepared_data:
     columns:
       ID: character
@@ -67,7 +114,7 @@ datasets:
       data_moderator_initials: character
       travel_history_binary: logical
     dimensions:
-      nrow: 442315
+      nrow: 476126
       ncol: 33
   eu_data_cache_data:
     columns:
@@ -106,24 +153,25 @@ datasets:
       m50: numeric
       m50_index: numeric
     dimensions:
-      nrow: 144141
+      nrow: 155004
       ncol: 9
     dates:
       min: '2020-03-01'
-      max: '2020-04-24'
+      max: '2020-04-28'
   apple_mobility_data:
     columns:
       geo_type: character
       region: character
       transportation_type: character
+      alternative_name: character
       date: Date
       mobility_index: numeric
     dimensions:
-      nrow: 41080
-      ncol: 5
+      nrow: 125064
+      ncol: 6
     dates:
       min: '2020-01-13'
-      max: '2020-04-25'
+      max: '2020-04-29'
   usa_facts_data:
     columns:
       fips: character
@@ -133,11 +181,11 @@ datasets:
       date: Date
       count: numeric
     dimensions:
-      nrow: 613440
+      nrow: 639000
       ncol: 6
     dates:
       min: '2020-01-22'
-      max: '2020-04-26'
+      max: '2020-04-30'
   jhu_data:
     columns:
       ProvinceState: character
@@ -148,11 +196,11 @@ datasets:
       count: numeric
       subset: character
     dimensions:
-      nrow: 74688
+      nrow: 78400
       ncol: 7
     dates:
       min: '2020-01-22'
-      max: '2020-04-26'
+      max: '2020-04-30'
   jhu_us_data:
     columns:
       UID: numeric
@@ -171,11 +219,11 @@ datasets:
       count: numeric
       subset: character
     dimensions:
-      nrow: 626304
+      nrow: 652400
       ncol: 15
     dates:
       min: '2020-01-22'
-      max: '2020-04-26'
+      max: '2020-04-30'
   nytimes_county_data:
     columns:
       date: Date
@@ -185,11 +233,11 @@ datasets:
       count: numeric
       subset: character
     dimensions:
-      nrow: 185184
+      nrow: 207920
       ncol: 6
     dates:
       min: '2020-01-21'
-      max: '2020-04-26'
+      max: '2020-04-30'
   nytimes_state_data:
     columns:
       date: Date
@@ -198,11 +246,11 @@ datasets:
       count: numeric
       subset: character
     dimensions:
-      nrow: 6078
+      nrow: 6518
       ncol: 5
     dates:
       min: '2020-01-21'
-      max: '2020-04-26'
+      max: '2020-04-30'
   kff_icu_beds:
     columns:
       fips: character
@@ -249,11 +297,11 @@ datasets:
       - POSIXt
       fips: character
     dimensions:
-      nrow: 2929
+      nrow: 3153
       ncol: 9
     dates:
       min: '2020-01-22'
-      max: '2020-04-26'
+      max: '2020-04-30'
   us_healthcare_capacity:
     columns:
       Name: character
@@ -359,6 +407,7 @@ datasets:
       LastUpdated: numeric
       LastUpdatedNotes: character
     dimensions:
-      nrow: 1133
+      nrow: 1135
       ncol: 16
-eval_date: '2020-04-27'
+eval_date: '2020-05-01'
+
