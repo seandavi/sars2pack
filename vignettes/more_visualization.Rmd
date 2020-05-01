@@ -20,6 +20,7 @@ output:
 library(knitr)
 library(Cairo)
 knitr::opts_chunk$set(message=FALSE, warning=FALSE, message=FALSE,
+                      fig.align = "center", out.width = "100%",
                       dev.args = list(png = list(type = "cairo")), dpi = 192)
 ```
 
@@ -28,7 +29,7 @@ library(dplyr)
 library(tidyr)
 library(purrr)
 library(ggplot2)
-library(tidyquant)
+library(zoo)
 library(plotly)
 library(geofacet)
 library(sars2pack)
@@ -46,23 +47,32 @@ ctp = covidtracker_data()
 glimpse(ctp)
 ```
 
-We're focusing just on US states, so we filter our data to just US states. Then we very lightly clean cumulative data that *should* be monotonically increasing day-over-day (but isn't always) and convert to incidents. The data are in different formats, so we'll use different data wrangling approaches to keep them resembling their original format for now. The JHU doesn't contain a value for every location-date-subset combination, so we need to fill in those gaps.
+We're focusing just on US states, so we filter our data to just US states. Then we very lightly clean cumulative data that *should* be monotonically increasing day-over-day (but isn't always) and convert to incidents. The data are in different formats, so we'll use different data wrangling approaches to transform them both into so-called "tidy," long-format dataframes.
+
+JHU data don't contain a value for every location-date-subset combination, so we need to fill in those gaps.
 ```{r wrangle jhu}
 iusa <- cusa %>% 
-  filter(iso2 == "US") %>% 
   arrange(Combined_Key, subset, date) %>% 
   group_by(Combined_Key, subset) %>% 
-  mutate(incidents =  pmax.int(coalesce(count - dplyr::lag(count, order_by = date), count), 0)) %>% 
+  mutate(count = pmin.int(count, dplyr::lead(count, order_by = date), na.rm = TRUE),
+         incidents =  pmax.int(pmap_dbl(list(count, -1*dplyr::lag(count, order_by = date)), 
+                                        ~ sum(..., na.rm = TRUE)), 
+                               0, na.rm = TRUE)) %>% 
   ungroup() %>% 
   complete(date, subset, 
-           nesting(UID, iso2, iso3, code3, fips, county, state, country, Lat, Long, Combined_Key, Population),
+           nesting(UID, iso2, iso3, code3, fips, county, state, country, Lat, Long, Combined_Key),
            fill = list(incidents = 0)) %>% 
-  filter(date >= "2020-03-01")
+  replace_na(list(incidents = 0)) %>% 
+  group_by(Combined_Key, subset) %>% 
+  arrange(date) %>% 
+  mutate(sma7 = rollmean(incidents, k = 7, fill = NA, align = "right")) %>% 
+  ungroup() %>% 
+  filter(date >= "2020-03-01", iso2 == "US")
 
 glimpse(iusa)
 ```
 
-The COVID Tracking Project data doesn't have a record for every location-date combination and can contain NA values, so we also need to deal with all that by filling in the gaps.
+The COVID Tracking Project data doesn't have a record for every location-date combination and can contain NA values, so we need to fill in the gaps and also transform it into long format for plotting
 ```{r wrangle covid tracking}
 US_states <- c('AL', 'AK', 'AR', 'AZ', 'CA', 'CO', 'CT', 'DC', 'DE', 'FL', 'GA',
                'HI', 'IA', 'ID', 'IL', 'IN', 'KS', 'KY' ,'LA', 'MA', 'MD', 'ME',
@@ -71,31 +81,31 @@ US_states <- c('AL', 'AK', 'AR', 'AZ', 'CA', 'CO', 'CT', 'DC', 'DE', 'FL', 'GA',
                'UT', 'VA', 'VT', 'WA', 'WI', 'WV', 'WY')
 
 ictp <- ctp %>% 
-  filter(state %in% US_states) %>% 
-  replace_na(list(positive = 0, negative = 0, death = 0)) %>%
   group_by(state) %>% 
-  mutate_at(c("positive", "negative", "death"),
-            list(new = ~ pmax.int(coalesce(. - dplyr::lag(., order_by = date), .), 0))) %>%
-  ungroup() %>% 
+  mutate_at(c("positive", "negative", "death"), ~ pmin.int(., dplyr::lead(., order_by = date), na.rm = TRUE)) %>% 
+  mutate_at(c("positive", "negative", "death"),          
+            list(incidents = ~ pmax.int(pmap_dbl(list(., -1*dplyr::lag(., order_by = date)), 
+                                           ~ sum(..., na.rm = TRUE)), 
+                                  0, na.rm = TRUE))) %>%
   complete(date, nesting(state, fips),
-           fill = list(positive_new = 0, negative_new = 0, death_new = 0)) %>% 
-  filter(date >= "2020-03-01") %>% 
-  mutate(test_new = pmap_dbl(list(positive_new, negative_new), sum),
-         pos_pct = positive_new / test_new) %>% 
-  group_by(state) %>%
+           fill = list(positive_incidents = 0, negative_incidents = 0, death_incidents = 0)) %>% 
+  mutate(test_incidents = pmap_dbl(list(positive_incidents, negative_incidents), ~ sum(..., na.rm = TRUE)),
+         pos_pct = positive_incidents / test_incidents) %>% 
+  replace_na(list(positive = 0, negative = 0, death = 0)) %>%
   arrange(date) %>% 
-  mutate_at(vars(ends_with("_new")), list(ma7 = ~ rollmean(., k = 7, fill = NA, align = "left"))) %>% 
-  mutate(pos_pct_ma7 = positive_new_ma7 / test_new_ma7) %>% 
-  ungroup()
+  mutate_at(vars(ends_with("_incidents")), list(ma7 = ~ rollmean(., k = 7, fill = NA, align = "right"))) %>% 
+  mutate_at(vars(ends_with("_incidents")), na_if, 0) %>% 
+  mutate(positive_pct_ma7 = positive_incidents_ma7 / test_incidents_ma7) %>% 
+  ungroup() %>% 
+  filter(date >= "2020-03-01", state %in% US_states)
 
 glimpse(ictp)
 ```
 
-Before plotting anything, I'm going to prepare some "geoms" (short for geometries) by creating new versions with my preferred for some of the parameters. You can print a function by entering it without parentheses, like so:
 ```{r}
 geom_col
 
-geom_col1 <- function (mapping = NULL, data = NULL, position = "stack",
+geom_col1 <- function (mapping = NULL, data = NULL, position = "identity",
     ..., width = 1, na.rm = FALSE, show.legend = NA, inherit.aes = TRUE) 
 {
     layer(data = data, mapping = mapping, stat = "identity", 
@@ -103,18 +113,6 @@ geom_col1 <- function (mapping = NULL, data = NULL, position = "stack",
         inherit.aes = inherit.aes, params = list(width = width, 
             na.rm = na.rm, ...))
 }
-
-geom_ma7 <- function (mapping = NULL, data = NULL, position = "identity",
-    na.rm = TRUE, show.legend = NA, inherit.aes = TRUE, ma_fun = SMA, 
-    n = 7, wilder = FALSE, ratio = NULL, v = 1, wts = 1:n, ...) 
-{
-    ma_fun <- deparse(substitute(ma_fun))
-    geom_ma_(mapping = mapping, data = data, position = position, 
-        na.rm = na.rm, show.legend = show.legend, inherit.aes = inherit.aes, 
-        ma_fun = ma_fun, n = n, wilder = wilder, ratio = ratio, 
-        v = v, wts = wts, ...)
-}
-
 ```
 
 Let's start by plotting confirmed positive cases and deaths in a single state. As you can see, these data are noisy. Because these data are frequently under-reported around weekends, we add a line for rolling 7-day means, which also smooth the data. To facilitate interpretation of these data, we include a line for the proportion of positive tests. Confirmed positive cases and COVID-19 deaths depend on testing--with insufficient tests, these numbers are under-counted. Heuristically, when 10% or fewer tests return positive, testing can be considered sufficient.
@@ -124,13 +122,14 @@ g <- ictp %>%
   ggplot(aes(x = date))
 
 g + 
-  geom_col1(aes(y = positive_new, fill = "positive_new"), alpha = .3) +
-  geom_ma7(aes(y = positive_new, color = "positive_new"), linetype = "solid") +
-  geom_col1(aes(y = death_new, fill = "death_new"), alpha = .3) +
-  geom_ma7(aes(y = death_new, color = "death_new"), linetype = "solid") +
-  geom_ma7(aes(y = 10^(pos_pct*4), color = "pos_pct"), linetype = "solid") +
-  scale_y_log10(name = "Incidents", breaks = c(1, 10, 100, 1000, 10000),
-                     sec.axis = sec_axis(~log10(.)/4, breaks = seq(.1, .9, .2), name = "Positive Test Rate [%]")) +
+  geom_col1(aes(y = positive_incidents, fill = "positive_incidents"), alpha = .3) +
+  geom_col1(aes(y = death_incidents, fill = "death_incidents"), alpha = .3) +
+  geom_line(aes(y = positive_incidents_ma7, color = "positive_incidents")) +
+  geom_line(aes(y = death_incidents_ma7, color = "death_incidents")) +
+  geom_line(aes(y = (positive_pct_ma7*100)^2, color = "pos_pct_ma7")) +
+  scale_y_sqrt(name = "Incidents", breaks = c(0, 1, 10, 100, 1000, 10000),
+               sec.axis = sec_axis(~sqrt(.)/100, breaks = seq(.1, .9, .2), 
+                                   name = "Positive Test Rate [%]")) +
   scale_color_viridis_d(end = .8) +
   scale_fill_viridis_d(end = .8) +
   guides(alpha = "none", fill = "none") +
@@ -144,20 +143,22 @@ g_state <- ictp %>%
   ggplot(aes(x = date))
 
 g_state + 
-  geom_col1(aes(y = positive_new, fill = "positive_new"), alpha = .3) +
-  geom_ma7(aes(y = positive_new, color = "positive_new"), linetype = "solid") +
-  geom_col1(aes(y = death_new, fill = "death_new"), alpha = .3) +
-  geom_ma7(aes(y = death_new, color = "death_new"), linetype = "solid") +
-  geom_ma7(aes(y = 10^(pos_pct*4), color = "pos_pct"), linetype = "solid") +
-  scale_y_log10(name = "Incidents", breaks = c(1, 10, 100, 1000, 10000),
-                     sec.axis = sec_axis(~log10(.)/4, breaks = seq(.1, .9, .2), name = "Positive Test Rate [%]")) +
+  geom_col1(aes(y = positive_incidents, fill = "positive_incidents"), alpha = .3) +
+  geom_col1(aes(y = death_incidents, fill = "death_incidents"), alpha = .3) +
+  geom_line(aes(y = positive_incidents_ma7, color = "positive_incidents")) +
+  geom_line(aes(y = death_incidents_ma7, color = "death_incidents")) +
+  geom_line(aes(y = (positive_pct_ma7*100)^2, color = "pos_pct_ma7")) +
+  scale_y_sqrt(name = "Incidents", breaks = c(0, 1, 10, 100, 1000, 10000),
+               sec.axis = sec_axis(~sqrt(.)/100, breaks = seq(.1, .9, .2), 
+                                   name = "Positive Test Rate [%]")) +
   scale_color_viridis_d(end = .8) +
   scale_fill_viridis_d(end = .8) +
   guides(alpha = "none", fill = "none") +
   theme_minimal() +
   theme(panel.grid = element_blank(),
         legend.position = "bottom",
-        strip.text.x = element_text(size = 6)) +
+        strip.text.x = element_text(size = 6),
+        axis.text.x = element_text(angle = -90)) +
   facet_geo(~ state, label = "name", move_axes = FALSE)
 
 ```
@@ -167,19 +168,20 @@ We can do the same at a county level within states using JHU data. At the county
 g_wa <- iusa %>% 
   filter(state == "Washington") %>% 
   mutate(code_fips = substr(fips, 3, 5)) %>% 
-  ggplot(aes(x = date, y = incidents))
+  ggplot(aes(x = date))
 
 g_wa + 
-  geom_col1(aes(fill = subset), alpha = .3) +
-  geom_ma7(aes(color = subset), linetype = "solid") +
-  scale_y_log10(name = "Incidents", breaks = c(1, 10, 100, 1000, 10000)) +
+  geom_col1(aes(y = incidents, fill = subset), alpha = .3) +
+  geom_line(aes(y = sma7, color = subset)) +
+  scale_y_sqrt(name = "Incidents", breaks = c(1, 10, 100, 1000, 10000)) +
   scale_color_viridis_d(end = .8, direction = -1) +
   scale_fill_viridis_d(end = .8, direction = -1) +
   guides(alpha = "none", fill = "none") +
   theme_minimal() +
   theme(panel.grid = element_blank(),
         legend.position = "bottom",
-        strip.text.x = element_text(size = 6)) +
+        strip.text.x = element_text(size = 6),
+        axis.text.x = element_text(angle = -90)) +
   facet_geo(~ code_fips, grid = "us_wa_counties_grid1", label = "name", move_axes = FALSE)
 ```
 
