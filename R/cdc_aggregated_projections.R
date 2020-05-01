@@ -33,6 +33,10 @@
 #' min(res$forecast_date)
 #' max(res$target_week_end_date)
 #'
+#' library(dplyr)
+#' library(ggplot2)
+#' 
+#' # FACET view
 #' res %>%
 #'     filter(location_name=='US') %>%
 #'     ggplot(aes(x=model, y=point, color=model)) +
@@ -44,7 +48,18 @@
 #'     theme(axis.text.x=element_blank()) +
 #'     ggtitle('Projected US deaths for week ending with date')
 #'
-#'
+#' # combined view
+#' res %>%
+#'     filter(location_name=='US') %>%
+#'     ggplot(aes(x=target_week_end_date, y=point, color=model)) +
+#'     geom_errorbar(aes(ymin= quantile_0.025, ymax =  quantile_0.975), position=pd) +
+#'     geom_point(position=pd) +
+#'     labs(y='Projected Deaths') +
+#'     geom_line(position=pd) +
+#'     theme_bw() +
+#'     theme(legend.position='bottom')
+#'     ggtitle('Projected US deaths for week ending with date')
+#' 
 #' 
 #' @export
 cdc_aggregated_projections <- function() {
