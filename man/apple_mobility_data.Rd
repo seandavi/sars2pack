@@ -46,6 +46,7 @@ Apple requires that all users agree to their terms of use.
 See \url{https://www.apple.com/covid19/mobility}.
 }
 \examples{
+\dontrun{
 res = apple_mobility_data()
 colnames(res)
 head(res)
@@ -85,6 +86,8 @@ res \%>\%
 
 if(require(plotly)) {
     ggplotly(pl)
+}
+
 }
 
 }

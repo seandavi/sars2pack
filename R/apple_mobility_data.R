@@ -50,6 +50,7 @@
 #' See \url{https://www.apple.com/covid19/mobility}.
 #' 
 #' @examples
+#' \dontrun{
 #' res = apple_mobility_data()
 #' colnames(res)
 #' head(res)
@@ -91,6 +92,8 @@
 #'     ggplotly(pl)
 #' }
 #'
+#' }
+#' 
 #' @family data-import
 #' @family mobility
 #' 
