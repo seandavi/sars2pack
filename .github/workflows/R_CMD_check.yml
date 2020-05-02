@@ -41,7 +41,7 @@ jobs:
 
       - name: Query dependencies
         run: |
-          install.packages('remotes','BiocManager')
+          install.packages(c('remotes','BiocManager'))
           saveRDS(remotes::dev_package_deps(dependencies = TRUE), "depends.Rds", version = 2)
         shell: Rscript {0}
 
