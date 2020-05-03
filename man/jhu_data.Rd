@@ -78,6 +78,7 @@ Other data-import:
 Other case-tracking: 
 \code{\link{align_to_baseline}()},
 \code{\link{beoutbreakprepared_data}()},
+\code{\link{bulk_estimate_Rt}()},
 \code{\link{covidtracker_data}()},
 \code{\link{ecdc_data}()},
 \code{\link{estimate_Rt}()},
