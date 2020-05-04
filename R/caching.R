@@ -31,7 +31,7 @@ s2p_cached_url <- function(url, rname = url, ask_on_update=FALSE,
     if(!isFALSE(bfcneedsupdate(bfc, rid))) {
         bfcdownload(bfc, rid, ask=FALSE, ...)
     } else if (fileage > lubridate::as.period(max_cache_age)) {
-        bfcupdate(bfc, rid, ask=FALSE, ...)
+        bfcdownload(bfc, rid, ask=FALSE, ...)
     }
     bfcrpath(bfc, rids = rid)
 }
