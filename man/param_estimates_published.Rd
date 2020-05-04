@@ -51,7 +51,7 @@ Other data-import:
 \code{\link{jhu_data}()},
 \code{\link{jhu_us_data}()},
 \code{\link{kff_icu_beds}()},
-\code{\link{nextstrain_data}()},
+\code{\link{nextstrain_case_data}()},
 \code{\link{nytimes_county_data}()},
 \code{\link{us_county_geo_details}()},
 \code{\link{us_healthcare_capacity}()},

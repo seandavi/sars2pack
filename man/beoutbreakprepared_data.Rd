@@ -56,7 +56,7 @@ Other data-import:
 \code{\link{jhu_data}()},
 \code{\link{jhu_us_data}()},
 \code{\link{kff_icu_beds}()},
-\code{\link{nextstrain_data}()},
+\code{\link{nextstrain_case_data}()},
 \code{\link{nytimes_county_data}()},
 \code{\link{param_estimates_published}()},
 \code{\link{us_county_geo_details}()},
@@ -66,10 +66,8 @@ Other data-import:
 
 Other case-tracking: 
 \code{\link{align_to_baseline}()},
-\code{\link{bulk_estimate_Rt}()},
 \code{\link{covidtracker_data}()},
 \code{\link{ecdc_data}()},
-\code{\link{estimate_Rt}()},
 \code{\link{eu_data_cache_data}()},
 \code{\link{jhu_data}()},
 \code{\link{nytimes_county_data}()},

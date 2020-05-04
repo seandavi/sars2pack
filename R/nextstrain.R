@@ -3,7 +3,7 @@
 #' This function gathers the raw input data associated with
 #' \url{https://nextstrain.org/} for COVID-19 as gathered from GISAID.
 #'
-#' @details:
+#' @details
 #'
 #' Nextstrain is an open-source project to harness the scientific and
 #' public health potential of pathogen genome data. They provide a
@@ -57,8 +57,15 @@
 #' @family genomics
 #' @family individual-cases
 #'
+#' @examples
+#' res = nextstrain_case_data()
+#' colnames(res)
+#' head(res)
+#' library(dplyr)
+#' dplyr::glimpse(res)
+#'
 #' @export
-nextstrain_data = function() {
+nextstrain_case_data = function() {
     url = 'https://raw.githubusercontent.com/nextstrain/ncov/master/data/metadata.tsv'
     rpath = s2p_cached_url(url)
     
