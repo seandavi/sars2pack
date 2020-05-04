@@ -20,8 +20,6 @@ s2p_cached_url <- function(url, rname = url, ask_on_update=FALSE,
     bfc = s2p_get_cache()
     bfcres = bfcquery(bfc,rname,'rname')
 
-    print(bfcres)
-    
     rid = bfcres$rid
     # Not found
     if(!length(rid)) {
