@@ -106,7 +106,7 @@ nytimes_county_data = function() {
     ret = dplyr::bind_rows(confirmed,deaths)
     colnames(ret)[2] = 'county'
     ret$date = lubridate::ymd(ret$date)
-    ret = ret[ret$county!='Unknown'] # these appear to be non-cumulative, so remove
+    ret = ret[ret$county!='Unknown',] # these appear to be non-cumulative, so remove
     ret$fips = integer_to_fips(as.numeric(ret$fips))
     ret
 }
