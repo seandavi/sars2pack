@@ -16,6 +16,9 @@
 #' 
 #' @param df a data frame with columns that include at 
 #' least a date column and an integer count column
+#' @param filter_expression an expression that is passed directly to `dplyr::filter()`. This 
+#'     parameter is a convenience feature since the filtering could also be done easily
+#'     outside this function.
 #' @param date_column character(1) the column name of the `date` type column
 #' @param case_column character(1) the column name of the `count of cases` column
 #' @param log logical(1) TRUE for log10 based y-scale, FALSE for linear
@@ -69,10 +72,15 @@
 #' 
 #' 
 #' @export
-plot_epicurve <- function(df, date_column = 'date', case_column = 'count', 
+plot_epicurve <- function(df,
+                          filter_expression,
+                          date_column = 'date', case_column = 'count', 
                           ..., log=TRUE) {
     if(log) {
         df = df[df[[case_column]]>0,]
+    }
+    if(!missing(filter_expression)) {
+        df = df %>% dplyr::filter(!!enquo(filter_expression))
     }
     p = ggplot(df, aes_string(x=date_column, y=case_column, ...))
     p = p + geom_line()
