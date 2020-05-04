@@ -60,7 +60,10 @@ Washington State on Jan. 21, 2020. We will publish regular updates
 to the data in this repository.
 }
 \note{
-see \url{https://github.com/nytimes/covid-19-data#geographic-exceptions}
+See \url{https://github.com/nytimes/covid-19-data#geographic-exceptions}. Also,
+This dataset contains county data with "holes" in reporting, dates with no
+reported results. Also, records with "Unknown" county are removed since
+these records appear to NOT be cumulative data, but incidence data?
 }
 \section{Licensing}{
 
