@@ -5,6 +5,7 @@ yml = yaml.load_file(system.file(package='sars2pack', path='data_catalog/dataset
 dsets = yml$datasets
 
 for(dset in names(dsets)) {
+    if(dset=='apple_mobility_data') next ## skip for now
     accessor = get(dset)
     res = accessor()
     message(dset)

@@ -46,6 +46,7 @@ Apple requires that all users agree to their terms of use.
 See \url{https://www.apple.com/covid19/mobility}.
 }
 \examples{
+\dontrun{
 res = apple_mobility_data()
 colnames(res)
 head(res)
@@ -88,6 +89,8 @@ if(require(plotly)) {
 }
 
 }
+
+}
 \references{
 \itemize{
 \item \url{https://www.apple.com/covid19/mobility}
@@ -107,6 +110,7 @@ Other data-import:
 \code{\link{jhu_data}()},
 \code{\link{jhu_us_data}()},
 \code{\link{kff_icu_beds}()},
+\code{\link{nextstrain_case_data}()},
 \code{\link{nytimes_county_data}()},
 \code{\link{param_estimates_published}()},
 \code{\link{us_county_geo_details}()},

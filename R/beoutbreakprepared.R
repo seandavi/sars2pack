@@ -31,6 +31,7 @@
 #'
 #' @family data-import
 #' @family case-tracking
+#' @family individual-cases
 #' 
 #' @export
 beoutbreakprepared_data = function(quietly=TRUE) {
