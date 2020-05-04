@@ -4,11 +4,22 @@
 \alias{plot_epicurve}
 \title{Plot a (set of) epidemic curve(s)}
 \usage{
-plot_epicurve(df, date_column = "date", case_column = "count", ..., log = TRUE)
+plot_epicurve(
+  df,
+  filter_expression,
+  date_column = "date",
+  case_column = "count",
+  ...,
+  log = TRUE
+)
 }
 \arguments{
 \item{df}{a data frame with columns that include at
 least a date column and an integer count column}
+
+\item{filter_expression}{an expression that is passed directly to \code{dplyr::filter()}. This
+parameter is a convenience feature since the filtering could also be done easily
+outside this function.}
 
 \item{date_column}{character(1) the column name of the \code{date} type column}
 
@@ -85,8 +96,10 @@ Other plotting:
 Other case-tracking: 
 \code{\link{align_to_baseline}()},
 \code{\link{beoutbreakprepared_data}()},
+\code{\link{bulk_estimate_Rt}()},
 \code{\link{covidtracker_data}()},
 \code{\link{ecdc_data}()},
+\code{\link{estimate_Rt}()},
 \code{\link{eu_data_cache_data}()},
 \code{\link{jhu_data}()},
 \code{\link{nytimes_county_data}()},
