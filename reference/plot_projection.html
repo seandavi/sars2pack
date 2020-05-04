@@ -83,7 +83,7 @@ render a plot or return a ggplot object for further manipulation." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sars2pack</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.47</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.51</span>
       </span>
     </div>
 
@@ -372,8 +372,16 @@ examples for details.</p>
 <span class='co'># Zoomable html version using plotly</span>
 <span class='kw'>if</span>(<span class='fu'><a href='https://rdrr.io/r/base/library.html'>require</a></span>(<span class='no'>plotly</span>)) {
   <span class='fu'><a href='https://rdrr.io/pkg/plotly/man/ggplotly.html'>ggplotly</a></span>(<span class='no'>nyp</span>)
-}
-
+}</div><div class='output co'>#&gt; <span class='message'>Loading required package: plotly</span></div><div class='output co'>#&gt; <span class='message'></span>
+#&gt; <span class='message'>Attaching package: ‘plotly’</span></div><div class='output co'>#&gt; <span class='message'>The following object is masked from ‘package:ggplot2’:</span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'>    last_plot</span></div><div class='output co'>#&gt; <span class='message'>The following object is masked from ‘package:MASS’:</span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'>    select</span></div><div class='output co'>#&gt; <span class='message'>The following object is masked from ‘package:stats’:</span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'>    filter</span></div><div class='output co'>#&gt; <span class='message'>The following object is masked from ‘package:graphics’:</span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'>    layout</span></div><div class='input'>
 <span class='co'># California</span>
 <span class='no'>calip</span> <span class='kw'>=</span> <span class='fu'>plot_projection</span>(<span class='kw'>projections</span> <span class='kw'>=</span> <span class='no'>hdp</span>,
     <span class='kw'>location_name</span><span class='kw'>=</span><span class='st'>'California'</span>)
@@ -404,7 +412,7 @@ examples for details.</p>
 
       <footer>
       <div class="copyright">
-  <p>Developed by Sean Davis, John C Mallery, Charles Morefield, VJ Carey.</p>
+  <p>Developed by Sean Davis, VJ Carey.</p>
 </div>
 
 <div class="pkgdown">

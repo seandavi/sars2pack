@@ -37,7 +37,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sars2pack</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.47</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.51</span>
       </span>
     </div>
 
@@ -113,7 +113,7 @@
                         <h4 class="author">Joe A. Wasserman <a href="mailto:jwasserman@rti.org">jwasserman@rti.org</a> and Crystal T. Nguyen <a href="mailto:ctnguyen@rti.org">ctnguyen@rti.org</a>
 </h4>
             
-            <h4 class="date">May 01, 2020</h4>
+            <h4 class="date">May 04, 2020</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/seandavi/sars2pack/blob/master/vignettes/more_visualization.Rmd"><code>vignettes/more_visualization.Rmd</code></a></small>
       <div class="hidden name"><code>more_visualization.Rmd</code></div>
@@ -140,7 +140,7 @@
 <p>Let’s start with US county-level data from JHU and state-level data from the COVID Tracking Project.</p>
 <div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="no">cusa</span> <span class="kw">=</span> <span class="fu"><a href="../reference/jhu_us_data.html">jhu_us_data</a></span>()
 <span class="fu"><a href="https://dplyr.tidyverse.org/reference/reexports.html">glimpse</a></span>(<span class="no">cusa</span>)</pre></body></html></div>
-<pre><code>## Rows: 652,400
+<pre><code>## Rows: 671,766
 ## Columns: 15
 ## $ UID          &lt;dbl&gt; 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, …
 ## $ iso2         &lt;chr&gt; "AS", "AS", "AS", "AS", "AS", "AS", "AS", "AS", "AS", "A…
@@ -159,16 +159,16 @@
 ## $ subset       &lt;chr&gt; "confirmed", "confirmed", "confirmed", "confirmed", "con…</code></pre>
 <div class="sourceCode" id="cb4"><html><body><pre class="r"><span class="no">ctp</span> <span class="kw">=</span> <span class="fu"><a href="../reference/covidtracker_data.html">covidtracker_data</a></span>()
 <span class="fu"><a href="https://dplyr.tidyverse.org/reference/reexports.html">glimpse</a></span>(<span class="no">ctp</span>)</pre></body></html></div>
-<pre><code>## Rows: 3,209
+<pre><code>## Rows: 3,321
 ## Columns: 9
-## $ date         &lt;date&gt; 2020-05-01, 2020-05-01, 2020-05-01, 2020-05-01, 2020-05…
+## $ date         &lt;date&gt; 2020-05-03, 2020-05-03, 2020-05-03, 2020-05-03, 2020-05…
 ## $ state        &lt;chr&gt; "AK", "AL", "AR", "AS", "AZ", "CA", "CO", "CT", "DC", "D…
-## $ positive     &lt;dbl&gt; 364, 7158, 3321, 0, 7962, 50442, 15284, 28764, 4658, 491…
-## $ negative     &lt;dbl&gt; 19961, 84775, 46355, 57, 66917, 604543, 57106, 71493, 16…
-## $ pending      &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
-## $ hospitalized &lt;dbl&gt; NA, 1008, 414, NA, 1203, NA, 2697, 7758, NA, NA, 5795, 5…
-## $ death        &lt;dbl&gt; 9, 279, 64, 0, 330, 2073, 777, 2339, 231, 159, 1314, 115…
-## $ dateChecked  &lt;dttm&gt; 2020-05-01 20:00:00, 2020-05-01 20:00:00, 2020-05-01 20…
+## $ positive     &lt;dbl&gt; 368, 7725, 3431, 0, 8640, 53616, 16225, 29287, 5016, 520…
+## $ negative     &lt;dbl&gt; 21210, 84775, 49459, 57, 72479, 662135, 63681, 73206, 18…
+## $ pending      &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 1226, NA, NA, NA…
+## $ hospitalized &lt;dbl&gt; NA, 1035, 427, NA, 1348, NA, 2793, 7758, NA, NA, 6244, 5…
+## $ death        &lt;dbl&gt; 9, 290, 76, 0, 362, 2215, 832, 2436, 251, 177, 1403, 117…
+## $ dateChecked  &lt;dttm&gt; 2020-05-03 20:00:00, 2020-05-03 20:00:00, 2020-05-03 20…
 ## $ fips         &lt;chr&gt; "00002", "00001", "00005", "00060", "00004", "00006", "0…</code></pre>
 <p>We need to very lightly clean cumulative data that <em>should</em> be monotonically increasing day-over-day (but isn’t always) and convert it from cumulative values to daily incidents. The data are in different formats, so we’ll use slightly different data munging workflows.</p>
 <p>The JHU data don’t contain a value for every location-date-subset combination, so we need to fill in those gaps.</p>
@@ -191,7 +191,7 @@
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(<span class="no">date</span> <span class="kw">&gt;=</span> <span class="st">"2020-03-15"</span>, <span class="no">iso2</span> <span class="kw">==</span> <span class="st">"US"</span>)
 
 <span class="fu"><a href="https://dplyr.tidyverse.org/reference/reexports.html">glimpse</a></span>(<span class="no">iusa</span>)</pre></body></html></div>
-<pre><code>## Rows: 306,158
+<pre><code>## Rows: 325,600
 ## Columns: 17
 ## $ date         &lt;date&gt; 2020-03-15, 2020-03-15, 2020-03-15, 2020-03-15, 2020-03…
 ## $ subset       &lt;chr&gt; "confirmed", "confirmed", "confirmed", "confirmed", "con…
@@ -237,7 +237,7 @@
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(<span class="no">date</span> <span class="kw">&gt;=</span> <span class="st">"2020-03-15"</span>, <span class="no">state</span> <span class="kw">%in%</span> <span class="no">US_states</span>)
 
 <span class="fu"><a href="https://dplyr.tidyverse.org/reference/reexports.html">glimpse</a></span>(<span class="no">ictp</span>)</pre></body></html></div>
-<pre><code>## Rows: 2,448
+<pre><code>## Rows: 2,550
 ## Columns: 19
 ## $ date                   &lt;date&gt; 2020-03-15, 2020-03-15, 2020-03-15, 2020-03-1…
 ## $ state                  &lt;chr&gt; "AK", "AL", "AR", "AZ", "CA", "CO", "CT", "DC"…
@@ -389,7 +389,7 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by Sean Davis, John C Mallery, Charles Morefield, VJ Carey.</p>
+  <p>Developed by Sean Davis, VJ Carey.</p>
 </div>
 
 <div class="pkgdown">

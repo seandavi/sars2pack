@@ -82,7 +82,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sars2pack</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.47</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.51</span>
       </span>
     </div>
 
@@ -231,6 +231,7 @@ territories listed are aggregated in our database.</p>
 <code><a href='jhu_data.html'>jhu_data</a>()</code>,
 <code><a href='jhu_us_data.html'>jhu_us_data</a>()</code>,
 <code><a href='kff_icu_beds.html'>kff_icu_beds</a>()</code>,
+<code><a href='nextstrain_data.html'>nextstrain_data</a>()</code>,
 <code><a href='nytimes_county_data.html'>nytimes_county_data</a>()</code>,
 <code><a href='param_estimates_published.html'>param_estimates_published</a>()</code>,
 <code><a href='us_county_geo_details.html'>us_county_geo_details</a>()</code>,
@@ -250,6 +251,7 @@ territories listed are aggregated in our database.</p>
 <code><a href='jhu_data.html'>jhu_data</a>()</code>,
 <code><a href='jhu_us_data.html'>jhu_us_data</a>()</code>,
 <code><a href='kff_icu_beds.html'>kff_icu_beds</a>()</code>,
+<code><a href='nextstrain_data.html'>nextstrain_data</a>()</code>,
 <code><a href='nytimes_county_data.html'>nytimes_county_data</a>()</code>,
 <code><a href='param_estimates_published.html'>param_estimates_published</a>()</code>,
 <code><a href='us_county_geo_details.html'>us_county_geo_details</a>()</code>,
@@ -259,7 +261,9 @@ territories listed are aggregated in our database.</p>
 <p>Other case-tracking: 
 <code><a href='align_to_baseline.html'>align_to_baseline</a>()</code>,
 <code><a href='beoutbreakprepared_data.html'>beoutbreakprepared_data</a>()</code>,
+<code>bulk_estimate_Rt()</code>,
 <code><a href='covidtracker_data.html'>covidtracker_data</a>()</code>,
+<code>estimate_Rt()</code>,
 <code><a href='eu_data_cache_data.html'>eu_data_cache_data</a>()</code>,
 <code><a href='jhu_data.html'>jhu_data</a>()</code>,
 <code><a href='nytimes_county_data.html'>nytimes_county_data</a>()</code>,
@@ -269,9 +273,9 @@ territories listed are aggregated in our database.</p>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>ecdc</span> <span class='kw'>=</span> <span class='fu'>ecdc_data</span>()
 <span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>ecdc</span>)</div><div class='output co'>#&gt; [1] "date"            "location_name"   "iso2c"           "iso3c"          
-#&gt; [5] "population_2018" "continent"       "subset"          "count"          </div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>ecdc</span>)</div><div class='output co'>#&gt; Rows: 28,484
+#&gt; [5] "population_2018" "continent"       "subset"          "count"          </div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>ecdc</span>)</div><div class='output co'>#&gt; Rows: 29,316
 #&gt; Columns: 8
-#&gt; Groups: location_name [208]
+#&gt; Groups: location_name [209]
 #&gt; $ date            <span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2019-12-31, 2019-12-31, 2020-01-01, 2020-01-01, 2020…
 #&gt; $ location_name   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Afghanistan", "Afghanistan", "Afghanistan", "Afghani…
 #&gt; $ iso2c           </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "AF", "AF", "AF", "AF", "AF", "AF", "AF", "AF", "AF",…
@@ -292,7 +296,7 @@ territories listed are aggregated in our database.</p>
 
       <footer>
       <div class="copyright">
-  <p>Developed by Sean Davis, John C Mallery, Charles Morefield, VJ Carey.</p>
+  <p>Developed by Sean Davis, VJ Carey.</p>
 </div>
 
 <div class="pkgdown">

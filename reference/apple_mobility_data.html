@@ -83,7 +83,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sars2pack</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.47</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.51</span>
       </span>
     </div>
 
@@ -231,6 +231,7 @@ See <a href='https://www.apple.com/covid19/mobility'>https://www.apple.com/covid
 <code><a href='jhu_data.html'>jhu_data</a>()</code>,
 <code><a href='jhu_us_data.html'>jhu_us_data</a>()</code>,
 <code><a href='kff_icu_beds.html'>kff_icu_beds</a>()</code>,
+<code><a href='nextstrain_data.html'>nextstrain_data</a>()</code>,
 <code><a href='nytimes_county_data.html'>nytimes_county_data</a>()</code>,
 <code><a href='param_estimates_published.html'>param_estimates_published</a>()</code>,
 <code><a href='us_county_geo_details.html'>us_county_geo_details</a>()</code>,
@@ -242,7 +243,12 @@ See <a href='https://www.apple.com/covid19/mobility'>https://www.apple.com/covid
 <code><a href='google_mobility_data.html'>google_mobility_data</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>res</span> <span class='kw'>=</span> <span class='fu'>apple_mobility_data</span>()</div><div class='output co'>#&gt; <span class='error'>Error: `cols` must select at least one column.</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; <span class='error'>Error in is.data.frame(x): object 'res' not found</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; <span class='error'>Error in head(res): object 'res' not found</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span>(<span class='no'>res</span>$<span class='no'>transportation_type</span>)</div><div class='output co'>#&gt; <span class='error'>Error in table(res$transportation_type): object 'res' not found</span></div><div class='input'>
+    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
+<span class='no'>res</span> <span class='kw'>=</span> <span class='fu'>apple_mobility_data</span>()
+<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>res</span>)
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>res</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span>(<span class='no'>res</span>$<span class='no'>transportation_type</span>)
+
 <span class='fu'><a href='https://rdrr.io/r/base/library.html'>require</a></span>(<span class='no'>ggplot2</span>)
 
 <span class='no'>pl</span> <span class='kw'>=</span> <span class='no'>res</span> <span class='kw'>%&gt;%</span>
@@ -251,7 +257,9 @@ See <a href='https://www.apple.com/covid19/mobility'>https://www.apple.com/covid
         <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>y</span><span class='kw'>=</span><span class='no'>mobility_index</span>,<span class='kw'>color</span><span class='kw'>=</span><span class='no'>transportation_type</span>)) +
         <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_date.html'>scale_x_date</a></span>(<span class='kw'>date_breaks</span> <span class='kw'>=</span> <span class='st'>'1 week'</span>, <span class='kw'>date_labels</span><span class='kw'>=</span><span class='st'>'%b-%d'</span>) +
         <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/facet_grid.html'>facet_grid</a></span>(<span class='kw'>rows</span><span class='kw'>=</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/vars.html'>vars</a></span>(<span class='no'>region</span>)) +
-        <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span>(<span class='st'>'Changes in Apple Mobility Index over time'</span>)</div><div class='output co'>#&gt; <span class='error'>Error in eval(lhs, parent, parent): object 'res' not found</span></div><div class='input'><span class='no'>pl</span></div><div class='output co'>#&gt; <span class='error'>Error in eval(expr, envir, enclos): object 'pl' not found</span></div><div class='input'>
+        <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span>(<span class='st'>'Changes in Apple Mobility Index over time'</span>)
+<span class='no'>pl</span>
+
 <span class='no'>regs_of_interest</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>'Seattle'</span>, <span class='st'>'New York City'</span>,
                      <span class='st'>'Chicago'</span>, <span class='st'>'Italy'</span>,
                      <span class='st'>'Russia'</span>, <span class='st'>'UK'</span>,
@@ -261,7 +269,8 @@ See <a href='https://www.apple.com/covid19/mobility'>https://www.apple.com/covid
     <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>x</span><span class='kw'>=</span><span class='no'>date</span>, <span class='kw'>y</span><span class='kw'>=</span><span class='no'>region</span>, <span class='kw'>fill</span><span class='kw'>=</span><span class='no'>mobility_index</span>)) +
         <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_tile.html'>geom_tile</a></span>() +
         <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/facet_grid.html'>facet_grid</a></span>(<span class='kw'>rows</span><span class='kw'>=</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/vars.html'>vars</a></span>(<span class='no'>transportation_type</span>)) +
-        <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span>(<span class='st'>'Changes in Apple Mobility Index over time'</span>)</div><div class='output co'>#&gt; <span class='error'>Error in eval(lhs, parent, parent): object 'res' not found</span></div><div class='input'>
+        <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span>(<span class='st'>'Changes in Apple Mobility Index over time'</span>)
+
 <span class='kw'>if</span>(<span class='fu'><a href='https://rdrr.io/r/base/library.html'>require</a></span>(<span class='no'>viridis</span>)) {
 <span class='no'>res</span> <span class='kw'>%&gt;%</span>
     <span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span>(<span class='no'>region</span> <span class='kw'>%in%</span> <span class='no'>regs_of_interest</span>) <span class='kw'>%&gt;%</span>
@@ -270,20 +279,13 @@ See <a href='https://www.apple.com/covid19/mobility'>https://www.apple.com/covid
         <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/facet_grid.html'>facet_grid</a></span>(<span class='kw'>rows</span><span class='kw'>=</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/vars.html'>vars</a></span>(<span class='no'>transportation_type</span>)) +
         <span class='fu'><a href='https://rdrr.io/pkg/viridis/man/scale_viridis.html'>scale_fill_viridis</a></span>() +
         <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span>(<span class='st'>'Changes in Apple Mobility Index over time'</span>)
-}</div><div class='output co'>#&gt; <span class='message'>Loading required package: viridis</span></div><div class='output co'>#&gt; <span class='message'>Loading required package: viridisLite</span></div><div class='output co'>#&gt; <span class='error'>Error in eval(lhs, parent, parent): object 'res' not found</span></div><div class='input'>
+}
+
 <span class='kw'>if</span>(<span class='fu'><a href='https://rdrr.io/r/base/library.html'>require</a></span>(<span class='no'>plotly</span>)) {
     <span class='fu'><a href='https://rdrr.io/pkg/plotly/man/ggplotly.html'>ggplotly</a></span>(<span class='no'>pl</span>)
-}</div><div class='output co'>#&gt; <span class='message'>Loading required package: plotly</span></div><div class='output co'>#&gt; <span class='message'></span>
-#&gt; <span class='message'>Attaching package: ‘plotly’</span></div><div class='output co'>#&gt; <span class='message'>The following object is masked from ‘package:ggplot2’:</span>
-#&gt; <span class='message'></span>
-#&gt; <span class='message'>    last_plot</span></div><div class='output co'>#&gt; <span class='message'>The following object is masked from ‘package:MASS’:</span>
-#&gt; <span class='message'></span>
-#&gt; <span class='message'>    select</span></div><div class='output co'>#&gt; <span class='message'>The following object is masked from ‘package:stats’:</span>
-#&gt; <span class='message'></span>
-#&gt; <span class='message'>    filter</span></div><div class='output co'>#&gt; <span class='message'>The following object is masked from ‘package:graphics’:</span>
-#&gt; <span class='message'></span>
-#&gt; <span class='message'>    layout</span></div><div class='output co'>#&gt; <span class='error'>Error in ggplotly(pl): object 'pl' not found</span></div><div class='input'>
-</div></pre>
+}
+
+}</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -295,7 +297,7 @@ See <a href='https://www.apple.com/covid19/mobility'>https://www.apple.com/covid
 
       <footer>
       <div class="copyright">
-  <p>Developed by Sean Davis, John C Mallery, Charles Morefield, VJ Carey.</p>
+  <p>Developed by Sean Davis, VJ Carey.</p>
 </div>
 
 <div class="pkgdown">

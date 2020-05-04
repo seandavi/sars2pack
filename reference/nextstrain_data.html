@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>MCMC-based model for SI, lognormal family used for censored-data likelihood — si_cens_L • sars2pack</title>
+<title>Nextstrain/GISAID metadata table (raw input) — nextstrain_data • sars2pack</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,9 @@
 
 
 
-<meta property="og:title" content="MCMC-based model for SI, lognormal family used for censored-data likelihood — si_cens_L" />
-<meta property="og:description" content="MCMC-based model for SI, lognormal family used for censored-data likelihood" />
+<meta property="og:title" content="Nextstrain/GISAID metadata table (raw input) — nextstrain_data" />
+<meta property="og:description" content="This function gathers the raw input data associated with
+https://nextstrain.org/ for COVID-19 as gathered from GISAID." />
 
 
 
@@ -154,21 +155,92 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>MCMC-based model for SI, lognormal family used for censored-data likelihood</h1>
-    <small class="dont-index">Source: <a href='https://github.com/seandavi/sars2pack/blob/master/R/data.R'><code>R/data.R</code></a></small>
-    <div class="hidden name"><code>si_cens_L.Rd</code></div>
+    <h1>Nextstrain/GISAID metadata table (raw input)</h1>
+    <small class="dont-index">Source: <a href='https://github.com/seandavi/sars2pack/blob/master/R/nextstrain.R'><code>R/nextstrain.R</code></a></small>
+    <div class="hidden name"><code>nextstrain_data.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>MCMC-based model for SI, lognormal family used for censored-data likelihood</p>
+    <p>This function gathers the raw input data associated with
+<a href='https://nextstrain.org/'>https://nextstrain.org/</a> for COVID-19 as gathered from GISAID.</p>
     </div>
 
-    <pre class="usage"><span class='no'>si_cens_L</span></pre>
+    <pre class="usage"><span class='fu'>nextstrain_data</span>()</pre>
 
 
-    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
+    <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
 
-    <p>list with components <code>si_sample</code> (matrix) and `si_parametric_distr (character)</p>
+    
+<ul>
+<li><p><a href='https://nextstrain.org/'>https://nextstrain.org/</a></p></li>
+<li><p><a href='https://raw.githubusercontent.com/nextstrain/ncov/master/data/metadata.tsv'>https://raw.githubusercontent.com/nextstrain/ncov/master/data/metadata.tsv</a></p></li>
+</ul>
+
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>:</p>
+<p>Nextstrain is an open-source project to harness the scientific and
+public health potential of pathogen genome data. They provide a
+continually-updated view of publicly available data alongside
+powerful analytic and visualization tools for use by the
+community. Their goal is to aid epidemiological understanding and
+improve outbreak response.</p>
+    <h2 class="hasAnchor" id="nextstrain-overview"><a class="anchor" href="#nextstrain-overview"></a>Nextstrain overview</h2>
+
+    
+
+<p>From the Nextstrain website:</p>
+<p>In the course of an infection and over an epidemic, pathogens
+naturally accumulate random mutations to their genomes. This is an
+inevitable consequence of error-prone genome replication. Since
+different genomes typically pick up different mutations, mutations
+can be used as a marker of transmission in which closely related
+genomes indicate closely related infections. By reconstructing a
+phylogeny we can learn about important epidemiological phenomena
+such as spatial spread, introduction timings and epidemic growth
+rate.</p>
+<p>However, if pathogen genome sequences are going to inform public
+health interventions, then analyses have to be rapidly conducted
+and results widely disseminated. Current scientific publishing
+practices hinder the rapid dissemination of epidemiologically
+relevant results. We thought an open online system that implements
+robust bioinformatic pipelines to synthesize data from across
+research groups has the best capacity to make epidemiologically
+actionable inferences.</p>
+<p>Workflow for Nextstrain processing:</p><ul>
+<li><p><a href='https://github.com/nextstrain/ncov/raw/master/docs/images/basic_snakemake_build.png'>https://github.com/nextstrain/ncov/raw/master/docs/images/basic_snakemake_build.png</a></p></li>
+</ul>
+
+    <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
+
+    <p>James Hadfield, Colin Megill, Sidney M Bell, John Huddleston,
+Barney Potter, Charlton Callender, Pavel Sagulenko, Trevor Bedford,
+Richard A Neher, Nextstrain: real-time tracking of pathogen
+evolution, Bioinformatics, Volume 34, Issue 23, 01 December 2018,
+Pages 4121–4123,
+<a href='https://doi.org/10.1093/bioinformatics/bty407'>https://doi.org/10.1093/bioinformatics/bty407</a></p>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p>Other data-import: 
+<code><a href='apple_mobility_data.html'>apple_mobility_data</a>()</code>,
+<code><a href='beoutbreakprepared_data.html'>beoutbreakprepared_data</a>()</code>,
+<code><a href='cdc_aggregated_projections.html'>cdc_aggregated_projections</a>()</code>,
+<code><a href='covidtracker_data.html'>covidtracker_data</a>()</code>,
+<code><a href='descartes_mobility_data.html'>descartes_mobility_data</a>()</code>,
+<code><a href='ecdc_data.html'>ecdc_data</a>()</code>,
+<code><a href='eu_data_cache_data.html'>eu_data_cache_data</a>()</code>,
+<code><a href='google_mobility_data.html'>google_mobility_data</a>()</code>,
+<code><a href='government_policy_timeline.html'>government_policy_timeline</a>()</code>,
+<code><a href='healthdata_projections_data.html'>healthdata_projections_data</a>()</code>,
+<code><a href='jhu_data.html'>jhu_data</a>()</code>,
+<code><a href='jhu_us_data.html'>jhu_us_data</a>()</code>,
+<code><a href='kff_icu_beds.html'>kff_icu_beds</a>()</code>,
+<code><a href='nytimes_county_data.html'>nytimes_county_data</a>()</code>,
+<code><a href='param_estimates_published.html'>param_estimates_published</a>()</code>,
+<code><a href='us_county_geo_details.html'>us_county_geo_details</a>()</code>,
+<code><a href='us_healthcare_capacity.html'>us_healthcare_capacity</a>()</code>,
+<code><a href='us_state_distancing_policy.html'>us_state_distancing_policy</a>()</code>,
+<code><a href='usa_facts_data.html'>usa_facts_data</a>()</code></p></div>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

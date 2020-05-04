@@ -85,7 +85,7 @@ are those used here https://covid19.healthdata.org/projections." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sars2pack</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.47</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.51</span>
       </span>
     </div>
 
@@ -218,6 +218,7 @@ confidence interval, lower confidence interval</p></li>
 <code><a href='jhu_data.html'>jhu_data</a>()</code>,
 <code><a href='jhu_us_data.html'>jhu_us_data</a>()</code>,
 <code><a href='kff_icu_beds.html'>kff_icu_beds</a>()</code>,
+<code><a href='nextstrain_data.html'>nextstrain_data</a>()</code>,
 <code><a href='nytimes_county_data.html'>nytimes_county_data</a>()</code>,
 <code><a href='param_estimates_published.html'>param_estimates_published</a>()</code>,
 <code><a href='us_county_geo_details.html'>us_county_geo_details</a>()</code>,
@@ -232,14 +233,14 @@ confidence interval, lower confidence interval</p></li>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>res</span> <span class='kw'>=</span> <span class='fu'>healthdata_projections_data</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 29473 rows [1, 30, 59, 88, 117, 146, 175, 204, 233, 262, 291, 320, 349, 378, 407, 436, 465, 494, 523, 552, ...].</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; [1] "location_name" "date"          "metric"        "NA"           
 #&gt; [5] "id"            "mean"          "lower"         "upper"        </div><div class='input'><span class='no'>res</span>[<span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span>(<span class='fl'>1</span>:<span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span>(<span class='no'>res</span>),<span class='fl'>6</span>),]</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 6 x 8</span><span>
-#&gt;   location_name                 date       metric   `NA`    id  mean lower upper
-#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>                         </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #555555;'>1</span><span> Indiana                       2020-01-15 ICUbed      0     0     0     0     0
-#&gt; </span><span style='color: #555555;'>2</span><span> Tennessee                     2020-04-17 icuover     0     0     0     0     0
-#&gt; </span><span style='color: #555555;'>3</span><span> Austria                       2020-03-05 locati…     0    75     0     0     0
-#&gt; </span><span style='color: #555555;'>4</span><span> Life Care Center, Kirkland, … 2020-02-29 icuover     0     0     0     0     0
-#&gt; </span><span style='color: #555555;'>5</span><span> Asturias                      2020-01-30 ICUbed      0     0     0     0     0
-#&gt; </span><span style='color: #555555;'>6</span><span> Slovenia                      2020-01-25 ICUbed      0     0     0     0     0</div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Rows: 324,203
+#&gt;   location_name                  date       metric  `NA`    id  mean lower upper
+#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>                          </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
+#&gt; </span><span style='color: #555555;'>1</span><span> Brandenburg                    2020-03-05 allbed     0     0  0        0   0  
+#&gt; </span><span style='color: #555555;'>2</span><span> Friuli-Venezia Giulia          2020-07-27 allbed     0     0  0        0   0  
+#&gt; </span><span style='color: #555555;'>3</span><span> Lombardia                      2020-03-05 V1     </span><span style='text-decoration: underline;'>14</span><span>578     0  0        0   0  
+#&gt; </span><span style='color: #555555;'>4</span><span> Navarre                        2020-07-09 newICU     0     0  0        0   0  
+#&gt; </span><span style='color: #555555;'>5</span><span> Liguria                        2020-03-02 InvVen     0     0  4.16     4   4.4
+#&gt; </span><span style='color: #555555;'>6</span><span> Life Care Center, Kirkland, WA 2020-07-14 admis      0     0  0        0   0  </div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Rows: 324,203
 #&gt; Columns: 8
 #&gt; $ location_name </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Abruzzo", "Abruzzo", "Abruzzo", "Abruzzo", "Abruzzo", …
 #&gt; $ date          </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2020-01-06, 2020-01-06, 2020-01-06, 2020-01-06, 2020-0…
@@ -292,7 +293,7 @@ confidence interval, lower confidence interval</p></li>
 
       <footer>
       <div class="copyright">
-  <p>Developed by Sean Davis, John C Mallery, Charles Morefield, VJ Carey.</p>
+  <p>Developed by Sean Davis, VJ Carey.</p>
 </div>
 
 <div class="pkgdown">

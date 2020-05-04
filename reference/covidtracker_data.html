@@ -84,7 +84,7 @@ testing results, hospitalizations, and deaths." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sars2pack</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.47</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.51</span>
       </span>
     </div>
 
@@ -203,6 +203,7 @@ district currently reporting that data.</p>
 <code><a href='jhu_data.html'>jhu_data</a>()</code>,
 <code><a href='jhu_us_data.html'>jhu_us_data</a>()</code>,
 <code><a href='kff_icu_beds.html'>kff_icu_beds</a>()</code>,
+<code><a href='nextstrain_data.html'>nextstrain_data</a>()</code>,
 <code><a href='nytimes_county_data.html'>nytimes_county_data</a>()</code>,
 <code><a href='param_estimates_published.html'>param_estimates_published</a>()</code>,
 <code><a href='us_county_geo_details.html'>us_county_geo_details</a>()</code>,
@@ -212,7 +213,9 @@ district currently reporting that data.</p>
 <p>Other case-tracking: 
 <code><a href='align_to_baseline.html'>align_to_baseline</a>()</code>,
 <code><a href='beoutbreakprepared_data.html'>beoutbreakprepared_data</a>()</code>,
+<code>bulk_estimate_Rt()</code>,
 <code><a href='ecdc_data.html'>ecdc_data</a>()</code>,
+<code>estimate_Rt()</code>,
 <code><a href='eu_data_cache_data.html'>eu_data_cache_data</a>()</code>,
 <code><a href='jhu_data.html'>jhu_data</a>()</code>,
 <code><a href='nytimes_county_data.html'>nytimes_county_data</a>()</code>,
@@ -222,16 +225,16 @@ district currently reporting that data.</p>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>res</span> <span class='kw'>=</span> <span class='fu'>covidtracker_data</span>()
 <span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; [1] "date"         "state"        "positive"     "negative"     "pending"     
-#&gt; [6] "hospitalized" "death"        "dateChecked"  "fips"        </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/dim.html'>dim</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; [1] 3209    9</div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Rows: 3,209
+#&gt; [6] "hospitalized" "death"        "dateChecked"  "fips"        </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/dim.html'>dim</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; [1] 3321    9</div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Rows: 3,321
 #&gt; Columns: 9
-#&gt; $ date         <span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2020-05-01, 2020-05-01, 2020-05-01, 2020-05-01, 2020-05…
+#&gt; $ date         <span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2020-05-03, 2020-05-03, 2020-05-03, 2020-05-03, 2020-05…
 #&gt; $ state        </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "AK", "AL", "AR", "AS", "AZ", "CA", "CO", "CT", "DC", "D…
-#&gt; $ positive     </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 364, 7158, 3321, 0, 7962, 50442, 15284, 28764, 4658, 491…
-#&gt; $ negative     </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 19961, 84775, 46355, 57, 66917, 604543, 57106, 71493, 16…
-#&gt; $ pending      </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
-#&gt; $ hospitalized </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> NA, 1008, 414, NA, 1203, NA, 2697, 7758, NA, NA, 5795, 5…
-#&gt; $ death        </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 9, 279, 64, 0, 330, 2073, 777, 2339, 231, 159, 1314, 115…
-#&gt; $ dateChecked  </span><span style='color: #555555;font-style: italic;'>&lt;dttm&gt;</span><span> 2020-05-01 20:00:00, 2020-05-01 20:00:00, 2020-05-01 20…
+#&gt; $ positive     </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 368, 7725, 3431, 0, 8640, 53616, 16225, 29287, 5016, 520…
+#&gt; $ negative     </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 21210, 84775, 49459, 57, 72479, 662135, 63681, 73206, 18…
+#&gt; $ pending      </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 1226, NA, NA, NA…
+#&gt; $ hospitalized </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> NA, 1035, 427, NA, 1348, NA, 2793, 7758, NA, NA, 6244, 5…
+#&gt; $ death        </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 9, 290, 76, 0, 362, 2215, 832, 2436, 251, 177, 1403, 117…
+#&gt; $ dateChecked  </span><span style='color: #555555;font-style: italic;'>&lt;dttm&gt;</span><span> 2020-05-03 20:00:00, 2020-05-03 20:00:00, 2020-05-03 20…
 #&gt; $ fips         </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "00002", "00001", "00005", "00060", "00004", "00006", "0…</div><div class='input'>
 
 </div></span></pre>
@@ -246,7 +249,7 @@ district currently reporting that data.</p>
 
       <footer>
       <div class="copyright">
-  <p>Developed by Sean Davis, John C Mallery, Charles Morefield, VJ Carey.</p>
+  <p>Developed by Sean Davis, VJ Carey.</p>
 </div>
 
 <div class="pkgdown">
