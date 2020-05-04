@@ -77,6 +77,8 @@
 #' # super-cool use of tidyr, purrr, and dplyr to perform 
 #' # calculations over all states:
 #' \dontrun{
+#' library(dplyr)
+#' library(tidyr)
 #' est_by = function(df) {
 #'         estimate_Rt(
 #'         df,
@@ -85,8 +87,8 @@
 #'         method = 'parametric_si',
 #'         config = list(mean_si=3.96, std_si=4.75))
 #'     }
-#' z = nyt %>% filter(subset=='confirmed') %>% tidyr::nest(-state) %>%
-#'     mutate(rt_df = purrr::map(data, est_by)) %>% tidyr::unnest(cols=rt_df)
+#' z = nyt %>% dplyr::filter(subset=='confirmed') %>% tidyr::nest(-state) %>%
+#'     dplyr::mutate(rt_df = purrr::map(data, est_by)) %>% tidyr::unnest(cols=rt_df)
 #' p = ggplot(z,aes(x=date_start,y=1/`Mean(R)`, color=state)) + 
 #'      ylim(c(0.5,1.25)) + 
 #'      geom_smooth(se = FALSE)
@@ -213,10 +215,11 @@ estimate_Rt = function(df, filter_expression,
 #' R(t) estimate will depend on the `estimation_family` parameter as well
 #' as other parameters specific to each method. 
 #' 
-#' @examples 
+#' @examples
+#' library(dplyr)
 #' nyt = nytimes_state_data() %>% 
-#'     filter(subset=='confirmed') %>%
-#'     arrange(state,date)
+#'     dplyr::filter(subset=='confirmed') %>%
+#'     dplyr::arrange(state,date)
 #' head(nyt)
 #' 
 #' # this may produce warnings, but the processing

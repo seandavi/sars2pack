@@ -14,17 +14,26 @@ s2p_get_cache <- function(cache = rappdirs::user_cache_dir(appname='sars2pack'))
 
 #' @importFrom BiocFileCache bfcneedsupdate bfcdownload bfcadd bfcquery bfcrpath
 #' 
-s2p_cached_url <- function(url, rname = url, ask_on_update=FALSE, ...) {
+s2p_cached_url <- function(url, rname = url, ask_on_update=FALSE,
+                           max_cache_age=getOption('sars2pack.max_cache_age', '2 days'),
+                           ...) {
     bfc = s2p_get_cache()
+    bfcres = bfcquery(bfc,rname,'rname')
+
+    print(bfcres)
     
-    rid = bfcquery(bfc,rname,'rname')$rid
+    rid = bfcres$rid
     # Not found
     if(!length(rid)) {
         rid = names(bfcadd(bfc, rname, url))
     }
     # if needs update, do the download
+    fileage = lubridate::now() -
+        lubridate::parse_date_time2(bfcres$access_time, "YmdHMS", tz=Sys.timezone())
     if(!isFALSE(bfcneedsupdate(bfc, rid))) {
         bfcdownload(bfc, rid, ask=FALSE, ...)
+    } else if (fileage > lubridate::as.period(max_cache_age)) {
+        bfcupdate(bfc, rid, ask=FALSE, ...)
     }
     bfcrpath(bfc, rids = rid)
 }

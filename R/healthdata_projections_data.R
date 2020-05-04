@@ -67,12 +67,11 @@
 healthdata_projections_data <- function() {
     rpath = "https://ihmecovid19storage.blob.core.windows.net/latest/ihme-covid19.zip"
     destfile = s2p_cached_url(rpath)
-    tmpd = tempdir()
     unzip(destfile, exdir=tmpd)
     datafile = dir(tmpd, pattern='^Hospitalization_all_locs\\.csv$', recursive = TRUE, full.names=TRUE)[1]
     projections = readr::read_csv(datafile, col_types=cols(), guess_max=5000)
     projections = projections %>%
-        tidyr::pivot_longer(cols=-c('location_name', 'date'),
+        tidyr::pivot_longer(cols=dplyr::ends_with(c('mean','upper','lower')),
                             names_to='metric', values_to='count') %>%
         tidyr::separate(metric, c('metric','quantity')) %>%
         tidyr::pivot_wider(names_from = quantity, values_from = count, values_fill = list(count=0))

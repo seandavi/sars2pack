@@ -43,9 +43,10 @@ much (or any) faster than running on each location in a case-tracking
 dataset independently and then combining.
 }
 \examples{
+library(dplyr)
 nyt = nytimes_state_data() \%>\% 
-    filter(subset=='confirmed') \%>\%
-    arrange(state,date)
+    dplyr::filter(subset=='confirmed') \%>\%
+    dplyr::arrange(state,date)
 head(nyt)
 
 # this may produce warnings, but the processing

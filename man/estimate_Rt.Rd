@@ -98,6 +98,8 @@ p + geom_smooth()
 # super-cool use of tidyr, purrr, and dplyr to perform 
 # calculations over all states:
 \dontrun{
+library(dplyr)
+library(tidyr)
 est_by = function(df) {
         estimate_Rt(
         df,
@@ -106,8 +108,8 @@ est_by = function(df) {
         method = 'parametric_si',
         config = list(mean_si=3.96, std_si=4.75))
     }
-z = nyt \%>\% filter(subset=='confirmed') \%>\% tidyr::nest(-state) \%>\%
-    mutate(rt_df = purrr::map(data, est_by)) \%>\% tidyr::unnest(cols=rt_df)
+z = nyt \%>\% dplyr::filter(subset=='confirmed') \%>\% tidyr::nest(-state) \%>\%
+    dplyr::mutate(rt_df = purrr::map(data, est_by)) \%>\% tidyr::unnest(cols=rt_df)
 p = ggplot(z,aes(x=date_start,y=1/`Mean(R)`, color=state)) + 
      ylim(c(0.5,1.25)) + 
      geom_smooth(se = FALSE)
