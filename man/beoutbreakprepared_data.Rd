@@ -73,6 +73,10 @@ Other case-tracking:
 \code{\link{nytimes_county_data}()},
 \code{\link{plot_epicurve}()},
 \code{\link{usa_facts_data}()}
+
+Other individual-cases: 
+\code{\link{nextstrain_case_data}()}
 }
 \concept{case-tracking}
 \concept{data-import}
+\concept{individual-cases}
