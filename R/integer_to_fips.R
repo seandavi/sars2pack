@@ -51,6 +51,6 @@ county_to_state_fips = function(fips) {
     if(!all(nchar(fips)==5)) {
         stop("FIPS codes should all be 5-digit character strings")
     }
-    return(paste0('000',substr(fips,4,5)))
+    return(paste0('000',substr(fips,1,2)))
 }
 

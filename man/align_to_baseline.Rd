@@ -87,6 +87,7 @@ plot_epicurve(ecdc_top10_baseline, date_column='index', color='location_name') +
 Other case-tracking: 
 \code{\link{beoutbreakprepared_data}()},
 \code{\link{bulk_estimate_Rt}()},
+\code{\link{combined_us_cases_data}()},
 \code{\link{covidtracker_data}()},
 \code{\link{ecdc_data}()},
 \code{\link{estimate_Rt}()},

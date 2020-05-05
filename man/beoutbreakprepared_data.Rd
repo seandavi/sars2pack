@@ -67,6 +67,7 @@ Other data-import:
 Other case-tracking: 
 \code{\link{align_to_baseline}()},
 \code{\link{bulk_estimate_Rt}()},
+\code{\link{combined_us_cases_data}()},
 \code{\link{covidtracker_data}()},
 \code{\link{ecdc_data}()},
 \code{\link{estimate_Rt}()},
