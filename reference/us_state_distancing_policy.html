@@ -219,55 +219,55 @@ for a subset of the states in the United States.</p>
 #&gt; [10] "DateEased"         "DateEnded"         "PolicyCodingNotes"
 #&gt; [13] "PolicySource"      "StateWide"         "LastUpdated"      
 #&gt; [16] "LastUpdatedNotes" </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>dplyr</span>)
-<span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Rows: 564
+<span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Rows: 1,148
 #&gt; Columns: 16
 #&gt; $ location_id       <span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 523, 523, 523, 523, 523, 523, 523, 523, 523, 523, 5…
-#&gt; $ StateFIPS         </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, …
+#&gt; $ StateFIPS         </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, …
 #&gt; $ StatePostal       </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "AL", "AL", "AL", "AL", "AL", "AL", "AL", "AL", "AL…
 #&gt; $ StateName         </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Alabama", "Alabama", "Alabama", "Alabama", "Alabam…
 #&gt; $ StatePolicy       </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "EmergDec", "SchoolClose", "GathRestrict25", "GathR…
-#&gt; $ Mandate           </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, …
+#&gt; $ Mandate           </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, …
 #&gt; $ DateIssued        </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 20200313, 20200314, 20200319, 20200319, 20200319, 2…
 #&gt; $ DateEnacted       </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 20200313, 20200318, 20200319, 20200319, 20200319, 2…
 #&gt; $ DateExpiry        </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> NA, NA, NA, 20200515, 20200515, 20200515, 20200403,…
-#&gt; $ DateEased         </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> NA, NA, NA, NA, 20200430, NA, NA, 20200430, NA, NA,…
-#&gt; $ DateEnded         </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, 20200430, NA, NA, N…
+#&gt; $ DateEased         </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> NA, NA, NA, NA, 20200430, NA, NA, NA, 20200430, NA,…
+#&gt; $ DateEnded         </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, 20200430, NA, N…
 #&gt; $ PolicyCodingNotes </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Public Health Emergency", "in effect 20200318. 202…
 #&gt; $ PolicySource      </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "https://governor.alabama.gov/newsroom/2020/03/thir…
-#&gt; $ StateWide         </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, …
+#&gt; $ StateWide         </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, …
 #&gt; $ LastUpdated       </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 20200324, 20200324, 20200420, 20200420, 20200420, 2…
 #&gt; $ LastUpdatedNotes  </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> NA, NA, "Updated DateEnacted to 20200319 per state …</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt;   location_id      StateFIPS     StatePostal         StateName        
-#&gt;  Min.   :523.0   Min.   : 1.00   Length:564         Length:564        
+#&gt;  Min.   :523.0   Min.   : 1.00   Length:1148        Length:1148       
 #&gt;  1st Qu.:535.0   1st Qu.:16.00   Class :character   Class :character  
 #&gt;  Median :549.0   Median :30.00   Mode  :character   Mode  :character  
-#&gt;  Mean   :548.3   Mean   :29.26                                        
+#&gt;  Mean   :548.3   Mean   :29.25                                        
 #&gt;  3rd Qu.:561.0   3rd Qu.:42.00                                        
 #&gt;  Max.   :573.0   Max.   :56.00                                        
-#&gt;                                                                       
+#&gt;  NA's   :582     NA's   :582                                          
 #&gt;  StatePolicy           Mandate         DateIssued        DateEnacted      
-#&gt;  Length:564         Min.   :0.0000   Min.   :20200229   Min.   :20200229  
+#&gt;  Length:1148        Min.   :0.0000   Min.   :20200229   Min.   :20200229  
 #&gt;  Class :character   1st Qu.:1.0000   1st Qu.:20200316   1st Qu.:20200316  
 #&gt;  Mode  :character   Median :1.0000   Median :20200319   Median :20200320  
-#&gt;                     Mean   :0.9078   Mean   :20200330   Mean   :20200333  
+#&gt;                     Mean   :0.9081   Mean   :20200330   Mean   :20200333  
 #&gt;                     3rd Qu.:1.0000   3rd Qu.:20200325   3rd Qu.:20200326  
 #&gt;                     Max.   :1.0000   Max.   :20200501   Max.   :20200506  
-#&gt;                                      NA's   :1          NA's   :2         
+#&gt;                     NA's   :582      NA's   :583        NA's   :584       
 #&gt;    DateExpiry         DateEased          DateEnded        PolicyCodingNotes 
-#&gt;  Min.   :20200330   Min.   :20200420   Min.   :20200424   Length:564        
-#&gt;  1st Qu.:20200430   1st Qu.:20200427   1st Qu.:20200426   Class :character  
-#&gt;  Median :20200511   Median :20200428   Median :20200428   Mode  :character  
-#&gt;  Mean   :20200496   Mean   :20200457   Mean   :20200448                     
-#&gt;  3rd Qu.:20200520   3rd Qu.:20200501   3rd Qu.:20200466                     
-#&gt;  Max.   :20200909   Max.   :20200511   Max.   :20200501                     
-#&gt;  NA's   :271        NA's   :513        NA's   :557                          
+#&gt;  Min.   :20200330   Min.   :20200420   Min.   :20200424   Length:1148       
+#&gt;  1st Qu.:20200430   1st Qu.:20200427   1st Qu.:20200428   Class :character  
+#&gt;  Median :20200511   Median :20200430   Median :20200430   Mode  :character  
+#&gt;  Mean   :20200496   Mean   :20200461   Mean   :20200460                     
+#&gt;  3rd Qu.:20200520   3rd Qu.:20200501   3rd Qu.:20200501                     
+#&gt;  Max.   :20200909   Max.   :20200511   Max.   :20200504                     
+#&gt;  NA's   :854        NA's   :1092       NA's   :1139                         
 #&gt;  PolicySource         StateWide       LastUpdated       LastUpdatedNotes  
-#&gt;  Length:564         Min.   :0.0000   Min.   :20200324   Length:564        
-#&gt;  Class :character   1st Qu.:1.0000   1st Qu.:20200327   Class :character  
+#&gt;  Length:1148        Min.   :0.0000   Min.   :20200324   Length:1148       
+#&gt;  Class :character   1st Qu.:1.0000   1st Qu.:20200328   Class :character  
 #&gt;  Mode  :character   Median :1.0000   Median :20200414   Mode  :character  
-#&gt;                     Mean   :0.9291   Mean   :20200402                     
+#&gt;                     Mean   :0.9293   Mean   :20200404                     
 #&gt;                     3rd Qu.:1.0000   3rd Qu.:20200427                     
-#&gt;                     Max.   :1.0000   Max.   :20200503                     
-#&gt;                                                                           </div><div class='input'>
+#&gt;                     Max.   :1.0000   Max.   :20200505                     
+#&gt;                     NA's   :582      NA's   :582                          </div><div class='input'>
 </div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
