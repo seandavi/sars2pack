@@ -63,6 +63,9 @@
       <a href="../articles/add_a_dataset.html">How to add a new dataset to sars2pack</a>
     </li>
     <li>
+      <a href="../articles/case_tracking.html">Case tracking datasets</a>
+    </li>
+    <li>
       <a href="../articles/datasets.html">Available datasets</a>
     </li>
     <li>
@@ -113,7 +116,7 @@
                         <h4 class="author">Joe A. Wasserman <a href="mailto:jwasserman@rti.org">jwasserman@rti.org</a> and Crystal T. Nguyen <a href="mailto:ctnguyen@rti.org">ctnguyen@rti.org</a>
 </h4>
             
-            <h4 class="date">May 04, 2020</h4>
+            <h4 class="date">May 05, 2020</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/seandavi/sars2pack/blob/master/vignettes/more_visualization.Rmd"><code>vignettes/more_visualization.Rmd</code></a></small>
       <div class="hidden name"><code>more_visualization.Rmd</code></div>
@@ -140,7 +143,7 @@
 <p>Let’s start with US county-level data from JHU and state-level data from the COVID Tracking Project.</p>
 <div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="no">cusa</span> <span class="kw">=</span> <span class="fu"><a href="../reference/jhu_us_data.html">jhu_us_data</a></span>()
 <span class="fu"><a href="https://dplyr.tidyverse.org/reference/reexports.html">glimpse</a></span>(<span class="no">cusa</span>)</pre></body></html></div>
-<pre><code>## Rows: 671,766
+<pre><code>## Rows: 678,288
 ## Columns: 15
 ## $ UID          &lt;dbl&gt; 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, …
 ## $ iso2         &lt;chr&gt; "AS", "AS", "AS", "AS", "AS", "AS", "AS", "AS", "AS", "A…
@@ -191,7 +194,7 @@
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(<span class="no">date</span> <span class="kw">&gt;=</span> <span class="st">"2020-03-15"</span>, <span class="no">iso2</span> <span class="kw">==</span> <span class="st">"US"</span>)
 
 <span class="fu"><a href="https://dplyr.tidyverse.org/reference/reexports.html">glimpse</a></span>(<span class="no">iusa</span>)</pre></body></html></div>
-<pre><code>## Rows: 325,600
+<pre><code>## Rows: 332,112
 ## Columns: 17
 ## $ date         &lt;date&gt; 2020-03-15, 2020-03-15, 2020-03-15, 2020-03-15, 2020-03…
 ## $ subset       &lt;chr&gt; "confirmed", "confirmed", "confirmed", "confirmed", "con…

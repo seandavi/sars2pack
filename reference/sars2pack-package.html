@@ -126,6 +126,9 @@ personal decisions for months or even years to come." />
       <a href="../articles/add_a_dataset.html">How to add a new dataset to sars2pack</a>
     </li>
     <li>
+      <a href="../articles/case_tracking.html">Case tracking datasets</a>
+    </li>
+    <li>
       <a href="../articles/datasets.html">Available datasets</a>
     </li>
     <li>
@@ -266,7 +269,7 @@ COVID-19 data resources.</p></li>
 #&gt; </span><span style='color: #555555;'>6</span><span> </span><span style='color: #BB0000;'>NA</span><span>            Afghanistan      33    65 2020-01-27     0 confirmed
 #&gt; 
 #&gt; jhu_dt&gt; dplyr::glimpse(res)
-#&gt; Rows: 80,752
+#&gt; Rows: 81,536
 #&gt; Columns: 7
 #&gt; $ ProvinceState </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
 #&gt; $ CountryRegion </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Afghanistan", "Afghanistan", "Afghanistan", "Afghanist…
@@ -324,7 +327,86 @@ COVID-19 data resources.</p></li>
 #&gt; appl__&gt; 
 #&gt; appl__&gt; </div><div class='input'>
 <span class='fu'><a href='https://rdrr.io/r/utils/example.html'>example</a></span>(<span class='no'>healthdata_projections_data</span>)</div><div class='output co'>#&gt; 
-#&gt; hlth__&gt; res = healthdata_projections_data()</div><div class='output co'>#&gt; <span class='error'>Error in unzip(destfile, exdir = tmpd): object 'tmpd' not found</span></div><div class='input'>
+#&gt; hlth__&gt; res = healthdata_projections_data()
+#&gt; 
+#&gt; hlth__&gt; colnames(res)
+#&gt; [1] "location_name"    "date"             "metric"           "mean"            
+#&gt; [5] "infections_mean"  "upper"            "infections_upper" "lower"           
+#&gt; [9] "infections_lower"
+#&gt; 
+#&gt; hlth__&gt; res[sample(1:nrow(res),6),]
+#&gt; </span><span style='color: #555555;'># A tibble: 6 x 9</span><span>
+#&gt;   location_name date       metric   mean infections_mean upper infections_upper
+#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>         </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>           </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>            </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
+#&gt; </span><span style='color: #555555;'>1</span><span> Greece        2020-04-17 allbed  83.2                0  90.5                0
+#&gt; </span><span style='color: #555555;'>2</span><span> Florida       2020-06-26 admis  104.                 0 560.                 0
+#&gt; </span><span style='color: #555555;'>3</span><span> Estonia       2020-06-14 admis    0                  0   0                  0
+#&gt; </span><span style='color: #555555;'>4</span><span> Alabama       2020-08-03 ICUbed  59.5                0 396.                 0
+#&gt; </span><span style='color: #555555;'>5</span><span> Castile and … 2020-04-08 ICUbed 483.                 0 493.                 0
+#&gt; </span><span style='color: #555555;'>6</span><span> Arkansas      2020-07-13 admis    1.60               0  10.4                0
+#&gt; </span><span style='color: #555555;'># … with 2 more variables: lower </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, infections_lower </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
+#&gt; 
+#&gt; hlth__&gt; dplyr::glimpse(res)
+#&gt; Rows: 298,410
+#&gt; Columns: 9
+#&gt; $ location_name    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Abruzzo", "Abruzzo", "Abruzzo", "Abruzzo", "Abruzzo…
+#&gt; $ date             </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2020-02-04, 2020-02-04, 2020-02-04, 2020-02-04, 202…
+#&gt; $ metric           </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "allbed", "ICUbed", "InvVen", "deaths", "admis", "ne…
+#&gt; $ mean             </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
+#&gt; $ infections_mean  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, NA, 0, 0, 0, 0, 0, 0, 0, …
+#&gt; $ upper            </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
+#&gt; $ infections_upper </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, NA, 0, 0, 0, 0, 0, 0, 0, …
+#&gt; $ lower            </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
+#&gt; $ infections_lower </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, NA, 0, 0, 0, 0, 0, 0, 0, …
+#&gt; 
+#&gt; hlth__&gt; summary(res)
+#&gt;  location_name           date               metric               mean          
+#&gt;  Length:298410      Min.   :2020-02-04   Length:298410      Min.   :     0.00  
+#&gt;  Class :character   1st Qu.:2020-03-25   Class :character   1st Qu.:     0.00  
+#&gt;  Mode  :character   Median :2020-05-15   Mode  :character   Median :     0.00  
+#&gt;                     Mean   :2020-05-15                      Mean   :   312.16  
+#&gt;                     3rd Qu.:2020-07-05                      3rd Qu.:    11.47  
+#&gt;                     Max.   :2020-08-24                      Max.   :134475.18  
+#&gt;                                                                                
+#&gt;  infections_mean         upper           infections_upper       lower        
+#&gt;  Min.   :     0.00   Min.   :     0.00   Min.   :     0.0   Min.   :    0.0  
+#&gt;  1st Qu.:     0.00   1st Qu.:     0.00   1st Qu.:     0.0   1st Qu.:    0.0  
+#&gt;  Median :     0.00   Median :     0.00   Median :     0.0   Median :    0.0  
+#&gt;  Mean   :    59.47   Mean   :   496.18   Mean   :   147.1   Mean   :  249.2  
+#&gt;  3rd Qu.:     0.00   3rd Qu.:    25.39   3rd Qu.:     0.0   3rd Qu.:    3.2  
+#&gt;  Max.   :108645.90   Max.   :242889.98   Max.   :137115.9   Max.   :95091.9  
+#&gt;  NA's   :20508                           NA's   :20508                       
+#&gt;  infections_lower  
+#&gt;  Min.   :    0.00  
+#&gt;  1st Qu.:    0.00  
+#&gt;  Median :    0.00  
+#&gt;  Mean   :   30.34  
+#&gt;  3rd Qu.:    0.00  
+#&gt;  Max.   :96907.94  
+#&gt;  NA's   :20508     
+#&gt; 
+#&gt; hlth__&gt; #plot the predictions
+#&gt; hlth__&gt; 
+#&gt; hlth__&gt; regs_of_interest = 'Georgia'
+#&gt; 
+#&gt; hlth__&gt; library(ggplot2)
+#&gt; 
+#&gt; hlth__&gt; pl = res %&gt;%
+#&gt; hlth__+     dplyr::filter(location_name %in% regs_of_interest) %&gt;%
+#&gt; hlth__+     ggplot(aes(x=date)) + geom_line(aes(y=mean, color=metric))
+#&gt; 
+#&gt; hlth__&gt; # plot the "mean" prediction
+#&gt; hlth__&gt; pl</div><div class='img'><img src='sars2pack-package-1.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; 
+#&gt; hlth__&gt; # add 95% confidence bounds
+#&gt; hlth__&gt; pl + geom_ribbon(aes(ymin=lower, ymax=upper, fill=metric), alpha=0.25)</div><div class='img'><img src='sars2pack-package-2.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; 
+#&gt; hlth__&gt; regs_of_interest = c('New York', 'Italy')
+#&gt; 
+#&gt; hlth__&gt; pl = res %&gt;%
+#&gt; hlth__+     dplyr::filter(location_name %in% regs_of_interest) %&gt;%
+#&gt; hlth__+     ggplot(aes(x=date)) + geom_line(aes(y=mean, color=metric)) +
+#&gt; hlth__+     facet_grid(rows = vars(location_name))
+#&gt; 
+#&gt; hlth__&gt; pl</div><div class='img'><img src='sars2pack-package-3.png' alt='' width='700' height='433' /></div><div class='input'>
 
 
 </div></span></pre>
