@@ -117,7 +117,6 @@ estimate_Rt = function(df, filter_expression,
     }
     
     if(any(diff(df[[date_column]])!=1)) {
-        print(as.data.frame(df))
         nm2 = list()
         nm2[[cases_column]]=0
         df2 = data.frame(Date = seq(min(df[[date_column]]), max(df[[date_column]]), by = "1 day"))
