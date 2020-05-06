@@ -8,7 +8,10 @@ sars2pack
 <!-- badges: end -->
 
 ``` r
-knitr::opts_chunk$set(warning=FALSE,message=FALSE, fig.width=9, fig.height=6, out.width = '100%')
+knitr::opts_chunk$set(warning=FALSE,message=FALSE, 
+                      fig.width=9, fig.height=6, out.width = '100%'
+                      )
+knitr::opts_knit$set(upload.fun = knitr::imgur_upload)
 ```
 
 The `sars2pack` R package:
@@ -94,7 +97,7 @@ plot_epicurve(ecdc_top10,
               color='location_name')
 ```
 
-<img src="README_files/figure-gfm/plotcases-1.png" width="100%" />
+<img src="https://i.imgur.com/0Ab9B9q.png" width="100%" />
 
 Comparing the features of disease spread is easiest if all curves are
 shifted to “start” at the same absolute level of infection. In this
@@ -108,7 +111,7 @@ ecdc_top10 %>% align_to_baseline(count>100,group_vars=c('location_name')) %>%
     plot_epicurve(date_column = 'index',color='location_name')
 ```
 
-<img src="README_files/figure-gfm/unnamed-chunk-5-1.png" width="100%" />
+<img src="https://i.imgur.com/UERs1qV.png" width="100%" />
 
 ## Geospatial plotting of data
 
@@ -125,14 +128,14 @@ pl = hcpd %>%
 pl
 ```
 
-<img src="README_files/figure-gfm/unnamed-chunk-6-1.png" width="100%" />
+<img src="https://i.imgur.com/4rdUh85.png" width="100%" />
 
 ``` r
 # add 95% confidence bounds
 pl + geom_ribbon(aes(ymin=lower, ymax=upper, fill=metric), alpha=0.25)
 ```
 
-<img src="README_files/figure-gfm/unnamed-chunk-6-2.png" width="100%" />
+<img src="https://i.imgur.com/bGe8ouj.png" width="100%" />
 
 ## Contributions
 
