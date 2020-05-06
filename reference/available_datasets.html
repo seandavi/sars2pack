@@ -82,7 +82,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sars2pack</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.51</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.53</span>
       </span>
     </div>
 
@@ -193,42 +193,53 @@ in the list. See examples for details and for viewing suggestions.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>res</span> <span class='kw'>=</span> <span class='fu'>available_datasets</span>()
-<span class='no'>res</span></div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 26 x 8</span><span>
+<span class='no'>res</span></div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 28 x 8</span><span>
 #&gt;    name    accessor  data_type geographical geospatial resolution region url    
 #&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;lgl&gt;</span><span>        </span><span style='color: #555555;font-style: italic;'>&lt;lgl&gt;</span><span>      </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>  
-#&gt; </span><span style='color: #555555;'> 1</span><span> GISAID… nextstra… individu… TRUE         FALSE      admin2     World  https:…
-#&gt; </span><span style='color: #555555;'> 2</span><span> Publis… param_es… miscella… FALSE        FALSE      </span><span style='color: #BB0000;'>NA</span><span>         </span><span style='color: #BB0000;'>NA</span><span>     https:…
-#&gt; </span><span style='color: #555555;'> 3</span><span> Aggreg… cdc_aggr… projecti… TRUE         FALSE      country    </span><span style='color: #BB0000;'>NA</span><span>     https:…
-#&gt; </span><span style='color: #555555;'> 4</span><span> Aggreg… cdc_aggr… projecti… TRUE         FALSE      admin1     </span><span style='color: #BB0000;'>NA</span><span>     https:…
-#&gt; </span><span style='color: #555555;'> 5</span><span> Google… google_m… mobility  TRUE         FALSE      admin0     World  https:…
-#&gt; </span><span style='color: #555555;'> 6</span><span> Google… google_m… mobility  TRUE         FALSE      admin1     World  https:…
-#&gt; </span><span style='color: #555555;'> 7</span><span> Google… google_m… mobility  TRUE         FALSE      admin2     World  https:…
-#&gt; </span><span style='color: #555555;'> 8</span><span> Europe… ecdc_data time ser… TRUE         FALSE      country    World  https:…
-#&gt; </span><span style='color: #555555;'> 9</span><span> beoutb… beoutbre… individu… TRUE         FALSE      patient    World  https:…
-#&gt; </span><span style='color: #555555;'>10</span><span> EU dat… eu_data_… time ser… TRUE         FALSE      country a… Europe https:…
-#&gt; </span><span style='color: #555555;'># … with 16 more rows</span><span></div><div class='input'><span class='co'># and how to use the accessor programmatically</span>
-<span class='fu'><a href='https://rdrr.io/r/base/get.html'>get</a></span>(<span class='no'>res</span>[<span class='fl'>1</span>,]$<span class='no'>accessor</span>)()</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 16,284 x 23</span><span>
-#&gt;    strain virus gisaid_epi_isl genbank_accessi… date  region country division
-#&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>          </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>            </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>   
-#&gt; </span><span style='color: #555555;'> 1</span><span> Alger… ncov  EPI_ISL_418241 ?                2020… Africa Algeria Boufarik
-#&gt; </span><span style='color: #555555;'> 2</span><span> Alger… ncov  EPI_ISL_418242 ?                2020… Africa Algeria Blida   
-#&gt; </span><span style='color: #555555;'> 3</span><span> Alger… ncov  EPI_ISL_420037 ?                2020… Africa Algeria Boufarik
-#&gt; </span><span style='color: #555555;'> 4</span><span> Anhui… ncov  EPI_ISL_413485 ?                2020… Asia   China   Anhui   
-#&gt; </span><span style='color: #555555;'> 5</span><span> Argen… ncov  EPI_ISL_420600 ?                2020… South… Argent… Argenti…
-#&gt; </span><span style='color: #555555;'> 6</span><span> Argen… ncov  EPI_ISL_420599 ?                2020… South… Argent… Argenti…
-#&gt; </span><span style='color: #555555;'> 7</span><span> Argen… ncov  EPI_ISL_420598 ?                2020… South… Argent… Argenti…
-#&gt; </span><span style='color: #555555;'> 8</span><span> Argen… ncov  EPI_ISL_430793 ?                2020… South… Argent… Ciudad …
-#&gt; </span><span style='color: #555555;'> 9</span><span> Argen… ncov  EPI_ISL_430794 ?                2020… South… Argent… Ciudad …
-#&gt; </span><span style='color: #555555;'>10</span><span> Argen… ncov  EPI_ISL_430795 ?                2020… South… Argent… Ciudad …
-#&gt; </span><span style='color: #555555;'># … with 16,274 more rows, and 15 more variables: location </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   region_exposure </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, country_exposure </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, division_exposure </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   segment </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, length </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, host </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, age </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, sex </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   originating_lab </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, submitting_lab </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, authors </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, url </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   title </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, date_submitted </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span></div><div class='input'>
+#&gt; </span><span style='color: #555555;'> 1</span><span> GISAID… cov_glue… individu… TRUE         FALSE      multiple   World  https:…
+#&gt; </span><span style='color: #555555;'> 2</span><span> Newick… cov_glue… phylogen… FALSE        FALSE      multiple   World  https:…
+#&gt; </span><span style='color: #555555;'> 3</span><span> US CDC… cdc_exce… miscella… TRUE         FALSE      admin1     US     https:…
+#&gt; </span><span style='color: #555555;'> 4</span><span> Publis… param_es… miscella… FALSE        FALSE      </span><span style='color: #BB0000;'>NA</span><span>         </span><span style='color: #BB0000;'>NA</span><span>     https:…
+#&gt; </span><span style='color: #555555;'> 5</span><span> Aggreg… cdc_aggr… projecti… TRUE         FALSE      country    </span><span style='color: #BB0000;'>NA</span><span>     https:…
+#&gt; </span><span style='color: #555555;'> 6</span><span> Aggreg… cdc_aggr… projecti… TRUE         FALSE      admin1     </span><span style='color: #BB0000;'>NA</span><span>     https:…
+#&gt; </span><span style='color: #555555;'> 7</span><span> Google… google_m… mobility  TRUE         FALSE      admin0     World  https:…
+#&gt; </span><span style='color: #555555;'> 8</span><span> Google… google_m… mobility  TRUE         FALSE      admin1     World  https:…
+#&gt; </span><span style='color: #555555;'> 9</span><span> Google… google_m… mobility  TRUE         FALSE      admin2     World  https:…
+#&gt; </span><span style='color: #555555;'>10</span><span> Europe… ecdc_data time ser… TRUE         FALSE      country    World  https:…
+#&gt; </span><span style='color: #555555;'># … with 18 more rows</span><span></div><div class='input'><span class='co'># and how to use the accessor programmatically</span>
+<span class='fu'><a href='https://rdrr.io/r/base/get.html'>get</a></span>(<span class='no'>res</span>[<span class='fl'>1</span>,]$<span class='no'>accessor</span>)()</div><div class='output co'>#&gt; <span class='warning'>Warning: 1 parsing failure.</span>
+#&gt; <span class='warning'> row         col   expected  actual                                                                           file</span>
+#&gt; <span class='warning'>1860 sample date date like  2020-01 '/Users/sdavis2/Library/Caches/sars2pack/2d567b7eb9aa_lineages.2020-04-27.csv'</span></div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 9,875 x 10</span><span>
+#&gt;    name  gisaid_id country travel_history date       epiweek lineage
+#&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>          </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>       </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>  
+#&gt; </span><span style='color: #555555;'> 1</span><span> USA/… EPI_ISL_… USA     </span><span style='color: #BB0000;'>NA</span><span>             2020-03-02      10 B.1    
+#&gt; </span><span style='color: #555555;'> 2</span><span> USA/… EPI_ISL_… USA     </span><span style='color: #BB0000;'>NA</span><span>             2020-02-29       9 A.1    
+#&gt; </span><span style='color: #555555;'> 3</span><span> USA/… EPI_ISL_… USA     </span><span style='color: #BB0000;'>NA</span><span>             2020-03-02      10 B.1    
+#&gt; </span><span style='color: #555555;'> 4</span><span> USA/… EPI_ISL_… USA     </span><span style='color: #BB0000;'>NA</span><span>             2020-03-01      10 B.1.5  
+#&gt; </span><span style='color: #555555;'> 5</span><span> USA/… EPI_ISL_… USA     </span><span style='color: #BB0000;'>NA</span><span>             2020-03-01      10 A.1    
+#&gt; </span><span style='color: #555555;'> 6</span><span> USA/… EPI_ISL_… USA     </span><span style='color: #BB0000;'>NA</span><span>             2020-03-01      10 B.2    
+#&gt; </span><span style='color: #555555;'> 7</span><span> USA/… EPI_ISL_… USA     </span><span style='color: #BB0000;'>NA</span><span>             2020-02-29       9 A.1    
+#&gt; </span><span style='color: #555555;'> 8</span><span> USA/… EPI_ISL_… USA     </span><span style='color: #BB0000;'>NA</span><span>             2020-02-29       9 B.1    
+#&gt; </span><span style='color: #555555;'> 9</span><span> USA/… EPI_ISL_… USA     </span><span style='color: #BB0000;'>NA</span><span>             2020-03-01      10 B      
+#&gt; </span><span style='color: #555555;'>10</span><span> USA/… EPI_ISL_… USA     </span><span style='color: #BB0000;'>NA</span><span>             2020-02-28       9 A.1    
+#&gt; </span><span style='color: #555555;'># … with 9,865 more rows, and 3 more variables: representative </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
+#&gt; </span><span style='color: #555555;'>#   iso3c </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, iso2c </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span></div><div class='input'>
 
 <span class='no'>dd</span> <span class='kw'>=</span> <span class='fu'>dataset_details</span>()
 <span class='fu'><a href='https://rdrr.io/r/utils/str.html'>str</a></span>(<span class='no'>dd</span>,<span class='kw'>list.len</span><span class='kw'>=</span><span class='fl'>3</span>)</div><div class='output co'>#&gt; List of 2
-#&gt;  $ datasets :List of 21
+#&gt;  $ datasets :List of 22
+#&gt;   ..$ cdc_excess_deaths          :List of 3
+#&gt;   .. ..$ columns   :List of 8
+#&gt;   .. .. ..$ date        : chr "Date"
+#&gt;   .. .. ..$ state       : chr "character"
+#&gt;   .. .. ..$ deaths      : chr "numeric"
+#&gt;   .. .. .. [list output truncated]
+#&gt;   .. ..$ dimensions:List of 2
+#&gt;   .. .. ..$ nrow: int 36464
+#&gt;   .. .. ..$ ncol: int 8
+#&gt;   .. ..$ dates     :List of 2
+#&gt;   .. .. ..$ min: chr "2017-01-14"
+#&gt;   .. .. ..$ max: chr "2020-04-25"
 #&gt;   ..$ nextstrain_case_data       :List of 3
 #&gt;   .. ..$ columns   :List of 23
 #&gt;   .. .. ..$ strain           : chr "character"
@@ -236,11 +247,11 @@ in the list. See examples for details and for viewing suggestions.</p>
 #&gt;   .. .. ..$ gisaid_epi_isl   : chr "character"
 #&gt;   .. .. .. [list output truncated]
 #&gt;   .. ..$ dimensions:List of 2
-#&gt;   .. .. ..$ nrow: int 15908
+#&gt;   .. .. ..$ nrow: int 16284
 #&gt;   .. .. ..$ ncol: int 23
 #&gt;   .. ..$ dates     :List of 2
 #&gt;   .. .. ..$ min: chr "2013-07-24"
-#&gt;   .. .. ..$ max: chr "2020-04-24"
+#&gt;   .. .. ..$ max: chr "2020-04-29"
 #&gt;   ..$ param_estimates_published  :List of 2
 #&gt;   .. ..$ columns   :List of 29
 #&gt;   .. .. ..$ id                  : chr "character"
@@ -250,28 +261,19 @@ in the list. See examples for details and for viewing suggestions.</p>
 #&gt;   .. ..$ dimensions:List of 2
 #&gt;   .. .. ..$ nrow: int 537
 #&gt;   .. .. ..$ ncol: int 29
-#&gt;   ..$ cdc_aggregated_projections :List of 2
-#&gt;   .. ..$ columns   :List of 8
-#&gt;   .. .. ..$ model               : chr "character"
-#&gt;   .. .. ..$ forecast_date       : chr "Date"
-#&gt;   .. .. ..$ target              : chr "character"
-#&gt;   .. .. .. [list output truncated]
-#&gt;   .. ..$ dimensions:List of 2
-#&gt;   .. .. ..$ nrow: int 5209
-#&gt;   .. .. ..$ ncol: int 8
 #&gt;   .. [list output truncated]
-#&gt;  $ eval_date: chr "2020-05-04"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='no'>dd</span>$<span class='no'>datasets</span>)</div><div class='output co'>#&gt;  [1] "nextstrain_case_data"        "param_estimates_published"  
-#&gt;  [3] "cdc_aggregated_projections"  "google_mobility_data"       
-#&gt;  [5] "ecdc_data"                   "beoutbreakprepared_data"    
-#&gt;  [7] "eu_data_cache_data"          "descartes_mobility_data"    
-#&gt;  [9] "apple_mobility_data"         "usa_facts_data"             
-#&gt; [11] "jhu_data"                    "jhu_us_data"                
-#&gt; [13] "nytimes_county_data"         "nytimes_state_data"         
-#&gt; [15] "kff_icu_beds"                "us_county_geo_details"      
-#&gt; [17] "covidtracker_data"           "us_healthcare_capacity"     
-#&gt; [19] "government_policy_timeline"  "healthdata_projections_data"
-#&gt; [21] "us_state_distancing_policy" </div><div class='input'><span class='co'># evaluated</span>
-<span class='no'>dd</span>$<span class='no'>eval_date</span></div><div class='output co'>#&gt; [1] "2020-05-04"</div><div class='input'>
+#&gt;  $ eval_date: chr "2020-05-05"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='no'>dd</span>$<span class='no'>datasets</span>)</div><div class='output co'>#&gt;  [1] "cdc_excess_deaths"           "nextstrain_case_data"       
+#&gt;  [3] "param_estimates_published"   "cdc_aggregated_projections" 
+#&gt;  [5] "google_mobility_data"        "ecdc_data"                  
+#&gt;  [7] "beoutbreakprepared_data"     "eu_data_cache_data"         
+#&gt;  [9] "descartes_mobility_data"     "apple_mobility_data"        
+#&gt; [11] "usa_facts_data"              "jhu_data"                   
+#&gt; [13] "jhu_us_data"                 "nytimes_county_data"        
+#&gt; [15] "nytimes_state_data"          "kff_icu_beds"               
+#&gt; [17] "us_county_geo_details"       "covidtracker_data"          
+#&gt; [19] "us_healthcare_capacity"      "government_policy_timeline" 
+#&gt; [21] "healthdata_projections_data" "us_state_distancing_policy" </div><div class='input'><span class='co'># evaluated</span>
+<span class='no'>dd</span>$<span class='no'>eval_date</span></div><div class='output co'>#&gt; [1] "2020-05-05"</div><div class='input'>
 
 </div></span></pre>
   </div>

@@ -85,7 +85,7 @@ are those used here https://covid19.healthdata.org/projections." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sars2pack</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.51</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.53</span>
       </span>
     </div>
 
@@ -213,6 +213,8 @@ confidence interval, lower confidence interval</p></li>
 <code><a href='beoutbreakprepared_data.html'>beoutbreakprepared_data</a>()</code>,
 <code><a href='cdc_aggregated_projections.html'>cdc_aggregated_projections</a>()</code>,
 <code><a href='cdc_excess_deaths.html'>cdc_excess_deaths</a>()</code>,
+<code><a href='cov_glue_datasets.html'>cov_glue_lineage_data</a>()</code>,
+<code><a href='cov_glue_newick_data.html'>cov_glue_newick_data</a>()</code>,
 <code><a href='covidtracker_data.html'>covidtracker_data</a>()</code>,
 <code><a href='descartes_mobility_data.html'>descartes_mobility_data</a>()</code>,
 <code><a href='ecdc_data.html'>ecdc_data</a>()</code>,
@@ -222,7 +224,6 @@ confidence interval, lower confidence interval</p></li>
 <code><a href='jhu_data.html'>jhu_data</a>()</code>,
 <code><a href='jhu_us_data.html'>jhu_us_data</a>()</code>,
 <code><a href='kff_icu_beds.html'>kff_icu_beds</a>()</code>,
-<code><a href='nextstrain_case_data.html'>nextstrain_case_data</a>()</code>,
 <code><a href='nytimes_county_data.html'>nytimes_county_data</a>()</code>,
 <code><a href='param_estimates_published.html'>param_estimates_published</a>()</code>,
 <code><a href='us_county_geo_details.html'>us_county_geo_details</a>()</code>,
@@ -239,14 +240,14 @@ confidence interval, lower confidence interval</p></li>
 <span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; [1] "location_name"    "date"             "metric"           "mean"            
 #&gt; [5] "infections_mean"  "upper"            "infections_upper" "lower"           
 #&gt; [9] "infections_lower"</div><div class='input'><span class='no'>res</span>[<span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span>(<span class='fl'>1</span>:<span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span>(<span class='no'>res</span>),<span class='fl'>6</span>),]</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 6 x 9</span><span>
-#&gt;   location_name date       metric  mean infections_mean upper infections_upper
-#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>         </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>           </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>            </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #555555;'>1</span><span> King and Sno… 2020-03-29 deaths   12           0        12             0    
-#&gt; </span><span style='color: #555555;'>2</span><span> Vermont       2020-06-24 est       0           0.081</span><span style='text-decoration: underline;'>7</span><span>    0             0.450
-#&gt; </span><span style='color: #555555;'>3</span><span> Baden-Wurtte… 2020-03-10 est       0          </span><span style='color: #BB0000;'>NA</span><span>         0            </span><span style='color: #BB0000;'>NA</span><span>    
-#&gt; </span><span style='color: #555555;'>4</span><span> Marche        2020-02-04 newICU    0           0         0             0    
-#&gt; </span><span style='color: #555555;'>5</span><span> Asturias      2020-07-23 admis     0           0         0             0    
-#&gt; </span><span style='color: #555555;'>6</span><span> United Kingd… 2020-04-08 newICU </span><span style='text-decoration: underline;'>1</span><span>186.          0      </span><span style='text-decoration: underline;'>1</span><span>214.            0    
+#&gt;   location_name date       metric   mean infections_mean upper infections_upper
+#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>         </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>           </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>            </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
+#&gt; </span><span style='color: #555555;'>1</span><span> Greece        2020-04-17 allbed  83.2                0  90.5                0
+#&gt; </span><span style='color: #555555;'>2</span><span> Florida       2020-06-26 admis  104.                 0 560.                 0
+#&gt; </span><span style='color: #555555;'>3</span><span> Estonia       2020-06-14 admis    0                  0   0                  0
+#&gt; </span><span style='color: #555555;'>4</span><span> Alabama       2020-08-03 ICUbed  59.5                0 396.                 0
+#&gt; </span><span style='color: #555555;'>5</span><span> Castile and … 2020-04-08 ICUbed 483.                 0 493.                 0
+#&gt; </span><span style='color: #555555;'>6</span><span> Arkansas      2020-07-13 admis    1.60               0  10.4                0
 #&gt; </span><span style='color: #555555;'># … with 2 more variables: lower </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, infections_lower </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span></div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Rows: 298,410
 #&gt; Columns: 9
 #&gt; $ location_name    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Abruzzo", "Abruzzo", "Abruzzo", "Abruzzo", "Abruzzo…
