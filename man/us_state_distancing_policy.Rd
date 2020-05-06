@@ -13,7 +13,7 @@ us_state_distancing_policy()
 }
 \description{
 An updated, curated set of social distancing and non-pharmaceutical interventions
-for a subset of the states in the United States.
+for states in the United States and District of Columbia.
 }
 \section{Kudos}{
 

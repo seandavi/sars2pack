@@ -1,7 +1,7 @@
 #' United States social distancing policies for COVID-19
 #' 
 #' An updated, curated set of social distancing and non-pharmaceutical interventions
-#' for a subset of the states in the United States.
+#' for states in the United States and District of Columbia.
 #' 
 #' @importFrom readr read_csv
 #' @importFrom dplyr select starts_with
@@ -30,5 +30,19 @@
 us_state_distancing_policy = function() {
     rpath = s2p_cached_url('https://raw.githubusercontent.com/COVID19StatePolicy/SocialDistancing/master/data/USstatesCov19distancingpolicy.csv')
     res = readr::read_csv(rpath,col_types = cols())
-    res %>% dplyr::select(-dplyr::starts_with('X'))
+    res %>% dplyr::select(-dplyr::starts_with('X')) %>%
+        dplyr::mutate(
+            DateIssued = lubridate::ymd(DateIssued),
+            DateEnacted = lubridate::ymd(DateEnacted),
+            DateEased = lubridate::ymd(DateEased),
+            DateEnded = lubridate::ymd(DateEnded),
+            DateExpiry = lubridate::ymd(DateExpiry),
+            LastUpdated = lubridate::ymd(LastUpdated),
+            Mandate = as.logical(Mandate),
+            StateFIPS = integer_to_fips(StateFIPS)
+        ) %>%
+        dplyr::rename(
+            state = 'StateName',
+            iso2  = 'StatePostal'
+        )
 }

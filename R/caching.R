@@ -22,7 +22,7 @@ s2p_cached_url <- function(url, rname = url, ask_on_update=FALSE,
 
     rid = bfcres$rid
     # Not found
-    
+    fileage = 0
     if(!length(rid)) {
         rid = names(bfcadd(bfc, rname, url))
     } else {

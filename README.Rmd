@@ -1,97 +1,123 @@
+---
+title: sars2pack
+output: 
+  rmarkdown::github_document
+  #bookdown::html_document2:
+    #number_sections: false
+    #toc: false
+---
+
+
 # sars2pack
 
+<!-- badges: start -->
 
-## Introduction 
+<!-- badges: end -->
 
-The sars2pack R package includes data resources, workflows, and data
-science tools to understand and interpret the COVID-19 pandemic. Access
-to data resources is “real-time” to get the most up-to-date information.
-Use cases and introductory material are available in vignettes and in
-documentation.
+```{r init} 
+knitr::opts_chunk$set(warning=FALSE,message=FALSE, 
+                      fig.width=9, fig.height=6, out.width = '100%'
+                      )
+knitr::opts_knit$set(upload.fun = knitr::imgur_upload)
+```
 
-Contributions are welcome. Have an interesting analysis that you’d like
-to share, write up an R markdown document and contribute it as a
-vignette. If you are not used to working collaboratively in github, just
-post a [new issue](https://github.com/seandavi/sars2pack/issues/new) to
-ask for help.
+The `sars2pack` R package:
 
-Thanks to the armies of people providing data for the rest of the world,
-often on a volunteer basis. Without their tireless work, we would not
-have these rapidly-developing resources.
+1. Presents unified approach to getting **lots** of COVID-19 data,
+2. Provides extensive documentation and usage examples of these datasets,
+3. and
 
-## Experimental Binder Launch
+## Installation
 
-Click here: <br/>
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/seandavi/sars2pack/a01150a?urlpath=rstudio)
+```{r eval=FALSE}
+# If you do not have BiocManager installed:
+install.packages('BiocManager')
 
-This could take 15-30 minutes if the most recent commit has not been built at binder yet. Generally, it takes about a minute, though. 
+# Then, if sars2pack is not already installed:
+BiocManager::install('seandavi/sars2pack')
 
-# Get Started
+# Then, to use:
+```
 
-    # If you do not have BiocManager installed:
-	install.packages('BiocManager')
-	
-	# Then, if sars2pack is not already installed:
-    BiocManager::install('seandavi/sars2pack')
-	
-    # Then, to use:
-    library(sars2pack)
+```{r}
+library(sars2pack)
+```
 
-# Extended Documentation
+## Case tracking
 
-- https://seandavi.github.io/sars2pack
+```{r worldwide}
+ecdc = ecdc_data()
+```
 
-Features
-========
+```{r}
+head(ecdc)
+```
 
-Data resources available
-------------------------
+```{r results='asis'}
+library(dplyr)
+top10 = ecdc %>% filter(subset=='deaths') %>% 
+    group_by(location_name) %>%
+    filter(count==max(count)) %>%
+    arrange(desc(count)) %>%
+    head(10) %>% select(-starts_with('iso'),-continent,-subset) %>%
+    mutate(rate_per_100k = 1e5*count/population_2018)
+knitr::kable(
+    top10,
+    caption = "Reported COVID-19-related deaths in ten most affected countries.",
+    format = 'pandoc')
+```
 
-Epidemiologic, health risk, demographic, and healthcare system datasets from multiple sources are available and documented.
+Examine the spread of the pandemic throughout the world by examining cumulative deaths
+reported for the top 10 countries above.
 
-- [Complete details](https://seandavi.github.io/sars2pack/articles/datasets.html)
+```{r plotcases}
+ecdc_top10 = ecdc %>% filter(location_name %in% top10$location_name & subset=='deaths')
+plot_epicurve(ecdc_top10,
+              filter_expression = count > 10, 
+              color='location_name')
+```
 
-Visualization
--------------
+Comparing the features of disease spread is easiest if all curves are shifted to 
+"start" at the same absolute level of infection. In this case, shift the origin for
+all countries to start at the first time point when more than 100 cumulative cases
+had been observed. Note how some curves cross others which is evidence of less infection
+control at the same relative time in the pandemic for that country (eg., Brazil).
 
-![](man/figures/africa_geo.png) ![](man/figures/cc_ts_plot_log-1.png)
-![](man/figures/epicurve_and_model.png)
+```{r}
+ecdc_top10 %>% align_to_baseline(count>100,group_vars=c('location_name')) %>%
+    plot_epicurve(date_column = 'index',color='location_name')
+```
 
-Workflow status
-===============
 
-Automated workflows and current status.
+## Geospatial plotting of data
 
-<table>
-<thead>
-<tr class="header">
-<th>Workflow Status</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><img src="https://github.com/seandavi/sars2pack/workflows/Publish%20artifacts/badge.svg" alt="Publish artifacts" /></td>
-<td>Produces regularly updated data resources and products</td>
-</tr>
-<tr class="even">
-<td><img src="https://github.com/seandavi/sars2pack/workflows/pkgdown%20site/badge.svg" alt="pkgdown site" /></td>
-<td>Prepare and publish <a href="https://seandavi.github.io/sars2pack/">pkgdown documentation</a></td>
-</tr>
-</tbody>
-</table>
 
-Contribute
-==========
 
-To contribute to this package please make a fork and then issue pull
-requests.
+## Projection models
 
-Resources
-=========
+```{r}
+hcpd = healthdata_projections_data()
+regs_of_interest = 'Georgia'
+library(ggplot2)
+pl = hcpd %>%
+   dplyr::filter(location_name %in% regs_of_interest) %>%
+   ggplot(aes(x=date)) + geom_line(aes(y=mean, color=metric))
+# plot the "mean" prediction
+pl
+# add 95% confidence bounds
+pl + geom_ribbon(aes(ymin=lower, ymax=upper, fill=metric), alpha=0.25)
+```
 
-Similar work
-------------
+
+## Contributions
+
+Pull requests are gladly accepted on [Github](https://github.com/seandavi/sars2pack).
+
+### Adding new datasets
+
+See the **Adding new datasets** vignette. 
+
+## Similar work
 
 -   <https://github.com/emanuele-guidotti/COVID19>
 -   [Top 25 R resources on Novel COVID-19
@@ -103,4 +129,5 @@ Similar work
     COVID-19](https://www.youtube.com/watch?v=D_CNmYkGRUc)
 -   [DataCamp: Visualize the rise of COVID-19 cases globally with
     ggplot2](https://www.datacamp.com/projects/870)
--   [MackLavielle/covidix R package](https://github.com/MarcLavielle/covidix/)
+-   [MackLavielle/covidix R
+    package](https://github.com/MarcLavielle/covidix/)
