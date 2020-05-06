@@ -108,34 +108,44 @@ apple_mobility_data = function(agree_to_terms=TRUE, max_tries=3,
     #pjs = RSelenium::phantom(port = 4444L)
     # wait for phantomjs server to start
                                         # Sys.sleep(5)
-    remDr <- RSelenium::remoteDriver(browserName = 'phantomjs')
-    remDr$open(silent = TRUE)
+    rD <- wdman::phantomjs(verbose = FALSE)
     Sys.sleep(4)
-    surl = NULL
+    remDr = RSelenium::remoteDriver(port=4567L,
+        browserName='phantomjs',remoteServerAddr='localhost')
+    remDr$open(silent = TRUE)
+    dat = NULL
     tries = 1
     ## Error handling for download--apple seems to need this sometimes
-    while(is.null(surl) & tries<max_tries) {
+    while(is.null(dat) & tries<max_tries) {
         remDr$navigate("https://www.apple.com/covid19/mobility")
         download_elem = remDr$findElement("css selector", 'div.download-button-container a')
-        surl = try(
-            download_elem$getElementAttribute('href')[[1]],
+        dat = try({
+            surl = download_elem$getElementAttribute('href')
+            if(length(surl)<1) {
+                next
+            }
+            surl = surl[[1]]
+            dat = readr::read_csv(surl, col_types = cols()) %>%
+                tidyr::pivot_longer(
+                    cols = dplyr::starts_with('20'),
+                    names_to = "date",
+                    values_to = "mobility_index"
+                ) %>%
+                dplyr::mutate(date = lubridate::ymd(date))
+            if(message_url) message(sprintf("Download url: %s",surl))
+            dat
+        },
             silent=TRUE
         )
-        if(inherits(surl, 'try-error') | is.null(surl)) {
+        if(inherits(dat, 'try-error') | is.null(dat)) {
             Sys.sleep(1)
             tries = tries + 1
         }
     }
     remDr$close()
-    if(message_url) message(sprintf("Download url: %s",surl))
+    rD$stop()
     ## rpath = s2p_cached_url(url) ## TODO: fix caching to use only one url
-    dat = readr::read_csv(surl, col_types = cols()) %>%
-        tidyr::pivot_longer(
-                   cols = dplyr::starts_with('20'),
-                   names_to = "date",
-                   values_to = "mobility_index"
-               ) %>%
-        dplyr::mutate(date = lubridate::ymd(date))
+
     dat
 }
     
