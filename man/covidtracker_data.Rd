@@ -42,6 +42,7 @@ Other data-import:
 \code{\link{apple_mobility_data}()},
 \code{\link{beoutbreakprepared_data}()},
 \code{\link{cdc_aggregated_projections}()},
+\code{\link{cdc_excess_deaths}()},
 \code{\link{descartes_mobility_data}()},
 \code{\link{ecdc_data}()},
 \code{\link{eu_data_cache_data}()},
