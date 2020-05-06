@@ -9,6 +9,11 @@ cov_glue_newick_data()
 \description{
 COVID GLUE Newick tree
 }
+\examples{
+tr = cov_glue_newick_data()
+plot(tr, type='r', cex=0.4)
+
+}
 \seealso{
 cov_glue_lineage_data()
 
