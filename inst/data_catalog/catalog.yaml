@@ -11,6 +11,22 @@ datasets:
     resolution: admin0
     region: World
     url: https://ourworldindata.org/coronavirus
+  - name: GISAID metadata from thousands of SARS-CoV-2 sequences
+    accessor: cov_glue_lineage_data
+    data_type: individual cases
+    geographical: true
+    geospatial: false
+    resolution: multiple
+    region: World
+    url: https://github.com/hCoV-2019/lineages
+  - name: Newick tree from thousands of SARS-CoV-2 sequences
+    accessor: cov_glue_newick_data
+    data_type: phylogenetic
+    geographical: false
+    geospatial: false
+    resolution: multiple
+    region: World
+    url: https://github.com/hCoV-2019/lineages
   - name: US CDC excess deaths dataset
     accessor: cdc_excess_deaths
     data_type: miscellaneous
@@ -19,14 +35,6 @@ datasets:
     resolution: admin1
     region: US
     url: https://www.cdc.gov/nchs/nvss/vsrr/covid19/excess_deaths.html
-  - name: GISAID/Nextstrain case metadata
-    accessor: nextstrain_case_data
-    data_type: individual cases
-    geographical: true
-    geospatial: false
-    resolution: admin2
-    region: World
-    url: https://nextstrain.org/
   - name: Published epidemic parameters for COVID-19
     accessor: param_estimates_published
     data_type: miscellaneous
