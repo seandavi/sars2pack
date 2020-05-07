@@ -77,6 +77,7 @@ Other case-tracking:
 \code{\link{estimate_Rt}()},
 \code{\link{jhu_data}()},
 \code{\link{nytimes_county_data}()},
+\code{\link{owid_data}()},
 \code{\link{plot_epicurve}()},
 \code{\link{usa_facts_data}()}
 }

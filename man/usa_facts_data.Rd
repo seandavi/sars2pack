@@ -116,6 +116,7 @@ Other case-tracking:
 \code{\link{eu_data_cache_data}()},
 \code{\link{jhu_data}()},
 \code{\link{nytimes_county_data}()},
+\code{\link{owid_data}()},
 \code{\link{plot_epicurve}()}
 }
 \concept{case-tracking}
