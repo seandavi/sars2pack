@@ -1,7 +1,8 @@
 ---
-title: sars2pack
 output: 
-  rmarkdown::github_document
+  - rmarkdown::github_document
+  #- rmarkdown::html_document
+always_allow_html: true
   #bookdown::html_document2:
     #number_sections: false
     #toc: false
@@ -14,18 +15,22 @@ output:
 
 <!-- badges: end -->
 
-```{r init} 
-knitr::opts_chunk$set(warning=FALSE,message=FALSE, 
+```{r init, include=FALSE} 
+knitr::opts_chunk$set(warning=FALSE,message=FALSE, cache=TRUE,
                       fig.width=9, fig.height=6, out.width = '100%'
                       )
 knitr::opts_knit$set(upload.fun = knitr::imgur_upload)
 ```
 
-The `sars2pack` R package:
+## Questions addressed by sars2pack
 
-1. Presents unified approach to getting **lots** of COVID-19 data,
-2. Provides extensive documentation and usage examples of these datasets,
-3. and
+- What are the current and historical total, new cases, and deaths of COVID-19 at the city, county, state, national, and international levels?
+- How do changes in infection rates differ across locations?
+- What are the non-pharmacological interventions in place at the local and national levels?
+- In the United States, what is the geographical distribution of healthcare capacity (ICU beds, total beds, doctors, etc.)?
+- What are the published values of key epidemic parameters, as curated from the literature?
+
+
 
 ## Installation
 
@@ -35,23 +40,56 @@ install.packages('BiocManager')
 
 # Then, if sars2pack is not already installed:
 BiocManager::install('seandavi/sars2pack')
-
-# Then, to use:
 ```
+
+After the one-time installation, load the packge to get started.
 
 ```{r}
 library(sars2pack)
 ```
 
+## Available datasets
+
+```{r echo=FALSE}
+library(knitr)
+library(kableExtra)
+library(tibble)
+library(dplyr)
+library(purrr)
+library(sars2pack)
+library(yaml)
+b = available_datasets()
+a = tibble(x=1:3, y=split(LETTERS[1:9],1:3))
+a$y = sapply(a$y,paste0, collapse="\n")
+catalog = system.file('data_catalog/catalog.yaml',package='sars2pack')
+y = yaml.load_file(catalog)
+y1 = as_tibble(lapply(as_tibble(purrr::transpose(y$datasets)),function(z) if(length(unlist(z))==length(z)) unlist(z) else (z)))
+y1 = as_tibble(lapply(y1, function(z) if(is.list(z)) sapply(z, paste, collapse="\n") else z))
+y1 %>% dplyr::mutate(url=sprintf('[LINK](%s)',url)) %>%
+    mutate_all(linebreak) %>%
+    arrange(data_type) %>%
+    kable(booktabs=TRUE, escape=FALSE) %>%
+    kable_styling("striped")
+```
+
 ## Case tracking
+
+Updated tracking  of city, county, state, national, and international confirmed cases, deaths,
+and testing is critical to driving policy, implementing interventions, and measuring their effectiveness. Case tracking datasets include date, a count of cases, and usually numerous other pieces of information related to location of reporting, etc. 
+
+Accessing case-tracking datasets is typically done with one function per dataset. The example here is data from the European Centers for Disease Control, or ECDC.
 
 ```{r worldwide}
 ecdc = ecdc_data()
 ```
 
+Get a quick overview of the dataset.
+
 ```{r}
 head(ecdc)
 ```
+
+The `ecdc` dataset is just a `data.frame` (actually, a `tibble`), so applying standard R or tidyverse functionality can get answers to basic questions with little code. The next code block generates a `top10` of countries with the most deaths recorded to date. Note that if you do this on your own computer, the data will be updated to today's data values. 
 
 ```{r results='asis'}
 library(dplyr)
@@ -61,6 +99,12 @@ top10 = ecdc %>% filter(subset=='deaths') %>%
     arrange(desc(count)) %>%
     head(10) %>% select(-starts_with('iso'),-continent,-subset) %>%
     mutate(rate_per_100k = 1e5*count/population_2018)
+
+```
+
+Finally, present a nice table of those countries:
+
+```{r}
 knitr::kable(
     top10,
     caption = "Reported COVID-19-related deaths in ten most affected countries.",
@@ -90,6 +134,8 @@ ecdc_top10 %>% align_to_baseline(count>100,group_vars=c('location_name')) %>%
 
 
 ## Geospatial plotting of data
+
+
 
 
 
