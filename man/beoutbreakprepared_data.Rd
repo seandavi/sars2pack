@@ -34,6 +34,25 @@ howpublished = {Accessed on yyyy-mm-dd from
 \url{http://virological.org/t/epidemiological-data-from-the-ncov-2019-outbreak-early-descriptions-from-publicly-available-data/337}},
 year =         2020
 }
+
+ARTICLE{Xu2020-wb,
+title    = "Open access epidemiological data from the {COVID-19} outbreak",
+author   = "Xu, Bo and Kraemer, Moritz U G and {Open COVID-19 Data Curation
+Group}",
+journal  = "The Lancet infectious diseases",
+volume   =  20,
+number   =  5,
+pages    = "534",
+month    =  may,
+year     =  2020,
+url      = "http://dx.doi.org/10.1016/S1473-3099(20)30119-5",
+file     = "All Papers/X/Xu et al. 2020 - Open access epidemiological data from the COVID-19 outbreak.pdf",
+language = "en",
+issn     = "1473-3099, 1474-4457",
+pmid     = "32087115",
+doi      = "10.1016/S1473-3099(20)30119-5",
+pmc      = "PMC7158984"
+}
 }
 
 \examples{

@@ -20,6 +20,8 @@
 available_datasets <- function() {
     catalog = system.file('data_catalog/catalog.yaml',package='sars2pack')
     do.call(dplyr::bind_rows, lapply(yaml::yaml.load_file(catalog)$datasets,as_tibble))
+    # y = yaml.load_file()
+    #  as_tibble(lapply(as_tibble(purrr::transpose(y$datasets)),function(z) if(length(unlist(z))==length(z)) unlist(z) else (z)))
 }
 
 #' @describeIn available_datasets

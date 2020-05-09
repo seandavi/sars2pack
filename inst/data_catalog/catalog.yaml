@@ -33,7 +33,7 @@ datasets:
     accessor: cdc_aggregated_projections
     data_type: projections
     resolution:
-      - country
+      - admin0
       - admin1
     geographical: true
     geospatial: false
@@ -54,7 +54,7 @@ datasets:
     accessor: ecdc_data
     data_type: time series cumulative cases
     region: World
-    resolution: country
+    resolution: admin0
     geographical: true
     geospatial: false
     url: https://www.ecdc.europa.eu/en/covid-19
@@ -70,7 +70,9 @@ datasets:
     accessor: eu_data_cache_data
     data_type: time series cumulative cases
     region: Europe
-    resolution: country and sub-country
+    resolution:
+      - admin0
+      - admin1
     geographical: true
     geospatial: false
     url: https://github.com/covid19-eu-zh/covid19-eu-data
@@ -79,7 +81,7 @@ datasets:
     data_type:
       - mobility
     region: United States
-    resolution: county
+    resolution: admin1
     geographical: true
     geospatial: false
     url: https://raw.githubusercontent.com/descarteslabs/DL-COVID-19
@@ -96,7 +98,7 @@ datasets:
     accessor: usa_facts_data
     data_type: time series cumulative cases
     region: United States
-    resolution: county
+    resolution: admin1
     geographical: true
     geospatial: false
     url: https://usafacts.org/visualizations/coronavirus-covid-19-spread-map/
@@ -112,7 +114,7 @@ datasets:
     accessor: jhu_us_data
     data_type: time series cumulative cases
     region: United States
-    resolution: county
+    resolution: admin1
     geographical: true
     geospatial: false
     url: https://github.com/CSSEGISandData/COVID-19
@@ -120,7 +122,7 @@ datasets:
     accessor: nytimes_county_data
     data_type: time series cumulative cases
     region: United States
-    resolution: county
+    resolution: admin1
     geographical: true
     geospatial: false
     url: https://raw.githubusercontent.com/nytimes/covid-19-data
@@ -128,7 +130,7 @@ datasets:
     accessor: nytimes_state_data
     data_type: time series cumulative cases
     region: United States
-    resolution: state
+    resolution: admin1
     geographical: true
     geospatial: false
     url: https://raw.githubusercontent.com/nytimes/covid-19-data
@@ -146,15 +148,17 @@ datasets:
       - demographic
       - geographic
     region: United States
-    resolution: county
+    resolution: admin2
     geospatial: true
     geographical: true
     url: https://github.com/josh-byster/fips_lat_long
   - name: CovidTracker data
     accessor: covidtracker_data
-    data_type: healthcare capacity 
+    data_type:
+      - testing
+      - time series cumulative cases
     region: United States
-    resolution: Individual hospital
+    resolution: admin1
     geospatial: false
     geographical: true
     url: https://covidtracking.com/
@@ -170,7 +174,7 @@ datasets:
     accessor: government_policy_timeline
     data_type: public policy 
     region: International
-    resolution: country
+    resolution: admin0
     geospatial: false
     geographical: true
     url: https://www.bsg.ox.ac.uk/research/research-projects/oxford-covid-19-government-response-tracker
@@ -181,8 +185,8 @@ datasets:
       - United States
       - International
     resolution:
-      - state
-      - country
+      - admin1
+      - admin2
     geospatial: false
     geographical: true
     url: http://www.healthdata.org/covid
@@ -190,7 +194,7 @@ datasets:
     accessor: us_state_distancing_policy
     data_type: public policy
     region: United States
-    resolution: state
+    resolution: admin1
     geospatial: false
     geographical: true
     url: https://github.com/COVID19StatePolicy/SocialDistancing/

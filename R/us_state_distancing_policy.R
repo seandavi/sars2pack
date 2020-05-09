@@ -28,21 +28,22 @@
 #' 
 #' @export
 us_state_distancing_policy = function() {
-    rpath = s2p_cached_url('https://raw.githubusercontent.com/COVID19StatePolicy/SocialDistancing/master/data/USstatesCov19distancingpolicy.csv')
+    rpath = s2p_cached_url('https://raw.githubusercontent.com/COVID19StatePolicy/SocialDistancing/master/data/USstatesCov19distancingpolicyBETA.csv')
     res = readr::read_csv(rpath,col_types = cols())
     res %>% dplyr::select(-dplyr::starts_with('X')) %>%
         dplyr::mutate(
             DateIssued = lubridate::ymd(DateIssued),
             DateEnacted = lubridate::ymd(DateEnacted),
-            DateEased = lubridate::ymd(DateEased),
             DateEnded = lubridate::ymd(DateEnded),
             DateExpiry = lubridate::ymd(DateExpiry),
             LastUpdated = lubridate::ymd(LastUpdated),
             Mandate = as.logical(Mandate),
-            StateFIPS = integer_to_fips(StateFIPS)
+            StateFIPS = integer_to_fips(StateFIPS),
+            StateWide = as.logical(StateWide),
+            Mandate = as.logical(Mandate)
         ) %>%
         dplyr::rename(
             state = 'StateName',
-            iso2  = 'StatePostal'
+            iso2c  = 'StatePostal'
         )
 }

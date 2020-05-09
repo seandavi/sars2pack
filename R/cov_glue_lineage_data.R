@@ -36,12 +36,11 @@
 #' 
 #' @export 
 cov_glue_lineage_data <- function() {
-    url = 'https://raw.githubusercontent.com/hCoV-2019/lineages/master/lineages/data/lineages.2020-04-27.csv'
+    url = 'https://raw.githubusercontent.com/hCoV-2019/lineages/master/lineages/data/lineages.2020-05-07.csv'
     rpath = s2p_cached_url(url)
     dat = readr::read_csv(rpath, col_types = readr::cols()) %>%
         dplyr::rename(date = 'sample date',
-                      travel_history = 'travel history',
-                      gisaid_id = 'GISAID ID')
+                      travel_history = 'travel history')
     dat$iso3c = countrycode::countrycode(dat$country, warn=FALSE, 
                                          origin='country.name.en',destination='iso3c')
     dat$iso2c = countrycode::countrycode(dat$country, warn=FALSE,
