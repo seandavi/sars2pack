@@ -97,7 +97,6 @@ add_incidence_column <- function(df, date_column='date', count_column='count',
     if(length(grouping_columns)>0) {
         df1 = df1 %>% dplyr::group_by_at(grouping_columns)
     }
-    browser()
     df1 = df1 %>% dplyr::mutate(inc = count - dplyr::lag(count, order_by = date))
     colnames(df1)[colnames(df1)=='inc']=incidence_col_name
     df1

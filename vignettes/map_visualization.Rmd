@@ -180,3 +180,89 @@ pdf('us_county_numbers.pdf', width=11, height=8)
 print(z)
 dev.off()
 ```
+
+
+## Small multiples
+
+### United states
+
+
+```{r message=FALSE, warning=FALSE}
+library(sars2pack)
+library(tidycensus)
+library(dplyr)
+library(ggplot2)
+library(sf)
+nys = nytimes_state_data() %>%
+    dplyr::filter(subset=='confirmed') %>%
+    add_incidence_column(grouping_columns = c('state'))
+state_pops <- 
+    get_acs(geography = "state",
+            variables = "B01003_001",
+            geometry = TRUE) %>%
+    mutate(centroid = st_centroid(geometry))
+nyspop = nys %>% left_join(state_pops, by=c('state'='NAME')) %>%
+    mutate(inc_pop = inc/estimate*100000)
+library(geofacet)
+ggplot(nyspop,aes(x=date, inc_pop)) +
+    geom_smooth() + facet_geo(~ state, grid=us_state_grid1) +
+    ylab('Daily incidence per 100k population') +
+    theme_light() +
+    ggtitle('Daily new COVID-19 cases in US',
+            subtitle=sprintf('Updated %s',format(Sys.Date(),'%b %d, %Y')))
+```
+
+### Europe
+
+```{r}
+library(wbstats message=FALSE, warning=FALSE)
+pop_data <- wb(indicator = "SP.POP.TOTL",mrv=1)
+ecdc = ecdc_data() %>% ungroup() %>%
+    mutate(location_name=gsub('_',' ',location_name))
+ecdc = ecdc %>%
+    dplyr::select(subset,count,location_name,date,iso2c,continent) %>%
+    dplyr::filter(subset=='confirmed') %>%
+    add_incidence_column(grouping_columns = c('iso2c','location_name'))
+ecdcpop = ecdc %>%
+    dplyr::left_join(select(pop_data,value,iso2c), by=c('iso2c'='iso2c')) %>%
+    mutate(inc_pop = inc/value*100000) 
+library(geofacet)
+ggplot(ecdcpop,aes(x=date, inc_pop)) +
+    geom_smooth() + facet_geo(~ location_name, grid=world_countries_grid1) +
+    ylab('Daily incidence per 100k population') +
+    theme_light() +
+    ggtitle('Daily new COVID-19 cases in US',
+            subtitle=sprintf('Updated %s',format(Sys.Date(),'%b %d, %Y')))
+```
+
+
+
+## Animation
+
+```{r}
+library(gganimate)
+library(tidycensus)
+library(sf)
+county_geom = tidycensus::county_laea
+nyt_counties = nytimes_county_data()
+full_map = county_geom %>%
+    right_join(
+        nyt_counties %>%
+        dplyr::filter(lubridate::wday(date) == 4 & count>0 & subset=='confirmed' & !is.na(count)), by=c('GEOID'='fips')) %>%
+    mutate(mid=sf::st_centroid(geometry))
+z = ggplot(full_map, aes(label=county)) +
+
+transition_states(
+    date,
+    transition_length = 1,
+    state_length = 1
+  ) +
+  enter_fade() + 
+  exit_fade() +
+  ease_aes('sine-in-out') +
+    
+    geom_sf(aes(geometry=geometry),color='grey85') +
+    geom_sf(aes(geometry=mid, size=count, color=count), alpha=0.5, show.legend = "point") +
+    scale_color_gradient2(midpoint=5500, low="lightblue", mid="orange",high="red", space ="Lab" ) +
+    scale_size(range=c(1,10))
+```
