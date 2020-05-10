@@ -279,62 +279,7 @@ COVID-19 data resources.</p></li>
 #&gt; $ count         </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
 #&gt; $ subset        </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "confirmed", "confirmed", "confirmed", "confirmed", "co…</div><div class='input'>
 <span class='fu'><a href='https://rdrr.io/r/utils/example.html'>example</a></span>(<span class='no'>apple_mobility_data</span>)</div><div class='output co'>#&gt; 
-#&gt; appl__&gt; res = apple_mobility_data()
-#&gt; 
-#&gt; appl__&gt; colnames(res)
-#&gt; [1] "geo_type"            "region"              "transportation_type"
-#&gt; [4] "alternative_name"    "date"                "mobility_index"     
-#&gt; 
-#&gt; appl__&gt; head(res)
-#&gt; </span><span style='color: #555555;'># A tibble: 6 x 6</span><span>
-#&gt;   geo_type   region  transportation_… alternative_name date       mobility_index
-#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>            </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>            </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>              </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #555555;'>1</span><span> country/r… Albania driving          </span><span style='color: #BB0000;'>NA</span><span>               2020-01-13          100  
-#&gt; </span><span style='color: #555555;'>2</span><span> country/r… Albania driving          </span><span style='color: #BB0000;'>NA</span><span>               2020-01-14           95.3
-#&gt; </span><span style='color: #555555;'>3</span><span> country/r… Albania driving          </span><span style='color: #BB0000;'>NA</span><span>               2020-01-15          101. 
-#&gt; </span><span style='color: #555555;'>4</span><span> country/r… Albania driving          </span><span style='color: #BB0000;'>NA</span><span>               2020-01-16           97.2
-#&gt; </span><span style='color: #555555;'>5</span><span> country/r… Albania driving          </span><span style='color: #BB0000;'>NA</span><span>               2020-01-17          104. 
-#&gt; </span><span style='color: #555555;'>6</span><span> country/r… Albania driving          </span><span style='color: #BB0000;'>NA</span><span>               2020-01-18          113. 
-#&gt; 
-#&gt; appl__&gt; table(res$transportation_type)
-#&gt; 
-#&gt; driving transit walking 
-#&gt;   93483   17433   24570 
-#&gt; 
-#&gt; appl__&gt; require(ggplot2)
-#&gt; 
-#&gt; appl__&gt; pl = res %&gt;%
-#&gt; appl__+     dplyr::filter(region %in% c('Russia','New York City','Italy')) %&gt;%
-#&gt; appl__+     ggplot(aes(x=date)) +
-#&gt; appl__+         geom_line(aes(y=mobility_index,color=transportation_type)) +
-#&gt; appl__+         scale_x_date(date_breaks = '1 week', date_labels='%b-%d') +
-#&gt; appl__+         facet_grid(rows=vars(region)) +
-#&gt; appl__+         ggtitle('Changes in Apple Mobility Index over time')
-#&gt; 
-#&gt; appl__&gt; pl</div><div class='img'><img src='sars2pack-package-1.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; 
-#&gt; appl__&gt; regs_of_interest = c('Seattle', 'New York City',
-#&gt; appl__+                      'Chicago', 'Italy',
-#&gt; appl__+                      'Russia', 'UK',
-#&gt; appl__+                      'Brazil')
-#&gt; 
-#&gt; appl__&gt; res %&gt;%
-#&gt; appl__+     dplyr::filter(region %in% regs_of_interest) %&gt;%
-#&gt; appl__+     ggplot(aes(x=date, y=region, fill=mobility_index)) +
-#&gt; appl__+         geom_tile() +
-#&gt; appl__+         facet_grid(rows=vars(transportation_type)) +
-#&gt; appl__+         ggtitle('Changes in Apple Mobility Index over time')</div><div class='img'><img src='sars2pack-package-2.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; 
-#&gt; appl__&gt; if(require(viridis)) {
-#&gt; appl__+ res %&gt;%
-#&gt; appl__+     dplyr::filter(region %in% regs_of_interest) %&gt;%
-#&gt; appl__+     ggplot(aes(x=date, y=region, fill=mobility_index)) +
-#&gt; appl__+         geom_tile() +
-#&gt; appl__+         facet_grid(rows=vars(transportation_type)) +
-#&gt; appl__+         scale_fill_viridis() +
-#&gt; appl__+         ggtitle('Changes in Apple Mobility Index over time')
-#&gt; appl__+ }</div><div class='img'><img src='sars2pack-package-3.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; 
-#&gt; appl__&gt; if(require(plotly)) {
-#&gt; appl__+     ggplotly(pl)
-#&gt; appl__+ }</div><div class='input'>
+#&gt; appl__&gt; res = apple_mobility_data()</div><div class='output co'>#&gt; <span class='error'>Error in wdman::phantomjs(verbose = FALSE): PhantomJS signals port = 4567 is already in use.</span></div><div class='input'>
 <span class='fu'><a href='https://rdrr.io/r/utils/example.html'>example</a></span>(<span class='no'>healthdata_projections_data</span>)</div><div class='output co'>#&gt; 
 #&gt; hlth__&gt; res = healthdata_projections_data()
 #&gt; 
@@ -405,9 +350,9 @@ COVID-19 data resources.</p></li>
 #&gt; hlth__+     ggplot(aes(x=date)) + geom_line(aes(y=mean, color=metric))
 #&gt; 
 #&gt; hlth__&gt; # plot the "mean" prediction
-#&gt; hlth__&gt; pl</div><div class='img'><img src='sars2pack-package-4.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; 
+#&gt; hlth__&gt; pl</div><div class='img'><img src='sars2pack-package-1.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; 
 #&gt; hlth__&gt; # add 95% confidence bounds
-#&gt; hlth__&gt; pl + geom_ribbon(aes(ymin=lower, ymax=upper, fill=metric), alpha=0.25)</div><div class='img'><img src='sars2pack-package-5.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; 
+#&gt; hlth__&gt; pl + geom_ribbon(aes(ymin=lower, ymax=upper, fill=metric), alpha=0.25)</div><div class='img'><img src='sars2pack-package-2.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; 
 #&gt; hlth__&gt; regs_of_interest = c('New York', 'Italy')
 #&gt; 
 #&gt; hlth__&gt; pl = res %&gt;%
@@ -415,7 +360,7 @@ COVID-19 data resources.</p></li>
 #&gt; hlth__+     ggplot(aes(x=date)) + geom_line(aes(y=mean, color=metric)) +
 #&gt; hlth__+     facet_grid(rows = vars(location_name))
 #&gt; 
-#&gt; hlth__&gt; pl</div><div class='img'><img src='sars2pack-package-6.png' alt='' width='700' height='433' /></div><div class='input'>
+#&gt; hlth__&gt; pl</div><div class='img'><img src='sars2pack-package-3.png' alt='' width='700' height='433' /></div><div class='input'>
 
 
 </div></span></pre>
