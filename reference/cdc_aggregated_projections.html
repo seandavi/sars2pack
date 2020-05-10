@@ -216,57 +216,63 @@ This function will attempt to grab the latest version.</p>
 <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 6 x 8</span><span>
 #&gt;   model forecast_date target target_week_end… location_name point quantile_0.025
 #&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>        </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>           </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>         </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>          </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #555555;'>1</span><span> COVI… 2020-04-27    1 wk … 2020-05-02       Alabama         287            221
-#&gt; </span><span style='color: #555555;'>2</span><span> COVI… 2020-04-27    1 wk … 2020-05-02       Alaska           12             10
-#&gt; </span><span style='color: #555555;'>3</span><span> COVI… 2020-04-27    1 wk … 2020-05-02       Arizona         364            295
-#&gt; </span><span style='color: #555555;'>4</span><span> COVI… 2020-04-27    1 wk … 2020-05-02       Arkansas         74             58
-#&gt; </span><span style='color: #555555;'>5</span><span> COVI… 2020-04-27    1 wk … 2020-05-02       California     </span><span style='text-decoration: underline;'>2</span><span>232           </span><span style='text-decoration: underline;'>1</span><span>823
-#&gt; </span><span style='color: #555555;'>6</span><span> COVI… 2020-04-27    1 wk … 2020-05-02       Colorado        885            716
-#&gt; </span><span style='color: #555555;'># … with 1 more variable: quantile_0.975 </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span></div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Rows: 5,209
+#&gt; </span><span style='color: #555555;'>1</span><span> COVI… 2020-05-04    1 wk … 2020-05-09       AL              351            319
+#&gt; </span><span style='color: #555555;'>2</span><span> COVI… 2020-05-04    1 wk … 2020-05-09       Alabama         351            319
+#&gt; </span><span style='color: #555555;'>3</span><span> COVI… 2020-05-04    1 wk … 2020-05-09       Alaska           11             11
+#&gt; </span><span style='color: #555555;'>4</span><span> COVI… 2020-05-04    1 wk … 2020-05-09       AR               89             79
+#&gt; </span><span style='color: #555555;'>5</span><span> COVI… 2020-05-04    1 wk … 2020-05-09       Arizona         432            396
+#&gt; </span><span style='color: #555555;'>6</span><span> COVI… 2020-05-04    1 wk … 2020-05-09       Arkansas         89             79
+#&gt; </span><span style='color: #555555;'># … with 1 more variable: quantile_0.975 </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span></div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Rows: 11,394
 #&gt; Columns: 8
 #&gt; $ model                </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "COVIDhub-ensemble", "COVIDhub-ensemble", "COVID…
-#&gt; $ forecast_date        </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2020-04-27, 2020-04-27, 2020-04-27, 2020-04-27,…
+#&gt; $ forecast_date        </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2020-05-04, 2020-05-04, 2020-05-04, 2020-05-04,…
 #&gt; $ target               </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "1 wk ahead cum death", "1 wk ahead cum death", …
-#&gt; $ target_week_end_date </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2020-05-02, 2020-05-02, 2020-05-02, 2020-05-02,…
-#&gt; $ location_name        </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Alabama", "Alaska", "Arizona", "Arkansas", "Cal…
-#&gt; $ point                </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 287, 12, 364, 74, 2232, 885, 2546, 177, 241, 134…
-#&gt; $ quantile_0.025       </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 221, 10, 295, 58, 1823, 716, 2107, 146, 190, 114…
-#&gt; $ quantile_0.975       </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 361, 17, 463, 127, 2661, 1106, 3276, 300, 323, 1…</div><div class='input'>
+#&gt; $ target_week_end_date </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2020-05-09, 2020-05-09, 2020-05-09, 2020-05-09,…
+#&gt; $ location_name        </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "AL", "Alabama", "Alaska", "AR", "Arizona", "Ark…
+#&gt; $ point                </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 351, 351, 11, 89, 432, 89, 2708, 2708, 1011, 101…
+#&gt; $ quantile_0.025       </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 319, 319, 11, 79, 396, 79, 2513, 2513, 922, 922,…
+#&gt; $ quantile_0.975       </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 426, 426, 15, 115, 502, 115, 3045, 3045, 1191, 1…</div><div class='input'>
 <span class='co'># available models</span>
 <span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span>(<span class='no'>res</span>$<span class='no'>model</span>)</div><div class='output co'>#&gt; 
-#&gt;          COVIDhub-ensemble               CU-60contact 
-#&gt;                        424                        306 
-#&gt;               CU-70contact               CU-80contact 
-#&gt;                        306                        306 
-#&gt; Geneva-DeterministicGrowth              IHME-CurveFit 
-#&gt;                          1                        716 
-#&gt;         Imperial-ensemble1         Imperial-ensemble2 
-#&gt;                          2                          2 
-#&gt;            LANL-GrowthRate  MIT_CovidAnalytics-DELPHI 
-#&gt;                        378                        306 
-#&gt;       MOBS_NEU-GLEAM_COVID              observed data 
-#&gt;                        392                        570 
+#&gt;          COVIDhub-ensemble               CU-80contact 
+#&gt;                        404                        582 
+#&gt;            CU-80contact_1x              CU-80contactw 
+#&gt;                        582                        582 
+#&gt; Geneva-DeterministicGrowth               GT-DeepCOVID 
+#&gt;                          1                        380 
+#&gt;              IHME-CurveFit         Imperial-ensemble1 
+#&gt;                       1600                          2 
+#&gt;         Imperial-ensemble2            LANL-GrowthRate 
+#&gt;                          2                        707 
+#&gt;  MIT_CovidAnalytics-DELPHI       MOBS_NEU-GLEAM_COVID 
+#&gt;                        594                        776 
+#&gt;             NotreDame-FRED                 UCLA-SuEIR 
+#&gt;                        168                       1386 
 #&gt;            UMass-MechBayes                UT-Mobility 
-#&gt;                        204                        624 
+#&gt;                        392                       1176 
 #&gt;            YYG-ParamSearch 
-#&gt;                        672 </div><div class='input'>
+#&gt;                       2060 </div><div class='input'>
 <span class='co'># projection targets</span>
 <span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span>(<span class='no'>res</span>$<span class='no'>target</span>)</div><div class='output co'>#&gt; 
 #&gt;  1 wk ahead cum death  1 wk ahead inc death 10 wk ahead cum death 
-#&gt;                   576                   211                    51 
-#&gt; 11 wk ahead cum death 12 wk ahead cum death 13 wk ahead cum death 
-#&gt;                    51                    51                    51 
-#&gt; 14 wk ahead cum death  2 wk ahead cum death  2 wk ahead inc death 
-#&gt;                    51                   571                   209 
+#&gt;                  1299                   409                   302 
+#&gt; 10 wk ahead inc death 11 wk ahead cum death 12 wk ahead cum death 
+#&gt;                   103                   199                   199 
+#&gt; 13 wk ahead cum death 14 wk ahead cum death 15 wk ahead cum death 
+#&gt;                   199                   199                   100 
+#&gt; 16 wk ahead cum death  2 wk ahead cum death  2 wk ahead inc death 
+#&gt;                   100                  1296                   407 
 #&gt;  3 wk ahead cum death  3 wk ahead inc death  4 wk ahead cum death 
-#&gt;                   571                   209                   571 
+#&gt;                  1201                   312                  1201 
 #&gt;  4 wk ahead inc death  5 wk ahead cum death  5 wk ahead inc death 
-#&gt;                   209                   417                   108 
+#&gt;                   312                   905                   215 
 #&gt;  6 wk ahead cum death  6 wk ahead inc death  7 wk ahead cum death 
-#&gt;                   417                   108                   105 
-#&gt;  8 wk ahead cum death  9 wk ahead cum death              observed 
-#&gt;                    51                    51                   570 </div><div class='input'>
-<span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>min</a></span>(<span class='no'>res</span>$<span class='no'>forecast_date</span>)</div><div class='output co'>#&gt; [1] "2020-04-27"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span>(<span class='no'>res</span>$<span class='no'>target_week_end_date</span>)</div><div class='output co'>#&gt; [1] NA</div><div class='input'>
+#&gt;                   905                   215                   403 
+#&gt;  7 wk ahead inc death  8 wk ahead cum death  8 wk ahead inc death 
+#&gt;                   103                   302                   103 
+#&gt;  9 wk ahead cum death  9 wk ahead inc death 
+#&gt;                   302                   103 </div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>min</a></span>(<span class='no'>res</span>$<span class='no'>forecast_date</span>)</div><div class='output co'>#&gt; [1] "2020-05-04"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span>(<span class='no'>res</span>$<span class='no'>target_week_end_date</span>)</div><div class='output co'>#&gt; [1] NA</div><div class='input'>
 <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>dplyr</span>)
 <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>ggplot2</span>)
 
@@ -294,7 +300,7 @@ This function will attempt to grab the latest version.</p>
     <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span>(<span class='kw'>position</span><span class='kw'>=</span><span class='no'>pd</span>) +
     <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_bw</a></span>() +
     <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span>(<span class='kw'>legend.position</span><span class='kw'>=</span><span class='st'>'bottom'</span>) +
-    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span>(<span class='st'>'Projected New York deaths for week ending'</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 9 rows containing missing values (geom_point).</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 9 row(s) containing missing values (geom_path).</span></div><div class='img'><img src='cdc_aggregated_projections-2.png' alt='' width='700' height='433' /></div><div class='input'>
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span>(<span class='st'>'Projected New York deaths for week ending'</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 23 rows containing missing values (geom_point).</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 23 row(s) containing missing values (geom_path).</span></div><div class='img'><img src='cdc_aggregated_projections-2.png' alt='' width='700' height='433' /></div><div class='input'>
 
 </div></span></pre>
   </div>
