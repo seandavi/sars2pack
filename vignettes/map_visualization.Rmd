@@ -187,7 +187,7 @@ dev.off()
 ### United states
 
 
-```{r message=FALSE, warning=FALSE}
+```{r}
 library(sars2pack)
 library(tidycensus)
 library(dplyr)
@@ -215,7 +215,7 @@ ggplot(nyspop,aes(x=date, inc_pop)) +
 ### Europe
 
 ```{r}
-library(wbstats message=FALSE, warning=FALSE)
+library(wbstats)
 pop_data <- wb(indicator = "SP.POP.TOTL",mrv=1)
 ecdc = ecdc_data() %>% ungroup() %>%
     mutate(location_name=gsub('_',' ',location_name))
