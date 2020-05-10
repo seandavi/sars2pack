@@ -95,7 +95,7 @@
 #'
 #' @export
 nytimes_county_data = function() {
-    rpath = s2p_cached_url('https://raw.github.com/nytimes/covid-19-data/master/us-counties.csv')
+    rpath = s2p_cached_url('https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv')
     dat = readr::read_csv(rpath, col_types=cols())
     confirmed = dat[,1:5]
     confirmed$subset = 'confirmed'
@@ -119,7 +119,7 @@ nytimes_county_data = function() {
 #'
 #' @export
 nytimes_state_data = function() {
-    rpath = s2p_cached_url('https://raw.github.com/nytimes/covid-19-data/master/us-states.csv')
+    rpath = s2p_cached_url('https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-states.csv')
     dat = readr::read_csv(rpath, col_types=cols())
     confirmed = dat[,1:4]
     confirmed$subset = 'confirmed'

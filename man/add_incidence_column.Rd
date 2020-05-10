@@ -53,7 +53,7 @@ j = jhu_data()
 head(j)
 colnames(j)
 
-add_incidence_column(j, grouping_columns=c('date','CountryRegion','ProvinceState'))
+add_incidence_column(j, grouping_columns=c('CountryRegion','ProvinceState'))
 
 # get top 10 countries by cumulative
 # number of cases
