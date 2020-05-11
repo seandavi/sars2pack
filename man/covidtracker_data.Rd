@@ -30,6 +30,14 @@ colnames(res)
 dim(res)
 dplyr::glimpse(res)
 
+# Hospitalizations by day in Maryland
+covidtracker_data() \%>\%
+    filter(state=='MD') \%>\%
+    add_incidence_column(count_column='hospitalized') \%>\%
+    ggplot(aes(x=date,y=inc)) + geom_smooth() +
+    ylab("New Hospitalizations per day") +
+    ggtitle('Hospitalizations in Maryland', subtitle = 'From covidtracker')
+
 
 }
 \seealso{
