@@ -244,6 +244,13 @@ district currently reporting that data.</p>
 #&gt; $ death        </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 10, 393, 88, 0, 536, 2745, 967, 2967, 323, 224, 1791, 14…
 #&gt; $ dateChecked  </span><span style='color: #555555;font-style: italic;'>&lt;dttm&gt;</span><span> 2020-05-10 20:00:00, 2020-05-10 20:00:00, 2020-05-10 20…
 #&gt; $ fips         </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "00002", "00001", "00005", "00060", "00004", "00006", "0…</div><div class='input'>
+<span class='co'># Hospitalizations by day in Maryland</span>
+<span class='fu'>covidtracker_data</span>() <span class='kw'>%&gt;%</span>
+    <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span>(<span class='no'>state</span><span class='kw'>==</span><span class='st'>'MD'</span>) <span class='kw'>%&gt;%</span>
+    <span class='fu'><a href='add_incidence_column.html'>add_incidence_column</a></span>(<span class='kw'>count_column</span><span class='kw'>=</span><span class='st'>'hospitalized'</span>) <span class='kw'>%&gt;%</span>
+    <span class='fu'>ggplot</span>(<span class='fu'>aes</span>(<span class='kw'>x</span><span class='kw'>=</span><span class='no'>date</span>,<span class='kw'>y</span><span class='kw'>=</span><span class='no'>inc</span>)) + <span class='fu'>geom_smooth</span>() +
+    <span class='fu'>ylab</span>(<span class='st'>"New Hospitalizations per day"</span>) +
+    <span class='fu'>ggtitle</span>(<span class='st'>'Hospitalizations in Maryland'</span>, <span class='kw'>subtitle</span> <span class='kw'>=</span> <span class='st'>'From covidtracker'</span>)</div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using method = 'loess' and formula 'y ~ x'</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 22 rows containing non-finite values (stat_smooth).</span></div><div class='img'><img src='covidtracker_data-1.png' alt='' width='700' height='433' /></div><div class='input'>
 
 </div></span></pre>
   </div>
