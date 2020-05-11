@@ -245,7 +245,7 @@ datasets that are appropriate for passing into here.</p></div>
 #&gt; </span><span style='color: #555555;'>5</span><span> </span><span style='color: #BB0000;'>NA</span><span>            Afghanistan      33    65 2020-01-26     0 confirmed
 #&gt; </span><span style='color: #555555;'>6</span><span> </span><span style='color: #BB0000;'>NA</span><span>            Afghanistan      33    65 2020-01-27     0 confirmed</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>j</span>)</div><div class='output co'>#&gt; [1] "ProvinceState" "CountryRegion" "Lat"           "Long"         
 #&gt; [5] "date"          "count"         "subset"       </div><div class='input'>
-<span class='fu'>add_incidence_column</span>(<span class='no'>j</span>, <span class='kw'>grouping_columns</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>'CountryRegion'</span>,<span class='st'>'ProvinceState'</span>))</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 85,456 x 8</span><span>
+<span class='fu'>add_incidence_column</span>(<span class='no'>j</span>, <span class='kw'>grouping_columns</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>'CountryRegion'</span>,<span class='st'>'ProvinceState'</span>))</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 86,240 x 8</span><span>
 #&gt; </span><span style='color: #555555;'># Groups:   CountryRegion, ProvinceState [267]</span><span>
 #&gt;    ProvinceState      CountryRegion     Lat   Long date       count subset   inc
 #&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>              </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>           </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
@@ -259,7 +259,7 @@ datasets that are appropriate for passing into here.</p></div>
 #&gt; </span><span style='color: #555555;'> 8</span><span> </span><span style='color: #BB0000;'>NA</span><span>                 Armenia          40.1  45.0  2020-01-22     0 confi…    </span><span style='color: #BB0000;'>NA</span><span>
 #&gt; </span><span style='color: #555555;'> 9</span><span> Australian Capita… Australia       -</span><span style='color: #BB0000;'>35.5</span><span> 149.   2020-01-22     0 confi…    </span><span style='color: #BB0000;'>NA</span><span>
 #&gt; </span><span style='color: #555555;'>10</span><span> New South Wales    Australia       -</span><span style='color: #BB0000;'>33.9</span><span> 151.   2020-01-22     0 confi…    </span><span style='color: #BB0000;'>NA</span><span>
-#&gt; </span><span style='color: #555555;'># … with 85,446 more rows</span><span></div><div class='input'>
+#&gt; </span><span style='color: #555555;'># … with 86,230 more rows</span><span></div><div class='input'>
 <span class='co'># get top 10 countries by cumulative</span>
 <span class='co'># number of cases</span>
 <span class='no'>j_top_10</span> <span class='kw'>=</span> <span class='no'>j</span> <span class='kw'>%&gt;%</span>
@@ -272,16 +272,16 @@ datasets that are appropriate for passing into here.</p></div>
 <span class='no'>j_top_10</span></div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 10 x 2</span><span>
 #&gt;    CountryRegion  count
 #&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>          </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #555555;'> 1</span><span> US             </span><span style='text-decoration: underline;'>78</span><span>795
-#&gt; </span><span style='color: #555555;'> 2</span><span> United Kingdom </span><span style='text-decoration: underline;'>31</span><span>587
-#&gt; </span><span style='color: #555555;'> 3</span><span> Italy          </span><span style='text-decoration: underline;'>30</span><span>395
-#&gt; </span><span style='color: #555555;'> 4</span><span> Spain          </span><span style='text-decoration: underline;'>26</span><span>478
-#&gt; </span><span style='color: #555555;'> 5</span><span> France         </span><span style='text-decoration: underline;'>26</span><span>271
-#&gt; </span><span style='color: #555555;'> 6</span><span> Brazil         </span><span style='text-decoration: underline;'>10</span><span>656
-#&gt; </span><span style='color: #555555;'> 7</span><span> Belgium         </span><span style='text-decoration: underline;'>8</span><span>581
-#&gt; </span><span style='color: #555555;'> 8</span><span> Germany         </span><span style='text-decoration: underline;'>7</span><span>549
-#&gt; </span><span style='color: #555555;'> 9</span><span> Iran            </span><span style='text-decoration: underline;'>6</span><span>589
-#&gt; </span><span style='color: #555555;'>10</span><span> Netherlands     </span><span style='text-decoration: underline;'>5</span><span>422</div><div class='input'>
+#&gt; </span><span style='color: #555555;'> 1</span><span> US             </span><span style='text-decoration: underline;'>79</span><span>526
+#&gt; </span><span style='color: #555555;'> 2</span><span> United Kingdom </span><span style='text-decoration: underline;'>31</span><span>855
+#&gt; </span><span style='color: #555555;'> 3</span><span> Italy          </span><span style='text-decoration: underline;'>30</span><span>560
+#&gt; </span><span style='color: #555555;'> 4</span><span> Spain          </span><span style='text-decoration: underline;'>26</span><span>621
+#&gt; </span><span style='color: #555555;'> 5</span><span> France         </span><span style='text-decoration: underline;'>26</span><span>341
+#&gt; </span><span style='color: #555555;'> 6</span><span> Brazil         </span><span style='text-decoration: underline;'>11</span><span>123
+#&gt; </span><span style='color: #555555;'> 7</span><span> Belgium         </span><span style='text-decoration: underline;'>8</span><span>656
+#&gt; </span><span style='color: #555555;'> 8</span><span> Germany         </span><span style='text-decoration: underline;'>7</span><span>569
+#&gt; </span><span style='color: #555555;'> 9</span><span> Iran            </span><span style='text-decoration: underline;'>6</span><span>640
+#&gt; </span><span style='color: #555555;'>10</span><span> Netherlands     </span><span style='text-decoration: underline;'>5</span><span>440</div><div class='input'>
 <span class='co'># The JHU data divides some countries into</span>
 <span class='co'># regions, so we can collapse to regions</span>
 <span class='co'># by simply summing over date/country</span>
@@ -289,8 +289,8 @@ datasets that are appropriate for passing into here.</p></div>
     <span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span>(<span class='no'>date</span>, <span class='no'>CountryRegion</span>) <span class='kw'>%&gt;%</span>
     <span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarize</a></span>(<span class='kw'>count</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span>(<span class='no'>count</span>))
 
-<span class='no'>j</span></div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 1,090 x 3</span><span>
-#&gt; </span><span style='color: #555555;'># Groups:   date [109]</span><span>
+<span class='no'>j</span></div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 1,100 x 3</span><span>
+#&gt; </span><span style='color: #555555;'># Groups:   date [110]</span><span>
 #&gt;    date       CountryRegion  count
 #&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>          </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
 #&gt; </span><span style='color: #555555;'> 1</span><span> 2020-01-22 Belgium            0
@@ -303,11 +303,11 @@ datasets that are appropriate for passing into here.</p></div>
 #&gt; </span><span style='color: #555555;'> 8</span><span> 2020-01-22 Spain              0
 #&gt; </span><span style='color: #555555;'> 9</span><span> 2020-01-22 United Kingdom     0
 #&gt; </span><span style='color: #555555;'>10</span><span> 2020-01-22 US                 0
-#&gt; </span><span style='color: #555555;'># … with 1,080 more rows</span><span></div><div class='input'>
+#&gt; </span><span style='color: #555555;'># … with 1,090 more rows</span><span></div><div class='input'>
 <span class='co'># Add an incidence column to the cumulative dataset</span>
 <span class='no'>j_inc</span> <span class='kw'>=</span> <span class='fu'>add_incidence_column</span>(<span class='no'>j</span>, <span class='kw'>grouping_columns</span><span class='kw'>=</span><span class='st'>'CountryRegion'</span>)
 
-<span class='no'>j_inc</span></div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 1,090 x 4</span><span>
+<span class='no'>j_inc</span></div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 1,100 x 4</span><span>
 #&gt; </span><span style='color: #555555;'># Groups:   CountryRegion [10]</span><span>
 #&gt;    date       CountryRegion  count   inc
 #&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>          </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
@@ -321,7 +321,7 @@ datasets that are appropriate for passing into here.</p></div>
 #&gt; </span><span style='color: #555555;'> 8</span><span> 2020-01-22 Spain              0    </span><span style='color: #BB0000;'>NA</span><span>
 #&gt; </span><span style='color: #555555;'> 9</span><span> 2020-01-22 United Kingdom     0    </span><span style='color: #BB0000;'>NA</span><span>
 #&gt; </span><span style='color: #555555;'>10</span><span> 2020-01-22 US                 0    </span><span style='color: #BB0000;'>NA</span><span>
-#&gt; </span><span style='color: #555555;'># … with 1,080 more rows</span><span></div><div class='input'>
+#&gt; </span><span style='color: #555555;'># … with 1,090 more rows</span><span></div><div class='input'>
 <span class='no'>j_inc</span> <span class='kw'>%&gt;%</span>
     <span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span>(<span class='no'>count</span><span class='kw'>&gt;</span><span class='fl'>0</span>) <span class='kw'>%&gt;%</span>
     <span class='fu'><a href='plot_epicurve.html'>plot_epicurve</a></span>(<span class='kw'>color</span><span class='kw'>=</span><span class='st'>'CountryRegion'</span>, <span class='kw'>case_column</span><span class='kw'>=</span><span class='st'>'inc'</span>) +
