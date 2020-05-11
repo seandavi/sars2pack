@@ -249,19 +249,7 @@ See <a href='https://www.apple.com/covid19/mobility'>https://www.apple.com/covid
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-<span class='no'>res</span> <span class='kw'>=</span> <span class='fu'>apple_mobility_data</span>()
-<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; [1] "geo_type"            "region"              "transportation_type"
-#&gt; [4] "alternative_name"    "date"                "mobility_index"     </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 6 x 6</span><span>
-#&gt;   geo_type   region  transportation_… alternative_name date       mobility_index
-#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>            </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>            </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>              </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #555555;'>1</span><span> country/r… Albania driving          </span><span style='color: #BB0000;'>NA</span><span>               2020-01-13          100  
-#&gt; </span><span style='color: #555555;'>2</span><span> country/r… Albania driving          </span><span style='color: #BB0000;'>NA</span><span>               2020-01-14           95.3
-#&gt; </span><span style='color: #555555;'>3</span><span> country/r… Albania driving          </span><span style='color: #BB0000;'>NA</span><span>               2020-01-15          101. 
-#&gt; </span><span style='color: #555555;'>4</span><span> country/r… Albania driving          </span><span style='color: #BB0000;'>NA</span><span>               2020-01-16           97.2
-#&gt; </span><span style='color: #555555;'>5</span><span> country/r… Albania driving          </span><span style='color: #BB0000;'>NA</span><span>               2020-01-17          104. 
-#&gt; </span><span style='color: #555555;'>6</span><span> country/r… Albania driving          </span><span style='color: #BB0000;'>NA</span><span>               2020-01-18          113. </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span>(<span class='no'>res</span>$<span class='no'>transportation_type</span>)</div><div class='output co'>#&gt; 
-#&gt; driving transit walking 
-#&gt;   94282   17582   24780 </div><div class='input'>
+<span class='no'>res</span> <span class='kw'>=</span> <span class='fu'>apple_mobility_data</span>()</div><div class='output co'>#&gt; <span class='error'>Error in wdman::phantomjs(verbose = FALSE): PhantomJS signals port = 4567 is already in use.</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; <span class='error'>Error in is.data.frame(x): object 'res' not found</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; <span class='error'>Error in head(res): object 'res' not found</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span>(<span class='no'>res</span>$<span class='no'>transportation_type</span>)</div><div class='output co'>#&gt; <span class='error'>Error in table(res$transportation_type): object 'res' not found</span></div><div class='input'>
 <span class='fu'><a href='https://rdrr.io/r/base/library.html'>require</a></span>(<span class='no'>ggplot2</span>)
 
 <span class='no'>pl</span> <span class='kw'>=</span> <span class='no'>res</span> <span class='kw'>%&gt;%</span>
@@ -270,8 +258,7 @@ See <a href='https://www.apple.com/covid19/mobility'>https://www.apple.com/covid
         <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>y</span><span class='kw'>=</span><span class='no'>mobility_index</span>,<span class='kw'>color</span><span class='kw'>=</span><span class='no'>transportation_type</span>)) +
         <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_date.html'>scale_x_date</a></span>(<span class='kw'>date_breaks</span> <span class='kw'>=</span> <span class='st'>'1 week'</span>, <span class='kw'>date_labels</span><span class='kw'>=</span><span class='st'>'%b-%d'</span>) +
         <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/facet_grid.html'>facet_grid</a></span>(<span class='kw'>rows</span><span class='kw'>=</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/vars.html'>vars</a></span>(<span class='no'>region</span>)) +
-        <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span>(<span class='st'>'Changes in Apple Mobility Index over time'</span>)
-<span class='no'>pl</span></div><div class='img'><img src='apple_mobility_data-1.png' alt='' width='700' height='433' /></div><div class='input'>
+        <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span>(<span class='st'>'Changes in Apple Mobility Index over time'</span>)</div><div class='output co'>#&gt; <span class='error'>Error in eval(lhs, parent, parent): object 'res' not found</span></div><div class='input'><span class='no'>pl</span></div><div class='output co'>#&gt; <span class='error'>Error in eval(expr, envir, enclos): object 'pl' not found</span></div><div class='input'>
 <span class='no'>regs_of_interest</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>'Seattle'</span>, <span class='st'>'New York City'</span>,
                      <span class='st'>'Chicago'</span>, <span class='st'>'Italy'</span>,
                      <span class='st'>'Russia'</span>, <span class='st'>'UK'</span>,
@@ -281,7 +268,7 @@ See <a href='https://www.apple.com/covid19/mobility'>https://www.apple.com/covid
     <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>x</span><span class='kw'>=</span><span class='no'>date</span>, <span class='kw'>y</span><span class='kw'>=</span><span class='no'>region</span>, <span class='kw'>fill</span><span class='kw'>=</span><span class='no'>mobility_index</span>)) +
         <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_tile.html'>geom_tile</a></span>() +
         <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/facet_grid.html'>facet_grid</a></span>(<span class='kw'>rows</span><span class='kw'>=</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/vars.html'>vars</a></span>(<span class='no'>transportation_type</span>)) +
-        <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span>(<span class='st'>'Changes in Apple Mobility Index over time'</span>)</div><div class='img'><img src='apple_mobility_data-2.png' alt='' width='700' height='433' /></div><div class='input'>
+        <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span>(<span class='st'>'Changes in Apple Mobility Index over time'</span>)</div><div class='output co'>#&gt; <span class='error'>Error in eval(lhs, parent, parent): object 'res' not found</span></div><div class='input'>
 <span class='kw'>if</span>(<span class='fu'><a href='https://rdrr.io/r/base/library.html'>require</a></span>(<span class='no'>viridis</span>)) {
 <span class='no'>res</span> <span class='kw'>%&gt;%</span>
     <span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span>(<span class='no'>region</span> <span class='kw'>%in%</span> <span class='no'>regs_of_interest</span>) <span class='kw'>%&gt;%</span>
@@ -290,7 +277,7 @@ See <a href='https://www.apple.com/covid19/mobility'>https://www.apple.com/covid
         <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/facet_grid.html'>facet_grid</a></span>(<span class='kw'>rows</span><span class='kw'>=</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/vars.html'>vars</a></span>(<span class='no'>transportation_type</span>)) +
         <span class='fu'><a href='https://rdrr.io/pkg/viridis/man/scale_viridis.html'>scale_fill_viridis</a></span>() +
         <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span>(<span class='st'>'Changes in Apple Mobility Index over time'</span>)
-}</div><div class='output co'>#&gt; <span class='message'>Loading required package: viridis</span></div><div class='output co'>#&gt; <span class='message'>Loading required package: viridisLite</span></div><div class='img'><img src='apple_mobility_data-3.png' alt='' width='700' height='433' /></div><div class='input'>
+}</div><div class='output co'>#&gt; <span class='message'>Loading required package: viridis</span></div><div class='output co'>#&gt; <span class='message'>Loading required package: viridisLite</span></div><div class='output co'>#&gt; <span class='error'>Error in eval(lhs, parent, parent): object 'res' not found</span></div><div class='input'>
 <span class='kw'>if</span>(<span class='fu'><a href='https://rdrr.io/r/base/library.html'>require</a></span>(<span class='no'>plotly</span>)) {
     <span class='fu'><a href='https://rdrr.io/pkg/plotly/man/ggplotly.html'>ggplotly</a></span>(<span class='no'>pl</span>)
 }</div><div class='output co'>#&gt; <span class='message'>Loading required package: plotly</span></div><div class='output co'>#&gt; <span class='message'></span>
@@ -302,9 +289,9 @@ See <a href='https://www.apple.com/covid19/mobility'>https://www.apple.com/covid
 #&gt; <span class='message'></span>
 #&gt; <span class='message'>    filter</span></div><div class='output co'>#&gt; <span class='message'>The following object is masked from ‘package:graphics’:</span>
 #&gt; <span class='message'></span>
-#&gt; <span class='message'>    layout</span></div><div class='input'>
+#&gt; <span class='message'>    layout</span></div><div class='output co'>#&gt; <span class='error'>Error in ggplotly(pl): object 'pl' not found</span></div><div class='input'>
 
-</div></span></pre>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
