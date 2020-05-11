@@ -35,6 +35,8 @@ jobs:
           Rscript -e "devtools::install('.', dependencies=TRUE, repos = BiocManager::repositories())"
 
       - name: Build pkgdown
+        env:
+          CENSUS_API_KEY: ${{ secrets.CENSUS_API_KEY }}
         run: |
            PATH=$PATH:$HOME/bin/ Rscript -e 'pkgdown::build_site(".")'
 
