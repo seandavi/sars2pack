@@ -53,7 +53,10 @@ head(cdcdeaths)
 colnames(cdcdeaths)
 table(cdcdeaths$outcome)
 
+
 # Examine excess deaths in three states
+library(ggplot2)
+library(dplyr)
 interesting_states = c('Ohio', 'Pennsylvania', 'California')
 ggplot(cdcdeaths \%>\% dplyr::filter(type=="Predicted (weighted)" &
                             outcome=="All causes" &
