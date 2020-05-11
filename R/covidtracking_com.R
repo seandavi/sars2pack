@@ -30,7 +30,7 @@
 #' - \url{https://covidtracking.com/about-tracker/}
 #' - \url{https://covidtracking.com/notes/}
 #' 
-#' @importFrom readr read_csv
+#' @importFrom readr read_csv cols
 #' @importFrom dplyr select
 #'
 #' @return A tidy `tbl_df`

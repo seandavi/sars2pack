@@ -25,6 +25,7 @@ Other data-import:
 \code{\link{beoutbreakprepared_data}()},
 \code{\link{cdc_aggregated_projections}()},
 \code{\link{cdc_excess_deaths}()},
+\code{\link{coronanet_government_response_data}()},
 \code{\link{cov_glue_lineage_data}()},
 \code{\link{covidtracker_data}()},
 \code{\link{descartes_mobility_data}()},
