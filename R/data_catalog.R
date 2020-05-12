@@ -21,7 +21,7 @@
 #' @export
 available_datasets <- function() {
     catalog = system.file('data_catalog/catalog.json',package='sars2pack')
-    as_tibble(jsonlite::fromJSON(catalog))
+    as_tibble(jsonlite::fromJSON(catalog)$datasets)
 }
 
 #' @describeIn available_datasets
