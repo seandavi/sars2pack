@@ -15,12 +15,6 @@
 #' # and how to use the accessor programmatically
 #' get(res[1,]$accessor)()
 #'
-#' \dontrun {
-#' if(interactive()) {
-#'   require(DT)
-#'   datatable(res)
-#' }
-#' }
 #' 
 #' 
 #'
