@@ -33,7 +33,12 @@
 #' @importFrom lubridate ymd
 #' @importFrom readr read_csv cols
 #'
-#' @note see \url{https://github.com/nytimes/covid-19-data#geographic-exceptions}
+#' @note See \url{https://github.com/nytimes/covid-19-data#geographic-exceptions}. Also,
+#'     This dataset contains county data with "holes" in reporting, dates with no
+#'     reported results. Also, records with "Unknown" county are removed since
+#'     these records appear to NOT be cumulative data, but incidence data? 
+#' 
+#' 
 #' 
 #' @section Licensing:
 #'
@@ -90,7 +95,7 @@
 #'
 #' @export
 nytimes_county_data = function() {
-    rpath = s2p_cached_url('https://raw.github.com/nytimes/covid-19-data/master/us-counties.csv')
+    rpath = s2p_cached_url('https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv')
     dat = readr::read_csv(rpath, col_types=cols())
     confirmed = dat[,1:5]
     confirmed$subset = 'confirmed'
@@ -101,6 +106,7 @@ nytimes_county_data = function() {
     ret = dplyr::bind_rows(confirmed,deaths)
     colnames(ret)[2] = 'county'
     ret$date = lubridate::ymd(ret$date)
+    ret = ret[ret$county!='Unknown',] # these appear to be non-cumulative, so remove
     ret$fips = integer_to_fips(as.numeric(ret$fips))
     ret
 }
@@ -113,7 +119,7 @@ nytimes_county_data = function() {
 #'
 #' @export
 nytimes_state_data = function() {
-    rpath = s2p_cached_url('https://raw.github.com/nytimes/covid-19-data/master/us-states.csv')
+    rpath = s2p_cached_url('https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-states.csv')
     dat = readr::read_csv(rpath, col_types=cols())
     confirmed = dat[,1:4]
     confirmed$subset = 'confirmed'

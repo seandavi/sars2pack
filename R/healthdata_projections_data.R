@@ -72,10 +72,41 @@ healthdata_projections_data <- function() {
     datafile = dir(tmpd, pattern='^Hospitalization_all_locs\\.csv$', recursive = TRUE, full.names=TRUE)[1]
     projections = readr::read_csv(datafile, col_types=cols(), guess_max=5000)
     projections = projections %>%
-        tidyr::pivot_longer(cols=-c('location_name', 'date'),
+        dplyr::select(c(dplyr::ends_with(c('mean','upper','lower')),
+                        'location_name','date')) %>%
+        tidyr::pivot_longer(cols=c(dplyr::ends_with(c('mean','upper','lower'))),
                             names_to='metric', values_to='count') %>%
-        tidyr::separate(metric, c('metric','quantity')) %>%
+        tidyr::separate(metric, into=c('metric','quantity'), sep="_", extra='merge') %>%
         tidyr::pivot_wider(names_from = quantity, values_from = count, values_fill = list(count=0))
     attr(projections, 'class') = c('covid_projections_df', class(projections))
     projections
 }
+
+healthdata_mobility_data <- function() {
+    rpath = "https://ihmecovid19storage.blob.core.windows.net/latest/ihme-covid19.zip"
+    destfile = s2p_cached_url(rpath)
+    tmpd = tempdir()
+    unzip(destfile, exdir=tmpd)
+    datafile = dir(tmpd, pattern='^Hospitalization_all_locs\\.csv$', recursive = TRUE, full.names=TRUE)[1]
+    projections = readr::read_csv(datafile, col_types=cols(), guess_max=5000)
+    projections = projections %>%
+        dplyr::select(c(dplyr::starts_with('mobility'),
+                        'location_name','date'))
+    attr(projections, 'class') = c('covid_projections_df', class(projections))
+    projections
+}
+
+healthdata_testing_data <- function() {
+    rpath = "https://ihmecovid19storage.blob.core.windows.net/latest/ihme-covid19.zip"
+    destfile = s2p_cached_url(rpath)
+    tmpd = tempdir()
+    unzip(destfile, exdir=tmpd)
+    datafile = dir(tmpd, pattern='^Hospitalization_all_locs\\.csv$', recursive = TRUE, full.names=TRUE)[1]
+    projections = readr::read_csv(datafile, col_types=cols(), guess_max=5000)
+    projections = projections %>%
+        dplyr::select(c(dplyr::starts_with('total_tests'),
+                        'location_name','date'))
+    attr(projections, 'class') = c('covid_projections_df', class(projections))
+    projections
+}
+

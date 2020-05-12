@@ -30,7 +30,7 @@
 #' - \url{https://covidtracking.com/about-tracker/}
 #' - \url{https://covidtracking.com/notes/}
 #' 
-#' @importFrom readr read_csv
+#' @importFrom readr read_csv cols
 #' @importFrom dplyr select
 #'
 #' @return A tidy `tbl_df`
@@ -40,6 +40,14 @@
 #' colnames(res)
 #' dim(res)
 #' dplyr::glimpse(res)
+#'
+#' # Hospitalizations by day in Maryland
+#' covidtracker_data() %>%
+#'     filter(state=='MD') %>%
+#'     add_incidence_column(count_column='hospitalized') %>%
+#'     ggplot(aes(x=date,y=inc)) + geom_smooth() +
+#'     ylab("New Hospitalizations per day") +
+#'     ggtitle('Hospitalizations in Maryland', subtitle = 'From covidtracker')
 #' 
 #'
 #' @family data-import
@@ -47,7 +55,7 @@
 #' 
 #' @export
 covidtracker_data <- function() {
-    rpath = 'http://covidtracking.com/api/states/daily.csv'
+    rpath = 'http://covidtracking.com/api/v1/states/daily.csv'
     fname = s2p_cached_url(rpath)
     res = readr::read_csv(fname, col_types=cols())
     ret = res %>%

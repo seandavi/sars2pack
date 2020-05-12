@@ -34,6 +34,25 @@ howpublished = {Accessed on yyyy-mm-dd from
 \url{http://virological.org/t/epidemiological-data-from-the-ncov-2019-outbreak-early-descriptions-from-publicly-available-data/337}},
 year =         2020
 }
+
+ARTICLE{Xu2020-wb,
+title    = "Open access epidemiological data from the {COVID-19} outbreak",
+author   = "Xu, Bo and Kraemer, Moritz U G and {Open COVID-19 Data Curation
+Group}",
+journal  = "The Lancet infectious diseases",
+volume   =  20,
+number   =  5,
+pages    = "534",
+month    =  may,
+year     =  2020,
+url      = "http://dx.doi.org/10.1016/S1473-3099(20)30119-5",
+file     = "All Papers/X/Xu et al. 2020 - Open access epidemiological data from the COVID-19 outbreak.pdf",
+language = "en",
+issn     = "1473-3099, 1474-4457",
+pmid     = "32087115",
+doi      = "10.1016/S1473-3099(20)30119-5",
+pmc      = "PMC7158984"
+}
 }
 
 \examples{
@@ -46,6 +65,10 @@ head(res)
 Other data-import: 
 \code{\link{apple_mobility_data}()},
 \code{\link{cdc_aggregated_projections}()},
+\code{\link{cdc_excess_deaths}()},
+\code{\link{coronanet_government_response_data}()},
+\code{\link{cov_glue_lineage_data}()},
+\code{\link{cov_glue_newick_data}()},
 \code{\link{covidtracker_data}()},
 \code{\link{descartes_mobility_data}()},
 \code{\link{ecdc_data}()},
@@ -57,18 +80,30 @@ Other data-import:
 \code{\link{jhu_us_data}()},
 \code{\link{kff_icu_beds}()},
 \code{\link{nytimes_county_data}()},
+\code{\link{param_estimates_published}()},
 \code{\link{us_county_geo_details}()},
 \code{\link{us_healthcare_capacity}()},
 \code{\link{us_state_distancing_policy}()},
 \code{\link{usa_facts_data}()}
 
 Other case-tracking: 
+\code{\link{align_to_baseline}()},
+\code{\link{bulk_estimate_Rt}()},
+\code{\link{combined_us_cases_data}()},
 \code{\link{covidtracker_data}()},
 \code{\link{ecdc_data}()},
+\code{\link{estimate_Rt}()},
 \code{\link{eu_data_cache_data}()},
 \code{\link{jhu_data}()},
 \code{\link{nytimes_county_data}()},
+\code{\link{owid_data}()},
+\code{\link{plot_epicurve}()},
 \code{\link{usa_facts_data}()}
+
+Other individual-cases: 
+\code{\link{cov_glue_lineage_data}()},
+\code{\link{cov_glue_newick_data}()}
 }
 \concept{case-tracking}
 \concept{data-import}
+\concept{individual-cases}

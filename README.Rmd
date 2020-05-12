@@ -1,97 +1,169 @@
+---
+output: 
+  - rmarkdown::github_document
+  #- rmarkdown::html_document
+always_allow_html: true
+  #bookdown::html_document2:
+    #number_sections: false
+    #toc: false
+---
+
+
 # sars2pack
 
+<!-- badges: start -->
 
-## Introduction 
+<!-- badges: end -->
 
-The sars2pack R package includes data resources, workflows, and data
-science tools to understand and interpret the COVID-19 pandemic. Access
-to data resources is “real-time” to get the most up-to-date information.
-Use cases and introductory material are available in vignettes and in
-documentation.
+```{r init, include=FALSE} 
+knitr::opts_chunk$set(warning=FALSE,message=FALSE, cache=TRUE,
+                      fig.width=9, fig.height=6, out.width = '100%'
+                      )
+knitr::opts_knit$set(upload.fun = knitr::imgur_upload)
+```
 
-Contributions are welcome. Have an interesting analysis that you’d like
-to share, write up an R markdown document and contribute it as a
-vignette. If you are not used to working collaboratively in github, just
-post a [new issue](https://github.com/seandavi/sars2pack/issues/new) to
-ask for help.
+## Questions addressed by sars2pack
 
-Thanks to the armies of people providing data for the rest of the world,
-often on a volunteer basis. Without their tireless work, we would not
-have these rapidly-developing resources.
+- What are the current and historical total, new cases, and deaths of COVID-19 at the city, county, state, national, and international levels?
+- How do changes in infection rates differ across locations?
+- What are the non-pharmacological interventions in place at the local and national levels?
+- In the United States, what is the geographical distribution of healthcare capacity (ICU beds, total beds, doctors, etc.)?
+- What are the published values of key epidemic parameters, as curated from the literature?
 
-## Experimental Binder Launch
 
-Click here: <br/>
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/seandavi/sars2pack/a01150a?urlpath=rstudio)
 
-This could take 15-30 minutes if the most recent commit has not been built at binder yet. Generally, it takes about a minute, though. 
+## Installation
 
-# Get Started
+```{r eval=FALSE}
+# If you do not have BiocManager installed:
+install.packages('BiocManager')
 
-    # If you do not have BiocManager installed:
-	install.packages('BiocManager')
-	
-	# Then, if sars2pack is not already installed:
-    BiocManager::install('seandavi/sars2pack')
-	
-    # Then, to use:
-    library(sars2pack)
+# Then, if sars2pack is not already installed:
+BiocManager::install('seandavi/sars2pack')
+```
 
-# Extended Documentation
+After the one-time installation, load the packge to get started.
 
-- https://seandavi.github.io/sars2pack
+```{r}
+library(sars2pack)
+```
 
-Features
-========
+## Available datasets
 
-Data resources available
-------------------------
+```{r echo=FALSE}
+library(knitr)
+library(kableExtra)
+library(tibble)
+library(dplyr)
+library(purrr)
+library(sars2pack)
+library(yaml)
+b = available_datasets()
+a = tibble(x=1:3, y=split(LETTERS[1:9],1:3))
+a$y = sapply(a$y,paste0, collapse="\n")
+catalog = system.file('data_catalog/catalog.yaml',package='sars2pack')
+y = yaml.load_file(catalog)
+y1 = as_tibble(lapply(as_tibble(purrr::transpose(y$datasets)),function(z) if(length(unlist(z))==length(z)) unlist(z) else (z)))
+y1 = as_tibble(lapply(y1, function(z) if(is.list(z)) sapply(z, paste, collapse="\n") else z))
+y1 %>% dplyr::mutate(url=sprintf('[LINK](%s)',url)) %>%
+    mutate_all(linebreak) %>%
+    arrange(data_type) %>%
+    kable(booktabs=TRUE, escape=FALSE) %>%
+    kable_styling("striped")
+```
 
-Epidemiologic, health risk, demographic, and healthcare system datasets from multiple sources are available and documented.
+## Case tracking
 
-- [Complete details](https://seandavi.github.io/sars2pack/articles/datasets.html)
+Updated tracking  of city, county, state, national, and international confirmed cases, deaths,
+and testing is critical to driving policy, implementing interventions, and measuring their effectiveness. Case tracking datasets include date, a count of cases, and usually numerous other pieces of information related to location of reporting, etc. 
 
-Visualization
--------------
+Accessing case-tracking datasets is typically done with one function per dataset. The example here is data from the European Centers for Disease Control, or ECDC.
 
-![](man/figures/africa_geo.png) ![](man/figures/cc_ts_plot_log-1.png)
-![](man/figures/epicurve_and_model.png)
+```{r worldwide}
+ecdc = ecdc_data()
+```
 
-Workflow status
-===============
+Get a quick overview of the dataset.
 
-Automated workflows and current status.
+```{r}
+head(ecdc)
+```
 
-<table>
-<thead>
-<tr class="header">
-<th>Workflow Status</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><img src="https://github.com/seandavi/sars2pack/workflows/Publish%20artifacts/badge.svg" alt="Publish artifacts" /></td>
-<td>Produces regularly updated data resources and products</td>
-</tr>
-<tr class="even">
-<td><img src="https://github.com/seandavi/sars2pack/workflows/pkgdown%20site/badge.svg" alt="pkgdown site" /></td>
-<td>Prepare and publish <a href="https://seandavi.github.io/sars2pack/">pkgdown documentation</a></td>
-</tr>
-</tbody>
-</table>
+The `ecdc` dataset is just a `data.frame` (actually, a `tibble`), so applying standard R or tidyverse functionality can get answers to basic questions with little code. The next code block generates a `top10` of countries with the most deaths recorded to date. Note that if you do this on your own computer, the data will be updated to today's data values. 
 
-Contribute
-==========
+```{r results='asis'}
+library(dplyr)
+top10 = ecdc %>% filter(subset=='deaths') %>% 
+    group_by(location_name) %>%
+    filter(count==max(count)) %>%
+    arrange(desc(count)) %>%
+    head(10) %>% select(-starts_with('iso'),-continent,-subset) %>%
+    mutate(rate_per_100k = 1e5*count/population_2018)
 
-To contribute to this package please make a fork and then issue pull
-requests.
+```
 
-Resources
-=========
+Finally, present a nice table of those countries:
 
-Similar work
-------------
+```{r}
+knitr::kable(
+    top10,
+    caption = "Reported COVID-19-related deaths in ten most affected countries.",
+    format = 'pandoc')
+```
+
+Examine the spread of the pandemic throughout the world by examining cumulative deaths
+reported for the top 10 countries above.
+
+```{r plotcases}
+ecdc_top10 = ecdc %>% filter(location_name %in% top10$location_name & subset=='deaths')
+plot_epicurve(ecdc_top10,
+              filter_expression = count > 10, 
+              color='location_name')
+```
+
+Comparing the features of disease spread is easiest if all curves are shifted to 
+"start" at the same absolute level of infection. In this case, shift the origin for
+all countries to start at the first time point when more than 100 cumulative cases
+had been observed. Note how some curves cross others which is evidence of less infection
+control at the same relative time in the pandemic for that country (eg., Brazil).
+
+```{r}
+ecdc_top10 %>% align_to_baseline(count>100,group_vars=c('location_name')) %>%
+    plot_epicurve(date_column = 'index',color='location_name')
+```
+
+
+## Geospatial plotting of data
+
+
+
+
+
+## Projection models
+
+```{r}
+hcpd = healthdata_projections_data()
+regs_of_interest = 'Georgia'
+library(ggplot2)
+pl = hcpd %>%
+   dplyr::filter(location_name %in% regs_of_interest) %>%
+   ggplot(aes(x=date)) + geom_line(aes(y=mean, color=metric))
+# plot the "mean" prediction
+pl
+# add 95% confidence bounds
+pl + geom_ribbon(aes(ymin=lower, ymax=upper, fill=metric), alpha=0.25)
+```
+
+
+## Contributions
+
+Pull requests are gladly accepted on [Github](https://github.com/seandavi/sars2pack).
+
+### Adding new datasets
+
+See the **Adding new datasets** vignette. 
+
+## Similar work
 
 -   <https://github.com/emanuele-guidotti/COVID19>
 -   [Top 25 R resources on Novel COVID-19
@@ -103,4 +175,5 @@ Similar work
     COVID-19](https://www.youtube.com/watch?v=D_CNmYkGRUc)
 -   [DataCamp: Visualize the rise of COVID-19 cases globally with
     ggplot2](https://www.datacamp.com/projects/870)
--   [MackLavielle/covidix R package](https://github.com/MarcLavielle/covidix/)
+-   [MackLavielle/covidix R
+    package](https://github.com/MarcLavielle/covidix/)

@@ -11,6 +11,9 @@ output:
     highlight: pygments
     number_sections: yes
     theme: united
+    fig_width: 10
+    fig_height: 8
+    out_width: "100%"
     toc: yes
 ---
 
@@ -180,3 +183,60 @@ pdf('us_county_numbers.pdf', width=11, height=8)
 print(z)
 dev.off()
 ```
+
+
+## Small multiples
+
+### United states
+
+
+```{r fig.height=10, results='hide'}
+library(sars2pack)
+library(tidycensus)
+library(dplyr)
+library(ggplot2)
+library(sf)
+nys = nytimes_state_data() %>%
+    dplyr::filter(subset=='confirmed') %>%
+    add_incidence_column(grouping_columns = c('state'))
+state_pops <-
+    suppressMessages(
+        get_acs(geography = "state",
+                variables = "B01003_001",
+                geometry = TRUE)) %>%
+    mutate(centroid = st_centroid(geometry))
+nyspop = nys %>% left_join(state_pops, by=c('state'='NAME')) %>%
+    mutate(inc_pop = inc/estimate*100000)
+library(geofacet)
+ggplot(nyspop,aes(x=date, inc_pop)) +
+    geom_smooth() + facet_geo(~ state, grid=us_state_grid1) +
+    ylab('Daily incidence per 100k population') +
+    theme_light() +
+    ggtitle('Daily new COVID-19 cases in US',
+            subtitle=sprintf('Updated %s',format(Sys.Date(),'%b %d, %Y')))
+```
+
+### Europe
+
+```{r fig.height=10}
+library(wbstats)
+pop_data <- wb(indicator = "SP.POP.TOTL",mrv=1)
+ecdc = ecdc_data() %>% ungroup() %>%
+    mutate(location_name=gsub('_',' ',location_name))
+ecdc = ecdc %>%
+    dplyr::select(subset,count,location_name,date,iso2c,continent) %>%
+    dplyr::filter(subset=='confirmed') %>%
+    add_incidence_column(grouping_columns = c('iso2c','location_name'))
+ecdcpop = ecdc %>%
+    dplyr::left_join(select(pop_data,value,iso2c), by=c('iso2c'='iso2c')) %>%
+    mutate(inc_pop = inc/value*100000) 
+library(geofacet)
+ggplot(ecdcpop,aes(x=date, inc_pop)) +
+    geom_smooth() + facet_geo(~ location_name, grid=geofacet::eu_grid1) +
+    ylab('Daily incidence per 100k population') +
+    theme_light() +
+    ggtitle('Daily new COVID-19 cases in US',
+            subtitle=sprintf('Updated %s',format(Sys.Date(),'%b %d, %Y')))
+```
+
+

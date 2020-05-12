@@ -1,0 +1,98 @@
+---
+title: "Case tracking datasets"
+author: "Sean Davis"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Case tracking datasets}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "##"
+)
+```
+
+```{r setup, message=FALSE}
+library(sars2pack)
+library(dplyr)
+library(ggplot2)
+```
+## Case tracking datasets
+
+Datasets accessed from the internet come in many forms. We reformat
+the data into "tidy" data.frames that are described here.
+
+The case-tracking datasets each contain at least one `date` column,
+one `count` column that describe some quantity of people over
+time. A third column, `subset` is often (but not always) present and
+describes the type of "counting" for each record. For instance, common
+values for `subset` are "confirmed" and "deaths". Additional columns,
+if present, usually specify geographical data for each record such as
+the name of the city, state, country, etc. 
+
+The dataset from Johns Hopkins University is one example that we can
+look at to get familiar with the data.
+
+```{r}
+jhu = jhu_data()
+colnames(jhu)
+head(jhu)
+dplyr::glimpse(jhu)
+```
+
+```{r}
+table(jhu$subset)
+```
+
+## Compare US datasets
+
+We can employ comparisons of the multiple case-tracking datasets that
+capture the cases at a US state level to get a sense of systematic
+biases in the data and look for agreement across datasets. One
+convenience function, `combined_us_cases_data()`, yields a stacked
+dataframe with an identifier for each dataset.
+
+
+```{r}
+us_states = combined_us_cases_data()
+head(us_states)
+table(us_states$dataset)
+```
+
+To get a sense of the data and their meaning, consider the following
+series of graphs based on three "randomly" chosen states.
+
+```{r}
+interesting_states = c('PA','CA','GA')
+pd = position_dodge(width=0.2)
+```
+The `position_dodge` here just moves the lines apart a bit so they do
+not overlap and hide each other. The "confirmed cases" plot here shows
+that over time, the datasets agree quite well. Adapting the
+`plot_epicurve()` function a bit, we can quickly construct faceted,
+stratified curves showing the behavior of three datasets across three
+states over time. 
+
+```{r fig.cap='Confirmed cases from combined US states datasets for three states'}
+plot_epicurve(us_states,
+              filter_expression = state %in% interesting_states & count>10,
+              case_column = 'count', color='dataset') + 
+    facet_grid(rows=vars(state)) + geom_line(position=pd) +
+    ggtitle('Cumulative cases')
+```
+
+However, the infection **rate** is more easily visualized with daily
+incidence curves. 
+
+```{r fig.cap='Daily incidence for three states from multiple data sources'}
+plot_epicurve(us_states,
+              filter_expression = state %in% interesting_states & incidence>10,
+              case_column = 'incidence', color='dataset', log=FALSE) + 
+    facet_grid(cols=vars(state)) + geom_line(position=pd) +
+    geom_smooth(alpha=0.4) + ggtitle('Daily reported cases')
+```
+
+

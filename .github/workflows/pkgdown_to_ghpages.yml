@@ -5,12 +5,13 @@ on:
     - master
   schedule:
     - cron:  '0 03 * * *'
+#      image: bioconductor/bioconductor_docker:devel
 jobs:
   build-pkgdown-and-deploy:
     name: Setup, Build, and Deploy
     runs-on: ubuntu-latest
     container:
-      image: bioconductor/bioconductor_docker:devel
+      image: rockerdev/geospatial
     steps:
       - name: Checkout
         uses: actions/checkout@v2 # If you're using actions/checkout@v2 you must set persist-credentials to false in most cases for the deployment to work correctly.
@@ -29,19 +30,18 @@ jobs:
 
       - name: Install package and dependencies
         run: |
-           Rscript -e "install.packages('pkgbuild')"
-           Rscript -e "devtools::install('.', dependencies=TRUE, repos = BiocManager::repositories())"
+          Rscript -e "install.packages('BiocManager')"
+          Rscript -e "install.packages(c('pkgbuild','prettyunits'))"
+          Rscript -e "devtools::install('.', dependencies=TRUE, repos = BiocManager::repositories())"
 
-      - name: Install phantomjs dependency
-        run: |
-           Rscript -e "webdriver::install_phantomjs()"
-           PATH=$PATH:$HOME/bin/ echo `which phantomjs`
-  
       - name: Build pkgdown
+        env:
+          CENSUS_API_KEY: ${{ secrets.CENSUS_API_KEY }}
         run: |
-           PATH=$PATH:$HOME/bin/ Rscript -e 'webdriver::install_phantomjs();print(Sys.getenv("PATH")); print(Sys.getenv("HOME"));pkgdown::build_site(".")'
+           PATH=$PATH:$HOME/bin/ Rscript -e 'pkgdown::build_site(".")'
 
       # deploy needs rsync? Seems so.
+
       - name: Install deploy dependencies
         run: |
           apt-get update

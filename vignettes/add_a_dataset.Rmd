@@ -1,0 +1,101 @@
+---
+title: "How to add a new dataset to sars2pack"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{How to add a new dataset to sars2pack}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+# How to add a new dataset to `sars2pack`
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+Most datasets in sars2pack are accessed directly from their url(s) online.
+We have not stored datasets in the package because most interesting datasets
+are being updated quite regularly. At a high level, adding a new dataset includes
+the following steps.
+
+1. Add an R file that contains a single accessor for the dataset.
+2. Consider using the s2p_cached_url() (see help('caching')) functionality to 
+use BiocFilecache capabilities. 
+3. Add an entry to the `inst/data_catalog/catalog.yaml`, using a previous
+entry as a template.
+4. Run the `create_dataset_details()` function to add your dataset details
+to the `inst/data_catalog/dataset_details.yaml`.
+5. Run devtools::test() to ensure that your dataset passes tests. 
+
+## Add an R file.
+
+This file should return the munged dataset. Take care to convert date columns to actual
+dates, convert to long-form tidy data where possible (to facilitate dplyr/ggplot paradigms).
+
+Roxygen ocumentation should contain:
+
+- Title
+- Description
+- Author
+- Source (usually a URL)
+- Reference
+- Examples (head, colnames, dplyr::glimpse, and potentially more complicate use cases)
+- `@family data-import` and potentially other families. Check with package authors for suggestions.
+
+## Caching using s2p_cached_url
+
+See, for example, the source for usa_facts_data.
+
+## Add an entry to `catalog.yaml`
+
+The `catalog.yaml` file is in `inst/data_catalog`. The file 
+drives the `available_datasets()` function, allowing us to rapidly
+update with new functionality. 
+
+Here is an example of what such an entry looks like:
+
+``` yaml
+  - name: Kaiser Family Foundation ICU bed data
+    accessor: kff_icu_beds
+    data_type: healthcare capacity 
+    region: United States
+    resolution: Individual hospital
+    geospatial: true
+    geographical: true
+    url: https://khn.org/news/as-coronavirus-spreads-widely-millions-of-older-americans-live-in-counties-with-no-icu-beds
+```
+
+Simply edit this file and add one entry per dataset that you add.
+
+##  Run the `create_dataset_details()` function
+
+The `create_dataset_details()` function runs through all the accessors in
+`catalog.yaml` and collects:
+
+- Column names
+- Column types
+- Dataset dimensions (rows, columns)
+- For datasets with a `date` column, we capture the start and end dates
+
+These data are written to `inst/data_catalog/dataset_details.yaml` and are
+used to drive automated tests for all datasets. 
+
+## Run `devtools::test()` 
+
+All datasets will be tested against the column details in `dataset_details.yaml`. This
+allows us to ensure that datasets, which are grabbed *out of the wild* are not malformed
+compared to what we expect.
+
+## Continue with normal R pull request
+
+- Build
+- Check
+- Test
+- Pull request
+- If automated CI fails, reevaluate and add to pull request
+
+
+

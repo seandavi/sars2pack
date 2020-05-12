@@ -36,6 +36,11 @@ summary(res)
 Other data-import: 
 \code{\link{apple_mobility_data}()},
 \code{\link{beoutbreakprepared_data}()},
+\code{\link{cdc_aggregated_projections}()},
+\code{\link{cdc_excess_deaths}()},
+\code{\link{coronanet_government_response_data}()},
+\code{\link{cov_glue_lineage_data}()},
+\code{\link{cov_glue_newick_data}()},
 \code{\link{covidtracker_data}()},
 \code{\link{descartes_mobility_data}()},
 \code{\link{ecdc_data}()},
@@ -46,16 +51,17 @@ Other data-import:
 \code{\link{jhu_us_data}()},
 \code{\link{kff_icu_beds}()},
 \code{\link{nytimes_county_data}()},
+\code{\link{param_estimates_published}()},
 \code{\link{us_county_geo_details}()},
 \code{\link{us_healthcare_capacity}()},
 \code{\link{us_state_distancing_policy}()},
 \code{\link{usa_facts_data}()}
 
-Other non-pharmaceutical-interventions: 
-\code{\link{us_state_distancing_policy}()}
+Other NPI: 
+\code{\link{coronanet_government_response_data}()}
 }
 \author{
 Sean Davis \href{mailto:seandavi@gmail.com}{seandavi@gmail.com}
 }
+\concept{NPI}
 \concept{data-import}
-\concept{non-pharmaceutical-interventions}

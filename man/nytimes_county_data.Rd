@@ -60,7 +60,10 @@ Washington State on Jan. 21, 2020. We will publish regular updates
 to the data in this repository.
 }
 \note{
-see \url{https://github.com/nytimes/covid-19-data#geographic-exceptions}
+See \url{https://github.com/nytimes/covid-19-data#geographic-exceptions}. Also,
+This dataset contains county data with "holes" in reporting, dates with no
+reported results. Also, records with "Unknown" county are removed since
+these records appear to NOT be cumulative data, but incidence data?
 }
 \section{Licensing}{
 
@@ -101,6 +104,10 @@ Other data-import:
 \code{\link{apple_mobility_data}()},
 \code{\link{beoutbreakprepared_data}()},
 \code{\link{cdc_aggregated_projections}()},
+\code{\link{cdc_excess_deaths}()},
+\code{\link{coronanet_government_response_data}()},
+\code{\link{cov_glue_lineage_data}()},
+\code{\link{cov_glue_newick_data}()},
 \code{\link{covidtracker_data}()},
 \code{\link{descartes_mobility_data}()},
 \code{\link{ecdc_data}()},
@@ -111,17 +118,24 @@ Other data-import:
 \code{\link{jhu_data}()},
 \code{\link{jhu_us_data}()},
 \code{\link{kff_icu_beds}()},
+\code{\link{param_estimates_published}()},
 \code{\link{us_county_geo_details}()},
 \code{\link{us_healthcare_capacity}()},
 \code{\link{us_state_distancing_policy}()},
 \code{\link{usa_facts_data}()}
 
 Other case-tracking: 
+\code{\link{align_to_baseline}()},
 \code{\link{beoutbreakprepared_data}()},
+\code{\link{bulk_estimate_Rt}()},
+\code{\link{combined_us_cases_data}()},
 \code{\link{covidtracker_data}()},
 \code{\link{ecdc_data}()},
+\code{\link{estimate_Rt}()},
 \code{\link{eu_data_cache_data}()},
 \code{\link{jhu_data}()},
+\code{\link{owid_data}()},
+\code{\link{plot_epicurve}()},
 \code{\link{usa_facts_data}()}
 }
 \author{

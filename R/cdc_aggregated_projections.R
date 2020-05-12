@@ -32,6 +32,37 @@
 #' 
 #' min(res$forecast_date)
 #' max(res$target_week_end_date)
+#'
+#' library(dplyr)
+#' library(ggplot2)
+#' 
+#' # FACET view
+#' res_ny = res %>%
+#'     dplyr::filter(location_name=='New York' & grepl('cum death', target)) %>%
+#'     dplyr::filter(model!='UMass-MechBayes')
+#' res_ny %>%
+#'     dplyr::filter(location_name=='New York') %>%
+#'     ggplot(aes(x=model, y=point, color=model)) +
+#'     geom_errorbar(aes(ymin= quantile_0.025, ymax =  quantile_0.975)) +
+#'     facet_wrap(facets='target_week_end_date') +
+#'     geom_point() +
+#'     labs(y='Projected Deaths') +
+#'     theme_bw() +
+#'     theme(axis.text.x=element_blank()) +
+#'     ggtitle('Projected New York deaths for week ending')
+#' #'
+#' # combined view
+#' pd <- position_dodge(width = 3) # use this to offset points and error bars
+#' res_ny %>%
+#'     ggplot(aes(x=target_week_end_date, y=point, color=model)) +
+#'     geom_errorbar(aes(ymin= quantile_0.025, ymax =  quantile_0.975), position=pd) +
+#'     geom_point(position=pd) +
+#'     labs(y='Projected Deaths') +
+#'     geom_line(position=pd) +
+#'     theme_bw() +
+#'     theme(legend.position='bottom') +
+#'     ggtitle('Projected New York deaths for week ending')
+#' 
 #' 
 #' @export
 cdc_aggregated_projections <- function() {

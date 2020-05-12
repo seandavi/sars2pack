@@ -39,14 +39,18 @@
 #'
 #' @author Sean Davis <seandavi@gmail.com>
 #'
-#' @importFrom webdriver run_phantomjs Session
+#' @importFrom RSelenium rsDriver
 #' @importFrom readr read_csv
+#' @importFrom wdman phantomjs
+#' @importFrom dplyr `%>%` mutate
+#' @importFrom tidyr pivot_longer
 #' 
 #' @note
 #' Apple requires that all users agree to their terms of use.
 #' See \url{https://www.apple.com/covid19/mobility}.
 #' 
 #' @examples
+#' 
 #' res = apple_mobility_data()
 #' colnames(res)
 #' head(res)
@@ -88,6 +92,7 @@
 #'     ggplotly(pl)
 #' }
 #'
+#' 
 #' @family data-import
 #' @family mobility
 #' 
@@ -99,35 +104,47 @@ apple_mobility_data = function(agree_to_terms=TRUE, max_tries=3,
     ## The code below uses webdriver to render the
     ##
     stopifnot(agree_to_terms)
-    pjs = try(
-        webdriver::run_phantomjs()
-    )
-    if(is(pjs, 'try-error')) {
-        stop('The webdriver package requires phantomJS. Be sure to run webdriver::install_phantomjs before continuing')
-        
-    }
-    surl = NULL
+    #pjs = RSelenium::phantom(port = 4444L)
+    # wait for phantomjs server to start
+                                        # Sys.sleep(5)
+    rD <- wdman::phantomjs(verbose = FALSE)
+    Sys.sleep(4)
+    remDr = RSelenium::remoteDriver(port=4567L,
+        browserName='phantomjs',remoteServerAddr='localhost')
+    remDr$open(silent = TRUE)
+    dat = NULL
     tries = 1
     ## Error handling for download--apple seems to need this sometimes
-    while(is.null(surl) & tries<max_tries) {
-        ses = webdriver::Session$new(port=pjs$port)
-        ses$go('https://www.apple.com/covid19/mobility')
-        ses$getUrl()
-        surl = ses$findElement('div.download-button-container')$findElement('a')$getAttribute('href')
-        if(is.null(surl)) {
+    while(is.null(dat) & tries<max_tries) {
+        remDr$navigate("https://www.apple.com/covid19/mobility")
+        download_elem = remDr$findElement("css selector", 'div.download-button-container a')
+        dat = try({
+            surl = download_elem$getElementAttribute('href')
+            if(length(surl)<1) {
+                next
+            }
+            surl = surl[[1]]
+            dat = readr::read_csv(surl, col_types = cols()) %>%
+                tidyr::pivot_longer(
+                    cols = dplyr::starts_with('20'),
+                    names_to = "date",
+                    values_to = "mobility_index"
+                ) %>%
+                dplyr::mutate(date = lubridate::ymd(date))
+            if(message_url) message(sprintf("Download url: %s",surl))
+            dat
+        },
+            silent=TRUE
+        )
+        if(inherits(dat, 'try-error') | is.null(dat)) {
             Sys.sleep(1)
             tries = tries + 1
         }
     }
-    if(message_url) message(sprintf("Download url: %s",surl))
+    remDr$close()
+    rD$stop()
     ## rpath = s2p_cached_url(url) ## TODO: fix caching to use only one url
-    dat = readr::read_csv(surl, col_types = cols()) %>%
-        tidyr::pivot_longer(
-                   cols = -c('geo_type','region','transportation_type'),
-                   names_to = "date",
-                   values_to = "mobility_index"
-               ) %>%
-        dplyr::mutate(date = lubridate::ymd(date))
+
     dat
 }
     

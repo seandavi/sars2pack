@@ -1,0 +1,188 @@
+---
+title: "Visualizing geographic COVID-19 trends without maps"
+author: "Joe A. Wasserman <jwasserman@rti.org> and Crystal T. Nguyen <ctnguyen@rti.org>"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Visualizing regional COVID-19 trends without maps}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+# Visualizing geographic data without maps
+
+```{r include=FALSE}
+library(knitr)
+knitr::opts_chunk$set(message=FALSE, warning=FALSE, message=FALSE)
+```
+
+You may have seen visualizations of COVID-19 cases plotted on a map. These maps often represent quantitative information either using color in proportion to values (these are called "choropleths") or circle area proportional to values (these are called bubble plots). While visually striking, these maps are limited in terms of the amount of quantitative information they can communicate about regions. Here, we take a different approach that allows us to create basically any visual display of quantitative information and present it with an approximation of the geographic context.
+
+```{r setup}
+library(dplyr)
+library(tidyr)
+library(purrr)
+library(ggplot2)
+library(zoo)
+library(plotly)
+library(geofacet)
+library(sars2pack)
+```
+
+## Prepping the data from sars2pack
+Let's start with US county-level data from JHU and state-level data from the COVID Tracking Project.
+```{r load jhu}
+cusa = jhu_us_data()
+glimpse(cusa)
+```
+
+
+```{r load covid tracking}
+ctp = covidtracker_data()
+glimpse(ctp)
+```
+
+We need to very lightly clean cumulative data that *should* be monotonically increasing day-over-day (but isn't always) and convert it from cumulative values to daily incidents. The data are in different formats, so we'll use slightly different data munging workflows.
+
+The JHU data don't contain a value for every location-date-subset combination, so we need to fill in those gaps.
+```{r wrangle jhu}
+iusa <- cusa %>% 
+  arrange(Combined_Key, subset, date) %>% 
+  group_by(Combined_Key, subset) %>% 
+  mutate(count = pmin.int(count, dplyr::lead(count, order_by = date), na.rm = TRUE),
+         incidents =  pmax.int(pmap_dbl(list(count, -1*dplyr::lag(count, order_by = date)), 
+                                        ~ sum(..., na.rm = TRUE)), 
+                               0, na.rm = TRUE)) %>% 
+  ungroup() %>% 
+  complete(date, subset, 
+           nesting(UID, iso2, iso3, code3, fips, county, state, country, Lat, Long, Combined_Key),
+           fill = list(incidents = 0)) %>% 
+  replace_na(list(incidents = 0)) %>% 
+  group_by(Combined_Key, subset) %>% 
+  arrange(date) %>% 
+  mutate(ma7 = rollmean(incidents, k = 7, fill = NA, align = "right")) %>% 
+  ungroup() %>% 
+  filter(date >= "2020-03-15", iso2 == "US")
+
+glimpse(iusa)
+```
+
+The COVID Tracking Project data doesn't have a record for every location-date combination and can contain NA values, so we need to fill in the gaps and also transform it into long format for plotting
+```{r wrangle covid tracking}
+US_states <- c('AL', 'AK', 'AR', 'AZ', 'CA', 'CO', 'CT', 'DC', 'DE', 'FL', 'GA',
+               'HI', 'IA', 'ID', 'IL', 'IN', 'KS', 'KY' ,'LA', 'MA', 'MD', 'ME',
+               'MI', 'MN', 'MO', 'MS', 'MT', 'NC', 'ND', 'NE', 'NH', 'NJ', 'NM',
+               'NV', 'NY', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX',
+               'UT', 'VA', 'VT', 'WA', 'WI', 'WV', 'WY')
+
+ictp <- ctp %>% 
+  group_by(state) %>% 
+  mutate_at(c("positive", "negative", "death"), ~ pmin.int(., dplyr::lead(., order_by = date), na.rm = TRUE)) %>% 
+  mutate_at(c("positive", "negative", "death"),          
+            list(incidents = ~ pmax.int(pmap_dbl(list(., -1*dplyr::lag(., order_by = date)), 
+                                           ~ sum(..., na.rm = TRUE)), 
+                                  0, na.rm = TRUE))) %>%
+  complete(date, nesting(state, fips),
+           fill = list(positive_incidents = 0, negative_incidents = 0, death_incidents = 0)) %>% 
+  mutate(test_incidents = pmap_dbl(list(positive_incidents, negative_incidents), ~ sum(..., na.rm = TRUE)),
+         pos_pct = positive_incidents / test_incidents) %>% 
+  replace_na(list(positive = 0, negative = 0, death = 0)) %>%
+  arrange(date) %>% 
+  mutate_at(vars(ends_with("_incidents")), list(ma7 = ~ rollmean(., k = 7, fill = NA, align = "right"))) %>% 
+  mutate_at(vars(ends_with("_incidents")), na_if, 0) %>% 
+  mutate(positive_pct_ma7 = positive_incidents_ma7 / test_incidents_ma7) %>% 
+  ungroup() %>% 
+  filter(date >= "2020-03-15", state %in% US_states)
+
+glimpse(ictp)
+```
+
+## Plotting one geographic unit (example: New York state)
+
+Before plotting, let's customize the theme so we don't have to do so repeatedly for ever plot.
+```{r set theme}
+theme_light2 <-  theme_light() +
+  theme(panel.border = element_blank(),
+        panel.grid.major.x = element_blank(),
+        panel.grid.minor = element_blank(),
+        axis.text.x = element_text(angle = -90),
+        strip.background = element_blank(),
+        strip.text = element_text(color = "black"),
+        legend.position = "bottom")
+```
+
+Let's start by plotting confirmed positive cases and deaths in a single state. As you can see by the vertical bars, these data are fairly noisy. We also know that under-reporting is common around weekends. To address both of these issues, we include a line for rolling 7-day means. To facilitate interpretation, we include another line for the proportion of positive tests. Confirmed positive cases and COVID-19 deaths depend on testing--with insufficient tests, these numbers are under-counted. Heuristically, when 10% or fewer tests return positive, testing is considered sufficient.
+```{r plot WA, fig.asp=.75, fig.width=6, fig.align="center"}
+g <- ictp %>% 
+  filter(state == "NY") %>% 
+  ggplot(aes(x = date))
+
+g + 
+  geom_col(aes(y = positive_incidents, fill = "positive_incidents"), width = 1, alpha = .5) +
+  geom_col(aes(y = death_incidents, fill = "death_incidents"), width = 1, alpha = .7) +
+  geom_line(aes(y = positive_incidents_ma7, color = "positive_incidents"), size = 1.5) +
+  geom_line(aes(y = death_incidents_ma7, color = "death_incidents"), size = 1.5) +
+  geom_line(aes(y = (1000*10)^positive_pct_ma7, color = "pos_pct_ma7"), size = 1.5) +
+  scale_y_continuous(trans = scales::pseudo_log_trans(base = 10),
+                     name = "Incidents (log 10 scale)", breaks = c(0, 10, 100, 1000, 10000),
+                     sec.axis = sec_axis(~log(., base = (1000*10)), breaks = seq(.1, .9, .2),
+                                         name = "Positive Test Rate (%, 7-day moving average)")) +
+  scale_fill_viridis_d() +
+  scale_color_viridis_d() +
+  guides(alpha = "none", fill = "none") +
+  theme_light2
+```
+
+## Plotting multiple geographic units (example: all US states)
+
+Now let's plot all US states (and DC) simultaneously. To situate these states in their approximate geographic context, we use the {geofacet} package. This package provides a convenient way to arrange small multiples in a grid that correspond to their relative geographic positions. Because these small multiples have less area than the single-state plot, we don't include daily incidents and instead focus only on 7-day rolling averages.
+```{r plot US states, fig.asp=.66, fig.fullwidth = TRUE, fig.width=12, fig.align="center"}
+g_state <- ictp %>% 
+  ggplot(aes(x = date))
+
+g_state + 
+  geom_line(aes(y = positive_incidents, color = "positive_incidents"), alpha = 0) +
+  geom_line(aes(y = death_incidents, color = "death_incidents"), alpha = 0) +
+  geom_area(aes(y = positive_incidents_ma7, fill = "positive_incidents"), alpha = .75) +
+  geom_area(aes(y = death_incidents_ma7, fill = "death_incidents"), alpha = .8) +
+  geom_line(aes(y = (1000*10)^positive_pct_ma7, color = "pos_pct_ma7")) +
+  scale_y_continuous(trans = scales::pseudo_log_trans(base = 10),
+                     name = "Incidents (7-day moving average, log 10 scale)", breaks = c(0, 10, 100, 1000, 10000),
+                     sec.axis = sec_axis(~log(., base = (1000*10)), breaks = seq(.1, .9, .2),
+                                         name = "Positive Test Rate (%, 7-day moving average)")) +
+  scale_fill_viridis_d() +
+  scale_color_viridis_d() +
+  guides(alpha = "none", fill = "none") +
+  geofacet::facet_geo(~ state, label = "state", move_axes = FALSE) +
+  theme_light2
+
+```
+
+## Plotting multiple geographic units (example: all Washington state counties)
+
+We can do something similar at a county level within states using JHU data, which doesn't include testing information. At the county level, the data are even noisier.
+```{r plot WA counties, fig.asp=.66, fig.fullwidth = TRUE, fig.width=11, fig.align="center"}
+g_wa <- iusa %>% 
+  filter(state == "Washington") %>% 
+  mutate(code_fips = substr(fips, 3, 5)) %>% 
+  ggplot(aes(x = date))
+
+g_wa + 
+  geom_area(aes(y = ma7, fill = subset), alpha = .75) +
+  scale_y_continuous(trans = scales::pseudo_log_trans(base = 10),
+                   name = "Incidents (7-day moving average, log 10 scale)", breaks = c(0, 10, 100, 1000)) +
+  scale_color_viridis_d(direction = -1) +
+  scale_fill_viridis_d(direction = -1) +
+  guides(alpha = "none") +
+  facet_geo(~ county, grid = "us_wa_counties_grid1", label = "name", move_axes = FALSE) +
+  theme_light2
+```
+
+## Extending geographic facets to other regions
+
+Many additional grids are built-in to {geofacet}.
+```{r}
+get_grid_names()
+```
+
+For states or other regions that aren't yet included in {geofacet}'s grids, you can construct one using the [Geo Grid Designer](https://hafen.github.io/grid-designer/). For more information, see [the geofacet page on CRAN](https://cran.r-project.org/package=geofacet).

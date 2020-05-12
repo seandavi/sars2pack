@@ -81,6 +81,10 @@ if(require(cowplot)) {
 }
 \seealso{
 healthdata_projections_data()
+
+Other plotting: 
+\code{\link{align_to_baseline}()},
+\code{\link{plot_epicurve}()}
 }
 \author{
 Sean Davis \href{mailto:seandavi@gmail.com}{seandavi@gmail.com}

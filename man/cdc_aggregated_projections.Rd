@@ -29,6 +29,37 @@ table(res$target)
 min(res$forecast_date)
 max(res$target_week_end_date)
 
+library(dplyr)
+library(ggplot2)
+
+# FACET view
+res_ny = res \%>\%
+    dplyr::filter(location_name=='New York' & grepl('cum death', target)) \%>\%
+    dplyr::filter(model!='UMass-MechBayes')
+res_ny \%>\%
+    dplyr::filter(location_name=='New York') \%>\%
+    ggplot(aes(x=model, y=point, color=model)) +
+    geom_errorbar(aes(ymin= quantile_0.025, ymax =  quantile_0.975)) +
+    facet_wrap(facets='target_week_end_date') +
+    geom_point() +
+    labs(y='Projected Deaths') +
+    theme_bw() +
+    theme(axis.text.x=element_blank()) +
+    ggtitle('Projected New York deaths for week ending')
+#'
+# combined view
+pd <- position_dodge(width = 3) # use this to offset points and error bars
+res_ny \%>\%
+    ggplot(aes(x=target_week_end_date, y=point, color=model)) +
+    geom_errorbar(aes(ymin= quantile_0.025, ymax =  quantile_0.975), position=pd) +
+    geom_point(position=pd) +
+    labs(y='Projected Deaths') +
+    geom_line(position=pd) +
+    theme_bw() +
+    theme(legend.position='bottom') +
+    ggtitle('Projected New York deaths for week ending')
+
+
 }
 \references{
 \itemize{
@@ -39,20 +70,29 @@ max(res$target_week_end_date)
 Other data-import: 
 \code{\link{apple_mobility_data}()},
 \code{\link{beoutbreakprepared_data}()},
+\code{\link{cdc_excess_deaths}()},
+\code{\link{coronanet_government_response_data}()},
+\code{\link{cov_glue_lineage_data}()},
+\code{\link{cov_glue_newick_data}()},
 \code{\link{covidtracker_data}()},
 \code{\link{descartes_mobility_data}()},
 \code{\link{ecdc_data}()},
 \code{\link{eu_data_cache_data}()},
 \code{\link{google_mobility_data}()},
+\code{\link{government_policy_timeline}()},
 \code{\link{healthdata_projections_data}()},
 \code{\link{jhu_data}()},
 \code{\link{jhu_us_data}()},
 \code{\link{kff_icu_beds}()},
 \code{\link{nytimes_county_data}()},
+\code{\link{param_estimates_published}()},
 \code{\link{us_county_geo_details}()},
 \code{\link{us_healthcare_capacity}()},
 \code{\link{us_state_distancing_policy}()},
 \code{\link{usa_facts_data}()}
+
+Other projections: 
+\code{\link{healthdata_projections_data}()}
 }
 \author{
 Sean Davis \href{mailto:seandavi@gmail.com}{seandavi@gmail.com}

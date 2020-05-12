@@ -1,14 +1,15 @@
 Package: sars2pack
 Title: COVID-19 data resources and analysis tools
 Description: The sars2pack package includes COVID-19 data resources, analysis tools, and workflows in R.
-Version: 0.0.47
-Date: 2020-04-27
+Version: 0.0.54
+Date: 2020-05-11
 Authors@R: c(person("Sean", "Davis", role = c("aut","cre"),
                     email = 'seandavi@gmail.com',
                     comment = c('ORCID'="0000-0002-8991-6458")),
-             person("John C", "Mallery", role = c("aut")),
+             person("John C", "Mallery", role = c("ctb")),
              person("Kevin","Rue-Albrecht", role=c("ctb")),
-             person("Charles", "Morefield", role = c("aut")),
+             person("Charles", "Morefield", role = c("ctb")),
+             person("Joe","Wasserman", role=c("ctb")),
              person("VJ", "Carey", role = c("aut"), email='stvjc@channing.harvard.edu'))
 Suggests:
     knitr,
@@ -26,12 +27,17 @@ Suggests:
     plotly,
     magick,
     listviewer,
-    dbplyr
+    dbplyr,
+    rmarkdown,
+    geofacet,
+    zoo,
+    wbstats
 Depends: R (>= 3.5.0), R0, sf
 Imports: utils, lubridate, magrittr, dplyr, tidyr, countrycode,
     openxlsx, tibble, jsonlite, httr, readr, BiocFileCache, readxl,
-    stringr, ggplot2, yaml, rlang, webdriver, EpiEstim, shiny, rvest, xml2
-Url: https://github.com/seandavi/sars2pack
+    stringr, ggplot2, yaml, rlang, EpiEstim, shiny, rvest, xml2,
+    RSelenium, wdman, purrr, ape
+Url: https://seandavi.github.io/sars2pack, https://github.com/seandavi/sars2pack
 BugReports: https://github.com/seandavi/sars2pack/issues/new
 License: MIT + file LICENSE
 LazyLoad: yes
@@ -40,3 +46,5 @@ VignetteBuilder: knitr
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.0
 Encoding: UTF-8
+SystemRequirements:
+    libgdal: libgdal-dev (deb), libgdal-devel (rpm)
