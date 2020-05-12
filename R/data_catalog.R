@@ -1,7 +1,7 @@
 #' list and detail available sars2pack datasets 
 #'
-#' @importFrom yaml yaml.load_file
-#' @importFrom dplyr bind_rows
+#' @importFrom jsonlite fromJSON
+#' @importFrom tibble as_tibble
 #'
 #' @return
 #' A data.frame in which each row represents an available dataset.
@@ -14,14 +14,20 @@
 #' res
 #' # and how to use the accessor programmatically
 #' get(res[1,]$accessor)()
+#'
+#' \dontrun {
+#' if(interactive()) {
+#'   require(DT)
+#'   datatable(res)
+#' }
+#' }
+#' 
 #' 
 #'
 #' @export
 available_datasets <- function() {
-    catalog = system.file('data_catalog/catalog.yaml',package='sars2pack')
-    do.call(dplyr::bind_rows, lapply(yaml::yaml.load_file(catalog)$datasets,as_tibble))
-    # y = yaml.load_file()
-    #  as_tibble(lapply(as_tibble(purrr::transpose(y$datasets)),function(z) if(length(unlist(z))==length(z)) unlist(z) else (z)))
+    catalog = system.file('data_catalog/catalog.json',package='sars2pack')
+    as_tibble(jsonlite::fromJSON(catalog))
 }
 
 #' @describeIn available_datasets
