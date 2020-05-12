@@ -35,8 +35,7 @@ library(sars2pack)
 ```{r message=FALSE, warning=FALSE}
 ad = available_datasets()
 ad$url = sprintf('<a href="%s">[LINK]</a>', ad$url)
-datatable(ad, escape = which(colnames(ad)=='url'),
-          filter = list(position = 'top', clear = FALSE))
+datatable(ad, escape = which(colnames(ad)=='url'))
 ```
 
 ## Dataset details
