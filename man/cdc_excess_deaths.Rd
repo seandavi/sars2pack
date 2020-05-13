@@ -62,8 +62,8 @@ ggplot(cdcdeaths \%>\% dplyr::filter(type=="Predicted (weighted)" &
                             outcome=="All causes" &
                             state \%in\% interesting_states),
         aes(x=date,y=deaths)) +
-    geom_point(aes(color=deaths>threshold)) +
-    geom_line(aes(x=date,y=threshold)) +
+    geom_point(aes(color=deaths>upper_bound_threshold)) +
+    geom_line(aes(x=date,y=upper_bound_threshold)) +
     facet_grid(rows=vars(state)) +
     ggtitle('Excess deaths over time')
 

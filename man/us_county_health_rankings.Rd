@@ -24,8 +24,8 @@ colnames(ret)
 }
 \references{
 \itemize{
-\item \href{https://www.countyhealthrankings.org/sites/default/files/media/document/2020%20Analytic%20Documentation_0.pdf}{Documentation}
-\item \href{https://www.countyhealthrankings.org/sites/default/files/media/document/2020%20Comparability%20across%20states.pdf}{Comparability across states}
+\item \url{https://www.countyhealthrankings.org/sites/default/files/media/document/2020\%20Analytic\%20Documentation_0.pdf}
+\item \url{https://www.countyhealthrankings.org/sites/default/files/media/document/2020\%20Comparability\%20across\%20states.pdf}
 }
 }
 \seealso{

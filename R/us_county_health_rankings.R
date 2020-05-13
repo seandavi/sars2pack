@@ -17,9 +17,8 @@
 #' 
 #' @references
 #' 
-#' - [Documentation](https://www.countyhealthrankings.org/sites/default/files/media/document/2020%20Analytic%20Documentation_0.pdf)
-#' 
-#' - [Comparability across states](https://www.countyhealthrankings.org/sites/default/files/media/document/2020%20Comparability%20across%20states.pdf)
+#' - \url{https://www.countyhealthrankings.org/sites/default/files/media/document/2020%20Analytic%20Documentation_0.pdf}
+#' - \url{https://www.countyhealthrankings.org/sites/default/files/media/document/2020%20Comparability%20across%20states.pdf}
 #' 
 #' @author Sean Davis <seandavi@gmail.com>
 #' 
