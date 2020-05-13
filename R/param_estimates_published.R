@@ -24,8 +24,8 @@
 #'
 #' summary(params)
 #' 
-#' if(require(datatable) & interactive()) {
-#'     DT(params)
+#' if(require(DT) & interactive()) {
+#'     datatable(params)
 #' }
 #' 
 #' @export
