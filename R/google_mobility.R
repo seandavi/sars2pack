@@ -85,7 +85,7 @@
 #' 
 #' res %>%
 #' ## Italy, whole country(admin == 0)
-#'     filter(iso2c == "IT" & admin_level==0) %>%
+#'     dplyr::filter(iso2c == "IT" & admin_level==0) %>%
 #'     ggplot(aes(x=date,y=percent_change_from_baseline,color = places_category)) +
 #'     geom_line() +
 #'     ggtitle('Google mobility metric for Italy') +

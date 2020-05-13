@@ -29,7 +29,7 @@ jobs:
     name: Setup, Build, and Deploy
     runs-on: ubuntu-18.04
     container:
-      image: bioconductor/bioconductor_full:devel
+      image: rockerdev/geospatial
 
     steps:
       - name: Checkout
@@ -58,18 +58,10 @@ jobs:
       # Install package dependencies
       - name: Install package and dependencies
         run: |
+          Rscript -e "install.packages('BiocManager')"
           Rscript -e "install.packages(c('pkgbuild','prettyunits'))"
           Rscript -e "devtools::install('.', dependencies=TRUE, repos = BiocManager::repositories())" 
 
-      - name: Build package
-        run: |
-          Rscript -e "devtools::build('.')"
-
-#      - name: Check package
-#        run: |
-#          Rscript -e "devtools::check('.')"
-
-      # Install package for later use
       - name: Create excel file
         run: |
           Rscript inst/scripts/generate_jhu_excel.R

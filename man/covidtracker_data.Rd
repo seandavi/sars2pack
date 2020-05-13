@@ -25,6 +25,9 @@ results, pending tests, and total people tested for each state or
 district currently reporting that data.
 }
 \examples{
+library(dplyr)
+library(ggplot2)
+
 res = covidtracker_data()
 colnames(res)
 dim(res)
@@ -32,7 +35,7 @@ dplyr::glimpse(res)
 
 # Hospitalizations by day in Maryland
 covidtracker_data() \%>\%
-    filter(state=='MD') \%>\%
+    dplyr::filter(state=='MD') \%>\%
     add_incidence_column(count_column='hospitalized') \%>\%
     ggplot(aes(x=date,y=inc)) + geom_smooth() +
     ylab("New Hospitalizations per day") +

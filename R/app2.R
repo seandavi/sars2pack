@@ -58,7 +58,7 @@ all_ejhu_names = function() c("Afghanistan", "Albania", "Algeria", "Andorra", "A
 "Bulgaria", "Burkina Faso", "Burundi", "Cabo Verde", "Cambodia", 
 "Cameroon", "Canada", "Central African Republic", "Chad", "Chile", 
 "China", "Colombia", "Congo", "Congo (Democratic Republic of the)", 
-"Costa Rica", "Côte d'Ivoire", "Croatia", "Cuba", "Cyprus", 
+"Costa Rica", "Cote d'Ivoire", "Croatia", "Cuba", "Cyprus", 
 "Czech Republic", "Denmark", "Djibouti", "Dominica", "Dominican Republic", 
 "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", 
 "Estonia", "Ethiopia", "Fiji", "Finland", "France", "Gabon", 

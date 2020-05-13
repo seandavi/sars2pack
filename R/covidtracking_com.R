@@ -36,6 +36,9 @@
 #' @return A tidy `tbl_df`
 #'
 #' @examples
+#' library(dplyr)
+#' library(ggplot2)
+#' 
 #' res = covidtracker_data()
 #' colnames(res)
 #' dim(res)
@@ -43,7 +46,7 @@
 #'
 #' # Hospitalizations by day in Maryland
 #' covidtracker_data() %>%
-#'     filter(state=='MD') %>%
+#'     dplyr::filter(state=='MD') %>%
 #'     add_incidence_column(count_column='hospitalized') %>%
 #'     ggplot(aes(x=date,y=inc)) + geom_smooth() +
 #'     ylab("New Hospitalizations per day") +

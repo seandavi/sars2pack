@@ -16,6 +16,8 @@ over all the available datasets.
 cus = combined_us_cases_data()
 head(cus)
 unique(cus$dataset)
+
+library(ggplot2)
 plot_epicurve(cus, filter_expression = state == 'GA',color='dataset') +
     ggtitle('Cumulative confirmed cases in Georgia')
 
