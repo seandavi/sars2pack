@@ -1,4 +1,5 @@
-make_cumulative_events = function(count, dates, alpha3="USA", source="NYT", regtag=NA) {
+# private
+make_cumul_events = function(count, dates, alpha3="USA", source="NYT", regtag=NA) {
     ans = list(count = count, dates = dates)
     attr(ans, "ProvinceState") = regtag
     attr(ans, "source") = source
@@ -11,7 +12,7 @@ form_inc = function(src, regtag) {
  fullsumm = src %>% 
   select(state,date,count) %>% group_by(date) %>% 
    summarise(count=sum(count))  # counts by date collapsed over states
- thecum = make_cumulative_events(fullsumm$count, fullsumm$date, regtag=regtag)
+ thecum = make_cumul_events(count=fullsumm$count, dates=fullsumm$date, regtag=regtag)
  form_incident_events(thecum)
 }
 
@@ -45,6 +46,17 @@ See 'About' tab for more details."),
       ),
      tabPanel("rept",
       verbatimTextOutput("rept")
+      ),
+     tabPanel("about",
+      helpText("This app was produced to help evaluate a claim that
+an apparent decline in COVID-19 incidence for USA as a whole is driven by
+the actual decline in incidence in New York.  As a by-product, models can
+be fit for any US state.  The data are generated using `nytimes_state_data()`
+in sars2pack."),
+      helpText("Tab 'traj' is a plot of the last 29 days of incidence reports
+with a trace of the time series model as selected using the input controls."),
+      helpText("Tab 'rept' reports statistics from the `arima` function for
+the selected model.")
       )
      )
     )
@@ -96,7 +108,7 @@ See 'About' tab for more details."),
    })
   output$traj = renderPlot({
    ans = dofit()
-   plot(ans$dates29, ans$tsfull, pch=19)
+   plot(ans$dates29, ans$tsfull, pch=19, ylab="confirmed incidence", xlab="Date")
    lines(ans$dates29, ans$pr$pred, lwd=2, col="purple")
    })
   output$rept = renderPrint({ ans = dofit()
