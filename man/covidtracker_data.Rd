@@ -25,6 +25,9 @@ results, pending tests, and total people tested for each state or
 district currently reporting that data.
 }
 \examples{
+library(dplyr)
+library(ggplot2)
+
 res = covidtracker_data()
 colnames(res)
 dim(res)
@@ -32,7 +35,7 @@ dplyr::glimpse(res)
 
 # Hospitalizations by day in Maryland
 covidtracker_data() \%>\%
-    filter(state=='MD') \%>\%
+    dplyr::filter(state=='MD') \%>\%
     add_incidence_column(count_column='hospitalized') \%>\%
     ggplot(aes(x=date,y=inc)) + geom_smooth() +
     ylab("New Hospitalizations per day") +
@@ -66,7 +69,9 @@ Other data-import:
 \code{\link{nytimes_county_data}()},
 \code{\link{param_estimates_published}()},
 \code{\link{us_county_geo_details}()},
+\code{\link{us_county_health_rankings}()},
 \code{\link{us_healthcare_capacity}()},
+\code{\link{us_hospital_details}()},
 \code{\link{us_state_distancing_policy}()},
 \code{\link{usa_facts_data}()}
 

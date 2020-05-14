@@ -56,11 +56,11 @@ datasets:
       tests: numeric
       tests_units: character
     dimensions:
-      nrow: 16592
+      nrow: 17013
       ncol: 7
     dates:
       min: '2019-12-31'
-      max: '2020-05-11'
+      max: '2020-05-13'
   cov_glue_lineage_data:
     columns:
       name: character
@@ -93,17 +93,22 @@ datasets:
       date: Date
       state: character
       deaths: numeric
-      threshold: numeric
+      upper_bound_threshold: numeric
+      exceeds_threshold: logical
+      average_expected_count: numeric
+      excess_lower_estimate: numeric
+      excess_higher_estimate: numeric
       type: character
       outcome: character
       suppress: character
+      note: character
       week_of_year: numeric
     dimensions:
-      nrow: 36464
-      ncol: 8
+      nrow: 37368
+      ncol: 13
     dates:
       min: '2017-01-14'
-      max: '2020-04-25'
+      max: '2020-05-02'
   param_estimates_published:
     columns:
       id: character
@@ -162,11 +167,11 @@ datasets:
       places_category: character
       percent_change_from_baseline: numeric
     dimensions:
-      nrow: 1849962
+      nrow: 1967850
       ncol: 8
     dates:
       min: '2020-02-15'
-      max: '2020-05-02'
+      max: '2020-05-07'
   ecdc_data:
     columns:
       date: Date
@@ -178,11 +183,11 @@ datasets:
       subset: character
       count: numeric
     dimensions:
-      nrow: 32644
+      nrow: 33482
       ncol: 8
     dates:
       min: '2019-12-31'
-      max: '2020-05-11'
+      max: '2020-05-13'
   beoutbreakprepared_data:
     columns:
       ID: character
@@ -219,7 +224,7 @@ datasets:
       data_moderator_initials: character
       travel_history_binary: logical
     dimensions:
-      nrow: 549325
+      nrow: 658380
       ncol: 33
   eu_data_cache_data:
     columns:
@@ -258,11 +263,11 @@ datasets:
       m50: numeric
       m50_index: numeric
     dimensions:
-      nrow: 182179
+      nrow: 187608
       ncol: 9
     dates:
       min: '2020-03-01'
-      max: '2020-05-08'
+      max: '2020-05-10'
   apple_mobility_data:
     columns:
       geo_type: character
@@ -272,11 +277,11 @@ datasets:
       date: Date
       mobility_index: numeric
     dimensions:
-      nrow: 136644
+      nrow: 137802
       ncol: 6
     dates:
       min: '2020-01-13'
-      max: '2020-05-09'
+      max: '2020-05-10'
   usa_facts_data:
     columns:
       fips: character
@@ -286,11 +291,11 @@ datasets:
       date: Date
       count: numeric
     dimensions:
-      nrow: 702900
+      nrow: 715680
       ncol: 6
     dates:
       min: '2020-01-22'
-      max: '2020-05-10'
+      max: '2020-05-12'
   jhu_data:
     columns:
       ProvinceState: character
@@ -301,11 +306,11 @@ datasets:
       count: numeric
       subset: character
     dimensions:
-      nrow: 86240
+      nrow: 87808
       ncol: 7
     dates:
       min: '2020-01-22'
-      max: '2020-05-10'
+      max: '2020-05-12'
   jhu_us_data:
     columns:
       UID: numeric
@@ -324,11 +329,11 @@ datasets:
       count: numeric
       subset: character
     dimensions:
-      nrow: 717420
+      nrow: 730464
       ncol: 15
     dates:
       min: '2020-01-22'
-      max: '2020-05-10'
+      max: '2020-05-12'
   nytimes_county_data:
     columns:
       date: Date
@@ -338,11 +343,11 @@ datasets:
       count: numeric
       subset: character
     dimensions:
-      nrow: 256754
+      nrow: 274080
       ncol: 6
     dates:
       min: '2020-01-21'
-      max: '2020-05-09'
+      max: '2020-05-12'
   nytimes_state_data:
     columns:
       date: Date
@@ -351,11 +356,11 @@ datasets:
       count: numeric
       subset: character
     dimensions:
-      nrow: 7508
+      nrow: 7838
       ncol: 5
     dates:
       min: '2020-01-21'
-      max: '2020-05-09'
+      max: '2020-05-12'
   kff_icu_beds:
     columns:
       fips: character
@@ -402,11 +407,11 @@ datasets:
       - POSIXt
       fips: character
     dimensions:
-      nrow: 3713
+      nrow: 3825
       ncol: 9
     dates:
       min: '2020-01-22'
-      max: '2020-05-10'
+      max: '2020-05-12'
   us_healthcare_capacity:
     columns:
       Name: character
@@ -475,11 +480,11 @@ datasets:
       LegacyStringencyIndex: numeric
       LegacyStringencyIndexForDisplay: numeric
     dimensions:
-      nrow: 20845
+      nrow: 21431
       ncol: 36
     dates:
       min: '2020-01-01'
-      max: '2020-05-11'
+      max: '2020-05-13'
   healthdata_projections_data:
     columns:
       location_name: character
@@ -526,7 +531,7 @@ datasets:
       UpdatingSource1: character
       UpdatingSource2: character
     dimensions:
-      nrow: 1694
+      nrow: 2050
       ncol: 26
-eval_date: '2020-05-11'
+eval_date: '2020-05-13'
 

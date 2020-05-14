@@ -1,10 +1,9 @@
 ---
-title: "Available datasets"
-author: "Sean Davis <seandavi@gmail.com> and Vincent J. Carey, stvjc at channing.harvard.edu"
+title: "Overview of available datasets"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 vignette: >
   %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteIndexEntry{Datasets}
+  %\VignetteIndexEntry{Available Datasets}
   %\VignetteEncoding{UTF-8}
 output:
   BiocStyle::html_document:
@@ -35,12 +34,8 @@ library(sars2pack)
 
 ```{r message=FALSE, warning=FALSE}
 ad = available_datasets()
-ad$data_type = as.factor(ad$data_type)
-ad$region = as.factor(ad$region)
-ad$resolution = as.factor(ad$resolution)
 ad$url = sprintf('<a href="%s">[LINK]</a>', ad$url)
-datatable(ad, escape = which(colnames(ad)=='url'),
-          filter = list(position = 'top', clear = FALSE))
+datatable(ad, escape = which(colnames(ad)=='url'))
 ```
 
 ## Dataset details

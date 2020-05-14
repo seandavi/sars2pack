@@ -62,8 +62,8 @@ ggplot(cdcdeaths \%>\% dplyr::filter(type=="Predicted (weighted)" &
                             outcome=="All causes" &
                             state \%in\% interesting_states),
         aes(x=date,y=deaths)) +
-    geom_point(aes(color=deaths>threshold)) +
-    geom_line(aes(x=date,y=threshold)) +
+    geom_point(aes(color=deaths>upper_bound_threshold)) +
+    geom_line(aes(x=date,y=upper_bound_threshold)) +
     facet_grid(rows=vars(state)) +
     ggtitle('Excess deaths over time')
 
@@ -94,7 +94,9 @@ Other data-import:
 \code{\link{nytimes_county_data}()},
 \code{\link{param_estimates_published}()},
 \code{\link{us_county_geo_details}()},
+\code{\link{us_county_health_rankings}()},
 \code{\link{us_healthcare_capacity}()},
+\code{\link{us_hospital_details}()},
 \code{\link{us_state_distancing_policy}()},
 \code{\link{usa_facts_data}()}
 }
