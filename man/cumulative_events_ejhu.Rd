@@ -18,7 +18,7 @@ cumulative_events_ejhu(
 
 \item{alpha3}{character(1) code for country}
 
-\item{ProvinceStateName}{character(1) for province, default to NULL}
+\item{ProvinceStateName}{character(1) for province, default to NULL; use NA for multiregion like GBR}
 }
 \description{
 constructor for covid_events
