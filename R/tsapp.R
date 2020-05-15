@@ -18,13 +18,15 @@ form_inc = function(src, regtag) {
 
 
 #' shiny app for appraisal of simple time-series models for COVID-19 incidence trajectories
+#' @importFrom dplyr summarise
+#' @importFrom graphics lines par
+#' @importFrom methods is
+#' @importFrom stats arima model.matrix predict ts
+#' @importFrom utils data str tail untar
 #' @export
 tsapp = function() {
  basedate = "2020-03-15" # data prior to this date are dropped completely
  lookback_days = 29 # from present date
- library(shiny)
- library(sars2pack)
- library(dplyr)
  nyd = nytimes_state_data() # cumulative
  allst = sort(unique(nyd$state))
  ui = fluidPage(

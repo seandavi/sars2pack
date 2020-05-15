@@ -4,22 +4,16 @@
 \alias{make_cumulative_events}
 \title{generic cumulative_events generator}
 \usage{
-make_cumulative_events(
-  count,
-  dates,
-  alpha3 = "USA",
-  source = "NYT",
-  regtag = NA
-)
+make_cumulative_events(cases, dates, eventtype, alpha3, ProvinceStateName)
 }
 \arguments{
-\item{dates}{vector}
-
-\item{alpha3}{character(1) country code not checked}
-
 \item{cases}{numeric vector}
 
+\item{dates}{vector}
+
 \item{eventtype}{character(1) should be "confirmed" or "deaths"}
+
+\item{alpha3}{character(1) country code not checked}
 
 \item{ProvinceStateName}{character(1)}
 }
