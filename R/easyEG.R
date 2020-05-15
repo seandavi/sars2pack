@@ -49,16 +49,22 @@ plot.easyEG = function(x, y, ...) {
         methods="EG")
 }
 
+#' helper for easyEG, reach in to estimate structure
+#' @parameter x result of R0::estimate.R
 #' @export
 est_R0 = function(x) {
   stopifnot(inherits(x, "easyEG"))
   x$estimated_R0$estimates$EG$R
 }
+#' helper for easyEG, reach in to estimate structure
+#' @parameter x result of R0::estimate.R
 #' @export
 low_R0 = function(x) {
   stopifnot(inherits(x, "easyEG"))
   x$estimated_R0$estimates$EG$conf.int[1]
 }
+#' helper for easyEG, reach in to estimate structure
+#' @parameter x result of R0::estimate.R
 #' @export
 hi_R0 = function(x) {
   stopifnot(inherits(x, "easyEG"))
