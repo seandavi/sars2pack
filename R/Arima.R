@@ -1,4 +1,6 @@
-contig_sts_dc = c("Alabama", "Arizona", "Arkansas", "California", "Colorado", 
+#' provide vector of contiguous US state names and DC
+#' @export
+contig_states_dc = function() c("Alabama", "Arizona", "Arkansas", "California", "Colorado", 
 "Connecticut", "Delaware", "District of Columbia", "Florida", 
 "Georgia", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", 
 "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", 
@@ -8,6 +10,16 @@ contig_sts_dc = c("Alabama", "Arizona", "Arkansas", "California", "Colorado",
 "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", 
 "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", 
 "West Virginia", "Wisconsin", "Wyoming")
+
+#' provide vector of contiguous US state names and DC, abbr
+#' @export
+contig_states_twolet = function() {
+c("AL", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FL", "GA", 
+"ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", 
+"MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", 
+"ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", 
+"VT", "VA", "WA", "WV", "WI", "WY")
+}
 
 # from https://worldpopulationreview.com/states/
 pops = c(California = 39937489, Texas = 29472295, Florida = 21992985, 
@@ -39,6 +51,7 @@ make_cumul_events = function(count, dates,
     class(ans) = c("cumulative_events", "covid_events")
     ans 
 }
+
 form_inc_state = function(src, regtag) {
  fullsumm = src %>% 
   dplyr::select(state,date,count) %>% group_by(date) %>% 
@@ -46,6 +59,7 @@ form_inc_state = function(src, regtag) {
  thecum = make_cumul_events(count=fullsumm$count, dates=fullsumm$date, regtag=regtag)
  form_incident_events(thecum)
 }
+
 form_inc_nation = function(src, regtag) {
  fullsumm = src %>% 
   dplyr::select(date,count) %>% group_by(date) %>% 
@@ -57,12 +71,12 @@ form_inc_nation = function(src, regtag) {
 #' Use Rob Hyndman's forecast package to estimate drift in ARIMA models
 #' @import forecast
 #' @importFrom lubridate as_date
-#' @param nyd a tibble as returned by nytimes_state_data()
+#' @param src a tibble as returned by nytimes_state_data() or jhu_us_data()
 #' @param state.in character(1) state name
 #' @param MAorder numeric(1) order of moving average component
 #' @param trend character(1) if "linear" differencing order for ARIMA=1, else 2
 #' @param basedate character(1) used by lubridate::as_date to filter away all earlier records
-#' @param lookback_days numeric(1) only uses this many days from most recent in nyd
+#' @param lookback_days numeric(1) only uses this many days from most recent in src
 #' @param ARorder order of autoregressive component
 #' @return instance of S3 class Arima_sars2pack
 #' @examples
@@ -70,10 +84,14 @@ form_inc_nation = function(src, regtag) {
 #' lkny = Arima_by_state(nyd)
 #' lkny
 #' plot(lkny)
+#' usd = jhu_us_data()
+#' lkny2 = Arima_by_state(usd)
+#' lkny2
+#' plot(lkny2)
 #' @export
-Arima_by_state = function(nyd, state.in="New York", MAorder=2, 
+Arima_by_state = function(src, state.in="New York", MAorder=2, 
    trend="linear", basedate="2020-03-15", lookback_days=29, ARorder=0) {
-   cbyd = dplyr::filter(nyd, date >= basedate & subset=="confirmed" & state==state.in) 
+   cbyd = dplyr::filter(src, date >= basedate & subset=="confirmed" & state==state.in) 
    ibyd = form_inc_state(cbyd, regtag=state.in)
    .Arima_inc(ibyd, state.in=state.in, MAorder=MAorder,
       trend=trend, basedate=basedate, lookback_days=lookback_days, ARorder=ARorder)
@@ -113,7 +131,7 @@ Arima_nation = function(ejhu, alp3="USA", MAorder=2,
 # interactive selection of quadratic or linear trend, MA order 
 #
    difforder = ifelse(trend=="linear", 1, 2)
-   MAord2use = ifelse(MAorder==1, 1, 2)
+   MAord2use = MAorder
 #
 # full basis matrix, which is filtered below to reduce trig order or trend type
 
@@ -155,3 +173,60 @@ plot.Arima_sars2pack = function(x, y, ...) {
  abline(y0p, slo+1.96*se, lty=3)
  abline(y0m, slo-1.96*se, lty=3)
 }
+
+#' fit ARIMA model to US data dropping one state
+#' @param src_us tibble for national level data like that of enriched_jhu_data()
+#' @param src_st tibble for state level data like that of nytimes_state_data()
+#' @param state.in character(1) state name
+#' @param MAorder numeric(1) order of moving average component
+#' @param trend character(1) if "linear" differencing order for ARIMA=1, else 2
+#' @param basedate character(1) used by lubridate::as_date to filter away all earlier records
+#' @param lookback_days numeric(1) only uses this many days from most recent in src
+#' @param ARorder order of autoregressive component
+#' @return instance of S3 class Arima_sars2pack
+#' @note Apparent discrepancies in counts in vicinity of April 15 between
+#' NYT and JHU for full US incidence lead us to employ the two sources
+#' for the example.  If NYT alone is used, summing to obtain USA
+#' overall, the resulting USA incidence trend is
+#' extravagantly variable.
+#' @examples
+#' ej = enriched_jhu_data()
+#' usa_full = Arima_nation(ej)
+#' plot(usa_full)
+#' nyd = nytimes_state_data()
+#' drny = Arima_drop_state(ej, nyd)
+#' drny
+#' plot(drny)
+#' @export
+Arima_drop_state = function(src_us, src_st, state.in="New York", MAorder=2, 
+   trend="linear", basedate="2020-03-15", lookback_days=29, ARorder=0) {
+   nat = Arima_nation(src_us, MAorder=MAorder, trend=trend, basedate=basedate,
+         lookback_days=lookback_days, ARorder=ARorder)
+   st = Arima_by_state(src_st, state.in=state.in, MAorder=MAorder, trend=trend, basedate=basedate,
+         lookback_days=lookback_days, ARorder=ARorder)
+   cbyd_shim = dplyr::filter(src_st,  # shim
+            date >= basedate & subset=="confirmed" & state==state.in)
+   ibyd_shim = form_inc_state(cbyd_shim, regtag=state.in)
+   ibyd_shim$count = as.numeric(nat$tsfull)-as.numeric(st$tsfull)
+   .Arima_inc(ibyd_shim, state.in=state.in, MAorder=MAorder,
+      trend=trend, basedate=basedate, lookback_days=lookback_days, ARorder=ARorder)
+   }
+
+#' full incidence for contiguous states
+#' @inheritParams Arima_drop_state
+#' @param contig_vec character() vector of tokens for subsetting src
+#' @examples
+#' usd = usa_facts_data()
+#' cont = Arima_contig_states(usd)
+#' cont
+#' plot(cont)
+#' @export
+Arima_contig_states = function(src, state.in="All contig", MAorder=2, 
+   trend="linear", basedate="2020-03-15", lookback_days=29, ARorder=0,
+   contig_vec = contig_states_twolet()) {
+   cbyd = dplyr::filter(src, date >= basedate & 
+       subset=="confirmed" & state %in% contig_vec)
+   ibyd = form_inc_state(cbyd, regtag=state.in)
+   .Arima_inc(ibyd, state.in="all", MAorder=MAorder,
+      trend=trend, basedate=basedate, lookback_days=lookback_days, ARorder=ARorder)
+   }

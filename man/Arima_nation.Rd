@@ -25,7 +25,7 @@ Arima_nation(
 
 \item{basedate}{character(1) used by lubridate::as_date to filter away all earlier records}
 
-\item{lookback_days}{numeric(1) only uses this many days from most recent in nyd}
+\item{lookback_days}{numeric(1) only uses this many days from most recent in ejhu}
 
 \item{ARorder}{order of autoregressive component}
 }
