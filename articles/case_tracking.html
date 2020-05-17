@@ -37,7 +37,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sars2pack</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.53</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.54</span>
       </span>
     </div>
 
@@ -66,7 +66,7 @@
       <a href="../articles/case_tracking.html">Case tracking datasets</a>
     </li>
     <li>
-      <a href="../articles/datasets.html">Available datasets</a>
+      <a href="../articles/datasets.html">Overview of available datasets</a>
     </li>
     <li>
       <a href="../articles/doMCMC.html">Building MCMC-based models of SI for SARS-Cov-2</a>
@@ -147,7 +147,7 @@
 <span class="co">## 5 &lt;NA&gt;          Afghanistan      33    65 2020-01-26     0 confirmed</span>
 <span class="co">## 6 &lt;NA&gt;          Afghanistan      33    65 2020-01-27     0 confirmed</span>
 <span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/reexports.html">glimpse</a></span>(<span class="no">jhu</span>)
-<span class="co">## Rows: 86,240</span>
+<span class="co">## Rows: 91,060</span>
 <span class="co">## Columns: 7</span>
 <span class="co">## $ ProvinceState &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…</span>
 <span class="co">## $ CountryRegion &lt;chr&gt; "Afghanistan", "Afghanistan", "Afghanistan", "Afghanist…</span>
@@ -159,7 +159,7 @@
 <div class="sourceCode" id="cb3"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span>(<span class="no">jhu</span>$<span class="no">subset</span>)
 <span class="co">## </span>
 <span class="co">## confirmed    deaths recovered </span>
-<span class="co">##     29260     29260     27720</span></pre></body></html></div>
+<span class="co">##     30856     30856     29348</span></pre></body></html></div>
 </div>
 <div id="compare-us-datasets" class="section level2">
 <h2 class="hasAnchor">
@@ -180,7 +180,7 @@
 <span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span>(<span class="no">us_states</span>$<span class="no">dataset</span>)
 <span class="co">## </span>
 <span class="co">## covidtracker          jhu      nytimes </span>
-<span class="co">##         3713         5610         3809</span></pre></body></html></div>
+<span class="co">##         4049         5916         4084</span></pre></body></html></div>
 <p>To get a sense of the data and their meaning, consider the following series of graphs based on three “randomly” chosen states.</p>
 <div class="sourceCode" id="cb5"><html><body><pre class="r"><span class="no">interesting_states</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">'PA'</span>,<span class="st">'CA'</span>,<span class="st">'GA'</span>)
 <span class="no">pd</span> <span class="kw">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/position_dodge.html">position_dodge</a></span>(<span class="kw">width</span><span class="kw">=</span><span class="fl">0.2</span>)</pre></body></html></div>
@@ -205,6 +205,28 @@ Confirmed cases from combined US states datasets for three states
 <div class="figure">
 <img src="case_tracking_files/figure-html/unnamed-chunk-7-1.png" alt="Daily incidence for three states from multiple data sources" width="700"><p class="caption">
 Daily incidence for three states from multiple data sources
+</p>
+</div>
+<div class="sourceCode" id="cb8"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">zoo</span>)
+<span class="co">## </span>
+<span class="co">## Attaching package: 'zoo'</span>
+<span class="co">## The following objects are masked from 'package:base':</span>
+<span class="co">## </span>
+<span class="co">##     as.Date, as.Date.numeric</span>
+<span class="fu"><a href="../reference/ecdc_data.html">ecdc_data</a></span>() <span class="kw">%&gt;%</span>
+    <span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(<span class="no">subset</span><span class="kw">==</span><span class="st">'deaths'</span>) <span class="kw">%&gt;%</span>
+    <span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span>(<span class="no">date</span>,<span class="no">continent</span>) <span class="kw">%&gt;%</span>
+    <span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span>(<span class="kw">count</span><span class="kw">=</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span>(<span class="no">count</span>)) <span class="kw">%&gt;%</span>
+    <span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span>(<span class="no">continent</span>) <span class="kw">%&gt;%</span>
+    <span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span>(<span class="kw">roll_mean</span> <span class="kw">=</span> <span class="kw pkg">zoo</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/zoo/man/rollmean.html">rollmean</a></span>(<span class="no">count</span>, <span class="fl">7</span>, <span class="kw">na.pad</span><span class="kw">=</span><span class="fl">TRUE</span>)) <span class="kw">%&gt;%</span>
+    <span class="fu"><a href="../reference/add_incidence_column.html">add_incidence_column</a></span>(<span class="kw">count_column</span><span class="kw">=</span><span class="st">'roll_mean'</span>, <span class="kw">grouping_columns</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">'continent'</span>)) <span class="kw">%&gt;%</span>
+    <span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(<span class="no">inc</span><span class="kw">&gt;</span><span class="fl">0</span>) <span class="kw">%&gt;%</span>
+    <span class="fu"><a href="../reference/plot_epicurve.html">plot_epicurve</a></span>(<span class="kw">case_column</span><span class="kw">=</span><span class="st">'inc'</span>,<span class="kw">color</span><span class="kw">=</span><span class="st">'continent'</span>, <span class="kw">log</span><span class="kw">=</span><span class="fl">FALSE</span>) +
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span>(<span class="st">'Daily reported deaths'</span>) +
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span>(<span class="st">'Daily reported deaths over time'</span>, <span class="kw">subtitle</span><span class="kw">=</span><span class="st">'by continent (7-day moving average)'</span>)</pre></body></html></div>
+<div class="figure">
+<img src="case_tracking_files/figure-html/unnamed-chunk-8-1.png" alt="Worldwide daily reported deaths by continent (seven day moving average)" width="700"><p class="caption">
+Worldwide daily reported deaths by continent (seven day moving average)
 </p>
 </div>
 </div>

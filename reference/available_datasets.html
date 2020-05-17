@@ -82,7 +82,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sars2pack</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.53</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.54</span>
       </span>
     </div>
 
@@ -111,7 +111,7 @@
       <a href="../articles/case_tracking.html">Case tracking datasets</a>
     </li>
     <li>
-      <a href="../articles/datasets.html">Available datasets</a>
+      <a href="../articles/datasets.html">Overview of available datasets</a>
     </li>
     <li>
       <a href="../articles/doMCMC.html">Building MCMC-based models of SI for SARS-Cov-2</a>
@@ -193,49 +193,61 @@ in the list. See examples for details and for viewing suggestions.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>res</span> <span class='kw'>=</span> <span class='fu'>available_datasets</span>()
-<span class='no'>res</span></div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 36 x 8</span><span>
+<span class='no'>res</span></div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 27 x 8</span><span>
 #&gt;    name    accessor  data_type geographical geospatial region resolution url    
-#&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;lgl&gt;</span><span>        </span><span style='color: #555555;font-style: italic;'>&lt;lgl&gt;</span><span>      </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>  
-#&gt; </span><span style='color: #555555;'> 1</span><span> Corona… coronane… public p… TRUE         FALSE      World  admin0     https:…
-#&gt; </span><span style='color: #555555;'> 2</span><span> Corona… coronane… public p… TRUE         FALSE      World  admin1     https:…
-#&gt; </span><span style='color: #555555;'> 3</span><span> Our Wo… owid_data time ser… TRUE         FALSE      World  admin0     https:…
-#&gt; </span><span style='color: #555555;'> 4</span><span> Our Wo… owid_data cumulati… TRUE         FALSE      World  admin0     https:…
-#&gt; </span><span style='color: #555555;'> 5</span><span> Our Wo… owid_data deaths    TRUE         FALSE      World  admin0     https:…
-#&gt; </span><span style='color: #555555;'> 6</span><span> Our Wo… owid_data tests     TRUE         FALSE      World  admin0     https:…
-#&gt; </span><span style='color: #555555;'> 7</span><span> GISAID… cov_glue… individu… TRUE         FALSE      World  multiple   https:…
-#&gt; </span><span style='color: #555555;'> 8</span><span> Newick… cov_glue… phylogen… FALSE        FALSE      World  multiple   https:…
-#&gt; </span><span style='color: #555555;'> 9</span><span> US CDC… cdc_exce… miscella… TRUE         FALSE      US     admin1     https:…
-#&gt; </span><span style='color: #555555;'>10</span><span> Publis… param_es… miscella… FALSE        FALSE      </span><span style='color: #BB0000;'>NA</span><span>     </span><span style='color: #BB0000;'>NA</span><span>         https:…
-#&gt; </span><span style='color: #555555;'># … with 26 more rows</span><span></div><div class='input'><span class='co'># and how to use the accessor programmatically</span>
-<span class='fu'><a href='https://rdrr.io/r/base/get.html'>get</a></span>(<span class='no'>res</span>[<span class='fl'>1</span>,]$<span class='no'>accessor</span>)()</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 13,666 x 40</span><span>
-#&gt;    record_id policy_id recorded_date       date_updated date_announced
-#&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>         </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dttm&gt;</span><span>              </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>       </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>        
-#&gt; </span><span style='color: #555555;'> 1</span><span> 1000775Cn   1</span><span style='text-decoration: underline;'>342</span><span>691 2020-04-04 </span><span style='color: #555555;'>15:43:15</span><span> 2020-04-10   2020-03-14    
-#&gt; </span><span style='color: #555555;'> 2</span><span> 1000775Cf   1</span><span style='text-decoration: underline;'>342</span><span>691 2020-04-04 </span><span style='color: #555555;'>15:43:15</span><span> 2020-04-10   2020-03-14    
-#&gt; </span><span style='color: #555555;'> 3</span><span> 1003875NA   1</span><span style='text-decoration: underline;'>003</span><span>875 2020-04-15 </span><span style='color: #555555;'>11:04:50</span><span> 2020-04-15   2020-04-07    
-#&gt; </span><span style='color: #555555;'> 4</span><span> 1004681NA   2</span><span style='text-decoration: underline;'>575</span><span>122 2020-04-03 </span><span style='color: #555555;'>08:33:25</span><span> 2020-04-10   2020-03-22    
-#&gt; </span><span style='color: #555555;'> 5</span><span> 4866080NA   4</span><span style='text-decoration: underline;'>866</span><span>080 2020-03-30 </span><span style='color: #555555;'>05:21:44</span><span> 2020-05-04   2020-03-20    
-#&gt; </span><span style='color: #555555;'> 6</span><span> 1011795NA   4</span><span style='text-decoration: underline;'>951</span><span>252 2020-04-03 </span><span style='color: #555555;'>03:29:36</span><span> 2020-04-03   2020-03-08    
-#&gt; </span><span style='color: #555555;'> 7</span><span> 1012765NA   1</span><span style='text-decoration: underline;'>012</span><span>765 2020-04-05 </span><span style='color: #555555;'>07:35:13</span><span> 2020-04-10   2020-04-04    
-#&gt; </span><span style='color: #555555;'> 8</span><span> 1014171NA   1</span><span style='text-decoration: underline;'>014</span><span>171 2020-04-01 </span><span style='color: #555555;'>07:31:20</span><span> 2020-04-01   2020-02-10    
-#&gt; </span><span style='color: #555555;'> 9</span><span> 1014978NA   1</span><span style='text-decoration: underline;'>014</span><span>978 2020-04-05 </span><span style='color: #555555;'>09:34:00</span><span> 2020-04-05   2020-03-30    
-#&gt; </span><span style='color: #555555;'>10</span><span> 1017233NA   1</span><span style='text-decoration: underline;'>017</span><span>233 2020-04-04 </span><span style='color: #555555;'>06:44:27</span><span> 2020-04-10   2020-03-29    
-#&gt; </span><span style='color: #555555;'># … with 13,656 more rows, and 35 more variables: date_start </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   date_end </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span style='color: #555555;'>, entry_type </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, update_type </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   event_description </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, domestic_policy </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, type </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   type_sub_cat </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, type_text </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, index_high_est </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   index_med_est </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, index_low_est </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, index_country_rank </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   country </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, init_country_level </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, province </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, city </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   corr_entry_type </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, type_new_admin_coop </span><span style='color: #555555;font-style: italic;'>&lt;lgl&gt;</span><span style='color: #555555;'>, source_file_Type </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   source_file_2_Type </span><span style='color: #555555;font-style: italic;'>&lt;lgl&gt;</span><span style='color: #555555;'>, target_country </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, target_geog_level </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   target_region </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, target_province </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, target_city </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   target_other </span><span style='color: #555555;font-style: italic;'>&lt;lgl&gt;</span><span style='color: #555555;'>, target_who_what </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, target_direction </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   travel_mechanism </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, compliance </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, enforcer </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, link </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   iso3c </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, iso2c </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span></div><div class='input'>
+#&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;list&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;lgl&gt;</span><span>        </span><span style='color: #555555;font-style: italic;'>&lt;lgl&gt;</span><span>      </span><span style='color: #555555;font-style: italic;'>&lt;list&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;list&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>  
+#&gt; </span><span style='color: #555555;'> 1</span><span> Extens… us_hospi… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span> TRUE         TRUE       </span><span style='color: #555555;'>&lt;chr </span><span>… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span>  https:…
+#&gt; </span><span style='color: #555555;'> 2</span><span> US cou… us_count… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span> TRUE         FALSE      </span><span style='color: #555555;'>&lt;chr </span><span>… </span><span style='color: #555555;'>&lt;chr [3]&gt;</span><span>  https:…
+#&gt; </span><span style='color: #555555;'> 3</span><span> Corona… coronane… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span> TRUE         FALSE      </span><span style='color: #555555;'>&lt;chr </span><span>… </span><span style='color: #555555;'>&lt;chr [2]&gt;</span><span>  https:…
+#&gt; </span><span style='color: #555555;'> 4</span><span> Our Wo… owid_data </span><span style='color: #555555;'>&lt;chr [4]&gt;</span><span> TRUE         FALSE      </span><span style='color: #555555;'>&lt;chr </span><span>… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span>  https:…
+#&gt; </span><span style='color: #555555;'> 5</span><span> GISAID… cov_glue… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span> TRUE         FALSE      </span><span style='color: #555555;'>&lt;chr </span><span>… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span>  https:…
+#&gt; </span><span style='color: #555555;'> 6</span><span> Newick… cov_glue… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span> FALSE        FALSE      </span><span style='color: #555555;'>&lt;chr </span><span>… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span>  https:…
+#&gt; </span><span style='color: #555555;'> 7</span><span> US CDC… cdc_exce… </span><span style='color: #555555;'>&lt;chr [3]&gt;</span><span> TRUE         FALSE      </span><span style='color: #555555;'>&lt;chr </span><span>… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span>  https:…
+#&gt; </span><span style='color: #555555;'> 8</span><span> Publis… param_es… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span> FALSE        FALSE      </span><span style='color: #555555;'>&lt;NULL&gt;</span><span> </span><span style='color: #555555;'>&lt;NULL&gt;</span><span>     https:…
+#&gt; </span><span style='color: #555555;'> 9</span><span> Aggreg… cdc_aggr… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span> TRUE         FALSE      </span><span style='color: #555555;'>&lt;NULL&gt;</span><span> </span><span style='color: #555555;'>&lt;chr [2]&gt;</span><span>  https:…
+#&gt; </span><span style='color: #555555;'>10</span><span> Google… google_m… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span> TRUE         FALSE      </span><span style='color: #555555;'>&lt;chr </span><span>… </span><span style='color: #555555;'>&lt;chr [3]&gt;</span><span>  https:…
+#&gt; </span><span style='color: #555555;'># … with 17 more rows</span><span></div><div class='input'><span class='co'># and how to use the accessor programmatically</span>
+<span class='fu'><a href='https://rdrr.io/r/base/get.html'>get</a></span>(<span class='no'>res</span>[<span class='fl'>1</span>,]$<span class='no'>accessor</span>)()</div><div class='output co'>#&gt; Simple feature collection with 7581 features and 30 fields
+#&gt; Attribute-geometry relationship: 30 constant, 0 aggregate, 0 identity
+#&gt; geometry type:  POINT
+#&gt; dimension:      XY
+#&gt; bbox:           xmin: -176.6403 ymin: -14.29024 xmax: 145.7245 ymax: 71.29285
+#&gt; epsg (SRID):    4326
+#&gt; proj4string:    +proj=longlat +datum=WGS84 +no_defs
+#&gt; </span><span style='color: #555555;'># A tibble: 7,581 x 31</span><span>
+#&gt;      fid id    name  address city  state zip   zip4  telephone type  status
+#&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> 
+#&gt; </span><span style='color: #555555;'> 1</span><span>     1 0005… CENT… 1025 N… HANF… CA    93230 NOT … NOT AVAI… GENE… CLOSED
+#&gt; </span><span style='color: #555555;'> 2</span><span>     2 0053… LOS … 150 VI… WEST… CA    91362 NOT … NOT AVAI… GENE… OPEN  
+#&gt; </span><span style='color: #555555;'> 3</span><span>     3 0011… EAST… 4060 W… LOS … CA    90023 NOT … NOT AVAI… GENE… OPEN  
+#&gt; </span><span style='color: #555555;'> 4</span><span>     4 0017… SOUT… 6245 D… HOLL… CA    90028 NOT … (323) 46… GENE… OPEN  
+#&gt; </span><span style='color: #555555;'> 5</span><span>     5 0023… KIND… 14148 … BALD… CA    91706 NOT … NOT AVAI… GENE… OPEN  
+#&gt; </span><span style='color: #555555;'> 6</span><span>     6 0025… LAKE… 3700 E… LAKE… CA    90712 NOT … NOT AVAI… GENE… OPEN  
+#&gt; </span><span style='color: #555555;'> 7</span><span>     7 0030… MONR… 323 SO… MONR… CA    91016 NOT … NOT AVAI… GENE… OPEN  
+#&gt; </span><span style='color: #555555;'> 8</span><span>     8 0030… MONT… 900 SO… MONT… CA    91754 NOT … NOT AVAI… GENE… OPEN  
+#&gt; </span><span style='color: #555555;'> 9</span><span>     9 0047… STAR… 4025 W… TORR… CA    90505 NOT … NOT AVAI… PSYC… OPEN  
+#&gt; </span><span style='color: #555555;'>10</span><span>    10 0009… CORO… 730 MA… CORO… CA    92879 NOT … NOT AVAI… GENE… OPEN  
+#&gt; </span><span style='color: #555555;'># … with 7,571 more rows, and 20 more variables: population </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
+#&gt; </span><span style='color: #555555;'>#   county </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, countyfips </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, country </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, naics_code </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
+#&gt; </span><span style='color: #555555;'>#   naics_desc </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, source </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, sourcedate </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, val_method </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>,</span><span>
+#&gt; </span><span style='color: #555555;'>#   val_date </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, website </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, state_id </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, alt_name </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>,</span><span>
+#&gt; </span><span style='color: #555555;'>#   st_fips </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, owner </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, ttl_staff </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, beds </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, trauma </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>,</span><span>
+#&gt; </span><span style='color: #555555;'>#   helipad </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, geometry </span><span style='color: #555555;font-style: italic;'>&lt;POINT [°]&gt;</span><span></div><div class='input'>
+
+
 
 <span class='no'>dd</span> <span class='kw'>=</span> <span class='fu'>dataset_details</span>()
 <span class='fu'><a href='https://rdrr.io/r/utils/str.html'>str</a></span>(<span class='no'>dd</span>,<span class='kw'>list.len</span><span class='kw'>=</span><span class='fl'>3</span>)</div><div class='output co'>#&gt; List of 2
-#&gt;  $ datasets :List of 25
+#&gt;  $ datasets :List of 26
+#&gt;   ..$ us_county_health_rankings         :List of 2
+#&gt;   .. ..$ columns   :List of 9
+#&gt;   .. .. ..$ statecode    : chr "character"
+#&gt;   .. .. ..$ countycode   : chr "character"
+#&gt;   .. .. ..$ fips         : chr "character"
+#&gt;   .. .. .. [list output truncated]
+#&gt;   .. ..$ dimensions:List of 2
+#&gt;   .. .. ..$ nrow: int 2488126
+#&gt;   .. .. ..$ ncol: int 9
 #&gt;   ..$ coronanet_government_response_data:List of 2
 #&gt;   .. ..$ columns   :List of 40
 #&gt;   .. .. ..$ record_id          : chr "character"
@@ -252,38 +264,26 @@ in the list. See examples for details and for viewing suggestions.</p>
 #&gt;   .. .. ..$ date       : chr "Date"
 #&gt;   .. .. .. [list output truncated]
 #&gt;   .. ..$ dimensions:List of 2
-#&gt;   .. .. ..$ nrow: int 16592
+#&gt;   .. .. ..$ nrow: int 17845
 #&gt;   .. .. ..$ ncol: int 7
 #&gt;   .. ..$ dates     :List of 2
 #&gt;   .. .. ..$ min: chr "2019-12-31"
-#&gt;   .. .. ..$ max: chr "2020-05-11"
-#&gt;   ..$ cov_glue_lineage_data             :List of 3
-#&gt;   .. ..$ columns   :List of 9
-#&gt;   .. .. ..$ name          : chr "character"
-#&gt;   .. .. ..$ country       : chr "character"
-#&gt;   .. .. ..$ travel_history: chr "character"
-#&gt;   .. .. .. [list output truncated]
-#&gt;   .. ..$ dimensions:List of 2
-#&gt;   .. .. ..$ nrow: int 15194
-#&gt;   .. .. ..$ ncol: int 9
-#&gt;   .. ..$ dates     :List of 2
-#&gt;   .. .. ..$ min: chr "2019-12-24"
-#&gt;   .. .. ..$ max: chr "2020-04-23"
+#&gt;   .. .. ..$ max: chr "2020-05-17"
 #&gt;   .. [list output truncated]
-#&gt;  $ eval_date: chr "2020-05-11"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='no'>dd</span>$<span class='no'>datasets</span>)</div><div class='output co'>#&gt;  [1] "coronanet_government_response_data" "owid_data"                         
-#&gt;  [3] "cov_glue_lineage_data"              "cov_glue_newick_data"              
-#&gt;  [5] "cdc_excess_deaths"                  "param_estimates_published"         
-#&gt;  [7] "cdc_aggregated_projections"         "google_mobility_data"              
-#&gt;  [9] "ecdc_data"                          "beoutbreakprepared_data"           
-#&gt; [11] "eu_data_cache_data"                 "descartes_mobility_data"           
-#&gt; [13] "apple_mobility_data"                "usa_facts_data"                    
-#&gt; [15] "jhu_data"                           "jhu_us_data"                       
-#&gt; [17] "nytimes_county_data"                "nytimes_state_data"                
-#&gt; [19] "kff_icu_beds"                       "us_county_geo_details"             
-#&gt; [21] "covidtracker_data"                  "us_healthcare_capacity"            
-#&gt; [23] "government_policy_timeline"         "healthdata_projections_data"       
-#&gt; [25] "us_state_distancing_policy"        </div><div class='input'><span class='co'># evaluated</span>
-<span class='no'>dd</span>$<span class='no'>eval_date</span></div><div class='output co'>#&gt; [1] "2020-05-11"</div><div class='input'>
+#&gt;  $ eval_date: chr "2020-05-17"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='no'>dd</span>$<span class='no'>datasets</span>)</div><div class='output co'>#&gt;  [1] "us_county_health_rankings"          "coronanet_government_response_data"
+#&gt;  [3] "owid_data"                          "cov_glue_lineage_data"             
+#&gt;  [5] "cov_glue_newick_data"               "cdc_excess_deaths"                 
+#&gt;  [7] "param_estimates_published"          "cdc_aggregated_projections"        
+#&gt;  [9] "google_mobility_data"               "ecdc_data"                         
+#&gt; [11] "beoutbreakprepared_data"            "eu_data_cache_data"                
+#&gt; [13] "descartes_mobility_data"            "apple_mobility_data"               
+#&gt; [15] "usa_facts_data"                     "jhu_data"                          
+#&gt; [17] "jhu_us_data"                        "nytimes_county_data"               
+#&gt; [19] "nytimes_state_data"                 "kff_icu_beds"                      
+#&gt; [21] "us_county_geo_details"              "covidtracker_data"                 
+#&gt; [23] "us_healthcare_capacity"             "government_policy_timeline"        
+#&gt; [25] "healthdata_projections_data"        "us_state_distancing_policy"        </div><div class='input'><span class='co'># evaluated</span>
+<span class='no'>dd</span>$<span class='no'>eval_date</span></div><div class='output co'>#&gt; [1] "2020-05-17"</div><div class='input'>
 
 </div></span></pre>
   </div>

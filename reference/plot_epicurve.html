@@ -84,7 +84,7 @@ data frame should contain at least:" />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sars2pack</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.53</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.54</span>
       </span>
     </div>
 
@@ -113,7 +113,7 @@ data frame should contain at least:" />
       <a href="../articles/case_tracking.html">Case tracking datasets</a>
     </li>
     <li>
-      <a href="../articles/datasets.html">Available datasets</a>
+      <a href="../articles/datasets.html">Overview of available datasets</a>
     </li>
     <li>
       <a href="../articles/doMCMC.html">Building MCMC-based models of SI for SARS-Cov-2</a>
@@ -271,12 +271,12 @@ curves on the same plot. See examples.</p>
 <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>cc</span>)</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 6 x 10</span><span>
 #&gt;   date       state positive negative pending hospitalized death
 #&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>        </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #555555;'>1</span><span> 2020-05-10 AK         379    </span><span style='text-decoration: underline;'>26</span><span>985      </span><span style='color: #BB0000;'>NA</span><span>           </span><span style='color: #BB0000;'>NA</span><span>    10
-#&gt; </span><span style='color: #555555;'>2</span><span> 2020-05-10 AL        </span><span style='text-decoration: underline;'>9</span><span>777   </span><span style='text-decoration: underline;'>117</span><span>644      </span><span style='color: #BB0000;'>NA</span><span>         </span><span style='text-decoration: underline;'>1</span><span>240   393
-#&gt; </span><span style='color: #555555;'>3</span><span> 2020-05-10 AR        </span><span style='text-decoration: underline;'>3</span><span>747    </span><span style='text-decoration: underline;'>61</span><span>781      </span><span style='color: #BB0000;'>NA</span><span>          471    88
-#&gt; </span><span style='color: #555555;'>4</span><span> 2020-05-10 AS           0       83      </span><span style='color: #BB0000;'>NA</span><span>           </span><span style='color: #BB0000;'>NA</span><span>     0
-#&gt; </span><span style='color: #555555;'>5</span><span> 2020-05-10 AZ       </span><span style='text-decoration: underline;'>11</span><span>119   </span><span style='text-decoration: underline;'>126</span><span>620      </span><span style='color: #BB0000;'>NA</span><span>         </span><span style='text-decoration: underline;'>1</span><span>528   536
-#&gt; </span><span style='color: #555555;'>6</span><span> 2020-05-10 CA       </span><span style='text-decoration: underline;'>66</span><span>680   </span><span style='text-decoration: underline;'>888</span><span>984      </span><span style='color: #BB0000;'>NA</span><span>           </span><span style='color: #BB0000;'>NA</span><span>  </span><span style='text-decoration: underline;'>2</span><span>745
+#&gt; </span><span style='color: #555555;'>1</span><span> 2020-05-16 AK         392    </span><span style='text-decoration: underline;'>32</span><span>889      </span><span style='color: #BB0000;'>NA</span><span>           </span><span style='color: #BB0000;'>NA</span><span>    10
+#&gt; </span><span style='color: #555555;'>2</span><span> 2020-05-16 AL       </span><span style='text-decoration: underline;'>11</span><span>523   </span><span style='text-decoration: underline;'>141</span><span>971      </span><span style='color: #BB0000;'>NA</span><span>         </span><span style='text-decoration: underline;'>1</span><span>387   485
+#&gt; </span><span style='color: #555555;'>3</span><span> 2020-05-16 AR        </span><span style='text-decoration: underline;'>4</span><span>578    </span><span style='text-decoration: underline;'>77</span><span>066      </span><span style='color: #BB0000;'>NA</span><span>          520    98
+#&gt; </span><span style='color: #555555;'>4</span><span> 2020-05-16 AS           0      105      </span><span style='color: #BB0000;'>NA</span><span>           </span><span style='color: #BB0000;'>NA</span><span>     0
+#&gt; </span><span style='color: #555555;'>5</span><span> 2020-05-16 AZ       </span><span style='text-decoration: underline;'>13</span><span>631   </span><span style='text-decoration: underline;'>133</span><span>157      </span><span style='color: #BB0000;'>NA</span><span>         </span><span style='text-decoration: underline;'>1</span><span>683   679
+#&gt; </span><span style='color: #555555;'>6</span><span> 2020-05-16 CA       </span><span style='text-decoration: underline;'>76</span><span>793  1</span><span style='text-decoration: underline;'>102</span><span>333      </span><span style='color: #BB0000;'>NA</span><span>           </span><span style='color: #BB0000;'>NA</span><span>  </span><span style='text-decoration: underline;'>3</span><span>204
 #&gt; </span><span style='color: #555555;'># … with 3 more variables: dateChecked </span><span style='color: #555555;font-style: italic;'>&lt;dttm&gt;</span><span style='color: #555555;'>, fips </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, total_tests </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span></div><div class='input'>
 <span class='fu'>plot_epicurve</span>(<span class='no'>cc</span>, <span class='kw'>case_column</span><span class='kw'>=</span><span class='st'>'total_tests'</span>, <span class='kw'>color</span><span class='kw'>=</span><span class='st'>'state'</span>, <span class='kw'>log</span><span class='kw'>=</span><span class='fl'>FALSE</span>) +
     <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span>(<span class='st'>'Total tests by state'</span>) +

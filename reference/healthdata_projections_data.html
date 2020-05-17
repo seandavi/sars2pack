@@ -85,7 +85,7 @@ are those used here https://covid19.healthdata.org/projections." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sars2pack</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.53</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.54</span>
       </span>
     </div>
 
@@ -114,7 +114,7 @@ are those used here https://covid19.healthdata.org/projections." />
       <a href="../articles/case_tracking.html">Case tracking datasets</a>
     </li>
     <li>
-      <a href="../articles/datasets.html">Available datasets</a>
+      <a href="../articles/datasets.html">Overview of available datasets</a>
     </li>
     <li>
       <a href="../articles/doMCMC.html">Building MCMC-based models of SI for SARS-Cov-2</a>
@@ -228,7 +228,9 @@ confidence interval, lower confidence interval</p></li>
 <code><a href='nytimes_county_data.html'>nytimes_county_data</a>()</code>,
 <code><a href='param_estimates_published.html'>param_estimates_published</a>()</code>,
 <code><a href='us_county_geo_details.html'>us_county_geo_details</a>()</code>,
+<code><a href='us_county_health_rankings.html'>us_county_health_rankings</a>()</code>,
 <code><a href='us_healthcare_capacity.html'>us_healthcare_capacity</a>()</code>,
+<code><a href='us_hospital_details.html'>us_hospital_details</a>()</code>,
 <code><a href='us_state_distancing_policy.html'>us_state_distancing_policy</a>()</code>,
 <code><a href='usa_facts_data.html'>usa_facts_data</a>()</code></p>
 <p>Other healthcare-system: 
@@ -243,46 +245,46 @@ confidence interval, lower confidence interval</p></li>
 #&gt; [9] "infections_lower"</div><div class='input'><span class='no'>res</span>[<span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span>(<span class='fl'>1</span>:<span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span>(<span class='no'>res</span>),<span class='fl'>6</span>),]</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 6 x 9</span><span>
 #&gt;   location_name date       metric   mean infections_mean upper infections_upper
 #&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>         </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>           </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>            </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #555555;'>1</span><span> Georgia       2020-01-16 allbed   0                  0   0                  0
-#&gt; </span><span style='color: #555555;'>2</span><span> Extremadura   2020-06-27 admis    0                  0   0                  0
-#&gt; </span><span style='color: #555555;'>3</span><span> District of … 2020-06-12 admis    6.60               0  23.2                0
-#&gt; </span><span style='color: #555555;'>4</span><span> Alabama       2020-06-16 ICUbed 130.                 0 615.                 0
-#&gt; </span><span style='color: #555555;'>5</span><span> Cantabria     2020-03-17 ICUbed   6                  0   6                  0
-#&gt; </span><span style='color: #555555;'>6</span><span> Arkansas      2020-01-12 admis    0                  0   0                  0
-#&gt; </span><span style='color: #555555;'># … with 2 more variables: lower </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, infections_lower </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span></div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Rows: 315,720
+#&gt; </span><span style='color: #555555;'>1</span><span> Connecticut   2020-01-11 allbed  0                   0  0                   0
+#&gt; </span><span style='color: #555555;'>2</span><span> Ceuta         2020-04-27 admis   0                   0  0                   0
+#&gt; </span><span style='color: #555555;'>3</span><span> Sinaloa       2020-01-01 deaths  0                   0  0                   0
+#&gt; </span><span style='color: #555555;'>4</span><span> Castilla-La … 2020-08-14 admis   0                   0  0                   0
+#&gt; </span><span style='color: #555555;'>5</span><span> Rhineland-Pa… 2020-06-25 allbed  0.212               0  1.55                0
+#&gt; </span><span style='color: #555555;'>6</span><span> Alabama       2020-04-29 ICUbed 87.7                 0 90.3                 0
+#&gt; </span><span style='color: #555555;'># … with 2 more variables: lower </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, infections_lower </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span></div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Rows: 439,690
 #&gt; Columns: 9
 #&gt; $ location_name    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Abruzzo", "Abruzzo", "Abruzzo", "Abruzzo", "Abruzzo…
-#&gt; $ date             </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2020-02-04, 2020-02-04, 2020-02-04, 2020-02-04, 202…
+#&gt; $ date             </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2019-12-18, 2019-12-18, 2019-12-18, 2019-12-18, 201…
 #&gt; $ metric           </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "allbed", "ICUbed", "InvVen", "deaths", "admis", "ne…
 #&gt; $ mean             </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
-#&gt; $ infections_mean  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, NA, 0, 0, 0, 0, 0, 0, 0, …
+#&gt; $ infections_mean  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
 #&gt; $ upper            </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
-#&gt; $ infections_upper </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, NA, 0, 0, 0, 0, 0, 0, 0, …
+#&gt; $ infections_upper </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
 #&gt; $ lower            </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
-#&gt; $ infections_lower </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, NA, 0, 0, 0, 0, 0, 0, 0, …</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt;  location_name           date               metric               mean          
-#&gt;  Length:315720      Min.   :2019-12-18   Length:315720      Min.   :   -25.00  
-#&gt;  Class :character   1st Qu.:2020-03-12   Class :character   1st Qu.:     0.00  
-#&gt;  Mode  :character   Median :2020-05-06   Mode  :character   Median :     0.00  
-#&gt;                     Mean   :2020-05-04                      Mean   :   293.33  
-#&gt;                     3rd Qu.:2020-06-30                      3rd Qu.:     8.28  
-#&gt;                     Max.   :2020-08-24                      Max.   :137183.66  
-#&gt;                                                                                
-#&gt;  infections_mean        upper           infections_upper     lower          
-#&gt;  Min.   :     0.0   Min.   :   -25.00   Min.   :     0   Min.   :   -25.00  
-#&gt;  1st Qu.:     0.0   1st Qu.:     0.00   1st Qu.:     0   1st Qu.:     0.00  
-#&gt;  Median :     0.0   Median :     0.00   Median :     0   Median :     0.00  
-#&gt;  Mean   :    60.3   Mean   :   434.94   Mean   :   123   Mean   :   241.67  
-#&gt;  3rd Qu.:     0.0   3rd Qu.:    17.16   3rd Qu.:     0   3rd Qu.:     2.55  
-#&gt;  Max.   :107625.0   Max.   :223488.60   Max.   :127538   Max.   :102782.98  
-#&gt;  NA's   :19941                          NA's   :19941                       
-#&gt;  infections_lower  
-#&gt;  Min.   :    0.00  
-#&gt;  1st Qu.:    0.00  
-#&gt;  Median :    0.00  
-#&gt;  Mean   :   35.25  
-#&gt;  3rd Qu.:    0.00  
-#&gt;  Max.   :99430.04  
-#&gt;  NA's   :19941     </div><div class='input'>
+#&gt; $ infections_lower </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt;  location_name           date               metric               mean         
+#&gt;  Length:439690      Min.   :2019-12-18   Length:439690      Min.   :   -25.0  
+#&gt;  Class :character   1st Qu.:2020-02-19   Class :character   1st Qu.:     0.0  
+#&gt;  Mode  :character   Median :2020-04-22   Mode  :character   Median :     0.0  
+#&gt;                     Mean   :2020-04-21                      Mean   :   302.6  
+#&gt;                     3rd Qu.:2020-06-23                      3rd Qu.:    11.0  
+#&gt;                     Max.   :2020-08-24                      Max.   :147040.1  
+#&gt;                                                                               
+#&gt;  infections_mean        upper           infections_upper       lower         
+#&gt;  Min.   :     0.0   Min.   :   -25.00   Min.   :     0.0   Min.   :   -25.0  
+#&gt;  1st Qu.:     0.0   1st Qu.:     0.00   1st Qu.:     0.0   1st Qu.:     0.0  
+#&gt;  Median :     0.0   Median :     0.00   Median :     0.0   Median :     0.0  
+#&gt;  Mean   :   263.6   Mean   :   477.84   Mean   :   607.1   Mean   :   228.7  
+#&gt;  3rd Qu.:     0.0   3rd Qu.:    20.55   3rd Qu.:     0.0   3rd Qu.:     3.5  
+#&gt;  Max.   :256964.9   Max.   :226971.33   Max.   :618152.5   Max.   :113181.8  
+#&gt;  NA's   :3751                           NA's   :3751                         
+#&gt;  infections_lower
+#&gt;  Min.   :     0  
+#&gt;  1st Qu.:     0  
+#&gt;  Median :     0  
+#&gt;  Mean   :   124  
+#&gt;  3rd Qu.:     0  
+#&gt;  Max.   :223565  
+#&gt;  NA's   :3751    </div><div class='input'>
 <span class='co'>#plot the predictions</span>
 
 <span class='no'>regs_of_interest</span> <span class='kw'>=</span> <span class='st'>'Georgia'</span>

@@ -100,7 +100,7 @@ personal decisions for months or even years to come." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sars2pack</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.53</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.54</span>
       </span>
     </div>
 
@@ -129,7 +129,7 @@ personal decisions for months or even years to come." />
       <a href="../articles/case_tracking.html">Case tracking datasets</a>
     </li>
     <li>
-      <a href="../articles/datasets.html">Available datasets</a>
+      <a href="../articles/datasets.html">Overview of available datasets</a>
     </li>
     <li>
       <a href="../articles/doMCMC.html">Building MCMC-based models of SI for SARS-Cov-2</a>
@@ -236,20 +236,20 @@ COVID-19 data resources.</p></li>
 <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>sars2pack</span>)
 
 <span class='co'># Show me all the available datasets</span>
-<span class='fu'><a href='available_datasets.html'>available_datasets</a></span>()</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 36 x 8</span><span>
+<span class='fu'><a href='available_datasets.html'>available_datasets</a></span>()</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 27 x 8</span><span>
 #&gt;    name    accessor  data_type geographical geospatial region resolution url    
-#&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;lgl&gt;</span><span>        </span><span style='color: #555555;font-style: italic;'>&lt;lgl&gt;</span><span>      </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>  
-#&gt; </span><span style='color: #555555;'> 1</span><span> Corona… coronane… public p… TRUE         FALSE      World  admin0     https:…
-#&gt; </span><span style='color: #555555;'> 2</span><span> Corona… coronane… public p… TRUE         FALSE      World  admin1     https:…
-#&gt; </span><span style='color: #555555;'> 3</span><span> Our Wo… owid_data time ser… TRUE         FALSE      World  admin0     https:…
-#&gt; </span><span style='color: #555555;'> 4</span><span> Our Wo… owid_data cumulati… TRUE         FALSE      World  admin0     https:…
-#&gt; </span><span style='color: #555555;'> 5</span><span> Our Wo… owid_data deaths    TRUE         FALSE      World  admin0     https:…
-#&gt; </span><span style='color: #555555;'> 6</span><span> Our Wo… owid_data tests     TRUE         FALSE      World  admin0     https:…
-#&gt; </span><span style='color: #555555;'> 7</span><span> GISAID… cov_glue… individu… TRUE         FALSE      World  multiple   https:…
-#&gt; </span><span style='color: #555555;'> 8</span><span> Newick… cov_glue… phylogen… FALSE        FALSE      World  multiple   https:…
-#&gt; </span><span style='color: #555555;'> 9</span><span> US CDC… cdc_exce… miscella… TRUE         FALSE      US     admin1     https:…
-#&gt; </span><span style='color: #555555;'>10</span><span> Publis… param_es… miscella… FALSE        FALSE      </span><span style='color: #BB0000;'>NA</span><span>     </span><span style='color: #BB0000;'>NA</span><span>         https:…
-#&gt; </span><span style='color: #555555;'># … with 26 more rows</span><span></div><div class='input'>
+#&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;list&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;lgl&gt;</span><span>        </span><span style='color: #555555;font-style: italic;'>&lt;lgl&gt;</span><span>      </span><span style='color: #555555;font-style: italic;'>&lt;list&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;list&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>  
+#&gt; </span><span style='color: #555555;'> 1</span><span> Extens… us_hospi… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span> TRUE         TRUE       </span><span style='color: #555555;'>&lt;chr </span><span>… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span>  https:…
+#&gt; </span><span style='color: #555555;'> 2</span><span> US cou… us_count… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span> TRUE         FALSE      </span><span style='color: #555555;'>&lt;chr </span><span>… </span><span style='color: #555555;'>&lt;chr [3]&gt;</span><span>  https:…
+#&gt; </span><span style='color: #555555;'> 3</span><span> Corona… coronane… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span> TRUE         FALSE      </span><span style='color: #555555;'>&lt;chr </span><span>… </span><span style='color: #555555;'>&lt;chr [2]&gt;</span><span>  https:…
+#&gt; </span><span style='color: #555555;'> 4</span><span> Our Wo… owid_data </span><span style='color: #555555;'>&lt;chr [4]&gt;</span><span> TRUE         FALSE      </span><span style='color: #555555;'>&lt;chr </span><span>… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span>  https:…
+#&gt; </span><span style='color: #555555;'> 5</span><span> GISAID… cov_glue… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span> TRUE         FALSE      </span><span style='color: #555555;'>&lt;chr </span><span>… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span>  https:…
+#&gt; </span><span style='color: #555555;'> 6</span><span> Newick… cov_glue… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span> FALSE        FALSE      </span><span style='color: #555555;'>&lt;chr </span><span>… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span>  https:…
+#&gt; </span><span style='color: #555555;'> 7</span><span> US CDC… cdc_exce… </span><span style='color: #555555;'>&lt;chr [3]&gt;</span><span> TRUE         FALSE      </span><span style='color: #555555;'>&lt;chr </span><span>… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span>  https:…
+#&gt; </span><span style='color: #555555;'> 8</span><span> Publis… param_es… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span> FALSE        FALSE      </span><span style='color: #555555;'>&lt;NULL&gt;</span><span> </span><span style='color: #555555;'>&lt;NULL&gt;</span><span>     https:…
+#&gt; </span><span style='color: #555555;'> 9</span><span> Aggreg… cdc_aggr… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span> TRUE         FALSE      </span><span style='color: #555555;'>&lt;NULL&gt;</span><span> </span><span style='color: #555555;'>&lt;chr [2]&gt;</span><span>  https:…
+#&gt; </span><span style='color: #555555;'>10</span><span> Google… google_m… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span> TRUE         FALSE      </span><span style='color: #555555;'>&lt;chr </span><span>… </span><span style='color: #555555;'>&lt;chr [3]&gt;</span><span>  https:…
+#&gt; </span><span style='color: #555555;'># … with 17 more rows</span><span></div><div class='input'>
 <span class='fu'><a href='https://rdrr.io/r/utils/example.html'>example</a></span>(<span class='no'>jhu_data</span>)</div><div class='output co'>#&gt; 
 #&gt; jhu_dt&gt; res = jhu_data()
 #&gt; 
@@ -269,7 +269,7 @@ COVID-19 data resources.</p></li>
 #&gt; </span><span style='color: #555555;'>6</span><span> </span><span style='color: #BB0000;'>NA</span><span>            Afghanistan      33    65 2020-01-27     0 confirmed
 #&gt; 
 #&gt; jhu_dt&gt; dplyr::glimpse(res)
-#&gt; Rows: 86,240
+#&gt; Rows: 91,060
 #&gt; Columns: 7
 #&gt; $ ProvinceState </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
 #&gt; $ CountryRegion </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Afghanistan", "Afghanistan", "Afghanistan", "Afghanist…
@@ -299,7 +299,7 @@ COVID-19 data resources.</p></li>
 #&gt; appl__&gt; table(res$transportation_type)
 #&gt; 
 #&gt; driving transit walking 
-#&gt;   94282   17582   24780 
+#&gt;   99076   18476   26040 
 #&gt; 
 #&gt; appl__&gt; require(ggplot2)
 #&gt; 
@@ -345,54 +345,54 @@ COVID-19 data resources.</p></li>
 #&gt; 
 #&gt; hlth__&gt; res[sample(1:nrow(res),6),]
 #&gt; </span><span style='color: #555555;'># A tibble: 6 x 9</span><span>
-#&gt;   location_name date       metric  mean infections_mean upper infections_upper
-#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>         </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>           </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>            </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #555555;'>1</span><span> Hamburg       2020-03-26 est      0                </span><span style='color: #BB0000;'>NA</span><span>   0                 </span><span style='color: #BB0000;'>NA</span><span>
-#&gt; </span><span style='color: #555555;'>2</span><span> Castilla-La … 2020-07-16 InvVen   0                 0   0                  0
-#&gt; </span><span style='color: #555555;'>3</span><span> Brandenburg   2020-07-03 icuov…   0                 0   0                  0
-#&gt; </span><span style='color: #555555;'>4</span><span> Tennessee     2020-05-13 ICUbed  55.8               0  82.1                0
-#&gt; </span><span style='color: #555555;'>5</span><span> Colorado      2020-01-02 InvVen   0                 0   0                  0
-#&gt; </span><span style='color: #555555;'>6</span><span> Lazio         2020-03-05 allbed  22.8               0  27.3                0
+#&gt;   location_name date       metric   mean infections_mean  upper infections_upper
+#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>         </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>           </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>            </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
+#&gt; </span><span style='color: #555555;'>1</span><span> Puebla        2020-01-04 icuov…    0             0        0               0   
+#&gt; </span><span style='color: #555555;'>2</span><span> Georgia       2020-01-06 allbed    0             0        0               0   
+#&gt; </span><span style='color: #555555;'>3</span><span> Missouri      2020-07-26 totdea </span><span style='text-decoration: underline;'>2</span><span>280.            0     </span><span style='text-decoration: underline;'>5</span><span>135.              0   
+#&gt; </span><span style='color: #555555;'>4</span><span> Ukraine       2020-05-08 newICU   17.9           0       26.7             0   
+#&gt; </span><span style='color: #555555;'>5</span><span> Cyprus        2020-07-03 est       0             0.288    0               1.10
+#&gt; </span><span style='color: #555555;'>6</span><span> British Colu… 2020-04-13 InvVen   26.1           0       27.6             0   
 #&gt; </span><span style='color: #555555;'># … with 2 more variables: lower </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, infections_lower </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
 #&gt; 
 #&gt; hlth__&gt; dplyr::glimpse(res)
-#&gt; Rows: 315,720
+#&gt; Rows: 439,690
 #&gt; Columns: 9
 #&gt; $ location_name    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Abruzzo", "Abruzzo", "Abruzzo", "Abruzzo", "Abruzzo…
-#&gt; $ date             </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2020-02-04, 2020-02-04, 2020-02-04, 2020-02-04, 202…
+#&gt; $ date             </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2019-12-18, 2019-12-18, 2019-12-18, 2019-12-18, 201…
 #&gt; $ metric           </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "allbed", "ICUbed", "InvVen", "deaths", "admis", "ne…
 #&gt; $ mean             </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
-#&gt; $ infections_mean  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, NA, 0, 0, 0, 0, 0, 0, 0, …
+#&gt; $ infections_mean  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
 #&gt; $ upper            </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
-#&gt; $ infections_upper </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, NA, 0, 0, 0, 0, 0, 0, 0, …
+#&gt; $ infections_upper </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
 #&gt; $ lower            </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
-#&gt; $ infections_lower </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, NA, 0, 0, 0, 0, 0, 0, 0, …
+#&gt; $ infections_lower </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
 #&gt; 
 #&gt; hlth__&gt; summary(res)
-#&gt;  location_name           date               metric               mean          
-#&gt;  Length:315720      Min.   :2019-12-18   Length:315720      Min.   :   -25.00  
-#&gt;  Class :character   1st Qu.:2020-03-12   Class :character   1st Qu.:     0.00  
-#&gt;  Mode  :character   Median :2020-05-06   Mode  :character   Median :     0.00  
-#&gt;                     Mean   :2020-05-04                      Mean   :   293.33  
-#&gt;                     3rd Qu.:2020-06-30                      3rd Qu.:     8.28  
-#&gt;                     Max.   :2020-08-24                      Max.   :137183.66  
-#&gt;                                                                                
-#&gt;  infections_mean        upper           infections_upper     lower          
-#&gt;  Min.   :     0.0   Min.   :   -25.00   Min.   :     0   Min.   :   -25.00  
-#&gt;  1st Qu.:     0.0   1st Qu.:     0.00   1st Qu.:     0   1st Qu.:     0.00  
-#&gt;  Median :     0.0   Median :     0.00   Median :     0   Median :     0.00  
-#&gt;  Mean   :    60.3   Mean   :   434.94   Mean   :   123   Mean   :   241.67  
-#&gt;  3rd Qu.:     0.0   3rd Qu.:    17.16   3rd Qu.:     0   3rd Qu.:     2.55  
-#&gt;  Max.   :107625.0   Max.   :223488.60   Max.   :127538   Max.   :102782.98  
-#&gt;  NA's   :19941                          NA's   :19941                       
-#&gt;  infections_lower  
-#&gt;  Min.   :    0.00  
-#&gt;  1st Qu.:    0.00  
-#&gt;  Median :    0.00  
-#&gt;  Mean   :   35.25  
-#&gt;  3rd Qu.:    0.00  
-#&gt;  Max.   :99430.04  
-#&gt;  NA's   :19941     
+#&gt;  location_name           date               metric               mean         
+#&gt;  Length:439690      Min.   :2019-12-18   Length:439690      Min.   :   -25.0  
+#&gt;  Class :character   1st Qu.:2020-02-19   Class :character   1st Qu.:     0.0  
+#&gt;  Mode  :character   Median :2020-04-22   Mode  :character   Median :     0.0  
+#&gt;                     Mean   :2020-04-21                      Mean   :   302.6  
+#&gt;                     3rd Qu.:2020-06-23                      3rd Qu.:    11.0  
+#&gt;                     Max.   :2020-08-24                      Max.   :147040.1  
+#&gt;                                                                               
+#&gt;  infections_mean        upper           infections_upper       lower         
+#&gt;  Min.   :     0.0   Min.   :   -25.00   Min.   :     0.0   Min.   :   -25.0  
+#&gt;  1st Qu.:     0.0   1st Qu.:     0.00   1st Qu.:     0.0   1st Qu.:     0.0  
+#&gt;  Median :     0.0   Median :     0.00   Median :     0.0   Median :     0.0  
+#&gt;  Mean   :   263.6   Mean   :   477.84   Mean   :   607.1   Mean   :   228.7  
+#&gt;  3rd Qu.:     0.0   3rd Qu.:    20.55   3rd Qu.:     0.0   3rd Qu.:     3.5  
+#&gt;  Max.   :256964.9   Max.   :226971.33   Max.   :618152.5   Max.   :113181.8  
+#&gt;  NA's   :3751                           NA's   :3751                         
+#&gt;  infections_lower
+#&gt;  Min.   :     0  
+#&gt;  1st Qu.:     0  
+#&gt;  Median :     0  
+#&gt;  Mean   :   124  
+#&gt;  3rd Qu.:     0  
+#&gt;  Max.   :223565  
+#&gt;  NA's   :3751    
 #&gt; 
 #&gt; hlth__&gt; #plot the predictions
 #&gt; hlth__&gt; 

@@ -84,7 +84,7 @@ testing results, hospitalizations, and deaths." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sars2pack</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.53</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.54</span>
       </span>
     </div>
 
@@ -113,7 +113,7 @@ testing results, hospitalizations, and deaths." />
       <a href="../articles/case_tracking.html">Case tracking datasets</a>
     </li>
     <li>
-      <a href="../articles/datasets.html">Available datasets</a>
+      <a href="../articles/datasets.html">Overview of available datasets</a>
     </li>
     <li>
       <a href="../articles/doMCMC.html">Building MCMC-based models of SI for SARS-Cov-2</a>
@@ -213,7 +213,9 @@ district currently reporting that data.</p>
 <code><a href='nytimes_county_data.html'>nytimes_county_data</a>()</code>,
 <code><a href='param_estimates_published.html'>param_estimates_published</a>()</code>,
 <code><a href='us_county_geo_details.html'>us_county_geo_details</a>()</code>,
+<code><a href='us_county_health_rankings.html'>us_county_health_rankings</a>()</code>,
 <code><a href='us_healthcare_capacity.html'>us_healthcare_capacity</a>()</code>,
+<code><a href='us_hospital_details.html'>us_hospital_details</a>()</code>,
 <code><a href='us_state_distancing_policy.html'>us_state_distancing_policy</a>()</code>,
 <code><a href='usa_facts_data.html'>usa_facts_data</a>()</code></p>
 <p>Other case-tracking: 
@@ -231,26 +233,29 @@ district currently reporting that data.</p>
 <code><a href='usa_facts_data.html'>usa_facts_data</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>res</span> <span class='kw'>=</span> <span class='fu'>covidtracker_data</span>()
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>dplyr</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>ggplot2</span>)
+
+<span class='no'>res</span> <span class='kw'>=</span> <span class='fu'>covidtracker_data</span>()
 <span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; [1] "date"         "state"        "positive"     "negative"     "pending"     
-#&gt; [6] "hospitalized" "death"        "dateChecked"  "fips"        </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/dim.html'>dim</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; [1] 3713    9</div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Rows: 3,713
+#&gt; [6] "hospitalized" "death"        "dateChecked"  "fips"        </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/dim.html'>dim</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; [1] 4049    9</div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Rows: 4,049
 #&gt; Columns: 9
-#&gt; $ date         <span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2020-05-10, 2020-05-10, 2020-05-10, 2020-05-10, 2020-05…
+#&gt; $ date         <span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2020-05-16, 2020-05-16, 2020-05-16, 2020-05-16, 2020-05…
 #&gt; $ state        </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "AK", "AL", "AR", "AS", "AZ", "CA", "CO", "CT", "DC", "D…
-#&gt; $ positive     </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 379, 9777, 3747, 0, 11119, 66680, 19375, 33554, 6272, 64…
-#&gt; $ negative     </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 26985, 117644, 61781, 83, 126620, 888984, 81235, 96638, …
-#&gt; $ pending      </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 1265, NA, NA, NA…
-#&gt; $ hospitalized </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> NA, 1240, 471, NA, 1528, NA, 3623, 9389, NA, NA, 7404, 5…
-#&gt; $ death        </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 10, 393, 88, 0, 536, 2745, 967, 2967, 323, 224, 1791, 14…
-#&gt; $ dateChecked  </span><span style='color: #555555;font-style: italic;'>&lt;dttm&gt;</span><span> 2020-05-10 20:00:00, 2020-05-10 20:00:00, 2020-05-10 20…
+#&gt; $ positive     </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 392, 11523, 4578, 0, 13631, 76793, 21232, 36703, 7042, 7…
+#&gt; $ negative     </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 32889, 141971, 77066, 105, 133157, 1102333, 100608, 1280…
+#&gt; $ pending      </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 1676, NA, NA, NA…
+#&gt; $ hospitalized </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> NA, 1387, 520, NA, 1683, NA, 3842, 10946, NA, NA, 8393, …
+#&gt; $ death        </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 10, 485, 98, 0, 679, 3204, 1150, 3339, 375, 286, 2040, 1…
+#&gt; $ dateChecked  </span><span style='color: #555555;font-style: italic;'>&lt;dttm&gt;</span><span> 2020-05-16 20:00:00, 2020-05-16 20:00:00, 2020-05-16 20…
 #&gt; $ fips         </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "00002", "00001", "00005", "00060", "00004", "00006", "0…</div><div class='input'>
 <span class='co'># Hospitalizations by day in Maryland</span>
 <span class='fu'>covidtracker_data</span>() <span class='kw'>%&gt;%</span>
-    <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span>(<span class='no'>state</span><span class='kw'>==</span><span class='st'>'MD'</span>) <span class='kw'>%&gt;%</span>
+    <span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span>(<span class='no'>state</span><span class='kw'>==</span><span class='st'>'MD'</span>) <span class='kw'>%&gt;%</span>
     <span class='fu'><a href='add_incidence_column.html'>add_incidence_column</a></span>(<span class='kw'>count_column</span><span class='kw'>=</span><span class='st'>'hospitalized'</span>) <span class='kw'>%&gt;%</span>
-    <span class='fu'>ggplot</span>(<span class='fu'>aes</span>(<span class='kw'>x</span><span class='kw'>=</span><span class='no'>date</span>,<span class='kw'>y</span><span class='kw'>=</span><span class='no'>inc</span>)) + <span class='fu'>geom_smooth</span>() +
-    <span class='fu'>ylab</span>(<span class='st'>"New Hospitalizations per day"</span>) +
-    <span class='fu'>ggtitle</span>(<span class='st'>'Hospitalizations in Maryland'</span>, <span class='kw'>subtitle</span> <span class='kw'>=</span> <span class='st'>'From covidtracker'</span>)</div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using method = 'loess' and formula 'y ~ x'</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 22 rows containing non-finite values (stat_smooth).</span></div><div class='img'><img src='covidtracker_data-1.png' alt='' width='700' height='433' /></div><div class='input'>
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>x</span><span class='kw'>=</span><span class='no'>date</span>,<span class='kw'>y</span><span class='kw'>=</span><span class='no'>inc</span>)) + <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_smooth.html'>geom_smooth</a></span>() +
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ylab</a></span>(<span class='st'>"New Hospitalizations per day"</span>) +
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span>(<span class='st'>'Hospitalizations in Maryland'</span>, <span class='kw'>subtitle</span> <span class='kw'>=</span> <span class='st'>'From covidtracker'</span>)</div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using method = 'loess' and formula 'y ~ x'</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 22 rows containing non-finite values (stat_smooth).</span></div><div class='img'><img src='covidtracker_data-1.png' alt='' width='700' height='433' /></div><div class='input'>
 
 </div></span></pre>
   </div>

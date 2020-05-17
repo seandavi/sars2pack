@@ -87,7 +87,7 @@ stations, workplaces, and residential." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sars2pack</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.53</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.54</span>
       </span>
     </div>
 
@@ -116,7 +116,7 @@ stations, workplaces, and residential." />
       <a href="../articles/case_tracking.html">Case tracking datasets</a>
     </li>
     <li>
-      <a href="../articles/datasets.html">Available datasets</a>
+      <a href="../articles/datasets.html">Overview of available datasets</a>
     </li>
     <li>
       <a href="../articles/doMCMC.html">Building MCMC-based models of SI for SARS-Cov-2</a>
@@ -251,7 +251,9 @@ preventing the identification of any individual person.</p>
 <code><a href='nytimes_county_data.html'>nytimes_county_data</a>()</code>,
 <code><a href='param_estimates_published.html'>param_estimates_published</a>()</code>,
 <code><a href='us_county_geo_details.html'>us_county_geo_details</a>()</code>,
+<code><a href='us_county_health_rankings.html'>us_county_health_rankings</a>()</code>,
 <code><a href='us_healthcare_capacity.html'>us_healthcare_capacity</a>()</code>,
+<code><a href='us_hospital_details.html'>us_hospital_details</a>()</code>,
 <code><a href='us_state_distancing_policy.html'>us_state_distancing_policy</a>()</code>,
 <code><a href='usa_facts_data.html'>usa_facts_data</a>()</code></p>
 <p>Other mobility: 
@@ -273,7 +275,7 @@ preventing the identification of any individual person.</p>
 #&gt; </span><span style='color: #555555;'>4</span><span> AE    United Arab E… </span><span style='color: #BB0000;'>NA</span><span>     </span><span style='color: #BB0000;'>NA</span><span>     2020-02-15           0 transit_statio…
 #&gt; </span><span style='color: #555555;'>5</span><span> AE    United Arab E… </span><span style='color: #BB0000;'>NA</span><span>     </span><span style='color: #BB0000;'>NA</span><span>     2020-02-15           0 workplaces     
 #&gt; </span><span style='color: #555555;'>6</span><span> AE    United Arab E… </span><span style='color: #BB0000;'>NA</span><span>     </span><span style='color: #BB0000;'>NA</span><span>     2020-02-15           0 residential    
-#&gt; </span><span style='color: #555555;'># … with 1 more variable: percent_change_from_baseline </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span></div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Rows: 1,849,962
+#&gt; </span><span style='color: #555555;'># … with 1 more variable: percent_change_from_baseline </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span></div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Rows: 2,012,778
 #&gt; Columns: 8
 #&gt; $ iso2c                        </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "AE", "AE", "AE", "AE", "AE", "AE", "AE"…
 #&gt; $ country_region               </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "United Arab Emirates", "United Arab Emi…
@@ -313,12 +315,12 @@ preventing the identification of any individual person.</p>
 #&gt;    
 #&gt;       JO   JP   KE   KG   KH   KR   KW   KZ   LA   LB   LI   LK   LT   LU   LV
 #&gt;   0    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1
-#&gt;   1    0   47   35    0    0    0    6    0    0    0    0    0   10    0    8
+#&gt;   1    0   47   35    0    0    0    6    0    0    0    0    0   10    0    6
 #&gt;   2    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0
 #&gt;    
 #&gt;       LY   MD   MK   ML   MM   MN   MT   MU   MX   MY   MZ   NE   NG   NI   NL
 #&gt;   0    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1
-#&gt;   1    0    0    0    0    0    0    0    9   32    0    0    0   37    0   12
+#&gt;   1    0    0    0    0    0    0    0   10   32    0    0    0   37    0   12
 #&gt;   2    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0
 #&gt;    
 #&gt;       NO   NP   NZ   OM   PA   PE   PG   PH   PK   PL   PR   PT   PY   QA   RE
@@ -328,7 +330,7 @@ preventing the identification of any individual person.</p>
 #&gt;    
 #&gt;       RO   RS   RW   SA   SE   SG   SI   SK   SN   SV   TG   TH   TJ   TR   TT
 #&gt;   0    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1
-#&gt;   1   42    0    0   13   21    0   23    8    0    0    0    0    0    0    0
+#&gt;   1   42    0    0   13   21    0   21    8    0    0    0    0    0    0    0
 #&gt;   2    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0
 #&gt;    
 #&gt;       TW   TZ   UG   US   UY   VE   VN   YE   ZA   ZM   ZW
@@ -342,7 +344,7 @@ preventing the identification of any individual person.</p>
 
 <span class='no'>res</span> <span class='kw'>%&gt;%</span>
 <span class='co'>## Italy, whole country(admin == 0)</span>
-    <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span>(<span class='no'>iso2c</span> <span class='kw'>==</span> <span class='st'>"IT"</span> <span class='kw'>&amp;</span> <span class='no'>admin_level</span><span class='kw'>==</span><span class='fl'>0</span>) <span class='kw'>%&gt;%</span>
+    <span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span>(<span class='no'>iso2c</span> <span class='kw'>==</span> <span class='st'>"IT"</span> <span class='kw'>&amp;</span> <span class='no'>admin_level</span><span class='kw'>==</span><span class='fl'>0</span>) <span class='kw'>%&gt;%</span>
     <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>x</span><span class='kw'>=</span><span class='no'>date</span>,<span class='kw'>y</span><span class='kw'>=</span><span class='no'>percent_change_from_baseline</span>,<span class='kw'>color</span> <span class='kw'>=</span> <span class='no'>places_category</span>)) +
     <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span>() +
     <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span>(<span class='st'>'Google mobility metric for Italy'</span>) +

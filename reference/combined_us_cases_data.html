@@ -85,7 +85,7 @@ over all the available datasets." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sars2pack</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.53</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.54</span>
       </span>
     </div>
 
@@ -114,7 +114,7 @@ over all the available datasets." />
       <a href="../articles/case_tracking.html">Case tracking datasets</a>
     </li>
     <li>
-      <a href="../articles/datasets.html">Available datasets</a>
+      <a href="../articles/datasets.html">Overview of available datasets</a>
     </li>
     <li>
       <a href="../articles/doMCMC.html">Building MCMC-based models of SI for SARS-Cov-2</a>
@@ -202,11 +202,13 @@ over all the available datasets.</p>
 #&gt; </span><span style='color: #555555;'>3</span><span> jhu     2020-01-24 00002     0         0 AK   
 #&gt; </span><span style='color: #555555;'>4</span><span> jhu     2020-01-25 00002     0         0 AK   
 #&gt; </span><span style='color: #555555;'>5</span><span> jhu     2020-01-26 00002     0         0 AK   
-#&gt; </span><span style='color: #555555;'>6</span><span> jhu     2020-01-27 00002     0         0 AK   </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/unique.html'>unique</a></span>(<span class='no'>cus</span>$<span class='no'>dataset</span>)</div><div class='output co'>#&gt; [1] "jhu"          "covidtracker" "nytimes"     </div><div class='input'><span class='fu'><a href='plot_epicurve.html'>plot_epicurve</a></span>(<span class='no'>cus</span>, <span class='kw'>filter_expression</span> <span class='kw'>=</span> <span class='no'>state</span> <span class='kw'>==</span> <span class='st'>'GA'</span>,<span class='kw'>color</span><span class='kw'>=</span><span class='st'>'dataset'</span>) +
-    <span class='fu'>ggtitle</span>(<span class='st'>'Cumulative confirmed cases in Georgia'</span>)</div><div class='img'><img src='combined_us_cases_data-1.png' alt='' width='700' height='433' /></div><div class='input'>
+#&gt; </span><span style='color: #555555;'>6</span><span> jhu     2020-01-27 00002     0         0 AK   </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/unique.html'>unique</a></span>(<span class='no'>cus</span>$<span class='no'>dataset</span>)</div><div class='output co'>#&gt; [1] "jhu"          "covidtracker" "nytimes"     </div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>ggplot2</span>)
+<span class='fu'><a href='plot_epicurve.html'>plot_epicurve</a></span>(<span class='no'>cus</span>, <span class='kw'>filter_expression</span> <span class='kw'>=</span> <span class='no'>state</span> <span class='kw'>==</span> <span class='st'>'GA'</span>,<span class='kw'>color</span><span class='kw'>=</span><span class='st'>'dataset'</span>) +
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span>(<span class='st'>'Cumulative confirmed cases in Georgia'</span>)</div><div class='img'><img src='combined_us_cases_data-1.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='fu'><a href='plot_epicurve.html'>plot_epicurve</a></span>(<span class='no'>cus</span>, <span class='kw'>filter_expression</span> <span class='kw'>=</span> <span class='no'>state</span> <span class='kw'>==</span> <span class='st'>'GA'</span> <span class='kw'>&amp;</span> <span class='no'>incidence</span><span class='kw'>&gt;</span><span class='fl'>10</span>,
     <span class='kw'>case_column</span><span class='kw'>=</span><span class='st'>'incidence'</span>, <span class='kw'>color</span><span class='kw'>=</span><span class='st'>'dataset'</span>, <span class='kw'>log</span><span class='kw'>=</span><span class='fl'>FALSE</span>) +
-    <span class='fu'>ggtitle</span>(<span class='st'>'Daily confirmed cases in Georgia'</span>) + <span class='fu'>geom_smooth</span>(<span class='kw'>alpha</span><span class='kw'>=</span><span class='fl'>0.25</span>)</div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using method = 'loess' and formula 'y ~ x'</span></div><div class='img'><img src='combined_us_cases_data-2.png' alt='' width='700' height='433' /></div><div class='input'>
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span>(<span class='st'>'Daily confirmed cases in Georgia'</span>) + <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_smooth.html'>geom_smooth</a></span>(<span class='kw'>alpha</span><span class='kw'>=</span><span class='fl'>0.25</span>)</div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using method = 'loess' and formula 'y ~ x'</span></div><div class='img'><img src='combined_us_cases_data-2.png' alt='' width='700' height='433' /></div><div class='input'>
 </div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
