@@ -1,37 +1,37 @@
-library(shiny)
-library(sars2pack)
-library(dplyr)
+attach_if_needed = function(pk) {
+  sr = search()
+  if (!(paste0("package:", pk) %in% sr)) library(pk, character.only=TRUE)
+}
+
+attach_if_needed("shiny")
+attach_if_needed("sars2pack")
+attach_if_needed("dplyr")
+attach_if_needed("forecast")
+
 # private
-make_cumul_events = function(count, dates, alpha3="USA", source="NYT", regtag=NA) {
-    ans = list(count = count, dates = dates)
-    attr(ans, "ProvinceState") = regtag
-    attr(ans, "source") = source
-    attr(ans, "alpha3") = alpha3
-    attr(ans, "dtype") = "cumulative"
-    class(ans) = c("cumulative_events", "covid_events")
-    ans 
-}
-form_inc = function(src, regtag) {
- fullsumm = src %>% 
-  select(state,date,count) %>% group_by(date) %>% 
-   summarise(count=sum(count))  # counts by date collapsed over states
- thecum = make_cumul_events(count=fullsumm$count, dates=fullsumm$date, regtag=regtag)
- form_incident_events(thecum)
-}
-
-
-#' shiny app for appraisal of simple time-series models for COVID-19 incidence trajectories
-#' @importFrom dplyr summarise
-#' @importFrom graphics lines par
-#' @importFrom methods is
-#' @importFrom stats arima model.matrix predict ts
-#' @importFrom utils data str tail untar
-#' @export
-#tsapp = function() {
+#make_cumul_events = function(count, dates, alpha3="USA", source="NYT", regtag=NA) {
+#    ans = list(count = count, dates = dates)
+#    attr(ans, "ProvinceState") = regtag
+#    attr(ans, "source") = source
+#    attr(ans, "alpha3") = alpha3
+#    attr(ans, "dtype") = "cumulative"
+#    class(ans) = c("cumulative_events", "covid_events")
+#    ans 
+#}
+#form_inc = function(src, regtag) {
+# fullsumm = src %>% 
+#  select(state,date,count) %>% group_by(date) %>% 
+#   summarise(count=sum(count))  # counts by date collapsed over states
+# thecum = make_cumul_events(count=fullsumm$count, dates=fullsumm$date, regtag=regtag)
+# form_incident_events(thecum)
+#}
+#
+# ui code starts here
  basedate = "2020-03-15" # data prior to this date are dropped completely
  lookback_days = 29 # from present date
- nyd = nytimes_state_data() # cumulative
- allst = sort(unique(nyd$state))
+ if (!exists(".nyd.global")).nyd.global <<- nytimes_state_data() # cumulative
+ if (!exists(".jhu.global")) .jhu.global <<- enriched_jhu_data() # cumulative
+ allst = sort(unique(.nyd.global$state))
  ui = fluidPage(
   sidebarLayout(
    sidebarPanel(
@@ -42,8 +42,8 @@ See 'About' tab for additional details."),
     selectInput("source", "source", choices=c("fullusa", allst), selected="fullusa"),
     radioButtons("excl", "exclude from fullusa", choices=c("no", "New York", "Washington"), selected="no"),
     selectInput("trigcomp", "# trig components", choices=c("3", "4", "5", "6"), selected="5"),
-    selectInput("MAorder", "MA order", choices=c("1", "2"), selected="2"),
-    selectInput("trend", "trend", choices=c("linear", "quad"), selected="quad"),
+    numericInput("MAorder", "MA order", min=1, max=4, value=2), # choices=c("1", "2"), selected="2"),
+    numericInput("Difforder", "Difforder", min=0, max=2, value=1),
     actionButton("stopper", "stop app"),
     width=3),
    mainPanel(

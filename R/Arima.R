@@ -197,6 +197,11 @@ plot.Arima_sars2pack = function(x, y, ...) {
 #' drny = Arima_drop_state(ej, nyd)
 #' drny
 #' plot(drny)
+#' opar = par(no.readonly=TRUE)
+#' par(mar=c(4,3,2,2), mfrow=c(1,2))
+#' plot(usa_full, main="all states", ylim=c(17000,38000))
+#' plot(drny, main="excluding NY", ylim=c(17000,38000))
+#' par(opar)
 #' @export
 Arima_drop_state = function(src_us, src_st, state.in="New York", MAorder=2, 
    trend="linear", basedate="2020-03-15", lookback_days=29, ARorder=0) {

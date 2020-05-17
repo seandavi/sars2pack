@@ -53,4 +53,9 @@ nyd = nytimes_state_data()
 drny = Arima_drop_state(ej, nyd)
 drny
 plot(drny)
+opar = par(no.readonly=TRUE)
+par(mar=c(4,3,2,2), mfrow=c(1,2))
+plot(usa_full, main="all states", ylim=c(17000,38000))
+plot(drny, main="excluding NY", ylim=c(17000,38000))
+par(opar)
 }
