@@ -85,7 +85,7 @@ as a &quot;wide-format&quot; tabular dataset." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sars2pack</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.0.44-3</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.0.54-5</span>
       </span>
     </div>
 
@@ -108,7 +108,13 @@ as a &quot;wide-format&quot; tabular dataset." />
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="../articles/datasets.html">Available datasets</a>
+      <a href="../articles/add_a_dataset.html">How to add a new dataset to sars2pack</a>
+    </li>
+    <li>
+      <a href="../articles/case_tracking.html">Case tracking datasets</a>
+    </li>
+    <li>
+      <a href="../articles/datasets.html">Overview of available datasets</a>
     </li>
     <li>
       <a href="../articles/doMCMC.html">Building MCMC-based models of SI for SARS-Cov-2</a>
@@ -118,6 +124,9 @@ as a &quot;wide-format&quot; tabular dataset." />
     </li>
     <li>
       <a href="../articles/map_visualization.html">Geospatial visualization of COVID-19 datasets</a>
+    </li>
+    <li>
+      <a href="../articles/more_visualization.html">Visualizing geographic COVID-19 trends without maps</a>
     </li>
     <li>
       <a href="../articles/overview.html">Exploring the COVID-19 pandemic using sars2pack</a>
@@ -205,7 +214,7 @@ an excel format of data to folks more familiar with excel than
 with R.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>xls_form</span> <span class='kw'>=</span> <span class='fu'>jhu_data_to_excel</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Some values were not matched unambiguously: MS Zaandam</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Some values were not matched unambiguously: MS Zaandam</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Some values were not matched unambiguously: MS Zaandam</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='no'>xls_form</span>)</div><div class='output co'>#&gt; [1] "confirmed" "deaths"    "recovered"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>xls_form</span><span class='kw'>[[</span><span class='fl'>1</span>]])</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 6 x 113</span><span>
+    <pre class="examples"><div class='input'><span class='no'>xls_form</span> <span class='kw'>=</span> <span class='fu'>jhu_data_to_excel</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Some values were not matched unambiguously: MS Zaandam</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Some values were not matched unambiguously: MS Zaandam</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Some values were not matched unambiguously: MS Zaandam</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='no'>xls_form</span>)</div><div class='output co'>#&gt; [1] "confirmed" "deaths"    "recovered"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>xls_form</span><span class='kw'>[[</span><span class='fl'>1</span>]])</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 6 x 134</span><span>
 #&gt;   name  topLevelDomain alpha2Code alpha3Code capital region subregion population
 #&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;list&gt;</span><span>         </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>          </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span>
 #&gt; </span><span style='color: #555555;'>1</span><span> Afgh… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span>      AF         AFG        Kabul   Asia   Southern…   27</span><span style='text-decoration: underline;'>657</span><span>145
@@ -214,7 +223,7 @@ with R.</p>
 #&gt; </span><span style='color: #555555;'>4</span><span> Ando… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span>      AD         AND        Andorr… Europe Southern…      </span><span style='text-decoration: underline;'>78</span><span>014
 #&gt; </span><span style='color: #555555;'>5</span><span> Ango… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span>      AO         AGO        Luanda  Africa Middle A…   25</span><span style='text-decoration: underline;'>868</span><span>000
 #&gt; </span><span style='color: #555555;'>6</span><span> Anti… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span>      AG         ATG        Saint … Ameri… Caribbean      </span><span style='text-decoration: underline;'>86</span><span>295
-#&gt; </span><span style='color: #555555;'># … with 105 more variables: area </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, gini </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, borders </span><span style='color: #555555;font-style: italic;'>&lt;list&gt;</span><span style='color: #555555;'>,</span><span>
+#&gt; </span><span style='color: #555555;'># … with 126 more variables: area </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, gini </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, borders </span><span style='color: #555555;font-style: italic;'>&lt;list&gt;</span><span style='color: #555555;'>,</span><span>
 #&gt; </span><span style='color: #555555;'>#   numericCode </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, cioc </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, ProvinceState </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, CountryRegion </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>,</span><span>
 #&gt; </span><span style='color: #555555;'>#   Lat </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, Long </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, `2020-01-22` </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, `2020-01-23` </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
 #&gt; </span><span style='color: #555555;'>#   `2020-01-24` </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, `2020-01-25` </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, `2020-01-26` </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
@@ -259,11 +268,11 @@ with R.</p>
 
       <footer>
       <div class="copyright">
-  <p>Developed by Sean Davis, John C Mallery, Charles Morefield, VJ Carey.</p>
+  <p>Developed by Sean Davis, VJ Carey.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
 
       </footer>

@@ -86,7 +86,7 @@ function does that." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sars2pack</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.0.44-3</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.0.54-5</span>
       </span>
     </div>
 
@@ -109,7 +109,13 @@ function does that." />
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="../articles/datasets.html">Available datasets</a>
+      <a href="../articles/add_a_dataset.html">How to add a new dataset to sars2pack</a>
+    </li>
+    <li>
+      <a href="../articles/case_tracking.html">Case tracking datasets</a>
+    </li>
+    <li>
+      <a href="../articles/datasets.html">Overview of available datasets</a>
     </li>
     <li>
       <a href="../articles/doMCMC.html">Building MCMC-based models of SI for SARS-Cov-2</a>
@@ -119,6 +125,9 @@ function does that." />
     </li>
     <li>
       <a href="../articles/map_visualization.html">Geospatial visualization of COVID-19 datasets</a>
+    </li>
+    <li>
+      <a href="../articles/more_visualization.html">Visualizing geographic COVID-19 trends without maps</a>
     </li>
     <li>
       <a href="../articles/overview.html">Exploring the COVID-19 pandemic using sars2pack</a>
@@ -202,10 +211,10 @@ last two digits in the county fips code are the state fips code.</p>
     <p>List of United States FIPS codes by county: <a href='https://en.wikipedia.org/wiki/List_of_United_States_FIPS_codes_by_county'>https://en.wikipedia.org/wiki/List_of_United_States_FIPS_codes_by_county</a>.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>integer_to_fips</span>(<span class='fl'>50</span>)</div><div class='output co'>#&gt; [1] "00050"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/class.html'>class</a></span>(<span class='fu'>integer_to_fips</span>(<span class='fl'>50</span>))</div><div class='output co'>#&gt; [1] "character"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/nchar.html'>nchar</a></span>(<span class='fu'>integer_to_fips</span>(<span class='fl'>50</span>))<span class='kw'>==</span><span class='fl'>5</span></div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>integer_to_fips</span>(<span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span>(<span class='fl'>1</span>:<span class='fl'>50000</span>,<span class='fl'>5</span>))</div><div class='output co'>#&gt; [1] "33541" "46451" "00753" "23526" "38305"</div><div class='input'>
+    <pre class="examples"><div class='input'><span class='fu'>integer_to_fips</span>(<span class='fl'>50</span>)</div><div class='output co'>#&gt; [1] "00050"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/class.html'>class</a></span>(<span class='fu'>integer_to_fips</span>(<span class='fl'>50</span>))</div><div class='output co'>#&gt; [1] "character"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/nchar.html'>nchar</a></span>(<span class='fu'>integer_to_fips</span>(<span class='fl'>50</span>))<span class='kw'>==</span><span class='fl'>5</span></div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>integer_to_fips</span>(<span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span>(<span class='fl'>1</span>:<span class='fl'>50000</span>,<span class='fl'>5</span>))</div><div class='output co'>#&gt; [1] "09768" "15815" "30762" "14316" "43836"</div><div class='input'>
 <span class='no'>sl</span> <span class='kw'>=</span> <span class='fu'>county_to_state_fips</span>(<span class='st'>'00050'</span>)
-<span class='no'>sl</span></div><div class='output co'>#&gt; [1] "00050"</div><div class='input'><span class='no'>sl_from_cy</span> <span class='kw'>=</span> <span class='fu'>county_to_state_fips</span>(<span class='st'>'12350'</span>)
-<span class='no'>sl_from_cy</span></div><div class='output co'>#&gt; [1] "00050"</div><div class='input'><span class='no'>sl</span> <span class='kw'>==</span> <span class='no'>sl_from_cy</span></div><div class='output co'>#&gt; [1] TRUE</div><div class='input'>
+<span class='no'>sl</span></div><div class='output co'>#&gt; [1] "00000"</div><div class='input'><span class='no'>sl_from_cy</span> <span class='kw'>=</span> <span class='fu'>county_to_state_fips</span>(<span class='st'>'12350'</span>)
+<span class='no'>sl_from_cy</span></div><div class='output co'>#&gt; [1] "00012"</div><div class='input'><span class='no'>sl</span> <span class='kw'>==</span> <span class='no'>sl_from_cy</span></div><div class='output co'>#&gt; [1] FALSE</div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -218,11 +227,11 @@ last two digits in the county fips code are the state fips code.</p>
 
       <footer>
       <div class="copyright">
-  <p>Developed by Sean Davis, John C Mallery, Charles Morefield, VJ Carey.</p>
+  <p>Developed by Sean Davis, VJ Carey.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
 
       </footer>

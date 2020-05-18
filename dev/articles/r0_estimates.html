@@ -38,7 +38,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sars2pack</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.0.44-3</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.0.54-5</span>
       </span>
     </div>
 
@@ -61,7 +61,13 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
-      <a href="../articles/datasets.html">Available datasets</a>
+      <a href="../articles/add_a_dataset.html">How to add a new dataset to sars2pack</a>
+    </li>
+    <li>
+      <a href="../articles/case_tracking.html">Case tracking datasets</a>
+    </li>
+    <li>
+      <a href="../articles/datasets.html">Overview of available datasets</a>
     </li>
     <li>
       <a href="../articles/doMCMC.html">Building MCMC-based models of SI for SARS-Cov-2</a>
@@ -71,6 +77,9 @@
     </li>
     <li>
       <a href="../articles/map_visualization.html">Geospatial visualization of COVID-19 datasets</a>
+    </li>
+    <li>
+      <a href="../articles/more_visualization.html">Visualizing geographic COVID-19 trends without maps</a>
     </li>
     <li>
       <a href="../articles/overview.html">Exploring the COVID-19 pandemic using sars2pack</a>
@@ -108,7 +117,7 @@
 </h1>
                         <h4 class="author">Sean Davis <a href="mailto:seandavi@gmail.com">seandavi@gmail.com</a> and Vincent J. Carey, stvjc at channing.harvard.edu</h4>
             
-            <h4 class="date">April 27, 2020</h4>
+            <h4 class="date">May 18, 2020</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/seandavi/sars2pack/blob/master/vignettes/r0_estimates.Rmd"><code>vignettes/r0_estimates.Rmd</code></a></small>
       <div class="hidden name"><code>r0_estimates.Rmd</code></div>
@@ -179,9 +188,9 @@
 <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">lubridate</span>)</pre></body></html></div>
 <pre><code>## 
 ## Attaching package: 'lubridate'</code></pre>
-<pre><code>## The following object is masked from 'package:base':
+<pre><code>## The following objects are masked from 'package:base':
 ## 
-##     date</code></pre>
+##     date, intersect, setdiff, union</code></pre>
 <div class="sourceCode" id="cb4"><html><body><pre class="r"><span class="co"># Generating an epidemic with given parameters</span>
 <span class="no">mGT</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/R0/man/generation.time.html">generation.time</a></span>(<span class="st">"gamma"</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">3</span>,<span class="fl">1.5</span>))
 <span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span>(<span class="fl">5432</span>)  <span class="co"># always initialize when simulating!</span>
@@ -296,7 +305,7 @@
                                     <span class="kw">mean_si</span> <span class="kw">=</span> <span class="fl">3.96</span>, <span class="kw">std_si</span> <span class="kw">=</span> <span class="fl">4.75</span>)))</pre></body></html></div>
 <pre><code>## Default config will estimate R on weekly sliding windows.
 ##     To change this change the t_start and t_end arguments.</code></pre>
-<div class="sourceCode" id="cb35"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/invisible.html">invisible</a></span>(<span class="fu"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(<span class="no">epiestim</span>))</pre></body></html></div>
+<div class="sourceCode" id="cb35"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/invisible.html">invisible</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span>(<span class="no">epiestim</span>))</pre></body></html></div>
 <p><img src="r0_estimates_files/figure-html/unnamed-chunk-4-1.png" width="700"></p>
 </div>
 </div>
@@ -317,7 +326,7 @@
 <pre><code>## Default config will estimate R on weekly sliding windows.
 ##     To change this change the t_start and t_end arguments.</code></pre>
 <div class="sourceCode" id="cb38"><html><body><pre class="r"><span class="no">meanR</span> <span class="kw">=</span> <span class="no">epiestim</span>$<span class="no">R</span>$<span class="no">`Mean(R)`</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(<span class="no">meanR</span>, <span class="kw">type</span><span class="kw">=</span><span class="st">'l'</span>, <span class="kw">ylim</span><span class="kw">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">0</span>,<span class="fl">5</span>),<span class="kw">main</span><span class="kw">=</span><span class="st">'R(t) for Italy'</span>, <span class="kw">ylab</span><span class="kw">=</span><span class="st">'R'</span>, <span class="kw">xlab</span><span class="kw">=</span><span class="st">'date'</span>)
+<span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span>(<span class="no">meanR</span>, <span class="kw">type</span><span class="kw">=</span><span class="st">'l'</span>, <span class="kw">ylim</span><span class="kw">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">0</span>,<span class="fl">5</span>),<span class="kw">main</span><span class="kw">=</span><span class="st">'R(t) for Italy'</span>, <span class="kw">ylab</span><span class="kw">=</span><span class="st">'R'</span>, <span class="kw">xlab</span><span class="kw">=</span><span class="st">'date'</span>)
 <span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span>(<span class="kw">h</span><span class="kw">=</span><span class="fl">1</span>, <span class="kw">lty</span><span class="kw">=</span><span class="fl">2</span>)</pre></body></html></div>
 <p><img src="r0_estimates_files/figure-html/unnamed-chunk-5-1.png" width="700"></p>
 </div>
@@ -335,11 +344,11 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by Sean Davis, John C Mallery, Charles Morefield, VJ Carey.</p>
+  <p>Developed by Sean Davis, VJ Carey.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
 
       </footer>

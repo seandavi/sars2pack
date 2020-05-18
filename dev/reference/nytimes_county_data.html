@@ -84,7 +84,7 @@ earlier entries in the data when they receive new information." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sars2pack</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.0.44-3</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.0.54-5</span>
       </span>
     </div>
 
@@ -107,7 +107,13 @@ earlier entries in the data when they receive new information." />
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="../articles/datasets.html">Available datasets</a>
+      <a href="../articles/add_a_dataset.html">How to add a new dataset to sars2pack</a>
+    </li>
+    <li>
+      <a href="../articles/case_tracking.html">Case tracking datasets</a>
+    </li>
+    <li>
+      <a href="../articles/datasets.html">Overview of available datasets</a>
     </li>
     <li>
       <a href="../articles/doMCMC.html">Building MCMC-based models of SI for SARS-Cov-2</a>
@@ -117,6 +123,9 @@ earlier entries in the data when they receive new information." />
     </li>
     <li>
       <a href="../articles/map_visualization.html">Geospatial visualization of COVID-19 datasets</a>
+    </li>
+    <li>
+      <a href="../articles/more_visualization.html">Visualizing geographic COVID-19 trends without maps</a>
     </li>
     <li>
       <a href="../articles/overview.html">Exploring the COVID-19 pandemic using sars2pack</a>
@@ -211,7 +220,10 @@ Washington State on Jan. 21, 2020. We will publish regular updates
 to the data in this repository.</p>
     <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
 
-    <p>see <a href='https://github.com/nytimes/covid-19-data#geographic-exceptions'>https://github.com/nytimes/covid-19-data#geographic-exceptions</a></p>
+    <p>See <a href='https://github.com/nytimes/covid-19-data#geographic-exceptions'>https://github.com/nytimes/covid-19-data#geographic-exceptions</a>. Also,
+This dataset contains county data with "holes" in reporting, dates with no
+reported results. Also, records with "Unknown" county are removed since
+these records appear to NOT be cumulative data, but incidence data?</p>
     <h2 class="hasAnchor" id="licensing"><a class="anchor" href="#licensing"></a>Licensing</h2>
 
     
@@ -234,23 +246,46 @@ you would link to our U.S. tracking page at
 <p>Other data-import: 
 <code><a href='apple_mobility_data.html'>apple_mobility_data</a>()</code>,
 <code><a href='beoutbreakprepared_data.html'>beoutbreakprepared_data</a>()</code>,
+<code><a href='cdc_aggregated_projections.html'>cdc_aggregated_projections</a>()</code>,
+<code><a href='cdc_excess_deaths.html'>cdc_excess_deaths</a>()</code>,
+<code><a href='coronanet_government_response_data.html'>coronanet_government_response_data</a>()</code>,
+<code><a href='cov_glue_datasets.html'>cov_glue_lineage_data</a>()</code>,
+<code><a href='cov_glue_newick_data.html'>cov_glue_newick_data</a>()</code>,
 <code><a href='covidtracker_data.html'>covidtracker_data</a>()</code>,
 <code><a href='descartes_mobility_data.html'>descartes_mobility_data</a>()</code>,
 <code><a href='ecdc_data.html'>ecdc_data</a>()</code>,
 <code><a href='eu_data_cache_data.html'>eu_data_cache_data</a>()</code>,
+<code><a href='google_mobility_data.html'>google_mobility_data</a>()</code>,
+<code><a href='government_policy_timeline.html'>government_policy_timeline</a>()</code>,
 <code><a href='healthdata_projections_data.html'>healthdata_projections_data</a>()</code>,
 <code><a href='jhu_data.html'>jhu_data</a>()</code>,
 <code><a href='jhu_us_data.html'>jhu_us_data</a>()</code>,
 <code><a href='kff_icu_beds.html'>kff_icu_beds</a>()</code>,
+<code><a href='param_estimates_published.html'>param_estimates_published</a>()</code>,
 <code><a href='us_county_geo_details.html'>us_county_geo_details</a>()</code>,
+<code><a href='us_county_health_rankings.html'>us_county_health_rankings</a>()</code>,
 <code><a href='us_healthcare_capacity.html'>us_healthcare_capacity</a>()</code>,
+<code><a href='us_hospital_details.html'>us_hospital_details</a>()</code>,
 <code><a href='us_state_distancing_policy.html'>us_state_distancing_policy</a>()</code>,
+<code><a href='usa_facts_data.html'>usa_facts_data</a>()</code></p>
+<p>Other case-tracking: 
+<code><a href='align_to_baseline.html'>align_to_baseline</a>()</code>,
+<code><a href='beoutbreakprepared_data.html'>beoutbreakprepared_data</a>()</code>,
+<code><a href='bulk_estimate_Rt.html'>bulk_estimate_Rt</a>()</code>,
+<code><a href='combined_us_cases_data.html'>combined_us_cases_data</a>()</code>,
+<code><a href='covidtracker_data.html'>covidtracker_data</a>()</code>,
+<code><a href='ecdc_data.html'>ecdc_data</a>()</code>,
+<code><a href='estimate_Rt.html'>estimate_Rt</a>()</code>,
+<code><a href='eu_data_cache_data.html'>eu_data_cache_data</a>()</code>,
+<code><a href='jhu_data.html'>jhu_data</a>()</code>,
+<code><a href='owid_data.html'>owid_data</a>()</code>,
+<code><a href='plot_epicurve.html'>plot_epicurve</a>()</code>,
 <code><a href='usa_facts_data.html'>usa_facts_data</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># state data</span>
 <span class='no'>res</span> <span class='kw'>=</span> <span class='fu'>nytimes_state_data</span>()
-<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; [1] "date"   "state"  "fips"   "count"  "subset"</div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Rows: 5,968
+<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; [1] "date"   "state"  "fips"   "count"  "subset"</div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Rows: 8,278
 #&gt; Columns: 5
 #&gt; $ date   <span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2020-01-21, 2020-01-22, 2020-01-23, 2020-01-24, 2020-01-24, 2…
 #&gt; $ state  </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Washington", "Washington", "Washington", "Illinois", "Washing…
@@ -259,7 +294,7 @@ you would link to our U.S. tracking page at
 #&gt; $ subset </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "confirmed", "confirmed", "confirmed", "confirmed", "confirmed…</div><div class='input'>
 <span class='co'># county data</span>
 <span class='no'>res</span> <span class='kw'>=</span> <span class='fu'>nytimes_county_data</span>()
-<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; [1] "date"   "county" "state"  "fips"   "count"  "subset"</div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Rows: 179,544
+<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; [1] "date"   "county" "state"  "fips"   "count"  "subset"</div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Rows: 297,238
 #&gt; Columns: 6
 #&gt; $ date   </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2020-01-21, 2020-01-22, 2020-01-23, 2020-01-24, 2020-01-24, 2…
 #&gt; $ county </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Snohomish", "Snohomish", "Snohomish", "Cook", "Snohomish", "O…
@@ -280,11 +315,11 @@ you would link to our U.S. tracking page at
 
       <footer>
       <div class="copyright">
-  <p>Developed by Sean Davis, John C Mallery, Charles Morefield, VJ Carey.</p>
+  <p>Developed by Sean Davis, VJ Carey.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
 
       </footer>
