@@ -1,4 +1,56 @@
 datasets:
+  us_hospital_details:
+    columns:
+      fid: numeric
+      id: character
+      name: character
+      address: character
+      city: character
+      state: character
+      zip: character
+      zip4: character
+      telephone: character
+      type: character
+      status: character
+      population: numeric
+      county: character
+      countyfips: character
+      country: character
+      naics_code: numeric
+      naics_desc: character
+      source: character
+      sourcedate: character
+      val_method: character
+      val_date: character
+      website: character
+      state_id: character
+      alt_name: character
+      st_fips: character
+      owner: character
+      ttl_staff: numeric
+      beds: numeric
+      trauma: character
+      helipad: character
+      geometry:
+      - sfc_POINT
+      - sfc
+    dimensions:
+      nrow: 7581
+      ncol: 31
+  us_county_health_rankings:
+    columns:
+      statecode: character
+      countycode: character
+      fips: character
+      state: character
+      county: character
+      year: numeric
+      county_ranked: logical
+      variable: character
+      value: numeric
+    dimensions:
+      nrow: 2488126
+      ncol: 9
   coronanet_government_response_data:
     columns:
       record_id: character
@@ -56,11 +108,11 @@ datasets:
       tests: numeric
       tests_units: character
     dimensions:
-      nrow: 17013
+      nrow: 18207
       ncol: 7
     dates:
       min: '2019-12-31'
-      max: '2020-05-13'
+      max: '2020-05-18'
   cov_glue_lineage_data:
     columns:
       name: character
@@ -80,7 +132,9 @@ datasets:
       max: '2020-04-23'
   cov_glue_newick_data:
     columns:
-      edge: matrix
+      edge:
+      - matrix
+      - array
       edge.length: numeric
       Nnode: integer
       node.label: character
@@ -141,20 +195,20 @@ datasets:
       entry_person: character
       entry_email: character
     dimensions:
-      nrow: 742
+      nrow: 751
       ncol: 29
   cdc_aggregated_projections:
     columns:
       model: character
-      forecast_date: Date
+      forecast_date: character
       target: character
-      target_week_end_date: Date
+      target_week_end_date: character
       location_name: character
       point: numeric
       quantile_0.025: numeric
       quantile_0.975: numeric
     dimensions:
-      nrow: 11394
+      nrow: 2555
       ncol: 8
   google_mobility_data:
     columns:
@@ -167,11 +221,11 @@ datasets:
       places_category: character
       percent_change_from_baseline: numeric
     dimensions:
-      nrow: 1967850
+      nrow: 2012778
       ncol: 8
     dates:
       min: '2020-02-15'
-      max: '2020-05-07'
+      max: '2020-05-09'
   ecdc_data:
     columns:
       date: Date
@@ -183,11 +237,11 @@ datasets:
       subset: character
       count: numeric
     dimensions:
-      nrow: 33482
+      nrow: 35570
       ncol: 8
     dates:
       min: '2019-12-31'
-      max: '2020-05-13'
+      max: '2020-05-18'
   beoutbreakprepared_data:
     columns:
       ID: character
@@ -224,7 +278,7 @@ datasets:
       data_moderator_initials: character
       travel_history_binary: logical
     dimensions:
-      nrow: 658380
+      nrow: 920729
       ncol: 33
   eu_data_cache_data:
     columns:
@@ -263,11 +317,11 @@ datasets:
       m50: numeric
       m50_index: numeric
     dimensions:
-      nrow: 187608
+      nrow: 203897
       ncol: 9
     dates:
       min: '2020-03-01'
-      max: '2020-05-10'
+      max: '2020-05-16'
   apple_mobility_data:
     columns:
       geo_type: character
@@ -277,11 +331,11 @@ datasets:
       date: Date
       mobility_index: numeric
     dimensions:
-      nrow: 137802
+      nrow: 145908
       ncol: 6
     dates:
       min: '2020-01-13'
-      max: '2020-05-10'
+      max: '2020-05-17'
   usa_facts_data:
     columns:
       fips: character
@@ -291,11 +345,11 @@ datasets:
       date: Date
       count: numeric
     dimensions:
-      nrow: 715680
+      nrow: 747630
       ncol: 6
     dates:
       min: '2020-01-22'
-      max: '2020-05-12'
+      max: '2020-05-17'
   jhu_data:
     columns:
       ProvinceState: character
@@ -306,11 +360,11 @@ datasets:
       count: numeric
       subset: character
     dimensions:
-      nrow: 87808
+      nrow: 91845
       ncol: 7
     dates:
       min: '2020-01-22'
-      max: '2020-05-12'
+      max: '2020-05-17'
   jhu_us_data:
     columns:
       UID: numeric
@@ -329,11 +383,11 @@ datasets:
       count: numeric
       subset: character
     dimensions:
-      nrow: 730464
+      nrow: 763074
       ncol: 15
     dates:
       min: '2020-01-22'
-      max: '2020-05-12'
+      max: '2020-05-17'
   nytimes_county_data:
     columns:
       date: Date
@@ -343,11 +397,11 @@ datasets:
       count: numeric
       subset: character
     dimensions:
-      nrow: 274080
+      nrow: 303052
       ncol: 6
     dates:
       min: '2020-01-21'
-      max: '2020-05-12'
+      max: '2020-05-17'
   nytimes_state_data:
     columns:
       date: Date
@@ -356,11 +410,11 @@ datasets:
       count: numeric
       subset: character
     dimensions:
-      nrow: 7838
+      nrow: 8388
       ncol: 5
     dates:
       min: '2020-01-21'
-      max: '2020-05-12'
+      max: '2020-05-17'
   kff_icu_beds:
     columns:
       fips: character
@@ -397,21 +451,21 @@ datasets:
     columns:
       date: Date
       state: character
-      positive: numeric
-      negative: numeric
-      pending: numeric
-      hospitalized: numeric
-      death: numeric
+      positive: integer
+      negative: integer
+      pending: integer
+      hospitalized: integer
+      death: integer
       dateChecked:
       - POSIXct
       - POSIXt
       fips: character
     dimensions:
-      nrow: 3825
+      nrow: 4161
       ncol: 9
     dates:
       min: '2020-01-22'
-      max: '2020-05-12'
+      max: '2020-05-18'
   us_healthcare_capacity:
     columns:
       Name: character
@@ -480,11 +534,11 @@ datasets:
       LegacyStringencyIndex: numeric
       LegacyStringencyIndexForDisplay: numeric
     dimensions:
-      nrow: 21431
+      nrow: 23103
       ncol: 36
     dates:
       min: '2020-01-01'
-      max: '2020-05-13'
+      max: '2020-05-18'
   healthdata_projections_data:
     columns:
       location_name: character
@@ -497,41 +551,31 @@ datasets:
       lower: numeric
       infections_lower: numeric
     dimensions:
-      nrow: 315720
+      nrow: 439690
       ncol: 9
     dates:
       min: '2019-12-18'
       max: '2020-08-24'
   us_state_distancing_policy:
     columns:
-      PID: character
       location_id: numeric
       StateFIPS: character
       iso2c: character
       state: character
       StatePolicy: character
       Mandate: logical
-      StateWide: logical
-      SWGeo: numeric
-      SWPop: numeric
       DateIssued: Date
       DateEnacted: Date
       DateExpiry: Date
+      DateEased: numeric
       DateEnded: Date
-      Extends: character
-      Expands: character
-      Eases: character
-      Ends: character
-      Depends: character
       PolicyCodingNotes: character
       PolicySource: character
-      PolicySourceID: character
+      StateWide: logical
       LastUpdated: Date
       LastUpdatedNotes: character
-      UpdatingSource1: character
-      UpdatingSource2: character
     dimensions:
-      nrow: 2050
-      ncol: 26
-eval_date: '2020-05-13'
+      nrow: 582
+      ncol: 16
+eval_date: '2020-05-18'
 

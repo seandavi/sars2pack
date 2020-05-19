@@ -99,15 +99,30 @@ get_EpiEstim_SI_model = function( cens = TRUE, distr = "G" ) {
 allopts = function() sort(c( all_nyt_states(), all_ejhu_alpha3(),
    all_ejhu_alpha2(), all_ejhu_names()))
 
-chksel = function() {
+#library(shinyalert)
+chksel = function(nyd, ej) {
  ui = fluidPage(
+  useToastr(),
   sidebarLayout(
    sidebarPanel(
-    selectInput("region", "Region", choices=allopts(), selected="Massachusetts"),
-   ),
+    selectInput("region", "Region", choices=allopts(), selected="France"),
+   dateInput("inidat", "Start of outbreak", value="2020-03-15", min="2020-01-01",
+       max="2020-04-01"),
+    radioButtons("sitype", "Serial Interval Method",
+      choices=c("2009 flu", "uncertain"), selected="2009 flu"),
+    conditionalPanel(
+     condition = "input.sitype == 'uncertain'",
+       numericInput("parmn", "mean SI", min=1, max=6, step=.1,
+                      value=4),
+       numericInput("parmnsd", "SD SI", min=.5, max=12, step=.1,
+                      value=5)
+     ),  
+    numericInput("winsz", "window size", min=1, max=14, step=1,
+                   value=7),
+   width=3),
    mainPanel(
     verbatimTextOutput("sel"),
-    verbatimTextOutput("sel2")
+    plotOutput("sel2")
    )
   )
  )
@@ -123,23 +138,50 @@ chksel = function() {
   output$sel = renderPrint( {
    paste0( findSelRegion(), ":", input$region )
    } )
-  output$sel2 = renderPrint( {
-   head( obtain_incidence( findSelRegion(), input$region, nyd, ej ) )
-   } )
+  output$sel2 = renderPlot( {
+    validate(need(nchar(input$inidat)>0, "abc"))
+    data("Flu2009", package="EpiEstim")
+    zz = obtain_incidence( findSelRegion(), input$region, nyd, ej, input$inidat ) 
+    ee = EpiEstim::estimate_R( zz,
+       method="non_parametric_si",
+        config = EpiEstim::make_config(list(si_distr = Flu2009$si_distr)))
+    plot(ee)
+   }, height=750 )
  }
  runApp(list(ui=ui, server=server))
 }
 
-obtain_incidence = function( type, selection, nytd, ejhu ) {
+trimlz = function(x) x[-seq_len(which.max(x>0)-1)]  # trims leading zeroes
+indlz = function(x) seq_len(which.max(x>0)-1)  # indices of leading zeroes
+
+obtain_incidence = function( type, selection, nytd, ejhu, initdat ) {
+#
+# drops leading zeroes
+#
  if (type == "state") ans = (nytd[nytd$state == selection & nytd$subset == "confirmed",])
  else if (type == "alp3") ans = (ejhu[!is.na(ejhu$alpha3Code) & 
                ejhu$alpha3Code == selection & ejhu$subset == "confirmed",])
- if (type == "alp2") ans = (ejhu[ !is.na(ejhu$alpha2Code) &
+ else if (type == "alp2") ans = (ejhu[ !is.na(ejhu$alpha2Code) &
                ejhu$alpha2Code == selection & ejhu$subset == "confirmed",])
- if (type == "name") ans = ( ejhu[ !is.na(ejhu$name) &
-               ejhu$name == selection & ejhu$subset == "confirmed",])
- if (type == "ext") ans = ( ejhu[ !is.na(ejhu$CountryRegion) &
+ else if (type == "name") 
+           ans = ( ejhu[ !is.na(ejhu$name) & ejhu$name == selection & ejhu$subset == "confirmed" ,])
+ else if (type == "ext") ans = ( ejhu[ !is.na(ejhu$CountryRegion) &
                ejhu$CountryRegion == selection & ejhu$subset == "confirmed",])
- ans
+ if ("ProvinceState" %in% names(ans)) {
+   chktab = length(unique(ans$ProvinceState))
+   if (chktab>1) ans = ans[is.na(ans$ProvinceState), ]
+   }
+ drp = indlz(ans$count)
+ if (length(drp)>0) 
+   ans = (ans %>% dplyr::filter((1:nrow(ans))>max(drp)))
+ ans = dplyr::filter(ans, ans$date > initdat)
+ chk = data.frame(I=diff(c(0,ans$count)), dates=ans$date)  # for EpiEstim::estimate_R
+ if (any(chk$I<0)) {
+   print(any(chk$I<0))
+   bad = which(chk$I < 0)
+   chk$I[bad] = 0
+   toastr_warning("negative incidence values set to zero")
+   }
+ chk
 }
   

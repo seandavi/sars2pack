@@ -2,8 +2,9 @@ get_region = function(x) UseMethod("get_region")
 get_region.covid_events = function(x) {
   al3 = attr(x, "alpha3")
   provst = attr(x, "ProvinceState")
-  if (!is.null(provst) & !is.null(al3)) reg = paste(provst, al3, sep="/")
-  else if (!is.null(provst)) reg = provst
+  reg = NULL
+  if (!isTRUE(is.na(provst)) & !is.null(provst) & !is.null(al3)) reg = paste(provst, al3, sep=" ")
+  else if (!isTRUE(is.na(provst)) & !is.null(provst)) reg = provst
   else if (!is.null(al3)) reg = al3
   if (is.null(reg)) region_name = "missing"
   reg
@@ -82,7 +83,7 @@ plot.covid_events = function (x, main=NULL, ylab=NULL, xlab=NULL,  ...) {
 #' @param src as retrieved with enhanced_jhu_data
 #' @param eventtype character(1) 'confirmed' or 'deaths'
 #' @param alpha3 character(1) code for country
-#' @param ProvinceStateName character(1) for province, default to NULL
+#' @param ProvinceStateName character(1) for province, default to NULL; use NA for multiregion like GBR
 #' @examples
 #' dat = enriched_jhu_data()
 #' cchn = cumulative_events_ejhu(dat, alpha3="CHN", ProvinceStateName="Hubei")
@@ -94,8 +95,9 @@ cumulative_events_ejhu = function(src, eventtype = "confirmed",
    alpha3="USA", ProvinceStateName=NULL) {
  cur = src %>% filter(subset == eventtype &
                 alpha3Code == alpha3 )
- if (!is.null(ProvinceStateName))
+ if (!is.null(ProvinceStateName) & !isTRUE(is.na(ProvinceStateName))) # i.e. not multiprovince like GBR
    cur = cur %>% filter(ProvinceState == ProvinceStateName)
+ if (isTRUE(is.na(ProvinceStateName))) cur = cur %>% filter(isTRUE(is.na(ProvinceState)))
  cumul = cur$count
  dates = cur$date
  ans = list(count=cumul, dates=dates)
