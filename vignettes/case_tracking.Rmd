@@ -96,3 +96,17 @@ plot_epicurve(us_states,
 ```
 
 
+```{r fig.cap='Worldwide daily reported deaths by continent (seven day moving average)'}
+library(zoo)
+ecdc_data() %>%
+    dplyr::filter(subset=='deaths') %>%
+    dplyr::group_by(date,continent) %>%
+    dplyr::summarize(count=sum(count)) %>%
+    dplyr::group_by(continent) %>%
+    dplyr::mutate(roll_mean = zoo::rollmean(count, 7, na.pad=TRUE)) %>%
+    add_incidence_column(count_column='roll_mean', grouping_columns = c('continent')) %>%
+    dplyr::filter(inc>0) %>%
+    plot_epicurve(case_column='inc',color='continent', log=FALSE) +
+    ylab('Daily reported deaths') +
+    ggtitle('Daily reported deaths over time', subtitle='by continent (7-day moving average)')
+```
