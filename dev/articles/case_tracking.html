@@ -148,7 +148,7 @@
 <span class="co">## 5 &lt;NA&gt;          Afghanistan      33    65 2020-01-26     0 confirmed</span>
 <span class="co">## 6 &lt;NA&gt;          Afghanistan      33    65 2020-01-27     0 confirmed</span>
 <span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/reexports.html">glimpse</a></span>(<span class="no">jhu</span>)
-<span class="co">## Rows: 91,845</span>
+<span class="co">## Rows: 94,985</span>
 <span class="co">## Columns: 7</span>
 <span class="co">## $ ProvinceState &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…</span>
 <span class="co">## $ CountryRegion &lt;chr&gt; "Afghanistan", "Afghanistan", "Afghanistan", "Afghanist…</span>
@@ -160,7 +160,7 @@
 <div class="sourceCode" id="cb3"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span>(<span class="no">jhu</span>$<span class="no">subset</span>)
 <span class="co">## </span>
 <span class="co">## confirmed    deaths recovered </span>
-<span class="co">##     31122     31122     29601</span></pre></body></html></div>
+<span class="co">##     32186     32186     30613</span></pre></body></html></div>
 </div>
 <div id="compare-us-datasets" class="section level2">
 <h2 class="hasAnchor">
@@ -181,7 +181,7 @@
 <span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span>(<span class="no">us_states</span>$<span class="no">dataset</span>)
 <span class="co">## </span>
 <span class="co">## covidtracker          jhu      nytimes </span>
-<span class="co">##         4105         5967         4194</span></pre></body></html></div>
+<span class="co">##         4329         6171         4414</span></pre></body></html></div>
 <p>To get a sense of the data and their meaning, consider the following series of graphs based on three “randomly” chosen states.</p>
 <div class="sourceCode" id="cb5"><html><body><pre class="r"><span class="no">interesting_states</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">'PA'</span>,<span class="st">'CA'</span>,<span class="st">'GA'</span>)
 <span class="no">pd</span> <span class="kw">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/position_dodge.html">position_dodge</a></span>(<span class="kw">width</span><span class="kw">=</span><span class="fl">0.2</span>)</pre></body></html></div>

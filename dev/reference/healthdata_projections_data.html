@@ -245,13 +245,13 @@ confidence interval, lower confidence interval</p></li>
 #&gt; [9] "infections_lower"</div><div class='input'><span class='no'>res</span>[<span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span>(<span class='fl'>1</span>:<span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span>(<span class='no'>res</span>),<span class='fl'>6</span>),]</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 6 x 9</span><span>
 #&gt;   location_name date       metric   mean infections_mean upper infections_upper
 #&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>         </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>           </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>            </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #555555;'>1</span><span> Connecticut   2020-01-11 allbed  0                   0  0                   0
-#&gt; </span><span style='color: #555555;'>2</span><span> Ceuta         2020-04-27 admis   0                   0  0                   0
-#&gt; </span><span style='color: #555555;'>3</span><span> Sinaloa       2020-01-01 deaths  0                   0  0                   0
-#&gt; </span><span style='color: #555555;'>4</span><span> Castilla-La … 2020-08-14 admis   0                   0  0                   0
-#&gt; </span><span style='color: #555555;'>5</span><span> Rhineland-Pa… 2020-06-25 allbed  0.212               0  1.55                0
-#&gt; </span><span style='color: #555555;'>6</span><span> Alabama       2020-04-29 ICUbed 87.7                 0 90.3                 0
-#&gt; </span><span style='color: #555555;'># … with 2 more variables: lower </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, infections_lower </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span></div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Rows: 439,690
+#&gt; </span><span style='color: #555555;'>1</span><span> Colorado      2020-07-10 allbed 159.                 0 480.                 0
+#&gt; </span><span style='color: #555555;'>2</span><span> Ceara         2020-02-27 admis    0                  0   0                  0
+#&gt; </span><span style='color: #555555;'>3</span><span> Sardegna      2020-04-02 deaths   6                  0   6                  0
+#&gt; </span><span style='color: #555555;'>4</span><span> Castile and … 2020-06-15 admis    5.27               0  10.7                0
+#&gt; </span><span style='color: #555555;'>5</span><span> Quebec        2020-02-07 allbed   0                  0   0                  0
+#&gt; </span><span style='color: #555555;'>6</span><span> Alabama       2020-04-24 ICUbed  77.1                0  79.8                0
+#&gt; </span><span style='color: #555555;'># … with 2 more variables: lower </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, infections_lower </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span></div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Rows: 449,760
 #&gt; Columns: 9
 #&gt; $ location_name    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Abruzzo", "Abruzzo", "Abruzzo", "Abruzzo", "Abruzzo…
 #&gt; $ date             </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2019-12-18, 2019-12-18, 2019-12-18, 2019-12-18, 201…
@@ -261,30 +261,30 @@ confidence interval, lower confidence interval</p></li>
 #&gt; $ upper            </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
 #&gt; $ infections_upper </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
 #&gt; $ lower            </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
-#&gt; $ infections_lower </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt;  location_name           date               metric               mean         
-#&gt;  Length:439690      Min.   :2019-12-18   Length:439690      Min.   :   -25.0  
-#&gt;  Class :character   1st Qu.:2020-02-19   Class :character   1st Qu.:     0.0  
-#&gt;  Mode  :character   Median :2020-04-22   Mode  :character   Median :     0.0  
-#&gt;                     Mean   :2020-04-21                      Mean   :   302.6  
-#&gt;                     3rd Qu.:2020-06-23                      3rd Qu.:    11.0  
-#&gt;                     Max.   :2020-08-24                      Max.   :147040.1  
-#&gt;                                                                               
-#&gt;  infections_mean        upper           infections_upper       lower         
-#&gt;  Min.   :     0.0   Min.   :   -25.00   Min.   :     0.0   Min.   :   -25.0  
-#&gt;  1st Qu.:     0.0   1st Qu.:     0.00   1st Qu.:     0.0   1st Qu.:     0.0  
-#&gt;  Median :     0.0   Median :     0.00   Median :     0.0   Median :     0.0  
-#&gt;  Mean   :   263.6   Mean   :   477.84   Mean   :   607.1   Mean   :   228.7  
-#&gt;  3rd Qu.:     0.0   3rd Qu.:    20.55   3rd Qu.:     0.0   3rd Qu.:     3.5  
-#&gt;  Max.   :256964.9   Max.   :226971.33   Max.   :618152.5   Max.   :113181.8  
-#&gt;  NA's   :3751                           NA's   :3751                         
+#&gt; $ infections_lower </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt;  location_name           date               metric               mean          
+#&gt;  Length:449760      Min.   :2019-12-13   Length:449760      Min.   :   -25.00  
+#&gt;  Class :character   1st Qu.:2020-02-17   Class :character   1st Qu.:     0.00  
+#&gt;  Mode  :character   Median :2020-04-20   Mode  :character   Median :     0.00  
+#&gt;                     Mean   :2020-04-20                      Mean   :   295.12  
+#&gt;                     3rd Qu.:2020-06-22                      3rd Qu.:    10.54  
+#&gt;                     Max.   :2020-08-24                      Max.   :143357.04  
+#&gt;                                                                                
+#&gt;  infections_mean        upper          infections_upper       lower         
+#&gt;  Min.   :     0.0   Min.   :   -25.0   Min.   :     0.0   Min.   :   -25.0  
+#&gt;  1st Qu.:     0.0   1st Qu.:     0.0   1st Qu.:     0.0   1st Qu.:     0.0  
+#&gt;  Median :     0.0   Median :     0.0   Median :     0.0   Median :     0.0  
+#&gt;  Mean   :   252.7   Mean   :   469.4   Mean   :   518.1   Mean   :   223.7  
+#&gt;  3rd Qu.:     0.0   3rd Qu.:    20.0   3rd Qu.:     0.0   3rd Qu.:     3.0  
+#&gt;  Max.   :247260.6   Max.   :207364.1   Max.   :618152.5   Max.   :115378.4  
+#&gt;  NA's   :5580                          NA's   :5580                         
 #&gt;  infections_lower
 #&gt;  Min.   :     0  
 #&gt;  1st Qu.:     0  
 #&gt;  Median :     0  
-#&gt;  Mean   :   124  
+#&gt;  Mean   :   127  
 #&gt;  3rd Qu.:     0  
-#&gt;  Max.   :223565  
-#&gt;  NA's   :3751    </div><div class='input'>
+#&gt;  Max.   :208276  
+#&gt;  NA's   :5580    </div><div class='input'>
 <span class='co'>#plot the predictions</span>
 
 <span class='no'>regs_of_interest</span> <span class='kw'>=</span> <span class='st'>'Georgia'</span>

@@ -215,49 +215,70 @@ for states in the United States and District of Columbia.</p>
 <code><a href='usa_facts_data.html'>usa_facts_data</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>res</span> <span class='kw'>=</span> <span class='fu'>us_state_distancing_policy</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: download failed</span>
-#&gt; <span class='warning'>  web resource path: ‘https://raw.githubusercontent.com/COVID19StatePolicy/SocialDistancing/master/data/USstatesCov19distancingpolicyBETA.csv’</span>
-#&gt; <span class='warning'>  local file path: ‘/Users/sdavis2/Library/Caches/sars2pack/file8f0a525bf2a8’</span>
-#&gt; <span class='warning'>  reason: Not Found (HTTP 404).</span></div><div class='output co'>#&gt; <span class='warning'>Warning: bfcdownload() failed</span>
-#&gt; <span class='warning'>  rid: BFC43</span>
-#&gt; <span class='warning'>  file: ‘https://raw.githubusercontent.com/COVID19StatePolicy/SocialDistancing/master/data/USstatesCov19distancingpolicyBETA.csv’</span>
-#&gt; <span class='warning'>  reason: download failed</span></div><div class='output co'>#&gt; <span class='error'>Error: download failed; see warnings()</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; [1] "location_name"    "date"             "metric"           "mean"            
-#&gt; [5] "infections_mean"  "upper"            "infections_upper" "lower"           
-#&gt; [9] "infections_lower"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>dplyr</span>)
-<span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Rows: 439,690
-#&gt; Columns: 9
-#&gt; $ location_name    <span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Abruzzo", "Abruzzo", "Abruzzo", "Abruzzo", "Abruzzo…
-#&gt; $ date             </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2019-12-18, 2019-12-18, 2019-12-18, 2019-12-18, 201…
-#&gt; $ metric           </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "allbed", "ICUbed", "InvVen", "deaths", "admis", "ne…
-#&gt; $ mean             </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
-#&gt; $ infections_mean  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
-#&gt; $ upper            </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
-#&gt; $ infections_upper </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
-#&gt; $ lower            </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
-#&gt; $ infections_lower </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt;  location_name           date               metric               mean         
-#&gt;  Length:439690      Min.   :2019-12-18   Length:439690      Min.   :   -25.0  
-#&gt;  Class :character   1st Qu.:2020-02-19   Class :character   1st Qu.:     0.0  
-#&gt;  Mode  :character   Median :2020-04-22   Mode  :character   Median :     0.0  
-#&gt;                     Mean   :2020-04-21                      Mean   :   302.6  
-#&gt;                     3rd Qu.:2020-06-23                      3rd Qu.:    11.0  
-#&gt;                     Max.   :2020-08-24                      Max.   :147040.1  
-#&gt;                                                                               
-#&gt;  infections_mean        upper           infections_upper       lower         
-#&gt;  Min.   :     0.0   Min.   :   -25.00   Min.   :     0.0   Min.   :   -25.0  
-#&gt;  1st Qu.:     0.0   1st Qu.:     0.00   1st Qu.:     0.0   1st Qu.:     0.0  
-#&gt;  Median :     0.0   Median :     0.00   Median :     0.0   Median :     0.0  
-#&gt;  Mean   :   263.6   Mean   :   477.84   Mean   :   607.1   Mean   :   228.7  
-#&gt;  3rd Qu.:     0.0   3rd Qu.:    20.55   3rd Qu.:     0.0   3rd Qu.:     3.5  
-#&gt;  Max.   :256964.9   Max.   :226971.33   Max.   :618152.5   Max.   :113181.8  
-#&gt;  NA's   :3751                           NA's   :3751                         
-#&gt;  infections_lower
-#&gt;  Min.   :     0  
-#&gt;  1st Qu.:     0  
-#&gt;  Median :     0  
-#&gt;  Mean   :   124  
-#&gt;  3rd Qu.:     0  
-#&gt;  Max.   :223565  
-#&gt;  NA's   :3751    </div><div class='input'>
+    <pre class="examples"><div class='input'><span class='no'>res</span> <span class='kw'>=</span> <span class='fu'>us_state_distancing_policy</span>()
+<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt;  [1] "location_id"       "StateFIPS"         "iso2c"            
+#&gt;  [4] "state"             "StatePolicy"       "Mandate"          
+#&gt;  [7] "DateIssued"        "DateEnacted"       "DateExpiry"       
+#&gt; [10] "DateEased"         "DateEnded"         "PolicyCodingNotes"
+#&gt; [13] "PolicySource"      "StateWide"         "LastUpdated"      
+#&gt; [16] "LastUpdatedNotes" </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>dplyr</span>)
+<span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Rows: 588
+#&gt; Columns: 16
+#&gt; $ location_id       <span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 523, 523, 523, 523, 523, 523, 523, 523, 523, 523, 5…
+#&gt; $ StateFIPS         </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "00001", "00001", "00001", "00001", "00001", "00001…
+#&gt; $ iso2c             </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "AL", "AL", "AL", "AL", "AL", "AL", "AL", "AL", "AL…
+#&gt; $ state             </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Alabama", "Alabama", "Alabama", "Alabama", "Alabam…
+#&gt; $ StatePolicy       </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "EmergDec", "SchoolClose", "GathRestrict25", "GathR…
+#&gt; $ Mandate           </span><span style='color: #555555;font-style: italic;'>&lt;lgl&gt;</span><span> TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRU…
+#&gt; $ DateIssued        </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2020-03-13, 2020-03-14, 2020-03-19, 2020-03-19, 20…
+#&gt; $ DateEnacted       </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2020-03-13, 2020-03-18, 2020-03-19, 2020-03-19, 20…
+#&gt; $ DateExpiry        </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> NA, NA, NA, 2020-05-22, 2020-05-22, 2020-05-22, 20…
+#&gt; $ DateEased         </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> NA, NA, NA, NA, 20200430, 20200511, NA, 20200430, N…
+#&gt; $ DateEnded         </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, 2020-04-30, NA…
+#&gt; $ PolicyCodingNotes </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Public Health Emergency", "in effect 20200318. 202…
+#&gt; $ PolicySource      </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "https://governor.alabama.gov/newsroom/2020/03/thir…
+#&gt; $ StateWide         </span><span style='color: #555555;font-style: italic;'>&lt;lgl&gt;</span><span> TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRU…
+#&gt; $ LastUpdated       </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2020-03-24, 2020-03-24, 2020-04-20, 2020-05-11, 20…
+#&gt; $ LastUpdatedNotes  </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> NA, NA, "Updated DateEnacted to 20200319 per state …</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt;   location_id     StateFIPS            iso2c              state          
+#&gt;  Min.   :523.0   Length:588         Length:588         Length:588        
+#&gt;  1st Qu.:535.0   Class :character   Class :character   Class :character  
+#&gt;  Median :548.0   Mode  :character   Mode  :character   Mode  :character  
+#&gt;  Mean   :548.1                                                           
+#&gt;  3rd Qu.:561.0                                                           
+#&gt;  Max.   :573.0                                                           
+#&gt;                                                                          
+#&gt;  StatePolicy         Mandate          DateIssued          DateEnacted        
+#&gt;  Length:588         Mode :logical   Min.   :2020-02-29   Min.   :2020-02-29  
+#&gt;  Class :character   FALSE:65        1st Qu.:2020-03-16   1st Qu.:2020-03-16  
+#&gt;  Mode  :character   TRUE :523       Median :2020-03-19   Median :2020-03-20  
+#&gt;                                     Mean   :2020-03-22   Mean   :2020-03-23  
+#&gt;                                     3rd Qu.:2020-03-27   3rd Qu.:2020-03-28  
+#&gt;                                     Max.   :2020-05-15   Max.   :2020-05-18  
+#&gt;                                                                              
+#&gt;    DateExpiry           DateEased          DateEnded         
+#&gt;  Min.   :2020-03-30   Min.   :20200420   Min.   :2020-04-01  
+#&gt;  1st Qu.:2020-05-16   1st Qu.:20200501   1st Qu.:2020-05-01  
+#&gt;  Median :2020-05-29   Median :20200504   Median :2020-05-04  
+#&gt;  Mean   :2020-05-22   Mean   :20200493   Mean   :2020-05-06  
+#&gt;  3rd Qu.:2020-06-01   3rd Qu.:20200511   3rd Qu.:2020-05-15  
+#&gt;  Max.   :2020-09-10   Max.   :20200601   Max.   :2020-05-21  
+#&gt;  NA's   :239          NA's   :456        NA's   :557         
+#&gt;  PolicyCodingNotes  PolicySource       StateWide        LastUpdated        
+#&gt;  Length:588         Length:588         Mode :logical   Min.   :2020-03-24  
+#&gt;  Class :character   Class :character   FALSE:40        1st Qu.:2020-04-16  
+#&gt;  Mode  :character   Mode  :character   TRUE :548       Median :2020-05-05  
+#&gt;                                                        Mean   :2020-04-29  
+#&gt;                                                        3rd Qu.:2020-05-14  
+#&gt;                                                        Max.   :2020-05-20  
+#&gt;                                                                            
+#&gt;  LastUpdatedNotes  
+#&gt;  Length:588        
+#&gt;  Class :character  
+#&gt;  Mode  :character  
+#&gt;                    
+#&gt;                    
+#&gt;                    
+#&gt;                    </div><div class='input'>
 </div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

@@ -269,7 +269,7 @@ COVID-19 data resources.</p></li>
 #&gt; </span><span style='color: #555555;'>6</span><span> </span><span style='color: #BB0000;'>NA</span><span>            Afghanistan      33    65 2020-01-27     0 confirmed
 #&gt; 
 #&gt; jhu_dt&gt; dplyr::glimpse(res)
-#&gt; Rows: 91,845
+#&gt; Rows: 94,985
 #&gt; Columns: 7
 #&gt; $ ProvinceState </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
 #&gt; $ CountryRegion </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Afghanistan", "Afghanistan", "Afghanistan", "Afghanist…
@@ -283,23 +283,25 @@ COVID-19 data resources.</p></li>
 #&gt; 
 #&gt; appl__&gt; colnames(res)
 #&gt; [1] "geo_type"            "region"              "transportation_type"
-#&gt; [4] "alternative_name"    "date"                "mobility_index"     
+#&gt; [4] "alternative_name"    "sub-region"          "country"            
+#&gt; [7] "date"                "mobility_index"     
 #&gt; 
 #&gt; appl__&gt; head(res)
-#&gt; </span><span style='color: #555555;'># A tibble: 6 x 6</span><span>
-#&gt;   geo_type   region  transportation_… alternative_name date       mobility_index
-#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>            </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>            </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>              </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #555555;'>1</span><span> country/r… Albania driving          </span><span style='color: #BB0000;'>NA</span><span>               2020-01-13          100  
-#&gt; </span><span style='color: #555555;'>2</span><span> country/r… Albania driving          </span><span style='color: #BB0000;'>NA</span><span>               2020-01-14           95.3
-#&gt; </span><span style='color: #555555;'>3</span><span> country/r… Albania driving          </span><span style='color: #BB0000;'>NA</span><span>               2020-01-15          101. 
-#&gt; </span><span style='color: #555555;'>4</span><span> country/r… Albania driving          </span><span style='color: #BB0000;'>NA</span><span>               2020-01-16           97.2
-#&gt; </span><span style='color: #555555;'>5</span><span> country/r… Albania driving          </span><span style='color: #BB0000;'>NA</span><span>               2020-01-17          104. 
-#&gt; </span><span style='color: #555555;'>6</span><span> country/r… Albania driving          </span><span style='color: #BB0000;'>NA</span><span>               2020-01-18          113. 
+#&gt; </span><span style='color: #555555;'># A tibble: 6 x 8</span><span>
+#&gt;   geo_type region transportation_… alternative_name `sub-region` country
+#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>            </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>            </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>        </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>  
+#&gt; </span><span style='color: #555555;'>1</span><span> country… Alban… driving          </span><span style='color: #BB0000;'>NA</span><span>               </span><span style='color: #BB0000;'>NA</span><span>           </span><span style='color: #BB0000;'>NA</span><span>     
+#&gt; </span><span style='color: #555555;'>2</span><span> country… Alban… driving          </span><span style='color: #BB0000;'>NA</span><span>               </span><span style='color: #BB0000;'>NA</span><span>           </span><span style='color: #BB0000;'>NA</span><span>     
+#&gt; </span><span style='color: #555555;'>3</span><span> country… Alban… driving          </span><span style='color: #BB0000;'>NA</span><span>               </span><span style='color: #BB0000;'>NA</span><span>           </span><span style='color: #BB0000;'>NA</span><span>     
+#&gt; </span><span style='color: #555555;'>4</span><span> country… Alban… driving          </span><span style='color: #BB0000;'>NA</span><span>               </span><span style='color: #BB0000;'>NA</span><span>           </span><span style='color: #BB0000;'>NA</span><span>     
+#&gt; </span><span style='color: #555555;'>5</span><span> country… Alban… driving          </span><span style='color: #BB0000;'>NA</span><span>               </span><span style='color: #BB0000;'>NA</span><span>           </span><span style='color: #BB0000;'>NA</span><span>     
+#&gt; </span><span style='color: #555555;'>6</span><span> country… Alban… driving          </span><span style='color: #BB0000;'>NA</span><span>               </span><span style='color: #BB0000;'>NA</span><span>           </span><span style='color: #BB0000;'>NA</span><span>     
+#&gt; </span><span style='color: #555555;'># … with 2 more variables: date </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span style='color: #555555;'>, mobility_index </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
 #&gt; 
 #&gt; appl__&gt; table(res$transportation_type)
 #&gt; 
 #&gt; driving transit walking 
-#&gt;   99875   18625   26250 
+#&gt;  393192   28638   45795 
 #&gt; 
 #&gt; appl__&gt; require(ggplot2)
 #&gt; 
@@ -347,16 +349,16 @@ COVID-19 data resources.</p></li>
 #&gt; </span><span style='color: #555555;'># A tibble: 6 x 9</span><span>
 #&gt;   location_name date       metric   mean infections_mean  upper infections_upper
 #&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>         </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>           </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>            </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #555555;'>1</span><span> Puebla        2020-01-04 icuov…    0             0        0               0   
-#&gt; </span><span style='color: #555555;'>2</span><span> Georgia       2020-01-06 allbed    0             0        0               0   
-#&gt; </span><span style='color: #555555;'>3</span><span> Missouri      2020-07-26 totdea </span><span style='text-decoration: underline;'>2</span><span>280.            0     </span><span style='text-decoration: underline;'>5</span><span>135.              0   
-#&gt; </span><span style='color: #555555;'>4</span><span> Ukraine       2020-05-08 newICU   17.9           0       26.7             0   
-#&gt; </span><span style='color: #555555;'>5</span><span> Cyprus        2020-07-03 est       0             0.288    0               1.10
-#&gt; </span><span style='color: #555555;'>6</span><span> British Colu… 2020-04-13 InvVen   26.1           0       27.6             0   
+#&gt; </span><span style='color: #555555;'>1</span><span> Piemonte      2020-05-15 icuov… 3.66</span><span style='color: #555555;'>e</span><span>1              0  5.20</span><span style='color: #555555;'>e</span><span>1               0 
+#&gt; </span><span style='color: #555555;'>2</span><span> France        2020-04-21 allbed 1.42</span><span style='color: #555555;'>e</span><span>4              0  1.45</span><span style='color: #555555;'>e</span><span>4               0 
+#&gt; </span><span style='color: #555555;'>3</span><span> Mexico_count… 2020-07-22 totdea 6.68</span><span style='color: #555555;'>e</span><span>3              0  1.59</span><span style='color: #555555;'>e</span><span>4               0 
+#&gt; </span><span style='color: #555555;'>4</span><span> Texas         2020-06-29 newICU 3.69</span><span style='color: #555555;'>e</span><span>1              0  1.05</span><span style='color: #555555;'>e</span><span>2               0 
+#&gt; </span><span style='color: #555555;'>5</span><span> Croatia       2020-04-14 est    0.  </span><span style='color: #555555;'> </span><span>             280. 0.  </span><span style='color: #555555;'> </span><span>              356.
+#&gt; </span><span style='color: #555555;'>6</span><span> Bremen        2020-03-04 InvVen 0.  </span><span style='color: #555555;'> </span><span>               0  0.  </span><span style='color: #555555;'> </span><span>                0 
 #&gt; </span><span style='color: #555555;'># … with 2 more variables: lower </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, infections_lower </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
 #&gt; 
 #&gt; hlth__&gt; dplyr::glimpse(res)
-#&gt; Rows: 439,690
+#&gt; Rows: 449,760
 #&gt; Columns: 9
 #&gt; $ location_name    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Abruzzo", "Abruzzo", "Abruzzo", "Abruzzo", "Abruzzo…
 #&gt; $ date             </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2019-12-18, 2019-12-18, 2019-12-18, 2019-12-18, 201…
@@ -369,30 +371,30 @@ COVID-19 data resources.</p></li>
 #&gt; $ infections_lower </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
 #&gt; 
 #&gt; hlth__&gt; summary(res)
-#&gt;  location_name           date               metric               mean         
-#&gt;  Length:439690      Min.   :2019-12-18   Length:439690      Min.   :   -25.0  
-#&gt;  Class :character   1st Qu.:2020-02-19   Class :character   1st Qu.:     0.0  
-#&gt;  Mode  :character   Median :2020-04-22   Mode  :character   Median :     0.0  
-#&gt;                     Mean   :2020-04-21                      Mean   :   302.6  
-#&gt;                     3rd Qu.:2020-06-23                      3rd Qu.:    11.0  
-#&gt;                     Max.   :2020-08-24                      Max.   :147040.1  
-#&gt;                                                                               
-#&gt;  infections_mean        upper           infections_upper       lower         
-#&gt;  Min.   :     0.0   Min.   :   -25.00   Min.   :     0.0   Min.   :   -25.0  
-#&gt;  1st Qu.:     0.0   1st Qu.:     0.00   1st Qu.:     0.0   1st Qu.:     0.0  
-#&gt;  Median :     0.0   Median :     0.00   Median :     0.0   Median :     0.0  
-#&gt;  Mean   :   263.6   Mean   :   477.84   Mean   :   607.1   Mean   :   228.7  
-#&gt;  3rd Qu.:     0.0   3rd Qu.:    20.55   3rd Qu.:     0.0   3rd Qu.:     3.5  
-#&gt;  Max.   :256964.9   Max.   :226971.33   Max.   :618152.5   Max.   :113181.8  
-#&gt;  NA's   :3751                           NA's   :3751                         
+#&gt;  location_name           date               metric               mean          
+#&gt;  Length:449760      Min.   :2019-12-13   Length:449760      Min.   :   -25.00  
+#&gt;  Class :character   1st Qu.:2020-02-17   Class :character   1st Qu.:     0.00  
+#&gt;  Mode  :character   Median :2020-04-20   Mode  :character   Median :     0.00  
+#&gt;                     Mean   :2020-04-20                      Mean   :   295.12  
+#&gt;                     3rd Qu.:2020-06-22                      3rd Qu.:    10.54  
+#&gt;                     Max.   :2020-08-24                      Max.   :143357.04  
+#&gt;                                                                                
+#&gt;  infections_mean        upper          infections_upper       lower         
+#&gt;  Min.   :     0.0   Min.   :   -25.0   Min.   :     0.0   Min.   :   -25.0  
+#&gt;  1st Qu.:     0.0   1st Qu.:     0.0   1st Qu.:     0.0   1st Qu.:     0.0  
+#&gt;  Median :     0.0   Median :     0.0   Median :     0.0   Median :     0.0  
+#&gt;  Mean   :   252.7   Mean   :   469.4   Mean   :   518.1   Mean   :   223.7  
+#&gt;  3rd Qu.:     0.0   3rd Qu.:    20.0   3rd Qu.:     0.0   3rd Qu.:     3.0  
+#&gt;  Max.   :247260.6   Max.   :207364.1   Max.   :618152.5   Max.   :115378.4  
+#&gt;  NA's   :5580                          NA's   :5580                         
 #&gt;  infections_lower
 #&gt;  Min.   :     0  
 #&gt;  1st Qu.:     0  
 #&gt;  Median :     0  
-#&gt;  Mean   :   124  
+#&gt;  Mean   :   127  
 #&gt;  3rd Qu.:     0  
-#&gt;  Max.   :223565  
-#&gt;  NA's   :3751    
+#&gt;  Max.   :208276  
+#&gt;  NA's   :5580    
 #&gt; 
 #&gt; hlth__&gt; #plot the predictions
 #&gt; hlth__&gt; 
