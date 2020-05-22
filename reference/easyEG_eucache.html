@@ -43,7 +43,7 @@
 <meta property="og:description" content="simplify production of EG fit using eu_data_cache_data" />
 
 
-
+<meta name="robots" content="noindex">
 
 <!-- mathjax -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
@@ -82,7 +82,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sars2pack</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.54</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.0.54-5</span>
       </span>
     </div>
 
@@ -197,7 +197,7 @@
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>gt</span> <span class='kw'>=</span> <span class='kw pkg'>R0</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/R0/man/generation.time.html'>generation.time</a></span>(<span class='st'>"gamma"</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>3.5</span>, <span class='fl'>4.8</span>))
 <span class='no'>run1</span> <span class='kw'>=</span> <span class='fu'>easyEG_eucache</span>(<span class='no'>gt</span>, <span class='no'>nuts_3</span><span class='kw'>==</span><span class='st'>"Bergamo"</span>, <span class='kw'>start_date</span><span class='kw'>=</span><span class='st'>"2020-02-20"</span>,
-  <span class='kw'>end_date</span><span class='kw'>=</span><span class='st'>"2020-03-15"</span>)</div><div class='output co'>#&gt; <span class='message'>Waiting for profiling to be done...</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='no'>run1</span>)</div><div class='img'><img src='easyEG_eucache-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'>est_R0</span>(<span class='no'>run1</span>)</div><div class='output co'>#&gt; [1] 1.947762</div><div class='input'><span class='fu'>low_R0</span>(<span class='no'>run1</span>)</div><div class='output co'>#&gt; [1] 1.901913</div><div class='input'><span class='fu'>hi_R0</span>(<span class='no'>run1</span>)</div><div class='output co'>#&gt; [1] 1.994623</div></pre>
+  <span class='kw'>end_date</span><span class='kw'>=</span><span class='st'>"2020-03-15"</span>)</div><div class='output co'>#&gt; <span class='message'>Waiting for profiling to be done...</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='no'>run1</span>)</div><div class='img'><img src='easyEG_eucache-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='est_R0.html'>est_R0</a></span>(<span class='no'>run1</span>)</div><div class='output co'>#&gt; [1] 1.947762</div><div class='input'><span class='fu'><a href='low_R0.html'>low_R0</a></span>(<span class='no'>run1</span>)</div><div class='output co'>#&gt; [1] 1.901913</div><div class='input'><span class='fu'><a href='hi_R0.html'>hi_R0</a></span>(<span class='no'>run1</span>)</div><div class='output co'>#&gt; [1] 1.994623</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -213,7 +213,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
 
       </footer>

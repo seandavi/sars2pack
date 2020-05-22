@@ -48,7 +48,7 @@ broken down into all cause death and that attributable to COVID-19
 based on reported COVID-19 deaths." />
 
 
-
+<meta name="robots" content="noindex">
 
 <!-- mathjax -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
@@ -87,7 +87,7 @@ based on reported COVID-19 deaths." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sars2pack</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.54</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.0.54-5</span>
       </span>
     </div>
 
@@ -249,16 +249,15 @@ limitations can be found in the <a href='https://www.cdc.gov/nchs/nvss/vsrr/covi
 <code><a href='usa_facts_data.html'>usa_facts_data</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>cdcdeaths</span> <span class='kw'>=</span> <span class='fu'>cdc_excess_deaths</span>()
-<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>cdcdeaths</span>)</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 6 x 13</span><span>
+    <pre class="examples"><div class='input'><span class='no'>cdcdeaths</span> <span class='kw'>=</span> <span class='fu'>cdc_excess_deaths</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: All formats failed to parse. No formats found.</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>cdcdeaths</span>)</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 6 x 13</span><span>
 #&gt;   date       state deaths upper_bound_thr… exceeds_thresho… average_expecte…
 #&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>            </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;lgl&gt;</span><span>                       </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #555555;'>1</span><span> 2020-01-04 Alab…   </span><span style='text-decoration: underline;'>1</span><span>083             </span><span style='text-decoration: underline;'>1</span><span>189 FALSE                        </span><span style='text-decoration: underline;'>1</span><span>092
-#&gt; </span><span style='color: #555555;'>2</span><span> 2019-01-05 Alab…   </span><span style='text-decoration: underline;'>1</span><span>076             </span><span style='text-decoration: underline;'>1</span><span>273 FALSE                        </span><span style='text-decoration: underline;'>1</span><span>146
-#&gt; </span><span style='color: #555555;'>3</span><span> 2018-01-06 Alab…   </span><span style='text-decoration: underline;'>1</span><span>248             </span><span style='text-decoration: underline;'>1</span><span>283 FALSE                        </span><span style='text-decoration: underline;'>1</span><span>130
-#&gt; </span><span style='color: #555555;'>4</span><span> 2020-01-11 Alab…   </span><span style='text-decoration: underline;'>1</span><span>131             </span><span style='text-decoration: underline;'>1</span><span>183 FALSE                        </span><span style='text-decoration: underline;'>1</span><span>093
-#&gt; </span><span style='color: #555555;'>5</span><span> 2019-01-12 Alab…   </span><span style='text-decoration: underline;'>1</span><span>090             </span><span style='text-decoration: underline;'>1</span><span>304 FALSE                        </span><span style='text-decoration: underline;'>1</span><span>175
-#&gt; </span><span style='color: #555555;'>6</span><span> 2018-01-13 Alab…   </span><span style='text-decoration: underline;'>1</span><span>301             </span><span style='text-decoration: underline;'>1</span><span>289 TRUE                         </span><span style='text-decoration: underline;'>1</span><span>133
+#&gt; </span><span style='color: #555555;'>1</span><span> </span><span style='color: #BB0000;'>NA</span><span>         Alab…   </span><span style='text-decoration: underline;'>1</span><span>130             </span><span style='text-decoration: underline;'>1</span><span>199 FALSE                        </span><span style='text-decoration: underline;'>1</span><span>042
+#&gt; </span><span style='color: #555555;'>2</span><span> </span><span style='color: #BB0000;'>NA</span><span>         Alab…   </span><span style='text-decoration: underline;'>1</span><span>048             </span><span style='text-decoration: underline;'>1</span><span>214 FALSE                        </span><span style='text-decoration: underline;'>1</span><span>057
+#&gt; </span><span style='color: #555555;'>3</span><span> </span><span style='color: #BB0000;'>NA</span><span>         Alab…   </span><span style='text-decoration: underline;'>1</span><span>026             </span><span style='text-decoration: underline;'>1</span><span>233 FALSE                        </span><span style='text-decoration: underline;'>1</span><span>076
+#&gt; </span><span style='color: #555555;'>4</span><span> </span><span style='color: #BB0000;'>NA</span><span>         Alab…   </span><span style='text-decoration: underline;'>1</span><span>036             </span><span style='text-decoration: underline;'>1</span><span>231 FALSE                        </span><span style='text-decoration: underline;'>1</span><span>074
+#&gt; </span><span style='color: #555555;'>5</span><span> </span><span style='color: #BB0000;'>NA</span><span>         Alab…   </span><span style='text-decoration: underline;'>1</span><span>058             </span><span style='text-decoration: underline;'>1</span><span>224 FALSE                        </span><span style='text-decoration: underline;'>1</span><span>071
+#&gt; </span><span style='color: #555555;'>6</span><span> </span><span style='color: #BB0000;'>NA</span><span>         Alab…   </span><span style='text-decoration: underline;'>1</span><span>060             </span><span style='text-decoration: underline;'>1</span><span>230 FALSE                        </span><span style='text-decoration: underline;'>1</span><span>074
 #&gt; </span><span style='color: #555555;'># … with 7 more variables: excess_lower_estimate </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
 #&gt; </span><span style='color: #555555;'>#   excess_higher_estimate </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, type </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, outcome </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, suppress </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>,</span><span>
 #&gt; </span><span style='color: #555555;'>#   note </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, week_of_year </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>cdcdeaths</span>)</div><div class='output co'>#&gt;  [1] "date"                   "state"                  "deaths"                
@@ -267,7 +266,7 @@ limitations can be found in the <a href='https://www.cdc.gov/nchs/nvss/vsrr/covi
 #&gt; [10] "outcome"                "suppress"               "note"                  
 #&gt; [13] "week_of_year"          </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span>(<span class='no'>cdcdeaths</span>$<span class='no'>outcome</span>)</div><div class='output co'>#&gt; 
 #&gt;                     All causes All causes, excluding COVID-19 
-#&gt;                          18684                          18684 </div><div class='input'>
+#&gt;                          18792                          18792 </div><div class='input'>
 
 <span class='co'># Examine excess deaths in three states</span>
 <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>ggplot2</span>)
@@ -280,7 +279,7 @@ limitations can be found in the <a href='https://www.cdc.gov/nchs/nvss/vsrr/covi
     <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>color</span><span class='kw'>=</span><span class='no'>deaths</span><span class='kw'>&gt;</span><span class='no'>upper_bound_threshold</span>)) +
     <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>x</span><span class='kw'>=</span><span class='no'>date</span>,<span class='kw'>y</span><span class='kw'>=</span><span class='no'>upper_bound_threshold</span>)) +
     <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/facet_grid.html'>facet_grid</a></span>(<span class='kw'>rows</span><span class='kw'>=</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/vars.html'>vars</a></span>(<span class='no'>state</span>)) +
-    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span>(<span class='st'>'Excess deaths over time'</span>)</div><div class='img'><img src='cdc_excess_deaths-1.png' alt='' width='700' height='433' /></div><div class='input'>
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span>(<span class='st'>'Excess deaths over time'</span>)</div><div class='output co'>#&gt; <span class='error'>Error in seq.int(0, to0 - from, by): 'to' must be a finite number</span></div><div class='img'><img src='cdc_excess_deaths-1.png' alt='' width='700' height='433' /></div><div class='input'>
 </div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -297,7 +296,7 @@ limitations can be found in the <a href='https://www.cdc.gov/nchs/nvss/vsrr/covi
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
 
       </footer>

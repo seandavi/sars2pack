@@ -48,7 +48,7 @@ much (or any) faster than running on each location in a case-tracking
 dataset independently and then combining." />
 
 
-
+<meta name="robots" content="noindex">
 
 <!-- mathjax -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
@@ -87,7 +87,7 @@ dataset independently and then combining." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sars2pack</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.54</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.0.54-5</span>
       </span>
     </div>
 
@@ -257,7 +257,7 @@ as other parameters specific to each method.</p>
     <span class='kw'>config</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>mean_si</span><span class='kw'>=</span><span class='fl'>3.96</span>, <span class='kw'>std_si</span><span class='kw'>=</span><span class='fl'>4.75</span>))</div><div class='output co'>#&gt; <span class='warning'>Warning: All elements of `...` must be named.</span>
 #&gt; <span class='warning'>Did you want `data = c(date, count)`?</span></div><div class='output co'>#&gt; <span class='warning'>Warning: You're estimating R too early in the epidemic to get the desired</span>
 #&gt; <span class='warning'>            posterior CV.</span></div><div class='output co'>#&gt; <span class='warning'>Warning: You're estimating R too early in the epidemic to get the desired</span>
-#&gt; <span class='warning'>            posterior CV.</span></div><div class='output co'>#&gt; <span class='warning'>Warning: si_distr does not sum to 1.</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 6 x 17</span><span>
+#&gt; <span class='warning'>            posterior CV.</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 6 x 17</span><span>
 #&gt;   state fips  subset data  t_start t_end `Mean(R)` `Std(R)` `Quantile.0.025…
 #&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;lis&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>            </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
 #&gt; </span><span style='color: #555555;'>1</span><span> Alab… 00001 confi… </span><span style='color: #555555;'>&lt;tib</span><span>…       2     8      2.44    0.242             1.98
@@ -276,7 +276,7 @@ as other parameters specific to each method.</p>
 #&gt; [16] "date_start"        "date_end"         </div><div class='input'>
 <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>ggplot2</span>)
 <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span>(<span class='no'>res</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>x</span><span class='kw'>=</span><span class='no'>date_start</span>,<span class='kw'>y</span><span class='kw'>=</span><span class='fl'>1</span>/<span class='no'>`Mean(R)`</span>,<span class='kw'>color</span><span class='kw'>=</span><span class='no'>state</span>)) +
-    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_smooth.html'>geom_smooth</a></span>(<span class='kw'>se</span><span class='kw'>=</span><span class='fl'>FALSE</span>) + <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/lims.html'>ylim</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>,<span class='fl'>1.5</span>))</div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using method = 'loess' and formula 'y ~ x'</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 6 rows containing non-finite values (stat_smooth).</span></div><div class='output co'>#&gt; <span class='warning'>Warning: span too small.   fewer data values than degrees of freedom.</span></div><div class='output co'>#&gt; <span class='warning'>Warning: pseudoinverse used at 18330</span></div><div class='output co'>#&gt; <span class='warning'>Warning: neighborhood radius 1.01</span></div><div class='output co'>#&gt; <span class='warning'>Warning: reciprocal condition number  0</span></div><div class='output co'>#&gt; <span class='warning'>Warning: There are other near singularities as well. 1.0201</span></div><div class='img'><img src='bulk_estimate_Rt-1.png' alt='' width='700' height='433' /></div><div class='input'>
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_smooth.html'>geom_smooth</a></span>(<span class='kw'>se</span><span class='kw'>=</span><span class='fl'>FALSE</span>) + <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/lims.html'>ylim</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>,<span class='fl'>1.5</span>))</div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using method = 'loess' and formula 'y ~ x'</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 6 rows containing non-finite values (stat_smooth).</span></div><div class='img'><img src='bulk_estimate_Rt-1.png' alt='' width='700' height='433' /></div><div class='input'>
 </div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -293,7 +293,7 @@ as other parameters specific to each method.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
 
       </footer>
