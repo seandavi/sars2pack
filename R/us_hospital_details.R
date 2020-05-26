@@ -15,7 +15,7 @@
 #' @importFrom sf st_as_sf
 #' 
 #' @family data-import
-#' @family healthcare capacity
+#' @family healthcare-systems
 #' 
 #' @examples 
 #' res = us_hospital_details()

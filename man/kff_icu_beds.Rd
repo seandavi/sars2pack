@@ -49,6 +49,9 @@ Other data-import:
 \code{\link{us_hospital_details}()},
 \code{\link{us_state_distancing_policy}()},
 \code{\link{usa_facts_data}()}
+
+Other healthcare-systems: 
+\code{\link{us_hospital_details}()}
 }
 \concept{data-import}
 \concept{healthcare-systems}
