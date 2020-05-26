@@ -8,10 +8,11 @@ Arima_by_state(
   src,
   state.in = "New York",
   MAorder = 2,
-  trend = "linear",
-  basedate = "2020-03-15",
+  Difforder = 1,
+  basedate = "2020-02-15",
   lookback_days = 29,
-  ARorder = 0
+  ARorder = 0,
+  max_date = NULL
 )
 }
 \arguments{
@@ -21,13 +22,16 @@ Arima_by_state(
 
 \item{MAorder}{numeric(1) order of moving average component}
 
-\item{trend}{character(1) if "linear" differencing order for ARIMA=1, else 2}
+\item{Difforder}{numeric(1) order of differencing d in ARIMA(p,d,q)}
 
 \item{basedate}{character(1) used by lubridate::as_date to filter away all earlier records}
 
 \item{lookback_days}{numeric(1) only uses this many days from most recent in src}
 
 \item{ARorder}{order of autoregressive component}
+
+\item{max_date}{a date from which to start lookback ... defaults to NULL in which
+case the latest available date is used}
 }
 \value{
 instance of S3 class Arima_sars2pack
@@ -37,11 +41,12 @@ Use Rob Hyndman's forecast package to estimate drift in ARIMA models
 }
 \examples{
 nyd = nytimes_state_data()
-lkny = Arima_by_state(nyd)
+mb = min_bic(nyd, state.in="New York")
+lkny = Arima_by_state(nyd, ARorder=mb$opt["ARord"], MAorder=mb$opt["MAord"])
 lkny
 plot(lkny)
 usd = jhu_us_data()
-lkny2 = Arima_by_state(usd)
+lkny2 = Arima_by_state(usd, ARorder=mb$opt["ARord"], MAorder=mb$opt["MAord"])
 lkny2
 plot(lkny2)
 }

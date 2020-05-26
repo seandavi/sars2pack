@@ -9,10 +9,11 @@ Arima_drop_state(
   src_st,
   state.in = "New York",
   MAorder = 2,
-  trend = "linear",
-  basedate = "2020-03-15",
+  Difforder = 1,
+  basedate = "2020-02-15",
   lookback_days = 29,
-  ARorder = 0
+  ARorder = 0,
+  max_date = NULL
 )
 }
 \arguments{
@@ -24,13 +25,16 @@ Arima_drop_state(
 
 \item{MAorder}{numeric(1) order of moving average component}
 
-\item{trend}{character(1) if "linear" differencing order for ARIMA=1, else 2}
+\item{Difforder}{numeric(1) differencing order d of ARIMA(p,d,q)}
 
 \item{basedate}{character(1) used by lubridate::as_date to filter away all earlier records}
 
 \item{lookback_days}{numeric(1) only uses this many days from most recent in src}
 
 \item{ARorder}{order of autoregressive component}
+
+\item{max_date}{a date from which to start lookback ... defaults to NULL in which
+case the latest available date is used}
 }
 \value{
 instance of S3 class Arima_sars2pack

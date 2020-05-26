@@ -8,19 +8,22 @@ Arima_contig_states(
   src,
   state.in = "All contig",
   MAorder = 2,
-  trend = "linear",
-  basedate = "2020-03-15",
+  Difforder = 1,
+  basedate = "2020-02-15",
   lookback_days = 29,
   ARorder = 0,
-  contig_vec = contig_states_twolet()
+  contig_vec = contig_states_twolet(),
+  max_date = NULL
 )
 }
 \arguments{
+\item{src}{tibble for state level data like that of nytimes_state_data()}
+
 \item{state.in}{character(1) state name}
 
 \item{MAorder}{numeric(1) order of moving average component}
 
-\item{trend}{character(1) if "linear" differencing order for ARIMA=1, else 2}
+\item{Difforder}{numeric(1) differencing order d of ARIMA(p,d,q)}
 
 \item{basedate}{character(1) used by lubridate::as_date to filter away all earlier records}
 
@@ -29,6 +32,9 @@ Arima_contig_states(
 \item{ARorder}{order of autoregressive component}
 
 \item{contig_vec}{character() vector of tokens for subsetting src}
+
+\item{max_date}{a date from which to start lookback ... defaults to NULL in which
+case the latest available date is used}
 }
 \description{
 full incidence for contiguous states
