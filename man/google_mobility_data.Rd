@@ -105,6 +105,7 @@ Other data-import:
 \code{\link{covidtracker_data}()},
 \code{\link{descartes_mobility_data}()},
 \code{\link{ecdc_data}()},
+\code{\link{economist_excess_deaths}()},
 \code{\link{eu_data_cache_data}()},
 \code{\link{government_policy_timeline}()},
 \code{\link{healthdata_projections_data}()},

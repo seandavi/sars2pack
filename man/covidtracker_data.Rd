@@ -59,6 +59,7 @@ Other data-import:
 \code{\link{cov_glue_newick_data}()},
 \code{\link{descartes_mobility_data}()},
 \code{\link{ecdc_data}()},
+\code{\link{economist_excess_deaths}()},
 \code{\link{eu_data_cache_data}()},
 \code{\link{google_mobility_data}()},
 \code{\link{government_policy_timeline}()},
