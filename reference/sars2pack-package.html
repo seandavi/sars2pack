@@ -338,10 +338,53 @@ COVID-19 data resources.</p></li>
 #&gt; appl__+     ggplotly(pl)
 #&gt; appl__+ }</div><div class='input'>
 <span class='fu'><a href='https://rdrr.io/r/utils/example.html'>example</a></span>(<span class='no'>healthdata_projections_data</span>)</div><div class='output co'>#&gt; 
-#&gt; hlth__&gt; res = healthdata_projections_data()</div><div class='output co'>#&gt; <span class='warning'>Warning: Values in `count` are not uniquely identified; output will contain list-cols.</span>
-#&gt; <span class='warning'>* Use `values_fn = list(count = list)` to suppress this warning.</span>
-#&gt; <span class='warning'>* Use `values_fn = list(count = length)` to identify where the duplicates arise</span>
-#&gt; <span class='warning'>* Use `values_fn = list(count = summary_fun)` to summarise duplicates</span></div><div class='output co'>#&gt; <span class='error'>Error: Can't convert &lt;double&gt; to &lt;list&gt;.</span></div><div class='input'>
+#&gt; hlth__&gt; res = healthdata_projections_data()
+#&gt; 
+#&gt; hlth__&gt; colnames(res)
+#&gt; [1] "location_name" "date"          "metric"        "count"        
+#&gt; 
+#&gt; hlth__&gt; res[sample(1:nrow(res),6),]
+#&gt; </span><span style='color: #555555;'># A tibble: 6 x 4</span><span>
+#&gt;   location_name          date       metric          count
+#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>                  </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>           </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
+#&gt; </span><span style='color: #555555;'>1</span><span> Mecklenburg-Vorpommern 2020-01-22 ICUbed            0  
+#&gt; </span><span style='color: #555555;'>2</span><span> Amapa                  2020-02-06 icuover           0  
+#&gt; </span><span style='color: #555555;'>3</span><span> Lithuania              2020-04-22 admis             2.8
+#&gt; </span><span style='color: #555555;'>4</span><span> Michigan               2020-04-29 deaths          102  
+#&gt; </span><span style='color: #555555;'>5</span><span> Nevada                 2020-01-13 est_infections    0  
+#&gt; </span><span style='color: #555555;'>6</span><span> Castilla-La Mancha     2020-03-28 allbed         </span><span style='text-decoration: underline;'>2</span><span>049. 
+#&gt; 
+#&gt; hlth__&gt; dplyr::glimpse(res)
+#&gt; Rows: 863,957
+#&gt; Columns: 4
+#&gt; $ location_name </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Abruzzo", "Abruzzo", "Abruzzo", "Abruzzo", "Abruzzo", …
+#&gt; $ date          </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2019-12-13, 2019-12-13, 2019-12-13, 2019-12-13, 2019-1…
+#&gt; $ metric        </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "allbed", "ICUbed", "InvVen", "deaths", "admis", "newIC…
+#&gt; $ count         </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, NA, 0, 0, 0, 0, 0, 0, 0, 0, …
+#&gt; 
+#&gt; hlth__&gt; summary(res)
+#&gt;  location_name           date               metric              count         
+#&gt;  Length:863957      Min.   :2019-12-13   Length:863957      Min.   : -1126.0  
+#&gt;  Class :character   1st Qu.:2020-03-21   Class :character   1st Qu.:     0.0  
+#&gt;  Mode  :character   Median :2020-05-11   Mode  :character   Median :     8.6  
+#&gt;                     Mean   :2020-05-05                      Mean   :  1064.5  
+#&gt;                     3rd Qu.:2020-06-28                      3rd Qu.:   143.7  
+#&gt;                     Max.   :2020-08-24                      Max.   :551410.7  
+#&gt;                                                             NA's   :7928      
+#&gt; 
+#&gt; hlth__&gt; #plot the predictions
+#&gt; hlth__&gt; 
+#&gt; hlth__&gt; regs_of_interest = 'Georgia'
+#&gt; 
+#&gt; hlth__&gt; library(ggplot2)
+#&gt; 
+#&gt; hlth__&gt; pl = res %&gt;%
+#&gt; hlth__+     dplyr::filter(location_name %in% regs_of_interest) %&gt;%
+#&gt; hlth__+     ggplot(aes(x=date)) + geom_line(aes(y=mean, color=metric))
+#&gt; 
+#&gt; hlth__&gt; # plot the "mean" prediction
+#&gt; hlth__&gt; pl</div><div class='output co'>#&gt; <span class='message'>Don't know how to automatically pick scale for object of type function. Defaulting to continuous.</span></div><div class='output co'>#&gt; <span class='error'>Error: Aesthetics must be valid data columns. Problematic aesthetic(s): y = mean. </span>
+#&gt; <span class='error'>Did you mistype the name of a data column or forget to add after_stat()?</span></div><div class='img'><img src='sars2pack-package-4.png' alt='' width='700' height='433' /></div><div class='input'>
 
 
 </div></span></pre>
