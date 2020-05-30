@@ -43,7 +43,7 @@
 <meta property="og:description" content="create cumulative_events instance for state data from NYT" />
 
 
-<meta name="robots" content="noindex">
+
 
 <!-- mathjax -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
@@ -82,7 +82,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sars2pack</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.0.54-5</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
       </span>
     </div>
 
@@ -194,7 +194,7 @@
     <pre class="examples"><div class='input'><span class='no'>nyt</span> <span class='kw'>=</span> <span class='fu'><a href='nytimes_county_data.html'>nytimes_state_data</a></span>()
 <span class='no'>mass</span> <span class='kw'>=</span> <span class='fu'>cumulative_events_nyt_state</span>(<span class='no'>nyt</span>, <span class='kw'>eventtype</span> <span class='kw'>=</span> <span class='st'>"confirmed"</span>,
    <span class='kw'>statename</span> <span class='kw'>=</span> <span class='st'>"Massachusetts"</span>)
-<span class='no'>mass</span></div><div class='output co'>#&gt; cumulative event data for Massachusetts, 2020-02-01 to 2020-05-21 
+<span class='no'>mass</span></div><div class='output co'>#&gt; cumulative event data for Massachusetts, 2020-02-01 to 2020-05-28 
 #&gt; use plot() to visualize.</div><div class='input'><span class='no'>imass</span> <span class='kw'>=</span> <span class='fu'><a href='form_incident_events.html'>form_incident_events</a></span>(<span class='fu'><a href='trim_from.html'>trim_from</a></span>(<span class='no'>mass</span>, <span class='st'>"2020-03-01"</span>))
 <span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='no'>imass</span>)</div><div class='img'><img src='cumulative_events_nyt_state-1.png' alt='' width='700' height='433' /></div></pre>
   </div>

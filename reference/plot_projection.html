@@ -44,7 +44,7 @@
 render a plot or return a ggplot object for further manipulation." />
 
 
-<meta name="robots" content="noindex">
+
 
 <!-- mathjax -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
@@ -83,7 +83,7 @@ render a plot or return a ggplot object for further manipulation." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sars2pack</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.0.54-5</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
       </span>
     </div>
 
@@ -216,128 +216,37 @@ examples for details.</p>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>sars2pack</span>)
 
-<span class='no'>hdp</span> <span class='kw'>=</span> <span class='fu'><a href='healthdata_projections_data.html'>healthdata_projections_data</a></span>()
-
+<span class='no'>hdp</span> <span class='kw'>=</span> <span class='fu'><a href='healthdata_projections_data.html'>healthdata_projections_data</a></span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Values in `count` are not uniquely identified; output will contain list-cols.</span>
+#&gt; <span class='warning'>* Use `values_fn = list(count = list)` to suppress this warning.</span>
+#&gt; <span class='warning'>* Use `values_fn = list(count = length)` to identify where the duplicates arise</span>
+#&gt; <span class='warning'>* Use `values_fn = list(count = summary_fun)` to summarise duplicates</span></div><div class='output co'>#&gt; <span class='error'>Error: Can't convert &lt;double&gt; to &lt;list&gt;.</span></div><div class='input'>
 <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>ggplot2</span>)
 <span class='co'># possible locations</span>
-<span class='fu'><a href='https://rdrr.io/r/base/sort.html'>sort</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/unique.html'>unique</a></span>(<span class='no'>hdp</span>$<span class='no'>location_name</span>))</div><div class='output co'>#&gt;   [1] "Abruzzo"                          "Alabama"                         
-#&gt;   [3] "Alaska"                           "Alberta"                         
-#&gt;   [5] "Amazonas"                         "Andalucia"                       
-#&gt;   [7] "Aragon"                           "Argentina"                       
-#&gt;   [9] "Arizona"                          "Arkansas"                        
-#&gt;  [11] "Asturias"                         "Austria"                         
-#&gt;  [13] "Baden-Wurttemberg"                "Bahia"                           
-#&gt;  [15] "Baja California"                  "Balearic Islands"                
-#&gt;  [17] "Basilicata"                       "Basque Country"                  
-#&gt;  [19] "Bavaria"                          "Belgium"                         
-#&gt;  [21] "Berlin"                           "Bolivia (Plurinational State of)"
-#&gt;  [23] "Brandenburg"                      "Brazil"                          
-#&gt;  [25] "Bremen"                           "British Columbia"                
-#&gt;  [27] "Bulgaria"                         "Calabria"                        
-#&gt;  [29] "California"                       "Campania"                        
-#&gt;  [31] "Canada"                           "Canary Islands"                  
-#&gt;  [33] "Cantabria"                        "Castile and Leon"                
-#&gt;  [35] "Castilla-La Mancha"               "Catalonia"                       
-#&gt;  [37] "Ceara"                            "Ceuta"                           
-#&gt;  [39] "Chile"                            "Colombia"                        
-#&gt;  [41] "Colorado"                         "Community of Madrid"             
-#&gt;  [43] "Connecticut"                      "Croatia"                         
-#&gt;  [45] "Cuba"                             "Cyprus"                          
-#&gt;  [47] "Czechia"                          "Delaware"                        
-#&gt;  [49] "Denmark"                          "District of Columbia"            
-#&gt;  [51] "Dominican Republic"               "Ecuador"                         
-#&gt;  [53] "Egypt"                            "Emilia-Romagna"                  
-#&gt;  [55] "Estonia"                          "Extremadura"                     
-#&gt;  [57] "Finland"                          "Florida"                         
-#&gt;  [59] "France"                           "Friuli-Venezia Giulia"           
-#&gt;  [61] "Galicia"                          "Georgia"                         
-#&gt;  [63] "Germany"                          "Greece"                          
-#&gt;  [65] "Hamburg"                          "Hawaii"                          
-#&gt;  [67] "Hesse"                            "Honduras"                        
-#&gt;  [69] "Hungary"                          "Iceland"                         
-#&gt;  [71] "Idaho"                            "Illinois"                        
-#&gt;  [73] "Indiana"                          "Iowa"                            
-#&gt;  [75] "Ireland"                          "Israel"                          
-#&gt;  [77] "Italy"                            "Kansas"                          
-#&gt;  [79] "Kentucky"                         "La Rioja"                        
-#&gt;  [81] "Latvia"                           "Lazio"                           
-#&gt;  [83] "Liguria"                          "Lithuania"                       
-#&gt;  [85] "Lombardia"                        "Louisiana"                       
-#&gt;  [87] "Lower Saxony"                     "Luxembourg"                      
-#&gt;  [89] "Maine"                            "Malaysia"                        
-#&gt;  [91] "Maranhao"                         "Marche"                          
-#&gt;  [93] "Maryland"                         "Massachusetts"                   
-#&gt;  [95] "Mecklenburg-Vorpommern"           "Mexico"                          
-#&gt;  [97] "Mexico City"                      "Mexico_country"                  
-#&gt;  [99] "Michigan"                         "Minnesota"                       
-#&gt; [101] "Mississippi"                      "Missouri"                        
-#&gt; [103] "Molise"                           "Montana"                         
-#&gt; [105] "Murcia"                           "Navarre"                         
-#&gt; [107] "Nebraska"                         "Netherlands"                     
-#&gt; [109] "Nevada"                           "New Hampshire"                   
-#&gt; [111] "New Jersey"                       "New Mexico"                      
-#&gt; [113] "New York"                         "North Carolina"                  
-#&gt; [115] "North Dakota"                     "North Rhine-Westphalia"          
-#&gt; [117] "Norway"                           "Ohio"                            
-#&gt; [119] "Oklahoma"                         "Ontario"                         
-#&gt; [121] "Oregon"                           "Panama"                          
-#&gt; [123] "Parana"                           "Pennsylvania"                    
-#&gt; [125] "Pernambuco"                       "Peru"                            
-#&gt; [127] "Philippines"                      "Piemonte"                        
-#&gt; [129] "Poland"                           "Portugal"                        
-#&gt; [131] "Provincia autonoma di Bolzano"    "Provincia autonoma di Trento"    
-#&gt; [133] "Puebla"                           "Puerto Rico"                     
-#&gt; [135] "Puglia"                           "Quebec"                          
-#&gt; [137] "Quintana Roo"                     "Republic of Korea"               
-#&gt; [139] "Republic of Moldova"              "Rhineland-Palatinate"            
-#&gt; [141] "Rhode Island"                     "Rio de Janeiro"                  
-#&gt; [143] "Romania"                          "Saarland"                        
-#&gt; [145] "Sao Paulo"                        "Sardegna"                        
-#&gt; [147] "Saxony"                           "Saxony-Anhalt"                   
-#&gt; [149] "Schleswig-Holstein"               "Sicilia"                         
-#&gt; [151] "Sinaloa"                          "Slovakia"                        
-#&gt; [153] "Slovenia"                         "South Carolina"                  
-#&gt; [155] "South Dakota"                     "Spain"                           
-#&gt; [157] "Sweden"                           "Switzerland"                     
-#&gt; [159] "Tabasco"                          "Tennessee"                       
-#&gt; [161] "Texas"                            "Thuringia"                       
-#&gt; [163] "Toscana"                          "Turkey"                          
-#&gt; [165] "Ukraine"                          "Umbria"                          
-#&gt; [167] "United Kingdom"                   "United States of America"        
-#&gt; [169] "Utah"                             "Valencian Community"             
-#&gt; [171] "Valle d'Aosta"                    "Veneto"                          
-#&gt; [173] "Vermont"                          "Virginia"                        
-#&gt; [175] "Washington"                       "West Virginia"                   
-#&gt; [177] "Wisconsin"                        "Wyoming"                         </div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/base/sort.html'>sort</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/unique.html'>unique</a></span>(<span class='no'>hdp</span>$<span class='no'>location_name</span>))</div><div class='output co'>#&gt; <span class='error'>Error in unique(hdp$location_name): object 'hdp' not found</span></div><div class='input'>
 <span class='co'># create a ggplot2 object</span>
 <span class='no'>nyp</span> <span class='kw'>=</span> <span class='fu'>plot_projection</span>(<span class='kw'>projections</span> <span class='kw'>=</span> <span class='no'>hdp</span>,
-    <span class='kw'>location_name</span><span class='kw'>=</span><span class='st'>'New York'</span>)
-
+    <span class='kw'>location_name</span><span class='kw'>=</span><span class='st'>'New York'</span>)</div><div class='output co'>#&gt; <span class='error'>Error in unique(projections$metric): object 'hdp' not found</span></div><div class='input'>
 <span class='co'># and do the plot</span>
-<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='no'>nyp</span>)</div><div class='img'><img src='plot_projection-1.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='no'>nyp</span>)</div><div class='output co'>#&gt; <span class='error'>Error in print(nyp): object 'nyp' not found</span></div><div class='input'>
 <span class='co'># Zoomable html version using plotly</span>
 <span class='kw'>if</span>(<span class='fu'><a href='https://rdrr.io/r/base/library.html'>require</a></span>(<span class='no'>plotly</span>)) {
   <span class='fu'><a href='https://rdrr.io/pkg/plotly/man/ggplotly.html'>ggplotly</a></span>(<span class='no'>nyp</span>)
-}
-
+}</div><div class='output co'>#&gt; <span class='error'>Error in ggplotly(nyp): object 'nyp' not found</span></div><div class='input'>
 <span class='co'># California</span>
 <span class='no'>calip</span> <span class='kw'>=</span> <span class='fu'>plot_projection</span>(<span class='kw'>projections</span> <span class='kw'>=</span> <span class='no'>hdp</span>,
-    <span class='kw'>location_name</span><span class='kw'>=</span><span class='st'>'California'</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='no'>calip</span>)</div><div class='img'><img src='plot_projection-2.png' alt='' width='700' height='433' /></div><div class='input'>
+    <span class='kw'>location_name</span><span class='kw'>=</span><span class='st'>'California'</span>)</div><div class='output co'>#&gt; <span class='error'>Error in unique(projections$metric): object 'hdp' not found</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='no'>calip</span>)</div><div class='output co'>#&gt; <span class='error'>Error in print(calip): object 'calip' not found</span></div><div class='input'>
 <span class='co'># entire US</span>
-<span class='fu'>plot_projection</span>(<span class='kw'>location_name</span> <span class='kw'>=</span> <span class='st'>"United States of America"</span>, <span class='kw'>projections</span> <span class='kw'>=</span> <span class='no'>hdp</span>)</div><div class='img'><img src='plot_projection-3.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'>plot_projection</span>(<span class='kw'>location_name</span> <span class='kw'>=</span> <span class='st'>"United States of America"</span>, <span class='kw'>projections</span> <span class='kw'>=</span> <span class='no'>hdp</span>)</div><div class='output co'>#&gt; <span class='error'>Error in unique(projections$metric): object 'hdp' not found</span></div><div class='input'>
 
 <span class='co'># Compare two countries</span>
-<span class='no'>spain_proj</span> <span class='kw'>=</span> <span class='fu'>plot_projection</span>(<span class='kw'>location_name</span> <span class='kw'>=</span> <span class='st'>"Spain"</span>, <span class='kw'>projections</span> <span class='kw'>=</span> <span class='no'>hdp</span>)
-<span class='no'>portugal_proj</span> <span class='kw'>=</span> <span class='fu'>plot_projection</span>(<span class='kw'>location_name</span> <span class='kw'>=</span> <span class='st'>"Portugal"</span>, <span class='kw'>projections</span> <span class='kw'>=</span> <span class='no'>hdp</span>)
-<span class='co'>#'</span>
-<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='no'>spain_proj</span>)</div><div class='img'><img src='plot_projection-4.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='no'>portugal_proj</span>)</div><div class='img'><img src='plot_projection-5.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='no'>spain_proj</span> <span class='kw'>=</span> <span class='fu'>plot_projection</span>(<span class='kw'>location_name</span> <span class='kw'>=</span> <span class='st'>"Spain"</span>, <span class='kw'>projections</span> <span class='kw'>=</span> <span class='no'>hdp</span>)</div><div class='output co'>#&gt; <span class='error'>Error in unique(projections$metric): object 'hdp' not found</span></div><div class='input'><span class='no'>portugal_proj</span> <span class='kw'>=</span> <span class='fu'>plot_projection</span>(<span class='kw'>location_name</span> <span class='kw'>=</span> <span class='st'>"Portugal"</span>, <span class='kw'>projections</span> <span class='kw'>=</span> <span class='no'>hdp</span>)</div><div class='output co'>#&gt; <span class='error'>Error in unique(projections$metric): object 'hdp' not found</span></div><div class='input'><span class='co'>#'</span>
+<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='no'>spain_proj</span>)</div><div class='output co'>#&gt; <span class='error'>Error in print(spain_proj): object 'spain_proj' not found</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='no'>portugal_proj</span>)</div><div class='output co'>#&gt; <span class='error'>Error in print(portugal_proj): object 'portugal_proj' not found</span></div><div class='input'>
 <span class='co'># plot both on same plot</span>
 <span class='kw'>if</span>(<span class='fu'><a href='https://rdrr.io/r/base/library.html'>require</a></span>(<span class='no'>cowplot</span>)) {
   <span class='fu'><a href='https://rdrr.io/pkg/cowplot/man/plot_grid.html'>plot_grid</a></span>(<span class='no'>spain_proj</span>, <span class='no'>portugal_proj</span>)
 }</div><div class='output co'>#&gt; <span class='message'>Loading required package: cowplot</span></div><div class='output co'>#&gt; <span class='message'></span>
 #&gt; <span class='message'>********************************************************</span></div><div class='output co'>#&gt; <span class='message'>Note: As of version 1.0.0, cowplot does not change the</span></div><div class='output co'>#&gt; <span class='message'>  default ggplot2 theme anymore. To recover the previous</span></div><div class='output co'>#&gt; <span class='message'>  behavior, execute:</span>
-#&gt; <span class='message'>  theme_set(theme_cowplot())</span></div><div class='output co'>#&gt; <span class='message'>********************************************************</span></div><div class='img'><img src='plot_projection-6.png' alt='' width='700' height='433' /></div><div class='input'>
+#&gt; <span class='message'>  theme_set(theme_cowplot())</span></div><div class='output co'>#&gt; <span class='message'>********************************************************</span></div><div class='output co'>#&gt; <span class='error'>Error in plot_grid(spain_proj, portugal_proj): object 'spain_proj' not found</span></div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

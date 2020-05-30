@@ -43,7 +43,7 @@
 <meta property="og:description" content="Includes details of beds, NAICS codes, and geolocation data for US states and territories." />
 
 
-<meta name="robots" content="noindex">
+
 
 <!-- mathjax -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
@@ -82,7 +82,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sars2pack</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.0.54-5</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
       </span>
     </div>
 
@@ -187,19 +187,24 @@
 <code><a href='cdc_aggregated_projections.html'>cdc_aggregated_projections</a>()</code>,
 <code><a href='cdc_excess_deaths.html'>cdc_excess_deaths</a>()</code>,
 <code><a href='coronanet_government_response_data.html'>coronanet_government_response_data</a>()</code>,
-<code><a href='cov_glue_datasets.html'>cov_glue_lineage_data</a>()</code>,
+<code><a href='cov_glue_lineage_data.html'>cov_glue_lineage_data</a>()</code>,
 <code><a href='cov_glue_newick_data.html'>cov_glue_newick_data</a>()</code>,
+<code><a href='cov_glue_snp_lineage.html'>cov_glue_snp_lineage</a>()</code>,
 <code><a href='covidtracker_data.html'>covidtracker_data</a>()</code>,
 <code><a href='descartes_mobility_data.html'>descartes_mobility_data</a>()</code>,
 <code><a href='ecdc_data.html'>ecdc_data</a>()</code>,
+<code><a href='economist_excess_deaths.html'>economist_excess_deaths</a>()</code>,
 <code><a href='eu_data_cache_data.html'>eu_data_cache_data</a>()</code>,
 <code><a href='google_mobility_data.html'>google_mobility_data</a>()</code>,
 <code><a href='government_policy_timeline.html'>government_policy_timeline</a>()</code>,
+<code><a href='healthdata_mobility_data.html'>healthdata_mobility_data</a>()</code>,
 <code><a href='healthdata_projections_data.html'>healthdata_projections_data</a>()</code>,
+<code><a href='healthdata_testing_data.html'>healthdata_testing_data</a>()</code>,
 <code><a href='jhu_data.html'>jhu_data</a>()</code>,
 <code><a href='jhu_us_data.html'>jhu_us_data</a>()</code>,
 <code><a href='kff_icu_beds.html'>kff_icu_beds</a>()</code>,
 <code><a href='nytimes_county_data.html'>nytimes_county_data</a>()</code>,
+<code><a href='owid_data.html'>owid_data</a>()</code>,
 <code><a href='param_estimates_published.html'>param_estimates_published</a>()</code>,
 <code><a href='us_county_geo_details.html'>us_county_geo_details</a>()</code>,
 <code><a href='us_county_health_rankings.html'>us_county_health_rankings</a>()</code>,
@@ -211,88 +216,95 @@
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>res</span> <span class='kw'>=</span> <span class='fu'>us_hospital_details</span>()
-<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Simple feature collection with 6 features and 30 fields
-#&gt; Attribute-geometry relationship: 30 constant, 0 aggregate, 0 identity
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Simple feature collection with 6 features and 32 fields
+#&gt; Attribute-geometry relationship: 32 constant, 0 aggregate, 0 identity
 #&gt; geometry type:  POINT
 #&gt; dimension:      XY
 #&gt; bbox:           xmin: -119.6457 ymin: 33.85971 xmax: -117.9674 ymax: 36.33616
 #&gt; CRS:            EPSG:4326
-#&gt; <span style='color: #555555;'># A tibble: 6 x 31</span><span>
-#&gt;     fid id    name  address city  state zip   zip4  telephone type  status
-#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> 
-#&gt; </span><span style='color: #555555;'>1</span><span>     1 0005… CENT… 1025 N… HANF… CA    93230 NOT … NOT AVAI… GENE… CLOSED
-#&gt; </span><span style='color: #555555;'>2</span><span>     2 0053… LOS … 150 VI… WEST… CA    91362 NOT … NOT AVAI… GENE… OPEN  
-#&gt; </span><span style='color: #555555;'>3</span><span>     3 0011… EAST… 4060 W… LOS … CA    90023 NOT … NOT AVAI… GENE… OPEN  
-#&gt; </span><span style='color: #555555;'>4</span><span>     4 0017… SOUT… 6245 D… HOLL… CA    90028 NOT … (323) 46… GENE… OPEN  
-#&gt; </span><span style='color: #555555;'>5</span><span>     5 0023… KIND… 14148 … BALD… CA    91706 NOT … NOT AVAI… GENE… OPEN  
-#&gt; </span><span style='color: #555555;'>6</span><span>     6 0025… LAKE… 3700 E… LAKE… CA    90712 NOT … NOT AVAI… GENE… OPEN  
-#&gt; </span><span style='color: #555555;'># … with 20 more variables: population </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, county </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, countyfips </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   country </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, naics_code </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, naics_desc </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, source </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   sourcedate </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, val_method </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, val_date </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, website </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   state_id </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, alt_name </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, st_fips </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, owner </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>,</span><span>
+#&gt; <span style='color: #555555;'># A tibble: 6 x 33</span><span>
+#&gt;       x     y   fid id    name  address city  state zip   zip4  telephone type 
+#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>
+#&gt; </span><span style='color: #555555;'>1</span><span> -</span><span style='color: #BB0000;'>120.</span><span>  36.3     1 0005… CENT… 1025 N… HANF… CA    93230 NOT … NOT AVAI… GENE…
+#&gt; </span><span style='color: #555555;'>2</span><span> -</span><span style='color: #BB0000;'>119.</span><span>  34.2     2 0053… LOS … 150 VI… WEST… CA    91362 NOT … NOT AVAI… GENE…
+#&gt; </span><span style='color: #555555;'>3</span><span> -</span><span style='color: #BB0000;'>118.</span><span>  34.0     3 0011… EAST… 4060 W… LOS … CA    90023 NOT … NOT AVAI… GENE…
+#&gt; </span><span style='color: #555555;'>4</span><span> -</span><span style='color: #BB0000;'>118.</span><span>  34.1     4 0017… SOUT… 6245 D… HOLL… CA    90028 NOT … (323) 46… GENE…
+#&gt; </span><span style='color: #555555;'>5</span><span> -</span><span style='color: #BB0000;'>118.</span><span>  34.1     5 0023… KIND… 14148 … BALD… CA    91706 NOT … NOT AVAI… GENE…
+#&gt; </span><span style='color: #555555;'>6</span><span> -</span><span style='color: #BB0000;'>118.</span><span>  33.9     6 0025… LAKE… 3700 E… LAKE… CA    90712 NOT … NOT AVAI… GENE…
+#&gt; </span><span style='color: #555555;'># … with 21 more variables: status </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, population </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, county </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>,</span><span>
+#&gt; </span><span style='color: #555555;'>#   countyfips </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, country </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, naics_code </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, naics_desc </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>,</span><span>
+#&gt; </span><span style='color: #555555;'>#   source </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, sourcedate </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, val_method </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, val_date </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>,</span><span>
+#&gt; </span><span style='color: #555555;'>#   website </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, state_id </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, alt_name </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, st_fips </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, owner </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>,</span><span>
 #&gt; </span><span style='color: #555555;'>#   ttl_staff </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, beds </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, trauma </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, helipad </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, geometry </span><span style='color: #555555;font-style: italic;'>&lt;POINT</span><span>
-#&gt; </span><span style='color: #555555;'># </span><span style='color: #555555;font-style: italic;'>  [°]&gt;</span><span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt;  [1] "fid"        "id"         "name"       "address"    "city"      
-#&gt;  [6] "state"      "zip"        "zip4"       "telephone"  "type"      
-#&gt; [11] "status"     "population" "county"     "countyfips" "country"   
-#&gt; [16] "naics_code" "naics_desc" "source"     "sourcedate" "val_method"
-#&gt; [21] "val_date"   "website"    "state_id"   "alt_name"   "st_fips"   
-#&gt; [26] "owner"      "ttl_staff"  "beds"       "trauma"     "helipad"   
-#&gt; [31] "geometry"  </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt;       fid            id                name             address         
-#&gt;  Min.   :   1   Length:7581        Length:7581        Length:7581       
-#&gt;  1st Qu.:1896   Class :character   Class :character   Class :character  
-#&gt;  Median :3791   Mode  :character   Mode  :character   Mode  :character  
-#&gt;  Mean   :3791                                                           
-#&gt;  3rd Qu.:5686                                                           
-#&gt;  Max.   :7581                                                           
-#&gt;      city              state               zip                zip4          
-#&gt;  Length:7581        Length:7581        Length:7581        Length:7581       
+#&gt; </span><span style='color: #555555;'># </span><span style='color: #555555;font-style: italic;'>  [°]&gt;</span><span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt;  [1] "x"          "y"          "fid"        "id"         "name"      
+#&gt;  [6] "address"    "city"       "state"      "zip"        "zip4"      
+#&gt; [11] "telephone"  "type"       "status"     "population" "county"    
+#&gt; [16] "countyfips" "country"    "naics_code" "naics_desc" "source"    
+#&gt; [21] "sourcedate" "val_method" "val_date"   "website"    "state_id"  
+#&gt; [26] "alt_name"   "st_fips"    "owner"      "ttl_staff"  "beds"      
+#&gt; [31] "trauma"     "helipad"    "geometry"  </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt;        x                 y               fid            id           
+#&gt;  Min.   :-176.64   Min.   :-14.29   Min.   :   1   Length:7596       
+#&gt;  1st Qu.: -98.22   1st Qu.: 33.46   1st Qu.:1902   Class :character  
+#&gt;  Median : -90.09   Median : 37.97   Median :3802   Mode  :character  
+#&gt;  Mean   : -92.40   Mean   : 37.32   Mean   :3804                     
+#&gt;  3rd Qu.: -81.74   3rd Qu.: 41.30   3rd Qu.:5707                     
+#&gt;  Max.   : 145.72   Max.   : 71.30   Max.   :7611                     
+#&gt;      name             address              city              state          
+#&gt;  Length:7596        Length:7596        Length:7596        Length:7596       
 #&gt;  Class :character   Class :character   Class :character   Class :character  
 #&gt;  Mode  :character   Mode  :character   Mode  :character   Mode  :character  
 #&gt;                                                                             
 #&gt;                                                                             
 #&gt;                                                                             
-#&gt;   telephone             type              status            population     
-#&gt;  Length:7581        Length:7581        Length:7581        Min.   :-999.00  
-#&gt;  Class :character   Class :character   Class :character   1st Qu.:  25.00  
-#&gt;  Mode  :character   Mode  :character   Mode  :character   Median :  65.00  
-#&gt;                                                           Mean   :  40.68  
-#&gt;                                                           3rd Qu.: 177.00  
-#&gt;                                                           Max.   :1592.00  
-#&gt;     county           countyfips          country            naics_code    
-#&gt;  Length:7581        Length:7581        Length:7581        Min.   :622110  
-#&gt;  Class :character   Class :character   Class :character   1st Qu.:622110  
-#&gt;  Mode  :character   Mode  :character   Mode  :character   Median :622110  
-#&gt;                                                           Mean   :622141  
-#&gt;                                                           3rd Qu.:622110  
-#&gt;                                                           Max.   :622310  
-#&gt;   naics_desc           source           sourcedate         val_method       
-#&gt;  Length:7581        Length:7581        Length:7581        Length:7581       
+#&gt;      zip                zip4            telephone             type          
+#&gt;  Length:7596        Length:7596        Length:7596        Length:7596       
 #&gt;  Class :character   Class :character   Class :character   Class :character  
 #&gt;  Mode  :character   Mode  :character   Mode  :character   Mode  :character  
 #&gt;                                                                             
 #&gt;                                                                             
 #&gt;                                                                             
-#&gt;    val_date           website            state_id           alt_name        
-#&gt;  Length:7581        Length:7581        Length:7581        Length:7581       
+#&gt;     status            population         county           countyfips       
+#&gt;  Length:7596        Min.   :-999.00   Length:7596        Length:7596       
+#&gt;  Class :character   1st Qu.:  25.00   Class :character   Class :character  
+#&gt;  Mode  :character   Median :  64.00   Mode  :character   Mode  :character  
+#&gt;                     Mean   :  23.86                                        
+#&gt;                     3rd Qu.: 175.00                                        
+#&gt;                     Max.   :1592.00                                        
+#&gt;    country            naics_code      naics_desc           source         
+#&gt;  Length:7596        Min.   :622110   Length:7596        Length:7596       
+#&gt;  Class :character   1st Qu.:622110   Class :character   Class :character  
+#&gt;  Mode  :character   Median :622110   Mode  :character   Mode  :character  
+#&gt;                     Mean   :622142                                        
+#&gt;                     3rd Qu.:622110                                        
+#&gt;                     Max.   :622310                                        
+#&gt;   sourcedate         val_method          val_date           website         
+#&gt;  Length:7596        Length:7596        Length:7596        Length:7596       
 #&gt;  Class :character   Class :character   Class :character   Class :character  
 #&gt;  Mode  :character   Mode  :character   Mode  :character   Mode  :character  
 #&gt;                                                                             
 #&gt;                                                                             
 #&gt;                                                                             
-#&gt;    st_fips             owner             ttl_staff         beds        
-#&gt;  Length:7581        Length:7581        Min.   :-999   Min.   :-999.00  
-#&gt;  Class :character   Class :character   1st Qu.:-999   1st Qu.:  25.00  
-#&gt;  Mode  :character   Mode  :character   Median :-999   Median :  66.00  
-#&gt;                                        Mean   :-999   Mean   :  46.53  
-#&gt;                                        3rd Qu.:-999   3rd Qu.: 178.00  
-#&gt;                                        Max.   :-999   Max.   :1592.00  
-#&gt;     trauma            helipad                   geometry   
-#&gt;  Length:7581        Length:7581        POINT        :7581  
-#&gt;  Class :character   Class :character   epsg:4326    :   0  
-#&gt;  Mode  :character   Mode  :character   +proj=long...:   0  
-#&gt;                                                            
-#&gt;                                                            
-#&gt;                                                            </div><div class='input'>
+#&gt;    state_id           alt_name           st_fips             owner          
+#&gt;  Length:7596        Length:7596        Length:7596        Length:7596       
+#&gt;  Class :character   Class :character   Class :character   Class :character  
+#&gt;  Mode  :character   Mode  :character   Mode  :character   Mode  :character  
+#&gt;                                                                             
+#&gt;                                                                             
+#&gt;                                                                             
+#&gt;    ttl_staff         beds            trauma            helipad         
+#&gt;  Min.   :-999   Min.   :-999.00   Length:7596        Length:7596       
+#&gt;  1st Qu.:-999   1st Qu.:  25.00   Class :character   Class :character  
+#&gt;  Median :-999   Median :  72.00   Mode  :character   Mode  :character  
+#&gt;  Mean   :-999   Mean   :  99.85                                        
+#&gt;  3rd Qu.:-999   3rd Qu.: 187.00                                        
+#&gt;  Max.   :-999   Max.   :1592.00                                        
+#&gt;           geometry   
+#&gt;  POINT        :7596  
+#&gt;  epsg:4326    :   0  
+#&gt;  +proj=long...:   0  
+#&gt;                      
+#&gt;                      
+#&gt;                      </div><div class='input'>
 
 
 </div></span></pre>

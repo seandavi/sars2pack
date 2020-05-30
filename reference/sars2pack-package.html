@@ -61,7 +61,7 @@ and granular datasets will inform business, policy, and even
 personal decisions for months or even years to come." />
 
 
-<meta name="robots" content="noindex">
+
 
 <!-- mathjax -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
@@ -100,7 +100,7 @@ personal decisions for months or even years to come." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sars2pack</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.0.54-5</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
       </span>
     </div>
 
@@ -236,20 +236,20 @@ COVID-19 data resources.</p></li>
 <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>sars2pack</span>)
 
 <span class='co'># Show me all the available datasets</span>
-<span class='fu'><a href='available_datasets.html'>available_datasets</a></span>()</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 27 x 8</span><span>
+<span class='fu'><a href='available_datasets.html'>available_datasets</a></span>()</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 28 x 8</span><span>
 #&gt;    name    accessor  data_type geographical geospatial region resolution url    
 #&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;list&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;lgl&gt;</span><span>        </span><span style='color: #555555;font-style: italic;'>&lt;lgl&gt;</span><span>      </span><span style='color: #555555;font-style: italic;'>&lt;list&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;list&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>  
 #&gt; </span><span style='color: #555555;'> 1</span><span> Extens… us_hospi… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span> TRUE         TRUE       </span><span style='color: #555555;'>&lt;chr </span><span>… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span>  https:…
-#&gt; </span><span style='color: #555555;'> 2</span><span> US cou… us_count… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span> TRUE         FALSE      </span><span style='color: #555555;'>&lt;chr </span><span>… </span><span style='color: #555555;'>&lt;chr [3]&gt;</span><span>  https:…
-#&gt; </span><span style='color: #555555;'> 3</span><span> Corona… coronane… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span> TRUE         FALSE      </span><span style='color: #555555;'>&lt;chr </span><span>… </span><span style='color: #555555;'>&lt;chr [2]&gt;</span><span>  https:…
-#&gt; </span><span style='color: #555555;'> 4</span><span> Our Wo… owid_data </span><span style='color: #555555;'>&lt;chr [4]&gt;</span><span> TRUE         FALSE      </span><span style='color: #555555;'>&lt;chr </span><span>… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span>  https:…
-#&gt; </span><span style='color: #555555;'> 5</span><span> GISAID… cov_glue… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span> TRUE         FALSE      </span><span style='color: #555555;'>&lt;chr </span><span>… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span>  https:…
-#&gt; </span><span style='color: #555555;'> 6</span><span> Newick… cov_glue… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span> FALSE        FALSE      </span><span style='color: #555555;'>&lt;chr </span><span>… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span>  https:…
-#&gt; </span><span style='color: #555555;'> 7</span><span> US CDC… cdc_exce… </span><span style='color: #555555;'>&lt;chr [3]&gt;</span><span> TRUE         FALSE      </span><span style='color: #555555;'>&lt;chr </span><span>… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span>  https:…
-#&gt; </span><span style='color: #555555;'> 8</span><span> Publis… param_es… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span> FALSE        FALSE      </span><span style='color: #555555;'>&lt;NULL&gt;</span><span> </span><span style='color: #555555;'>&lt;NULL&gt;</span><span>     https:…
-#&gt; </span><span style='color: #555555;'> 9</span><span> Aggreg… cdc_aggr… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span> TRUE         FALSE      </span><span style='color: #555555;'>&lt;NULL&gt;</span><span> </span><span style='color: #555555;'>&lt;chr [2]&gt;</span><span>  https:…
-#&gt; </span><span style='color: #555555;'>10</span><span> Google… google_m… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span> TRUE         FALSE      </span><span style='color: #555555;'>&lt;chr </span><span>… </span><span style='color: #555555;'>&lt;chr [3]&gt;</span><span>  https:…
-#&gt; </span><span style='color: #555555;'># … with 17 more rows</span><span></div><div class='input'>
+#&gt; </span><span style='color: #555555;'> 2</span><span> The Ec… economis… </span><span style='color: #555555;'>&lt;chr [3]&gt;</span><span> TRUE         FALSE      </span><span style='color: #555555;'>&lt;chr </span><span>… </span><span style='color: #555555;'>&lt;chr [2]&gt;</span><span>  https:…
+#&gt; </span><span style='color: #555555;'> 3</span><span> US cou… us_count… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span> TRUE         FALSE      </span><span style='color: #555555;'>&lt;chr </span><span>… </span><span style='color: #555555;'>&lt;chr [3]&gt;</span><span>  https:…
+#&gt; </span><span style='color: #555555;'> 4</span><span> Corona… coronane… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span> TRUE         FALSE      </span><span style='color: #555555;'>&lt;chr </span><span>… </span><span style='color: #555555;'>&lt;chr [2]&gt;</span><span>  https:…
+#&gt; </span><span style='color: #555555;'> 5</span><span> Our Wo… owid_data </span><span style='color: #555555;'>&lt;chr [4]&gt;</span><span> TRUE         FALSE      </span><span style='color: #555555;'>&lt;chr </span><span>… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span>  https:…
+#&gt; </span><span style='color: #555555;'> 6</span><span> GISAID… cov_glue… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span> TRUE         FALSE      </span><span style='color: #555555;'>&lt;chr </span><span>… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span>  https:…
+#&gt; </span><span style='color: #555555;'> 7</span><span> Newick… cov_glue… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span> FALSE        FALSE      </span><span style='color: #555555;'>&lt;chr </span><span>… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span>  https:…
+#&gt; </span><span style='color: #555555;'> 8</span><span> US CDC… cdc_exce… </span><span style='color: #555555;'>&lt;chr [3]&gt;</span><span> TRUE         FALSE      </span><span style='color: #555555;'>&lt;chr </span><span>… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span>  https:…
+#&gt; </span><span style='color: #555555;'> 9</span><span> Publis… param_es… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span> FALSE        FALSE      </span><span style='color: #555555;'>&lt;NULL&gt;</span><span> </span><span style='color: #555555;'>&lt;NULL&gt;</span><span>     https:…
+#&gt; </span><span style='color: #555555;'>10</span><span> Aggreg… cdc_aggr… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span> TRUE         FALSE      </span><span style='color: #555555;'>&lt;NULL&gt;</span><span> </span><span style='color: #555555;'>&lt;chr [2]&gt;</span><span>  https:…
+#&gt; </span><span style='color: #555555;'># … with 18 more rows</span><span></div><div class='input'>
 <span class='fu'><a href='https://rdrr.io/r/utils/example.html'>example</a></span>(<span class='no'>jhu_data</span>)</div><div class='output co'>#&gt; 
 #&gt; jhu_dt&gt; res = jhu_data()
 #&gt; 
@@ -269,7 +269,7 @@ COVID-19 data resources.</p></li>
 #&gt; </span><span style='color: #555555;'>6</span><span> </span><span style='color: #BB0000;'>NA</span><span>            Afghanistan      33    65 2020-01-27     0 confirmed
 #&gt; 
 #&gt; jhu_dt&gt; dplyr::glimpse(res)
-#&gt; Rows: 94,985
+#&gt; Rows: 101,265
 #&gt; Columns: 7
 #&gt; $ ProvinceState </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
 #&gt; $ CountryRegion </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Afghanistan", "Afghanistan", "Afghanistan", "Afghanist…
@@ -301,7 +301,7 @@ COVID-19 data resources.</p></li>
 #&gt; appl__&gt; table(res$transportation_type)
 #&gt; 
 #&gt; driving transit walking 
-#&gt;  393192   28638   45795 
+#&gt;  417576   30414   48635 
 #&gt; 
 #&gt; appl__&gt; require(ggplot2)
 #&gt; 
@@ -338,86 +338,10 @@ COVID-19 data resources.</p></li>
 #&gt; appl__+     ggplotly(pl)
 #&gt; appl__+ }</div><div class='input'>
 <span class='fu'><a href='https://rdrr.io/r/utils/example.html'>example</a></span>(<span class='no'>healthdata_projections_data</span>)</div><div class='output co'>#&gt; 
-#&gt; hlth__&gt; res = healthdata_projections_data()
-#&gt; 
-#&gt; hlth__&gt; colnames(res)
-#&gt; [1] "location_name"    "date"             "metric"           "mean"            
-#&gt; [5] "infections_mean"  "upper"            "infections_upper" "lower"           
-#&gt; [9] "infections_lower"
-#&gt; 
-#&gt; hlth__&gt; res[sample(1:nrow(res),6),]
-#&gt; </span><span style='color: #555555;'># A tibble: 6 x 9</span><span>
-#&gt;   location_name date       metric   mean infections_mean  upper infections_upper
-#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>         </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>           </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>            </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #555555;'>1</span><span> Piemonte      2020-05-15 icuov… 3.66</span><span style='color: #555555;'>e</span><span>1              0  5.20</span><span style='color: #555555;'>e</span><span>1               0 
-#&gt; </span><span style='color: #555555;'>2</span><span> France        2020-04-21 allbed 1.42</span><span style='color: #555555;'>e</span><span>4              0  1.45</span><span style='color: #555555;'>e</span><span>4               0 
-#&gt; </span><span style='color: #555555;'>3</span><span> Mexico_count… 2020-07-22 totdea 6.68</span><span style='color: #555555;'>e</span><span>3              0  1.59</span><span style='color: #555555;'>e</span><span>4               0 
-#&gt; </span><span style='color: #555555;'>4</span><span> Texas         2020-06-29 newICU 3.69</span><span style='color: #555555;'>e</span><span>1              0  1.05</span><span style='color: #555555;'>e</span><span>2               0 
-#&gt; </span><span style='color: #555555;'>5</span><span> Croatia       2020-04-14 est    0.  </span><span style='color: #555555;'> </span><span>             280. 0.  </span><span style='color: #555555;'> </span><span>              356.
-#&gt; </span><span style='color: #555555;'>6</span><span> Bremen        2020-03-04 InvVen 0.  </span><span style='color: #555555;'> </span><span>               0  0.  </span><span style='color: #555555;'> </span><span>                0 
-#&gt; </span><span style='color: #555555;'># … with 2 more variables: lower </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, infections_lower </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; 
-#&gt; hlth__&gt; dplyr::glimpse(res)
-#&gt; Rows: 449,760
-#&gt; Columns: 9
-#&gt; $ location_name    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Abruzzo", "Abruzzo", "Abruzzo", "Abruzzo", "Abruzzo…
-#&gt; $ date             </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2019-12-18, 2019-12-18, 2019-12-18, 2019-12-18, 201…
-#&gt; $ metric           </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "allbed", "ICUbed", "InvVen", "deaths", "admis", "ne…
-#&gt; $ mean             </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
-#&gt; $ infections_mean  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
-#&gt; $ upper            </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
-#&gt; $ infections_upper </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
-#&gt; $ lower            </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
-#&gt; $ infections_lower </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
-#&gt; 
-#&gt; hlth__&gt; summary(res)
-#&gt;  location_name           date               metric               mean          
-#&gt;  Length:449760      Min.   :2019-12-13   Length:449760      Min.   :   -25.00  
-#&gt;  Class :character   1st Qu.:2020-02-17   Class :character   1st Qu.:     0.00  
-#&gt;  Mode  :character   Median :2020-04-20   Mode  :character   Median :     0.00  
-#&gt;                     Mean   :2020-04-20                      Mean   :   295.12  
-#&gt;                     3rd Qu.:2020-06-22                      3rd Qu.:    10.54  
-#&gt;                     Max.   :2020-08-24                      Max.   :143357.04  
-#&gt;                                                                                
-#&gt;  infections_mean        upper          infections_upper       lower         
-#&gt;  Min.   :     0.0   Min.   :   -25.0   Min.   :     0.0   Min.   :   -25.0  
-#&gt;  1st Qu.:     0.0   1st Qu.:     0.0   1st Qu.:     0.0   1st Qu.:     0.0  
-#&gt;  Median :     0.0   Median :     0.0   Median :     0.0   Median :     0.0  
-#&gt;  Mean   :   252.7   Mean   :   469.4   Mean   :   518.1   Mean   :   223.7  
-#&gt;  3rd Qu.:     0.0   3rd Qu.:    20.0   3rd Qu.:     0.0   3rd Qu.:     3.0  
-#&gt;  Max.   :247260.6   Max.   :207364.1   Max.   :618152.5   Max.   :115378.4  
-#&gt;  NA's   :5580                          NA's   :5580                         
-#&gt;  infections_lower
-#&gt;  Min.   :     0  
-#&gt;  1st Qu.:     0  
-#&gt;  Median :     0  
-#&gt;  Mean   :   127  
-#&gt;  3rd Qu.:     0  
-#&gt;  Max.   :208276  
-#&gt;  NA's   :5580    
-#&gt; 
-#&gt; hlth__&gt; #plot the predictions
-#&gt; hlth__&gt; 
-#&gt; hlth__&gt; regs_of_interest = 'Georgia'
-#&gt; 
-#&gt; hlth__&gt; library(ggplot2)
-#&gt; 
-#&gt; hlth__&gt; pl = res %&gt;%
-#&gt; hlth__+     dplyr::filter(location_name %in% regs_of_interest) %&gt;%
-#&gt; hlth__+     ggplot(aes(x=date)) + geom_line(aes(y=mean, color=metric))
-#&gt; 
-#&gt; hlth__&gt; # plot the "mean" prediction
-#&gt; hlth__&gt; pl</div><div class='img'><img src='sars2pack-package-4.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; 
-#&gt; hlth__&gt; # add 95% confidence bounds
-#&gt; hlth__&gt; pl + geom_ribbon(aes(ymin=lower, ymax=upper, fill=metric), alpha=0.25)</div><div class='img'><img src='sars2pack-package-5.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; 
-#&gt; hlth__&gt; regs_of_interest = c('New York', 'Italy')
-#&gt; 
-#&gt; hlth__&gt; pl = res %&gt;%
-#&gt; hlth__+     dplyr::filter(location_name %in% regs_of_interest) %&gt;%
-#&gt; hlth__+     ggplot(aes(x=date)) + geom_line(aes(y=mean, color=metric)) +
-#&gt; hlth__+     facet_grid(rows = vars(location_name))
-#&gt; 
-#&gt; hlth__&gt; pl</div><div class='img'><img src='sars2pack-package-6.png' alt='' width='700' height='433' /></div><div class='input'>
+#&gt; hlth__&gt; res = healthdata_projections_data()</div><div class='output co'>#&gt; <span class='warning'>Warning: Values in `count` are not uniquely identified; output will contain list-cols.</span>
+#&gt; <span class='warning'>* Use `values_fn = list(count = list)` to suppress this warning.</span>
+#&gt; <span class='warning'>* Use `values_fn = list(count = length)` to identify where the duplicates arise</span>
+#&gt; <span class='warning'>* Use `values_fn = list(count = summary_fun)` to summarise duplicates</span></div><div class='output co'>#&gt; <span class='error'>Error: Can't convert &lt;double&gt; to &lt;list&gt;.</span></div><div class='input'>
 
 
 </div></span></pre>
