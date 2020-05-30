@@ -111,7 +111,9 @@ Other data-import:
 \code{\link{eu_data_cache_data}()},
 \code{\link{google_mobility_data}()},
 \code{\link{government_policy_timeline}()},
+\code{\link{healthdata_mobility_data}()},
 \code{\link{healthdata_projections_data}()},
+\code{\link{healthdata_testing_data}()},
 \code{\link{jhu_data}()},
 \code{\link{jhu_us_data}()},
 \code{\link{kff_icu_beds}()},
@@ -127,7 +129,8 @@ Other data-import:
 
 Other mobility: 
 \code{\link{descartes_mobility_data}()},
-\code{\link{google_mobility_data}()}
+\code{\link{google_mobility_data}()},
+\code{\link{healthdata_mobility_data}()}
 }
 \author{
 Sean Davis \href{mailto:seandavi@gmail.com}{seandavi@gmail.com}
