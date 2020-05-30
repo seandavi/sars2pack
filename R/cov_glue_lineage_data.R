@@ -97,7 +97,7 @@ cov_glue_snp_lineage = function() {
 #' 
 #' @export
 cov_glue_newick_data <- function() {
-    url = 'https://raw.githubusercontent.com/hCoV-2019/lineages/master/lineages/data/anonymised.aln.fasta.treefile'
+    url = 'https://raw.githubusercontent.com/hCoV-2019/lineages/master/lineages/data/anonymised.aln.safe.fasta.treefile'
     rpath = s2p_cached_url(url)
     dat = ape::read.tree(rpath)
     dat
