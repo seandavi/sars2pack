@@ -23,9 +23,10 @@
 #' @family data-import
 #' @family individual-cases
 #'
-#' @seealso cov_glue_newick_data()
+#' @references
+#' - \url{https://www.biorxiv.org/content/10.1101/2020.04.17.046086v1}
 #'
-#' @rdname cov_glue_datasets
+#' @seealso cov_glue_newick_data(),  cov_glue_snp_lineage()
 #'
 #' @examples
 #' res = cov_glue_lineage_data()
@@ -36,7 +37,7 @@
 #' 
 #' @export 
 cov_glue_lineage_data <- function() {
-    url = 'https://raw.githubusercontent.com/hCoV-2019/lineages/master/lineages/data/lineages.2020-05-07.csv'
+    url = 'https://raw.githubusercontent.com/hCoV-2019/lineages/master/lineages/data/lineages.metadata.csv'
     rpath = s2p_cached_url(url)
     dat = readr::read_csv(rpath, col_types = readr::cols()) %>%
         dplyr::rename(date = 'sample date',
@@ -48,6 +49,34 @@ cov_glue_lineage_data <- function() {
     dat
 }
 
+#' COVID GLUE snp to lineage and taxon map
+#'
+#' This function maps lineage name to snps and to
+#' taxon names. Everything is GISAID-specific.
+#'
+#' @references
+#' - \url{https://www.biorxiv.org/content/10.1101/2020.04.17.046086v1}
+#'
+#' 
+#' @family lineage
+#' @family data-import
+#' 
+#' @seealso cov_glue_lineage_data(), cov_glue_newick_data()
+#'
+#' @examples
+#' res = cov_glue_snp_lineage()
+#' res
+#' colnames(res)
+#' dplyr::glimpse(res)
+#' 
+#' @export
+cov_glue_snp_lineage = function() {
+    url = "https://raw.githubusercontent.com/hCoV-2019/lineages/master/lineages/data/singletons.csv"
+    rpath = s2p_cached_url(url)
+    dat = readr::read_csv(rpath, col_types = readr::cols())
+    return(dat)
+}
+
 
 #' COVID GLUE Newick tree
 #'
@@ -57,8 +86,10 @@ cov_glue_lineage_data <- function() {
 #' @family lineage
 #' @family data-import
 #' @family individual-cases
+#' @references
+#' - \url{https://www.biorxiv.org/content/10.1101/2020.04.17.046086v1}
 #'
-#' @seealso cov_glue_lineage_data()
+#' @seealso cov_glue_lineage_data(), cov_glue_snp_lineage()
 #'
 #' @examples
 #' tr = cov_glue_newick_data()

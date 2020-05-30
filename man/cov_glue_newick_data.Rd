@@ -14,11 +14,17 @@ tr = cov_glue_newick_data()
 plot(tr, type='r', cex=0.4)
 
 }
+\references{
+\itemize{
+\item \url{https://www.biorxiv.org/content/10.1101/2020.04.17.046086v1}
+}
+}
 \seealso{
-cov_glue_lineage_data()
+cov_glue_lineage_data(), cov_glue_snp_lineage()
 
 Other lineage: 
-\code{\link{cov_glue_lineage_data}()}
+\code{\link{cov_glue_lineage_data}()},
+\code{\link{cov_glue_snp_lineage}()}
 
 Other data-import: 
 \code{\link{apple_mobility_data}()},
@@ -27,6 +33,7 @@ Other data-import:
 \code{\link{cdc_excess_deaths}()},
 \code{\link{coronanet_government_response_data}()},
 \code{\link{cov_glue_lineage_data}()},
+\code{\link{cov_glue_snp_lineage}()},
 \code{\link{covidtracker_data}()},
 \code{\link{descartes_mobility_data}()},
 \code{\link{ecdc_data}()},

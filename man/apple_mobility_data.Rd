@@ -103,6 +103,7 @@ Other data-import:
 \code{\link{coronanet_government_response_data}()},
 \code{\link{cov_glue_lineage_data}()},
 \code{\link{cov_glue_newick_data}()},
+\code{\link{cov_glue_snp_lineage}()},
 \code{\link{covidtracker_data}()},
 \code{\link{descartes_mobility_data}()},
 \code{\link{ecdc_data}()},
