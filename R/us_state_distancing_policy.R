@@ -17,7 +17,7 @@
 #' @author Sean Davis <seandavi@gmail.com>
 #' 
 #' @family data-import
-#' @family non-pharmaceutical-interventions
+#' @family NPI
 #' 
 #' @examples 
 #' res = us_state_distancing_policy()

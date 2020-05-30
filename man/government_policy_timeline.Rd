@@ -52,6 +52,7 @@ Other data-import:
 \code{\link{jhu_us_data}()},
 \code{\link{kff_icu_beds}()},
 \code{\link{nytimes_county_data}()},
+\code{\link{owid_data}()},
 \code{\link{param_estimates_published}()},
 \code{\link{us_county_geo_details}()},
 \code{\link{us_county_health_rankings}()},
@@ -61,7 +62,8 @@ Other data-import:
 \code{\link{usa_facts_data}()}
 
 Other NPI: 
-\code{\link{coronanet_government_response_data}()}
+\code{\link{coronanet_government_response_data}()},
+\code{\link{us_state_distancing_policy}()}
 }
 \author{
 Sean Davis \href{mailto:seandavi@gmail.com}{seandavi@gmail.com}

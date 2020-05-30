@@ -51,15 +51,20 @@ Other data-import:
 \code{\link{jhu_us_data}()},
 \code{\link{kff_icu_beds}()},
 \code{\link{nytimes_county_data}()},
+\code{\link{owid_data}()},
 \code{\link{param_estimates_published}()},
 \code{\link{us_county_geo_details}()},
 \code{\link{us_county_health_rankings}()},
 \code{\link{us_healthcare_capacity}()},
 \code{\link{us_hospital_details}()},
 \code{\link{usa_facts_data}()}
+
+Other NPI: 
+\code{\link{coronanet_government_response_data}()},
+\code{\link{government_policy_timeline}()}
 }
 \author{
 Sean Davis \href{mailto:seandavi@gmail.com}{seandavi@gmail.com}
 }
+\concept{NPI}
 \concept{data-import}
-\concept{non-pharmaceutical-interventions}
