@@ -1,87 +1,102 @@
 library(shiny)
-library(sars2pack)
+library(sars2app)
 library(dplyr)
- basedate = "2020-03-15" # data prior to this date are dropped completely
- lookback_days = 29 # from present date
- nyd = nytimes_state_data() # cumulative
- allst = sort(unique(nyd$state))
-# private
-make_cumul_events = function(count, dates, alpha3="USA", source="NYT", regtag=NA) {
-    ans = list(count = count, dates = dates)
-    attr(ans, "ProvinceState") = regtag
-    attr(ans, "source") = source
-    attr(ans, "alpha3") = alpha3
-    attr(ans, "dtype") = "cumulative"
-    class(ans) = c("cumulative_events", "covid_events")
-    ans 
-}
-form_inc = function(src, regtag) {
- fullsumm = src %>% 
-  select(state,date,count) %>% group_by(date) %>% 
-   summarise(count=sum(count))  # counts by date collapsed over states
- thecum = make_cumul_events(count=fullsumm$count, dates=fullsumm$date, regtag=regtag)
- form_incident_events(thecum)
-}
+library(forecast)
+library(shinytoastr)
 
- server = function(input, output) {
+
+ basedate = "2020-02-15" # data prior to this date are dropped completely
+ lookback_days = 29 # from present date
+ if (!exists(".nyd.global")) .nyd.global <<- nytimes_state_data() # cumulative
+ if (!exists(".jhu.global")) .jhu.global <<- enriched_jhu_data() # cumulative
+ allst = sort(unique(.nyd.global$state))
+ data(list="min_bic_2020_05_20", package="sars2app")
+
+ server = function(input, output, session) {
   dofit = reactive({
-   cbyd = dplyr::filter(nyd, date >= basedate & subset=="confirmed") 
-   if (input$source == "fullusa" & input$excl != "no") cbyd = dplyr::filter(cbyd, state!=input$excl)
-   else if (input$source != "fullusa") cbyd = dplyr::filter(cbyd, state==input$source)
-   ibyd = form_inc(cbyd, regtag=input$source)
-   iuse = trim_from(ibyd, basedate)
-   full29 = tail(ibyd$count,lookback_days)
-   dates29 = tail(ibyd$date,lookback_days)
-   nlb=lookback_days-1
-   time = (0:nlb)/nlb
-#
-# crude construction of trigonometric basis
-#
-   sx1 = sin(2*pi*time)
-   cx1 = cos(2*pi*time)
-   sx2 = sin(4*pi*time)
-   cx2 = cos(4*pi*time)
-   sx3 = sin(6*pi*time)
-   cx3 = cos(6*pi*time)
-   sx4 = sin(8*pi*time)
-   cx4 = cos(8*pi*time)
-   sx5 = sin(10*pi*time)
-   cx5 = cos(10*pi*time)
-   sx6 = sin(12*pi*time)
-   cx6 = cos(12*pi*time)
-#
-# interactive selection of quadratic or linear trend
-#
-   polydeg = ifelse(input$trend=="linear", 1, 2)
-   inds2use = list(ord6=c(2:13, 14:(14+polydeg-1)), ord5= c(2:11, 14:(14+polydeg-1)), 
-      ord4=c(2:9, 14:(14+polydeg-1)), ord3=c(2:7,14:(14+polydeg-1)))
-   ord2use = ifelse(input$MAorder==1, 1, 2)
-#
-# full basis matrix, which is filtered below to reduce trig order or trend type
-#
-   trig4 = model.matrix(~sx1+cx1+sx2+cx2+sx3+cx3+sx4+cx4+sx5+cx5+sx6+cx6+poly(time, polydeg))
-   tsfull = ts(full29, freq=1)
-   tro = c(NA, NA, "ord3", "ord4", "ord5", "ord6")
-   xreg2use = trig4[, inds2use[[tro[as.numeric(input$trigcomp)]]]]
-   arma.full = arima(tsfull, order=c(0,0,ord2use), xreg=xreg2use)
-   nc = ncol(xreg2use)
-   if (polydeg==1) dr = nc
-   else dr = c(nc-1, nc)
-   arma.lim = arima(tsfull, order=c(0,0,ord2use), xreg=xreg2use[,-dr])
-   pr = predict(arma.full, newxreg=xreg2use)
-   list(fit=arma.full, pred=pr, tsfull=tsfull, dates29=dates29, 
-        wald.trend=lmtest::waldtest(arma.full, arma.lim))
+   toastr_info("computing ARIMA model")
+   if (input$source == "fullusa" & input$excl == "none") curfit = Arima_nation(.jhu.global, Difforder=input$Difforder, MAorder=input$MAorder, ARorder=input$ARorder, max_date=input$maxdate)
+   else if (input$source == "fullusa" & input$excl == "New York") 
+        curfit = Arima_drop_state(.jhu.global, .nyd.global, state.in=input$excl, max_date=input$maxdate)
+   else if (input$source == "fullusa" & input$excl == "NY,NJ") 
+        curfit = Arima_drop_states(.jhu.global, .nyd.global, states.in=c("New York", "New Jersey"), 
+                 max_date=input$maxdate)
+   else if (input$source == "fullusa" & input$excl == "NY,NJ,MA") 
+        curfit = Arima_drop_states(.jhu.global, .nyd.global, states.in=c("New York", "New Jersey", "Massachusetts"), 
+                 max_date=input$maxdate)
+   else if (input$source == "fullusa" & input$excl == "NY,NJ,MA,PA") 
+        curfit = Arima_drop_states(.jhu.global, .nyd.global, 
+                 states.in=c("New York", "New Jersey", "Massachusetts", "Pennsylvania"), 
+                 max_date=input$maxdate)
+   else if (input$source != "fullusa") curfit = Arima_by_state(.nyd.global, state.in=input$source, Difforder=input$Difforder, MAorder=input$MAorder, ARorder=input$ARorder, max_date=input$maxdate)
+   validate(need(!inherits(curfit, "try-error"), "please alter AR or MA order"))
+   validate(need(all(is.finite(coef(curfit$fit))), "non-finite coefficient produced; please alter AR or MA order"))
+   validate(need(all(diag(curfit$fit$var.coef)>0), "covariance matrix has diagonal element < 0; please alter AR or MA order"))
+   list(fit=curfit, pred=fitted.values(forecast(curfit$fit)), tsfull=curfit$tsfull, dates29=curfit$dates29)
+   })
+# following can prevent needless refitting of R[t] model, which does not depend on ARIMA tuning
+  dofit_simple = reactive({
+   if (input$source == "fullusa" & input$excl == "none") curfit = Arima_nation(.jhu.global, max_date=input$maxdate)
+   else if (input$source == "fullusa" & input$excl == "New York") 
+        curfit = Arima_drop_state(.jhu.global, .nyd.global, state.in=input$excl, max_date=input$maxdate)
+   else if (input$source == "fullusa" & input$excl == "NY,NJ") 
+        curfit = Arima_drop_states(.jhu.global, .nyd.global, states.in=c("New York", "New Jersey"), 
+                 max_date=input$maxdate)
+   else if (input$source == "fullusa" & input$excl == "NY,NJ,MA") 
+        curfit = Arima_drop_states(.jhu.global, .nyd.global, states.in=c("New York", "New Jersey", "Massachusetts"), 
+                 max_date=input$maxdate)
+   else if (input$source == "fullusa" & input$excl == "NY,NJ,MA,PA") 
+        curfit = Arima_drop_states(.jhu.global, .nyd.global, 
+                 states.in=c("New York", "New Jersey", "Massachusetts", "Pennsylvania"), 
+                 max_date=input$maxdate)
+   else if (input$source != "fullusa") curfit = Arima_by_state(.nyd.global, state.in=input$source, max_date=input$maxdate)
+   validate(need(!inherits(curfit, "try-error"), "please alter AR or MA order"))
+   list(fit=curfit, pred=fitted.values(forecast(curfit$fit)), tsfull=curfit$tsfull, dates29=curfit$dates29)
    })
   output$traj = renderPlot({
    ans = dofit()
-   plot(ans$dates29, ans$tsfull, pch=19, ylab="confirmed incidence", xlab="Date")
-   lines(ans$dates29, ans$pr$pred, lwd=2, col="purple")
+   validate(need(!inherits(ans$fit, "try-error"), "please alter AR order"))
+   plot(ans$fit, main="Incidence and time series model for selected source/parameters")
    })
-  output$rept = renderPrint({ ans = dofit()
-   list(basic=ans$fit, `Wald test for trend`=ans$wald.trend)
+  output$Rtplot = renderPlot({
+   ans = dofit_simple()
+   toastr_info("estimating R[t]")
+   ee = est_Rt(ans$fit)
+   plot(ee, main="EpiEstim R[t] using MCMC-based Gamma model for SI")
+   })
+  output$rept = renderPrint({ 
+    ans = dofit()
+   validate(need(!inherits(ans$fit, "try-error"), "please alter AR order"))
+    ans$fit
+   })
+  output$tsdiag = renderPlot({ 
+    ans = dofit()
+   validate(need(!inherits(ans$fit, "try-error"), "please alter AR order"))
+    tsdiag(ans$fit$fit)
+   })
+  dometa = reactive({
+    run_meta(.nyd.global, opt_parms=min_bic_2020_05_20, Difforder=input$Difforder, 
+            max_date=input$maxdate)  # note that AR/MA parms from opt_parms
+  })
+  output$meta.rept = renderPrint({ 
+    m1 = dometa()
+    summ1 = rmeta::meta.summaries(m1$drifts, m1$se.drifts)
+    names(m1$drifts) = gsub(".drift", "", names(m1$drifts))
+    nyind = which(names(m1$drifts) %in% c("New York", "New Jersey"))
+    summ2 = rmeta::meta.summaries(m1$drifts[-nyind], m1$se.drifts[-nyind])
+    list(overall=summ1, exclNYNJ=summ2)
+   })
+  output$metaplot = renderPlot({
+    m1 = dometa()
+    names(m1$drifts) = gsub(".drift", "", names(m1$drifts))
+    o = order(m1$drifts)
+    rmeta::metaplot(m1$drifts[o], m1$se.drifts[o], labels=names(m1$drifts)[o], cex=.7, 
+      xlab="Infection velocity (CHANGE in number of confirmed cases/day)", ylab="State")
+    segments(rep(-350,46), seq(-49,-4), rep(-50,46), seq(-49,-4), lty=3, col="gray")
    })
   observeEvent(input$stopper, {
        ans = dofit()
+       validate(need(!inherits(ans$fit, "try-error"), "please alter AR order"))
        stopApp(returnValue=ans$fit)
        })  
 
