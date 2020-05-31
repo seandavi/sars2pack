@@ -76,8 +76,8 @@ healthdata_projections_data <- function() {
                         'location_name','date')) %>%
         tidyr::pivot_longer(cols=c(dplyr::ends_with(c('mean','upper','lower'))),
                             names_to='metric', values_to='count') %>%
-        tidyr::separate(metric, into=c('metric','quantity'), sep="_", extra='merge') %>%
-        tidyr::pivot_wider(names_from = quantity, values_from = count, values_fill = list(count=0))
+        tidyr::separate(metric, into=c('metric','quantity'), sep=,"_(?=[:letter:]+$)") %>%
+        tidyr::pivot_wider(names_from = quantity, values_fn = list(count = mean))
     attr(projections, 'class') = c('covid_projections_df', class(projections))
     projections
 }
