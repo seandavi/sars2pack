@@ -59,7 +59,7 @@
 coronanet_government_response_data <- function() {
     url = "https://raw.githubusercontent.com/saudiwin/corona_tscs/master/data/CoronaNet/coronanet_release.csv"
     rpath = s2p_cached_url(url)
-    dat = readr::read_csv(rpath, col_types = readr::cols(), progress=FALSE)
+    dat = readr::read_csv(rpath, col_types = readr::cols(), progress=FALSE, guess_max=5000)
     dat %>% rename(iso2c = "ISO_A2", iso3c="ISO_A3")
 }
     
