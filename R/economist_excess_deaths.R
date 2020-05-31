@@ -33,12 +33,13 @@ economist_excess_deaths = function() {
     urls = c(sapply(paths, function(x) get_urls(repo, x)))
     urls
     res = sapply(urls, s2p_cached_url)
-    res = lapply(res,function(x) {
+    reader = function(x) {
         res = readr::read_csv(x,col_types=readr::cols())[,1:11]
         res$region_code=as.character(res$region_code)
-        res$expected_deaths=as.numeric(res$expected_deaths)
+        res$expected_deaths=suppressWarnings(as.numeric(res$expected_deaths))
         res
-    })
+    }
+    res = lapply(res, reader)
     dplyr::bind_rows(res)
 }
 
