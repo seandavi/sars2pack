@@ -20,6 +20,7 @@
 #' 
 #' 
 #' @family case-tracking
+#' @family data-import
 #' 
 #' @author Sean Davis <seandavi@gmail.com>
 #' 

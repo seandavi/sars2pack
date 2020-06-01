@@ -107,8 +107,20 @@ apple_mobility_data = function(agree_to_terms=TRUE, max_tries=3,
     #pjs = RSelenium::phantom(port = 4444L)
     # wait for phantomjs server to start
                                         # Sys.sleep(5)
-    rD <- wdman::phantomjs(verbose = FALSE)
-    Sys.sleep(4)
+    rD = NULL
+    ## This catch is to find the situation
+    ## where phantomjs is already running.
+    ## Technically, it assumes that port
+    ## 4567 is open and if not that phantomjs
+    ## is already running.
+    tryCatch(
+    {
+        rD <- wdman::phantomjs(verbose = FALSE)
+        Sys.sleep(4)
+    },
+    error = function(e) NULL
+    )
+    
     remDr = RSelenium::remoteDriver(port=4567L,
         browserName='phantomjs',remoteServerAddr='localhost')
     remDr$open(silent = TRUE)
@@ -142,7 +154,9 @@ apple_mobility_data = function(agree_to_terms=TRUE, max_tries=3,
         }
     }
     remDr$close()
-    rD$stop()
+    if(!is.null(rD)) {
+        rD$stop()
+    }
     ## rpath = s2p_cached_url(url) ## TODO: fix caching to use only one url
 
     dat

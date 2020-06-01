@@ -31,12 +31,17 @@ author = "Lucy [van Dorp] and Mislav Acman and Damien Richard and Liam P. Shaw a
 }
 }}
 
+
+\itemize{
+\item \url{https://www.biorxiv.org/content/10.1101/2020.04.17.046086v1}
+}
 }
 \seealso{
-cov_glue_newick_data()
+cov_glue_newick_data(),  cov_glue_snp_lineage()
 
 Other lineage: 
-\code{\link{cov_glue_newick_data}()}
+\code{\link{cov_glue_newick_data}()},
+\code{\link{cov_glue_snp_lineage}()}
 
 Other data-import: 
 \code{\link{apple_mobility_data}()},
@@ -45,17 +50,22 @@ Other data-import:
 \code{\link{cdc_excess_deaths}()},
 \code{\link{coronanet_government_response_data}()},
 \code{\link{cov_glue_newick_data}()},
+\code{\link{cov_glue_snp_lineage}()},
 \code{\link{covidtracker_data}()},
 \code{\link{descartes_mobility_data}()},
 \code{\link{ecdc_data}()},
+\code{\link{economist_excess_deaths}()},
 \code{\link{eu_data_cache_data}()},
 \code{\link{google_mobility_data}()},
 \code{\link{government_policy_timeline}()},
+\code{\link{healthdata_mobility_data}()},
 \code{\link{healthdata_projections_data}()},
+\code{\link{healthdata_testing_data}()},
 \code{\link{jhu_data}()},
 \code{\link{jhu_us_data}()},
 \code{\link{kff_icu_beds}()},
 \code{\link{nytimes_county_data}()},
+\code{\link{owid_data}()},
 \code{\link{param_estimates_published}()},
 \code{\link{us_county_geo_details}()},
 \code{\link{us_county_health_rankings}()},

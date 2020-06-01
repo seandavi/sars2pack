@@ -11,6 +11,23 @@
       "url": "https://hub.arcgis.com/datasets/geoplatform::hospitals"
     },
     {
+      "name": "The Economist: Excess deaths due to COVID",
+      "accessor": "economist_excess_deaths",
+      "data_type": [
+        "time series",
+        "deaths",
+        "miscellaneous"
+      ],
+      "geographical": true,
+      "geospatial": false,
+      "resolution": [
+	"admin0",
+	"admin1"
+      ],
+      "region": "International",
+      "url": "https://github.com/TheEconomist/covid-19-excess-deaths-tracker"
+    },
+    {
       "name": "US county health rankings from 'https://www.countyhealthrankings.org'",
       "accessor": "us_county_health_rankings",
       "data_type": "demographic",
@@ -184,7 +201,12 @@
         "mobility"
       ],
       "region": "World",
-      "resolution": "country and sub-country",
+      "resolution": [
+	"admin0",
+	"admin1",
+	"admin2",
+	"admin3"
+      ],
       "geographical": true,
       "geospatial": false,
       "url": "https://www.apple.com/covid19/mobility"
@@ -212,7 +234,7 @@
         "deaths"
       ],
       "region": "World",
-      "resolution": "country",
+      "resolution": "admin0",
       "geographical": true,
       "geospatial": false,
       "url": "https://github.com/CSSEGISandData/COVID-19"
@@ -321,11 +343,53 @@
       "url": "https://www.bsg.ox.ac.uk/research/research-projects/oxford-covid-19-government-response-tracker"
     },
     {
+      "name": "Healthdata.org testing data",
+      "accessor": "healthdata_testing_data",
+      "data_type": [
+        "time series",
+        "projections",
+	"testing"
+      ],
+      "region": [
+        "United States",
+        "World"
+      ],
+      "resolution": [
+        "admin1",
+        "admin2"
+      ],
+      "geospatial": false,
+      "geographical": true,
+      "url": "http://www.healthdata.org/covid"
+    },
+    {
+      "name": "Healthdata.org mobility data",
+      "accessor": "healthdata_mobility_data",
+      "data_type": [
+        "time series",
+        "projections",
+	"mobility"
+      ],
+      "region": [
+        "United States",
+        "World"
+      ],
+      "resolution": [
+        "admin1",
+        "admin2"
+      ],
+      "geospatial": false,
+      "geographical": true,
+      "url": "http://www.healthdata.org/covid"
+    },
+    {
       "name": "Healthdata.org projections of hospital utilization and deaths",
       "accessor": "healthdata_projections_data",
       "data_type": [
         "time series",
-        "projections"
+        "projections",
+        "cumulative cases",
+        "deaths"
       ],
       "region": [
         "United States",

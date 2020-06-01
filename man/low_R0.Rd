@@ -6,6 +6,9 @@
 \usage{
 low_R0(x)
 }
+\arguments{
+\item{x}{result of R0::estimate.R}
+}
 \description{
 helper for easyEG, reach in to estimate structure
 }
