@@ -24,6 +24,69 @@ available_datasets <- function() {
     as_tibble(jsonlite::fromJSON(catalog)$datasets)
 }
 
+# {
+#     "name": "The Economist: Excess deaths due to COVID",
+#     "accessor": "economist_excess_deaths",
+#     "data_type": [
+#         "time series",
+#         "deaths",
+#         "miscellaneous"
+#         ],
+#     "geographical": true,
+#     "geospatial": false,
+#     "resolution": [
+#         "admin0",
+#         "admin1"
+#         ],
+#     "region": "International",
+#     "url": "https://github.com/TheEconomist/covid-19-excess-deaths-tracker"
+# },
+
+#' add a dataset to the package catalog
+#'
+#' This is an *internal* convenience function for adding a new dataset to the
+#' package catalog. 
+#'
+#' @param name character(1) long name
+#' @param accessor character(1) name of accessor function
+#' @param data_type character() vector of data_types
+#' @param url character() url of source
+#' @param geographical logical(1) includes geographical information or not
+#' @param geospatial logical(1) includes geospatial information or not
+#' @param resolution logical(1) if geographical, one of admin0, admin1, admin2, admin3
+#' @param region character() with World (global), international (more than one nation),
+#'    United States
+#' @param jsonfile character(1) name of json file to append to.
+#' @param write logical(1) write the file (TRUE) or simply (invisibly) return the
+#'    resulting new list for inspection
+#'
+#' @return
+#' A list ready for appending to json
+#' 
+#' @author Sean Davis <seandavi@gmail.com>
+#' 
+#' 
+add_dataset_to_catalog = function(name, accessor, data_type=list(), url="", 
+                       geographical=TRUE, geospatial=FALSE,
+                       resolution=NULL, region=NULL,
+                       jsonfile='inst/data_catalog/catalog.json',
+                       write=FALSE) {
+    x = list(name=name,accessor=accessor,data_type=data_type,
+         url=url,geographical=geographical,geospatial=geospatial,
+         resolution=resolution,region=region)
+    js = jsonlite::fromJSON(jsonfile, simplifyDataFrame = FALSE)
+    js$datasets = c(js$datasets,list(x))
+    if(write) {
+        writeLines(
+            jsonlite::toJSON(js,pretty = 2),
+            con = jsonfile)
+    }
+    invisible(js)
+}
+
+
+            
+
 #' @describeIn available_datasets
 #' 
 #' @details 
