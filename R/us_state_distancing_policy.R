@@ -28,7 +28,7 @@
 #' 
 #' @export
 us_state_distancing_policy = function() {
-    rpath = s2p_cached_url('https://raw.githubusercontent.com/COVID19StatePolicy/SocialDistancing/master/data/USstatesCov19distancingpolicy.csv')
+    rpath = s2p_cached_url('https://raw.githubusercontent.com/COVID19StatePolicy/SocialDistancing/master/data/USstatesCov19distancingpolicyBETA.csv')
     res = readr::read_csv(rpath,col_types = cols())
     res %>% dplyr::select(-dplyr::starts_with('X')) %>%
         dplyr::mutate(
