@@ -88,7 +88,7 @@ selected states." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sars2pack</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
       </span>
     </div>
 
@@ -136,6 +136,9 @@ selected states." />
     </li>
     <li>
       <a href="../articles/r0_estimates.html">Estimating the replication rate, $R_0$</a>
+    </li>
+    <li>
+      <a href="../articles/tsanalysis.html">Time series analysis of COVID-19 datasets</a>
     </li>
   </ul>
 </li>
@@ -240,6 +243,7 @@ selected states.</p>
 <code><a href='jhu_us_data.html'>jhu_us_data</a>()</code>,
 <code><a href='kff_icu_beds.html'>kff_icu_beds</a>()</code>,
 <code><a href='nytimes_county_data.html'>nytimes_county_data</a>()</code>,
+<code><a href='oecd_unemployment_data.html'>oecd_unemployment_data</a>()</code>,
 <code><a href='owid_data.html'>owid_data</a>()</code>,
 <code><a href='param_estimates_published.html'>param_estimates_published</a>()</code>,
 <code><a href='us_county_geo_details.html'>us_county_geo_details</a>()</code>,
@@ -257,7 +261,7 @@ selected states.</p>
     <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>dplyr</span>)
 <span class='no'>res</span> <span class='kw'>=</span> <span class='fu'>descartes_mobility_data</span>()
 <span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; [1] "date"        "iso2"        "admin_level" "admin1"      "admin2"     
-#&gt; [6] "fips"        "samples"     "m50"         "m50_index"  </div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Rows: 233,827
+#&gt; [6] "fips"        "samples"     "m50"         "m50_index"  </div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Rows: 247,424
 #&gt; Columns: 9
 #&gt; $ date        <span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2020-03-01, 2020-03-02, 2020-03-03, 2020-03-04, 2020-03-…
 #&gt; $ iso2        </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "US", "US", "US", "US", "US", "US", "US", "US", "US", "US…

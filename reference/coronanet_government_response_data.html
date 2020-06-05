@@ -87,7 +87,7 @@ comprehensive set of policy types." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sars2pack</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
       </span>
     </div>
 
@@ -135,6 +135,9 @@ comprehensive set of policy types." />
     </li>
     <li>
       <a href="../articles/r0_estimates.html">Estimating the replication rate, $R_0$</a>
+    </li>
+    <li>
+      <a href="../articles/tsanalysis.html">Time series analysis of COVID-19 datasets</a>
     </li>
   </ul>
 </li>
@@ -247,6 +250,7 @@ Pandemic.” SocArXiv. April 12. doi:10.31235/osf.io/dkvxy.</p><ul>
 <code><a href='jhu_us_data.html'>jhu_us_data</a>()</code>,
 <code><a href='kff_icu_beds.html'>kff_icu_beds</a>()</code>,
 <code><a href='nytimes_county_data.html'>nytimes_county_data</a>()</code>,
+<code><a href='oecd_unemployment_data.html'>oecd_unemployment_data</a>()</code>,
 <code><a href='owid_data.html'>owid_data</a>()</code>,
 <code><a href='param_estimates_published.html'>param_estimates_published</a>()</code>,
 <code><a href='us_county_geo_details.html'>us_county_geo_details</a>()</code>,
@@ -260,15 +264,8 @@ Pandemic.” SocArXiv. April 12. doi:10.31235/osf.io/dkvxy.</p><ul>
 <code><a href='us_state_distancing_policy.html'>us_state_distancing_policy</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>res</span> <span class='kw'>=</span> <span class='fu'>coronanet_government_response_data</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: 11 parsing failures.</span>
-#&gt; <span class='warning'> row              col           expected             actual                                                                         file</span>
-#&gt; <span class='warning'>1267 source_corr_type 1/0/T/F/TRUE/FALSE Use the old source '/Users/sdavis2/Library/Caches/sars2pack/bdec15317d40_coronanet_release.csv'</span>
-#&gt; <span class='warning'>1280 source_corr_type 1/0/T/F/TRUE/FALSE Add a new source   '/Users/sdavis2/Library/Caches/sars2pack/bdec15317d40_coronanet_release.csv'</span>
-#&gt; <span class='warning'>3742 source_corr_type 1/0/T/F/TRUE/FALSE Use the old source '/Users/sdavis2/Library/Caches/sars2pack/bdec15317d40_coronanet_release.csv'</span>
-#&gt; <span class='warning'>4331 source_corr_type 1/0/T/F/TRUE/FALSE Use the old source '/Users/sdavis2/Library/Caches/sars2pack/bdec15317d40_coronanet_release.csv'</span>
-#&gt; <span class='warning'>8306 source_corr_type 1/0/T/F/TRUE/FALSE Use the old source '/Users/sdavis2/Library/Caches/sars2pack/bdec15317d40_coronanet_release.csv'</span>
-#&gt; <span class='warning'>.... ................ .................. .................. ............................................................................</span>
-#&gt; <span class='warning'>See problems(...) for more details.</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 6 x 38</span><span>
+    <pre class="examples"><div class='input'><span class='no'>res</span> <span class='kw'>=</span> <span class='fu'>coronanet_government_response_data</span>()
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 6 x 38</span><span>
 #&gt;   record_id policy_id recorded_date       date_updated date_announced date_start
 #&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>         </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dttm&gt;</span><span>              </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>       </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>         </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>    
 #&gt; </span><span style='color: #555555;'>1</span><span> 1000775Ds   1</span><span style='text-decoration: underline;'>342</span><span>691 2020-04-04 </span><span style='color: #555555;'>15:43:15</span><span> 2020-04-04   2020-03-14     2020-03-14
@@ -282,7 +279,7 @@ Pandemic.” SocArXiv. April 12. doi:10.31235/osf.io/dkvxy.</p><ul>
 #&gt; </span><span style='color: #555555;'>#   type </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, type_sub_cat </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, type_text </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, index_high_est </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
 #&gt; </span><span style='color: #555555;'>#   index_med_est </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, index_low_est </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, index_country_rank </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
 #&gt; </span><span style='color: #555555;'>#   correct_type </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, country </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, init_country_level </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   province </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, city </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, source_corr_type </span><span style='color: #555555;font-style: italic;'>&lt;lgl&gt;</span><span style='color: #555555;'>, target_country </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>,</span><span>
+#&gt; </span><span style='color: #555555;'>#   province </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, city </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, source_corr_type </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, target_country </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>,</span><span>
 #&gt; </span><span style='color: #555555;'>#   target_geog_level </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, target_region </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, target_province </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>,</span><span>
 #&gt; </span><span style='color: #555555;'>#   target_city </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, target_other </span><span style='color: #555555;font-style: italic;'>&lt;lgl&gt;</span><span style='color: #555555;'>, target_who_what </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>,</span><span>
 #&gt; </span><span style='color: #555555;'>#   target_direction </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, travel_mechanism </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, compliance </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>,</span><span>
@@ -298,7 +295,7 @@ Pandemic.” SocArXiv. April 12. doi:10.31235/osf.io/dkvxy.</p><ul>
 #&gt; [28] "target_province"    "target_city"        "target_other"      
 #&gt; [31] "target_who_what"    "target_direction"   "travel_mechanism"  
 #&gt; [34] "compliance"         "enforcer"           "link"              
-#&gt; [37] "iso3c"              "iso2c"             </div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Rows: 13,518
+#&gt; [37] "iso3c"              "iso2c"             </div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Rows: 13,891
 #&gt; Columns: 38
 #&gt; $ record_id          </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "1000775Ds", "1000775Dm", "1003875NA", "1004103NA"…
 #&gt; $ policy_id          </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 1342691, 1342691, 1003875, 1004103, 2575122, 10052…
@@ -306,7 +303,7 @@ Pandemic.” SocArXiv. April 12. doi:10.31235/osf.io/dkvxy.</p><ul>
 #&gt; $ date_updated       </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2020-04-04, 2020-04-04, 2020-04-15, 2020-05-15, 2…
 #&gt; $ date_announced     </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2020-03-14, 2020-03-14, 2020-04-07, 2020-05-15, 2…
 #&gt; $ date_start         </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2020-03-14, 2020-03-14, 2020-04-07, 2020-05-15, 2…
-#&gt; $ date_end           </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, 2020-07-14, 2020-…
+#&gt; $ date_end           </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 2020-…
 #&gt; $ entry_type         </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "update", "update", "new_entry", "new_entry", "upd…
 #&gt; $ update_type        </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
 #&gt; $ event_description  </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Chile extends mandatory quarantine for people fro…
@@ -317,17 +314,17 @@ Pandemic.” SocArXiv. April 12. doi:10.31235/osf.io/dkvxy.</p><ul>
 #&gt; $ index_high_est     </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 52.03633, 52.03633, 56.17884, NA, 54.14313, 55.981…
 #&gt; $ index_med_est      </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 51.22552, 51.22552, 54.83055, NA, 53.08173, 54.901…
 #&gt; $ index_low_est      </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 50.20661, 50.20661, 53.59422, NA, 52.28079, 53.777…
-#&gt; $ index_country_rank </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 113, 113, 181, NA, 144, 182, 168, 130, NA, 86, 71,…
+#&gt; $ index_country_rank </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 113, 113, 181, NA, 144, 182, 168, NA, NA, NA, 130,…
 #&gt; $ correct_type       </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "original", "original", "original", "original", "o…
 #&gt; $ country            </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Chile", "Chile", "Guatemala", "Turkey", "Kenya", …
 #&gt; $ init_country_level </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "National", "National", "National", "National", "N…
-#&gt; $ province           </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> NA, NA, NA, NA, NA, "Bern", NA, "Sardinia", "Maine…
-#&gt; $ city               </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, "Depok", "…
-#&gt; $ source_corr_type   </span><span style='color: #555555;font-style: italic;'>&lt;lgl&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+#&gt; $ province           </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> NA, NA, NA, NA, NA, "Bern", NA, NA, NA, NA, "Sardi…
+#&gt; $ city               </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+#&gt; $ source_corr_type   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
 #&gt; $ target_country     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "China,France,Germany,Iran,Italy,Japan,North Korea…
 #&gt; $ target_geog_level  </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "One or more countries, but not all countries", "O…
 #&gt; $ target_region      </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
-#&gt; $ target_province    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> NA, NA, NA, NA, NA, "Bern", NA, "Sardinia", NA, NA…
+#&gt; $ target_province    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> NA, NA, NA, NA, NA, "Bern", NA, NA, NA, NA, "Sardi…
 #&gt; $ target_city        </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
 #&gt; $ target_other       </span><span style='color: #555555;font-style: italic;'>&lt;lgl&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
 #&gt; $ target_who_what    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "All Travelers (Citizen Travelers + Foreign Travel…
@@ -337,72 +334,72 @@ Pandemic.” SocArXiv. April 12. doi:10.31235/osf.io/dkvxy.</p><ul>
 #&gt; $ enforcer           </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "National Government,Ministry/Department of Health…
 #&gt; $ link               </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "https://www.gob.cl/noticias/covid-19-ministerio-d…
 #&gt; $ iso3c              </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "CHL", "CHL", "GTM", "TUR", "KEN", "CHE", "ITA", "…
-#&gt; $ iso2c              </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "CL", "CL", "GT", "TR", "KE", "CH", "IT", "IT", "U…</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt;   record_id           policy_id         recorded_date                
-#&gt;  Length:13518       Min.   :2.347e+03   Min.   :2020-03-28 05:38:17  
-#&gt;  Class :character   1st Qu.:2.516e+06   1st Qu.:2020-04-03 14:19:28  
-#&gt;  Mode  :character   Median :5.081e+06   Median :2020-04-14 04:35:22  
-#&gt;                     Mean   :4.634e+09   Mean   :2020-04-17 18:11:59  
-#&gt;                     3rd Qu.:7.546e+06   3rd Qu.:2020-04-28 04:15:57  
-#&gt;                     Max.   :6.258e+13   Max.   :2020-05-23 20:40:10  
+#&gt; $ iso2c              </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "CL", "CL", "GT", "TR", "KE", "CH", "IT", "VN", "V…</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt;   record_id           policy_id         recorded_date                
+#&gt;  Length:13891       Min.   :2.347e+03   Min.   :2020-03-28 05:38:17  
+#&gt;  Class :character   1st Qu.:2.533e+06   1st Qu.:2020-04-03 21:18:36  
+#&gt;  Mode  :character   Median :5.114e+06   Median :2020-04-15 06:25:38  
+#&gt;                     Mean   :4.510e+09   Mean   :2020-04-19 11:07:10  
+#&gt;                     3rd Qu.:7.553e+06   3rd Qu.:2020-04-30 11:25:57  
+#&gt;                     Max.   :6.258e+13   Max.   :2020-05-29 21:33:36  
 #&gt;                                                                      
 #&gt;   date_updated        date_announced         date_start        
 #&gt;  Min.   :2020-03-28   Min.   :2019-12-31   Min.   :2019-12-31  
-#&gt;  1st Qu.:2020-04-03   1st Qu.:2020-03-14   1st Qu.:2020-03-15  
-#&gt;  Median :2020-04-14   Median :2020-03-24   Median :2020-03-25  
-#&gt;  Mean   :2020-04-17   Mean   :2020-03-25   Mean   :2020-03-27  
-#&gt;  3rd Qu.:2020-04-28   3rd Qu.:2020-04-08   3rd Qu.:2020-04-10  
-#&gt;  Max.   :2020-05-23   Max.   :2020-05-23   Max.   :2021-01-01  
+#&gt;  1st Qu.:2020-04-03   1st Qu.:2020-03-14   1st Qu.:2020-03-16  
+#&gt;  Median :2020-04-15   Median :2020-03-25   Median :2020-03-26  
+#&gt;  Mean   :2020-04-19   Mean   :2020-03-26   Mean   :2020-03-28  
+#&gt;  3rd Qu.:2020-04-30   3rd Qu.:2020-04-09   3rd Qu.:2020-04-11  
+#&gt;  Max.   :2020-05-29   Max.   :2020-05-29   Max.   :2021-01-01  
 #&gt;                       NA's   :14                               
 #&gt;     date_end           entry_type        update_type        event_description 
-#&gt;  Min.   :2020-01-28   Length:13518       Length:13518       Length:13518      
-#&gt;  1st Qu.:2020-04-08   Class :character   Class :character   Class :character  
+#&gt;  Min.   :2020-01-28   Length:13891       Length:13891       Length:13891      
+#&gt;  1st Qu.:2020-04-09   Class :character   Class :character   Class :character  
 #&gt;  Median :2020-04-20   Mode  :character   Mode  :character   Mode  :character  
-#&gt;  Mean   :2020-04-27                                                           
+#&gt;  Mean   :2020-04-29                                                           
 #&gt;  3rd Qu.:2020-05-06                                                           
 #&gt;  Max.   :2022-03-13                                                           
-#&gt;  NA's   :9629                                                                 
-#&gt;  domestic_policy     type           type_sub_cat         type_text    
-#&gt;  Min.   :0.00    Length:13518       Length:13518       Min.   : 3.00  
-#&gt;  1st Qu.:1.00    Class :character   Class :character   1st Qu.:14.00  
-#&gt;  Median :1.00    Mode  :character   Mode  :character   Median :20.00  
-#&gt;  Mean   :0.83                                          Mean   :20.21  
-#&gt;  3rd Qu.:1.00                                          3rd Qu.:28.00  
-#&gt;  Max.   :1.00                                          Max.   :58.00  
-#&gt;                                                        NA's   :13396  
+#&gt;  NA's   :9910                                                                 
+#&gt;  domestic_policy      type           type_sub_cat         type_text    
+#&gt;  Min.   :0.0000   Length:13891       Length:13891       Min.   : 3.00  
+#&gt;  1st Qu.:1.0000   Class :character   Class :character   1st Qu.:14.00  
+#&gt;  Median :1.0000   Mode  :character   Mode  :character   Median :20.00  
+#&gt;  Mean   :0.8335                                         Mean   :20.35  
+#&gt;  3rd Qu.:1.0000                                         3rd Qu.:28.00  
+#&gt;  Max.   :1.0000                                         Max.   :58.00  
+#&gt;                                                         NA's   :13767  
 #&gt;  index_high_est  index_med_est   index_low_est   index_country_rank
 #&gt;  Min.   :48.29   Min.   :45.42   Min.   :37.19   Min.   :  1.0     
-#&gt;  1st Qu.:52.45   1st Qu.:51.26   1st Qu.:49.99   1st Qu.: 74.0     
-#&gt;  Median :53.47   Median :52.27   Median :51.15   Median :124.0     
-#&gt;  Mean   :53.76   Mean   :52.23   Mean   :50.70   Mean   :120.2     
-#&gt;  3rd Qu.:54.85   3rd Qu.:53.47   3rd Qu.:52.16   3rd Qu.:169.0     
+#&gt;  1st Qu.:52.45   1st Qu.:51.26   1st Qu.:49.97   1st Qu.: 73.0     
+#&gt;  Median :53.46   Median :52.27   Median :51.13   Median :124.0     
+#&gt;  Mean   :53.77   Mean   :52.22   Mean   :50.68   Mean   :119.4     
+#&gt;  3rd Qu.:54.86   3rd Qu.:53.46   3rd Qu.:52.14   3rd Qu.:169.0     
 #&gt;  Max.   :69.04   Max.   :57.53   Max.   :56.26   Max.   :194.0     
-#&gt;  NA's   :1302    NA's   :1302    NA's   :1302    NA's   :1302      
+#&gt;  NA's   :1590    NA's   :1590    NA's   :1590    NA's   :1590      
 #&gt;  correct_type         country          init_country_level   province        
-#&gt;  Length:13518       Length:13518       Length:13518       Length:13518      
+#&gt;  Length:13891       Length:13891       Length:13891       Length:13891      
 #&gt;  Class :character   Class :character   Class :character   Class :character  
 #&gt;  Mode  :character   Mode  :character   Mode  :character   Mode  :character  
 #&gt;                                                                             
 #&gt;                                                                             
 #&gt;                                                                             
 #&gt;                                                                             
-#&gt;      city           source_corr_type target_country     target_geog_level 
-#&gt;  Length:13518       Mode:logical     Length:13518       Length:13518      
-#&gt;  Class :character   NA's:13518       Class :character   Class :character  
-#&gt;  Mode  :character                    Mode  :character   Mode  :character  
-#&gt;                                                                           
-#&gt;                                                                           
-#&gt;                                                                           
-#&gt;                                                                           
+#&gt;      city           source_corr_type   target_country     target_geog_level 
+#&gt;  Length:13891       Length:13891       Length:13891       Length:13891      
+#&gt;  Class :character   Class :character   Class :character   Class :character  
+#&gt;  Mode  :character   Mode  :character   Mode  :character   Mode  :character  
+#&gt;                                                                             
+#&gt;                                                                             
+#&gt;                                                                             
+#&gt;                                                                             
 #&gt;  target_region      target_province    target_city        target_other  
-#&gt;  Length:13518       Length:13518       Length:13518       Mode:logical  
-#&gt;  Class :character   Class :character   Class :character   NA's:13518    
+#&gt;  Length:13891       Length:13891       Length:13891       Mode:logical  
+#&gt;  Class :character   Class :character   Class :character   NA's:13891    
 #&gt;  Mode  :character   Mode  :character   Mode  :character                 
 #&gt;                                                                         
 #&gt;                                                                         
 #&gt;                                                                         
 #&gt;                                                                         
 #&gt;  target_who_what    target_direction   travel_mechanism    compliance       
-#&gt;  Length:13518       Length:13518       Length:13518       Length:13518      
+#&gt;  Length:13891       Length:13891       Length:13891       Length:13891      
 #&gt;  Class :character   Class :character   Class :character   Class :character  
 #&gt;  Mode  :character   Mode  :character   Mode  :character   Mode  :character  
 #&gt;                                                                             
@@ -410,7 +407,7 @@ Pandemic.” SocArXiv. April 12. doi:10.31235/osf.io/dkvxy.</p><ul>
 #&gt;                                                                             
 #&gt;                                                                             
 #&gt;    enforcer             link              iso3c              iso2c          
-#&gt;  Length:13518       Length:13518       Length:13518       Length:13518      
+#&gt;  Length:13891       Length:13891       Length:13891       Length:13891      
 #&gt;  Class :character   Class :character   Class :character   Class :character  
 #&gt;  Mode  :character   Mode  :character   Mode  :character   Mode  :character  
 #&gt;                                                                             

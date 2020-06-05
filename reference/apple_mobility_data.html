@@ -83,7 +83,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sars2pack</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
       </span>
     </div>
 
@@ -131,6 +131,9 @@
     </li>
     <li>
       <a href="../articles/r0_estimates.html">Estimating the replication rate, $R_0$</a>
+    </li>
+    <li>
+      <a href="../articles/tsanalysis.html">Time series analysis of COVID-19 datasets</a>
     </li>
   </ul>
 </li>
@@ -243,6 +246,7 @@ See <a href='https://www.apple.com/covid19/mobility'>https://www.apple.com/covid
 <code><a href='jhu_us_data.html'>jhu_us_data</a>()</code>,
 <code><a href='kff_icu_beds.html'>kff_icu_beds</a>()</code>,
 <code><a href='nytimes_county_data.html'>nytimes_county_data</a>()</code>,
+<code><a href='oecd_unemployment_data.html'>oecd_unemployment_data</a>()</code>,
 <code><a href='owid_data.html'>owid_data</a>()</code>,
 <code><a href='param_estimates_published.html'>param_estimates_published</a>()</code>,
 <code><a href='us_county_geo_details.html'>us_county_geo_details</a>()</code>,
@@ -272,7 +276,7 @@ See <a href='https://www.apple.com/covid19/mobility'>https://www.apple.com/covid
 #&gt; </span><span style='color: #555555;'>6</span><span> country… Alban… driving          </span><span style='color: #BB0000;'>NA</span><span>               </span><span style='color: #BB0000;'>NA</span><span>           </span><span style='color: #BB0000;'>NA</span><span>     
 #&gt; </span><span style='color: #555555;'># … with 2 more variables: date </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span style='color: #555555;'>, mobility_index </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span>(<span class='no'>res</span>$<span class='no'>transportation_type</span>)</div><div class='output co'>#&gt; 
 #&gt; driving transit walking 
-#&gt;  417576   30414   48635 </div><div class='input'>
+#&gt;  435864   31746   50765 </div><div class='input'>
 <span class='fu'><a href='https://rdrr.io/r/base/library.html'>require</a></span>(<span class='no'>ggplot2</span>)
 
 <span class='no'>pl</span> <span class='kw'>=</span> <span class='no'>res</span> <span class='kw'>%&gt;%</span>

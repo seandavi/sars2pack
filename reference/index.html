@@ -81,7 +81,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sars2pack</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
       </span>
     </div>
 
@@ -129,6 +129,9 @@
     </li>
     <li>
       <a href="../articles/r0_estimates.html">Estimating the replication rate, $R_0$</a>
+    </li>
+    <li>
+      <a href="../articles/tsanalysis.html">Time series analysis of COVID-19 datasets</a>
     </li>
   </ul>
 </li>
@@ -500,6 +503,73 @@
     </tbody><tbody>
       <tr>
         <th colspan="2">
+          <h2 id="section-additional-datasets" class="hasAnchor"><a href="#section-additional-datasets" class="anchor"></a>Additional datasets</h2>
+          <p class="section-desc"><p>These are special purpose helper plots for sars2pack. Note that most are simply wrappers around ggplot2 and friends.</p></p>
+        </th>
+      </tr>
+      
+      
+    </tbody><tbody>
+      
+      
+      <tr>
+        
+        <td>
+          <p><code><a href="cdc_excess_deaths.html">cdc_excess_deaths()</a></code> </p>
+        </td>
+        <td><p>US CDC excess deaths by week from 2018 to present</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="economist_excess_deaths.html">economist_excess_deaths()</a></code> </p>
+        </td>
+        <td><p>Excess deaths during covid for US and selected countries</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="healthdata_testing_data.html">healthdata_testing_data()</a></code> </p>
+        </td>
+        <td><p>healthdata.org covid19 testing observations and predictions</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="jhu_us_data.html">jhu_us_data()</a></code> </p>
+        </td>
+        <td><p>US counties COVID-19 data from <a href='https://github.com/CSSEGISandData/COVID-19/'>JHU CSSEGIS</a></p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="oecd_unemployment_data.html">oecd_unemployment_data()</a></code> </p>
+        </td>
+        <td><p>OECD International unemployment statistics</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="param_estimates_published.html">param_estimates_published()</a></code> </p>
+        </td>
+        <td><p>Published parameter estimates from the literature</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="us_county_geo_details.html">us_county_geo_details()</a></code> </p>
+        </td>
+        <td><p>United States county-level geographic details</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="us_county_health_rankings.html">us_county_health_rankings()</a></code> </p>
+        </td>
+        <td><p>United States county health rankings</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="us_healthcare_capacity.html">us_healthcare_capacity()</a></code> </p>
+        </td>
+        <td><p>United States healthcare system capacity by provider</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
           <h2 id="section-additional-functionality" class="hasAnchor"><a href="#section-additional-functionality" class="anchor"></a>Additional functionality</h2>
           <p class="section-desc"><p>Find any additional related to analysis, plotting, and data included with the package.</p></p>
         </th>
@@ -510,6 +580,30 @@
       
       
       <tr>
+        
+        <td>
+          <p><code><a href="Arima_by_state.html">Arima_by_state()</a></code> </p>
+        </td>
+        <td><p>Use Rob Hyndman's forecast package to estimate drift in ARIMA models</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="Arima_contig_states.html">Arima_contig_states()</a></code> </p>
+        </td>
+        <td><p>full incidence for contiguous states</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="Arima_drop_state.html">Arima_drop_state()</a></code> </p>
+        </td>
+        <td><p>fit ARIMA model to US data dropping one state</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="Arima_nation.html">Arima_nation()</a></code> </p>
+        </td>
+        <td><p>Use Rob Hyndman's forecast package to estimate drift in ARIMA models</p></td>
+      </tr><tr>
         
         <td>
           <p><code><a href="CRF_468_China.html">CRF_468_China</a></code> </p>
@@ -545,6 +639,18 @@
           <p><code><a href="combined_us_cases_data.html">combined_us_cases_data()</a></code> </p>
         </td>
         <td><p>gather US states confirmed cases from multiple sources</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="contig_states_dc.html">contig_states_dc()</a></code> </p>
+        </td>
+        <td><p>provide vector of contiguous US state names and DC</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="contig_states_twolet.html">contig_states_twolet()</a></code> </p>
+        </td>
+        <td><p>provide vector of contiguous US state names and DC, abbr</p></td>
       </tr><tr>
         
         <td>
@@ -602,6 +708,12 @@
       </tr><tr>
         
         <td>
+          <p><code><a href="est_Rt.html">est_Rt()</a></code> </p>
+        </td>
+        <td><p>produce an MCMC-based EpiEstim R<a href='https://rdrr.io/r/base/t.html'>t</a> estimate on the 29-day series</p></td>
+      </tr><tr>
+        
+        <td>
           <p><code><a href="estimate_R.html">estimate_R()</a></code> </p>
         </td>
         <td><p>estimate R0</p></td>
@@ -623,6 +735,12 @@
           <p><code><a href="get_series.html">get_series()</a></code> </p>
         </td>
         <td><p>supersimple series extraction</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="grid_2d.html">grid_2d()</a></code> </p>
+        </td>
+        <td><p>a two-dimensional grid of integers</p></td>
       </tr><tr>
         
         <td>
@@ -674,6 +792,24 @@
       </tr><tr>
         
         <td>
+          <p><code><a href="min_bic.html">min_bic()</a></code> </p>
+        </td>
+        <td><p>minimize BIC for ARIMA models with default differencing order 1 over choices of MA and AR order</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="min_bic_2020_05_20.html">min_bic_2020_05_20</a></code> </p>
+        </td>
+        <td><p>a statewide collection of best AR/MA model orders</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="min_bic_all_states.html">min_bic_all_states()</a></code> </p>
+        </td>
+        <td><p>organize search over contiguous states for optimal statewise AR/MA using BIC</p></td>
+      </tr><tr>
+        
+        <td>
           <p><code><a href="plot.covid_events.html">plot(<i>&lt;covid_events&gt;</i>)</a></code> </p>
         </td>
         <td><p>plot for covid_events</p></td>
@@ -716,9 +852,21 @@
       </tr><tr>
         
         <td>
+          <p><code><a href="print.bic_seq.html">print(<i>&lt;bic_seq&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>report for optimal AR/MA search using BIC</p></td>
+      </tr><tr>
+        
+        <td>
           <p><code><a href="print.covid_events.html">print(<i>&lt;covid_events&gt;</i>)</a></code> </p>
         </td>
         <td><p>print for a covid_events instance</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="run_meta.html">run_meta()</a></code> </p>
+        </td>
+        <td><p>obtain input to rmeta meta.summaries, metaplot</p></td>
       </tr><tr>
         
         <td>
@@ -803,12 +951,6 @@
           <p><code><a href="tsapp.html">tsapp()</a></code> </p>
         </td>
         <td><p>shiny app for appraisal of simple time-series models for COVID-19 incidence trajectories</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="tsapp_old.html">tsapp_old()</a></code> </p>
-        </td>
-        <td><p>shiny app for appraisal of simple time-series models for COVID-19 incidence trajectories (old)</p></td>
       </tr>
     </tbody>
     </table>

@@ -82,7 +82,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sars2pack</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
       </span>
     </div>
 
@@ -130,6 +130,9 @@
     </li>
     <li>
       <a href="../articles/r0_estimates.html">Estimating the replication rate, $R_0$</a>
+    </li>
+    <li>
+      <a href="../articles/tsanalysis.html">Time series analysis of COVID-19 datasets</a>
     </li>
   </ul>
 </li>
@@ -194,7 +197,7 @@
     <pre class="examples"><div class='input'><span class='no'>nyt</span> <span class='kw'>=</span> <span class='fu'><a href='nytimes_county_data.html'>nytimes_state_data</a></span>()
 <span class='no'>mass</span> <span class='kw'>=</span> <span class='fu'>cumulative_events_nyt_state</span>(<span class='no'>nyt</span>, <span class='kw'>eventtype</span> <span class='kw'>=</span> <span class='st'>"confirmed"</span>,
    <span class='kw'>statename</span> <span class='kw'>=</span> <span class='st'>"Massachusetts"</span>)
-<span class='no'>mass</span></div><div class='output co'>#&gt; cumulative event data for Massachusetts, 2020-02-01 to 2020-05-28 
+<span class='no'>mass</span></div><div class='output co'>#&gt; cumulative event data for Massachusetts, 2020-02-01 to 2020-06-04 
 #&gt; use plot() to visualize.</div><div class='input'><span class='no'>imass</span> <span class='kw'>=</span> <span class='fu'><a href='form_incident_events.html'>form_incident_events</a></span>(<span class='fu'><a href='trim_from.html'>trim_from</a></span>(<span class='no'>mass</span>, <span class='st'>"2020-03-01"</span>))
 <span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='no'>imass</span>)</div><div class='img'><img src='cumulative_events_nyt_state-1.png' alt='' width='700' height='433' /></div></pre>
   </div>

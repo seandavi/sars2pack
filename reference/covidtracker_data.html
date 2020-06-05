@@ -84,7 +84,7 @@ testing results, hospitalizations, and deaths." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sars2pack</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
       </span>
     </div>
 
@@ -132,6 +132,9 @@ testing results, hospitalizations, and deaths." />
     </li>
     <li>
       <a href="../articles/r0_estimates.html">Estimating the replication rate, $R_0$</a>
+    </li>
+    <li>
+      <a href="../articles/tsanalysis.html">Time series analysis of COVID-19 datasets</a>
     </li>
   </ul>
 </li>
@@ -215,6 +218,7 @@ district currently reporting that data.</p>
 <code><a href='jhu_us_data.html'>jhu_us_data</a>()</code>,
 <code><a href='kff_icu_beds.html'>kff_icu_beds</a>()</code>,
 <code><a href='nytimes_county_data.html'>nytimes_county_data</a>()</code>,
+<code><a href='oecd_unemployment_data.html'>oecd_unemployment_data</a>()</code>,
 <code><a href='owid_data.html'>owid_data</a>()</code>,
 <code><a href='param_estimates_published.html'>param_estimates_published</a>()</code>,
 <code><a href='us_county_geo_details.html'>us_county_geo_details</a>()</code>,
@@ -243,16 +247,16 @@ district currently reporting that data.</p>
 
 <span class='no'>res</span> <span class='kw'>=</span> <span class='fu'>covidtracker_data</span>()
 <span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; [1] "date"         "state"        "positive"     "negative"     "pending"     
-#&gt; [6] "hospitalized" "death"        "dateChecked"  "fips"        </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/dim.html'>dim</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; [1] 4777    9</div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Rows: 4,777
+#&gt; [6] "hospitalized" "death"        "dateChecked"  "fips"        </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/dim.html'>dim</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; [1] 5113    9</div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Rows: 5,113
 #&gt; Columns: 9
-#&gt; $ date         <span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2020-05-29, 2020-05-29, 2020-05-29, 2020-05-29, 2020-05…
+#&gt; $ date         <span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2020-06-04, 2020-06-04, 2020-06-04, 2020-06-04, 2020-06…
 #&gt; $ state        </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "AK", "AL", "AR", "AS", "AZ", "CA", "CO", "CT", "DC", "D…
-#&gt; $ positive     </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> 430, 16823, 6538, 0, 18465, 103886, 25121, 41762, 8538, …
-#&gt; $ negative     </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> 49009, 192060, 113230, 174, 191348, 1731592, 143838, 199…
-#&gt; $ pending      </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 1308, NA, NA, NA…
-#&gt; $ hospitalized </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> NA, 1800, 667, NA, 2911, NA, 4254, 12538, NA, NA, 10243,…
-#&gt; $ death        </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> 10, 605, 125, 0, 885, 4068, 1421, 3868, 460, 356, 2495, …
-#&gt; $ dateChecked  </span><span style='color: #555555;font-style: italic;'>&lt;dttm&gt;</span><span> 2020-05-29 20:00:00, 2020-05-29 20:00:00, 2020-05-29 20…
+#&gt; $ positive     </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> 513, 19072, 8067, 0, 22753, 119807, 27060, 43239, 9120, …
+#&gt; $ negative     </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> 59584, 216227, 134413, 174, 227002, 2062864, 170140, 238…
+#&gt; $ pending      </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 1221, NA, NA, NA…
+#&gt; $ hospitalized </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> NA, 1929, 757, NA, 3195, NA, 4443, 9669, NA, NA, 10923, …
+#&gt; $ death        </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> 10, 653, 142, 0, 996, 4422, 1494, 4007, 475, 386, 2691, …
+#&gt; $ dateChecked  </span><span style='color: #555555;font-style: italic;'>&lt;dttm&gt;</span><span> 2020-06-04 00:00:00, 2020-06-04 00:00:00, 2020-06-04 00…
 #&gt; $ fips         </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "00002", "00001", "00005", "00060", "00004", "00006", "0…</div><div class='input'>
 <span class='co'># Hospitalizations by day in Maryland</span>
 <span class='fu'>covidtracker_data</span>() <span class='kw'>%&gt;%</span>

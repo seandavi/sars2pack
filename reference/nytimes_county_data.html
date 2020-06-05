@@ -84,7 +84,7 @@ earlier entries in the data when they receive new information." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sars2pack</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
       </span>
     </div>
 
@@ -132,6 +132,9 @@ earlier entries in the data when they receive new information." />
     </li>
     <li>
       <a href="../articles/r0_estimates.html">Estimating the replication rate, $R_0$</a>
+    </li>
+    <li>
+      <a href="../articles/tsanalysis.html">Time series analysis of COVID-19 datasets</a>
     </li>
   </ul>
 </li>
@@ -265,6 +268,7 @@ you would link to our U.S. tracking page at
 <code><a href='jhu_data.html'>jhu_data</a>()</code>,
 <code><a href='jhu_us_data.html'>jhu_us_data</a>()</code>,
 <code><a href='kff_icu_beds.html'>kff_icu_beds</a>()</code>,
+<code><a href='oecd_unemployment_data.html'>oecd_unemployment_data</a>()</code>,
 <code><a href='owid_data.html'>owid_data</a>()</code>,
 <code><a href='param_estimates_published.html'>param_estimates_published</a>()</code>,
 <code><a href='us_county_geo_details.html'>us_county_geo_details</a>()</code>,
@@ -290,7 +294,7 @@ you would link to our U.S. tracking page at
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># state data</span>
 <span class='no'>res</span> <span class='kw'>=</span> <span class='fu'>nytimes_state_data</span>()
-<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; [1] "date"   "state"  "fips"   "count"  "subset"</div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Rows: 9,598
+<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; [1] "date"   "state"  "fips"   "count"  "subset"</div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Rows: 10,368
 #&gt; Columns: 5
 #&gt; $ date   <span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2020-01-21, 2020-01-22, 2020-01-23, 2020-01-24, 2020-01-24, 2…
 #&gt; $ state  </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Washington", "Washington", "Washington", "Illinois", "Washing…
@@ -299,7 +303,7 @@ you would link to our U.S. tracking page at
 #&gt; $ subset </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "confirmed", "confirmed", "confirmed", "confirmed", "confirmed…</div><div class='input'>
 <span class='co'># county data</span>
 <span class='no'>res</span> <span class='kw'>=</span> <span class='fu'>nytimes_county_data</span>()
-<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; [1] "date"   "county" "state"  "fips"   "count"  "subset"</div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Rows: 367,566
+<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; [1] "date"   "county" "state"  "fips"   "count"  "subset"</div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Rows: 409,094
 #&gt; Columns: 6
 #&gt; $ date   </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2020-01-21, 2020-01-22, 2020-01-23, 2020-01-24, 2020-01-24, 2…
 #&gt; $ county </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Snohomish", "Snohomish", "Snohomish", "Cook", "Snohomish", "O…
