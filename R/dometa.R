@@ -4,6 +4,7 @@
 #' @param opt_parms list, such as that produced by `min_bic_all_states()`
 #' @param \dots passed to `Arima_by_state`
 #' @examples
+#' \dontrun{
 #' nyd = nytimes_state_data()
 #' data(min_bic_2020_05_20)
 #' m1 = run_meta(nyd, opt_parms=min_bic_2020_05_20)
@@ -15,6 +16,7 @@
 #' rmeta::metaplot(m1$drifts[o], m1$se.drifts[o], labels=names(m1$drifts)[o], cex=.7, 
 #'   xlab="Infection velocity (CHANGE in number of confirmed cases/day)", ylab="State")
 #' segments(rep(-350,46), seq(-49,-4), rep(-50,46), seq(-49,-4), lty=3, col="gray")
+#' }
 #' @export
 run_meta = function(nyd, opt_parms, ...) {
  allst = contig_states_dc()

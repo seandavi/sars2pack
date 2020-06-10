@@ -17,6 +17,7 @@ run_meta(nyd, opt_parms, ...)
 obtain input to rmeta meta.summaries, metaplot
 }
 \examples{
+\dontrun{
 nyd = nytimes_state_data()
 data(min_bic_2020_05_20)
 m1 = run_meta(nyd, opt_parms=min_bic_2020_05_20)
@@ -28,4 +29,5 @@ o = order(m1$drifts)
 rmeta::metaplot(m1$drifts[o], m1$se.drifts[o], labels=names(m1$drifts)[o], cex=.7, 
   xlab="Infection velocity (CHANGE in number of confirmed cases/day)", ylab="State")
 segments(rep(-350,46), seq(-49,-4), rep(-50,46), seq(-49,-4), lty=3, col="gray")
+}
 }
