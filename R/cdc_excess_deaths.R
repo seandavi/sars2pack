@@ -78,7 +78,7 @@ cdc_excess_deaths <- function() {
                     guess_max = 10000,
                     col_types=cols()) %>%
         dplyr::rename(date='Week Ending Date') %>%
-        dplyr::mutate(date = lubridate::mdy(date)) %>%
+        dplyr::mutate(date = lubridate::ymd(date)) %>%
         dplyr::rename(
                    state="State",
                    type="Type",

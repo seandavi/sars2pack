@@ -1,3 +1,11 @@
+# sars2pack 0.1.2
+
+## bug fixes
+
+- Fixed `cdc_excess_deaths()` date parsing (hanks
+  to Nancy Hansen for report).
+
+
 # sars2pack 0.0.38
 
 ## Minor updates
