@@ -71,6 +71,7 @@ Other data-import:
 \code{\link{apple_mobility_data}()},
 \code{\link{beoutbreakprepared_data}()},
 \code{\link{cdc_excess_deaths}()},
+\code{\link{cdc_social_vulnerability_index}()},
 \code{\link{coronanet_government_response_data}()},
 \code{\link{cov_glue_lineage_data}()},
 \code{\link{cov_glue_newick_data}()},

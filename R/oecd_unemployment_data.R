@@ -44,7 +44,7 @@ oecd_unemployment_data = function() {
         frequencies[f]
     }
     fix_dates = function(d) {
-        as_date(parse_date_time(d,orders=c('y', 'y-m', 'y-q')))
+        lubridate::as_date(lubridate::parse_date_time(d,orders=c('y', 'y-m', 'y-q')))
     }
     rpath = s2p_cached_url('https://stats.oecd.org/sdmx-json/data/DP_LIVE/.UNEMP.../OECD?contentType=csv&detail=code&separator=comma&csv-lang=en')
     res = readr::read_csv(rpath, guess_max = 5000, col_types = readr::cols()) %>%

@@ -1,5 +1,10 @@
 # sars2pack 0.1.2
 
+## New datasets
+
+- US CDC Social Vulnerability Index: `cdc_social_vulnerability_index()`
+
+
 ## bug fixes
 
 - Fixed `cdc_excess_deaths()` date parsing (hanks

@@ -42,11 +42,12 @@
 datasets_to_sql <- function(con, dataset_accessors = available_datasets()$accessor,
                             overwrite=TRUE, ...) {
     dataset_accessors = unique(dataset_accessors)
-    if(length(dataset_accessors) > intersect(dataset_accessors, available_datasets()$accessor)) {
-        stop('Dataset accessors must be included in available_datasets()$accessor')
-    }
+#    if(length(dataset_accessors) > intersect(dataset_accessors, available_datasets()$accessor)) {
+#        stop('Dataset accessors must be included in available_datasets()$accessor')
+#    }
     for(i in dataset_accessors) {
-        ds = as.data.frame(get(i)())
+        ds = try(as.data.frame(get(i)()))
+        if(inherits(ds, 'try-error')) next
         ds = ds[, as.vector(which(sapply(ds, is.vector)))]
         if(is.data.frame(ds)) {
             message(i)
