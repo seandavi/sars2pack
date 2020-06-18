@@ -74,7 +74,7 @@
 #' @export
 ecdc_data <- function() {
     fpath = s2p_cached_url('https://opendata.ecdc.europa.eu/covid19/casedistribution/csv')
-    ret = readr::read_csv(fpath, col_types=cols())
+    ret = readr::read_csv(fpath, col_types=readr::cols())
     ret %>%
         dplyr::rename(c(date='dateRep',
                         location_name='countriesAndTerritories',
@@ -87,10 +87,7 @@ ecdc_data <- function() {
                          .data$month,
                          .data$year)) %>%
         dplyr::mutate(date=lubridate::dmy(.data$date)) %>%
-        dplyr::group_by(location_name) %>%
-        dplyr::arrange(location_name, date) %>%
-        dplyr::mutate(deaths = cumsum(deaths), confirmed= cumsum(confirmed)) %>%
-        tidyr::pivot_longer(cols=c('deaths','confirmed'),
-                            names_to='subset',
-                            values_to='count')
+        dplyr::group_by(.data$location_name) %>%
+        dplyr::arrange(.data$location_name, .data$date) %>%
+        dplyr::mutate(deaths = cumsum(.data$deaths), confirmed= cumsum(.data$confirmed))
 }
