@@ -12,7 +12,7 @@ A tidy \code{tbl_df}
 \description{
 Get data from the COVID tracking project
 \url{https://covidtracking.com/} including daily historical data on
-testing results, hospitalizations, and deaths.
+testing results, hospitalizations, deaths, and ICU and ventilated patients.
 }
 \details{
 From the COVID Tracking Project website:

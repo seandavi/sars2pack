@@ -1,19 +1,26 @@
 .covidtracker_cols_to_keep = c(
     "date",
+    "fips",
     "state",
     "positive",
     "negative",
+    "death",
     "pending",
     "hospitalized",
-    "death",
+    "hospitalizedCurrently",
+    "recovered",
+    "inIcuCumulative",
+    "inIcuCurrently",
+    "onVentilatorCurrently",
+    "onVentilatorCumulative",
     "dateChecked",
-    "fips"
+    "dataQualityGrade"
 )
 #' US State-level data including test results
 #'
 #' Get data from the COVID tracking project
 #' \url{https://covidtracking.com/} including daily historical data on
-#' testing results, hospitalizations, and deaths.
+#' testing results, hospitalizations, deaths, and ICU and ventilated patients.
 #'
 #' @details
 #'
@@ -26,13 +33,12 @@
 #' results, pending tests, and total people tested for each state or
 #' district currently reporting that data.
 #'
+#' @importFrom dplyr `%>%`
+#' 
 #' @seealso
 #' - \url{https://covidtracking.com/about-tracker/}
 #' - \url{https://covidtracking.com/notes/}
 #' 
-#' @importFrom readr read_csv cols
-#' @importFrom dplyr select
-#'
 #' @return A tidy `tbl_df`
 #'
 #' @examples
@@ -60,7 +66,7 @@
 covidtracker_data <- function() {
     rpath = 'http://covidtracking.com/api/v1/states/daily.csv'
     fname = s2p_cached_url(rpath)
-    res = readr::read_csv(fname, col_types=cols())
+    res = readr::read_csv(fname, col_types=readr::cols())
     ret = res %>%
         ## this little trick lets us use a vector
         ## of names in select statement.

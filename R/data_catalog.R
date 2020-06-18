@@ -21,7 +21,9 @@
 #' @export
 available_datasets <- function() {
     catalog = system.file('data_catalog/catalog.json',package='sars2pack')
-    as_tibble(jsonlite::fromJSON(catalog,flatten=TRUE)$datasets)
+    res = jsonlite::fromJSON(catalog)
+    class(res) = c('s2p_avail_datasets',class(res))
+    res
 }
 
 # {
@@ -170,4 +172,10 @@ create_dataset_details = function(fname='inst/data_catalog/dataset_details.yaml'
     res = list(datasets=res)
     res[['eval_date']] = as.character(Sys.Date())
     writeLines(yaml::as.yaml(res),fname)
+}
+
+
+flatten_data_frame = function(df) {
+    .flatten = function(x) {y = unlist(x); if(length(x)==length(y)) return(y) else return(x)}
+    as_tibble(lapply(df, .flatten))
 }
