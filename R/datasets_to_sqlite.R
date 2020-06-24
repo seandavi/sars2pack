@@ -1,4 +1,4 @@
-#' Export all available datasets to SQL database
+#' Build a data warehouse of all datasets in one line
 #'
 #' SQL databases are the cornerstone of many data science efforts.
 #' We provide this simple function to export all the available
@@ -20,7 +20,6 @@
 #'        exists.
 #' @param \dots passed on to [dplyr::copy_to()]
 #'
-#' @importFrom dplyr copy_to
 #'
 #' @author Sean Davis <seandavi@gmail.com>
 #'
@@ -42,16 +41,15 @@
 datasets_to_sql <- function(con, dataset_accessors = available_datasets()$accessor,
                             overwrite=TRUE, ...) {
     dataset_accessors = unique(dataset_accessors)
-#    if(length(dataset_accessors) > intersect(dataset_accessors, available_datasets()$accessor)) {
-#        stop('Dataset accessors must be included in available_datasets()$accessor')
-#    }
+    if(length(dataset_accessors) > intersect(dataset_accessors, available_datasets()$accessor)) {
+        stop('Dataset accessors must be included in available_datasets()$accessor')
+    }
     for(i in dataset_accessors) {
-        ds = try(as.data.frame(get(i)()))
-        if(inherits(ds, 'try-error')) next
-        ds = ds[, as.vector(which(sapply(ds, is.vector)))]
+        ds = get(i)()
         if(is.data.frame(ds)) {
-            message(i)
-            copy_to(con, ds, i, ..., overwrite=TRUE)
+            ds = ds[, as.vector(which(sapply(ds, is.vector)))]
+            dplyr::copy_to(con, ds, i, ..., overwrite=TRUE)
+            message('Wrote %d records to table %s', nrow(i), i)
         }
     }
 }

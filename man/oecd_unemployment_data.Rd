@@ -14,7 +14,13 @@ The Organisation for Economic Co-operation and Development (OECD) is an internat
 and collects and reports broadly on economic and social factors.
 }
 \details{
-Unemployment rate is the number of unemployed people as a percentage of the labour force, where the latter consists of the unemployed plus those in paid or self-employment. Unemployed people are those who report that they are without work, that they are available for work and that they have taken active steps to find work in the last four weeks. When unemployment is high, some people become discouraged and stop looking for work; they are then excluded from the labour force. This implies that the unemployment rate may fall, or stop rising, even though there has been no underlying improvement in the labour market.
+Unemployment rate is the number of unemployed people as a percentage of the labour force, where the
+latter consists of the unemployed plus those in paid or self-employment. Unemployed people are those
+who report that they are without work, that they are available for work and that they have taken
+active steps to find work in the last four weeks. When unemployment is high, some people become
+discouraged and stop looking for work; they are then excluded from the labour force. This implies
+that the unemployment rate may fall, or stop rising, even though there has been no underlying
+improvement in the labour market.
 }
 \examples{
 unemp = oecd_unemployment_data()

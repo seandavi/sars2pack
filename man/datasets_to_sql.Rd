@@ -2,7 +2,7 @@
 % Please edit documentation in R/datasets_to_sqlite.R
 \name{datasets_to_sql}
 \alias{datasets_to_sql}
-\title{Export all available datasets to SQL database}
+\title{Build a data warehouse of all datasets in one line}
 \usage{
 datasets_to_sql(
   con,
