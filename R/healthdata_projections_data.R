@@ -1,3 +1,5 @@
+.current_hosp_data_file = 'Reference_hospitalization_all_locs.csv'
+
 #' healthdata.org covid19 morbidity and hospitalization estimates
 #'
 #' These are time-series data that forecaset the COVID-19 impact
@@ -69,7 +71,7 @@ healthdata_projections_data <- function() {
     destfile = s2p_cached_url(rpath)
     tmpd = tempdir()
     unzip(destfile, exdir=tmpd)
-    datafile = dir(tmpd, pattern='^Hospitalization_all_locs\\.csv$', recursive = TRUE, full.names=TRUE)[1]
+    datafile = dir(tmpd, pattern=.current_hosp_data_file, recursive = TRUE, full.names=TRUE)[1]
     projections = readr::read_csv(datafile, col_types=cols(), guess_max=5000)
     projections = projections %>%
         dplyr::select(c(dplyr::ends_with(c('mean','upper','lower')),
@@ -121,7 +123,7 @@ healthdata_mobility_data <- function() {
     destfile = s2p_cached_url(rpath)
     tmpd = tempdir()
     unzip(destfile, exdir=tmpd)
-    datafile = dir(tmpd, pattern='^Hospitalization_all_locs\\.csv$', recursive = TRUE, full.names=TRUE)[1]
+    datafile = dir(tmpd, pattern=.current_hosp_data_file, recursive = TRUE, full.names=TRUE)[1]
     projections = readr::read_csv(datafile, col_types=cols(), guess_max=5000)
     projections = projections %>%
         dplyr::select(c(dplyr::starts_with('mobility'),
@@ -171,7 +173,7 @@ healthdata_testing_data <- function() {
     destfile = s2p_cached_url(rpath)
     tmpd = tempdir()
     unzip(destfile, exdir=tmpd)
-    datafile = dir(tmpd, pattern='^Hospitalization_all_locs\\.csv$', recursive = TRUE, full.names=TRUE)[1]
+    datafile = dir(tmpd, pattern=.current_hosp_data_file, recursive = TRUE, full.names=TRUE)[1]
     projections = readr::read_csv(datafile, col_types=cols(), guess_max=5000)
     projections = projections %>%
         dplyr::select(c(dplyr::starts_with('total_tests'),

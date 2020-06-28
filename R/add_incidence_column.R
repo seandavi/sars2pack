@@ -98,7 +98,7 @@ add_incidence_column <- function(df, date_column='date', count_column='count',
                                  grouping_columns = c()) {
 
     df1 = df %>%
-        dplyr::arrange_(date_column)
+        dplyr::arrange(!!date_column)
     if(!(all(c(grouping_columns,date_column, count_column) %in% colnames(df)))) {
         stop('Columns in date_column, count_column, grouping_columns must be included in:\n %s',paste(colnames(df),collapse=', '))
     }

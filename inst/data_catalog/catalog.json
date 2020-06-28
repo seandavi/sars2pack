@@ -32,7 +32,7 @@
   {
     "name": "US county health rankings from 'https://www.countyhealthrankings.org'",
     "accessor": "us_county_health_rankings",
-    "data_type": ["demographic"],
+    "data_type": ["demographics"],
     "geographical": true,
     "geospatial": false,
     "region": ["United States"],
@@ -50,9 +50,19 @@
     "url": "https://coronanet-project.org/index.html"
   },
   {
+    "name": "Country metadata from restcountries.eu",
+    "accessor": "country_metadata",
+    "data_type": ["demographics"],
+    "geographical": true,
+    "geospatial": false,
+    "region": ["World"],
+    "resolution": ["admin0"],
+    "url": "https://restcountries.eu"
+  },
+  {
     "name": "Our World In Data testing and cases reporting",
     "accessor": "owid_data",
-    "data_type": ["time series", "cases", "deaths", "tests"],
+    "data_type": ["time series", "cases", "deaths", "testing"],
     "geographical": true,
     "geospatial": false,
     "region": ["World"],
@@ -122,7 +132,7 @@
   {
     "name": "European CDC world tracking",
     "accessor": "ecdc_data",
-    "data_type": ["time series", "cumulative cases", "deaths"],
+    "data_type": ["time series", "cases", "deaths"],
     "geographical": true,
     "geospatial": false,
     "region": ["World"],
@@ -142,7 +152,7 @@
   {
     "name": "EU data Github aggregator",
     "accessor": "eu_data_cache_data",
-    "data_type": ["time series", "cumulative cases", "deaths"],
+    "data_type": ["time series", "cases", "deaths"],
     "geographical": true,
     "geospatial": false,
     "region": ["Europe"],
@@ -172,7 +182,7 @@
   {
     "name": "USA Facts",
     "accessor": "usa_facts_data",
-    "data_type": ["time series", "cumulative cases", "deaths"],
+    "data_type": ["time series", "cases", "deaths"],
     "geographical": true,
     "geospatial": false,
     "region": ["United States"],
@@ -182,7 +192,7 @@
   {
     "name": "Johns Hopkins dataset",
     "accessor": "jhu_data",
-    "data_type": ["time series", "cumulative cases", "deaths"],
+    "data_type": ["time series", "cases", "deaths"],
     "geographical": true,
     "geospatial": false,
     "region": ["World"],
@@ -192,7 +202,7 @@
   {
     "name": "Johns Hopkins US-centric data",
     "accessor": "jhu_us_data",
-    "data_type": ["time series", "cumulative cases", "deaths"],
+    "data_type": ["time series", "cases", "deaths"],
     "geographical": true,
     "geospatial": false,
     "region": ["United States"],
@@ -202,7 +212,7 @@
   {
     "name": "New York Times county level data",
     "accessor": "nytimes_county_data",
-    "data_type": ["time series", "cumulative cases", "deaths"],
+    "data_type": ["time series", "cases", "deaths"],
     "geographical": true,
     "geospatial": false,
     "region": ["United States"],
@@ -212,7 +222,7 @@
   {
     "name": "New York Times state level data",
     "accessor": "nytimes_state_data",
-    "data_type": ["time series", "cumulative cases", "deaths"],
+    "data_type": ["time series", "cases", "deaths"],
     "geographical": true,
     "geospatial": false,
     "region": ["United States"],
@@ -232,7 +242,7 @@
   {
     "name": "United States county-level geographic details",
     "accessor": "us_county_geo_details",
-    "data_type": ["demographic", "geographic"],
+    "data_type": ["demographics", "geographic"],
     "geographical": true,
     "geospatial": true,
     "region": ["United States"],
@@ -242,7 +252,7 @@
   {
     "name": "CovidTracker data",
     "accessor": "covidtracker_data",
-    "data_type": ["time series", "cumulative cases", "deaths", "testing"],
+    "data_type": ["time series", "cases", "deaths", "testing"],
     "geographical": true,
     "geospatial": false,
     "region": ["United States"],
@@ -270,16 +280,6 @@
     "url": "https://www.bsg.ox.ac.uk/research/research-projects/oxford-covid-19-government-response-tracker"
   },
   {
-    "name": "Healthdata.org testing data",
-    "accessor": "healthdata_testing_data",
-    "data_type": ["time series", "projections", "testing"],
-    "geographical": true,
-    "geospatial": false,
-    "region": ["United States", "World"],
-    "resolution": ["admin1", "admin2"],
-    "url": "http://www.healthdata.org/covid"
-  },
-  {
     "name": "Healthdata.org mobility data",
     "accessor": "healthdata_mobility_data",
     "data_type": ["time series", "projections", "mobility"],
@@ -292,7 +292,7 @@
   {
     "name": "Healthdata.org projections of hospital utilization and deaths",
     "accessor": "healthdata_projections_data",
-    "data_type": ["time series", "projections", "cumulative cases", "deaths"],
+    "data_type": ["time series", "projections", "cases", "deaths"],
     "geographical": true,
     "geospatial": false,
     "region": ["United States", "World"],
@@ -325,7 +325,7 @@
     "data_type": ["mobility", "time series", "projections"],
     "geographical": true,
     "geospatial": false,
-    "region": ["international"],
+    "region": ["International"],
     "resolution": ["admin0", "admin1"],
     "url": "https://covid19.healthdata.org/projections"
   },
@@ -335,7 +335,7 @@
     "data_type": ["testing", "time series", "projections"],
     "geographical": true,
     "geospatial": false,
-    "region": ["international"],
+    "region": ["International"],
     "resolution": ["admin0", "admin1"],
     "url": "https://covid19.healthdata.org/projections"
   }

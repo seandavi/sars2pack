@@ -82,7 +82,7 @@ ecdc_data <- function() {
                         iso3c='countryterritoryCode',
                         continent='continentExp',
                         confirmed='cases',
-                        population_2018='popData2018')) %>%
+                        population_2019='popData2019')) %>%
         dplyr::select(-c(.data$day,
                          .data$month,
                          .data$year)) %>%
