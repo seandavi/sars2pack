@@ -84,7 +84,7 @@ data frame should contain at least:" />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sars2pack</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.2</span>
       </span>
     </div>
 
@@ -119,16 +119,25 @@ data frame should contain at least:" />
       <a href="../articles/doMCMC.html">Building MCMC-based models of SI for SARS-Cov-2</a>
     </li>
     <li>
+      <a href="../articles/how_much_testing.html">HMTPlot: How much testing</a>
+    </li>
+    <li>
       <a href="../articles/index.html">Introduction to sars2pack</a>
     </li>
     <li>
       <a href="../articles/map_visualization.html">Geospatial visualization of COVID-19 datasets</a>
     </li>
     <li>
+      <a href="../articles/minority_death_rate.html">COVID-19 infection rates and deaths by race</a>
+    </li>
+    <li>
       <a href="../articles/more_visualization.html">Visualizing geographic COVID-19 trends without maps</a>
     </li>
     <li>
       <a href="../articles/overview.html">Exploring the COVID-19 pandemic using sars2pack</a>
+    </li>
+    <li>
+      <a href="../articles/phylogenetics.html">Phylogenetic data</a>
     </li>
     <li>
       <a href="../articles/r0_estimates.html">Estimating the replication rate, $R_0$</a>
@@ -270,16 +279,19 @@ curves on the same plot. See examples.</p>
 <span class='no'>cc</span> <span class='kw'>=</span> <span class='fu'><a href='covidtracker_data.html'>covidtracker_data</a></span>() <span class='kw'>%&gt;%</span>
     <span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span>(<span class='kw'>total_tests</span> <span class='kw'>=</span> <span class='no'>positive</span>+<span class='no'>negative</span>) <span class='kw'>%&gt;%</span>
     <span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span>(<span class='no'>total_tests</span><span class='kw'>&gt;</span><span class='fl'>0</span>)
-<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>cc</span>)</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 6 x 10</span><span>
-#&gt;   date       state positive negative pending hospitalized death
-#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span>        </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span>
-#&gt; </span><span style='color: #555555;'>1</span><span> 2020-06-04 AK         513    </span><span style='text-decoration: underline;'>59</span><span>584      </span><span style='color: #BB0000;'>NA</span><span>           </span><span style='color: #BB0000;'>NA</span><span>    10
-#&gt; </span><span style='color: #555555;'>2</span><span> 2020-06-04 AL       </span><span style='text-decoration: underline;'>19</span><span>072   </span><span style='text-decoration: underline;'>216</span><span>227      </span><span style='color: #BB0000;'>NA</span><span>         </span><span style='text-decoration: underline;'>1</span><span>929   653
-#&gt; </span><span style='color: #555555;'>3</span><span> 2020-06-04 AR        </span><span style='text-decoration: underline;'>8</span><span>067   </span><span style='text-decoration: underline;'>134</span><span>413      </span><span style='color: #BB0000;'>NA</span><span>          757   142
-#&gt; </span><span style='color: #555555;'>4</span><span> 2020-06-04 AS           0      174      </span><span style='color: #BB0000;'>NA</span><span>           </span><span style='color: #BB0000;'>NA</span><span>     0
-#&gt; </span><span style='color: #555555;'>5</span><span> 2020-06-04 AZ       </span><span style='text-decoration: underline;'>22</span><span>753   </span><span style='text-decoration: underline;'>227</span><span>002      </span><span style='color: #BB0000;'>NA</span><span>         </span><span style='text-decoration: underline;'>3</span><span>195   996
-#&gt; </span><span style='color: #555555;'>6</span><span> 2020-06-04 CA      </span><span style='text-decoration: underline;'>119</span><span>807  2</span><span style='text-decoration: underline;'>062</span><span>864      </span><span style='color: #BB0000;'>NA</span><span>           </span><span style='color: #BB0000;'>NA</span><span>  </span><span style='text-decoration: underline;'>4</span><span>422
-#&gt; </span><span style='color: #555555;'># … with 3 more variables: dateChecked </span><span style='color: #555555;font-style: italic;'>&lt;dttm&gt;</span><span style='color: #555555;'>, fips </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, total_tests </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span></div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>cc</span>)</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 6 x 17</span><span>
+#&gt;   date       fips  state positive negative death pending hospitalized
+#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span>        </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span>
+#&gt; </span><span style='color: #555555;'>1</span><span> 2020-06-29 00002 AK         904   </span><span style='text-decoration: underline;'>107</span><span>805    14      </span><span style='color: #BB0000;'>NA</span><span>           </span><span style='color: #BB0000;'>NA</span><span>
+#&gt; </span><span style='color: #555555;'>2</span><span> 2020-06-29 00001 AL       </span><span style='text-decoration: underline;'>37</span><span>175   </span><span style='text-decoration: underline;'>356</span><span>118   929      </span><span style='color: #BB0000;'>NA</span><span>         </span><span style='text-decoration: underline;'>2</span><span>725
+#&gt; </span><span style='color: #555555;'>3</span><span> 2020-06-29 00005 AR       </span><span style='text-decoration: underline;'>20</span><span>257   </span><span style='text-decoration: underline;'>282</span><span>279   265      </span><span style='color: #BB0000;'>NA</span><span>         </span><span style='text-decoration: underline;'>1</span><span>380
+#&gt; </span><span style='color: #555555;'>4</span><span> 2020-06-29 00060 AS           0      696     0      </span><span style='color: #BB0000;'>NA</span><span>           </span><span style='color: #BB0000;'>NA</span><span>
+#&gt; </span><span style='color: #555555;'>5</span><span> 2020-06-29 00004 AZ       </span><span style='text-decoration: underline;'>74</span><span>533   </span><span style='text-decoration: underline;'>436</span><span>890  </span><span style='text-decoration: underline;'>1</span><span>588      </span><span style='color: #BB0000;'>NA</span><span>         </span><span style='text-decoration: underline;'>4</span><span>634
+#&gt; </span><span style='color: #555555;'>6</span><span> 2020-06-29 00006 CA      </span><span style='text-decoration: underline;'>216</span><span>550  3</span><span style='text-decoration: underline;'>845</span><span>142  </span><span style='text-decoration: underline;'>5</span><span>936      </span><span style='color: #BB0000;'>NA</span><span>           </span><span style='color: #BB0000;'>NA</span><span>
+#&gt; </span><span style='color: #555555;'># … with 9 more variables: hospitalizedCurrently </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span style='color: #555555;'>, recovered </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span style='color: #555555;'>,</span><span>
+#&gt; </span><span style='color: #555555;'>#   inIcuCumulative </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span style='color: #555555;'>, inIcuCurrently </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span style='color: #555555;'>, onVentilatorCurrently </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span style='color: #555555;'>,</span><span>
+#&gt; </span><span style='color: #555555;'>#   onVentilatorCumulative </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span style='color: #555555;'>, dateChecked </span><span style='color: #555555;font-style: italic;'>&lt;dttm&gt;</span><span style='color: #555555;'>, dataQualityGrade </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>,</span><span>
+#&gt; </span><span style='color: #555555;'>#   total_tests </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span></div><div class='input'>
 <span class='fu'>plot_epicurve</span>(<span class='no'>cc</span>, <span class='kw'>case_column</span><span class='kw'>=</span><span class='st'>'total_tests'</span>, <span class='kw'>color</span><span class='kw'>=</span><span class='st'>'state'</span>, <span class='kw'>log</span><span class='kw'>=</span><span class='fl'>FALSE</span>) +
     <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span>(<span class='st'>'Total tests by state'</span>) +
     <span class='kw pkg'>ggplot2</span><span class='kw ns'>::</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span>(<span class='kw'>legend.position</span><span class='kw'>=</span><span class='st'>'bottom'</span>)</div><div class='img'><img src='plot_epicurve-3.png' alt='' width='700' height='433' /></div><div class='input'>

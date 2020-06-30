@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>demonstrative app for EpiEstim R<a href='https://rdrr.io/r/base/t.html'>t</a> sensitivity analysis — eesi • sars2pack</title>
+<title>add a dataset to the package catalog — add_dataset_to_catalog • sars2pack</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,9 @@
 
 
 
-<meta property="og:title" content="demonstrative app for EpiEstim R<a href='https://rdrr.io/r/base/t.html'>t</a> sensitivity analysis — eesi" />
-<meta property="og:description" content="demonstrative app for EpiEstim Rt sensitivity analysis" />
+<meta property="og:title" content="add a dataset to the package catalog — add_dataset_to_catalog" />
+<meta property="og:description" content="This is an internal convenience function for adding a new dataset to the
+package catalog." />
 
 
 
@@ -169,72 +170,80 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>demonstrative app for EpiEstim R<a href='https://rdrr.io/r/base/t.html'>t</a> sensitivity analysis</h1>
-    <small class="dont-index">Source: <a href='https://github.com/seandavi/sars2pack/blob/master/R/app1.R'><code>R/app1.R</code></a></small>
-    <div class="hidden name"><code>eesi.Rd</code></div>
+    <h1>add a dataset to the package catalog</h1>
+    <small class="dont-index">Source: <a href='https://github.com/seandavi/sars2pack/blob/master/R/data_catalog.R'><code>R/data_catalog.R</code></a></small>
+    <div class="hidden name"><code>add_dataset_to_catalog.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>demonstrative app for EpiEstim R<a href='https://rdrr.io/r/base/t.html'>t</a> sensitivity analysis</p>
+    <p>This is an <em>internal</em> convenience function for adding a new dataset to the
+package catalog.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>eesi</span>(
-  <span class='no'>src</span>,
-  <span class='kw'>mean_si_trunc_radius</span> <span class='kw'>=</span> <span class='fl'>3</span>,
-  <span class='kw'>std_si_trunc_radius</span> <span class='kw'>=</span> <span class='fl'>3</span>,
-  <span class='kw'>std_mean_si</span> <span class='kw'>=</span> <span class='fl'>3</span>,
-  <span class='kw'>std_std_si</span> <span class='kw'>=</span> <span class='fl'>5</span>,
-  <span class='kw'>n1</span> <span class='kw'>=</span> <span class='fl'>100</span>,
-  <span class='kw'>n2</span> <span class='kw'>=</span> <span class='fl'>100</span>
+    <pre class="usage"><span class='fu'>add_dataset_to_catalog</span>(
+  <span class='no'>name</span>,
+  <span class='no'>accessor</span>,
+  <span class='kw'>data_type</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(),
+  <span class='kw'>url</span> <span class='kw'>=</span> <span class='st'>""</span>,
+  <span class='kw'>geographical</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>geospatial</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>resolution</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>region</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>jsonfile</span> <span class='kw'>=</span> <span class='st'>"inst/data_catalog/catalog.json"</span>,
+  <span class='kw'>write</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>src</th>
-      <td><p>intended to be the result of sars2pack::nytimes_state_data(), no checking is done.</p></td>
+      <th>name</th>
+      <td><p>character(1) long name</p></td>
     </tr>
     <tr>
-      <th>mean_si_trunc_radius</th>
-      <td><p>numeric(1)</p></td>
+      <th>accessor</th>
+      <td><p>character(1) name of accessor function</p></td>
     </tr>
     <tr>
-      <th>std_si_trunc_radius</th>
-      <td><p>numeric(1)</p></td>
+      <th>data_type</th>
+      <td><p>character() vector of data_types</p></td>
     </tr>
     <tr>
-      <th>std_mean_si</th>
-      <td><p>numeric(1) used with 'uncertain' serial interval option, see EpiEstim::make_config</p></td>
+      <th>url</th>
+      <td><p>character() url of source</p></td>
     </tr>
     <tr>
-      <th>std_std_si</th>
-      <td><p>numeric(1) used with 'uncertain' serial interval option, see EpiEstim::make_config</p></td>
+      <th>geographical</th>
+      <td><p>logical(1) includes geographical information or not</p></td>
     </tr>
     <tr>
-      <th>n1</th>
-      <td><p>numeric(1) used with 'uncertain' serial interval option, see EpiEstim::make_config</p></td>
+      <th>geospatial</th>
+      <td><p>logical(1) includes geospatial information or not</p></td>
     </tr>
     <tr>
-      <th>n2</th>
-      <td><p>numeric(1) used with 'uncertain' serial interval option, see EpiEstim::make_config</p></td>
+      <th>resolution</th>
+      <td><p>logical(1) if geographical, one of admin0, admin1, admin2, admin3</p></td>
+    </tr>
+    <tr>
+      <th>region</th>
+      <td><p>character() with World (global), international (more than one nation),
+United States</p></td>
+    </tr>
+    <tr>
+      <th>jsonfile</th>
+      <td><p>character(1) name of json file to append to.</p></td>
+    </tr>
+    <tr>
+      <th>write</th>
+      <td><p>logical(1) write the file (TRUE) or simply (invisibly) return the
+resulting new list for inspection</p></td>
     </tr>
     </table>
 
-    <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>This app is currently incomplete.  Additions needed include
-2) additional
-approaches to serial interval modeling, 3) enhancement of displays to present actual
-calendar dates, 4) an approach to supporting comparative displays, particularly allowing
-overlay of different R<a href='https://rdrr.io/r/base/t.html'>t</a> fits for different serial interval modeling assumptions.</p>
+    <p>A list ready for appending to json</p>
 
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># must run example(eesi, ask=FALSE)</span>
-<span class='kw'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
- <span class='no'>nytdat</span> <span class='kw'>=</span> <span class='fu'><a href='nytimes_county_data.html'>nytimes_state_data</a></span>()
- <span class='fu'>eesi</span>(<span class='no'>nytdat</span>)
-}</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

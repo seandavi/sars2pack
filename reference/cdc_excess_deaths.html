@@ -87,7 +87,7 @@ based on reported COVID-19 deaths." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sars2pack</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.2</span>
       </span>
     </div>
 
@@ -122,16 +122,25 @@ based on reported COVID-19 deaths." />
       <a href="../articles/doMCMC.html">Building MCMC-based models of SI for SARS-Cov-2</a>
     </li>
     <li>
+      <a href="../articles/how_much_testing.html">HMTPlot: How much testing</a>
+    </li>
+    <li>
       <a href="../articles/index.html">Introduction to sars2pack</a>
     </li>
     <li>
       <a href="../articles/map_visualization.html">Geospatial visualization of COVID-19 datasets</a>
     </li>
     <li>
+      <a href="../articles/minority_death_rate.html">COVID-19 infection rates and deaths by race</a>
+    </li>
+    <li>
       <a href="../articles/more_visualization.html">Visualizing geographic COVID-19 trends without maps</a>
     </li>
     <li>
       <a href="../articles/overview.html">Exploring the COVID-19 pandemic using sars2pack</a>
+    </li>
+    <li>
+      <a href="../articles/phylogenetics.html">Phylogenetic data</a>
     </li>
     <li>
       <a href="../articles/r0_estimates.html">Estimating the replication rate, $R_0$</a>
@@ -229,6 +238,7 @@ limitations can be found in the <a href='https://www.cdc.gov/nchs/nvss/vsrr/covi
 <code><a href='apple_mobility_data.html'>apple_mobility_data</a>()</code>,
 <code><a href='beoutbreakprepared_data.html'>beoutbreakprepared_data</a>()</code>,
 <code><a href='cdc_aggregated_projections.html'>cdc_aggregated_projections</a>()</code>,
+<code><a href='cdc_social_vulnerability_index.html'>cdc_social_vulnerability_index</a>()</code>,
 <code><a href='coronanet_government_response_data.html'>coronanet_government_response_data</a>()</code>,
 <code><a href='cov_glue_lineage_data.html'>cov_glue_lineage_data</a>()</code>,
 <code><a href='cov_glue_newick_data.html'>cov_glue_newick_data</a>()</code>,
@@ -258,15 +268,16 @@ limitations can be found in the <a href='https://www.cdc.gov/nchs/nvss/vsrr/covi
 <code><a href='usa_facts_data.html'>usa_facts_data</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>cdcdeaths</span> <span class='kw'>=</span> <span class='fu'>cdc_excess_deaths</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: All formats failed to parse. No formats found.</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>cdcdeaths</span>)</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 6 x 13</span><span>
+    <pre class="examples"><div class='input'><span class='no'>cdcdeaths</span> <span class='kw'>=</span> <span class='fu'>cdc_excess_deaths</span>()
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>cdcdeaths</span>)</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 6 x 13</span><span>
 #&gt;   date       state deaths upper_bound_thr… exceeds_thresho… average_expecte…
 #&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>            </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;lgl&gt;</span><span>                       </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #555555;'>1</span><span> </span><span style='color: #BB0000;'>NA</span><span>         Alab…   </span><span style='text-decoration: underline;'>1</span><span>130             </span><span style='text-decoration: underline;'>1</span><span>199 FALSE                        </span><span style='text-decoration: underline;'>1</span><span>042
-#&gt; </span><span style='color: #555555;'>2</span><span> </span><span style='color: #BB0000;'>NA</span><span>         Alab…   </span><span style='text-decoration: underline;'>1</span><span>048             </span><span style='text-decoration: underline;'>1</span><span>214 FALSE                        </span><span style='text-decoration: underline;'>1</span><span>057
-#&gt; </span><span style='color: #555555;'>3</span><span> </span><span style='color: #BB0000;'>NA</span><span>         Alab…   </span><span style='text-decoration: underline;'>1</span><span>026             </span><span style='text-decoration: underline;'>1</span><span>233 FALSE                        </span><span style='text-decoration: underline;'>1</span><span>076
-#&gt; </span><span style='color: #555555;'>4</span><span> </span><span style='color: #BB0000;'>NA</span><span>         Alab…   </span><span style='text-decoration: underline;'>1</span><span>036             </span><span style='text-decoration: underline;'>1</span><span>231 FALSE                        </span><span style='text-decoration: underline;'>1</span><span>074
-#&gt; </span><span style='color: #555555;'>5</span><span> </span><span style='color: #BB0000;'>NA</span><span>         Alab…   </span><span style='text-decoration: underline;'>1</span><span>058             </span><span style='text-decoration: underline;'>1</span><span>224 FALSE                        </span><span style='text-decoration: underline;'>1</span><span>071
-#&gt; </span><span style='color: #555555;'>6</span><span> </span><span style='color: #BB0000;'>NA</span><span>         Alab…   </span><span style='text-decoration: underline;'>1</span><span>060             </span><span style='text-decoration: underline;'>1</span><span>230 FALSE                        </span><span style='text-decoration: underline;'>1</span><span>074
+#&gt; </span><span style='color: #555555;'>1</span><span> 2017-01-14 Alab…   </span><span style='text-decoration: underline;'>1</span><span>130             </span><span style='text-decoration: underline;'>1</span><span>199 FALSE                        </span><span style='text-decoration: underline;'>1</span><span>042
+#&gt; </span><span style='color: #555555;'>2</span><span> 2017-01-21 Alab…   </span><span style='text-decoration: underline;'>1</span><span>048             </span><span style='text-decoration: underline;'>1</span><span>214 FALSE                        </span><span style='text-decoration: underline;'>1</span><span>057
+#&gt; </span><span style='color: #555555;'>3</span><span> 2017-01-28 Alab…   </span><span style='text-decoration: underline;'>1</span><span>026             </span><span style='text-decoration: underline;'>1</span><span>233 FALSE                        </span><span style='text-decoration: underline;'>1</span><span>076
+#&gt; </span><span style='color: #555555;'>4</span><span> 2017-02-04 Alab…   </span><span style='text-decoration: underline;'>1</span><span>036             </span><span style='text-decoration: underline;'>1</span><span>231 FALSE                        </span><span style='text-decoration: underline;'>1</span><span>074
+#&gt; </span><span style='color: #555555;'>5</span><span> 2017-02-11 Alab…   </span><span style='text-decoration: underline;'>1</span><span>058             </span><span style='text-decoration: underline;'>1</span><span>224 FALSE                        </span><span style='text-decoration: underline;'>1</span><span>071
+#&gt; </span><span style='color: #555555;'>6</span><span> 2017-02-18 Alab…   </span><span style='text-decoration: underline;'>1</span><span>060             </span><span style='text-decoration: underline;'>1</span><span>230 FALSE                        </span><span style='text-decoration: underline;'>1</span><span>074
 #&gt; </span><span style='color: #555555;'># … with 7 more variables: excess_lower_estimate </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
 #&gt; </span><span style='color: #555555;'>#   excess_higher_estimate </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, type </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, outcome </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, suppress </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>,</span><span>
 #&gt; </span><span style='color: #555555;'>#   note </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, week_of_year </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>cdcdeaths</span>)</div><div class='output co'>#&gt;  [1] "date"                   "state"                  "deaths"                
@@ -275,7 +286,7 @@ limitations can be found in the <a href='https://www.cdc.gov/nchs/nvss/vsrr/covi
 #&gt; [10] "outcome"                "suppress"               "note"                  
 #&gt; [13] "week_of_year"          </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span>(<span class='no'>cdcdeaths</span>$<span class='no'>outcome</span>)</div><div class='output co'>#&gt; 
 #&gt;                     All causes All causes, excluding COVID-19 
-#&gt;                          19008                          19008 </div><div class='input'>
+#&gt;                          19332                           9666 </div><div class='input'>
 
 <span class='co'># Examine excess deaths in three states</span>
 <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>ggplot2</span>)
@@ -288,7 +299,7 @@ limitations can be found in the <a href='https://www.cdc.gov/nchs/nvss/vsrr/covi
     <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>color</span><span class='kw'>=</span><span class='no'>deaths</span><span class='kw'>&gt;</span><span class='no'>upper_bound_threshold</span>)) +
     <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>x</span><span class='kw'>=</span><span class='no'>date</span>,<span class='kw'>y</span><span class='kw'>=</span><span class='no'>upper_bound_threshold</span>)) +
     <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/facet_grid.html'>facet_grid</a></span>(<span class='kw'>rows</span><span class='kw'>=</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/vars.html'>vars</a></span>(<span class='no'>state</span>)) +
-    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span>(<span class='st'>'Excess deaths over time'</span>)</div><div class='output co'>#&gt; <span class='error'>Error in seq.int(0, to0 - from, by): 'to' must be a finite number</span></div><div class='img'><img src='cdc_excess_deaths-1.png' alt='' width='700' height='433' /></div><div class='input'>
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span>(<span class='st'>'Excess deaths over time'</span>)</div><div class='img'><img src='cdc_excess_deaths-1.png' alt='' width='700' height='433' /></div><div class='input'>
 </div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

@@ -87,7 +87,7 @@ stations, workplaces, and residential." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sars2pack</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.2</span>
       </span>
     </div>
 
@@ -122,16 +122,25 @@ stations, workplaces, and residential." />
       <a href="../articles/doMCMC.html">Building MCMC-based models of SI for SARS-Cov-2</a>
     </li>
     <li>
+      <a href="../articles/how_much_testing.html">HMTPlot: How much testing</a>
+    </li>
+    <li>
       <a href="../articles/index.html">Introduction to sars2pack</a>
     </li>
     <li>
       <a href="../articles/map_visualization.html">Geospatial visualization of COVID-19 datasets</a>
     </li>
     <li>
+      <a href="../articles/minority_death_rate.html">COVID-19 infection rates and deaths by race</a>
+    </li>
+    <li>
       <a href="../articles/more_visualization.html">Visualizing geographic COVID-19 trends without maps</a>
     </li>
     <li>
       <a href="../articles/overview.html">Exploring the COVID-19 pandemic using sars2pack</a>
+    </li>
+    <li>
+      <a href="../articles/phylogenetics.html">Phylogenetic data</a>
     </li>
     <li>
       <a href="../articles/r0_estimates.html">Estimating the replication rate, $R_0$</a>
@@ -239,6 +248,7 @@ preventing the identification of any individual person.</p>
 <code><a href='beoutbreakprepared_data.html'>beoutbreakprepared_data</a>()</code>,
 <code><a href='cdc_aggregated_projections.html'>cdc_aggregated_projections</a>()</code>,
 <code><a href='cdc_excess_deaths.html'>cdc_excess_deaths</a>()</code>,
+<code><a href='cdc_social_vulnerability_index.html'>cdc_social_vulnerability_index</a>()</code>,
 <code><a href='coronanet_government_response_data.html'>coronanet_government_response_data</a>()</code>,
 <code><a href='cov_glue_lineage_data.html'>cov_glue_lineage_data</a>()</code>,
 <code><a href='cov_glue_newick_data.html'>cov_glue_newick_data</a>()</code>,
@@ -272,25 +282,36 @@ preventing the identification of any individual person.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-<span class='no'>res</span> <span class='kw'>=</span> <span class='fu'>google_mobility_data</span>()
-<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; [1] "iso2c"                        "country_region"              
-#&gt; [3] "admin1"                       "admin2"                      
-#&gt; [5] "date"                         "admin_level"                 
-#&gt; [7] "places_category"              "percent_change_from_baseline"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 6 x 8</span><span>
-#&gt;   iso2c country_region admin1 admin2 date       admin_level places_category
-#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>          </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>           </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>          
-#&gt; </span><span style='color: #555555;'>1</span><span> AE    United Arab E… </span><span style='color: #BB0000;'>NA</span><span>     </span><span style='color: #BB0000;'>NA</span><span>     2020-02-15           0 retail_and_rec…
-#&gt; </span><span style='color: #555555;'>2</span><span> AE    United Arab E… </span><span style='color: #BB0000;'>NA</span><span>     </span><span style='color: #BB0000;'>NA</span><span>     2020-02-15           0 grocery_and_ph…
-#&gt; </span><span style='color: #555555;'>3</span><span> AE    United Arab E… </span><span style='color: #BB0000;'>NA</span><span>     </span><span style='color: #BB0000;'>NA</span><span>     2020-02-15           0 parks          
-#&gt; </span><span style='color: #555555;'>4</span><span> AE    United Arab E… </span><span style='color: #BB0000;'>NA</span><span>     </span><span style='color: #BB0000;'>NA</span><span>     2020-02-15           0 transit_statio…
-#&gt; </span><span style='color: #555555;'>5</span><span> AE    United Arab E… </span><span style='color: #BB0000;'>NA</span><span>     </span><span style='color: #BB0000;'>NA</span><span>     2020-02-15           0 workplaces     
-#&gt; </span><span style='color: #555555;'>6</span><span> AE    United Arab E… </span><span style='color: #BB0000;'>NA</span><span>     </span><span style='color: #BB0000;'>NA</span><span>     2020-02-15           0 residential    
-#&gt; </span><span style='color: #555555;'># … with 1 more variable: percent_change_from_baseline </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span></div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Rows: 2,863,932
-#&gt; Columns: 8
+<span class='no'>res</span> <span class='kw'>=</span> <span class='fu'>google_mobility_data</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: 680174 parsing failures.</span>
+#&gt; <span class='warning'>   row              col           expected         actual                                                                              file</span>
+#&gt; <span class='warning'>228153 sub_region_2     1/0/T/F/TRUE/FALSE Autauga County '/Users/sdavis2/Library/Caches/sars2pack/167310b756ac_Global_Mobility_Report.csv'</span>
+#&gt; <span class='warning'>228153 census_fips_code 1/0/T/F/TRUE/FALSE 01001          '/Users/sdavis2/Library/Caches/sars2pack/167310b756ac_Global_Mobility_Report.csv'</span>
+#&gt; <span class='warning'>228154 sub_region_2     1/0/T/F/TRUE/FALSE Autauga County '/Users/sdavis2/Library/Caches/sars2pack/167310b756ac_Global_Mobility_Report.csv'</span>
+#&gt; <span class='warning'>228154 census_fips_code 1/0/T/F/TRUE/FALSE 01001          '/Users/sdavis2/Library/Caches/sars2pack/167310b756ac_Global_Mobility_Report.csv'</span>
+#&gt; <span class='warning'>228155 sub_region_2     1/0/T/F/TRUE/FALSE Autauga County '/Users/sdavis2/Library/Caches/sars2pack/167310b756ac_Global_Mobility_Report.csv'</span>
+#&gt; <span class='warning'>...... ................ .................. .............. .................................................................................</span>
+#&gt; <span class='warning'>See problems(...) for more details.</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt;  [1] "iso2c"                        "country_region"              
+#&gt;  [3] "admin1"                       "admin2"                      
+#&gt;  [5] "iso_3166_2_code"              "census_fips_code"            
+#&gt;  [7] "date"                         "admin_level"                 
+#&gt;  [9] "places_category"              "percent_change_from_baseline"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 6 x 10</span><span>
+#&gt;   iso2c country_region admin1 admin2 iso_3166_2_code census_fips_code date      
+#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>          </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;lgl&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>           </span><span style='color: #555555;font-style: italic;'>&lt;lgl&gt;</span><span>            </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>    
+#&gt; </span><span style='color: #555555;'>1</span><span> AE    United Arab E… </span><span style='color: #BB0000;'>NA</span><span>     </span><span style='color: #BB0000;'>NA</span><span>     </span><span style='color: #BB0000;'>NA</span><span>              </span><span style='color: #BB0000;'>NA</span><span>               2020-02-15
+#&gt; </span><span style='color: #555555;'>2</span><span> AE    United Arab E… </span><span style='color: #BB0000;'>NA</span><span>     </span><span style='color: #BB0000;'>NA</span><span>     </span><span style='color: #BB0000;'>NA</span><span>              </span><span style='color: #BB0000;'>NA</span><span>               2020-02-15
+#&gt; </span><span style='color: #555555;'>3</span><span> AE    United Arab E… </span><span style='color: #BB0000;'>NA</span><span>     </span><span style='color: #BB0000;'>NA</span><span>     </span><span style='color: #BB0000;'>NA</span><span>              </span><span style='color: #BB0000;'>NA</span><span>               2020-02-15
+#&gt; </span><span style='color: #555555;'>4</span><span> AE    United Arab E… </span><span style='color: #BB0000;'>NA</span><span>     </span><span style='color: #BB0000;'>NA</span><span>     </span><span style='color: #BB0000;'>NA</span><span>              </span><span style='color: #BB0000;'>NA</span><span>               2020-02-15
+#&gt; </span><span style='color: #555555;'>5</span><span> AE    United Arab E… </span><span style='color: #BB0000;'>NA</span><span>     </span><span style='color: #BB0000;'>NA</span><span>     </span><span style='color: #BB0000;'>NA</span><span>              </span><span style='color: #BB0000;'>NA</span><span>               2020-02-15
+#&gt; </span><span style='color: #555555;'>6</span><span> AE    United Arab E… </span><span style='color: #BB0000;'>NA</span><span>     </span><span style='color: #BB0000;'>NA</span><span>     </span><span style='color: #BB0000;'>NA</span><span>              </span><span style='color: #BB0000;'>NA</span><span>               2020-02-15
+#&gt; </span><span style='color: #555555;'># … with 3 more variables: admin_level </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, places_category </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>,</span><span>
+#&gt; </span><span style='color: #555555;'>#   percent_change_from_baseline </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span></div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Rows: 3,531,234
+#&gt; Columns: 10
 #&gt; $ iso2c                        </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "AE", "AE", "AE", "AE", "AE", "AE", "AE"…
 #&gt; $ country_region               </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "United Arab Emirates", "United Arab Emi…
 #&gt; $ admin1                       </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
-#&gt; $ admin2                       </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+#&gt; $ admin2                       </span><span style='color: #555555;font-style: italic;'>&lt;lgl&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+#&gt; $ iso_3166_2_code              </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+#&gt; $ census_fips_code             </span><span style='color: #555555;font-style: italic;'>&lt;lgl&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
 #&gt; $ date                         </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2020-02-15, 2020-02-15, 2020-02-15, 202…
 #&gt; $ admin_level                  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
 #&gt; $ places_category              </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "retail_and_recreation", "grocery_and_ph…
@@ -305,48 +326,39 @@ preventing the identification of any individual person.</p>
 <span class='no'>admin_by_country</span></div><div class='output co'>#&gt;    
 #&gt;       AE   AF   AG   AO   AR   AT   AU   AW   BA   BB   BD   BE   BF   BG   BH
 #&gt;   0    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1
-#&gt;   1    7    0    4    5   24    9    8    0    0    7    0    3    4   28    0
-#&gt;   2    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0
+#&gt;   1    7    0    4    5   24    9    8    0    0    8    0    3    4   28    0
 #&gt;    
 #&gt;       BJ   BO   BR   BS   BW   BY   BZ   CA   CH   CI   CL   CM   CO   CR   CV
 #&gt;   0    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1
 #&gt;   1    4    9   27    3    0    0    5   13   26   11   16   10   31    0    3
-#&gt;   2    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0
 #&gt;    
 #&gt;       CZ   DE   DK   DO   EC   EE   EG   ES   FI   FJ   FR   GA   GB   GE   GH
 #&gt;   0    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1
-#&gt;   1   14   16    5   29   24   14   27   19   18    0   13    3  151    0    0
-#&gt;   2    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0
+#&gt;   1   14   16    5   30   24   15   27   19   18    0   13    3  151    0    0
 #&gt;    
 #&gt;       GR   GT   GW   HK   HN   HR   HT   HU   ID   IE   IL   IN   IQ   IT   JM
 #&gt;   0    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1
-#&gt;   1    7   22    0    0   17   21    8   20   34   26    6   36    0   20   14
-#&gt;   2    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0
+#&gt;   1    7   22    0    0   17   21    7   20   34   26    6   36    0   20   14
 #&gt;    
 #&gt;       JO   JP   KE   KG   KH   KR   KW   KZ   LA   LB   LI   LK   LT   LU   LV
 #&gt;   0    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1
-#&gt;   1   11   47   37    7   20    0    6    0    0    8    0    0   10    0   38
-#&gt;   2    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0
+#&gt;   1   12   47   37    7   20    0    6    0    0    8    0    0   10    0   49
 #&gt;    
-#&gt;       LY   MD   MK   ML   MM   MN   MT   MU   MX   MY   MZ   NE   NG   NI   NL
+#&gt;       LY   MA   MD   MK   ML   MM   MN   MT   MU   MX   MY   MZ   NE   NG   NI
 #&gt;   0    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1
-#&gt;   1    6    0    0    0    0    1    0   10   32   16   10    5   37   15   12
-#&gt;   2    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0
+#&gt;   1    8    0    0    0    0    0    1    0   10   32   16   10    5   37   16
 #&gt;    
-#&gt;       NO   NP   NZ   OM   PA   PE   PG   PH   PK   PL   PR   PT   PY   QA   RE
+#&gt;       NL   NO   NP   NZ   OM   PA   PE   PG   PH   PK   PL   PR   PT   PY   QA
 #&gt;   0    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1
-#&gt;   1   11    0   16   11    0   26    0   17    8   16   70   20   17    0    3
-#&gt;   2    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0
+#&gt;   1   12   11    0   16   11    0   26    0   17    8   16   70   20   17    0
 #&gt;    
-#&gt;       RO   RS   RW   SA   SE   SG   SI   SK   SN   SV   TG   TH   TJ   TR   TT
+#&gt;       RE   RO   RS   RU   RW   SA   SE   SG   SI   SK   SN   SV   TG   TH   TJ
 #&gt;   0    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1
-#&gt;   1   42    0    5   13   21    0   57    8   12   14    3    0    0   81    0
-#&gt;   2    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0
+#&gt;   1    2   42    0    0    5   13   21    0   57    8   12   14    3    0    0
 #&gt;    
-#&gt;       TW   TZ   UG   US   UY   VE   VN   YE   ZA   ZM   ZW
-#&gt;   0    1    1    1    1    1    1    1    1    1    1    1
-#&gt;   1    0   22    4   51   19    0   63    0    9    0   10
-#&gt;   2    0    0    0 2716    0    0    0    0    0    0    0</div><div class='input'>
+#&gt;       TR   TT   TW   TZ   UA   UG   US   UY   VE   VN   YE   ZA   ZM   ZW
+#&gt;   0    1    1    1    1    1    1    1    1    1    1    1    1    1    1
+#&gt;   1   81    0    0   22    0    4 2810   19    0   63    0    9    0    9</div><div class='input'>
 <span class='co'># Italy mobility over time</span>
 <span class='co'># Note day-of week effect in plot</span>
 

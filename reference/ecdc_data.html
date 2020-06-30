@@ -82,7 +82,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sars2pack</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.2</span>
       </span>
     </div>
 
@@ -117,16 +117,25 @@
       <a href="../articles/doMCMC.html">Building MCMC-based models of SI for SARS-Cov-2</a>
     </li>
     <li>
+      <a href="../articles/how_much_testing.html">HMTPlot: How much testing</a>
+    </li>
+    <li>
       <a href="../articles/index.html">Introduction to sars2pack</a>
     </li>
     <li>
       <a href="../articles/map_visualization.html">Geospatial visualization of COVID-19 datasets</a>
     </li>
     <li>
+      <a href="../articles/minority_death_rate.html">COVID-19 infection rates and deaths by race</a>
+    </li>
+    <li>
       <a href="../articles/more_visualization.html">Visualizing geographic COVID-19 trends without maps</a>
     </li>
     <li>
       <a href="../articles/overview.html">Exploring the COVID-19 pandemic using sars2pack</a>
+    </li>
+    <li>
+      <a href="../articles/phylogenetics.html">Phylogenetic data</a>
     </li>
     <li>
       <a href="../articles/r0_estimates.html">Estimating the replication rate, $R_0$</a>
@@ -229,6 +238,7 @@ territories listed are aggregated in our database.</p>
 <code><a href='beoutbreakprepared_data.html'>beoutbreakprepared_data</a>()</code>,
 <code><a href='cdc_aggregated_projections.html'>cdc_aggregated_projections</a>()</code>,
 <code><a href='cdc_excess_deaths.html'>cdc_excess_deaths</a>()</code>,
+<code><a href='cdc_social_vulnerability_index.html'>cdc_social_vulnerability_index</a>()</code>,
 <code><a href='coronanet_government_response_data.html'>coronanet_government_response_data</a>()</code>,
 <code><a href='cov_glue_lineage_data.html'>cov_glue_lineage_data</a>()</code>,
 <code><a href='cov_glue_newick_data.html'>cov_glue_newick_data</a>()</code>,
@@ -260,6 +270,7 @@ territories listed are aggregated in our database.</p>
 <code><a href='beoutbreakprepared_data.html'>beoutbreakprepared_data</a>()</code>,
 <code><a href='cdc_aggregated_projections.html'>cdc_aggregated_projections</a>()</code>,
 <code><a href='cdc_excess_deaths.html'>cdc_excess_deaths</a>()</code>,
+<code><a href='cdc_social_vulnerability_index.html'>cdc_social_vulnerability_index</a>()</code>,
 <code><a href='coronanet_government_response_data.html'>coronanet_government_response_data</a>()</code>,
 <code><a href='cov_glue_lineage_data.html'>cov_glue_lineage_data</a>()</code>,
 <code><a href='cov_glue_newick_data.html'>cov_glue_newick_data</a>()</code>,
@@ -302,18 +313,18 @@ territories listed are aggregated in our database.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>ecdc</span> <span class='kw'>=</span> <span class='fu'>ecdc_data</span>()
-<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>ecdc</span>)</div><div class='output co'>#&gt; [1] "date"            "location_name"   "iso2c"           "iso3c"          
-#&gt; [5] "population_2018" "continent"       "subset"          "count"          </div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>ecdc</span>)</div><div class='output co'>#&gt; Rows: 43,094
+<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>ecdc</span>)</div><div class='output co'>#&gt; [1] "date"            "confirmed"       "deaths"          "location_name"  
+#&gt; [5] "iso2c"           "iso3c"           "population_2019" "continent"      </div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>ecdc</span>)</div><div class='output co'>#&gt; Rows: 26,771
 #&gt; Columns: 8
 #&gt; Groups: location_name [210]
-#&gt; $ date            <span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2019-12-31, 2019-12-31, 2020-01-01, 2020-01-01, 2020…
+#&gt; $ date            <span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2019-12-31, 2020-01-01, 2020-01-02, 2020-01-03, 2020…
+#&gt; $ confirmed       </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…
+#&gt; $ deaths          </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…
 #&gt; $ location_name   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Afghanistan", "Afghanistan", "Afghanistan", "Afghani…
 #&gt; $ iso2c           </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "AF", "AF", "AF", "AF", "AF", "AF", "AF", "AF", "AF",…
 #&gt; $ iso3c           </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "AFG", "AFG", "AFG", "AFG", "AFG", "AFG", "AFG", "AFG…
-#&gt; $ population_2018 </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 37172386, 37172386, 37172386, 37172386, 37172386, 371…
-#&gt; $ continent       </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Asia", "Asia", "Asia", "Asia", "Asia", "Asia", "Asia…
-#&gt; $ subset          </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "deaths", "confirmed", "deaths", "confirmed", "deaths…
-#&gt; $ count           </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…</div><div class='input'>
+#&gt; $ population_2019 </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 38041757, 38041757, 38041757, 38041757, 38041757, 380…
+#&gt; $ continent       </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Asia", "Asia", "Asia", "Asia", "Asia", "Asia", "Asia…</div><div class='input'>
 </div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

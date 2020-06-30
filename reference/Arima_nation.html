@@ -82,7 +82,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sars2pack</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.2</span>
       </span>
     </div>
 
@@ -117,16 +117,25 @@
       <a href="../articles/doMCMC.html">Building MCMC-based models of SI for SARS-Cov-2</a>
     </li>
     <li>
+      <a href="../articles/how_much_testing.html">HMTPlot: How much testing</a>
+    </li>
+    <li>
       <a href="../articles/index.html">Introduction to sars2pack</a>
     </li>
     <li>
       <a href="../articles/map_visualization.html">Geospatial visualization of COVID-19 datasets</a>
     </li>
     <li>
+      <a href="../articles/minority_death_rate.html">COVID-19 infection rates and deaths by race</a>
+    </li>
+    <li>
       <a href="../articles/more_visualization.html">Visualizing geographic COVID-19 trends without maps</a>
     </li>
     <li>
       <a href="../articles/overview.html">Exploring the COVID-19 pandemic using sars2pack</a>
+    </li>
+    <li>
+      <a href="../articles/phylogenetics.html">Phylogenetic data</a>
     </li>
     <li>
       <a href="../articles/r0_estimates.html">Estimating the replication rate, $R_0$</a>
@@ -226,24 +235,24 @@ case the latest available date is used</p></td>
     <pre class="examples"><div class='input'><span class='no'>ej</span> <span class='kw'>=</span> <span class='fu'><a href='enriched_jhu_data.html'>enriched_jhu_data</a></span>()
 <span class='no'>lkus</span> <span class='kw'>=</span> <span class='fu'>Arima_nation</span>(<span class='no'>ej</span>)
 <span class='no'>lkus</span></div><div class='output co'>#&gt; Arima_sars2pack instance for USA 
-#&gt;   computed Fri Jun  5 14:43:50 2020 
-#&gt;   last date used was:  2020-06-04 
+#&gt;   computed Tue Jun 30 15:15:17 2020 
+#&gt;   last date used was:  2020-06-29 
 #&gt;   call was: Arima_nation(ejhu = ej)
 #&gt;   Model estimates: 
 #&gt; Series: tsfull 
 #&gt; ARIMA(0,1,2) with drift 
 #&gt; 
 #&gt; Coefficients:
-#&gt;         ma1     ma2      drift
-#&gt;       0.065  0.2373  -223.4505
-#&gt; s.e.  0.204  0.2660   645.1110
+#&gt;          ma1      ma2     drift
+#&gt;       0.1954  -0.6478  881.7714
+#&gt; s.e.  0.1661   0.1696  292.0078
 #&gt; 
-#&gt; sigma^2 estimated as 7898429:  log likelihood=-260.55
-#&gt; AIC=529.11   AICc=530.85   BIC=534.44
+#&gt; sigma^2 estimated as 7632237:  log likelihood=-260.74
+#&gt; AIC=529.48   AICc=531.22   BIC=534.81
 #&gt; 
 #&gt; Training set error measures:
-#&gt;                    ME     RMSE    MAE        MPE     MAPE      MASE        ACF1
-#&gt; Training set -1.90246 2609.404 1955.6 -0.4474937 8.900235 0.9633158 -0.06979537</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='no'>lkus</span>)</div><div class='img'><img src='Arima_nation-1.png' alt='' width='700' height='433' /></div></pre>
+#&gt;                     ME     RMSE     MAE       MPE     MAPE      MASE       ACF1
+#&gt; Training set -12.86442 2565.057 2059.31 -1.319475 8.098146 0.7193019 0.04411034</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='no'>lkus</span>)</div><div class='img'><img src='Arima_nation-1.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

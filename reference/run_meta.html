@@ -82,7 +82,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sars2pack</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.2</span>
       </span>
     </div>
 
@@ -117,16 +117,25 @@
       <a href="../articles/doMCMC.html">Building MCMC-based models of SI for SARS-Cov-2</a>
     </li>
     <li>
+      <a href="../articles/how_much_testing.html">HMTPlot: How much testing</a>
+    </li>
+    <li>
       <a href="../articles/index.html">Introduction to sars2pack</a>
     </li>
     <li>
       <a href="../articles/map_visualization.html">Geospatial visualization of COVID-19 datasets</a>
     </li>
     <li>
+      <a href="../articles/minority_death_rate.html">COVID-19 infection rates and deaths by race</a>
+    </li>
+    <li>
       <a href="../articles/more_visualization.html">Visualizing geographic COVID-19 trends without maps</a>
     </li>
     <li>
       <a href="../articles/overview.html">Exploring the COVID-19 pandemic using sars2pack</a>
+    </li>
+    <li>
+      <a href="../articles/phylogenetics.html">Phylogenetic data</a>
     </li>
     <li>
       <a href="../articles/r0_estimates.html">Estimating the replication rate, $R_0$</a>
@@ -190,20 +199,19 @@
 
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>nyd</span> <span class='kw'>=</span> <span class='fu'><a href='nytimes_county_data.html'>nytimes_state_data</a></span>()
+    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
+<span class='no'>nyd</span> <span class='kw'>=</span> <span class='fu'><a href='nytimes_county_data.html'>nytimes_state_data</a></span>()
 <span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>min_bic_2020_05_20</span>)
 <span class='no'>m1</span> <span class='kw'>=</span> <span class='fu'>run_meta</span>(<span class='no'>nyd</span>, <span class='kw'>opt_parms</span><span class='kw'>=</span><span class='no'>min_bic_2020_05_20</span>)
-<span class='kw pkg'>rmeta</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/rmeta/man/meta.summaries.html'>meta.summaries</a></span>(<span class='no'>m1</span>$<span class='no'>drifts</span>, <span class='no'>m1</span>$<span class='no'>se.drifts</span>)</div><div class='output co'>#&gt; Fixed-effects meta-analysis
-#&gt; Call: rmeta::meta.summaries(d = m1$drifts, se = m1$se.drifts)
-#&gt; Summary effect=0.0761   95% CI (-0.0452, 0.197)
-#&gt; Estimated heterogeneity variance: 3.4  p= 0 </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='no'>m1</span>$<span class='no'>drifts</span>) <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/grep.html'>gsub</a></span>(<span class='st'>".drift"</span>, <span class='st'>""</span>, <span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='no'>m1</span>$<span class='no'>drifts</span>))
+<span class='kw pkg'>rmeta</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/rmeta/man/meta.summaries.html'>meta.summaries</a></span>(<span class='no'>m1</span>$<span class='no'>drifts</span>, <span class='no'>m1</span>$<span class='no'>se.drifts</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='no'>m1</span>$<span class='no'>drifts</span>) <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/grep.html'>gsub</a></span>(<span class='st'>".drift"</span>, <span class='st'>""</span>, <span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='no'>m1</span>$<span class='no'>drifts</span>))
 <span class='no'>nyind</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/which.html'>which</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='no'>m1</span>$<span class='no'>drifts</span>) <span class='kw'>%in%</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"New York"</span>, <span class='st'>"New Jersey"</span>))
-<span class='kw pkg'>rmeta</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/rmeta/man/meta.summaries.html'>meta.summaries</a></span>(<span class='no'>m1</span>$<span class='no'>drifts</span>[-<span class='no'>nyind</span>], <span class='no'>m1</span>$<span class='no'>se.drifts</span>[-<span class='no'>nyind</span>])</div><div class='output co'>#&gt; Fixed-effects meta-analysis
-#&gt; Call: rmeta::meta.summaries(d = m1$drifts[-nyind], se = m1$se.drifts[-nyind])
-#&gt; Summary effect=0.0812   95% CI (-0.0401, 0.203)
-#&gt; Estimated heterogeneity variance: 3.1  p= 0 </div><div class='input'><span class='no'>o</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/order.html'>order</a></span>(<span class='no'>m1</span>$<span class='no'>drifts</span>)
+<span class='kw pkg'>rmeta</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/rmeta/man/meta.summaries.html'>meta.summaries</a></span>(<span class='no'>m1</span>$<span class='no'>drifts</span>[-<span class='no'>nyind</span>], <span class='no'>m1</span>$<span class='no'>se.drifts</span>[-<span class='no'>nyind</span>])
+<span class='no'>o</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/order.html'>order</a></span>(<span class='no'>m1</span>$<span class='no'>drifts</span>)
 <span class='kw pkg'>rmeta</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/rmeta/man/metaplot.html'>metaplot</a></span>(<span class='no'>m1</span>$<span class='no'>drifts</span>[<span class='no'>o</span>], <span class='no'>m1</span>$<span class='no'>se.drifts</span>[<span class='no'>o</span>], <span class='kw'>labels</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='no'>m1</span>$<span class='no'>drifts</span>)[<span class='no'>o</span>], <span class='kw'>cex</span><span class='kw'>=</span><span class='fl'>.7</span>,
-  <span class='kw'>xlab</span><span class='kw'>=</span><span class='st'>"Infection velocity (CHANGE in number of confirmed cases/day)"</span>, <span class='kw'>ylab</span><span class='kw'>=</span><span class='st'>"State"</span>)</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/segments.html'>segments</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(-<span class='fl'>350</span>,<span class='fl'>46</span>), <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>(-<span class='fl'>49</span>,-<span class='fl'>4</span>), <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(-<span class='fl'>50</span>,<span class='fl'>46</span>), <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>(-<span class='fl'>49</span>,-<span class='fl'>4</span>), <span class='kw'>lty</span><span class='kw'>=</span><span class='fl'>3</span>, <span class='kw'>col</span><span class='kw'>=</span><span class='st'>"gray"</span>)</div><div class='img'><img src='run_meta-1.png' alt='' width='700' height='433' /></div></pre>
+  <span class='kw'>xlab</span><span class='kw'>=</span><span class='st'>"Infection velocity (CHANGE in number of confirmed cases/day)"</span>, <span class='kw'>ylab</span><span class='kw'>=</span><span class='st'>"State"</span>)
+<span class='fu'><a href='https://rdrr.io/r/graphics/segments.html'>segments</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(-<span class='fl'>350</span>,<span class='fl'>46</span>), <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>(-<span class='fl'>49</span>,-<span class='fl'>4</span>), <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(-<span class='fl'>50</span>,<span class='fl'>46</span>), <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>(-<span class='fl'>49</span>,-<span class='fl'>4</span>), <span class='kw'>lty</span><span class='kw'>=</span><span class='fl'>3</span>, <span class='kw'>col</span><span class='kw'>=</span><span class='st'>"gray"</span>)
+}</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

@@ -82,7 +82,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sars2pack</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.2</span>
       </span>
     </div>
 
@@ -117,16 +117,25 @@
       <a href="../articles/doMCMC.html">Building MCMC-based models of SI for SARS-Cov-2</a>
     </li>
     <li>
+      <a href="../articles/how_much_testing.html">HMTPlot: How much testing</a>
+    </li>
+    <li>
       <a href="../articles/index.html">Introduction to sars2pack</a>
     </li>
     <li>
       <a href="../articles/map_visualization.html">Geospatial visualization of COVID-19 datasets</a>
     </li>
     <li>
+      <a href="../articles/minority_death_rate.html">COVID-19 infection rates and deaths by race</a>
+    </li>
+    <li>
       <a href="../articles/more_visualization.html">Visualizing geographic COVID-19 trends without maps</a>
     </li>
     <li>
       <a href="../articles/overview.html">Exploring the COVID-19 pandemic using sars2pack</a>
+    </li>
+    <li>
+      <a href="../articles/phylogenetics.html">Phylogenetic data</a>
     </li>
     <li>
       <a href="../articles/r0_estimates.html">Estimating the replication rate, $R_0$</a>
@@ -228,26 +237,24 @@ case the latest available date is used</p></td>
     <pre class="examples"><div class='input'><span class='no'>usd</span> <span class='kw'>=</span> <span class='fu'><a href='usa_facts_data.html'>usa_facts_data</a></span>()
 <span class='no'>cont</span> <span class='kw'>=</span> <span class='fu'>Arima_contig_states</span>(<span class='no'>usd</span>)
 <span class='no'>cont</span></div><div class='output co'>#&gt; Arima_sars2pack instance for all 
-#&gt;   computed Fri Jun  5 14:43:43 2020 
-#&gt;   last date used was:  2020-06-04 
+#&gt;   computed Tue Jun 30 15:15:10 2020 
+#&gt;   last date used was:  2020-06-29 
 #&gt;   call was: NULL
 #&gt;   Model estimates: 
 #&gt; Series: tsfull 
 #&gt; ARIMA(0,1,2) with drift 
 #&gt; 
 #&gt; Coefficients:
-#&gt;           ma1      ma2      drift
-#&gt;       -0.6116  -0.3884  -128.1700
-#&gt; s.e.   0.1742   0.1485    71.8472
+#&gt;          ma1      ma2     drift
+#&gt;       0.0095  -0.4548  714.1714
+#&gt; s.e.  0.1781   0.1673  354.4544
 #&gt; 
-#&gt; sigma^2 estimated as 6446976:  log likelihood=-259.1
-#&gt; AIC=526.2   AICc=527.94   BIC=531.52
+#&gt; sigma^2 estimated as 11124889:  log likelihood=-265.52
+#&gt; AIC=539.04   AICc=540.78   BIC=544.37
 #&gt; 
 #&gt; Training set error measures:
-#&gt;                     ME     RMSE      MAE       MPE     MAPE      MASE
-#&gt; Training set -316.7082 2357.485 1760.774 -2.384636 8.333417 0.7454026
-#&gt;                    ACF1
-#&gt; Training set 0.07292452</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='no'>cont</span>)</div><div class='img'><img src='Arima_contig_states-1.png' alt='' width='700' height='433' /></div></pre>
+#&gt;                     ME     RMSE     MAE       MPE     MAPE      MASE       ACF1
+#&gt; Training set -41.88195 3096.841 2554.59 -1.831722 9.890428 0.8681489 0.07282868</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='no'>cont</span>)</div><div class='img'><img src='Arima_contig_states-1.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

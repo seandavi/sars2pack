@@ -100,7 +100,7 @@ personal decisions for months or even years to come." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sars2pack</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.2</span>
       </span>
     </div>
 
@@ -135,16 +135,25 @@ personal decisions for months or even years to come." />
       <a href="../articles/doMCMC.html">Building MCMC-based models of SI for SARS-Cov-2</a>
     </li>
     <li>
+      <a href="../articles/how_much_testing.html">HMTPlot: How much testing</a>
+    </li>
+    <li>
       <a href="../articles/index.html">Introduction to sars2pack</a>
     </li>
     <li>
       <a href="../articles/map_visualization.html">Geospatial visualization of COVID-19 datasets</a>
     </li>
     <li>
+      <a href="../articles/minority_death_rate.html">COVID-19 infection rates and deaths by race</a>
+    </li>
+    <li>
       <a href="../articles/more_visualization.html">Visualizing geographic COVID-19 trends without maps</a>
     </li>
     <li>
       <a href="../articles/overview.html">Exploring the COVID-19 pandemic using sars2pack</a>
+    </li>
+    <li>
+      <a href="../articles/phylogenetics.html">Phylogenetic data</a>
     </li>
     <li>
       <a href="../articles/r0_estimates.html">Estimating the replication rate, $R_0$</a>
@@ -239,20 +248,146 @@ COVID-19 data resources.</p></li>
 <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>sars2pack</span>)
 
 <span class='co'># Show me all the available datasets</span>
-<span class='fu'><a href='available_datasets.html'>available_datasets</a></span>()</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 30 x 8</span><span>
-#&gt;    name    accessor  data_type geographical geospatial region resolution url    
-#&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;list&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;lgl&gt;</span><span>        </span><span style='color: #555555;font-style: italic;'>&lt;lgl&gt;</span><span>      </span><span style='color: #555555;font-style: italic;'>&lt;list&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;list&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>  
-#&gt; </span><span style='color: #555555;'> 1</span><span> Extens… us_hospi… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span> TRUE         TRUE       </span><span style='color: #555555;'>&lt;chr </span><span>… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span>  https:…
-#&gt; </span><span style='color: #555555;'> 2</span><span> The Ec… economis… </span><span style='color: #555555;'>&lt;chr [3]&gt;</span><span> TRUE         FALSE      </span><span style='color: #555555;'>&lt;chr </span><span>… </span><span style='color: #555555;'>&lt;chr [2]&gt;</span><span>  https:…
-#&gt; </span><span style='color: #555555;'> 3</span><span> US cou… us_count… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span> TRUE         FALSE      </span><span style='color: #555555;'>&lt;chr </span><span>… </span><span style='color: #555555;'>&lt;chr [3]&gt;</span><span>  https:…
-#&gt; </span><span style='color: #555555;'> 4</span><span> Corona… coronane… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span> TRUE         FALSE      </span><span style='color: #555555;'>&lt;chr </span><span>… </span><span style='color: #555555;'>&lt;chr [2]&gt;</span><span>  https:…
-#&gt; </span><span style='color: #555555;'> 5</span><span> Our Wo… owid_data </span><span style='color: #555555;'>&lt;chr [4]&gt;</span><span> TRUE         FALSE      </span><span style='color: #555555;'>&lt;chr </span><span>… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span>  https:…
-#&gt; </span><span style='color: #555555;'> 6</span><span> GISAID… cov_glue… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span> TRUE         FALSE      </span><span style='color: #555555;'>&lt;chr </span><span>… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span>  https:…
-#&gt; </span><span style='color: #555555;'> 7</span><span> Newick… cov_glue… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span> FALSE        FALSE      </span><span style='color: #555555;'>&lt;chr </span><span>… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span>  https:…
-#&gt; </span><span style='color: #555555;'> 8</span><span> US CDC… cdc_exce… </span><span style='color: #555555;'>&lt;chr [3]&gt;</span><span> TRUE         FALSE      </span><span style='color: #555555;'>&lt;chr </span><span>… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span>  https:…
-#&gt; </span><span style='color: #555555;'> 9</span><span> Publis… param_es… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span> FALSE        FALSE      </span><span style='color: #555555;'>&lt;NULL&gt;</span><span> </span><span style='color: #555555;'>&lt;NULL&gt;</span><span>     https:…
-#&gt; </span><span style='color: #555555;'>10</span><span> Aggreg… cdc_aggr… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span> TRUE         FALSE      </span><span style='color: #555555;'>&lt;NULL&gt;</span><span> </span><span style='color: #555555;'>&lt;chr [2]&gt;</span><span>  https:…
-#&gt; </span><span style='color: #555555;'># … with 20 more rows</span><span></div><div class='input'>
+<span class='fu'><a href='available_datasets.html'>available_datasets</a></span>()</div><div class='output co'>#&gt;                                                                     name
+#&gt; 1                           United States CDC Social Vulnerability Index
+#&gt; 2                          Extensive United States hospital capabilities
+#&gt; 3                              The Economist: Excess deaths due to COVID
+#&gt; 4  US county health rankings from 'https://www.countyhealthrankings.org'
+#&gt; 5                                 CoronaNet government response database
+#&gt; 6                                 Country metadata from restcountries.eu
+#&gt; 7                          Our World In Data testing and cases reporting
+#&gt; 8                 GISAID metadata from thousands of SARS-CoV-2 sequences
+#&gt; 9                     Newick tree from thousands of SARS-CoV-2 sequences
+#&gt; 10                                          US CDC excess deaths dataset
+#&gt; 11                            Published epidemic parameters for COVID-19
+#&gt; 12                                    Aggregated projections from US CDC
+#&gt; 13                                                  Google mobility data
+#&gt; 14                                           European CDC world tracking
+#&gt; 15                                                    beoutbreakprepared
+#&gt; 16                                             EU data Github aggregator
+#&gt; 17                                          Descartes Labs Mobility Data
+#&gt; 18                                         Apple mobility data from maps
+#&gt; 19                                                             USA Facts
+#&gt; 20                                                 Johns Hopkins dataset
+#&gt; 21                                         Johns Hopkins US-centric data
+#&gt; 22                                      New York Times county level data
+#&gt; 23                                       New York Times state level data
+#&gt; 24                                 Kaiser Family Foundation ICU bed data
+#&gt; 25                         United States county-level geographic details
+#&gt; 26                                                     CovidTracker data
+#&gt; 27                           CovidCare United States Healthcare Capacity
+#&gt; 28                     Oxford Government Policy Intervention time series
+#&gt; 29                                          Healthdata.org mobility data
+#&gt; 30         Healthdata.org projections of hospital utilization and deaths
+#&gt; 31                              United States social distancing policies
+#&gt; 32                                  OECD International Unemployment Data
+#&gt; 33         healthdata.org COVID-19 Mobility Observations and Projections
+#&gt; 34          healthdata.org COVID-19 Testing Observations and Projections
+#&gt;                              accessor                               data_type
+#&gt; 1      cdc_social_vulnerability_index                            demographics
+#&gt; 2                 us_hospital_details                     healthcare capacity
+#&gt; 3             economist_excess_deaths      time series, deaths, miscellaneous
+#&gt; 4           us_county_health_rankings                            demographics
+#&gt; 5  coronanet_government_response_data                           public policy
+#&gt; 6                    country_metadata                            demographics
+#&gt; 7                           owid_data     time series, cases, deaths, testing
+#&gt; 8               cov_glue_lineage_data                               line list
+#&gt; 9                cov_glue_newick_data                            phylogenetic
+#&gt; 10                  cdc_excess_deaths      time series, deaths, miscellaneous
+#&gt; 11          param_estimates_published                           miscellaneous
+#&gt; 12         cdc_aggregated_projections                             projections
+#&gt; 13               google_mobility_data                                mobility
+#&gt; 14                          ecdc_data              time series, cases, deaths
+#&gt; 15            beoutbreakprepared_data                               line list
+#&gt; 16                 eu_data_cache_data              time series, cases, deaths
+#&gt; 17            descartes_mobility_data                   time series, mobility
+#&gt; 18                apple_mobility_data                   time series, mobility
+#&gt; 19                     usa_facts_data              time series, cases, deaths
+#&gt; 20                           jhu_data              time series, cases, deaths
+#&gt; 21                        jhu_us_data              time series, cases, deaths
+#&gt; 22                nytimes_county_data              time series, cases, deaths
+#&gt; 23                 nytimes_state_data              time series, cases, deaths
+#&gt; 24                       kff_icu_beds                     healthcare capacity
+#&gt; 25              us_county_geo_details                demographics, geographic
+#&gt; 26                  covidtracker_data     time series, cases, deaths, testing
+#&gt; 27             us_healthcare_capacity                     healthcare capacity
+#&gt; 28         government_policy_timeline                           public policy
+#&gt; 29           healthdata_mobility_data      time series, projections, mobility
+#&gt; 30        healthdata_projections_data time series, projections, cases, deaths
+#&gt; 31         us_state_distancing_policy                           public policy
+#&gt; 32             oecd_unemployment_data                  economics, time series
+#&gt; 33           healthdata_mobility_data      mobility, time series, projections
+#&gt; 34            healthdata_testing_data       testing, time series, projections
+#&gt;    geographical geospatial               region                     resolution
+#&gt; 1          TRUE      FALSE        United States                         admin2
+#&gt; 2          TRUE       TRUE        United States            individual hospital
+#&gt; 3          TRUE      FALSE        International                 admin0, admin1
+#&gt; 4          TRUE      FALSE        United States         admin0, admin1, admin2
+#&gt; 5          TRUE      FALSE                World                 admin0, admin1
+#&gt; 6          TRUE      FALSE                World                         admin0
+#&gt; 7          TRUE      FALSE                World                         admin0
+#&gt; 8          TRUE      FALSE                World                       multiple
+#&gt; 9         FALSE      FALSE                World                       multiple
+#&gt; 10         TRUE      FALSE        United States                         admin1
+#&gt; 11        FALSE      FALSE                 NULL                           NULL
+#&gt; 12         TRUE      FALSE                 NULL                 admin0, admin1
+#&gt; 13         TRUE      FALSE                World         admin0, admin1, admin2
+#&gt; 14         TRUE      FALSE                World                         admin0
+#&gt; 15         TRUE      FALSE                World                        patient
+#&gt; 16         TRUE      FALSE               Europe                 admin0, admin1
+#&gt; 17         TRUE      FALSE        United States                         admin1
+#&gt; 18         TRUE      FALSE                World admin0, admin1, admin2, admin3
+#&gt; 19         TRUE      FALSE        United States                         admin1
+#&gt; 20         TRUE      FALSE                World                         admin0
+#&gt; 21         TRUE      FALSE        United States                 admin1, admin2
+#&gt; 22         TRUE      FALSE        United States                         admin2
+#&gt; 23         TRUE      FALSE        United States                         admin1
+#&gt; 24         TRUE       TRUE        United States            Individual hospital
+#&gt; 25         TRUE       TRUE        United States                         admin2
+#&gt; 26         TRUE      FALSE        United States                         admin1
+#&gt; 27         TRUE       TRUE        United States            Individual hospital
+#&gt; 28         TRUE      FALSE                World                         admin0
+#&gt; 29         TRUE      FALSE United States, World                 admin1, admin2
+#&gt; 30         TRUE      FALSE United States, World                 admin1, admin2
+#&gt; 31         TRUE      FALSE        United States                         admin1
+#&gt; 32         TRUE      FALSE                World                         admin0
+#&gt; 33         TRUE      FALSE        International                 admin0, admin1
+#&gt; 34         TRUE      FALSE        International                 admin0, admin1
+#&gt;                                                                                                                 url
+#&gt; 1                                                                                              https://svi.cdc.gov/
+#&gt; 2                                                            https://hub.arcgis.com/datasets/geoplatform::hospitals
+#&gt; 3                                                    https://github.com/TheEconomist/covid-19-excess-deaths-tracker
+#&gt; 4                                                                              https://www.countyhealthrankings.org
+#&gt; 5                                                                          https://coronanet-project.org/index.html
+#&gt; 6                                                                                          https://restcountries.eu
+#&gt; 7                                                                            https://ourworldindata.org/coronavirus
+#&gt; 8                                                                             https://github.com/hCoV-2019/lineages
+#&gt; 9                                                                             https://github.com/hCoV-2019/lineages
+#&gt; 10                                                    https://www.cdc.gov/nchs/nvss/vsrr/covid19/excess_deaths.html
+#&gt; 11   https://github.com/midas-network/COVID-19/blob/master/parameter_estimates/2019_novel_coronavirus/estimates.csv
+#&gt; 12                                         https://www.cdc.gov/coronavirus/2019-ncov/covid-data/forecasting-us.html
+#&gt; 13                                                                         https://www.google.com/covid19/mobility/
+#&gt; 14                                                                           https://www.ecdc.europa.eu/en/covid-19
+#&gt; 15                                                                   https://github.com/beoutbreakprepared/nCoV2019
+#&gt; 16                                                                 https://github.com/covid19-eu-zh/covid19-eu-data
+#&gt; 17                                                      https://raw.githubusercontent.com/descarteslabs/DL-COVID-19
+#&gt; 18                                                                           https://www.apple.com/covid19/mobility
+#&gt; 19                                             https://usafacts.org/visualizations/coronavirus-covid-19-spread-map/
+#&gt; 20                                                                       https://github.com/CSSEGISandData/COVID-19
+#&gt; 21                                                                       https://github.com/CSSEGISandData/COVID-19
+#&gt; 22                                                          https://raw.githubusercontent.com/nytimes/covid-19-data
+#&gt; 23                                                          https://raw.githubusercontent.com/nytimes/covid-19-data
+#&gt; 24 https://khn.org/news/as-coronavirus-spreads-widely-millions-of-older-americans-live-in-counties-with-no-icu-beds
+#&gt; 25                                                                     https://github.com/josh-byster/fips_lat_long
+#&gt; 26                                                                                       https://covidtracking.com/
+#&gt; 27                                                     https://github.com/covidcaremap/covid19-healthsystemcapacity
+#&gt; 28                  https://www.bsg.ox.ac.uk/research/research-projects/oxford-covid-19-government-response-tracker
+#&gt; 29                                                                                  http://www.healthdata.org/covid
+#&gt; 30                                                                                  http://www.healthdata.org/covid
+#&gt; 31                                                          https://github.com/COVID19StatePolicy/SocialDistancing/
+#&gt; 32                                                                                                 https://oecd.org
+#&gt; 33                                                                       https://covid19.healthdata.org/projections
+#&gt; 34                                                                       https://covid19.healthdata.org/projections</div><div class='input'>
 <span class='fu'><a href='https://rdrr.io/r/utils/example.html'>example</a></span>(<span class='no'>jhu_data</span>)</div><div class='output co'>#&gt; 
 #&gt; jhu_dt&gt; res = jhu_data()
 #&gt; 
@@ -261,7 +396,7 @@ COVID-19 data resources.</p></li>
 #&gt; [5] "date"          "count"         "subset"       
 #&gt; 
 #&gt; jhu_dt&gt; head(res)
-#&gt; </span><span style='color: #555555;'># A tibble: 6 x 7</span><span>
+#&gt; <span style='color: #555555;'># A tibble: 6 x 7</span><span>
 #&gt;   ProvinceState CountryRegion   Lat  Long date       count subset   
 #&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>         </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>         </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>    
 #&gt; </span><span style='color: #555555;'>1</span><span> </span><span style='color: #BB0000;'>NA</span><span>            Afghanistan      33    65 2020-01-22     0 confirmed
@@ -272,7 +407,7 @@ COVID-19 data resources.</p></li>
 #&gt; </span><span style='color: #555555;'>6</span><span> </span><span style='color: #BB0000;'>NA</span><span>            Afghanistan      33    65 2020-01-27     0 confirmed
 #&gt; 
 #&gt; jhu_dt&gt; dplyr::glimpse(res)
-#&gt; Rows: 105,975
+#&gt; Rows: 125,600
 #&gt; Columns: 7
 #&gt; $ ProvinceState </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
 #&gt; $ CountryRegion </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Afghanistan", "Afghanistan", "Afghanistan", "Afghanist…
@@ -304,7 +439,7 @@ COVID-19 data resources.</p></li>
 #&gt; appl__&gt; table(res$transportation_type)
 #&gt; 
 #&gt; driving transit walking 
-#&gt;  435864   31746   50765 
+#&gt;  512064   37296   59640 
 #&gt; 
 #&gt; appl__&gt; require(ggplot2)
 #&gt; 
@@ -344,36 +479,147 @@ COVID-19 data resources.</p></li>
 #&gt; hlth__&gt; res = healthdata_projections_data()
 #&gt; 
 #&gt; hlth__&gt; colnames(res)
-#&gt; [1] "location_name" "date"          "metric"        "count"        
+#&gt;  [1] "location_name"        "date"                 "allbed_mean"         
+#&gt;  [4] "ICUbed_mean"          "InvVen_mean"          "admis_mean"          
+#&gt;  [7] "newICU_mean"          "bedover_mean"         "icuover_mean"        
+#&gt; [10] "deaths_mean"          "totdea_mean"          "est_infections_mean" 
+#&gt; [13] "allbed_upper"         "ICUbed_upper"         "InvVen_upper"        
+#&gt; [16] "admis_upper"          "newICU_upper"         "bedover_upper"       
+#&gt; [19] "icuover_upper"        "deaths_upper"         "totdea_upper"        
+#&gt; [22] "est_infections_upper" "allbed_lower"         "ICUbed_lower"        
+#&gt; [25] "InvVen_lower"         "admis_lower"          "newICU_lower"        
+#&gt; [28] "bedover_lower"        "icuover_lower"        "deaths_lower"        
+#&gt; [31] "totdea_lower"         "est_infections_lower"
 #&gt; 
 #&gt; hlth__&gt; res[sample(1:nrow(res),6),]
-#&gt; </span><span style='color: #555555;'># A tibble: 6 x 4</span><span>
-#&gt;   location_name          date       metric          count
-#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>                  </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>           </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #555555;'>1</span><span> Mecklenburg-Vorpommern 2020-01-22 ICUbed            0  
-#&gt; </span><span style='color: #555555;'>2</span><span> Amapa                  2020-02-06 icuover           0  
-#&gt; </span><span style='color: #555555;'>3</span><span> Lithuania              2020-04-22 admis             2.8
-#&gt; </span><span style='color: #555555;'>4</span><span> Michigan               2020-04-29 deaths          102  
-#&gt; </span><span style='color: #555555;'>5</span><span> Nevada                 2020-01-13 est_infections    0  
-#&gt; </span><span style='color: #555555;'>6</span><span> Castilla-La Mancha     2020-03-28 allbed         </span><span style='text-decoration: underline;'>2</span><span>049. 
+#&gt; </span><span style='color: #555555;'># A tibble: 6 x 32</span><span>
+#&gt;   location_name date       allbed_mean ICUbed_mean InvVen_mean admis_mean
+#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>         </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>           </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>       </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>       </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>      </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
+#&gt; </span><span style='color: #555555;'>1</span><span> Bulgaria      2020-09-18    367.       109.           99.2     53.0    
+#&gt; </span><span style='color: #555555;'>2</span><span> Provincia au… 2020-09-22      0.028</span><span style='text-decoration: underline;'>7</span><span>     0.008</span><span style='text-decoration: underline;'>39</span><span>       0.008    0.007</span><span style='text-decoration: underline;'>56</span><span>
+#&gt; </span><span style='color: #555555;'>3</span><span> Latvia        2020-09-13      0          0             0        0      
+#&gt; </span><span style='color: #555555;'>4</span><span> Ceará         2020-06-14   </span><span style='text-decoration: underline;'>4</span><span>440.      </span><span style='text-decoration: underline;'>1</span><span>212.         </span><span style='text-decoration: underline;'>1</span><span>055.     502.     
+#&gt; </span><span style='color: #555555;'>5</span><span> Poland        2020-05-15    439.       134.          119.      51.0    
+#&gt; </span><span style='color: #555555;'>6</span><span> Rwanda        2020-02-25      0          0             0        0      
+#&gt; </span><span style='color: #555555;'># … with 26 more variables: newICU_mean </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, bedover_mean </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
+#&gt; </span><span style='color: #555555;'>#   icuover_mean </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, deaths_mean </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, totdea_mean </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
+#&gt; </span><span style='color: #555555;'>#   est_infections_mean </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, allbed_upper </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, ICUbed_upper </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
+#&gt; </span><span style='color: #555555;'>#   InvVen_upper </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, admis_upper </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, newICU_upper </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
+#&gt; </span><span style='color: #555555;'>#   bedover_upper </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, icuover_upper </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, deaths_upper </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
+#&gt; </span><span style='color: #555555;'>#   totdea_upper </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, est_infections_upper </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, allbed_lower </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
+#&gt; </span><span style='color: #555555;'>#   ICUbed_lower </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, InvVen_lower </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, admis_lower </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
+#&gt; </span><span style='color: #555555;'>#   newICU_lower </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, bedover_lower </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, icuover_lower </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
+#&gt; </span><span style='color: #555555;'>#   deaths_lower </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, totdea_lower </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, est_infections_lower </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
 #&gt; 
 #&gt; hlth__&gt; dplyr::glimpse(res)
-#&gt; Rows: 863,957
-#&gt; Columns: 4
-#&gt; $ location_name </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Abruzzo", "Abruzzo", "Abruzzo", "Abruzzo", "Abruzzo", …
-#&gt; $ date          </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2019-12-13, 2019-12-13, 2019-12-13, 2019-12-13, 2019-1…
-#&gt; $ metric        </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "allbed", "ICUbed", "InvVen", "deaths", "admis", "newIC…
-#&gt; $ count         </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, NA, 0, 0, 0, 0, 0, 0, 0, 0, …
+#&gt; Rows: 83,386
+#&gt; Columns: 32
+#&gt; $ location_name        </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Abruzzo", "Abruzzo", "Abruzzo", "Abruzzo", "Abr…
+#&gt; $ date                 </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2020-02-04, 2020-02-05, 2020-02-06, 2020-02-07,…
+#&gt; $ allbed_mean          </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#&gt; $ ICUbed_mean          </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#&gt; $ InvVen_mean          </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#&gt; $ admis_mean           </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#&gt; $ newICU_mean          </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#&gt; $ bedover_mean         </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#&gt; $ icuover_mean         </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#&gt; $ deaths_mean          </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#&gt; $ totdea_mean          </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#&gt; $ est_infections_mean  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0.0000000, 0.0000000, 0.0000000, 0.0000000, 0.00…
+#&gt; $ allbed_upper         </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#&gt; $ ICUbed_upper         </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#&gt; $ InvVen_upper         </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#&gt; $ admis_upper          </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#&gt; $ newICU_upper         </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#&gt; $ bedover_upper        </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#&gt; $ icuover_upper        </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#&gt; $ deaths_upper         </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#&gt; $ totdea_upper         </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#&gt; $ est_infections_upper </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0.0000000, 0.0000000, 0.0000000, 0.0000000, 0.00…
+#&gt; $ allbed_lower         </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#&gt; $ ICUbed_lower         </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#&gt; $ InvVen_lower         </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#&gt; $ admis_lower          </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#&gt; $ newICU_lower         </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#&gt; $ bedover_lower        </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#&gt; $ icuover_lower        </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#&gt; $ deaths_lower         </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#&gt; $ totdea_lower         </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#&gt; $ est_infections_lower </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0.0000000, 0.0000000, 0.0000000, 0.0000000, 0.00…
 #&gt; 
 #&gt; hlth__&gt; summary(res)
-#&gt;  location_name           date               metric              count         
-#&gt;  Length:863957      Min.   :2019-12-13   Length:863957      Min.   : -1126.0  
-#&gt;  Class :character   1st Qu.:2020-03-21   Class :character   1st Qu.:     0.0  
-#&gt;  Mode  :character   Median :2020-05-11   Mode  :character   Median :     8.6  
-#&gt;                     Mean   :2020-05-05                      Mean   :  1064.5  
-#&gt;                     3rd Qu.:2020-06-28                      3rd Qu.:   143.7  
-#&gt;                     Max.   :2020-08-24                      Max.   :551410.7  
-#&gt;                                                             NA's   :7928      
+#&gt;  location_name           date             allbed_mean        ICUbed_mean       
+#&gt;  Length:83386       Min.   :2020-02-04   Min.   :    0.00   Min.   :    0.000  
+#&gt;  Class :character   1st Qu.:2020-04-04   1st Qu.:    0.00   1st Qu.:    0.000  
+#&gt;  Mode  :character   Median :2020-06-03   Median :   33.07   Median :    9.419  
+#&gt;                     Mean   :2020-06-03   Mean   :  915.06   Mean   :  236.274  
+#&gt;                     3rd Qu.:2020-08-02   3rd Qu.:  326.18   3rd Qu.:   87.046  
+#&gt;                     Max.   :2020-10-01   Max.   :99107.16   Max.   :20001.934  
+#&gt;                                                                                
+#&gt;   InvVen_mean          admis_mean         newICU_mean        bedover_mean     
+#&gt;  Min.   :    0.000   Min.   :    0.000   Min.   :   0.000   Min.   :    0.00  
+#&gt;  1st Qu.:    0.000   1st Qu.:    0.000   1st Qu.:   0.000   1st Qu.:    0.00  
+#&gt;  Median :    8.522   Median :    4.501   Median :   1.293   Median :    0.00  
+#&gt;  Mean   :  208.576   Mean   :  122.923   Mean   :  30.939   Mean   :   73.96  
+#&gt;  3rd Qu.:   77.279   3rd Qu.:   44.210   3rd Qu.:  11.602   3rd Qu.:    0.00  
+#&gt;  Max.   :17644.111   Max.   :14534.367   Max.   :3100.729   Max.   :69067.07  
+#&gt;                                                                               
+#&gt;   icuover_mean      deaths_mean         totdea_mean        est_infections_mean
+#&gt;  Min.   :    0.0   Min.   :-235.0000   Min.   :     0.00   Min.   :      0.0  
+#&gt;  1st Qu.:    0.0   1st Qu.:   0.0000   1st Qu.:     2.16   1st Qu.:     11.1  
+#&gt;  Median :    0.0   Median :   0.9819   Median :    83.00   Median :    220.8  
+#&gt;  Mean   :  123.4   Mean   :  21.7923   Mean   :  1935.65   Mean   :   5446.3  
+#&gt;  3rd Qu.:    0.0   3rd Qu.:   8.0000   3rd Qu.:   709.96   3rd Qu.:   1737.3  
+#&gt;  Max.   :19178.9   Max.   :2709.0000   Max.   :175167.53   Max.   :1056381.7  
+#&gt;                    NA's   :236         NA's   :236                            
+#&gt;   allbed_upper       ICUbed_upper       InvVen_upper      admis_upper      
+#&gt;  Min.   :     0.0   Min.   :    0.00   Min.   :    0.0   Min.   :    0.00  
+#&gt;  1st Qu.:     0.0   1st Qu.:    0.00   1st Qu.:    0.0   1st Qu.:    0.00  
+#&gt;  Median :    62.3   Median :   15.35   Median :   13.5   Median :   11.45  
+#&gt;  Mean   :  2021.9   Mean   :  488.72   Mean   :  428.3   Mean   :  287.52  
+#&gt;  3rd Qu.:   565.5   3rd Qu.:  147.00   3rd Qu.:  130.0   3rd Qu.:   87.51  
+#&gt;  Max.   :321829.6   Max.   :71452.00   Max.   :64181.5   Max.   :51512.12  
+#&gt;                                                                            
+#&gt;   newICU_upper      bedover_upper      icuover_upper      deaths_upper   
+#&gt;  Min.   :    0.00   Min.   :     0.0   Min.   :    0.0   Min.   :-235.0  
+#&gt;  1st Qu.:    0.00   1st Qu.:     0.0   1st Qu.:    0.0   1st Qu.:   0.0  
+#&gt;  Median :    2.50   Median :     0.0   Median :    0.0   Median :   1.0  
+#&gt;  Mean   :   65.61   Mean   :   794.8   Mean   :  352.2   Mean   :  42.1  
+#&gt;  3rd Qu.:   21.05   3rd Qu.:     0.0   3rd Qu.:    0.0   3rd Qu.:  13.0  
+#&gt;  Max.   :11433.50   Max.   :303877.6   Max.   :70861.0   Max.   :6140.2  
+#&gt;                                                          NA's   :236     
+#&gt;   totdea_upper       est_infections_upper  allbed_lower     
+#&gt;  Min.   :     0.00   Min.   :      0.0    Min.   :    0.00  
+#&gt;  1st Qu.:     2.34   1st Qu.:     26.6    1st Qu.:    0.00  
+#&gt;  Median :    97.00   Median :    442.1    Median :    1.25  
+#&gt;  Mean   :  2580.30   Mean   :  14395.1    Mean   :  519.02  
+#&gt;  3rd Qu.:   961.96   3rd Qu.:   3320.8    3rd Qu.:  156.98  
+#&gt;  Max.   :208078.85   Max.   :2745003.4    Max.   :60549.94  
+#&gt;  NA's   :236                                                
+#&gt;   ICUbed_lower        InvVen_lower       admis_lower       newICU_lower     
+#&gt;  Min.   :    0.000   Min.   :    0.00   Min.   :   0.00   Min.   :   0.000  
+#&gt;  1st Qu.:    0.000   1st Qu.:    0.00   1st Qu.:   0.00   1st Qu.:   0.000  
+#&gt;  Median :    0.229   Median :    0.10   Median :   0.00   Median :   0.000  
+#&gt;  Mean   :  144.154   Mean   :  128.32   Mean   :  62.67   Mean   :  18.221  
+#&gt;  3rd Qu.:   43.500   3rd Qu.:   38.85   3rd Qu.:  17.49   3rd Qu.:   5.264  
+#&gt;  Max.   :18351.248   Max.   :16725.56   Max.   :8244.18   Max.   :2656.285  
+#&gt;                                                                             
+#&gt;  bedover_lower      icuover_lower      deaths_lower        totdea_lower      
+#&gt;  Min.   :   0.000   Min.   :   0.00   Min.   :-235.0000   Min.   :     0.00  
+#&gt;  1st Qu.:   0.000   1st Qu.:   0.00   1st Qu.:   0.0000   1st Qu.:     2.03  
+#&gt;  Median :   0.000   Median :   0.00   Median :   0.2034   Median :    65.00  
+#&gt;  Mean   :   7.003   Mean   :  57.38   Mean   :  14.4232   Mean   :  1660.81  
+#&gt;  3rd Qu.:   0.000   3rd Qu.:   0.00   3rd Qu.:   4.0000   3rd Qu.:   563.52  
+#&gt;  Max.   :7256.475   Max.   :9036.51   Max.   :2709.0000   Max.   :162370.43  
+#&gt;                                       NA's   :236         NA's   :236        
+#&gt;  est_infections_lower
+#&gt;  Min.   :     0.00   
+#&gt;  1st Qu.:     2.45   
+#&gt;  Median :    71.00   
+#&gt;  Mean   :  2393.54   
+#&gt;  3rd Qu.:   691.76   
+#&gt;  Max.   :254480.58   
+#&gt;                      
 #&gt; 
 #&gt; hlth__&gt; #plot the predictions
 #&gt; hlth__&gt; 
@@ -386,8 +632,7 @@ COVID-19 data resources.</p></li>
 #&gt; hlth__+     ggplot(aes(x=date)) + geom_line(aes(y=mean, color=metric))
 #&gt; 
 #&gt; hlth__&gt; # plot the "mean" prediction
-#&gt; hlth__&gt; pl</div><div class='output co'>#&gt; <span class='message'>Don't know how to automatically pick scale for object of type function. Defaulting to continuous.</span></div><div class='output co'>#&gt; <span class='error'>Error: Aesthetics must be valid data columns. Problematic aesthetic(s): y = mean. </span>
-#&gt; <span class='error'>Did you mistype the name of a data column or forget to add after_stat()?</span></div><div class='img'><img src='sars2pack-package-4.png' alt='' width='700' height='433' /></div><div class='input'>
+#&gt; hlth__&gt; pl</div><div class='output co'>#&gt; <span class='error'>Error in FUN(X[[i]], ...): object 'metric' not found</span></div><div class='img'><img src='sars2pack-package-4.png' alt='' width='700' height='433' /></div><div class='input'>
 
 
 </div></span></pre>
