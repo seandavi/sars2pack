@@ -244,6 +244,7 @@ selected states.</p>
 <code><a href='ecdc_data.html'>ecdc_data</a>()</code>,
 <code><a href='economist_excess_deaths.html'>economist_excess_deaths</a>()</code>,
 <code><a href='eu_data_cache_data.html'>eu_data_cache_data</a>()</code>,
+<code><a href='financial_times_excess_deaths.html'>financial_times_excess_deaths</a>()</code>,
 <code><a href='google_mobility_data.html'>google_mobility_data</a>()</code>,
 <code><a href='government_policy_timeline.html'>government_policy_timeline</a>()</code>,
 <code><a href='healthdata_mobility_data.html'>healthdata_mobility_data</a>()</code>,
@@ -269,9 +270,8 @@ selected states.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>dplyr</span>)
-<span class='no'>res</span> <span class='kw'>=</span> <span class='fu'>descartes_mobility_data</span>()
-<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; [1] "date"        "iso2"        "admin_level" "admin1"      "admin2"     
-#&gt; [6] "fips"        "samples"     "m50"         "m50_index"  </div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Rows: 315,445
+<span class='no'>res</span> <span class='kw'>=</span> <span class='fu'>descartes_mobility_data</span>()</div><div class='output co'>#&gt; </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; [1] "date"        "iso2"        "admin_level" "admin1"      "admin2"     
+#&gt; [6] "fips"        "samples"     "m50"         "m50_index"  </div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Rows: 318,165
 #&gt; Columns: 9
 #&gt; $ date        <span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2020-03-01, 2020-03-02, 2020-03-03, 2020-03-04, 2020-03-…
 #&gt; $ iso2        </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "US", "US", "US", "US", "US", "US", "US", "US", "US", "US…
