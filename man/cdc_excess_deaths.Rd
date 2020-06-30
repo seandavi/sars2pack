@@ -88,6 +88,7 @@ Other data-import:
 \code{\link{ecdc_data}()},
 \code{\link{economist_excess_deaths}()},
 \code{\link{eu_data_cache_data}()},
+\code{\link{financial_times_excess_deaths}()},
 \code{\link{google_mobility_data}()},
 \code{\link{government_policy_timeline}()},
 \code{\link{healthdata_mobility_data}()},
@@ -106,8 +107,13 @@ Other data-import:
 \code{\link{us_hospital_details}()},
 \code{\link{us_state_distancing_policy}()},
 \code{\link{usa_facts_data}()}
+
+Other excess-deaths: 
+\code{\link{economist_excess_deaths}()},
+\code{\link{financial_times_excess_deaths}()}
 }
 \author{
 Sean Davis \href{mailto:seandavi@gmail.com}{seandavi@gmail.com}
 }
 \concept{data-import}
+\concept{excess-deaths}

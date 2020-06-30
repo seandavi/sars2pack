@@ -13,6 +13,7 @@
 #' @author Sean Davis <seandavi@gmail.com>
 #' 
 #' @family data-import
+#' @family excess-deaths
 #'
 #' @examples
 #' res = economist_excess_deaths()
