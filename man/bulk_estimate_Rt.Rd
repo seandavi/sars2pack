@@ -70,6 +70,7 @@ Other case-tracking:
 \code{\link{align_to_baseline}()},
 \code{\link{beoutbreakprepared_data}()},
 \code{\link{combined_us_cases_data}()},
+\code{\link{coronadatascraper_data}()},
 \code{\link{covidtracker_data}()},
 \code{\link{ecdc_data}()},
 \code{\link{estimate_Rt}()},
@@ -78,6 +79,7 @@ Other case-tracking:
 \code{\link{nytimes_county_data}()},
 \code{\link{owid_data}()},
 \code{\link{plot_epicurve}()},
+\code{\link{test_and_trace_data}()},
 \code{\link{usa_facts_data}()}
 }
 \author{
