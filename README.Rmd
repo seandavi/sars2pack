@@ -22,15 +22,13 @@ knitr::opts_chunk$set(warning=FALSE,message=FALSE, cache=TRUE,
 knitr::opts_knit$set(upload.fun = knitr::imgur_upload)
 ```
 
-## Questions addressed by sars2pack
+## Questions immediately addressed by sars2pack datasets
 
 - What are the current and historical total, new cases, and deaths of COVID-19 at the city, county, state, national, and international levels?
-- How do changes in infection rates differ across locations?
 - What are the non-pharmacological interventions in place at the local and national levels?
 - In the United States, what is the geographical distribution of healthcare capacity (ICU beds, total beds, doctors, etc.)?
 - What are the published values of key epidemic parameters, as curated from the literature?
-
-
+- When, where, and how are communities changing their movement patterns? 
 
 ## Installation
 
@@ -75,7 +73,7 @@ y1 %>% dplyr::mutate(url=sprintf('[LINK](%s)',url)) %>%
 ## Case tracking
 
 Updated tracking  of city, county, state, national, and international confirmed cases, deaths,
-and testing is critical to driving policy, implementing interventions, and measuring their effectiveness. Case tracking datasets include date, a count of cases, and usually numerous other pieces of information related to location of reporting, etc. 
+and testing is critical to driving policy, implementing interventions, and measuring their effectiveness. Case tracking datasets include date, a count of cases, deaths, testing, hospitalizations, and usually numerous other pieces of information related to location of reporting, etc. 
 
 Accessing case-tracking datasets is typically done with one function per dataset. The example here is data from the European Centers for Disease Control, or ECDC.
 
