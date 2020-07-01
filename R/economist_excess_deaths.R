@@ -13,6 +13,7 @@
 #' @author Sean Davis <seandavi@gmail.com>
 #' 
 #' @family data-import
+#' @family excess-deaths
 #'
 #' @examples
 #' res = economist_excess_deaths()
@@ -24,7 +25,7 @@
 #' @export
 economist_excess_deaths = function() {
     repo = 'TheEconomist/covid-19-excess-deaths-tracker'
-    paths = c('output-data/excess-deaths','output-data/historical-deaths')
+    paths = c('output-data/excess-deaths')
     get_urls = function(repo, path) {
         res = ls_github(repo, path)
         res %>% dplyr::filter(type=='file' & grepl('csv$',name)) %>%

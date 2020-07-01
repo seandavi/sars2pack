@@ -98,6 +98,7 @@ Other case-tracking:
 \code{\link{beoutbreakprepared_data}()},
 \code{\link{bulk_estimate_Rt}()},
 \code{\link{combined_us_cases_data}()},
+\code{\link{coronadatascraper_data}()},
 \code{\link{covidtracker_data}()},
 \code{\link{ecdc_data}()},
 \code{\link{estimate_Rt}()},
@@ -105,6 +106,7 @@ Other case-tracking:
 \code{\link{jhu_data}()},
 \code{\link{nytimes_county_data}()},
 \code{\link{owid_data}()},
+\code{\link{test_and_trace_data}()},
 \code{\link{usa_facts_data}()}
 }
 \concept{case-tracking}

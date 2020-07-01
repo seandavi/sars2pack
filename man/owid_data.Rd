@@ -35,6 +35,7 @@ Other case-tracking:
 \code{\link{beoutbreakprepared_data}()},
 \code{\link{bulk_estimate_Rt}()},
 \code{\link{combined_us_cases_data}()},
+\code{\link{coronadatascraper_data}()},
 \code{\link{covidtracker_data}()},
 \code{\link{ecdc_data}()},
 \code{\link{estimate_Rt}()},
@@ -42,6 +43,7 @@ Other case-tracking:
 \code{\link{jhu_data}()},
 \code{\link{nytimes_county_data}()},
 \code{\link{plot_epicurve}()},
+\code{\link{test_and_trace_data}()},
 \code{\link{usa_facts_data}()}
 
 Other data-import: 
@@ -50,6 +52,7 @@ Other data-import:
 \code{\link{cdc_aggregated_projections}()},
 \code{\link{cdc_excess_deaths}()},
 \code{\link{cdc_social_vulnerability_index}()},
+\code{\link{coronadatascraper_data}()},
 \code{\link{coronanet_government_response_data}()},
 \code{\link{cov_glue_lineage_data}()},
 \code{\link{cov_glue_newick_data}()},
@@ -59,6 +62,7 @@ Other data-import:
 \code{\link{ecdc_data}()},
 \code{\link{economist_excess_deaths}()},
 \code{\link{eu_data_cache_data}()},
+\code{\link{financial_times_excess_deaths}()},
 \code{\link{google_mobility_data}()},
 \code{\link{government_policy_timeline}()},
 \code{\link{healthdata_mobility_data}()},
@@ -70,6 +74,7 @@ Other data-import:
 \code{\link{nytimes_county_data}()},
 \code{\link{oecd_unemployment_data}()},
 \code{\link{param_estimates_published}()},
+\code{\link{test_and_trace_data}()},
 \code{\link{us_county_geo_details}()},
 \code{\link{us_county_health_rankings}()},
 \code{\link{us_healthcare_capacity}()},

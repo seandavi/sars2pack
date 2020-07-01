@@ -71,6 +71,7 @@
 #'     ggtitle('Excess deaths over time')
 #'
 #' @family data-import
+#' @family excess-deaths
 #' 
 #' @export
 cdc_excess_deaths <- function() {
