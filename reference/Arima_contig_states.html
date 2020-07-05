@@ -126,9 +126,6 @@
       <a href="../articles/map_visualization.html">Geospatial visualization of COVID-19 datasets</a>
     </li>
     <li>
-      <a href="../articles/minority_death_rate.html">COVID-19 infection rates and deaths by race</a>
-    </li>
-    <li>
       <a href="../articles/more_visualization.html">Visualizing geographic COVID-19 trends without maps</a>
     </li>
     <li>
@@ -138,7 +135,7 @@
       <a href="../articles/phylogenetics.html">Phylogenetic data</a>
     </li>
     <li>
-      <a href="../articles/r0_estimates.html">Estimating the replication rate, $R_0$</a>
+      <a href="../articles/r0_estimates.html">Estimating the replication rate</a>
     </li>
     <li>
       <a href="../articles/tsanalysis.html">Time series analysis of COVID-19 datasets</a>
@@ -237,8 +234,8 @@ case the latest available date is used</p></td>
     <pre class="examples"><div class='input'><span class='no'>usd</span> <span class='kw'>=</span> <span class='fu'><a href='usa_facts_data.html'>usa_facts_data</a></span>()
 <span class='no'>cont</span> <span class='kw'>=</span> <span class='fu'>Arima_contig_states</span>(<span class='no'>usd</span>)
 <span class='no'>cont</span></div><div class='output co'>#&gt; Arima_sars2pack instance for all 
-#&gt;   computed Tue Jun 30 15:15:10 2020 
-#&gt;   last date used was:  2020-06-29 
+#&gt;   computed Sun Jul  5 09:29:42 2020 
+#&gt;   last date used was:  2020-07-03 
 #&gt;   call was: NULL
 #&gt;   Model estimates: 
 #&gt; Series: tsfull 
@@ -246,15 +243,17 @@ case the latest available date is used</p></td>
 #&gt; 
 #&gt; Coefficients:
 #&gt;          ma1      ma2     drift
-#&gt;       0.0095  -0.4548  714.1714
-#&gt; s.e.  0.1781   0.1673  354.4544
+#&gt;       0.2206  -0.1782  923.1850
+#&gt; s.e.  0.2875   0.2883  691.2033
 #&gt; 
-#&gt; sigma^2 estimated as 11124889:  log likelihood=-265.52
-#&gt; AIC=539.04   AICc=540.78   BIC=544.37
+#&gt; sigma^2 estimated as 13092303:  log likelihood=-267.64
+#&gt; AIC=543.28   AICc=545.02   BIC=548.61
 #&gt; 
 #&gt; Training set error measures:
-#&gt;                     ME     RMSE     MAE       MPE     MAPE      MASE       ACF1
-#&gt; Training set -41.88195 3096.841 2554.59 -1.831722 9.890428 0.8681489 0.07282868</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='no'>cont</span>)</div><div class='img'><img src='Arima_contig_states-1.png' alt='' width='700' height='433' /></div></pre>
+#&gt;                     ME     RMSE      MAE       MPE     MAPE      MASE
+#&gt; Training set -19.52381 3359.534 2738.657 -1.657992 9.549288 0.8806071
+#&gt;                    ACF1
+#&gt; Training set 0.04473185</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='no'>cont</span>)</div><div class='img'><img src='Arima_contig_states-1.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

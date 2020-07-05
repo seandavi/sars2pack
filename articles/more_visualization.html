@@ -37,7 +37,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sars2pack</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.2</span>
       </span>
     </div>
 
@@ -72,6 +72,9 @@
       <a href="../articles/doMCMC.html">Building MCMC-based models of SI for SARS-Cov-2</a>
     </li>
     <li>
+      <a href="../articles/how_much_testing.html">HMTPlot: How much testing</a>
+    </li>
+    <li>
       <a href="../articles/index.html">Introduction to sars2pack</a>
     </li>
     <li>
@@ -84,7 +87,10 @@
       <a href="../articles/overview.html">Exploring the COVID-19 pandemic using sars2pack</a>
     </li>
     <li>
-      <a href="../articles/r0_estimates.html">Estimating the replication rate, </a>
+      <a href="../articles/phylogenetics.html">Phylogenetic data</a>
+    </li>
+    <li>
+      <a href="../articles/r0_estimates.html">Estimating the replication rate</a>
     </li>
     <li>
       <a href="../articles/tsanalysis.html">Time series analysis of COVID-19 datasets</a>
@@ -119,7 +125,7 @@
                         <h4 class="author">Joe A. Wasserman <a href="mailto:jwasserman@rti.org">jwasserman@rti.org</a> and Crystal T. Nguyen <a href="mailto:ctnguyen@rti.org">ctnguyen@rti.org</a>
 </h4>
             
-            <h4 class="date">June 05, 2020</h4>
+            <h4 class="date">July 05, 2020</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/seandavi/sars2pack/blob/master/vignettes/more_visualization.Rmd"><code>vignettes/more_visualization.Rmd</code></a></small>
       <div class="hidden name"><code>more_visualization.Rmd</code></div>
@@ -146,7 +152,7 @@
 <p>Let’s start with US county-level data from JHU and state-level data from the COVID Tracking Project.</p>
 <div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="no">cusa</span> <span class="kw">=</span> <span class="fu"><a href="../reference/jhu_us_data.html">jhu_us_data</a></span>()
 <span class="fu"><a href="https://dplyr.tidyverse.org/reference/reexports.html">glimpse</a></span>(<span class="no">cusa</span>)</pre></body></html></div>
-<pre><code>## Rows: 880,470
+<pre><code>## Rows: 1,076,130
 ## Columns: 15
 ## $ UID          &lt;dbl&gt; 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, …
 ## $ iso2         &lt;chr&gt; "AS", "AS", "AS", "AS", "AS", "AS", "AS", "AS", "AS", "A…
@@ -165,17 +171,24 @@
 ## $ subset       &lt;chr&gt; "confirmed", "confirmed", "confirmed", "confirmed", "con…</code></pre>
 <div class="sourceCode" id="cb4"><html><body><pre class="r"><span class="no">ctp</span> <span class="kw">=</span> <span class="fu"><a href="../reference/covidtracker_data.html">covidtracker_data</a></span>()
 <span class="fu"><a href="https://dplyr.tidyverse.org/reference/reexports.html">glimpse</a></span>(<span class="no">ctp</span>)</pre></body></html></div>
-<pre><code>## Rows: 5,113
-## Columns: 9
-## $ date         &lt;date&gt; 2020-06-04, 2020-06-04, 2020-06-04, 2020-06-04, 2020-06…
-## $ state        &lt;chr&gt; "AK", "AL", "AR", "AS", "AZ", "CA", "CO", "CT", "DC", "D…
-## $ positive     &lt;int&gt; 513, 19072, 8067, 0, 22753, 119807, 27060, 43239, 9120, …
-## $ negative     &lt;int&gt; 59584, 216227, 134413, 174, 227002, 2062864, 170140, 238…
-## $ pending      &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 1221, NA, NA, NA…
-## $ hospitalized &lt;int&gt; NA, 1929, 757, NA, 3195, NA, 4443, 9669, NA, NA, 10923, …
-## $ death        &lt;int&gt; 10, 653, 142, 0, 996, 4422, 1494, 4007, 475, 386, 2691, …
-## $ dateChecked  &lt;dttm&gt; 2020-06-04 00:00:00, 2020-06-04 00:00:00, 2020-06-04 00…
-## $ fips         &lt;chr&gt; "00002", "00001", "00005", "00060", "00004", "00006", "0…</code></pre>
+<pre><code>## Rows: 6,793
+## Columns: 16
+## $ date                   &lt;date&gt; 2020-07-04, 2020-07-04, 2020-07-04, 2020-07-0…
+## $ fips                   &lt;chr&gt; "00002", "00001", "00005", "00060", "00004", "…
+## $ state                  &lt;chr&gt; "AK", "AL", "AR", "AS", "AZ", "CA", "CO", "CT"…
+## $ positive               &lt;int&gt; 1111, 42862, 23209, 0, 94553, 254745, 33619, 4…
+## $ negative               &lt;int&gt; 121621, 399226, 315684, 696, 494955, 4298286, …
+## $ death                  &lt;int&gt; 16, 1007, 286, 0, 1805, 6313, 1521, 4335, 557,…
+## $ pending                &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 1672, …
+## $ hospitalized           &lt;int&gt; NA, 2906, 1536, NA, 5068, NA, 5537, 10411, NA,…
+## $ hospitalizedCurrently  &lt;int&gt; 23, 800, 285, NA, 3113, 7092, 270, 95, 95, 54,…
+## $ recovered              &lt;int&gt; 544, 22082, 16726, NA, 10903, NA, 4557, 8210, …
+## $ inIcuCumulative        &lt;int&gt; NA, 843, NA, NA, NA, NA, NA, NA, NA, NA, NA, 2…
+## $ inIcuCurrently         &lt;int&gt; NA, NA, NA, NA, 796, 1888, NA, NA, 28, 13, NA,…
+## $ onVentilatorCurrently  &lt;int&gt; 3, NA, 70, NA, 413, NA, NA, NA, 21, NA, NA, NA…
+## $ onVentilatorCumulative &lt;int&gt; NA, 473, 240, NA, NA, NA, NA, NA, NA, NA, NA, …
+## $ dateChecked            &lt;dttm&gt; 2020-07-04 00:00:00, 2020-07-04 11:00:00, 202…
+## $ dataQualityGrade       &lt;chr&gt; "A", "B", "A", "C", "A+", "B", "A", "B", "A+",…</code></pre>
 <p>We need to very lightly clean cumulative data that <em>should</em> be monotonically increasing day-over-day (but isn’t always) and convert it from cumulative values to daily incidents. The data are in different formats, so we’ll use slightly different data munging workflows.</p>
 <p>The JHU data don’t contain a value for every location-date-subset combination, so we need to fill in those gaps.</p>
 <div class="sourceCode" id="cb6"><html><body><pre class="r"><span class="no">iusa</span> <span class="kw">&lt;-</span> <span class="no">cusa</span> <span class="kw">%&gt;%</span>
@@ -197,7 +210,7 @@
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(<span class="no">date</span> <span class="kw">&gt;=</span> <span class="st">"2020-03-15"</span>, <span class="no">iso2</span> <span class="kw">==</span> <span class="st">"US"</span>)
 
 <span class="fu"><a href="https://dplyr.tidyverse.org/reference/reexports.html">glimpse</a></span>(<span class="no">iusa</span>)</pre></body></html></div>
-<pre><code>## Rows: 533,984
+<pre><code>## Rows: 729,344
 ## Columns: 17
 ## $ date         &lt;date&gt; 2020-03-15, 2020-03-15, 2020-03-15, 2020-03-15, 2020-03…
 ## $ subset       &lt;chr&gt; "confirmed", "confirmed", "confirmed", "confirmed", "con…
@@ -243,17 +256,24 @@
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(<span class="no">date</span> <span class="kw">&gt;=</span> <span class="st">"2020-03-15"</span>, <span class="no">state</span> <span class="kw">%in%</span> <span class="no">US_states</span>)
 
 <span class="fu"><a href="https://dplyr.tidyverse.org/reference/reexports.html">glimpse</a></span>(<span class="no">ictp</span>)</pre></body></html></div>
-<pre><code>## Rows: 4,182
-## Columns: 19
+<pre><code>## Rows: 5,712
+## Columns: 26
 ## $ date                   &lt;date&gt; 2020-03-15, 2020-03-15, 2020-03-15, 2020-03-1…
 ## $ state                  &lt;chr&gt; "AK", "AL", "AR", "AZ", "CA", "CO", "CT", "DC"…
 ## $ fips                   &lt;chr&gt; "00002", "00001", "00005", "00004", "00006", "…
 ## $ positive               &lt;dbl&gt; 1, 12, 16, 12, 293, 131, 20, 16, 6, 116, 99, 2…
 ## $ negative               &lt;dbl&gt; 143, 28, 103, 121, 916, 627, 125, 79, 36, 678,…
-## $ pending                &lt;int&gt; NA, 46, 30, 50, NA, NA, NA, 20, 32, 454, NA, N…
-## $ hospitalized           &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
 ## $ death                  &lt;dbl&gt; 0, 0, 0, 0, 5, 1, 0, 0, 0, 4, 1, 0, 0, 0, 0, 0…
+## $ pending                &lt;int&gt; NA, 46, 30, 50, NA, NA, NA, 20, 32, 454, NA, N…
+## $ hospitalized           &lt;int&gt; NA, NA, NA, 36, NA, NA, NA, NA, NA, NA, NA, NA…
+## $ hospitalizedCurrently  &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+## $ recovered              &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+## $ inIcuCumulative        &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+## $ inIcuCurrently         &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+## $ onVentilatorCurrently  &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+## $ onVentilatorCumulative &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
 ## $ dateChecked            &lt;dttm&gt; 2020-03-13 16:30:00, 2020-03-15 14:12:00, 202…
+## $ dataQualityGrade       &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
 ## $ positive_incidents     &lt;dbl&gt; NA, 6, 4, NA, 41, 30, 9, 6, NA, 39, 33, NA, 1,…
 ## $ negative_incidents     &lt;dbl&gt; NA, 6, 38, NA, NA, 17, NA, 30, NA, 200, NA, NA…
 ## $ death_incidents        &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, 1, NA, NA,…
@@ -347,38 +367,147 @@
 <a href="#extending-geographic-facets-to-other-regions" class="anchor"></a>Extending geographic facets to other regions</h2>
 <p>Many additional grids are built-in to {geofacet}.</p>
 <div class="sourceCode" id="cb14"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/pkg/geofacet/man/get_grid_names.html">get_grid_names</a></span>()</pre></body></html></div>
-<pre><code>##  [1] "us_state_grid1"                 "us_state_grid2"                
-##  [3] "eu_grid1"                       "aus_grid1"                     
-##  [5] "sa_prov_grid1"                  "london_boroughs_grid"          
-##  [7] "nhs_scot_grid"                  "india_grid1"                   
-##  [9] "india_grid2"                    "argentina_grid1"               
-## [11] "br_states_grid1"                "sea_grid1"                     
-## [13] "mys_grid1"                      "fr_regions_grid1"              
-## [15] "de_states_grid1"                "us_or_counties_grid1"          
-## [17] "us_wa_counties_grid1"           "us_in_counties_grid1"          
-## [19] "us_in_central_counties_grid1"   "se_counties_grid1"             
-## [21] "sf_bay_area_counties_grid1"     "ua_region_grid1"               
-## [23] "mx_state_grid1"                 "mx_state_grid2"                
-## [25] "scotland_local_authority_grid1" "us_state_grid3"                
-## [27] "italy_grid1"                    "italy_grid2"                   
-## [29] "be_province_grid1"              "us_state_grid4"                
-## [31] "jp_prefs_grid1"                 "ng_state_grid1"                
-## [33] "bd_upazila_grid1"               "spain_prov_grid1"              
-## [35] "ch_cantons_grid1"               "ch_cantons_grid2"              
-## [37] "china_prov_grid1"               "world_86countries_grid"        
-## [39] "se_counties_grid2"              "uk_regions1"                   
-## [41] "us_state_contiguous_grid1"      "sk_province_grid1"             
-## [43] "ch_aargau_districts_grid1"      "jo_gov_grid1"                  
-## [45] "spain_ccaa_grid1"               "spain_prov_grid2"              
-## [47] "world_countries_grid1"          "br_states_grid2"               
-## [49] "china_city_grid1"               "kr_seoul_district_grid1"       
-## [51] "nz_regions_grid1"               "sl_regions_grid1"              
-## [53] "us_census_div_grid1"            "ar_tucuman_province_grid1"     
-## [55] "us_nh_counties_grid1"           "china_prov_grid2"              
-## [57] "pl_voivodeships_grid1"          "us_ia_counties_grid1"          
-## [59] "us_id_counties_grid1"           "ar_cordoba_dep_grid1"          
-## [61] "us_fl_counties_grid1"           "ar_buenosaires_communes_grid1" 
-## [63] "nz_regions_grid2"               "oecd_grid1"</code></pre>
+<pre><code>##   [1] "us_state_grid1"                           
+##   [2] "us_state_grid2"                           
+##   [3] "eu_grid1"                                 
+##   [4] "aus_grid1"                                
+##   [5] "sa_prov_grid1"                            
+##   [6] "gb_london_boroughs_grid"                  
+##   [7] "nhs_scot_grid"                            
+##   [8] "india_grid1"                              
+##   [9] "india_grid2"                              
+##  [10] "argentina_grid1"                          
+##  [11] "br_states_grid1"                          
+##  [12] "sea_grid1"                                
+##  [13] "mys_grid1"                                
+##  [14] "fr_regions_grid1"                         
+##  [15] "de_states_grid1"                          
+##  [16] "us_or_counties_grid1"                     
+##  [17] "us_wa_counties_grid1"                     
+##  [18] "us_in_counties_grid1"                     
+##  [19] "us_in_central_counties_grid1"             
+##  [20] "se_counties_grid1"                        
+##  [21] "sf_bay_area_counties_grid1"               
+##  [22] "ua_region_grid1"                          
+##  [23] "mx_state_grid1"                           
+##  [24] "mx_state_grid2"                           
+##  [25] "scotland_local_authority_grid1"           
+##  [26] "us_state_without_DC_grid1"                
+##  [27] "italy_grid1"                              
+##  [28] "italy_grid2"                              
+##  [29] "be_province_grid1"                        
+##  [30] "us_state_grid3"                           
+##  [31] "jp_prefs_grid1"                           
+##  [32] "ng_state_grid1"                           
+##  [33] "bd_upazila_grid1"                         
+##  [34] "spain_prov_grid1"                         
+##  [35] "ch_cantons_grid1"                         
+##  [36] "ch_cantons_grid2"                         
+##  [37] "china_prov_grid1"                         
+##  [38] "world_86countries_grid"                   
+##  [39] "se_counties_grid2"                        
+##  [40] "uk_regions1"                              
+##  [41] "us_state_contiguous_grid1"                
+##  [42] "sk_province_grid1"                        
+##  [43] "ch_aargau_districts_grid1"                
+##  [44] "jo_gov_grid1"                             
+##  [45] "spain_ccaa_grid1"                         
+##  [46] "spain_prov_grid2"                         
+##  [47] "world_countries_grid1"                    
+##  [48] "br_states_grid2"                          
+##  [49] "china_city_grid1"                         
+##  [50] "kr_seoul_district_grid1"                  
+##  [51] "nz_regions_grid1"                         
+##  [52] "sl_regions_grid1"                         
+##  [53] "us_census_div_grid1"                      
+##  [54] "ar_tucuman_province_grid1"                
+##  [55] "us_nh_counties_grid1"                     
+##  [56] "china_prov_grid2"                         
+##  [57] "pl_voivodeships_grid1"                    
+##  [58] "us_ia_counties_grid1"                     
+##  [59] "us_id_counties_grid1"                     
+##  [60] "ar_cordoba_dep_grid1"                     
+##  [61] "us_fl_counties_grid1"                     
+##  [62] "ar_buenosaires_communes_grid1"            
+##  [63] "nz_regions_grid2"                         
+##  [64] "oecd_grid1"                               
+##  [65] "ec_prov_grid1"                            
+##  [66] "nl_prov_grid1"                            
+##  [67] "ca_prov_grid1"                            
+##  [68] "us_nc_counties_grid1"                     
+##  [69] "mx_ciudad_prov_grid1"                     
+##  [70] "bg_prov_grid1"                            
+##  [71] "us_hhs_regions_grid1"                     
+##  [72] "tw_counties_grid1"                        
+##  [73] "tw_counties_grid2"                        
+##  [74] "af_prov_grid1"                            
+##  [75] "us_mi_counties_grid1"                     
+##  [76] "pe_prov_grid1"                            
+##  [77] "sa_prov_grid2"                            
+##  [78] "mx_state_grid3"                           
+##  [79] "cn_bj_districts_grid1"                    
+##  [80] "us_va_counties_grid1"                     
+##  [81] "us_mo_counties_grid1"                     
+##  [82] "cl_santiago_prov_grid1"                   
+##  [83] "us_tx_capcog_counties_grid1"              
+##  [84] "sg_planning_area_grid1"                   
+##  [85] "in_state_ut_grid1"                        
+##  [86] "cn_fujian_prov_grid1"                     
+##  [87] "ca_quebec_electoral_districts_grid1"      
+##  [88] "nl_prov_grid2"                            
+##  [89] "cn_bj_districts_grid2"                    
+##  [90] "ar_santiago_del_estero_prov_grid1"        
+##  [91] "ar_formosa_prov_grid1"                    
+##  [92] "ar_chaco_prov_grid1"                      
+##  [93] "ar_catamarca_prov_grid1"                  
+##  [94] "ar_jujuy_prov_grid1"                      
+##  [95] "ar_neuquen_prov_grid1"                    
+##  [96] "ar_san_luis_prov_grid1"                   
+##  [97] "ar_san_juan_prov_grid1"                   
+##  [98] "ar_santa_fe_prov_grid1"                   
+##  [99] "ar_la_rioja_prov_grid1"                   
+## [100] "ar_mendoza_prov_grid1"                    
+## [101] "ar_salta_prov_grid1"                      
+## [102] "ar_rio_negro_prov_grid1"                  
+## [103] "uy_departamentos_grid1"                   
+## [104] "ar_buenos_aires_prov_electoral_dist_grid1"
+## [105] "europe_countries_grid1"                   
+## [106] "argentina_grid2"                          
+## [107] "us_state_without_DC_grid2"                
+## [108] "jp_prefs_grid2"                           
+## [109] "na_regions_grid1"                         
+## [110] "mm_state_grid1"                           
+## [111] "us_state_with_DC_PR_grid1"                
+## [112] "fr_departements_grid1"                    
+## [113] "ar_salta_prov_grid2"                      
+## [114] "ie_counties_grid1"                        
+## [115] "sg_regions_grid1"                         
+## [116] "us_ny_counties_grid1"                     
+## [117] "ru_federal_subjects_grid1"                
+## [118] "us_ca_counties_grid1"                     
+## [119] "lk_districts_grid1"                       
+## [120] "us_state_without_DC_grid3"                
+## [121] "co_cali_subdivisions_grid1"               
+## [122] "us_in_northern_counties_grid1"            
+## [123] "italy_grid3"                              
+## [124] "us_state_with_DC_PR_grid2"                
+## [125] "us_state_grid7"                           
+## [126] "sg_planning_area_grid2"                   
+## [127] "ch_cantons_fl_grid1"                      
+## [128] "europe_countries_grid2"                   
+## [129] "us_states_territories_grid1"              
+## [130] "us_tn_counties_grid1"                     
+## [131] "us_il_chicago_community_areas_grid1"      
+## [132] "us_state_with_DC_PR_grid3"                
+## [133] "in_state_ut_grid2"                        
+## [134] "at_states_grid1"                          
+## [135] "us_pa_counties_grid1"                     
+## [136] "us_oh_counties_grid1"                     
+## [137] "fr_departements_grid2"                    
+## [138] "us_wi_counties_grid1"                     
+## [139] "africa_countries_grid1"                   
+## [140] "no_counties_grid1"                        
+## [141] "tr_provinces_grid1"</code></pre>
 <p>For states or other regions that aren’t yet included in {geofacet}’s grids, you can construct one using the <a href="https://hafen.github.io/grid-designer/">Geo Grid Designer</a>. For more information, see <a href="https://cran.r-project.org/package=geofacet">the geofacet page on CRAN</a>.</p>
 </div>
 </div>

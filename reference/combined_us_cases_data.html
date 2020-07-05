@@ -129,9 +129,6 @@ over all the available datasets." />
       <a href="../articles/map_visualization.html">Geospatial visualization of COVID-19 datasets</a>
     </li>
     <li>
-      <a href="../articles/minority_death_rate.html">COVID-19 infection rates and deaths by race</a>
-    </li>
-    <li>
       <a href="../articles/more_visualization.html">Visualizing geographic COVID-19 trends without maps</a>
     </li>
     <li>
@@ -141,7 +138,7 @@ over all the available datasets." />
       <a href="../articles/phylogenetics.html">Phylogenetic data</a>
     </li>
     <li>
-      <a href="../articles/r0_estimates.html">Estimating the replication rate, $R_0$</a>
+      <a href="../articles/r0_estimates.html">Estimating the replication rate</a>
     </li>
     <li>
       <a href="../articles/tsanalysis.html">Time series analysis of COVID-19 datasets</a>
@@ -193,7 +190,7 @@ over all the available datasets.</p>
 <code><a href='align_to_baseline.html'>align_to_baseline</a>()</code>,
 <code><a href='beoutbreakprepared_data.html'>beoutbreakprepared_data</a>()</code>,
 <code><a href='bulk_estimate_Rt.html'>bulk_estimate_Rt</a>()</code>,
-<code>coronadatascraper_data()</code>,
+<code><a href='coronadatascraper_data.html'>coronadatascraper_data</a>()</code>,
 <code><a href='covidtracker_data.html'>covidtracker_data</a>()</code>,
 <code><a href='ecdc_data.html'>ecdc_data</a>()</code>,
 <code><a href='estimate_Rt.html'>estimate_Rt</a>()</code>,
@@ -202,12 +199,12 @@ over all the available datasets.</p>
 <code><a href='nytimes_county_data.html'>nytimes_county_data</a>()</code>,
 <code><a href='owid_data.html'>owid_data</a>()</code>,
 <code><a href='plot_epicurve.html'>plot_epicurve</a>()</code>,
+<code><a href='test_and_trace_data.html'>test_and_trace_data</a>()</code>,
 <code><a href='usa_facts_data.html'>usa_facts_data</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>cus</span> <span class='kw'>=</span> <span class='fu'>combined_us_cases_data</span>()</div><div class='output co'>#&gt; 
-#&gt; 
-#&gt; </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>cus</span>)</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 6 x 6</span><span>
+    <pre class="examples"><div class='input'><span class='no'>cus</span> <span class='kw'>=</span> <span class='fu'>combined_us_cases_data</span>()
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>cus</span>)</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 6 x 6</span><span>
 #&gt; </span><span style='color: #555555;'># Groups:   fips [1]</span><span>
 #&gt;   dataset date       fips  count incidence state
 #&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>

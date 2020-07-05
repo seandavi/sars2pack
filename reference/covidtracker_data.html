@@ -128,9 +128,6 @@ testing results, hospitalizations, deaths, and ICU and ventilated patients." />
       <a href="../articles/map_visualization.html">Geospatial visualization of COVID-19 datasets</a>
     </li>
     <li>
-      <a href="../articles/minority_death_rate.html">COVID-19 infection rates and deaths by race</a>
-    </li>
-    <li>
       <a href="../articles/more_visualization.html">Visualizing geographic COVID-19 trends without maps</a>
     </li>
     <li>
@@ -140,7 +137,7 @@ testing results, hospitalizations, deaths, and ICU and ventilated patients." />
       <a href="../articles/phylogenetics.html">Phylogenetic data</a>
     </li>
     <li>
-      <a href="../articles/r0_estimates.html">Estimating the replication rate, $R_0$</a>
+      <a href="../articles/r0_estimates.html">Estimating the replication rate</a>
     </li>
     <li>
       <a href="../articles/tsanalysis.html">Time series analysis of COVID-19 datasets</a>
@@ -211,7 +208,7 @@ district currently reporting that data.</p>
 <code><a href='cdc_aggregated_projections.html'>cdc_aggregated_projections</a>()</code>,
 <code><a href='cdc_excess_deaths.html'>cdc_excess_deaths</a>()</code>,
 <code><a href='cdc_social_vulnerability_index.html'>cdc_social_vulnerability_index</a>()</code>,
-<code>coronadatascraper_data()</code>,
+<code><a href='coronadatascraper_data.html'>coronadatascraper_data</a>()</code>,
 <code><a href='coronanet_government_response_data.html'>coronanet_government_response_data</a>()</code>,
 <code><a href='cov_glue_lineage_data.html'>cov_glue_lineage_data</a>()</code>,
 <code><a href='cov_glue_newick_data.html'>cov_glue_newick_data</a>()</code>,
@@ -233,7 +230,7 @@ district currently reporting that data.</p>
 <code><a href='oecd_unemployment_data.html'>oecd_unemployment_data</a>()</code>,
 <code><a href='owid_data.html'>owid_data</a>()</code>,
 <code><a href='param_estimates_published.html'>param_estimates_published</a>()</code>,
-<code>test_and_trace_data()</code>,
+<code><a href='test_and_trace_data.html'>test_and_trace_data</a>()</code>,
 <code><a href='us_county_geo_details.html'>us_county_geo_details</a>()</code>,
 <code><a href='us_county_health_rankings.html'>us_county_health_rankings</a>()</code>,
 <code><a href='us_healthcare_capacity.html'>us_healthcare_capacity</a>()</code>,
@@ -245,7 +242,7 @@ district currently reporting that data.</p>
 <code><a href='beoutbreakprepared_data.html'>beoutbreakprepared_data</a>()</code>,
 <code><a href='bulk_estimate_Rt.html'>bulk_estimate_Rt</a>()</code>,
 <code><a href='combined_us_cases_data.html'>combined_us_cases_data</a>()</code>,
-<code>coronadatascraper_data()</code>,
+<code><a href='coronadatascraper_data.html'>coronadatascraper_data</a>()</code>,
 <code><a href='ecdc_data.html'>ecdc_data</a>()</code>,
 <code><a href='estimate_Rt.html'>estimate_Rt</a>()</code>,
 <code><a href='eu_data_cache_data.html'>eu_data_cache_data</a>()</code>,
@@ -253,34 +250,36 @@ district currently reporting that data.</p>
 <code><a href='nytimes_county_data.html'>nytimes_county_data</a>()</code>,
 <code><a href='owid_data.html'>owid_data</a>()</code>,
 <code><a href='plot_epicurve.html'>plot_epicurve</a>()</code>,
+<code><a href='test_and_trace_data.html'>test_and_trace_data</a>()</code>,
 <code><a href='usa_facts_data.html'>usa_facts_data</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>dplyr</span>)
 <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>ggplot2</span>)
 
-<span class='no'>res</span> <span class='kw'>=</span> <span class='fu'>covidtracker_data</span>()</div><div class='output co'>#&gt; </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt;  [1] "date"                   "fips"                   "state"                 
+<span class='no'>res</span> <span class='kw'>=</span> <span class='fu'>covidtracker_data</span>()
+<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt;  [1] "date"                   "fips"                   "state"                 
 #&gt;  [4] "positive"               "negative"               "death"                 
 #&gt;  [7] "pending"                "hospitalized"           "hospitalizedCurrently" 
 #&gt; [10] "recovered"              "inIcuCumulative"        "inIcuCurrently"        
 #&gt; [13] "onVentilatorCurrently"  "onVentilatorCumulative" "dateChecked"           
-#&gt; [16] "dataQualityGrade"      </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/dim.html'>dim</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; [1] 6569   16</div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Rows: 6,569
+#&gt; [16] "dataQualityGrade"      </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/dim.html'>dim</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; [1] 6793   16</div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Rows: 6,793
 #&gt; Columns: 16
-#&gt; $ date                   <span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2020-06-30, 2020-06-30, 2020-06-30, 2020-06-3…
+#&gt; $ date                   <span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2020-07-04, 2020-07-04, 2020-07-04, 2020-07-0…
 #&gt; $ fips                   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "00002", "00001", "00005", "00060", "00004", "…
 #&gt; $ state                  </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "AK", "AL", "AR", "AS", "AZ", "CA", "CO", "CT"…
-#&gt; $ positive               </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> 940, 38045, 20777, 0, 79215, 222917, 32511, 46…
-#&gt; $ negative               </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> 111245, 368607, 290426, 696, 453141, 3944222, …
-#&gt; $ death                  </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> 14, 950, 270, 0, 1632, 5980, 1682, 4322, 551, …
-#&gt; $ pending                </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 1904, …
-#&gt; $ hospitalized           </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> NA, 2769, 1413, NA, 4736, NA, 5442, 10268, NA,…
-#&gt; $ hospitalizedCurrently  </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> 18, 776, 290, NA, 2793, 6466, 271, 98, 126, 64…
-#&gt; $ recovered              </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> 526, 18866, 14531, NA, 9411, NA, 4479, 8053, 1…
-#&gt; $ inIcuCumulative        </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> NA, 806, NA, NA, NA, NA, NA, NA, NA, NA, NA, 2…
-#&gt; $ inIcuCurrently         </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> NA, NA, NA, NA, 683, 1751, NA, NA, 33, 13, NA,…
-#&gt; $ onVentilatorCurrently  </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> 1, NA, 67, NA, 455, NA, NA, NA, 22, NA, NA, NA…
-#&gt; $ onVentilatorCumulative </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> NA, 458, 220, NA, NA, NA, NA, NA, NA, NA, NA, …
-#&gt; $ dateChecked            </span><span style='color: #555555;font-style: italic;'>&lt;dttm&gt;</span><span> 2020-06-29 00:00:00, 2020-06-30 11:00:00, 202…
+#&gt; $ positive               </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> 1111, 42862, 23209, 0, 94553, 254745, 33619, 4…
+#&gt; $ negative               </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> 121621, 399226, 315684, 696, 494955, 4298286, …
+#&gt; $ death                  </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> 16, 1007, 286, 0, 1805, 6313, 1521, 4335, 557,…
+#&gt; $ pending                </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 1672, …
+#&gt; $ hospitalized           </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> NA, 2906, 1536, NA, 5068, NA, 5537, 10411, NA,…
+#&gt; $ hospitalizedCurrently  </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> 23, 800, 285, NA, 3113, 7092, 270, 95, 95, 54,…
+#&gt; $ recovered              </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> 544, 22082, 16726, NA, 10903, NA, 4557, 8210, …
+#&gt; $ inIcuCumulative        </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> NA, 843, NA, NA, NA, NA, NA, NA, NA, NA, NA, 2…
+#&gt; $ inIcuCurrently         </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> NA, NA, NA, NA, 796, 1888, NA, NA, 28, 13, NA,…
+#&gt; $ onVentilatorCurrently  </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> 3, NA, 70, NA, 413, NA, NA, NA, 21, NA, NA, NA…
+#&gt; $ onVentilatorCumulative </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> NA, 473, 240, NA, NA, NA, NA, NA, NA, NA, NA, …
+#&gt; $ dateChecked            </span><span style='color: #555555;font-style: italic;'>&lt;dttm&gt;</span><span> 2020-07-04 00:00:00, 2020-07-04 11:00:00, 202…
 #&gt; $ dataQualityGrade       </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "A", "B", "A", "C", "A+", "B", "A", "B", "A+",…</div><div class='input'>
 <span class='co'># Hospitalizations by day in Maryland</span>
 <span class='fu'>covidtracker_data</span>() <span class='kw'>%&gt;%</span>
@@ -288,7 +287,7 @@ district currently reporting that data.</p>
     <span class='fu'><a href='add_incidence_column.html'>add_incidence_column</a></span>(<span class='kw'>count_column</span><span class='kw'>=</span><span class='st'>'hospitalized'</span>) <span class='kw'>%&gt;%</span>
     <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>x</span><span class='kw'>=</span><span class='no'>date</span>,<span class='kw'>y</span><span class='kw'>=</span><span class='no'>inc</span>)) + <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_smooth.html'>geom_smooth</a></span>() +
     <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ylab</a></span>(<span class='st'>"New Hospitalizations per day"</span>) +
-    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span>(<span class='st'>'Hospitalizations in Maryland'</span>, <span class='kw'>subtitle</span> <span class='kw'>=</span> <span class='st'>'From covidtracker'</span>)</div><div class='output co'>#&gt; </div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using method = 'loess' and formula 'y ~ x'</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 22 rows containing non-finite values (stat_smooth).</span></div><div class='img'><img src='covidtracker_data-1.png' alt='' width='700' height='433' /></div><div class='input'>
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span>(<span class='st'>'Hospitalizations in Maryland'</span>, <span class='kw'>subtitle</span> <span class='kw'>=</span> <span class='st'>'From covidtracker'</span>)</div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using method = 'loess' and formula 'y ~ x'</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 22 rows containing non-finite values (stat_smooth).</span></div><div class='img'><img src='covidtracker_data-1.png' alt='' width='700' height='433' /></div><div class='input'>
 
 </div></span></pre>
   </div>

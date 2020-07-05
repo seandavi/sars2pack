@@ -37,7 +37,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sars2pack</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.2</span>
       </span>
     </div>
 
@@ -72,6 +72,9 @@
       <a href="../articles/doMCMC.html">Building MCMC-based models of SI for SARS-Cov-2</a>
     </li>
     <li>
+      <a href="../articles/how_much_testing.html">HMTPlot: How much testing</a>
+    </li>
+    <li>
       <a href="../articles/index.html">Introduction to sars2pack</a>
     </li>
     <li>
@@ -84,7 +87,10 @@
       <a href="../articles/overview.html">Exploring the COVID-19 pandemic using sars2pack</a>
     </li>
     <li>
-      <a href="../articles/r0_estimates.html">Estimating the replication rate, </a>
+      <a href="../articles/phylogenetics.html">Phylogenetic data</a>
+    </li>
+    <li>
+      <a href="../articles/r0_estimates.html">Estimating the replication rate</a>
     </li>
     <li>
       <a href="../articles/tsanalysis.html">Time series analysis of COVID-19 datasets</a>
@@ -125,6 +131,9 @@
 
     
     
+<div id="time-series-analysis-of-covid-19-datasets" class="section level1">
+<h1 class="hasAnchor">
+<a href="#time-series-analysis-of-covid-19-datasets" class="anchor"></a>Time series analysis of COVID-19 datasets</h1>
 <div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">sars2pack</span>)
 <span class="co">#&gt; Loading required package: R0</span>
 <span class="co">#&gt; Loading required package: MASS</span>
@@ -151,11 +160,6 @@
 <span class="co">#&gt;     intersect, setdiff, setequal, union</span></pre></body></html></div>
 <div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="no">nyt</span> <span class="kw">=</span> <span class="fu"><a href="../reference/nytimes_county_data.html">nytimes_state_data</a></span>()</pre></body></html></div>
 <div class="sourceCode" id="cb3"><html><body><pre class="r"><span class="no">nyts</span> <span class="kw">=</span> <span class="no">nyt</span> <span class="kw">%&gt;%</span> <span class="fu"><a href="../reference/add_incidence_column.html">add_incidence_column</a></span>(<span class="kw">grouping_columns</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">'state'</span>,<span class="st">'fips'</span>,<span class="st">'subset'</span>)) <span class="kw">%&gt;%</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">ungroup</a></span>() <span class="kw">%&gt;%</span> <span class="kw pkg">tsibble</span><span class="kw ns">::</span><span class="fu"><a href="https://tsibble.tidyverts.org/reference/as-tsibble.html">as_tsibble</a></span>(<span class="kw">key</span><span class="kw">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(-<span class="no">date</span>,-<span class="no">count</span>,-<span class="no">inc</span>),<span class="kw">index</span><span class="kw">=</span><span class="no">date</span>)
-<span class="co">#&gt; Warning: `arrange_()` is deprecated as of dplyr 0.7.0.</span>
-<span class="co">#&gt; Please use `arrange()` instead.</span>
-<span class="co">#&gt; See vignette('programming') for more help</span>
-<span class="co">#&gt; This warning is displayed once every 8 hours.</span>
-<span class="co">#&gt; Call `lifecycle::last_warnings()` to see where this warning was generated.</span>
 <span class="no">nyts</span> <span class="kw">=</span> <span class="no">nyts</span> <span class="kw">%&gt;%</span> <span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(<span class="no">state</span> <span class="kw">%in%</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">'New York'</span>, <span class="st">'New Jersey'</span>, <span class="st">'Colorado'</span>, <span class="st">'Maryland'</span>) <span class="kw">&amp;</span> <span class="no">subset</span><span class="kw">==</span><span class="st">'confirmed'</span> <span class="kw">&amp;</span> <span class="no">date</span><span class="kw">&gt;</span><span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html">Sys.Date</a></span>()-<span class="fl">30</span>)</pre></body></html></div>
 <p>Produce an ETS and an ARIMA model for each state.</p>
 <div class="sourceCode" id="cb4"><html><body><pre class="r"><span class="no">fit</span> <span class="kw">=</span> <span class="no">nyts</span> <span class="kw">%&gt;%</span>
@@ -170,65 +174,62 @@
     <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span>(<span class="no">ets</span>) <span class="kw">%&gt;%</span>
     <span class="fu">report</span>()
 <span class="co">#&gt; Series: inc </span>
-<span class="co">#&gt; Model: ETS(A,N,A) </span>
+<span class="co">#&gt; Model: ETS(A,N,N) </span>
 <span class="co">#&gt; Transformation: log10(.x) </span>
 <span class="co">#&gt;   Smoothing parameters:</span>
-<span class="co">#&gt;     alpha = 0.2411117 </span>
-<span class="co">#&gt;     gamma = 0.0002253897 </span>
+<span class="co">#&gt;     alpha = 0.3152876 </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt;   Initial states:</span>
-<span class="co">#&gt;         l         s1          s2         s3         s4        s5         s6</span>
-<span class="co">#&gt;  2.556224 -0.0357663 -0.05298556 -0.2163486 -0.0544895 0.1759611 0.09727741</span>
-<span class="co">#&gt;          s7</span>
-<span class="co">#&gt;  0.08635149</span>
+<span class="co">#&gt;         l</span>
+<span class="co">#&gt;  2.260477</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt;   sigma^2:  0.0092</span>
+<span class="co">#&gt;   sigma^2:  0.0118</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt;       AIC      AICc       BIC </span>
-<span class="co">#&gt; -29.04807 -16.82585 -15.37511</span></pre></body></html></div>
+<span class="co">#&gt; -27.08621 -26.08621 -23.08959</span></pre></body></html></div>
 <p>Get a report of the ARIMA model for Colorado.</p>
 <div class="sourceCode" id="cb6"><html><body><pre class="r"><span class="no">fit</span> <span class="kw">%&gt;%</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(<span class="no">state</span><span class="kw">==</span><span class="st">'Colorado'</span>) <span class="kw">%&gt;%</span>
     <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span>(<span class="no">arima</span>) <span class="kw">%&gt;%</span>
     <span class="fu">report</span>()
 <span class="co">#&gt; Series: inc </span>
-<span class="co">#&gt; Model: ARIMA(0,0,0)(1,1,0)[7] </span>
+<span class="co">#&gt; Model: ARIMA(0,1,1)(0,0,1)[7] </span>
 <span class="co">#&gt; Transformation: log10(.x) </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Coefficients:</span>
-<span class="co">#&gt;          sar1</span>
-<span class="co">#&gt;       -0.5675</span>
-<span class="co">#&gt; s.e.   0.1733</span>
+<span class="co">#&gt;           ma1    sma1</span>
+<span class="co">#&gt;       -0.7333  0.8341</span>
+<span class="co">#&gt; s.e.   0.1459  0.6984</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; sigma^2 estimated as 0.01326:  log likelihood=15.49</span>
-<span class="co">#&gt; AIC=-26.98   AICc=-26.35   BIC=-24.8</span></pre></body></html></div>
+<span class="co">#&gt; sigma^2 estimated as 0.006837:  log likelihood=26.23</span>
+<span class="co">#&gt; AIC=-46.46   AICc=-45.41   BIC=-42.57</span></pre></body></html></div>
 <div class="sourceCode" id="cb7"><html><body><pre class="r"><span class="no">fit</span> <span class="kw">%&gt;%</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(<span class="no">state</span><span class="kw">==</span><span class="st">'New York'</span>) <span class="kw">%&gt;%</span>
     <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span>(<span class="no">arima</span>) <span class="kw">%&gt;%</span>
     <span class="fu">report</span>()
 <span class="co">#&gt; Series: inc </span>
-<span class="co">#&gt; Model: ARIMA(0,0,0)(1,1,0)[7] w/ drift </span>
+<span class="co">#&gt; Model: ARIMA(0,0,1)(0,1,0)[7] w/ drift </span>
 <span class="co">#&gt; Transformation: log10(.x) </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Coefficients:</span>
-<span class="co">#&gt;          sar1  constant</span>
-<span class="co">#&gt;       -0.5943   -0.1430</span>
-<span class="co">#&gt; s.e.   0.1936    0.0158</span>
+<span class="co">#&gt;          ma1  constant</span>
+<span class="co">#&gt;       0.4570   -0.0291</span>
+<span class="co">#&gt; s.e.  0.1754    0.0164</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; sigma^2 estimated as 0.004578:  log likelihood=27.57</span>
-<span class="co">#&gt; AIC=-49.14   AICc=-47.8   BIC=-45.87</span></pre></body></html></div>
+<span class="co">#&gt; sigma^2 estimated as 0.003027:  log likelihood=32.05</span>
+<span class="co">#&gt; AIC=-58.1   AICc=-56.69   BIC=-54.96</span></pre></body></html></div>
 <div class="sourceCode" id="cb8"><html><body><pre class="r"><span class="no">fit</span> <span class="kw">%&gt;%</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(<span class="no">state</span><span class="kw">==</span><span class="st">'New Jersey'</span>) <span class="kw">%&gt;%</span>
     <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span>(<span class="no">arima</span>) <span class="kw">%&gt;%</span>
     <span class="fu">report</span>()
 <span class="co">#&gt; Series: inc </span>
-<span class="co">#&gt; Model: ARIMA(0,1,1) </span>
+<span class="co">#&gt; Model: ARIMA(0,0,0) w/ mean </span>
 <span class="co">#&gt; Transformation: log10(.x) </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Coefficients:</span>
-<span class="co">#&gt;           ma1</span>
-<span class="co">#&gt;       -0.5610</span>
-<span class="co">#&gt; s.e.   0.1698</span>
+<span class="co">#&gt;       constant</span>
+<span class="co">#&gt;         2.5331</span>
+<span class="co">#&gt; s.e.    0.0413</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; sigma^2 estimated as 0.02199:  log likelihood=14.03</span>
-<span class="co">#&gt; AIC=-24.07   AICc=-23.59   BIC=-21.4</span></pre></body></html></div>
+<span class="co">#&gt; sigma^2 estimated as 0.04947:  log likelihood=2.87</span>
+<span class="co">#&gt; AIC=-1.74   AICc=-1.26   BIC=0.93</span></pre></body></html></div>
 <div class="sourceCode" id="cb9"><html><body><pre class="r"><span class="no">fit</span> <span class="kw">%&gt;%</span> <span class="fu">accuracy</span>() <span class="kw">%&gt;%</span>
     <span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span>(-<span class="no">.type</span>,-<span class="no">fips</span>,-<span class="no">subset</span>) <span class="kw">%&gt;%</span>
     <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span>(<span class="no">MASE</span>) <span class="kw">%&gt;%</span>
@@ -249,90 +250,90 @@
 <tr class="odd">
 <td align="left">New York</td>
 <td align="left">arima</td>
-<td align="right">-1.533193</td>
-<td align="right">188.14397</td>
-<td align="right">135.62962</td>
-<td align="right">-0.5244709</td>
-<td align="right">8.955634</td>
-<td align="right">0.3391897</td>
-<td align="right">-0.1348612</td>
+<td align="right">4.138861</td>
+<td align="right">68.25304</td>
+<td align="right">48.83433</td>
+<td align="right">-0.2615464</td>
+<td align="right">7.466806</td>
+<td align="right">0.5833452</td>
+<td align="right">0.0596637</td>
 </tr>
 <tr class="even">
+<td align="left">Colorado</td>
+<td align="left">arima</td>
+<td align="right">7.846408</td>
+<td align="right">37.56170</td>
+<td align="right">28.26974</td>
+<td align="right">0.6040147</td>
+<td align="right">13.489456</td>
+<td align="right">0.5872053</td>
+<td align="right">0.0545202</td>
+</tr>
+<tr class="odd">
+<td align="left">New Jersey</td>
+<td align="left">arima</td>
+<td align="right">60.907810</td>
+<td align="right">357.62960</td>
+<td align="right">140.54378</td>
+<td align="right">-12.4597420</td>
+<td align="right">33.772265</td>
+<td align="right">0.6095455</td>
+<td align="right">-0.0968386</td>
+</tr>
+<tr class="even">
+<td align="left">New Jersey</td>
+<td align="left">ets</td>
+<td align="right">60.825205</td>
+<td align="right">357.62368</td>
+<td align="right">140.56135</td>
+<td align="right">-12.4881273</td>
+<td align="right">33.785805</td>
+<td align="right">0.6096217</td>
+<td align="right">-0.0968432</td>
+</tr>
+<tr class="odd">
 <td align="left">New York</td>
 <td align="left">ets</td>
-<td align="right">6.853138</td>
-<td align="right">188.53456</td>
-<td align="right">144.80642</td>
-<td align="right">-0.6990162</td>
-<td align="right">8.821567</td>
-<td align="right">0.3621395</td>
-<td align="right">-0.1422590</td>
+<td align="right">-1.822987</td>
+<td align="right">78.81088</td>
+<td align="right">66.25925</td>
+<td align="right">-0.8957398</td>
+<td align="right">9.683223</td>
+<td align="right">0.7914928</td>
+<td align="right">0.0147447</td>
+</tr>
+<tr class="even">
+<td align="left">Maryland</td>
+<td align="left">arima</td>
+<td align="right">-16.635929</td>
+<td align="right">108.62973</td>
+<td align="right">90.30343</td>
+<td align="right">-8.3421206</td>
+<td align="right">22.029179</td>
+<td align="right">0.8227211</td>
+<td align="right">-0.1479674</td>
 </tr>
 <tr class="odd">
-<td align="left">New Jersey</td>
+<td align="left">Maryland</td>
 <td align="left">ets</td>
-<td align="right">32.428100</td>
-<td align="right">261.84771</td>
-<td align="right">194.40870</td>
-<td align="right">-4.6302041</td>
-<td align="right">22.569205</td>
-<td align="right">0.5275677</td>
-<td align="right">0.1647046</td>
+<td align="right">-9.220447</td>
+<td align="right">108.88712</td>
+<td align="right">92.52768</td>
+<td align="right">-7.2373096</td>
+<td align="right">22.228330</td>
+<td align="right">0.8429854</td>
+<td align="right">-0.1814513</td>
 </tr>
 <tr class="even">
 <td align="left">Colorado</td>
 <td align="left">ets</td>
-<td align="right">-8.285151</td>
-<td align="right">58.01379</td>
-<td align="right">43.55472</td>
-<td align="right">-5.3197393</td>
-<td align="right">14.601461</td>
-<td align="right">0.5758436</td>
-<td align="right">0.0433067</td>
-</tr>
-<tr class="odd">
-<td align="left">New Jersey</td>
-<td align="left">arima</td>
-<td align="right">-68.507250</td>
-<td align="right">295.78284</td>
-<td align="right">223.14506</td>
-<td align="right">-16.2679044</td>
-<td align="right">28.632757</td>
-<td align="right">0.6055497</td>
-<td align="right">-0.1005443</td>
-</tr>
-<tr class="even">
-<td align="left">Colorado</td>
-<td align="left">arima</td>
-<td align="right">-26.944921</td>
-<td align="right">67.63220</td>
-<td align="right">47.67055</td>
-<td align="right">-12.0287018</td>
-<td align="right">17.541779</td>
-<td align="right">0.6302597</td>
-<td align="right">0.1936593</td>
-</tr>
-<tr class="odd">
-<td align="left">Maryland</td>
-<td align="left">arima</td>
-<td align="right">31.683653</td>
-<td align="right">258.23434</td>
-<td align="right">203.35651</td>
-<td align="right">-3.3289595</td>
-<td align="right">21.517801</td>
-<td align="right">0.7451438</td>
-<td align="right">0.1450953</td>
-</tr>
-<tr class="even">
-<td align="left">Maryland</td>
-<td align="left">ets</td>
-<td align="right">31.629589</td>
-<td align="right">258.23862</td>
-<td align="right">203.36541</td>
-<td align="right">-3.3352606</td>
-<td align="right">21.520157</td>
-<td align="right">0.7451764</td>
-<td align="right">0.1450910</td>
+<td align="right">14.459087</td>
+<td align="right">52.84615</td>
+<td align="right">43.11005</td>
+<td align="right">1.7704717</td>
+<td align="right">19.610612</td>
+<td align="right">0.8954611</td>
+<td align="right">0.1569088</td>
 </tr>
 </tbody>
 </table>
@@ -356,11 +357,14 @@
 <div class="sourceCode" id="cb12"><html><body><pre class="r"><span class="no">fc</span> <span class="kw">=</span> <span class="fu">forecast</span>(<span class="no">fit</span>,<span class="kw">h</span><span class="kw">=</span><span class="fl">7</span>)
 <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html">autoplot</a></span>(<span class="no">fc</span>)</pre></body></html></div>
 <p><img src="tsanalysis_files/figure-html/unnamed-chunk-5-1.png" width="700"></p>
+</div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
 
-      </div>
+        <nav id="toc" data-toggle="toc"><h2 data-toc-skip>Contents</h2>
+    </nav>
+</div>
 
 </div>
 

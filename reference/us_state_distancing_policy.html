@@ -127,9 +127,6 @@ for states in the United States and District of Columbia." />
       <a href="../articles/map_visualization.html">Geospatial visualization of COVID-19 datasets</a>
     </li>
     <li>
-      <a href="../articles/minority_death_rate.html">COVID-19 infection rates and deaths by race</a>
-    </li>
-    <li>
       <a href="../articles/more_visualization.html">Visualizing geographic COVID-19 trends without maps</a>
     </li>
     <li>
@@ -139,7 +136,7 @@ for states in the United States and District of Columbia." />
       <a href="../articles/phylogenetics.html">Phylogenetic data</a>
     </li>
     <li>
-      <a href="../articles/r0_estimates.html">Estimating the replication rate, $R_0$</a>
+      <a href="../articles/r0_estimates.html">Estimating the replication rate</a>
     </li>
     <li>
       <a href="../articles/tsanalysis.html">Time series analysis of COVID-19 datasets</a>
@@ -206,7 +203,7 @@ for states in the United States and District of Columbia.</p>
 <code><a href='cdc_aggregated_projections.html'>cdc_aggregated_projections</a>()</code>,
 <code><a href='cdc_excess_deaths.html'>cdc_excess_deaths</a>()</code>,
 <code><a href='cdc_social_vulnerability_index.html'>cdc_social_vulnerability_index</a>()</code>,
-<code>coronadatascraper_data()</code>,
+<code><a href='coronadatascraper_data.html'>coronadatascraper_data</a>()</code>,
 <code><a href='coronanet_government_response_data.html'>coronanet_government_response_data</a>()</code>,
 <code><a href='cov_glue_lineage_data.html'>cov_glue_lineage_data</a>()</code>,
 <code><a href='cov_glue_newick_data.html'>cov_glue_newick_data</a>()</code>,
@@ -229,7 +226,7 @@ for states in the United States and District of Columbia.</p>
 <code><a href='oecd_unemployment_data.html'>oecd_unemployment_data</a>()</code>,
 <code><a href='owid_data.html'>owid_data</a>()</code>,
 <code><a href='param_estimates_published.html'>param_estimates_published</a>()</code>,
-<code>test_and_trace_data()</code>,
+<code><a href='test_and_trace_data.html'>test_and_trace_data</a>()</code>,
 <code><a href='us_county_geo_details.html'>us_county_geo_details</a>()</code>,
 <code><a href='us_county_health_rankings.html'>us_county_health_rankings</a>()</code>,
 <code><a href='us_healthcare_capacity.html'>us_healthcare_capacity</a>()</code>,
@@ -240,17 +237,19 @@ for states in the United States and District of Columbia.</p>
 <code><a href='government_policy_timeline.html'>government_policy_timeline</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>res</span> <span class='kw'>=</span> <span class='fu'>us_state_distancing_policy</span>()</div><div class='output co'>#&gt; </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt;  [1] "PID"               "location_id"       "StateFIPS"        
+    <pre class="examples"><div class='input'><span class='no'>res</span> <span class='kw'>=</span> <span class='fu'>us_state_distancing_policy</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: 1 parsing failure.</span>
+#&gt; <span class='warning'> row        col expected actual                                                                                         file</span>
+#&gt; <span class='warning'>2915 Encourages a double      , '/Users/sdavis2/Library/Caches/sars2pack/2d5664a0f071_USstatesCov19distancingpolicyBETA.csv'</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt;  [1] "PID"               "location_id"       "StateFIPS"        
 #&gt;  [4] "iso2c"             "state"             "StatePolicy"      
 #&gt;  [7] "Mandate"           "StateWide"         "SWGeo"            
 #&gt; [10] "SWPop"             "DateIssued"        "DateEnacted"      
 #&gt; [13] "DateExpiry"        "DateEnded"         "Extends"          
 #&gt; [16] "Expands"           "Eases"             "Ends"             
-#&gt; [19] "Depends"           "PolicyCodingNotes" "PolicySource"     
-#&gt; [22] "PolicySourceID"    "LastUpdated"       "LastUpdatedNotes" 
-#&gt; [25] "UpdatingSource1"   "UpdatingSource2"  </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>dplyr</span>)
-<span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Rows: 3,385
-#&gt; Columns: 26
+#&gt; [19] "Depends"           "Encourages"        "PolicyCodingNotes"
+#&gt; [22] "PolicySource"      "PolicySourceID"    "LastUpdated"      
+#&gt; [25] "LastUpdatedNotes"  "UpdatingSource1"   "UpdatingSource2"  </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>dplyr</span>)
+<span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Rows: 3,588
+#&gt; Columns: 27
 #&gt; $ PID               <span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "AL0001", "AL0002", "AL0012", "AL0013", "AL0015", "…
 #&gt; $ location_id       </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 523, 523, 523, 523, 523, 523, 523, 523, 523, 523, 5…
 #&gt; $ StateFIPS         </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "00001", "00001", "00001", "00001", "00001", "00001…
@@ -270,6 +269,7 @@ for states in the United States and District of Columbia.</p>
 #&gt; $ Eases             </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
 #&gt; $ Ends              </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
 #&gt; $ Depends           </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+#&gt; $ Encourages        </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
 #&gt; $ PolicyCodingNotes </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Public Health Emergency declared. No clear expiry …
 #&gt; $ PolicySource      </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "https://governor.alabama.gov/assets/2020/03/2020-0…
 #&gt; $ PolicySourceID    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Alabama0001", "Alabama0002", "Alabama0004", "Alaba…
@@ -277,61 +277,61 @@ for states in the United States and District of Columbia.</p>
 #&gt; $ LastUpdatedNotes  </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> NA, "Updated DateIssued to 20200313, DateEnacted to…
 #&gt; $ UpdatingSource1   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "https://covid19.alaska.gov/health-mandates/", "htt…
 #&gt; $ UpdatingSource2   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "https://www.alabamapublichealth.gov/legal/orders.h…</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt;      PID             location_id     StateFIPS            iso2c          
-#&gt;  Length:3385        Min.   :523.0   Length:3385        Length:3385       
+#&gt;  Length:3588        Min.   :523.0   Length:3588        Length:3588       
 #&gt;  Class :character   1st Qu.:536.0   Class :character   Class :character  
 #&gt;  Mode  :character   Median :550.0   Mode  :character   Mode  :character  
-#&gt;                     Mean   :549.1                                        
+#&gt;                     Mean   :548.8                                        
 #&gt;                     3rd Qu.:561.0                                        
 #&gt;                     Max.   :573.0                                        
 #&gt;                                                                          
 #&gt;     state           StatePolicy         Mandate        StateWide      
-#&gt;  Length:3385        Length:3385        Mode :logical   Mode :logical  
-#&gt;  Class :character   Class :character   FALSE:310       FALSE:788      
-#&gt;  Mode  :character   Mode  :character   TRUE :3075      TRUE :2597     
+#&gt;  Length:3588        Length:3588        Mode :logical   Mode :logical  
+#&gt;  Class :character   Class :character   FALSE:371       FALSE:812      
+#&gt;  Mode  :character   Mode  :character   TRUE :3217      TRUE :2776     
 #&gt;                                                                       
 #&gt;                                                                       
 #&gt;                                                                       
 #&gt;                                                                       
-#&gt;      SWGeo            SWPop         DateIssued          DateEnacted        
-#&gt;  Min.   :0.0000   Min.   :0.000   Min.   :2020-02-29   Min.   :2020-02-29  
-#&gt;  1st Qu.:1.0000   1st Qu.:1.000   1st Qu.:2020-04-06   1st Qu.:2020-04-06  
-#&gt;  Median :1.0000   Median :1.000   Median :2020-05-08   Median :2020-05-12  
-#&gt;  Mean   :0.7873   Mean   :0.977   Mean   :2020-05-04   Mean   :2020-05-06  
-#&gt;  3rd Qu.:1.0000   3rd Qu.:1.000   3rd Qu.:2020-05-29   3rd Qu.:2020-06-01  
-#&gt;  Max.   :1.0000   Max.   :1.000   Max.   :2020-06-26   Max.   :2020-07-06  
+#&gt;      SWGeo           SWPop          DateIssued          DateEnacted        
+#&gt;  Min.   :0.000   Min.   :0.0000   Min.   :2020-02-29   Min.   :2020-02-29  
+#&gt;  1st Qu.:1.000   1st Qu.:1.0000   1st Qu.:2020-04-08   1st Qu.:2020-04-08  
+#&gt;  Median :1.000   Median :1.0000   Median :2020-05-13   Median :2020-05-15  
+#&gt;  Mean   :0.794   Mean   :0.9769   Mean   :2020-05-07   Mean   :2020-05-08  
+#&gt;  3rd Qu.:1.000   3rd Qu.:1.0000   3rd Qu.:2020-06-03   3rd Qu.:2020-06-04  
+#&gt;  Max.   :1.000   Max.   :1.0000   Max.   :2020-07-02   Max.   :2020-07-06  
 #&gt;                                                                            
 #&gt;    DateExpiry           DateEnded            Extends         
-#&gt;  Min.   :2020-03-21   Min.   :2020-04-26   Length:3385       
+#&gt;  Min.   :2020-03-21   Min.   :2020-04-26   Length:3588       
 #&gt;  1st Qu.:2020-05-01   1st Qu.:2020-05-22   Class :character  
-#&gt;  Median :2020-05-29   Median :2020-06-01   Mode  :character  
-#&gt;  Mean   :2020-05-26   Mean   :2020-05-30                     
-#&gt;  3rd Qu.:2020-06-26   3rd Qu.:2020-06-11                     
+#&gt;  Median :2020-05-30   Median :2020-06-01   Mode  :character  
+#&gt;  Mean   :2020-05-29   Mean   :2020-05-30                     
+#&gt;  3rd Qu.:2020-07-01   3rd Qu.:2020-06-11                     
 #&gt;  Max.   :2020-12-30   Max.   :2020-06-19                     
-#&gt;  NA's   :1118         NA's   :3212                           
+#&gt;  NA's   :1189         NA's   :3415                           
 #&gt;    Expands             Eases               Ends             Depends         
-#&gt;  Length:3385        Length:3385        Length:3385        Length:3385       
+#&gt;  Length:3588        Length:3588        Length:3588        Length:3588       
 #&gt;  Class :character   Class :character   Class :character   Class :character  
 #&gt;  Mode  :character   Mode  :character   Mode  :character   Mode  :character  
 #&gt;                                                                             
 #&gt;                                                                             
 #&gt;                                                                             
 #&gt;                                                                             
-#&gt;  PolicyCodingNotes  PolicySource       PolicySourceID      LastUpdated        
-#&gt;  Length:3385        Length:3385        Length:3385        Min.   :2020-03-24  
-#&gt;  Class :character   Class :character   Class :character   1st Qu.:2020-05-10  
-#&gt;  Mode  :character   Mode  :character   Mode  :character   Median :2020-05-23  
-#&gt;                                                           Mean   :2020-05-23  
-#&gt;                                                           3rd Qu.:2020-06-10  
-#&gt;                                                           Max.   :2020-06-29  
-#&gt;                                                                               
-#&gt;  LastUpdatedNotes   UpdatingSource1    UpdatingSource2   
-#&gt;  Length:3385        Length:3385        Length:3385       
-#&gt;  Class :character   Class :character   Class :character  
-#&gt;  Mode  :character   Mode  :character   Mode  :character  
-#&gt;                                                          
-#&gt;                                                          
-#&gt;                                                          
-#&gt;                                                          </div><div class='input'>
+#&gt;    Encourages   PolicyCodingNotes  PolicySource       PolicySourceID    
+#&gt;  Min.   :1      Length:3588        Length:3588        Length:3588       
+#&gt;  1st Qu.:1      Class :character   Class :character   Class :character  
+#&gt;  Median :1      Mode  :character   Mode  :character   Mode  :character  
+#&gt;  Mean   :1                                                              
+#&gt;  3rd Qu.:1                                                              
+#&gt;  Max.   :1                                                              
+#&gt;  NA's   :3551                                                           
+#&gt;   LastUpdated         LastUpdatedNotes   UpdatingSource1    UpdatingSource2   
+#&gt;  Min.   :2020-03-24   Length:3588        Length:3588        Length:3588       
+#&gt;  1st Qu.:2020-05-11   Class :character   Class :character   Class :character  
+#&gt;  Median :2020-05-24   Mode  :character   Mode  :character   Mode  :character  
+#&gt;  Mean   :2020-05-25                                                           
+#&gt;  3rd Qu.:2020-06-12                                                           
+#&gt;  Max.   :2020-07-02                                                           
+#&gt;                                                                               </div><div class='input'>
 </div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

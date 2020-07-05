@@ -144,9 +144,6 @@ personal decisions for months or even years to come." />
       <a href="../articles/map_visualization.html">Geospatial visualization of COVID-19 datasets</a>
     </li>
     <li>
-      <a href="../articles/minority_death_rate.html">COVID-19 infection rates and deaths by race</a>
-    </li>
-    <li>
       <a href="../articles/more_visualization.html">Visualizing geographic COVID-19 trends without maps</a>
     </li>
     <li>
@@ -156,7 +153,7 @@ personal decisions for months or even years to come." />
       <a href="../articles/phylogenetics.html">Phylogenetic data</a>
     </li>
     <li>
-      <a href="../articles/r0_estimates.html">Estimating the replication rate, $R_0$</a>
+      <a href="../articles/r0_estimates.html">Estimating the replication rate</a>
     </li>
     <li>
       <a href="../articles/tsanalysis.html">Time series analysis of COVID-19 datasets</a>
@@ -251,143 +248,147 @@ COVID-19 data resources.</p></li>
 <span class='fu'><a href='available_datasets.html'>available_datasets</a></span>()</div><div class='output co'>#&gt;                                                                     name
 #&gt; 1                           United States CDC Social Vulnerability Index
 #&gt; 2                          Extensive United States hospital capabilities
-#&gt; 3                              The Economist: Excess deaths due to COVID
-#&gt; 4  US county health rankings from 'https://www.countyhealthrankings.org'
-#&gt; 5                                 CoronaNet government response database
-#&gt; 6                                 Country metadata from restcountries.eu
-#&gt; 7                          Our World In Data testing and cases reporting
-#&gt; 8                 GISAID metadata from thousands of SARS-CoV-2 sequences
-#&gt; 9                     Newick tree from thousands of SARS-CoV-2 sequences
-#&gt; 10                                          US CDC excess deaths dataset
-#&gt; 11                            Published epidemic parameters for COVID-19
-#&gt; 12                                    Aggregated projections from US CDC
-#&gt; 13                                                  Google mobility data
-#&gt; 14                                           European CDC world tracking
-#&gt; 15                                                    beoutbreakprepared
-#&gt; 16                                             EU data Github aggregator
-#&gt; 17                                          Descartes Labs Mobility Data
-#&gt; 18                                         Apple mobility data from maps
-#&gt; 19                                                             USA Facts
-#&gt; 20                                                 Johns Hopkins dataset
-#&gt; 21                                         Johns Hopkins US-centric data
-#&gt; 22                                      New York Times county level data
-#&gt; 23                                       New York Times state level data
-#&gt; 24                                 Kaiser Family Foundation ICU bed data
-#&gt; 25                         United States county-level geographic details
-#&gt; 26                                                     CovidTracker data
-#&gt; 27                           CovidCare United States Healthcare Capacity
-#&gt; 28                     Oxford Government Policy Intervention time series
-#&gt; 29                                          Healthdata.org mobility data
-#&gt; 30         Healthdata.org projections of hospital utilization and deaths
-#&gt; 31                              United States social distancing policies
-#&gt; 32                                  OECD International Unemployment Data
-#&gt; 33         healthdata.org COVID-19 Mobility Observations and Projections
-#&gt; 34          healthdata.org COVID-19 Testing Observations and Projections
+#&gt; 3                     The Economist: Excess deaths during COVID pandemic
+#&gt; 4                              The : Excess deaths during COVID pandemic
+#&gt; 5  US county health rankings from 'https://www.countyhealthrankings.org'
+#&gt; 6                                 CoronaNet government response database
+#&gt; 7                                 Country metadata from restcountries.eu
+#&gt; 8                          Our World In Data testing and cases reporting
+#&gt; 9                 GISAID metadata from thousands of SARS-CoV-2 sequences
+#&gt; 10                    Newick tree from thousands of SARS-CoV-2 sequences
+#&gt; 11                                          US CDC excess deaths dataset
+#&gt; 12                            Published epidemic parameters for COVID-19
+#&gt; 13                                    Aggregated projections from US CDC
+#&gt; 14                                                  Google mobility data
+#&gt; 15                                           European CDC world tracking
+#&gt; 16                                                    beoutbreakprepared
+#&gt; 17                                             EU data Github aggregator
+#&gt; 18                                          Descartes Labs Mobility Data
+#&gt; 19                                         Apple mobility data from maps
+#&gt; 20                                                             USA Facts
+#&gt; 21                                                 Johns Hopkins dataset
+#&gt; 22                                         Johns Hopkins US-centric data
+#&gt; 23                                      New York Times county level data
+#&gt; 24                                       New York Times state level data
+#&gt; 25                                 Kaiser Family Foundation ICU bed data
+#&gt; 26                         United States county-level geographic details
+#&gt; 27                                                     CovidTracker data
+#&gt; 28                           CovidCare United States Healthcare Capacity
+#&gt; 29                     Oxford Government Policy Intervention time series
+#&gt; 30                                          Healthdata.org mobility data
+#&gt; 31         Healthdata.org projections of hospital utilization and deaths
+#&gt; 32                              United States social distancing policies
+#&gt; 33                                  OECD International Unemployment Data
+#&gt; 34         healthdata.org COVID-19 Mobility Observations and Projections
+#&gt; 35          healthdata.org COVID-19 Testing Observations and Projections
 #&gt;                              accessor                               data_type
 #&gt; 1      cdc_social_vulnerability_index                            demographics
 #&gt; 2                 us_hospital_details                     healthcare capacity
-#&gt; 3             economist_excess_deaths      time series, deaths, miscellaneous
-#&gt; 4           us_county_health_rankings                            demographics
-#&gt; 5  coronanet_government_response_data                           public policy
-#&gt; 6                    country_metadata                            demographics
-#&gt; 7                           owid_data     time series, cases, deaths, testing
-#&gt; 8               cov_glue_lineage_data                               line list
-#&gt; 9                cov_glue_newick_data                            phylogenetic
-#&gt; 10                  cdc_excess_deaths      time series, deaths, miscellaneous
-#&gt; 11          param_estimates_published                           miscellaneous
-#&gt; 12         cdc_aggregated_projections                             projections
-#&gt; 13               google_mobility_data                                mobility
-#&gt; 14                          ecdc_data              time series, cases, deaths
-#&gt; 15            beoutbreakprepared_data                               line list
-#&gt; 16                 eu_data_cache_data              time series, cases, deaths
-#&gt; 17            descartes_mobility_data                   time series, mobility
-#&gt; 18                apple_mobility_data                   time series, mobility
-#&gt; 19                     usa_facts_data              time series, cases, deaths
-#&gt; 20                           jhu_data              time series, cases, deaths
-#&gt; 21                        jhu_us_data              time series, cases, deaths
-#&gt; 22                nytimes_county_data              time series, cases, deaths
-#&gt; 23                 nytimes_state_data              time series, cases, deaths
-#&gt; 24                       kff_icu_beds                     healthcare capacity
-#&gt; 25              us_county_geo_details                demographics, geographic
-#&gt; 26                  covidtracker_data     time series, cases, deaths, testing
-#&gt; 27             us_healthcare_capacity                     healthcare capacity
-#&gt; 28         government_policy_timeline                           public policy
-#&gt; 29           healthdata_mobility_data      time series, projections, mobility
-#&gt; 30        healthdata_projections_data time series, projections, cases, deaths
-#&gt; 31         us_state_distancing_policy                           public policy
-#&gt; 32             oecd_unemployment_data                  economics, time series
-#&gt; 33           healthdata_mobility_data      mobility, time series, projections
-#&gt; 34            healthdata_testing_data       testing, time series, projections
+#&gt; 3             economist_excess_deaths      time series, deaths, excess deaths
+#&gt; 4       financial_times_excess_deaths      time series, deaths, excess deaths
+#&gt; 5           us_county_health_rankings                            demographics
+#&gt; 6  coronanet_government_response_data                           public policy
+#&gt; 7                    country_metadata                            demographics
+#&gt; 8                           owid_data     time series, cases, deaths, testing
+#&gt; 9               cov_glue_lineage_data                               line list
+#&gt; 10               cov_glue_newick_data                            phylogenetic
+#&gt; 11                  cdc_excess_deaths      time series, deaths, excess deaths
+#&gt; 12          param_estimates_published                           miscellaneous
+#&gt; 13         cdc_aggregated_projections                             projections
+#&gt; 14               google_mobility_data                                mobility
+#&gt; 15                          ecdc_data              time series, cases, deaths
+#&gt; 16            beoutbreakprepared_data                               line list
+#&gt; 17                 eu_data_cache_data              time series, cases, deaths
+#&gt; 18            descartes_mobility_data                   time series, mobility
+#&gt; 19                apple_mobility_data                   time series, mobility
+#&gt; 20                     usa_facts_data              time series, cases, deaths
+#&gt; 21                           jhu_data              time series, cases, deaths
+#&gt; 22                        jhu_us_data              time series, cases, deaths
+#&gt; 23                nytimes_county_data              time series, cases, deaths
+#&gt; 24                 nytimes_state_data              time series, cases, deaths
+#&gt; 25                       kff_icu_beds                     healthcare capacity
+#&gt; 26              us_county_geo_details                demographics, geographic
+#&gt; 27                  covidtracker_data     time series, cases, deaths, testing
+#&gt; 28             us_healthcare_capacity                     healthcare capacity
+#&gt; 29         government_policy_timeline                           public policy
+#&gt; 30           healthdata_mobility_data      time series, projections, mobility
+#&gt; 31        healthdata_projections_data time series, projections, cases, deaths
+#&gt; 32         us_state_distancing_policy                           public policy
+#&gt; 33             oecd_unemployment_data                  economics, time series
+#&gt; 34           healthdata_mobility_data      mobility, time series, projections
+#&gt; 35            healthdata_testing_data       testing, time series, projections
 #&gt;    geographical geospatial               region                     resolution
 #&gt; 1          TRUE      FALSE        United States                         admin2
 #&gt; 2          TRUE       TRUE        United States            individual hospital
 #&gt; 3          TRUE      FALSE        International                 admin0, admin1
-#&gt; 4          TRUE      FALSE        United States         admin0, admin1, admin2
-#&gt; 5          TRUE      FALSE                World                 admin0, admin1
-#&gt; 6          TRUE      FALSE                World                         admin0
+#&gt; 4          TRUE      FALSE        International                 admin0, admin1
+#&gt; 5          TRUE      FALSE        United States         admin0, admin1, admin2
+#&gt; 6          TRUE      FALSE                World                 admin0, admin1
 #&gt; 7          TRUE      FALSE                World                         admin0
-#&gt; 8          TRUE      FALSE                World                       multiple
-#&gt; 9         FALSE      FALSE                World                       multiple
-#&gt; 10         TRUE      FALSE        United States                         admin1
-#&gt; 11        FALSE      FALSE                 NULL                           NULL
-#&gt; 12         TRUE      FALSE                 NULL                 admin0, admin1
-#&gt; 13         TRUE      FALSE                World         admin0, admin1, admin2
-#&gt; 14         TRUE      FALSE                World                         admin0
-#&gt; 15         TRUE      FALSE                World                        patient
-#&gt; 16         TRUE      FALSE               Europe                 admin0, admin1
-#&gt; 17         TRUE      FALSE        United States                         admin1
-#&gt; 18         TRUE      FALSE                World admin0, admin1, admin2, admin3
-#&gt; 19         TRUE      FALSE        United States                         admin1
-#&gt; 20         TRUE      FALSE                World                         admin0
-#&gt; 21         TRUE      FALSE        United States                 admin1, admin2
-#&gt; 22         TRUE      FALSE        United States                         admin2
-#&gt; 23         TRUE      FALSE        United States                         admin1
-#&gt; 24         TRUE       TRUE        United States            Individual hospital
-#&gt; 25         TRUE       TRUE        United States                         admin2
-#&gt; 26         TRUE      FALSE        United States                         admin1
-#&gt; 27         TRUE       TRUE        United States            Individual hospital
-#&gt; 28         TRUE      FALSE                World                         admin0
-#&gt; 29         TRUE      FALSE United States, World                 admin1, admin2
+#&gt; 8          TRUE      FALSE                World                         admin0
+#&gt; 9          TRUE      FALSE                World                       multiple
+#&gt; 10        FALSE      FALSE                World                       multiple
+#&gt; 11         TRUE      FALSE        United States                         admin1
+#&gt; 12        FALSE      FALSE                 NULL                           NULL
+#&gt; 13         TRUE      FALSE                 NULL                 admin0, admin1
+#&gt; 14         TRUE      FALSE                World         admin0, admin1, admin2
+#&gt; 15         TRUE      FALSE                World                         admin0
+#&gt; 16         TRUE      FALSE                World                        patient
+#&gt; 17         TRUE      FALSE               Europe                 admin0, admin1
+#&gt; 18         TRUE      FALSE        United States                         admin1
+#&gt; 19         TRUE      FALSE                World admin0, admin1, admin2, admin3
+#&gt; 20         TRUE      FALSE        United States                         admin1
+#&gt; 21         TRUE      FALSE                World                         admin0
+#&gt; 22         TRUE      FALSE        United States                 admin1, admin2
+#&gt; 23         TRUE      FALSE        United States                         admin2
+#&gt; 24         TRUE      FALSE        United States                         admin1
+#&gt; 25         TRUE       TRUE        United States            Individual hospital
+#&gt; 26         TRUE       TRUE        United States                         admin2
+#&gt; 27         TRUE      FALSE        United States                         admin1
+#&gt; 28         TRUE       TRUE        United States            Individual hospital
+#&gt; 29         TRUE      FALSE                World                         admin0
 #&gt; 30         TRUE      FALSE United States, World                 admin1, admin2
-#&gt; 31         TRUE      FALSE        United States                         admin1
-#&gt; 32         TRUE      FALSE                World                         admin0
-#&gt; 33         TRUE      FALSE        International                 admin0, admin1
+#&gt; 31         TRUE      FALSE United States, World                 admin1, admin2
+#&gt; 32         TRUE      FALSE        United States                         admin1
+#&gt; 33         TRUE      FALSE                World                         admin0
 #&gt; 34         TRUE      FALSE        International                 admin0, admin1
+#&gt; 35         TRUE      FALSE        International                 admin0, admin1
 #&gt;                                                                                                                 url
 #&gt; 1                                                                                              https://svi.cdc.gov/
 #&gt; 2                                                            https://hub.arcgis.com/datasets/geoplatform::hospitals
 #&gt; 3                                                    https://github.com/TheEconomist/covid-19-excess-deaths-tracker
-#&gt; 4                                                                              https://www.countyhealthrankings.org
-#&gt; 5                                                                          https://coronanet-project.org/index.html
-#&gt; 6                                                                                          https://restcountries.eu
-#&gt; 7                                                                            https://ourworldindata.org/coronavirus
-#&gt; 8                                                                             https://github.com/hCoV-2019/lineages
+#&gt; 4                                              https://github.com/Financial-Times/coronavirus-excess-mortality-data
+#&gt; 5                                                                              https://www.countyhealthrankings.org
+#&gt; 6                                                                          https://coronanet-project.org/index.html
+#&gt; 7                                                                                          https://restcountries.eu
+#&gt; 8                                                                            https://ourworldindata.org/coronavirus
 #&gt; 9                                                                             https://github.com/hCoV-2019/lineages
-#&gt; 10                                                    https://www.cdc.gov/nchs/nvss/vsrr/covid19/excess_deaths.html
-#&gt; 11   https://github.com/midas-network/COVID-19/blob/master/parameter_estimates/2019_novel_coronavirus/estimates.csv
-#&gt; 12                                         https://www.cdc.gov/coronavirus/2019-ncov/covid-data/forecasting-us.html
-#&gt; 13                                                                         https://www.google.com/covid19/mobility/
-#&gt; 14                                                                           https://www.ecdc.europa.eu/en/covid-19
-#&gt; 15                                                                   https://github.com/beoutbreakprepared/nCoV2019
-#&gt; 16                                                                 https://github.com/covid19-eu-zh/covid19-eu-data
-#&gt; 17                                                      https://raw.githubusercontent.com/descarteslabs/DL-COVID-19
-#&gt; 18                                                                           https://www.apple.com/covid19/mobility
-#&gt; 19                                             https://usafacts.org/visualizations/coronavirus-covid-19-spread-map/
-#&gt; 20                                                                       https://github.com/CSSEGISandData/COVID-19
+#&gt; 10                                                                            https://github.com/hCoV-2019/lineages
+#&gt; 11                                                    https://www.cdc.gov/nchs/nvss/vsrr/covid19/excess_deaths.html
+#&gt; 12   https://github.com/midas-network/COVID-19/blob/master/parameter_estimates/2019_novel_coronavirus/estimates.csv
+#&gt; 13                                         https://www.cdc.gov/coronavirus/2019-ncov/covid-data/forecasting-us.html
+#&gt; 14                                                                         https://www.google.com/covid19/mobility/
+#&gt; 15                                                                           https://www.ecdc.europa.eu/en/covid-19
+#&gt; 16                                                                   https://github.com/beoutbreakprepared/nCoV2019
+#&gt; 17                                                                 https://github.com/covid19-eu-zh/covid19-eu-data
+#&gt; 18                                                      https://raw.githubusercontent.com/descarteslabs/DL-COVID-19
+#&gt; 19                                                                           https://www.apple.com/covid19/mobility
+#&gt; 20                                             https://usafacts.org/visualizations/coronavirus-covid-19-spread-map/
 #&gt; 21                                                                       https://github.com/CSSEGISandData/COVID-19
-#&gt; 22                                                          https://raw.githubusercontent.com/nytimes/covid-19-data
+#&gt; 22                                                                       https://github.com/CSSEGISandData/COVID-19
 #&gt; 23                                                          https://raw.githubusercontent.com/nytimes/covid-19-data
-#&gt; 24 https://khn.org/news/as-coronavirus-spreads-widely-millions-of-older-americans-live-in-counties-with-no-icu-beds
-#&gt; 25                                                                     https://github.com/josh-byster/fips_lat_long
-#&gt; 26                                                                                       https://covidtracking.com/
-#&gt; 27                                                     https://github.com/covidcaremap/covid19-healthsystemcapacity
-#&gt; 28                  https://www.bsg.ox.ac.uk/research/research-projects/oxford-covid-19-government-response-tracker
-#&gt; 29                                                                                  http://www.healthdata.org/covid
+#&gt; 24                                                          https://raw.githubusercontent.com/nytimes/covid-19-data
+#&gt; 25 https://khn.org/news/as-coronavirus-spreads-widely-millions-of-older-americans-live-in-counties-with-no-icu-beds
+#&gt; 26                                                                     https://github.com/josh-byster/fips_lat_long
+#&gt; 27                                                                                       https://covidtracking.com/
+#&gt; 28                                                     https://github.com/covidcaremap/covid19-healthsystemcapacity
+#&gt; 29                  https://www.bsg.ox.ac.uk/research/research-projects/oxford-covid-19-government-response-tracker
 #&gt; 30                                                                                  http://www.healthdata.org/covid
-#&gt; 31                                                          https://github.com/COVID19StatePolicy/SocialDistancing/
-#&gt; 32                                                                                                 https://oecd.org
-#&gt; 33                                                                       https://covid19.healthdata.org/projections
-#&gt; 34                                                                       https://covid19.healthdata.org/projections</div><div class='input'>
+#&gt; 31                                                                                  http://www.healthdata.org/covid
+#&gt; 32                                                          https://github.com/COVID19StatePolicy/SocialDistancing/
+#&gt; 33                                                                                                 https://oecd.org
+#&gt; 34                                                                       https://covid19.healthdata.org/projections
+#&gt; 35                                                                       https://covid19.healthdata.org/projections</div><div class='input'>
 <span class='fu'><a href='https://rdrr.io/r/utils/example.html'>example</a></span>(<span class='no'>jhu_data</span>)</div><div class='output co'>#&gt; 
 #&gt; jhu_dt&gt; res = jhu_data()
 #&gt; 
@@ -407,7 +408,7 @@ COVID-19 data resources.</p></li>
 #&gt; </span><span style='color: #555555;'>6</span><span> </span><span style='color: #BB0000;'>NA</span><span>            Afghanistan      33    65 2020-01-27     0 confirmed
 #&gt; 
 #&gt; jhu_dt&gt; dplyr::glimpse(res)
-#&gt; Rows: 125,600
+#&gt; Rows: 129,525
 #&gt; Columns: 7
 #&gt; $ ProvinceState </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
 #&gt; $ CountryRegion </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Afghanistan", "Afghanistan", "Afghanistan", "Afghanist…
@@ -439,7 +440,7 @@ COVID-19 data resources.</p></li>
 #&gt; appl__&gt; table(res$transportation_type)
 #&gt; 
 #&gt; driving transit walking 
-#&gt;  512064   37296   59640 
+#&gt;  527304   38406   61415 
 #&gt; 
 #&gt; appl__&gt; require(ggplot2)
 #&gt; 

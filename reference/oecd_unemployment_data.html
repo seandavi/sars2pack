@@ -127,9 +127,6 @@ and collects and reports broadly on economic and social factors." />
       <a href="../articles/map_visualization.html">Geospatial visualization of COVID-19 datasets</a>
     </li>
     <li>
-      <a href="../articles/minority_death_rate.html">COVID-19 infection rates and deaths by race</a>
-    </li>
-    <li>
       <a href="../articles/more_visualization.html">Visualizing geographic COVID-19 trends without maps</a>
     </li>
     <li>
@@ -139,7 +136,7 @@ and collects and reports broadly on economic and social factors." />
       <a href="../articles/phylogenetics.html">Phylogenetic data</a>
     </li>
     <li>
-      <a href="../articles/r0_estimates.html">Estimating the replication rate, $R_0$</a>
+      <a href="../articles/r0_estimates.html">Estimating the replication rate</a>
     </li>
     <li>
       <a href="../articles/tsanalysis.html">Time series analysis of COVID-19 datasets</a>
@@ -200,7 +197,7 @@ and collects and reports broadly on economic and social factors.</p>
 <code><a href='cdc_aggregated_projections.html'>cdc_aggregated_projections</a>()</code>,
 <code><a href='cdc_excess_deaths.html'>cdc_excess_deaths</a>()</code>,
 <code><a href='cdc_social_vulnerability_index.html'>cdc_social_vulnerability_index</a>()</code>,
-<code>coronadatascraper_data()</code>,
+<code><a href='coronadatascraper_data.html'>coronadatascraper_data</a>()</code>,
 <code><a href='coronanet_government_response_data.html'>coronanet_government_response_data</a>()</code>,
 <code><a href='cov_glue_lineage_data.html'>cov_glue_lineage_data</a>()</code>,
 <code><a href='cov_glue_newick_data.html'>cov_glue_newick_data</a>()</code>,
@@ -222,7 +219,7 @@ and collects and reports broadly on economic and social factors.</p>
 <code><a href='nytimes_county_data.html'>nytimes_county_data</a>()</code>,
 <code><a href='owid_data.html'>owid_data</a>()</code>,
 <code><a href='param_estimates_published.html'>param_estimates_published</a>()</code>,
-<code>test_and_trace_data()</code>,
+<code><a href='test_and_trace_data.html'>test_and_trace_data</a>()</code>,
 <code><a href='us_county_geo_details.html'>us_county_geo_details</a>()</code>,
 <code><a href='us_county_health_rankings.html'>us_county_health_rankings</a>()</code>,
 <code><a href='us_healthcare_capacity.html'>us_healthcare_capacity</a>()</code>,
@@ -231,8 +228,8 @@ and collects and reports broadly on economic and social factors.</p>
 <code><a href='usa_facts_data.html'>usa_facts_data</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>unemp</span> <span class='kw'>=</span> <span class='fu'>oecd_unemployment_data</span>()</div><div class='output co'>#&gt; 
-#&gt; </div><div class='input'><span class='no'>unemp</span></div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 38,300 x 10</span><span>
+    <pre class="examples"><div class='input'><span class='no'>unemp</span> <span class='kw'>=</span> <span class='fu'>oecd_unemployment_data</span>()
+<span class='no'>unemp</span></div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 39,061 x 10</span><span>
 #&gt;    iso3c indicator subject measure frequency value `flag codes` date      
 #&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>        </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>    
 #&gt; </span><span style='color: #555555;'> 1</span><span> GBR   unemp     15_24   PC_LF   annual    19.8  </span><span style='color: #BB0000;'>NA</span><span>           1983-01-01
@@ -245,22 +242,22 @@ and collects and reports broadly on economic and social factors.</p>
 #&gt; </span><span style='color: #555555;'> 8</span><span> GBR   unemp     15_24   PC_LF   annual    10.4  </span><span style='color: #BB0000;'>NA</span><span>           1990-01-01
 #&gt; </span><span style='color: #555555;'> 9</span><span> GBR   unemp     15_24   PC_LF   annual    13.9  </span><span style='color: #BB0000;'>NA</span><span>           1991-01-01
 #&gt; </span><span style='color: #555555;'>10</span><span> GBR   unemp     15_24   PC_LF   annual    16.3  </span><span style='color: #BB0000;'>NA</span><span>           1992-01-01
-#&gt; </span><span style='color: #555555;'># … with 38,290 more rows, and 2 more variables: country </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, region </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span></div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>unemployment</span>)</div><div class='output co'>#&gt; <span class='error'>Error in dplyr::glimpse(unemployment): object 'unemployment' not found</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>unemp</span>)</div><div class='output co'>#&gt;     iso3c            indicator           subject            measure         
-#&gt;  Length:38300       Length:38300       Length:38300       Length:38300      
+#&gt; </span><span style='color: #555555;'># … with 39,051 more rows, and 2 more variables: country </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, region </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span></div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>unemployment</span>)</div><div class='output co'>#&gt; <span class='error'>Error in dplyr::glimpse(unemployment): object 'unemployment' not found</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>unemp</span>)</div><div class='output co'>#&gt;     iso3c            indicator           subject            measure         
+#&gt;  Length:39061       Length:39061       Length:39061       Length:39061      
 #&gt;  Class :character   Class :character   Class :character   Class :character  
 #&gt;  Mode  :character   Mode  :character   Mode  :character   Mode  :character  
 #&gt;                                                                             
 #&gt;                                                                             
 #&gt;                                                                             
 #&gt;   frequency             value          flag codes             date           
-#&gt;  Length:38300       Min.   : 0.7931   Length:38300       Min.   :1955-01-01  
-#&gt;  Class :character   1st Qu.: 5.5000   Class :character   1st Qu.:1997-01-01  
-#&gt;  Mode  :character   Median : 8.9000   Mode  :character   Median :2005-10-01  
-#&gt;                     Mean   :11.4850                      Mean   :2003-10-05  
-#&gt;                     3rd Qu.:15.6000                      3rd Qu.:2013-01-01  
-#&gt;                     Max.   :61.6000                      Max.   :2020-05-01  
+#&gt;  Length:39061       Min.   : 0.7931   Length:39061       Min.   :1955-01-01  
+#&gt;  Class :character   1st Qu.: 5.5387   Class :character   1st Qu.:1997-02-01  
+#&gt;  Mode  :character   Median : 8.9609   Mode  :character   Median :2006-01-01  
+#&gt;                     Mean   :11.5264                      Mean   :2003-11-25  
+#&gt;                     3rd Qu.:15.8000                      3rd Qu.:2013-02-01  
+#&gt;                     Max.   :59.8000                      Max.   :2020-06-01  
 #&gt;    country             region         
-#&gt;  Length:38300       Length:38300      
+#&gt;  Length:39061       Length:39061      
 #&gt;  Class :character   Class :character  
 #&gt;  Mode  :character   Mode  :character  
 #&gt;                                       

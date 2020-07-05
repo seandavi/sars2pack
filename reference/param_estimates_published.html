@@ -129,9 +129,6 @@ estimate, see the actual dataset items." />
       <a href="../articles/map_visualization.html">Geospatial visualization of COVID-19 datasets</a>
     </li>
     <li>
-      <a href="../articles/minority_death_rate.html">COVID-19 infection rates and deaths by race</a>
-    </li>
-    <li>
       <a href="../articles/more_visualization.html">Visualizing geographic COVID-19 trends without maps</a>
     </li>
     <li>
@@ -141,7 +138,7 @@ estimate, see the actual dataset items." />
       <a href="../articles/phylogenetics.html">Phylogenetic data</a>
     </li>
     <li>
-      <a href="../articles/r0_estimates.html">Estimating the replication rate, $R_0$</a>
+      <a href="../articles/r0_estimates.html">Estimating the replication rate</a>
     </li>
     <li>
       <a href="../articles/tsanalysis.html">Time series analysis of COVID-19 datasets</a>
@@ -209,7 +206,7 @@ estimate, see the actual dataset items.</p>
 <code><a href='cdc_aggregated_projections.html'>cdc_aggregated_projections</a>()</code>,
 <code><a href='cdc_excess_deaths.html'>cdc_excess_deaths</a>()</code>,
 <code><a href='cdc_social_vulnerability_index.html'>cdc_social_vulnerability_index</a>()</code>,
-<code>coronadatascraper_data()</code>,
+<code><a href='coronadatascraper_data.html'>coronadatascraper_data</a>()</code>,
 <code><a href='coronanet_government_response_data.html'>coronanet_government_response_data</a>()</code>,
 <code><a href='cov_glue_lineage_data.html'>cov_glue_lineage_data</a>()</code>,
 <code><a href='cov_glue_newick_data.html'>cov_glue_newick_data</a>()</code>,
@@ -231,7 +228,7 @@ estimate, see the actual dataset items.</p>
 <code><a href='nytimes_county_data.html'>nytimes_county_data</a>()</code>,
 <code><a href='oecd_unemployment_data.html'>oecd_unemployment_data</a>()</code>,
 <code><a href='owid_data.html'>owid_data</a>()</code>,
-<code>test_and_trace_data()</code>,
+<code><a href='test_and_trace_data.html'>test_and_trace_data</a>()</code>,
 <code><a href='us_county_geo_details.html'>us_county_geo_details</a>()</code>,
 <code><a href='us_county_health_rankings.html'>us_county_health_rankings</a>()</code>,
 <code><a href='us_healthcare_capacity.html'>us_healthcare_capacity</a>()</code>,
@@ -241,7 +238,8 @@ estimate, see the actual dataset items.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>dplyr</span>)
-<span class='no'>params</span> <span class='kw'>=</span> <span class='fu'>param_estimates_published</span>()</div><div class='output co'>#&gt; </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>params</span>)</div><div class='output co'>#&gt;  [1] "id"                   "peer_review"          "peer_review_location"
+<span class='no'>params</span> <span class='kw'>=</span> <span class='fu'>param_estimates_published</span>()
+<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>params</span>)</div><div class='output co'>#&gt;  [1] "id"                   "peer_review"          "peer_review_location"
 #&gt;  [4] "name"                 "abbreviation"         "units"               
 #&gt;  [7] "country"              "location_name"        "location_type"       
 #&gt; [10] "start_date"           "end_date"             "value_type"          
@@ -266,7 +264,7 @@ estimate, see the actual dataset items.</p>
 #&gt; </span><span style='color: #555555;'>#   data_description </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, data_URL </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, date_publication </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span style='color: #555555;'>,</span><span>
 #&gt; </span><span style='color: #555555;'>#   title_publication </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, type_publication </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, authors </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>,</span><span>
 #&gt; </span><span style='color: #555555;'>#   publication_URL </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, entry_date </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span style='color: #555555;'>, entry_person </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   entry_email </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span></div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>params</span>)</div><div class='output co'>#&gt; Rows: 799
+#&gt; </span><span style='color: #555555;'>#   entry_email </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span></div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>params</span>)</div><div class='output co'>#&gt; Rows: 845
 #&gt; Columns: 29
 #&gt; $ id                   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "covid1", "covid2", "covid3", "covid4", "covid5"…
 #&gt; $ peer_review          </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> NA, NA, NA, "positive", NA, NA, "positive", NA, …
@@ -298,7 +296,7 @@ estimate, see the actual dataset items.</p>
 #&gt; $ entry_person         </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Cecile Viboud", "Cecile Viboud", "Cecile Viboud…
 #&gt; $ entry_email          </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "viboudc@mail.nih.gov", "viboudc@mail.nih.gov", …</div><div class='input'>
 <span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>params</span>)</div><div class='output co'>#&gt;       id            peer_review        peer_review_location     name          
-#&gt;  Length:799         Length:799         Length:799           Length:799        
+#&gt;  Length:845         Length:845         Length:845           Length:845        
 #&gt;  Class :character   Class :character   Class :character     Class :character  
 #&gt;  Mode  :character   Mode  :character   Mode  :character     Mode  :character  
 #&gt;                                                                               
@@ -306,7 +304,7 @@ estimate, see the actual dataset items.</p>
 #&gt;                                                                               
 #&gt;                                                                               
 #&gt;  abbreviation          units             country          location_name     
-#&gt;  Length:799         Length:799         Length:799         Length:799        
+#&gt;  Length:845         Length:845         Length:845         Length:845        
 #&gt;  Class :character   Class :character   Class :character   Class :character  
 #&gt;  Mode  :character   Mode  :character   Mode  :character   Mode  :character  
 #&gt;                                                                             
@@ -314,15 +312,15 @@ estimate, see the actual dataset items.</p>
 #&gt;                                                                             
 #&gt;                                                                             
 #&gt;  location_type        start_date            end_date         
-#&gt;  Length:799         Min.   :2019-11-01   Min.   :2019-02-04  
-#&gt;  Class :character   1st Qu.:2019-12-31   1st Qu.:2020-02-12  
-#&gt;  Mode  :character   Median :2020-01-14   Median :2020-04-01  
-#&gt;                     Mean   :2020-01-23   Mean   :2020-03-21  
-#&gt;                     3rd Qu.:2020-01-24   3rd Qu.:2020-04-20  
+#&gt;  Length:845         Min.   :2019-11-01   Min.   :2019-02-04  
+#&gt;  Class :character   1st Qu.:2019-12-31   1st Qu.:2020-02-13  
+#&gt;  Mode  :character   Median :2020-01-14   Median :2020-04-16  
+#&gt;                     Mean   :2020-01-21   Mean   :2020-03-26  
+#&gt;                     3rd Qu.:2020-01-23   3rd Qu.:2020-04-24  
 #&gt;                     Max.   :2020-12-24   Max.   :2020-07-25  
 #&gt;                     NA's   :324          NA's   :131         
 #&gt;   value_type           value           uncertainty_type   lower_bound       
-#&gt;  Length:799         Length:799         Length:799         Length:799        
+#&gt;  Length:845         Length:845         Length:845         Length:845        
 #&gt;  Class :character   Class :character   Class :character   Class :character  
 #&gt;  Mode  :character   Mode  :character   Mode  :character   Mode  :character  
 #&gt;                                                                             
@@ -330,7 +328,7 @@ estimate, see the actual dataset items.</p>
 #&gt;                                                                             
 #&gt;                                                                             
 #&gt;  upper_bound         population         age_range         method_description
-#&gt;  Length:799         Length:799         Length:799         Length:799        
+#&gt;  Length:845         Length:845         Length:845         Length:845        
 #&gt;  Class :character   Class :character   Class :character   Class :character  
 #&gt;  Mode  :character   Mode  :character   Mode  :character   Mode  :character  
 #&gt;                                                                             
@@ -338,23 +336,23 @@ estimate, see the actual dataset items.</p>
 #&gt;                                                                             
 #&gt;                                                                             
 #&gt;  data_description     data_URL         date_publication     title_publication 
-#&gt;  Length:799         Length:799         Min.   :2020-01-12   Length:799        
-#&gt;  Class :character   Class :character   1st Qu.:2020-03-16   Class :character  
+#&gt;  Length:845         Length:845         Min.   :2020-01-12   Length:845        
+#&gt;  Class :character   Class :character   1st Qu.:2020-03-19   Class :character  
 #&gt;  Mode  :character   Mode  :character   Median :2020-04-01   Mode  :character  
-#&gt;                                        Mean   :2020-03-31                     
+#&gt;                                        Mean   :2020-04-04                     
 #&gt;                                        3rd Qu.:2020-04-26                     
-#&gt;                                        Max.   :2020-05-22                     
+#&gt;                                        Max.   :2020-06-08                     
 #&gt;                                                                               
 #&gt;  type_publication     authors          publication_URL      entry_date        
-#&gt;  Length:799         Length:799         Length:799         Min.   :2020-01-24  
+#&gt;  Length:845         Length:845         Length:845         Min.   :2020-01-24  
 #&gt;  Class :character   Class :character   Class :character   1st Qu.:2020-03-24  
-#&gt;  Mode  :character   Mode  :character   Mode  :character   Median :2020-04-01  
-#&gt;                                                           Mean   :2020-04-05  
+#&gt;  Mode  :character   Mode  :character   Mode  :character   Median :2020-04-02  
+#&gt;                                                           Mean   :2020-04-09  
 #&gt;                                                           3rd Qu.:2020-04-29  
 #&gt;                                                           Max.   :2020-06-19  
 #&gt;                                                                               
 #&gt;  entry_person       entry_email       
-#&gt;  Length:799         Length:799        
+#&gt;  Length:845         Length:845        
 #&gt;  Class :character   Class :character  
 #&gt;  Mode  :character   Mode  :character  
 #&gt;                                       
@@ -363,7 +361,8 @@ estimate, see the actual dataset items.</p>
 #&gt;                                       </div><div class='input'>
 <span class='kw'>if</span>(<span class='fu'><a href='https://rdrr.io/r/base/library.html'>require</a></span>(<span class='no'>DT</span>) <span class='kw'>&amp;</span> <span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
     <span class='fu'><a href='https://rdrr.io/pkg/DT/man/datatable.html'>datatable</a></span>(<span class='no'>params</span>)
-}</div></span></pre>
+}</div><div class='output co'>#&gt; <span class='message'>Loading required package: DT</span></div><div class='input'>
+</div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

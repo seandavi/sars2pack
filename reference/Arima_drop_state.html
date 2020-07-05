@@ -126,9 +126,6 @@
       <a href="../articles/map_visualization.html">Geospatial visualization of COVID-19 datasets</a>
     </li>
     <li>
-      <a href="../articles/minority_death_rate.html">COVID-19 infection rates and deaths by race</a>
-    </li>
-    <li>
       <a href="../articles/more_visualization.html">Visualizing geographic COVID-19 trends without maps</a>
     </li>
     <li>
@@ -138,7 +135,7 @@
       <a href="../articles/phylogenetics.html">Phylogenetic data</a>
     </li>
     <li>
-      <a href="../articles/r0_estimates.html">Estimating the replication rate, $R_0$</a>
+      <a href="../articles/r0_estimates.html">Estimating the replication rate</a>
     </li>
     <li>
       <a href="../articles/tsanalysis.html">Time series analysis of COVID-19 datasets</a>
@@ -249,29 +246,26 @@ extravagantly variable.</p>
 <span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='no'>usa_full</span>)</div><div class='img'><img src='Arima_drop_state-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='no'>nyd</span> <span class='kw'>=</span> <span class='fu'><a href='nytimes_county_data.html'>nytimes_state_data</a></span>()
 <span class='no'>drny</span> <span class='kw'>=</span> <span class='fu'>Arima_drop_state</span>(<span class='no'>ej</span>, <span class='no'>nyd</span>)
 <span class='no'>drny</span></div><div class='output co'>#&gt; Arima_sars2pack instance for excl New York 
-#&gt;   computed Tue Jun 30 15:15:14 2020 
-#&gt;   last date used was:  2020-06-29 
+#&gt;   computed Sun Jul  5 09:29:45 2020 
+#&gt;   last date used was:  2020-07-03 
 #&gt;   call was: NULL
 #&gt;   Model estimates: 
 #&gt; Series: tsfull 
 #&gt; ARIMA(0,1,2) with drift 
 #&gt; 
-#&gt; Coefficients:
-#&gt;          ma1      ma2     drift
-#&gt;       0.1824  -0.6410  896.7894
-#&gt; s.e.  0.1631   0.1662  284.5570
+#&gt; Coefficients:</div><div class='output co'>#&gt; <span class='warning'>Warning: NaNs produced</span></div><div class='output co'>#&gt;          ma1      ma2     drift
+#&gt;       0.0173  -0.8005  1162.109
+#&gt; s.e.     NaN      NaN       NaN
 #&gt; 
-#&gt; sigma^2 estimated as 7401423:  log likelihood=-260.26
-#&gt; AIC=528.52   AICc=530.26   BIC=533.85
+#&gt; sigma^2 estimated as 9254444:  log likelihood=-263.74
+#&gt; AIC=535.48   AICc=537.22   BIC=540.81
 #&gt; 
 #&gt; Training set error measures:
-#&gt;                     ME     RMSE      MAE       MPE     MAPE      MASE
-#&gt; Training set -11.85178 2525.973 2017.117 -1.377791 8.143028 0.7195364
-#&gt;                    ACF1
-#&gt; Training set 0.03556163</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='no'>drny</span>)</div><div class='img'><img src='Arima_drop_state-2.png' alt='' width='700' height='433' /></div><div class='input'><span class='no'>opar</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='kw'>no.readonly</span><span class='kw'>=</span><span class='fl'>TRUE</span>)
+#&gt;                     ME    RMSE      MAE       MPE     MAPE      MASE     ACF1
+#&gt; Training set -360.0854 2824.53 2221.341 -3.172595 8.004703 0.7007386 0.159298</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='no'>drny</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: NaNs produced</span></div><div class='output co'>#&gt; <span class='error'>Error in int_abline(a = a, b = b, h = h, v = v, untf = untf, ...): 'a' and 'b' must be finite</span></div><div class='img'><img src='Arima_drop_state-2.png' alt='' width='700' height='433' /></div><div class='input'><span class='no'>opar</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='kw'>no.readonly</span><span class='kw'>=</span><span class='fl'>TRUE</span>)
 <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='kw'>mar</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>4</span>,<span class='fl'>3</span>,<span class='fl'>2</span>,<span class='fl'>2</span>), <span class='kw'>mfrow</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>2</span>))
 <span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='no'>usa_full</span>, <span class='kw'>main</span><span class='kw'>=</span><span class='st'>"all states"</span>, <span class='kw'>ylim</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>17000</span>,<span class='fl'>38000</span>))
-<span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='no'>drny</span>, <span class='kw'>main</span><span class='kw'>=</span><span class='st'>"excluding NY"</span>, <span class='kw'>ylim</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>17000</span>,<span class='fl'>38000</span>))</div><div class='img'><img src='Arima_drop_state-3.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='no'>opar</span>)</div></pre>
+<span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='no'>drny</span>, <span class='kw'>main</span><span class='kw'>=</span><span class='st'>"excluding NY"</span>, <span class='kw'>ylim</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>17000</span>,<span class='fl'>38000</span>))</div><div class='output co'>#&gt; <span class='warning'>Warning: NaNs produced</span></div><div class='output co'>#&gt; <span class='error'>Error in int_abline(a = a, b = b, h = h, v = v, untf = untf, ...): 'a' and 'b' must be finite</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='no'>opar</span>)</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
