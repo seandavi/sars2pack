@@ -83,11 +83,12 @@ ecdc_data <- function() {
                         continent='continentExp',
                         confirmed='cases',
                         population_2019='popData2019')) %>%
+        tidyr::pivot_longer(cols = confirmed:deaths,names_to='subset',values_to = 'count') %>%
         dplyr::select(-c(.data$day,
                          .data$month,
                          .data$year)) %>%
         dplyr::mutate(date=lubridate::dmy(.data$date)) %>%
-        dplyr::group_by(.data$location_name) %>%
-        dplyr::arrange(.data$location_name, .data$date) %>%
-        dplyr::mutate(deaths = cumsum(.data$deaths), confirmed= cumsum(.data$confirmed))
+        dplyr::group_by(.data$location_name,.data$subset) %>%
+        dplyr::arrange(.data$date) %>%
+        dplyr::mutate(count= cumsum(.data$count))
 }

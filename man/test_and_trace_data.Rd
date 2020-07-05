@@ -54,11 +54,11 @@ testers = TAndT \%>\%
     dplyr::left_join(nyt, c('fips'='fips','date'='date')) \%>\%
     dplyr::mutate(tracers_per_new_case = contact_tracers_count/inc)
 
-testers \%>\% dplyr::filter(date==Sys.Date()-4 & !is.na(state)) \%>\%
-    ggplot(aes(x=reorder(state,tracers_per_new_case),y=tracers_per_new_case)) +
+testers \%>\% dplyr::filter(date==Sys.Date()-4) \%>\%
+    ggplot(aes(x=reorder(iso2c,tracers_per_new_case),y=tracers_per_new_case)) +
     geom_bar(stat='identity') +
     coord_flip() +
-    xlab('State') +
+    xlab('State or Jurisdiction') +
     ylab('Contract tracers per new case') +
     ggtitle(sprintf('Contract tracers per new case on \%s', Sys.Date() - 4), subtitle='Goal is 5-15 tracers per new case')
 
