@@ -60,13 +60,7 @@ library(purrr)
 library(sars2pack)
 library(yaml)
 b = available_datasets()
-a = tibble(x=1:3, y=split(LETTERS[1:9],1:3))
-a$y = sapply(a$y,paste0, collapse="\n")
-catalog = system.file('data_catalog/catalog.yaml',package='sars2pack')
-y = yaml.load_file(catalog)
-y1 = as_tibble(lapply(as_tibble(purrr::transpose(y$datasets)),function(z) if(length(unlist(z))==length(z)) unlist(z) else (z)))
-y1 = as_tibble(lapply(y1, function(z) if(is.list(z)) sapply(z, paste, collapse="\n") else z))
-y1 %>% dplyr::mutate(url=sprintf('[LINK](%s)',url)) %>%
+b %>% dplyr::mutate(url=sprintf('[LINK](%s)',url)) %>%
     mutate_all(linebreak) %>%
     arrange(data_type) %>%
     kable(booktabs=TRUE, escape=FALSE) %>%
@@ -99,7 +93,7 @@ top10 = ecdc %>% filter(subset=='deaths') %>%
     filter(count==max(count)) %>%
     arrange(desc(count)) %>%
     head(10) %>% select(-starts_with('iso'),-continent,-subset) %>%
-    mutate(rate_per_100k = 1e5*count/population_2018)
+    mutate(rate_per_100k = 1e5*count/population_2019)
 
 ```
 
@@ -134,26 +128,6 @@ ecdc_top10 %>% align_to_baseline(count>100,group_vars=c('location_name')) %>%
 ```
 
 
-## Geospatial plotting of data
-
-
-
-
-
-## Projection models
-
-```{r}
-hcpd = healthdata_projections_data()
-regs_of_interest = 'Georgia'
-library(ggplot2)
-pl = hcpd %>%
-   dplyr::filter(location_name %in% regs_of_interest) %>%
-   ggplot(aes(x=date)) + geom_line(aes(y=mean, color=metric))
-# plot the "mean" prediction
-pl
-# add 95% confidence bounds
-pl + geom_ribbon(aes(ymin=lower, ymax=upper, fill=metric), alpha=0.25)
-```
 
 
 ## Contributions
