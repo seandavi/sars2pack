@@ -1,5 +1,5 @@
 ---
-title: "Estimating the replication rate, $R_0$"
+title: "Estimating the replication rate"
 author: "Sean Davis <seandavi@gmail.com> and Vincent J. Carey, stvjc at channing.harvard.edu"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 vignette: >
@@ -7,10 +7,7 @@ vignette: >
   %\VignetteIndexEntry{Estimating the replication rate}
   %\VignetteEncoding{UTF-8}
 output:
-  bookdown::html_document2:
-    highlight: pygments
-    number_sections: yes
-    theme: united
+  rmarkdown::html_document:
     toc: yes
 ---
 
@@ -74,47 +71,6 @@ knitr::include_graphics("https://upload.wikimedia.org/wikipedia/commons/thumb/4/
 Airborne illnesses tend to have a higher $R_0$ value than those spread through contact or through bodily fluids. 
 
 
-## Simulated epidemic model
-
-**TODO**: plot of incidence along with $R_0(t)$
-
-Following code conveyed by John Mallery, we have the following
-approach for estimating $R_0$ using a single realization of
-an epidemic simulation.
-
-Note that there can be failures of `estimate.R` for certain
-inputs.  We are working on that.
-
-```{r dostraight}
-library(sars2pack)
-library(R0)
-library(lubridate)
-# Generating an epidemic with given parameters
-mGT <- generation.time("gamma", c(3,1.5))
-set.seed(5432)  # always initialize when simulating!
-mEpid <- sim.epid(epid.nb=1, GT=mGT, epid.length=30, 
-     family="poisson", R0=1.67, peak.value=500)
-mEpid <- mEpid[,1]
-# Running estimations
-est <- estimate.R(epid=mEpid, GT=mGT, methods=c("EG","ML","TD"), begin=1, end=30)
-```
-
-We modified the plotting function in `r CRANpkg("R0")` which
-was calling `dev.new` too often.  Use `plot2`.
-
-```{r lksim,fig.height=7}
-par(mfrow=c(2,2))
-sars2pack::plot2(est)
-```
-
-The `plotfit2` function is also useful.  These fits
-look identical but they are not.
-
-```{r lksim2, fig.height=7}
-par(mfrow=c(2,2))
-sars2pack::plotfit2(est)
-```
-
 ## Real data examples
 
 ```{r}
@@ -122,19 +78,154 @@ library(dplyr)
 library(magrittr)
 ```
 
-Now we extract information from the time-series table and
-obtain estimates of $R_0$ under exponential growth.
+The software package `r CRANpkg('EpiEstim')` provides multiple methods
+for estimating the time-varying reproduction number from epidemic 
+curves. As a reminder, an epidemic curve typically consists of 
+a set of either *cumulative* or *new* cases per unit time. In *sars2pack*,
+we are careful to import all datasets as *cumulative* counts. 
 
-### Hubei Province
+### State of Maryland in the United States
+
+As a starter, we'll work with my home state, Maryland and examine
+its COVID-19 disease spread over time and then estimate the $R_0$ over 
+time to see how successful Marylanders have been with social distancing.
+
+```{r}
+nyt = nytimes_state_data()
+head(nyt)
+```
+
+To contrast the way cumulative vs "incidence" data look, we can look
+at one state cumulatively and the same state in terms of new cases (or 
+"incidence". 
+
+Here, we isolate the state of Maryland and pull out the cumulative cases.
+
+```{r}
+md_cumulative = nyt %>%
+    dplyr::filter(state=='Maryland' & subset=='confirmed' & count>50)
+```
+
+Data from most online sources and all the epidemic curve data
+for which we provide accessors are *cumulative*. We can add a new 
+column to the dataset using `add_incidence_column()`.
+
+```{r}
+md_full = md_cumulative %>% add_incidence_column()
+head(md_full)
+```
+
+Now, plot both using the `plot_epicurve()` helper function. Note that
+`plot_epicurve()` returns a ggplot object that can be further manipulated.
+
+```{r abc, out.width='100%', fig.cap = "Epidemic curve plots (epicurves) for Maryland. Cumulative cases (A, C) and daily incidence (B, D). Top row (A, B) is linear scale on the y-axis; bottom row (C, D) with y-axis in log scale"}
+library(cowplot)
+pcumulative = plot_epicurve(md_full,log=FALSE)
+pincidence  = plot_epicurve(md_full,case_column='inc',log=FALSE)
+pcumulative_log = plot_epicurve(md_full,log=TRUE)
+pincidence_log  = plot_epicurve(md_full,case_column='inc',log=TRUE)
+print(cowplot::plot_grid(pcumulative,pincidence,
+                   pcumulative_log,pincidence_log,ncol=2,
+                   labels=c("A","B","C","D")))
+```
+
+The `estimate_Rt()` is a very lightweight wrapper around the 
+`EpiEstim::estimate_R()` function. For more details on the help,
+take a look at the `r CRANpkg('EpiEstim')` documentation.
 
 We are able to use exponential growth and time-dependent models
 with this data, using generation time model from a
 recent [Annals of Internal Medicine](https://annals.org/aim/fullarticle/2762808/incubation-period-coronavirus-disease-2019-covid-19-from-publicly-reported) paper.
 
+
+```{r}
+x = estimate_Rt(md_full,method = 'parametric_si',
+                config = list(mean_si=3.96, std_si=4.75))
+```
+
+Since we are looking for $R_0$ to be less than 1 for the pandemic
+to be dying down, we can look at $R_0$ estimates over time.
+
+```{r mdEpiestim,out.width="100%", fig.cap="Estimate of R_0 over time in Maryland. The grey coloring represents 95% confidence intervals around the estimate of R_0."}
+library(ggplot2)
+ggplot(x,aes(x=date_end,y=`Mean(R)`)) +
+    geom_ribbon(aes(ymin=`Quantile.0.025(R)`,ymax=`Quantile.0.975(R)`),fill='grey75') +
+    geom_line() + ggtitle('Maryland')
+```
+
+### State of Arizona in the United States
+
+Arizona shows a somewhat different pattern of pandemic control than Maryland.
+Start by creating a full epicurve dataset for Arizona.
+
+```{r}
+az_full = nyt %>%
+    dplyr::filter(state=='Arizona' & subset=='confirmed' & count>25) %>%
+    add_incidence_column() # defaults suffice here
+```
+
+Taking a look at the actual counts of cases and incidence can give a 
+quick sense of what to expect with regard to $R_0$ over time. Note that
+the *absolute number* of cases is quite different from Maryland.
+
+```{r azEpicurve, out.width='100%', fig.cap = "Epidemic curve plots (epicurves) for Arizona. Cumulative cases (A, C) and daily incidence (B, D). Top row (A, B) is linear scale on the y-axis; bottom row (C, D) with y-axis in log scale"}
+library(cowplot)
+pcumulative = plot_epicurve(az_full,log=FALSE)
+pincidence  = plot_epicurve(az_full,case_column='inc',log=FALSE)
+pcumulative_log = plot_epicurve(az_full,log=TRUE)
+pincidence_log  = plot_epicurve(az_full,case_column='inc',log=TRUE)
+cowplot::plot_grid(pcumulative,pincidence,
+                   pcumulative_log,pincidence_log,ncol=2,
+                   labels=c("A","B","C","D"))
+```
+
+Arizona shows a resurgence in infections as evidenced by $R_0$ rising well above 1
+at the beginning of June. 
+
+```{r azEpiestim,out.width="100%", fig.cap="Estimate of R_0 over time for Arizona. The grey coloring represents 95% confidence intervals around the estimate of R_0."}
+library(ggplot2)
+x = estimate_Rt(az_full,method = 'parametric_si',
+                config = list(mean_si=3.96, std_si=4.75))
+ggplot(x,aes(x=date_end,y=`Mean(R)`)) +
+    geom_ribbon(aes(ymin=`Quantile.0.025(R)`,ymax=`Quantile.0.975(R)`),fill='grey75') +
+    geom_line() + ggtitle('Arizona')
+```
+
+### Brazil
+
+```{r}
+jhu = jhu_data()
+head(jhu)
+```
+
+```{r}
+jhu_brazil = jhu %>%
+    dplyr::filter(CountryRegion=='Brazil' & subset=='confirmed' & count>50) %>%
+    add_incidence_column()
+```
+
+```{r}
+plot_epicurve(jhu_brazil,case_column='inc') + ggtitle('Brazil', subtitle = 'Daily new cases')
+```
+
+
+
+```{r}
+x = estimate_Rt(jhu_brazil,method = 'parametric_si',
+                config = list(mean_si=3.96, std_si=4.75))
+ggplot(x,aes(x=date_end,y=`Mean(R)`)) +
+    geom_ribbon(aes(ymin=`Quantile.0.025(R)`,ymax=`Quantile.0.975(R)`),fill='grey75') +
+    geom_line() + ggtitle('Brazil')
+```
+
+### Hubei Province
+
+
 The incidence data probably need smoothing, and the time-dependent
 model has unreasonable fluctuations.
 
 ```{r dohub,fig.height=7}
+library(lubridate)
 dates = lubridate::as_date(mdy(names(mar19df)[-c(1:4)]))
 hubdat = as.numeric(get_series(province="Hubei", country="China", 
     dataset=sars2pack::mar19df))
@@ -238,3 +329,42 @@ fn = function(df, location_name,
     ret
 }
 ```
+
+
+## Simulated epidemic model
+
+Following code conveyed by John Mallery, we have the following
+approach for estimating $R_0$ using a single realization of
+an epidemic simulation.
+
+
+```{r dostraight}
+library(sars2pack)
+library(R0)
+library(lubridate)
+# Generating an epidemic with given parameters
+mGT <- generation.time("gamma", c(3,1.5))
+set.seed(5432)  # always initialize when simulating!
+mEpid <- sim.epid(epid.nb=1, GT=mGT, epid.length=30, 
+     family="poisson", R0=1.67, peak.value=500)
+mEpid <- mEpid[,1]
+# Running estimations
+est <- estimate.R(epid=mEpid, GT=mGT, methods=c("EG","ML","TD"), begin=1, end=30)
+```
+
+We modified the plotting function in `r CRANpkg("R0")` which
+was calling `dev.new` too often.  Use `plot2`.
+
+```{r lksim,fig.height=7}
+par(mfrow=c(2,2))
+sars2pack::plot2(est)
+```
+
+The `plotfit2` function is also useful.  These fits
+look identical but they are not.
+
+```{r lksim2, fig.height=7}
+par(mfrow=c(2,2))
+sars2pack::plotfit2(est)
+```
+

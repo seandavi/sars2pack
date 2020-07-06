@@ -21,7 +21,9 @@ library(EpiEstim)
 })
 ```
 
-# Overview
+# Building MCMC-based models of SI for SARS-Cov-2
+
+## Overview
 
 The serial interval is defined as the time elapsed between
 onset of symptoms in an index case, and onset of symptoms
@@ -40,7 +42,7 @@ where $I[t]$ denotes incidence of infection in period $t$ and $w[s]$ is the
 serial interval" (p1506).
 
 
-# Tables with primary and secondary contact events
+## Tables with primary and secondary contact events
 
 This tables are formed to help produce samples from the SI distribution
 for SARS-Cov-2.  The source is [Du et al. (2020)](https://wwwnc.cdc.gov/eid/article/26/6/20-0357_article).
@@ -144,9 +146,9 @@ lines(density(w[[1]][4,]), lwd=2, col="darkgray", lty=2)
 lines(density(g[[1]][4,]), lwd=2, col="darkgray", lty=3)
 ```
 
-# Estimating R[t] using stored MCMC-based fits to SI data
+## Estimating R[t] using stored MCMC-based fits to SI data
 
-## Using the censored representation of SI data
+### Using the censored representation of SI data
 
 ```{r getdat, cache=FALSE}
 suppressWarnings({dat = enriched_jhu_data()})
@@ -157,14 +159,14 @@ iusa = form_incident_events(trim_from(cusa, "2020-03-10"))
 iusa2 = data.frame(I=iusa$count, dates=iusa$dates)
 ```
 
-### Weibull
+#### Weibull
 ```{r fit1, fig.height=6, cache=TRUE}
 wcens = EpiEstim::estimate_R(iusa2, method="si_from_sample", si_sample=si_cens_W$si_sample, 
      config=make_config(list(n2=50, seed=1)))
 nn = plot(wcens)
 ```
 
-### Lognormal
+#### Lognormal
 
 ```{r fit2, fig.height=6, cache=TRUE}
 lncens = EpiEstim::estimate_R(iusa2, method="si_from_sample", si_sample=si_cens_L$si_sample, 
@@ -172,7 +174,7 @@ lncens = EpiEstim::estimate_R(iusa2, method="si_from_sample", si_sample=si_cens_
 nn = plot(lncens)
 ```
 
-### Comparing R[t] trajectories for Weibull and Lognormal base models
+#### Comparing R[t] trajectories for Weibull and Lognormal base models
 
 ```{r senso}
 plot(wcens$dates[-c(1:7)], wcens$R$`Mean(R)`, xlab="date", ylab="R(t)", type="l")
@@ -180,9 +182,9 @@ lines(lncens$dates[-c(1:7)], lncens$R$`Mean(R)`,lty=2)
 legend("topright",lty=c(1,2),legend=c("Weibull", "lognormal"))
 ```
 
-## Using the positive-SI only representations and fits
+### Using the positive-SI only representations and fits
 
-### Weibull
+#### Weibull
 
 ```{r fit1b, fig.height=6, cache=TRUE}
 wpos = EpiEstim::estimate_R(iusa2, method="si_from_sample", si_sample=si_pos_W$si_sample, 
@@ -190,7 +192,7 @@ wpos = EpiEstim::estimate_R(iusa2, method="si_from_sample", si_sample=si_pos_W$s
 nn = plot(wpos)
 ```
 
-### Lognormal
+#### Lognormal
 
 ```{r fit2b, fig.height=6, cache=TRUE}
 lnpos = EpiEstim::estimate_R(iusa2, method="si_from_sample", si_sample=si_pos_L$si_sample, 
@@ -198,7 +200,7 @@ lnpos = EpiEstim::estimate_R(iusa2, method="si_from_sample", si_sample=si_pos_L$
 nn = plot(lnpos)
 ```
 
-### R[t] trajectories for Weibull and Lognormal base models, censored and positive-only
+#### R[t] trajectories for Weibull and Lognormal base models, censored and positive-only
 
 ```{r sensocomp}
 plot(wcens$dates[-c(1:7)], wcens$R$`Mean(R)`, xlab="date", ylab="R(t)", type="l")

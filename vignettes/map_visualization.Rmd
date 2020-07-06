@@ -122,11 +122,11 @@ tmap_mode('view')
 ##     tm_shape() +
 ##         tm_polygons(col='count')
 w2 = geo_ejhu %>%
-    filter(!is.na(date) & subset=='confirmed') %>%
+    dplyr::filter(!is.na(date) & subset=='confirmed') %>%
     group_by(iso_a3) %>%
-    filter(date==max(date)) %>%
+    dplyr::filter(date==max(date)) %>%
     mutate(cases_per_million = 1000000*count/pop_est) %>%
-    filter(region == 'Africa')
+    dplyr::filter(region == 'Africa')
 m = tm_shape(w2,id='name.x', name=c('cases_per_million'),popup=c('pop_est')) +
     tm_polygons(c('Cases Per Million' = 'cases_per_million','Cases' = 'count',"Well-being index"='well_being', 'GINI'='gini'),
                 selected='cases_per_million',
@@ -168,6 +168,7 @@ z = ggplot(full_map, aes(label=county)) +
     geom_sf(aes(geometry=mid, size=count, color=count), alpha=0.5, show.legend = "point") +
     scale_color_gradient2(midpoint=5500, low="lightblue", mid="orange",high="red", space ="Lab" ) +
     scale_size(range=c(1,10))
+library(plotly)
 ggplotly(z)
 ```
 

@@ -1,0 +1,110 @@
+---
+title: "Time series analysis of COVID-19 datasets"
+output:
+  rmarkdown::html_vignette:
+    fig_width: 7
+    fig_height: 5
+    out_width: "90%"
+vignette: >
+  %\VignetteIndexEntry{Time series analysis of COVID-19 datasets}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+# Time series analysis of COVID-19 datasets
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+                      collapse = TRUE,
+                      cache=FALSE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(sars2pack)
+library(tsibble)
+library(fable)
+library(ggplot2)
+library(dplyr)
+```
+
+```{r}
+nyt = nytimes_state_data()
+```
+
+```{r}
+nyts = nyt %>% add_incidence_column(grouping_columns = c('state','fips','subset')) %>% ungroup() %>% tsibble::as_tsibble(key=c(-date,-count,-inc),index=date)
+nyts = nyts %>% dplyr::filter(state %in% c('New York', 'New Jersey', 'Colorado', 'Maryland') & subset=='confirmed' & date>Sys.Date()-30)
+```
+
+Produce an ETS and an ARIMA model for each state.
+
+```{r}
+fit = nyts %>%
+    dplyr::select(-count) %>%
+    filter(inc>20) %>%
+    model(
+        ets = fable::ETS(log10(inc)),
+        arima = ARIMA(log10(inc))
+    )
+```
+
+Get a report of the ETS model for Colorado.
+
+```{r coloradoETS}
+fit %>% filter(state=='Colorado') %>%
+    select(ets) %>%
+    report()
+```
+
+Get a report of the ARIMA model for Colorado.
+
+```{r coloradoARIMA}
+fit %>% filter(state=='Colorado') %>%
+    select(arima) %>%
+    report()
+```
+
+```{r NewYorkARIMA}
+fit %>% filter(state=='New York') %>%
+    select(arima) %>%
+    report()
+```
+
+```{r NewJerseyARIMA}
+fit %>% filter(state=='New Jersey') %>%
+    select(arima) %>%
+    report()
+```
+
+
+```{r modelFit}
+fit %>% accuracy() %>%
+    dplyr::select(-.type,-fips,-subset) %>%
+    arrange(MASE) %>%
+    knitr::kable()
+```
+
+```{r plotCO} 
+fit %>% dplyr::filter(state %in% c('Colorado','Maryland')) %>%
+    dplyr::select(-ets) %>%
+    augment() %>%
+    ggplot(aes(x=date,y=inc)) +
+    geom_line() +
+    geom_line(aes(y=.fitted), color = 'red') +
+    facet_wrap(~ state, nrow=2)
+
+fit %>% dplyr::filter(state %in% c('New York','New Jersey')) %>%
+    dplyr::select(-ets) %>%
+    augment() %>%
+    ggplot(aes(x=date,y=inc)) +
+    geom_line() +
+    geom_line(aes(y=.fitted), color = 'red') +
+    facet_wrap(~ state, nrow=2)
+```
+
+```{r}
+fc = forecast(fit,h=7)
+autoplot(fc)
+```
