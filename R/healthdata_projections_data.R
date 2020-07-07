@@ -74,7 +74,12 @@ healthdata_projections_data <- function() {
     datafile = dir(tmpd, pattern=.current_hosp_data_file, recursive = TRUE, full.names=TRUE)[1]
     projections = readr::read_csv(datafile, col_types=cols(), guess_max=5000)
     projections = projections %>%
-        dplyr::select(c( 'location_name','date',dplyr::ends_with(c('mean','upper','lower')))) 
+        dplyr::select(c(dplyr::ends_with(c('mean','upper','lower')),
+                        'location_name','date')) %>%
+        tidyr::pivot_longer(cols=c(dplyr::ends_with(c('mean','upper','lower'))),
+                            names_to='metric', values_to='count') %>%
+        tidyr::separate(metric, into=c('metric','quantity'), sep=,"_(?=[:letter:]+$)") %>%
+        tidyr::pivot_wider(names_from = quantity, values_from = count, values_fn=mean)
     attr(projections, 'class') = c('covid_projections_df', class(projections))
     projections
 }
