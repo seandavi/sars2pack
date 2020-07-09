@@ -107,7 +107,8 @@ Other case-tracking:
 \code{\link{nytimes_county_data}()},
 \code{\link{owid_data}()},
 \code{\link{test_and_trace_data}()},
-\code{\link{usa_facts_data}()}
+\code{\link{usa_facts_data}()},
+\code{\link{who_cases}()}
 }
 \concept{case-tracking}
 \concept{plotting}

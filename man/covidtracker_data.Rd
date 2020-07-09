@@ -83,7 +83,8 @@ Other data-import:
 \code{\link{us_healthcare_capacity}()},
 \code{\link{us_hospital_details}()},
 \code{\link{us_state_distancing_policy}()},
-\code{\link{usa_facts_data}()}
+\code{\link{usa_facts_data}()},
+\code{\link{who_cases}()}
 
 Other case-tracking: 
 \code{\link{align_to_baseline}()},
@@ -99,7 +100,8 @@ Other case-tracking:
 \code{\link{owid_data}()},
 \code{\link{plot_epicurve}()},
 \code{\link{test_and_trace_data}()},
-\code{\link{usa_facts_data}()}
+\code{\link{usa_facts_data}()},
+\code{\link{who_cases}()}
 }
 \concept{case-tracking}
 \concept{data-import}

@@ -80,7 +80,8 @@ Other case-tracking:
 \code{\link{owid_data}()},
 \code{\link{plot_epicurve}()},
 \code{\link{test_and_trace_data}()},
-\code{\link{usa_facts_data}()}
+\code{\link{usa_facts_data}()},
+\code{\link{who_cases}()}
 }
 \author{
 Sean Davis \href{mailto:seandavi@gmail.com}{seandavi@gmail.com}

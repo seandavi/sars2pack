@@ -64,7 +64,8 @@ Other data-import:
 \code{\link{us_county_health_rankings}()},
 \code{\link{us_hospital_details}()},
 \code{\link{us_state_distancing_policy}()},
-\code{\link{usa_facts_data}()}
+\code{\link{usa_facts_data}()},
+\code{\link{who_cases}()}
 
 Other healthcare-system: 
 \code{\link{healthdata_projections_data}()}

@@ -67,7 +67,8 @@ Other data-import:
 \code{\link{us_healthcare_capacity}()},
 \code{\link{us_hospital_details}()},
 \code{\link{us_state_distancing_policy}()},
-\code{\link{usa_facts_data}()}
+\code{\link{usa_facts_data}()},
+\code{\link{who_cases}()}
 
 Other NPI: 
 \code{\link{coronanet_government_response_data}()},
