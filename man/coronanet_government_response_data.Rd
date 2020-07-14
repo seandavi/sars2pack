@@ -65,6 +65,7 @@ Pandemic.” SocArXiv. April 12. doi:10.31235/osf.io/dkvxy.
 }
 \seealso{
 Other data-import: 
+\code{\link{acaps_government_measures_data}()},
 \code{\link{apple_mobility_data}()},
 \code{\link{beoutbreakprepared_data}()},
 \code{\link{cdc_aggregated_projections}()},
@@ -102,6 +103,7 @@ Other data-import:
 \code{\link{who_cases}()}
 
 Other NPI: 
+\code{\link{acaps_government_measures_data}()},
 \code{\link{government_policy_timeline}()},
 \code{\link{us_state_distancing_policy}()}
 }

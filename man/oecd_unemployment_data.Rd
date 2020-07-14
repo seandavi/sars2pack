@@ -41,6 +41,7 @@ OECD (2020), Unemployment rate (indicator). doi: 10.1787/997c8750-en (Accessed o
 }
 \seealso{
 Other data-import: 
+\code{\link{acaps_government_measures_data}()},
 \code{\link{apple_mobility_data}()},
 \code{\link{beoutbreakprepared_data}()},
 \code{\link{cdc_aggregated_projections}()},

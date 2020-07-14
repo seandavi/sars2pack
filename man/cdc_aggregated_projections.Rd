@@ -68,6 +68,7 @@ res_ny \%>\%
 }
 \seealso{
 Other data-import: 
+\code{\link{acaps_government_measures_data}()},
 \code{\link{apple_mobility_data}()},
 \code{\link{beoutbreakprepared_data}()},
 \code{\link{cdc_excess_deaths}()},
