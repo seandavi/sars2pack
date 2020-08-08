@@ -87,7 +87,7 @@ dataset independently and then combining." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sars2pack</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.2</span>
       </span>
     </div>
 
@@ -141,9 +141,6 @@ dataset independently and then combining." />
     </li>
     <li>
       <a href="../articles/r0_estimates.html">Estimating the replication rate</a>
-    </li>
-    <li>
-      <a href="../articles/tsanalysis.html">Time series analysis of COVID-19 datasets</a>
     </li>
   </ul>
 </li>
@@ -245,40 +242,44 @@ as other parameters specific to each method.</p>
 <code><a href='owid_data.html'>owid_data</a>()</code>,
 <code><a href='plot_epicurve.html'>plot_epicurve</a>()</code>,
 <code><a href='test_and_trace_data.html'>test_and_trace_data</a>()</code>,
-<code><a href='usa_facts_data.html'>usa_facts_data</a>()</code></p></div>
+<code><a href='usa_facts_data.html'>usa_facts_data</a>()</code>,
+<code><a href='who_cases.html'>who_cases</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>dplyr</span>)
 <span class='no'>nyt</span> <span class='kw'>=</span> <span class='fu'><a href='nytimes_county_data.html'>nytimes_state_data</a></span>() <span class='kw'>%&gt;%</span>
     <span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span>(<span class='no'>subset</span><span class='kw'>==</span><span class='st'>'confirmed'</span>) <span class='kw'>%&gt;%</span>
     <span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/arrange.html'>arrange</a></span>(<span class='no'>state</span>,<span class='no'>date</span>)
-<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>nyt</span>)</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 6 x 5</span><span>
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>nyt</span>)</div><div class='output co'>#&gt; # A tibble: 6 x 5
 #&gt;   date       state   fips  count subset   
-#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>    
-#&gt; </span><span style='color: #555555;'>1</span><span> 2020-03-13 Alabama 00001     6 confirmed
-#&gt; </span><span style='color: #555555;'>2</span><span> 2020-03-14 Alabama 00001    12 confirmed
-#&gt; </span><span style='color: #555555;'>3</span><span> 2020-03-15 Alabama 00001    23 confirmed
-#&gt; </span><span style='color: #555555;'>4</span><span> 2020-03-16 Alabama 00001    29 confirmed
-#&gt; </span><span style='color: #555555;'>5</span><span> 2020-03-17 Alabama 00001    39 confirmed
-#&gt; </span><span style='color: #555555;'>6</span><span> 2020-03-18 Alabama 00001    51 confirmed</div><div class='input'>
+#&gt;   &lt;date&gt;     &lt;chr&gt;   &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;    
+#&gt; 1 2020-03-13 Alabama 00001     6 confirmed
+#&gt; 2 2020-03-14 Alabama 00001    12 confirmed
+#&gt; 3 2020-03-15 Alabama 00001    23 confirmed
+#&gt; 4 2020-03-16 Alabama 00001    29 confirmed
+#&gt; 5 2020-03-17 Alabama 00001    39 confirmed
+#&gt; 6 2020-03-18 Alabama 00001    51 confirmed</div><div class='input'>
 <span class='co'># this may produce warnings, but the processing</span>
 <span class='co'># will still be correct....</span>
 <span class='no'>res</span> <span class='kw'>=</span> <span class='fu'>bulk_estimate_Rt</span>(<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>nyt</span>,<span class='fl'>500</span>),
     <span class='kw'>estimation_family</span><span class='kw'>=</span><span class='st'>'epiestim'</span>,<span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>'parametric_si'</span>,
     <span class='kw'>config</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>mean_si</span><span class='kw'>=</span><span class='fl'>3.96</span>, <span class='kw'>std_si</span><span class='kw'>=</span><span class='fl'>4.75</span>))</div><div class='output co'>#&gt; <span class='warning'>Warning: All elements of `...` must be named.</span>
-#&gt; <span class='warning'>Did you want `data = c(date, count)`?</span></div><div class='output co'>#&gt; <span class='warning'>Warning: You're estimating R too early in the epidemic to get the desired</span>
-#&gt; <span class='warning'>            posterior CV.</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 6 x 17</span><span>
+#&gt; <span class='warning'>Did you want `data = c(date, count)`?</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Problem with `mutate()` input `rt_df`.</span>
+#&gt; <span class='warning'>✖ You're estimating R too early in the epidemic to get the desired</span>
+#&gt; <span class='warning'>posterior CV.</span>
+#&gt; <span class='warning'>ℹ Input `rt_df` is `purrr::map(data, app_fn, ...)`.</span></div><div class='output co'>#&gt; <span class='warning'>Warning: You're estimating R too early in the epidemic to get the desired</span>
+#&gt; <span class='warning'>            posterior CV.</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; # A tibble: 6 x 17
 #&gt;   state fips  subset data  t_start t_end `Mean(R)` `Std(R)` `Quantile.0.025…
-#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;lis&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>            </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #555555;'>1</span><span> Alab… 00001 confi… </span><span style='color: #555555;'>&lt;tib</span><span>…       2     8      2.44    0.242             1.98
-#&gt; </span><span style='color: #555555;'>2</span><span> Alab… 00001 confi… </span><span style='color: #555555;'>&lt;tib</span><span>…       3     9      2.00    0.183             1.66
-#&gt; </span><span style='color: #555555;'>3</span><span> Alab… 00001 confi… </span><span style='color: #555555;'>&lt;tib</span><span>…       4    10      1.75    0.150             1.46
-#&gt; </span><span style='color: #555555;'>4</span><span> Alab… 00001 confi… </span><span style='color: #555555;'>&lt;tib</span><span>…       5    11      1.81    0.139             1.54
-#&gt; </span><span style='color: #555555;'>5</span><span> Alab… 00001 confi… </span><span style='color: #555555;'>&lt;tib</span><span>…       6    12      1.78    0.125             1.55
-#&gt; </span><span style='color: #555555;'>6</span><span> Alab… 00001 confi… </span><span style='color: #555555;'>&lt;tib</span><span>…       7    13      2.39    0.130             2.14
-#&gt; </span><span style='color: #555555;'># … with 8 more variables: `Quantile.0.05(R)` </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, `Quantile.0.25(R)` </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   `Median(R)` </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, `Quantile.0.75(R)` </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, `Quantile.0.95(R)` </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   `Quantile.0.975(R)` </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, date_start </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span style='color: #555555;'>, date_end </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt;  [1] "state"             "fips"              "subset"           
+#&gt;   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;  &lt;lis&gt;   &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;            &lt;dbl&gt;
+#&gt; 1 Alab… 00001 confi… &lt;tib…       2     8      2.44    0.242             1.98
+#&gt; 2 Alab… 00001 confi… &lt;tib…       3     9      2.00    0.183             1.66
+#&gt; 3 Alab… 00001 confi… &lt;tib…       4    10      1.75    0.150             1.46
+#&gt; 4 Alab… 00001 confi… &lt;tib…       5    11      1.81    0.139             1.54
+#&gt; 5 Alab… 00001 confi… &lt;tib…       6    12      1.78    0.125             1.55
+#&gt; 6 Alab… 00001 confi… &lt;tib…       7    13      2.39    0.130             2.14
+#&gt; # … with 8 more variables: `Quantile.0.05(R)` &lt;dbl&gt;, `Quantile.0.25(R)` &lt;dbl&gt;,
+#&gt; #   `Median(R)` &lt;dbl&gt;, `Quantile.0.75(R)` &lt;dbl&gt;, `Quantile.0.95(R)` &lt;dbl&gt;,
+#&gt; #   `Quantile.0.975(R)` &lt;dbl&gt;, date_start &lt;date&gt;, date_end &lt;date&gt;</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt;  [1] "state"             "fips"              "subset"           
 #&gt;  [4] "data"              "t_start"           "t_end"            
 #&gt;  [7] "Mean(R)"           "Std(R)"            "Quantile.0.025(R)"
 #&gt; [10] "Quantile.0.05(R)"  "Quantile.0.25(R)"  "Median(R)"        
@@ -286,8 +287,8 @@ as other parameters specific to each method.</p>
 #&gt; [16] "date_start"        "date_end"         </div><div class='input'>
 <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>ggplot2</span>)
 <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span>(<span class='no'>res</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>x</span><span class='kw'>=</span><span class='no'>date_start</span>,<span class='kw'>y</span><span class='kw'>=</span><span class='fl'>1</span>/<span class='no'>`Mean(R)`</span>,<span class='kw'>color</span><span class='kw'>=</span><span class='no'>state</span>)) +
-    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_smooth.html'>geom_smooth</a></span>(<span class='kw'>se</span><span class='kw'>=</span><span class='fl'>FALSE</span>) + <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/lims.html'>ylim</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>,<span class='fl'>1.5</span>))</div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using method = 'loess' and formula 'y ~ x'</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 5 rows containing non-finite values (stat_smooth).</span></div><div class='img'><img src='bulk_estimate_Rt-1.png' alt='' width='700' height='433' /></div><div class='input'>
-</div></span></pre>
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_smooth.html'>geom_smooth</a></span>(<span class='kw'>se</span><span class='kw'>=</span><span class='fl'>FALSE</span>) + <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/lims.html'>ylim</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>,<span class='fl'>1.5</span>))</div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using method = 'loess' and formula 'y ~ x'</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 3 rows containing non-finite values (stat_smooth).</span></div><div class='img'><img src='bulk_estimate_Rt-1.png' alt='' width='700' height='433' /></div><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

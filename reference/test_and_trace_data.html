@@ -82,7 +82,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sars2pack</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.2</span>
       </span>
     </div>
 
@@ -136,9 +136,6 @@
     </li>
     <li>
       <a href="../articles/r0_estimates.html">Estimating the replication rate</a>
-    </li>
-    <li>
-      <a href="../articles/tsanalysis.html">Time series analysis of COVID-19 datasets</a>
     </li>
   </ul>
 </li>
@@ -219,6 +216,7 @@
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>Other data-import: 
+<code><a href='acaps_government_measures_data.html'>acaps_government_measures_data</a>()</code>,
 <code><a href='apple_mobility_data.html'>apple_mobility_data</a>()</code>,
 <code><a href='beoutbreakprepared_data.html'>beoutbreakprepared_data</a>()</code>,
 <code><a href='cdc_aggregated_projections.html'>cdc_aggregated_projections</a>()</code>,
@@ -252,7 +250,8 @@
 <code><a href='us_healthcare_capacity.html'>us_healthcare_capacity</a>()</code>,
 <code><a href='us_hospital_details.html'>us_hospital_details</a>()</code>,
 <code><a href='us_state_distancing_policy.html'>us_state_distancing_policy</a>()</code>,
-<code><a href='usa_facts_data.html'>usa_facts_data</a>()</code></p>
+<code><a href='usa_facts_data.html'>usa_facts_data</a>()</code>,
+<code><a href='who_cases.html'>who_cases</a>()</code></p>
 <p>Other case-tracking: 
 <code><a href='align_to_baseline.html'>align_to_baseline</a>()</code>,
 <code><a href='beoutbreakprepared_data.html'>beoutbreakprepared_data</a>()</code>,
@@ -267,27 +266,28 @@
 <code><a href='nytimes_county_data.html'>nytimes_county_data</a>()</code>,
 <code><a href='owid_data.html'>owid_data</a>()</code>,
 <code><a href='plot_epicurve.html'>plot_epicurve</a>()</code>,
-<code><a href='usa_facts_data.html'>usa_facts_data</a>()</code></p></div>
+<code><a href='usa_facts_data.html'>usa_facts_data</a>()</code>,
+<code><a href='who_cases.html'>who_cases</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>TAndT</span> <span class='kw'>=</span> <span class='fu'>test_and_trace_data</span>()
-<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>TAndT</span>)</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 6 x 6</span><span>
-#&gt;   fips  iso2c date       contact_tracers_count state      region   
-#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>                     </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #555555;font-style: italic;'>&lt;fct&gt;</span><span>    
-#&gt; </span><span style='color: #555555;'>1</span><span> 15    HI    2020-05-24                    80 Hawaii     West     
-#&gt; </span><span style='color: #555555;'>2</span><span> 02    AK    2020-05-24                   145 Alaska     West     
-#&gt; </span><span style='color: #555555;'>3</span><span> 41    OR    2020-05-24                   332 Oregon     West     
-#&gt; </span><span style='color: #555555;'>4</span><span> 53    WA    2020-05-24                  </span><span style='text-decoration: underline;'>2</span><span>122 Washington West     
-#&gt; </span><span style='color: #555555;'>5</span><span> 30    MT    2020-05-24                   130 Montana    West     
-#&gt; </span><span style='color: #555555;'>6</span><span> 50    VT    2020-05-24                    48 Vermont    Northeast</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>TAndT</span>)</div><div class='output co'>#&gt; [1] "fips"                  "iso2c"                 "date"                 
-#&gt; [4] "contact_tracers_count" "state"                 "region"               </div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>TAndT</span>)</div><div class='output co'>#&gt; Rows: 3,080
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>TAndT</span>)</div><div class='output co'>#&gt; # A tibble: 6 x 6
+#&gt;   fips  iso2c date       contact_tracers_count state   region
+#&gt;   &lt;chr&gt; &lt;chr&gt; &lt;date&gt;                     &lt;dbl&gt; &lt;chr&gt;   &lt;fct&gt; 
+#&gt; 1 01    AL    2020-05-11                   120 Alabama South 
+#&gt; 2 01    AL    2020-05-12                   120 Alabama South 
+#&gt; 3 01    AL    2020-05-13                   120 Alabama South 
+#&gt; 4 01    AL    2020-05-14                   120 Alabama South 
+#&gt; 5 01    AL    2020-05-15                   120 Alabama South 
+#&gt; 6 01    AL    2020-05-16                   120 Alabama South </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>TAndT</span>)</div><div class='output co'>#&gt; [1] "fips"                  "iso2c"                 "date"                 
+#&gt; [4] "contact_tracers_count" "state"                 "region"               </div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>TAndT</span>)</div><div class='output co'>#&gt; Rows: 4,839
 #&gt; Columns: 6
-#&gt; $ fips                  </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "15", "02", "41", "53", "30", "50", "69", "60",…
-#&gt; $ iso2c                 </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "HI", "AK", "OR", "WA", "MT", "VT", "MP", "AS",…
-#&gt; $ date                  </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2020-05-24, 2020-05-24, 2020-05-24, 2020-05-24…
-#&gt; $ contact_tracers_count </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 80, 145, 332, 2122, 130, 48, 1, 9, 7, 300, 1200…
-#&gt; $ state                 </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Hawaii", "Alaska", "Oregon", "Washington", "Mo…
-#&gt; $ region                </span><span style='color: #555555;font-style: italic;'>&lt;fct&gt;</span><span> West, West, West, West, West, Northeast, NA, NA…</div><div class='input'>
+#&gt; $ fips                  &lt;chr&gt; "01", "01", "01", "01", "01", "01", "01", "01",…
+#&gt; $ iso2c                 &lt;chr&gt; "AL", "AL", "AL", "AL", "AL", "AL", "AL", "AL",…
+#&gt; $ date                  &lt;date&gt; 2020-05-11, 2020-05-12, 2020-05-13, 2020-05-14…
+#&gt; $ contact_tracers_count &lt;dbl&gt; 120, 120, 120, 120, 120, 120, 120, 120, 120, 12…
+#&gt; $ state                 &lt;chr&gt; "Alabama", "Alabama", "Alabama", "Alabama", "Al…
+#&gt; $ region                &lt;fct&gt; South, South, South, South, South, South, South…</div><div class='input'>
 <span class='no'>nyt</span> <span class='kw'>=</span> <span class='fu'><a href='nytimes_county_data.html'>nytimes_state_data</a></span>() <span class='kw'>%&gt;%</span> <span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span>(-<span class='no'>state</span>) <span class='kw'>%&gt;%</span>
     <span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span>(<span class='kw'>fips</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/substr.html'>substr</a></span>(<span class='no'>fips</span>,<span class='fl'>4</span>,<span class='fl'>5</span>)) <span class='kw'>%&gt;%</span>
     <span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span>(<span class='no'>subset</span><span class='kw'>==</span><span class='st'>'confirmed'</span>) <span class='kw'>%&gt;%</span>
@@ -303,8 +303,8 @@
     <span class='fu'>coord_flip</span>() +
     <span class='fu'>xlab</span>(<span class='st'>'State or Jurisdiction'</span>) +
     <span class='fu'>ylab</span>(<span class='st'>'Contract tracers per new case'</span>) +
-    <span class='fu'>ggtitle</span>(<span class='fu'><a href='https://rdrr.io/r/base/sprintf.html'>sprintf</a></span>(<span class='st'>'Contract tracers per new case on %s'</span>, <span class='fu'><a href='https://rdrr.io/r/base/Sys.time.html'>Sys.Date</a></span>() - <span class='fl'>4</span>), <span class='kw'>subtitle</span><span class='kw'>=</span><span class='st'>'Goal is 5-15 tracers per new case'</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 1 rows containing missing values (position_stack).</span></div><div class='img'><img src='test_and_trace_data-1.png' alt='' width='700' height='433' /></div><div class='input'>
-</div></span></pre>
+    <span class='fu'>ggtitle</span>(<span class='fu'><a href='https://rdrr.io/r/base/sprintf.html'>sprintf</a></span>(<span class='st'>'Contract tracers per new case on %s'</span>, <span class='fu'><a href='https://rdrr.io/r/base/Sys.time.html'>Sys.Date</a></span>() - <span class='fl'>4</span>), <span class='kw'>subtitle</span><span class='kw'>=</span><span class='st'>'Goal is 5-15 tracers per new case'</span>)</div><div class='img'><img src='test_and_trace_data-1.png' alt='' width='700' height='433' /></div><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

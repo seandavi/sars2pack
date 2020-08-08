@@ -37,7 +37,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">sars2pack</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.2</span>
       </span>
     </div>
 
@@ -91,9 +91,6 @@
     </li>
     <li>
       <a href="articles/r0_estimates.html">Estimating the replication rate</a>
-    </li>
-    <li>
-      <a href="articles/tsanalysis.html">Time series analysis of COVID-19 datasets</a>
     </li>
   </ul>
 </li>
@@ -1100,16 +1097,16 @@ admin1
 <p>Get a quick overview of the dataset.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">head</span>(ecdc)</a>
 <a class="sourceLine" id="cb4-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb4-3" data-line-number="3">## # A tibble: 6 x 8</a>
-<a class="sourceLine" id="cb4-4" data-line-number="4">## # Groups:   location_name, subset [6]</a>
-<a class="sourceLine" id="cb4-5" data-line-number="5">##   date       location_name iso2c iso3c population_2019 continent subset    count</a>
-<a class="sourceLine" id="cb4-6" data-line-number="6">##   &lt;date&gt;     &lt;chr&gt;         &lt;chr&gt; &lt;chr&gt;           &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;     &lt;dbl&gt;</a>
-<a class="sourceLine" id="cb4-7" data-line-number="7">## 1 2019-12-31 Afghanistan   AF    AFG          38041757 Asia      confirmed     0</a>
-<a class="sourceLine" id="cb4-8" data-line-number="8">## 2 2019-12-31 Afghanistan   AF    AFG          38041757 Asia      deaths        0</a>
-<a class="sourceLine" id="cb4-9" data-line-number="9">## 3 2019-12-31 Algeria       DZ    DZA          43053054 Africa    confirmed     0</a>
-<a class="sourceLine" id="cb4-10" data-line-number="10">## 4 2019-12-31 Algeria       DZ    DZA          43053054 Africa    deaths        0</a>
-<a class="sourceLine" id="cb4-11" data-line-number="11">## 5 2019-12-31 Armenia       AM    ARM           2957728 Europe    confirmed     0</a>
-<a class="sourceLine" id="cb4-12" data-line-number="12">## 6 2019-12-31 Armenia       AM    ARM           2957728 Europe    deaths        0</a></code></pre></div>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="co">## # A tibble: 6 x 8</span></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="co">## # Groups:   location_name, subset [6]</span></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="co">##   date       location_name iso2c iso3c population_2019 continent subset    count</span></a>
+<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="co">##   &lt;date&gt;     &lt;chr&gt;         &lt;chr&gt; &lt;chr&gt;           &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;     &lt;dbl&gt;</span></a>
+<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="co">## 1 2019-12-31 Afghanistan   AF    AFG          38041757 Asia      confirmed     0</span></a>
+<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="co">## 2 2019-12-31 Afghanistan   AF    AFG          38041757 Asia      deaths        0</span></a>
+<a class="sourceLine" id="cb4-9" data-line-number="9"><span class="co">## 3 2019-12-31 Algeria       DZ    DZA          43053054 Africa    confirmed     0</span></a>
+<a class="sourceLine" id="cb4-10" data-line-number="10"><span class="co">## 4 2019-12-31 Algeria       DZ    DZA          43053054 Africa    deaths        0</span></a>
+<a class="sourceLine" id="cb4-11" data-line-number="11"><span class="co">## 5 2019-12-31 Armenia       AM    ARM           2957728 Europe    confirmed     0</span></a>
+<a class="sourceLine" id="cb4-12" data-line-number="12"><span class="co">## 6 2019-12-31 Armenia       AM    ARM           2957728 Europe    deaths        0</span></a></code></pre></div>
 <p>The <code>ecdc</code> dataset is just a <code>data.frame</code> (actually, a <code>tibble</code>), so applying standard R or tidyverse functionality can get answers to basic questions with little code. The next code block generates a <code>top10</code> of countries with the most deaths recorded to date. Note that if you do this on your own computer, the data will be updated to today’s data values.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">library</span>(dplyr)</a>
 <a class="sourceLine" id="cb5-2" data-line-number="2">top10 =<span class="st"> </span>ecdc <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(subset<span class="op">==</span><span class="st">'deaths'</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
@@ -1383,7 +1380,7 @@ India
   <div class="dev-status">
 <h2>Dev status</h2>
 <ul class="list-unstyled">
-<li><a href="https://mybinder.org/v2/gh/seandavi/sars2pack/master?urlpath=rstudio"><img src="http://mybinder.org/badge_logo.svg" alt="Launch Rstudio Binder"></a></li>
+<li><a href="https://mybinder.org/v2/gh/seandavi/sars2pack/f83370f?urlpath=rstudio"><img src="http://mybinder.org/badge_logo.svg" alt="Launch Rstudio Binder"></a></li>
 </ul>
 </div>
 </div>

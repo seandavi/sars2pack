@@ -85,7 +85,7 @@ over all the available datasets." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sars2pack</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.2</span>
       </span>
     </div>
 
@@ -139,9 +139,6 @@ over all the available datasets." />
     </li>
     <li>
       <a href="../articles/r0_estimates.html">Estimating the replication rate</a>
-    </li>
-    <li>
-      <a href="../articles/tsanalysis.html">Time series analysis of COVID-19 datasets</a>
     </li>
   </ul>
 </li>
@@ -200,27 +197,28 @@ over all the available datasets.</p>
 <code><a href='owid_data.html'>owid_data</a>()</code>,
 <code><a href='plot_epicurve.html'>plot_epicurve</a>()</code>,
 <code><a href='test_and_trace_data.html'>test_and_trace_data</a>()</code>,
-<code><a href='usa_facts_data.html'>usa_facts_data</a>()</code></p></div>
+<code><a href='usa_facts_data.html'>usa_facts_data</a>()</code>,
+<code><a href='who_cases.html'>who_cases</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>cus</span> <span class='kw'>=</span> <span class='fu'>combined_us_cases_data</span>()
-<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>cus</span>)</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 6 x 6</span><span>
-#&gt; </span><span style='color: #555555;'># Groups:   fips [1]</span><span>
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>cus</span>)</div><div class='output co'>#&gt; # A tibble: 6 x 6
+#&gt; # Groups:   fips [1]
 #&gt;   dataset date       fips  count incidence state
-#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>
-#&gt; </span><span style='color: #555555;'>1</span><span> jhu     2020-01-22 00001     0        </span><span style='color: #BB0000;'>NA</span><span> AL   
-#&gt; </span><span style='color: #555555;'>2</span><span> jhu     2020-01-23 00001     0         0 AL   
-#&gt; </span><span style='color: #555555;'>3</span><span> jhu     2020-01-24 00001     0         0 AL   
-#&gt; </span><span style='color: #555555;'>4</span><span> jhu     2020-01-25 00001     0         0 AL   
-#&gt; </span><span style='color: #555555;'>5</span><span> jhu     2020-01-26 00001     0         0 AL   
-#&gt; </span><span style='color: #555555;'>6</span><span> jhu     2020-01-27 00001     0         0 AL   </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/unique.html'>unique</a></span>(<span class='no'>cus</span>$<span class='no'>dataset</span>)</div><div class='output co'>#&gt; [1] "jhu"          "covidtracker" "nytimes"     </div><div class='input'>
+#&gt;   &lt;chr&gt;   &lt;date&gt;     &lt;chr&gt; &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;
+#&gt; 1 jhu     2020-01-22 00001     0        NA AL   
+#&gt; 2 jhu     2020-01-23 00001     0         0 AL   
+#&gt; 3 jhu     2020-01-24 00001     0         0 AL   
+#&gt; 4 jhu     2020-01-25 00001     0         0 AL   
+#&gt; 5 jhu     2020-01-26 00001     0         0 AL   
+#&gt; 6 jhu     2020-01-27 00001     0         0 AL   </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/unique.html'>unique</a></span>(<span class='no'>cus</span>$<span class='no'>dataset</span>)</div><div class='output co'>#&gt; [1] "jhu"          "covidtracker" "nytimes"     </div><div class='input'>
 <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>ggplot2</span>)
 <span class='fu'><a href='plot_epicurve.html'>plot_epicurve</a></span>(<span class='no'>cus</span>, <span class='kw'>filter_expression</span> <span class='kw'>=</span> <span class='no'>state</span> <span class='kw'>==</span> <span class='st'>'GA'</span>,<span class='kw'>color</span><span class='kw'>=</span><span class='st'>'dataset'</span>) +
     <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span>(<span class='st'>'Cumulative confirmed cases in Georgia'</span>)</div><div class='img'><img src='combined_us_cases_data-1.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='fu'><a href='plot_epicurve.html'>plot_epicurve</a></span>(<span class='no'>cus</span>, <span class='kw'>filter_expression</span> <span class='kw'>=</span> <span class='no'>state</span> <span class='kw'>==</span> <span class='st'>'GA'</span> <span class='kw'>&amp;</span> <span class='no'>incidence</span><span class='kw'>&gt;</span><span class='fl'>10</span>,
     <span class='kw'>case_column</span><span class='kw'>=</span><span class='st'>'incidence'</span>, <span class='kw'>color</span><span class='kw'>=</span><span class='st'>'dataset'</span>, <span class='kw'>log</span><span class='kw'>=</span><span class='fl'>FALSE</span>) +
     <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span>(<span class='st'>'Daily confirmed cases in Georgia'</span>) + <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_smooth.html'>geom_smooth</a></span>(<span class='kw'>alpha</span><span class='kw'>=</span><span class='fl'>0.25</span>)</div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using method = 'loess' and formula 'y ~ x'</span></div><div class='img'><img src='combined_us_cases_data-2.png' alt='' width='700' height='433' /></div><div class='input'>
-</div></span></pre>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

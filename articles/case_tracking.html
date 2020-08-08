@@ -37,7 +37,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sars2pack</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.2</span>
       </span>
     </div>
 
@@ -92,9 +92,6 @@
     <li>
       <a href="../articles/r0_estimates.html">Estimating the replication rate</a>
     </li>
-    <li>
-      <a href="../articles/tsanalysis.html">Time series analysis of COVID-19 datasets</a>
-    </li>
   </ul>
 </li>
 <li>
@@ -142,6 +139,7 @@
 <p>The case-tracking datasets each contain at least one <code>date</code> column, one <code>count</code> column that describe some quantity of people over time. A third column, <code>subset</code> is often (but not always) present and describes the type of “counting” for each record. For instance, common values for <code>subset</code> are “confirmed” and “deaths”. Additional columns, if present, usually specify geographical data for each record such as the name of the city, state, country, etc.</p>
 <p>The dataset from Johns Hopkins University is one example that we can look at to get familiar with the data.</p>
 <div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="no">jhu</span> <span class="kw">=</span> <span class="fu"><a href="../reference/jhu_data.html">jhu_data</a></span>()
+<span class="co">## using temporary cache /tmp/RtmppNqhDV/BiocFileCache</span>
 <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span>(<span class="no">jhu</span>)
 <span class="co">## [1] "ProvinceState" "CountryRegion" "Lat"           "Long"         </span>
 <span class="co">## [5] "date"          "count"         "subset"</span>
@@ -149,31 +147,33 @@
 <span class="co">## # A tibble: 6 x 7</span>
 <span class="co">##   ProvinceState CountryRegion   Lat  Long date       count subset   </span>
 <span class="co">##   &lt;chr&gt;         &lt;chr&gt;         &lt;dbl&gt; &lt;dbl&gt; &lt;date&gt;     &lt;dbl&gt; &lt;chr&gt;    </span>
-<span class="co">## 1 &lt;NA&gt;          Afghanistan      33    65 2020-01-22     0 confirmed</span>
-<span class="co">## 2 &lt;NA&gt;          Afghanistan      33    65 2020-01-23     0 confirmed</span>
-<span class="co">## 3 &lt;NA&gt;          Afghanistan      33    65 2020-01-24     0 confirmed</span>
-<span class="co">## 4 &lt;NA&gt;          Afghanistan      33    65 2020-01-25     0 confirmed</span>
-<span class="co">## 5 &lt;NA&gt;          Afghanistan      33    65 2020-01-26     0 confirmed</span>
-<span class="co">## 6 &lt;NA&gt;          Afghanistan      33    65 2020-01-27     0 confirmed</span>
+<span class="co">## 1 &lt;NA&gt;          Afghanistan    33.9  67.7 2020-01-22     0 confirmed</span>
+<span class="co">## 2 &lt;NA&gt;          Afghanistan    33.9  67.7 2020-01-23     0 confirmed</span>
+<span class="co">## 3 &lt;NA&gt;          Afghanistan    33.9  67.7 2020-01-24     0 confirmed</span>
+<span class="co">## 4 &lt;NA&gt;          Afghanistan    33.9  67.7 2020-01-25     0 confirmed</span>
+<span class="co">## 5 &lt;NA&gt;          Afghanistan    33.9  67.7 2020-01-26     0 confirmed</span>
+<span class="co">## 6 &lt;NA&gt;          Afghanistan    33.9  67.7 2020-01-27     0 confirmed</span>
 <span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/reexports.html">glimpse</a></span>(<span class="no">jhu</span>)
-<span class="co">## Rows: 129,525</span>
+<span class="co">## Rows: 156,215</span>
 <span class="co">## Columns: 7</span>
 <span class="co">## $ ProvinceState &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…</span>
 <span class="co">## $ CountryRegion &lt;chr&gt; "Afghanistan", "Afghanistan", "Afghanistan", "Afghanist…</span>
-<span class="co">## $ Lat           &lt;dbl&gt; 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33,…</span>
-<span class="co">## $ Long          &lt;dbl&gt; 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65,…</span>
+<span class="co">## $ Lat           &lt;dbl&gt; 33.93911, 33.93911, 33.93911, 33.93911, 33.93911, 33.93…</span>
+<span class="co">## $ Long          &lt;dbl&gt; 67.70995, 67.70995, 67.70995, 67.70995, 67.70995, 67.70…</span>
 <span class="co">## $ date          &lt;date&gt; 2020-01-22, 2020-01-23, 2020-01-24, 2020-01-25, 2020-0…</span>
 <span class="co">## $ count         &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…</span>
 <span class="co">## $ subset        &lt;chr&gt; "confirmed", "confirmed", "confirmed", "confirmed", "co…</span></pre></body></html></div>
 <div class="sourceCode" id="cb3"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span>(<span class="no">jhu</span>$<span class="no">subset</span>)
 <span class="co">## </span>
 <span class="co">## confirmed    deaths recovered </span>
-<span class="co">##     43890     43890     41745</span></pre></body></html></div>
+<span class="co">##     52934     52934     50347</span></pre></body></html></div>
 <div id="compare-us-datasets" class="section level2">
 <h2 class="hasAnchor">
 <a href="#compare-us-datasets" class="anchor"></a>Compare US datasets</h2>
 <p>We can employ comparisons of the multiple case-tracking datasets that capture the cases at a US state level to get a sense of systematic biases in the data and look for agreement across datasets. One convenience function, <code><a href="../reference/combined_us_cases_data.html">combined_us_cases_data()</a></code>, yields a stacked dataframe with an identifier for each dataset.</p>
 <div class="sourceCode" id="cb4"><html><body><pre class="r"><span class="no">us_states</span> <span class="kw">=</span> <span class="fu"><a href="../reference/combined_us_cases_data.html">combined_us_cases_data</a></span>()
+<span class="co">## Warning in system("timedatectl", intern = TRUE): running command 'timedatectl'</span>
+<span class="co">## had status 1</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="no">us_states</span>)
 <span class="co">## # A tibble: 6 x 6</span>
 <span class="co">## # Groups:   fips [1]</span>
@@ -188,7 +188,7 @@
 <span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span>(<span class="no">us_states</span>$<span class="no">dataset</span>)
 <span class="co">## </span>
 <span class="co">## covidtracker          jhu      nytimes </span>
-<span class="co">##         6793         8415         6779</span></pre></body></html></div>
+<span class="co">##         8697        10348         8704</span></pre></body></html></div>
 <p>To get a sense of the data and their meaning, consider the following series of graphs based on three “randomly” chosen states.</p>
 <div class="sourceCode" id="cb5"><html><body><pre class="r"><span class="no">interesting_states</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">'PA'</span>,<span class="st">'CA'</span>,<span class="st">'GA'</span>)
 <span class="no">pd</span> <span class="kw">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/position_dodge.html">position_dodge</a></span>(<span class="kw">width</span><span class="kw">=</span><span class="fl">0.2</span>)</pre></body></html></div>

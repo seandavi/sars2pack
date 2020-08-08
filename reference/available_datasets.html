@@ -82,7 +82,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sars2pack</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.2</span>
       </span>
     </div>
 
@@ -136,9 +136,6 @@
     </li>
     <li>
       <a href="../articles/r0_estimates.html">Estimating the replication rate</a>
-    </li>
-    <li>
-      <a href="../articles/tsanalysis.html">Time series analysis of COVID-19 datasets</a>
     </li>
   </ul>
 </li>
@@ -217,27 +214,28 @@ in the list. See examples for details and for viewing suggestions.</p>
 #&gt; 12                            Published epidemic parameters for COVID-19
 #&gt; 13                                    Aggregated projections from US CDC
 #&gt; 14                                                  Google mobility data
-#&gt; 15                                           European CDC world tracking
-#&gt; 16                                                    beoutbreakprepared
-#&gt; 17                                             EU data Github aggregator
-#&gt; 18                                          Descartes Labs Mobility Data
-#&gt; 19                                         Apple mobility data from maps
-#&gt; 20                                                             USA Facts
-#&gt; 21                                                 Johns Hopkins dataset
-#&gt; 22                                         Johns Hopkins US-centric data
-#&gt; 23                                      New York Times county level data
-#&gt; 24                                       New York Times state level data
-#&gt; 25                                 Kaiser Family Foundation ICU bed data
-#&gt; 26                         United States county-level geographic details
-#&gt; 27                                                     CovidTracker data
-#&gt; 28                           CovidCare United States Healthcare Capacity
-#&gt; 29                     Oxford Government Policy Intervention time series
-#&gt; 30                                          Healthdata.org mobility data
-#&gt; 31         Healthdata.org projections of hospital utilization and deaths
-#&gt; 32                              United States social distancing policies
-#&gt; 33                                  OECD International Unemployment Data
-#&gt; 34         healthdata.org COVID-19 Mobility Observations and Projections
-#&gt; 35          healthdata.org COVID-19 Testing Observations and Projections
+#&gt; 15                         World Health Organization (WHO) case tracking
+#&gt; 16                                           European CDC world tracking
+#&gt; 17                                                    beoutbreakprepared
+#&gt; 18                                             EU data Github aggregator
+#&gt; 19                                          Descartes Labs Mobility Data
+#&gt; 20                                         Apple mobility data from maps
+#&gt; 21                                                             USA Facts
+#&gt; 22                                                 Johns Hopkins dataset
+#&gt; 23                                         Johns Hopkins US-centric data
+#&gt; 24                                      New York Times county level data
+#&gt; 25                                       New York Times state level data
+#&gt; 26                                 Kaiser Family Foundation ICU bed data
+#&gt; 27                         United States county-level geographic details
+#&gt; 28                                                     CovidTracker data
+#&gt; 29                           CovidCare United States Healthcare Capacity
+#&gt; 30                     Oxford Government Policy Intervention time series
+#&gt; 31                                          Healthdata.org mobility data
+#&gt; 32         Healthdata.org projections of hospital utilization and deaths
+#&gt; 33                              United States social distancing policies
+#&gt; 34                                  OECD International Unemployment Data
+#&gt; 35         healthdata.org COVID-19 Mobility Observations and Projections
+#&gt; 36          healthdata.org COVID-19 Testing Observations and Projections
 #&gt;                              accessor                               data_type
 #&gt; 1      cdc_social_vulnerability_index                            demographics
 #&gt; 2                 us_hospital_details                     healthcare capacity
@@ -254,26 +252,27 @@ in the list. See examples for details and for viewing suggestions.</p>
 #&gt; 13         cdc_aggregated_projections                             projections
 #&gt; 14               google_mobility_data                                mobility
 #&gt; 15                          ecdc_data              time series, cases, deaths
-#&gt; 16            beoutbreakprepared_data                               line list
-#&gt; 17                 eu_data_cache_data              time series, cases, deaths
-#&gt; 18            descartes_mobility_data                   time series, mobility
-#&gt; 19                apple_mobility_data                   time series, mobility
-#&gt; 20                     usa_facts_data              time series, cases, deaths
-#&gt; 21                           jhu_data              time series, cases, deaths
-#&gt; 22                        jhu_us_data              time series, cases, deaths
-#&gt; 23                nytimes_county_data              time series, cases, deaths
-#&gt; 24                 nytimes_state_data              time series, cases, deaths
-#&gt; 25                       kff_icu_beds                     healthcare capacity
-#&gt; 26              us_county_geo_details                demographics, geographic
-#&gt; 27                  covidtracker_data     time series, cases, deaths, testing
-#&gt; 28             us_healthcare_capacity                     healthcare capacity
-#&gt; 29         government_policy_timeline                           public policy
-#&gt; 30           healthdata_mobility_data      time series, projections, mobility
-#&gt; 31        healthdata_projections_data time series, projections, cases, deaths
-#&gt; 32         us_state_distancing_policy                           public policy
-#&gt; 33             oecd_unemployment_data                  economics, time series
-#&gt; 34           healthdata_mobility_data      mobility, time series, projections
-#&gt; 35            healthdata_testing_data       testing, time series, projections
+#&gt; 16                          ecdc_data              time series, cases, deaths
+#&gt; 17            beoutbreakprepared_data                               line list
+#&gt; 18                 eu_data_cache_data              time series, cases, deaths
+#&gt; 19            descartes_mobility_data                   time series, mobility
+#&gt; 20                apple_mobility_data                   time series, mobility
+#&gt; 21                     usa_facts_data              time series, cases, deaths
+#&gt; 22                           jhu_data              time series, cases, deaths
+#&gt; 23                        jhu_us_data              time series, cases, deaths
+#&gt; 24                nytimes_county_data              time series, cases, deaths
+#&gt; 25                 nytimes_state_data              time series, cases, deaths
+#&gt; 26                       kff_icu_beds                     healthcare capacity
+#&gt; 27              us_county_geo_details                demographics, geographic
+#&gt; 28                  covidtracker_data     time series, cases, deaths, testing
+#&gt; 29             us_healthcare_capacity                     healthcare capacity
+#&gt; 30         government_policy_timeline                           public policy
+#&gt; 31           healthdata_mobility_data      time series, projections, mobility
+#&gt; 32        healthdata_projections_data time series, projections, cases, deaths
+#&gt; 33         us_state_distancing_policy                           public policy
+#&gt; 34             oecd_unemployment_data                  economics, time series
+#&gt; 35           healthdata_mobility_data      mobility, time series, projections
+#&gt; 36            healthdata_testing_data       testing, time series, projections
 #&gt;    geographical geospatial               region                     resolution
 #&gt; 1          TRUE      FALSE        United States                         admin2
 #&gt; 2          TRUE       TRUE        United States            individual hospital
@@ -290,26 +289,27 @@ in the list. See examples for details and for viewing suggestions.</p>
 #&gt; 13         TRUE      FALSE                 NULL                 admin0, admin1
 #&gt; 14         TRUE      FALSE                World         admin0, admin1, admin2
 #&gt; 15         TRUE      FALSE                World                         admin0
-#&gt; 16         TRUE      FALSE                World                        patient
-#&gt; 17         TRUE      FALSE               Europe                 admin0, admin1
-#&gt; 18         TRUE      FALSE        United States                         admin1
-#&gt; 19         TRUE      FALSE                World admin0, admin1, admin2, admin3
-#&gt; 20         TRUE      FALSE        United States                         admin1
-#&gt; 21         TRUE      FALSE                World                         admin0
-#&gt; 22         TRUE      FALSE        United States                 admin1, admin2
-#&gt; 23         TRUE      FALSE        United States                         admin2
-#&gt; 24         TRUE      FALSE        United States                         admin1
-#&gt; 25         TRUE       TRUE        United States            Individual hospital
-#&gt; 26         TRUE       TRUE        United States                         admin2
-#&gt; 27         TRUE      FALSE        United States                         admin1
-#&gt; 28         TRUE       TRUE        United States            Individual hospital
-#&gt; 29         TRUE      FALSE                World                         admin0
-#&gt; 30         TRUE      FALSE United States, World                 admin1, admin2
+#&gt; 16         TRUE      FALSE                World                         admin0
+#&gt; 17         TRUE      FALSE                World                        patient
+#&gt; 18         TRUE      FALSE               Europe                 admin0, admin1
+#&gt; 19         TRUE      FALSE        United States                         admin1
+#&gt; 20         TRUE      FALSE                World admin0, admin1, admin2, admin3
+#&gt; 21         TRUE      FALSE        United States                         admin1
+#&gt; 22         TRUE      FALSE                World                         admin0
+#&gt; 23         TRUE      FALSE        United States                 admin1, admin2
+#&gt; 24         TRUE      FALSE        United States                         admin2
+#&gt; 25         TRUE      FALSE        United States                         admin1
+#&gt; 26         TRUE       TRUE        United States            Individual hospital
+#&gt; 27         TRUE       TRUE        United States                         admin2
+#&gt; 28         TRUE      FALSE        United States                         admin1
+#&gt; 29         TRUE       TRUE        United States            Individual hospital
+#&gt; 30         TRUE      FALSE                World                         admin0
 #&gt; 31         TRUE      FALSE United States, World                 admin1, admin2
-#&gt; 32         TRUE      FALSE        United States                         admin1
-#&gt; 33         TRUE      FALSE                World                         admin0
-#&gt; 34         TRUE      FALSE        International                 admin0, admin1
+#&gt; 32         TRUE      FALSE United States, World                 admin1, admin2
+#&gt; 33         TRUE      FALSE        United States                         admin1
+#&gt; 34         TRUE      FALSE                World                         admin0
 #&gt; 35         TRUE      FALSE        International                 admin0, admin1
+#&gt; 36         TRUE      FALSE        International                 admin0, admin1
 #&gt;                                                                                                                 url
 #&gt; 1                                                                                              https://svi.cdc.gov/
 #&gt; 2                                                            https://hub.arcgis.com/datasets/geoplatform::hospitals
@@ -325,64 +325,65 @@ in the list. See examples for details and for viewing suggestions.</p>
 #&gt; 12   https://github.com/midas-network/COVID-19/blob/master/parameter_estimates/2019_novel_coronavirus/estimates.csv
 #&gt; 13                                         https://www.cdc.gov/coronavirus/2019-ncov/covid-data/forecasting-us.html
 #&gt; 14                                                                         https://www.google.com/covid19/mobility/
-#&gt; 15                                                                           https://www.ecdc.europa.eu/en/covid-19
-#&gt; 16                                                                   https://github.com/beoutbreakprepared/nCoV2019
-#&gt; 17                                                                 https://github.com/covid19-eu-zh/covid19-eu-data
-#&gt; 18                                                      https://raw.githubusercontent.com/descarteslabs/DL-COVID-19
-#&gt; 19                                                                           https://www.apple.com/covid19/mobility
-#&gt; 20                                             https://usafacts.org/visualizations/coronavirus-covid-19-spread-map/
-#&gt; 21                                                                       https://github.com/CSSEGISandData/COVID-19
+#&gt; 15                                                                                         https://covid19.who.int/
+#&gt; 16                                                                           https://www.ecdc.europa.eu/en/covid-19
+#&gt; 17                                                                   https://github.com/beoutbreakprepared/nCoV2019
+#&gt; 18                                                                 https://github.com/covid19-eu-zh/covid19-eu-data
+#&gt; 19                                                      https://raw.githubusercontent.com/descarteslabs/DL-COVID-19
+#&gt; 20                                                                           https://www.apple.com/covid19/mobility
+#&gt; 21                                             https://usafacts.org/visualizations/coronavirus-covid-19-spread-map/
 #&gt; 22                                                                       https://github.com/CSSEGISandData/COVID-19
-#&gt; 23                                                          https://raw.githubusercontent.com/nytimes/covid-19-data
+#&gt; 23                                                                       https://github.com/CSSEGISandData/COVID-19
 #&gt; 24                                                          https://raw.githubusercontent.com/nytimes/covid-19-data
-#&gt; 25 https://khn.org/news/as-coronavirus-spreads-widely-millions-of-older-americans-live-in-counties-with-no-icu-beds
-#&gt; 26                                                                     https://github.com/josh-byster/fips_lat_long
-#&gt; 27                                                                                       https://covidtracking.com/
-#&gt; 28                                                     https://github.com/covidcaremap/covid19-healthsystemcapacity
-#&gt; 29                  https://www.bsg.ox.ac.uk/research/research-projects/oxford-covid-19-government-response-tracker
-#&gt; 30                                                                                  http://www.healthdata.org/covid
+#&gt; 25                                                          https://raw.githubusercontent.com/nytimes/covid-19-data
+#&gt; 26 https://khn.org/news/as-coronavirus-spreads-widely-millions-of-older-americans-live-in-counties-with-no-icu-beds
+#&gt; 27                                                                     https://github.com/josh-byster/fips_lat_long
+#&gt; 28                                                                                       https://covidtracking.com/
+#&gt; 29                                                     https://github.com/covidcaremap/covid19-healthsystemcapacity
+#&gt; 30                  https://www.bsg.ox.ac.uk/research/research-projects/oxford-covid-19-government-response-tracker
 #&gt; 31                                                                                  http://www.healthdata.org/covid
-#&gt; 32                                                          https://github.com/COVID19StatePolicy/SocialDistancing/
-#&gt; 33                                                                                                 https://oecd.org
-#&gt; 34                                                                       https://covid19.healthdata.org/projections
-#&gt; 35                                                                       https://covid19.healthdata.org/projections</div><div class='input'><span class='co'># and how to use the accessor programmatically</span>
-<span class='fu'><a href='https://rdrr.io/r/base/get.html'>get</a></span>(<span class='no'>res</span>[<span class='fl'>1</span>,]$<span class='no'>accessor</span>)()</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 3,142 x 126</span><span>
+#&gt; 32                                                                                  http://www.healthdata.org/covid
+#&gt; 33                                                          https://github.com/COVID19StatePolicy/SocialDistancing/
+#&gt; 34                                                                                                 https://oecd.org
+#&gt; 35                                                                       https://covid19.healthdata.org/projections
+#&gt; 36                                                                       https://covid19.healthdata.org/projections</div><div class='input'><span class='co'># and how to use the accessor programmatically</span>
+<span class='fu'><a href='https://rdrr.io/r/base/get.html'>get</a></span>(<span class='no'>res</span>[<span class='fl'>1</span>,]$<span class='no'>accessor</span>)()</div><div class='output co'>#&gt; # A tibble: 3,142 x 126
 #&gt;      fid state_fips state st_abbr county fips  location area_sqmi e_totpop
-#&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>        </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #555555;'> 1</span><span>     1 00001      Alab… AL      Autau… 01001 Autauga…      594.    </span><span style='text-decoration: underline;'>55</span><span>200
-#&gt; </span><span style='color: #555555;'> 2</span><span>     2 00001      Alab… AL      Baldw… 01003 Baldwin…     </span><span style='text-decoration: underline;'>1</span><span>590.   </span><span style='text-decoration: underline;'>208</span><span>107
-#&gt; </span><span style='color: #555555;'> 3</span><span>     3 00001      Alab… AL      Barbo… 01005 Barbour…      885.    </span><span style='text-decoration: underline;'>25</span><span>782
-#&gt; </span><span style='color: #555555;'> 4</span><span>     4 00001      Alab… AL      Bibb   01007 Bibb Co…      622.    </span><span style='text-decoration: underline;'>22</span><span>527
-#&gt; </span><span style='color: #555555;'> 5</span><span>     5 00001      Alab… AL      Blount 01009 Blount …      645.    </span><span style='text-decoration: underline;'>57</span><span>645
-#&gt; </span><span style='color: #555555;'> 6</span><span>     6 00001      Alab… AL      Bullo… 01011 Bullock…      623.    </span><span style='text-decoration: underline;'>10</span><span>352
-#&gt; </span><span style='color: #555555;'> 7</span><span>     7 00001      Alab… AL      Butler 01013 Butler …      777.    </span><span style='text-decoration: underline;'>20</span><span>025
-#&gt; </span><span style='color: #555555;'> 8</span><span>     8 00001      Alab… AL      Calho… 01015 Calhoun…      606.   </span><span style='text-decoration: underline;'>115</span><span>098
-#&gt; </span><span style='color: #555555;'> 9</span><span>     9 00001      Alab… AL      Chamb… 01017 Chamber…      597.    </span><span style='text-decoration: underline;'>33</span><span>826
-#&gt; </span><span style='color: #555555;'>10</span><span>    10 00001      Alab… AL      Chero… 01019 Cheroke…      554.    </span><span style='text-decoration: underline;'>25</span><span>853
-#&gt; </span><span style='color: #555555;'># … with 3,132 more rows, and 117 more variables: m_totpop </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, e_hu </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   m_hu </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, e_hh </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, m_hh </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, e_pov </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, m_pov </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   e_unemp </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, m_unemp </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, e_pci </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, m_pci </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, e_nohsdp </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   m_nohsdp </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, e_age65 </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, m_age65 </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, e_age17 </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, m_age17 </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   e_disabl </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, m_disabl </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, e_sngpnt </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, m_sngpnt </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   e_minrty </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, m_minrty </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, e_limeng </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, m_limeng </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   e_munit </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, m_munit </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, e_mobile </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, m_mobile </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   e_crowd </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, m_crowd </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, e_noveh </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, m_noveh </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, e_groupq </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   m_groupq </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, ep_pov </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, mp_pov </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, ep_unemp </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, mp_unemp </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   ep_pci </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, mp_pci </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, ep_nohsdp </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, mp_nohsdp </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   ep_age65 </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, mp_age65 </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, ep_age17 </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, mp_age17 </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   ep_disabl </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, mp_disabl </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, ep_sngpnt </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, mp_sngpnt </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   ep_minrty </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, mp_minrty </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, ep_limeng </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, mp_limeng </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   ep_munit </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, mp_munit </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, ep_mobile </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, mp_mobile </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   ep_crowd </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, mp_crowd </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, ep_noveh </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, mp_noveh </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   ep_groupq </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, mp_groupq </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, epl_pov </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, epl_unemp </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   epl_pci </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, epl_nohsdp </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, spl_theme1 </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, rpl_theme1 </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   epl_age65 </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, epl_age17 </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, epl_disabl </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, epl_sngpnt </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   spl_theme2 </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, rpl_theme2 </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, epl_minrty </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, epl_limeng </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   spl_theme3 </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, rpl_theme3 </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, epl_munit </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, epl_mobile </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   epl_crowd </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, epl_noveh </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, epl_groupq </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, spl_theme4 </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   rpl_theme4 </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, spl_themes </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, rpl_themes </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, f_pov </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   f_unemp </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, f_pci </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, f_nohsdp </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, f_theme1 </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, f_age65 </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   f_age17 </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, f_disabl </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, f_sngpnt </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, f_theme2 </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, …</span><span></div><div class='input'>
+#&gt;    &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;        &lt;dbl&gt;    &lt;dbl&gt;
+#&gt;  1     1 00001      Alab… AL      Autau… 01001 Autauga…      594.    55200
+#&gt;  2     2 00001      Alab… AL      Baldw… 01003 Baldwin…     1590.   208107
+#&gt;  3     3 00001      Alab… AL      Barbo… 01005 Barbour…      885.    25782
+#&gt;  4     4 00001      Alab… AL      Bibb   01007 Bibb Co…      622.    22527
+#&gt;  5     5 00001      Alab… AL      Blount 01009 Blount …      645.    57645
+#&gt;  6     6 00001      Alab… AL      Bullo… 01011 Bullock…      623.    10352
+#&gt;  7     7 00001      Alab… AL      Butler 01013 Butler …      777.    20025
+#&gt;  8     8 00001      Alab… AL      Calho… 01015 Calhoun…      606.   115098
+#&gt;  9     9 00001      Alab… AL      Chamb… 01017 Chamber…      597.    33826
+#&gt; 10    10 00001      Alab… AL      Chero… 01019 Cheroke…      554.    25853
+#&gt; # … with 3,132 more rows, and 117 more variables: m_totpop &lt;dbl&gt;, e_hu &lt;dbl&gt;,
+#&gt; #   m_hu &lt;dbl&gt;, e_hh &lt;dbl&gt;, m_hh &lt;dbl&gt;, e_pov &lt;dbl&gt;, m_pov &lt;dbl&gt;,
+#&gt; #   e_unemp &lt;dbl&gt;, m_unemp &lt;dbl&gt;, e_pci &lt;dbl&gt;, m_pci &lt;dbl&gt;, e_nohsdp &lt;dbl&gt;,
+#&gt; #   m_nohsdp &lt;dbl&gt;, e_age65 &lt;dbl&gt;, m_age65 &lt;dbl&gt;, e_age17 &lt;dbl&gt;, m_age17 &lt;dbl&gt;,
+#&gt; #   e_disabl &lt;dbl&gt;, m_disabl &lt;dbl&gt;, e_sngpnt &lt;dbl&gt;, m_sngpnt &lt;dbl&gt;,
+#&gt; #   e_minrty &lt;dbl&gt;, m_minrty &lt;dbl&gt;, e_limeng &lt;dbl&gt;, m_limeng &lt;dbl&gt;,
+#&gt; #   e_munit &lt;dbl&gt;, m_munit &lt;dbl&gt;, e_mobile &lt;dbl&gt;, m_mobile &lt;dbl&gt;,
+#&gt; #   e_crowd &lt;dbl&gt;, m_crowd &lt;dbl&gt;, e_noveh &lt;dbl&gt;, m_noveh &lt;dbl&gt;, e_groupq &lt;dbl&gt;,
+#&gt; #   m_groupq &lt;dbl&gt;, ep_pov &lt;dbl&gt;, mp_pov &lt;dbl&gt;, ep_unemp &lt;dbl&gt;, mp_unemp &lt;dbl&gt;,
+#&gt; #   ep_pci &lt;dbl&gt;, mp_pci &lt;dbl&gt;, ep_nohsdp &lt;dbl&gt;, mp_nohsdp &lt;dbl&gt;,
+#&gt; #   ep_age65 &lt;dbl&gt;, mp_age65 &lt;dbl&gt;, ep_age17 &lt;dbl&gt;, mp_age17 &lt;dbl&gt;,
+#&gt; #   ep_disabl &lt;dbl&gt;, mp_disabl &lt;dbl&gt;, ep_sngpnt &lt;dbl&gt;, mp_sngpnt &lt;dbl&gt;,
+#&gt; #   ep_minrty &lt;dbl&gt;, mp_minrty &lt;dbl&gt;, ep_limeng &lt;dbl&gt;, mp_limeng &lt;dbl&gt;,
+#&gt; #   ep_munit &lt;dbl&gt;, mp_munit &lt;dbl&gt;, ep_mobile &lt;dbl&gt;, mp_mobile &lt;dbl&gt;,
+#&gt; #   ep_crowd &lt;dbl&gt;, mp_crowd &lt;dbl&gt;, ep_noveh &lt;dbl&gt;, mp_noveh &lt;dbl&gt;,
+#&gt; #   ep_groupq &lt;dbl&gt;, mp_groupq &lt;dbl&gt;, epl_pov &lt;dbl&gt;, epl_unemp &lt;dbl&gt;,
+#&gt; #   epl_pci &lt;dbl&gt;, epl_nohsdp &lt;dbl&gt;, spl_theme1 &lt;dbl&gt;, rpl_theme1 &lt;dbl&gt;,
+#&gt; #   epl_age65 &lt;dbl&gt;, epl_age17 &lt;dbl&gt;, epl_disabl &lt;dbl&gt;, epl_sngpnt &lt;dbl&gt;,
+#&gt; #   spl_theme2 &lt;dbl&gt;, rpl_theme2 &lt;dbl&gt;, epl_minrty &lt;dbl&gt;, epl_limeng &lt;dbl&gt;,
+#&gt; #   spl_theme3 &lt;dbl&gt;, rpl_theme3 &lt;dbl&gt;, epl_munit &lt;dbl&gt;, epl_mobile &lt;dbl&gt;,
+#&gt; #   epl_crowd &lt;dbl&gt;, epl_noveh &lt;dbl&gt;, epl_groupq &lt;dbl&gt;, spl_theme4 &lt;dbl&gt;,
+#&gt; #   rpl_theme4 &lt;dbl&gt;, spl_themes &lt;dbl&gt;, rpl_themes &lt;dbl&gt;, f_pov &lt;dbl&gt;,
+#&gt; #   f_unemp &lt;dbl&gt;, f_pci &lt;dbl&gt;, f_nohsdp &lt;dbl&gt;, f_theme1 &lt;dbl&gt;, f_age65 &lt;dbl&gt;,
+#&gt; #   f_age17 &lt;dbl&gt;, f_disabl &lt;dbl&gt;, f_sngpnt &lt;dbl&gt;, f_theme2 &lt;dbl&gt;, …</div><div class='input'>
 
 
 
@@ -417,7 +418,7 @@ in the list. See examples for details and for viewing suggestions.</p>
 #&gt;   .. .. ..$ nrow: int 6924
 #&gt;   .. .. ..$ ncol: int 12
 #&gt;   .. [list output truncated]
-#&gt;  $ eval_date: chr "2020-06-30"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='no'>dd</span>$<span class='no'>datasets</span>)</div><div class='output co'>#&gt;  [1] "cdc_social_vulnerability_index"     "us_hospital_details"               
+#&gt;  $ eval_date: chr "2020-07-09"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='no'>dd</span>$<span class='no'>datasets</span>)</div><div class='output co'>#&gt;  [1] "cdc_social_vulnerability_index"     "us_hospital_details"               
 #&gt;  [3] "economist_excess_deaths"            "financial_times_excess_deaths"     
 #&gt;  [5] "us_county_health_rankings"          "coronanet_government_response_data"
 #&gt;  [7] "country_metadata"                   "owid_data"                         
@@ -434,9 +435,9 @@ in the list. See examples for details and for viewing suggestions.</p>
 #&gt; [29] "government_policy_timeline"         "healthdata_mobility_data"          
 #&gt; [31] "healthdata_projections_data"        "us_state_distancing_policy"        
 #&gt; [33] "oecd_unemployment_data"             "healthdata_testing_data"           </div><div class='input'><span class='co'># evaluated</span>
-<span class='no'>dd</span>$<span class='no'>eval_date</span></div><div class='output co'>#&gt; [1] "2020-06-30"</div><div class='input'>
+<span class='no'>dd</span>$<span class='no'>eval_date</span></div><div class='output co'>#&gt; [1] "2020-07-09"</div><div class='input'>
 
-</div></span></pre>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

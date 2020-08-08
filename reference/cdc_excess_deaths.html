@@ -87,7 +87,7 @@ based on reported COVID-19 deaths." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sars2pack</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.2</span>
       </span>
     </div>
 
@@ -141,9 +141,6 @@ based on reported COVID-19 deaths." />
     </li>
     <li>
       <a href="../articles/r0_estimates.html">Estimating the replication rate</a>
-    </li>
-    <li>
-      <a href="../articles/tsanalysis.html">Time series analysis of COVID-19 datasets</a>
     </li>
   </ul>
 </li>
@@ -232,6 +229,7 @@ limitations can be found in the <a href='https://www.cdc.gov/nchs/nvss/vsrr/covi
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>Other data-import: 
+<code><a href='acaps_government_measures_data.html'>acaps_government_measures_data</a>()</code>,
 <code><a href='apple_mobility_data.html'>apple_mobility_data</a>()</code>,
 <code><a href='beoutbreakprepared_data.html'>beoutbreakprepared_data</a>()</code>,
 <code><a href='cdc_aggregated_projections.html'>cdc_aggregated_projections</a>()</code>,
@@ -265,31 +263,32 @@ limitations can be found in the <a href='https://www.cdc.gov/nchs/nvss/vsrr/covi
 <code><a href='us_healthcare_capacity.html'>us_healthcare_capacity</a>()</code>,
 <code><a href='us_hospital_details.html'>us_hospital_details</a>()</code>,
 <code><a href='us_state_distancing_policy.html'>us_state_distancing_policy</a>()</code>,
-<code><a href='usa_facts_data.html'>usa_facts_data</a>()</code></p>
+<code><a href='usa_facts_data.html'>usa_facts_data</a>()</code>,
+<code><a href='who_cases.html'>who_cases</a>()</code></p>
 <p>Other excess-deaths: 
 <code><a href='economist_excess_deaths.html'>economist_excess_deaths</a>()</code>,
 <code><a href='financial_times_excess_deaths.html'>financial_times_excess_deaths</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>cdcdeaths</span> <span class='kw'>=</span> <span class='fu'>cdc_excess_deaths</span>()
-<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>cdcdeaths</span>)</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 6 x 13</span><span>
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>cdcdeaths</span>)</div><div class='output co'>#&gt; # A tibble: 6 x 13
 #&gt;   date       state deaths upper_bound_thr… exceeds_thresho… average_expecte…
-#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>            </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;lgl&gt;</span><span>                       </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #555555;'>1</span><span> 2017-01-14 Alab…   </span><span style='text-decoration: underline;'>1</span><span>130             </span><span style='text-decoration: underline;'>1</span><span>199 FALSE                        </span><span style='text-decoration: underline;'>1</span><span>042
-#&gt; </span><span style='color: #555555;'>2</span><span> 2017-01-21 Alab…   </span><span style='text-decoration: underline;'>1</span><span>048             </span><span style='text-decoration: underline;'>1</span><span>214 FALSE                        </span><span style='text-decoration: underline;'>1</span><span>057
-#&gt; </span><span style='color: #555555;'>3</span><span> 2017-01-28 Alab…   </span><span style='text-decoration: underline;'>1</span><span>026             </span><span style='text-decoration: underline;'>1</span><span>233 FALSE                        </span><span style='text-decoration: underline;'>1</span><span>076
-#&gt; </span><span style='color: #555555;'>4</span><span> 2017-02-04 Alab…   </span><span style='text-decoration: underline;'>1</span><span>036             </span><span style='text-decoration: underline;'>1</span><span>231 FALSE                        </span><span style='text-decoration: underline;'>1</span><span>074
-#&gt; </span><span style='color: #555555;'>5</span><span> 2017-02-11 Alab…   </span><span style='text-decoration: underline;'>1</span><span>058             </span><span style='text-decoration: underline;'>1</span><span>224 FALSE                        </span><span style='text-decoration: underline;'>1</span><span>071
-#&gt; </span><span style='color: #555555;'>6</span><span> 2017-02-18 Alab…   </span><span style='text-decoration: underline;'>1</span><span>060             </span><span style='text-decoration: underline;'>1</span><span>230 FALSE                        </span><span style='text-decoration: underline;'>1</span><span>074
-#&gt; </span><span style='color: #555555;'># … with 7 more variables: excess_lower_estimate </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   excess_higher_estimate </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, type </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, outcome </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, suppress </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   note </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, week_of_year </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>cdcdeaths</span>)</div><div class='output co'>#&gt;  [1] "date"                   "state"                  "deaths"                
+#&gt;   &lt;date&gt;     &lt;chr&gt;  &lt;dbl&gt;            &lt;dbl&gt; &lt;lgl&gt;                       &lt;dbl&gt;
+#&gt; 1 2017-01-14 Alab…   1130             1199 FALSE                        1042
+#&gt; 2 2017-01-21 Alab…   1048             1214 FALSE                        1057
+#&gt; 3 2017-01-28 Alab…   1026             1233 FALSE                        1076
+#&gt; 4 2017-02-04 Alab…   1036             1231 FALSE                        1074
+#&gt; 5 2017-02-11 Alab…   1058             1224 FALSE                        1071
+#&gt; 6 2017-02-18 Alab…   1060             1230 FALSE                        1074
+#&gt; # … with 7 more variables: excess_lower_estimate &lt;dbl&gt;,
+#&gt; #   excess_higher_estimate &lt;dbl&gt;, type &lt;chr&gt;, outcome &lt;chr&gt;, suppress &lt;chr&gt;,
+#&gt; #   note &lt;chr&gt;, week_of_year &lt;dbl&gt;</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>cdcdeaths</span>)</div><div class='output co'>#&gt;  [1] "date"                   "state"                  "deaths"                
 #&gt;  [4] "upper_bound_threshold"  "exceeds_threshold"      "average_expected_count"
 #&gt;  [7] "excess_lower_estimate"  "excess_higher_estimate" "type"                  
 #&gt; [10] "outcome"                "suppress"               "note"                  
 #&gt; [13] "week_of_year"          </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span>(<span class='no'>cdcdeaths</span>$<span class='no'>outcome</span>)</div><div class='output co'>#&gt; 
 #&gt;                     All causes All causes, excluding COVID-19 
-#&gt;                          19440                           9720 </div><div class='input'>
+#&gt;                          19980                           9990 </div><div class='input'>
 
 <span class='co'># Examine excess deaths in three states</span>
 <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>ggplot2</span>)
@@ -303,7 +302,7 @@ limitations can be found in the <a href='https://www.cdc.gov/nchs/nvss/vsrr/covi
     <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>x</span><span class='kw'>=</span><span class='no'>date</span>,<span class='kw'>y</span><span class='kw'>=</span><span class='no'>upper_bound_threshold</span>)) +
     <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/facet_grid.html'>facet_grid</a></span>(<span class='kw'>rows</span><span class='kw'>=</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/vars.html'>vars</a></span>(<span class='no'>state</span>)) +
     <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span>(<span class='st'>'Excess deaths over time'</span>)</div><div class='img'><img src='cdc_excess_deaths-1.png' alt='' width='700' height='433' /></div><div class='input'>
-</div></span></pre>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

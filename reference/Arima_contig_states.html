@@ -82,7 +82,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sars2pack</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.2</span>
       </span>
     </div>
 
@@ -136,9 +136,6 @@
     </li>
     <li>
       <a href="../articles/r0_estimates.html">Estimating the replication rate</a>
-    </li>
-    <li>
-      <a href="../articles/tsanalysis.html">Time series analysis of COVID-19 datasets</a>
     </li>
   </ul>
 </li>
@@ -234,26 +231,26 @@ case the latest available date is used</p></td>
     <pre class="examples"><div class='input'><span class='no'>usd</span> <span class='kw'>=</span> <span class='fu'><a href='usa_facts_data.html'>usa_facts_data</a></span>()
 <span class='no'>cont</span> <span class='kw'>=</span> <span class='fu'>Arima_contig_states</span>(<span class='no'>usd</span>)
 <span class='no'>cont</span></div><div class='output co'>#&gt; Arima_sars2pack instance for all 
-#&gt;   computed Sun Jul  5 09:29:42 2020 
-#&gt;   last date used was:  2020-07-03 
+#&gt;   computed Sat Aug  8 21:11:36 2020 
+#&gt;   last date used was:  2020-08-07 
 #&gt;   call was: NULL
 #&gt;   Model estimates: 
 #&gt; Series: tsfull 
 #&gt; ARIMA(0,1,2) with drift 
 #&gt; 
 #&gt; Coefficients:
-#&gt;          ma1      ma2     drift
-#&gt;       0.2206  -0.1782  923.1850
-#&gt; s.e.  0.2875   0.2883  691.2033
+#&gt;           ma1      ma2      drift
+#&gt;       -0.6094  -0.3906  -385.3326
+#&gt; s.e.   0.1804   0.1441   193.5852
 #&gt; 
-#&gt; sigma^2 estimated as 13092303:  log likelihood=-267.64
-#&gt; AIC=543.28   AICc=545.02   BIC=548.61
+#&gt; sigma^2 estimated as 46659051:  log likelihood=-286.81
+#&gt; AIC=581.61   AICc=583.35   BIC=586.94
 #&gt; 
 #&gt; Training set error measures:
-#&gt;                     ME     RMSE      MAE       MPE     MAPE      MASE
-#&gt; Training set -19.52381 3359.534 2738.657 -1.657992 9.549288 0.8806071
+#&gt;                    ME     RMSE      MAE        MPE     MAPE      MASE
+#&gt; Training set 371.8297 6342.186 4643.016 -0.5637287 7.671415 0.7741677
 #&gt;                    ACF1
-#&gt; Training set 0.04473185</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='no'>cont</span>)</div><div class='img'><img src='Arima_contig_states-1.png' alt='' width='700' height='433' /></div></pre>
+#&gt; Training set 0.09726599</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='no'>cont</span>)</div><div class='img'><img src='Arima_contig_states-1.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

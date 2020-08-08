@@ -84,7 +84,7 @@ data frame should contain at least:" />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sars2pack</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.2</span>
       </span>
     </div>
 
@@ -138,9 +138,6 @@ data frame should contain at least:" />
     </li>
     <li>
       <a href="../articles/r0_estimates.html">Estimating the replication rate</a>
-    </li>
-    <li>
-      <a href="../articles/tsanalysis.html">Time series analysis of COVID-19 datasets</a>
     </li>
   </ul>
 </li>
@@ -251,7 +248,8 @@ curves on the same plot. See examples.</p>
 <code><a href='nytimes_county_data.html'>nytimes_county_data</a>()</code>,
 <code><a href='owid_data.html'>owid_data</a>()</code>,
 <code><a href='test_and_trace_data.html'>test_and_trace_data</a>()</code>,
-<code><a href='usa_facts_data.html'>usa_facts_data</a>()</code></p></div>
+<code><a href='usa_facts_data.html'>usa_facts_data</a>()</code>,
+<code><a href='who_cases.html'>who_cases</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>dplyr</span>)
@@ -260,16 +258,16 @@ curves on the same plot. See examples.</p>
 <span class='no'>jhu</span> <span class='kw'>=</span> <span class='fu'><a href='jhu_data.html'>jhu_data</a></span>() <span class='kw'>%&gt;%</span>
     <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span>(<span class='no'>CountryRegion</span><span class='kw'>==</span><span class='st'>'China'</span> <span class='kw'>&amp;</span> <span class='no'>subset</span><span class='kw'>==</span><span class='st'>'confirmed'</span>) <span class='kw'>%&gt;%</span>
     <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span>(<span class='no'>CountryRegion</span>,<span class='no'>date</span>) <span class='kw'>%&gt;%</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarize</a></span>(<span class='kw'>count</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span>(<span class='no'>count</span>))</div><div class='output co'>#&gt; <span class='message'>`summarise()` regrouping output by 'CountryRegion' (override with `.groups` argument)</span></div><div class='input'>
-<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>jhu</span>)</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 6 x 3</span><span>
-#&gt; </span><span style='color: #555555;'># Groups:   CountryRegion [1]</span><span>
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>jhu</span>)</div><div class='output co'>#&gt; # A tibble: 6 x 3
+#&gt; # Groups:   CountryRegion [1]
 #&gt;   CountryRegion date       count
-#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>         </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #555555;'>1</span><span> China         2020-01-22   548
-#&gt; </span><span style='color: #555555;'>2</span><span> China         2020-01-23   643
-#&gt; </span><span style='color: #555555;'>3</span><span> China         2020-01-24   920
-#&gt; </span><span style='color: #555555;'>4</span><span> China         2020-01-25  </span><span style='text-decoration: underline;'>1</span><span>406
-#&gt; </span><span style='color: #555555;'>5</span><span> China         2020-01-26  </span><span style='text-decoration: underline;'>2</span><span>075
-#&gt; </span><span style='color: #555555;'>6</span><span> China         2020-01-27  </span><span style='text-decoration: underline;'>2</span><span>877</div><div class='input'>
+#&gt;   &lt;chr&gt;         &lt;date&gt;     &lt;dbl&gt;
+#&gt; 1 China         2020-01-22   548
+#&gt; 2 China         2020-01-23   643
+#&gt; 3 China         2020-01-24   920
+#&gt; 4 China         2020-01-25  1406
+#&gt; 5 China         2020-01-26  2075
+#&gt; 6 China         2020-01-27  2877</div><div class='input'>
 <span class='no'>jhu</span> <span class='kw'>%&gt;%</span> <span class='fu'>plot_epicurve</span>(<span class='kw'>log</span><span class='kw'>=</span><span class='fl'>FALSE</span>)</div><div class='img'><img src='plot_epicurve-1.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># add a title</span>
 <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>ggplot2</span>)
@@ -278,19 +276,19 @@ curves on the same plot. See examples.</p>
 <span class='no'>cc</span> <span class='kw'>=</span> <span class='fu'><a href='covidtracker_data.html'>covidtracker_data</a></span>() <span class='kw'>%&gt;%</span>
     <span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span>(<span class='kw'>total_tests</span> <span class='kw'>=</span> <span class='no'>positive</span>+<span class='no'>negative</span>) <span class='kw'>%&gt;%</span>
     <span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span>(<span class='no'>total_tests</span><span class='kw'>&gt;</span><span class='fl'>0</span>)
-<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>cc</span>)</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 6 x 17</span><span>
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>cc</span>)</div><div class='output co'>#&gt; # A tibble: 6 x 17
 #&gt;   date       fips  state positive negative death pending hospitalized
-#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span>        </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span>
-#&gt; </span><span style='color: #555555;'>1</span><span> 2020-07-04 00002 AK        </span><span style='text-decoration: underline;'>1</span><span>111   </span><span style='text-decoration: underline;'>121</span><span>621    16      </span><span style='color: #BB0000;'>NA</span><span>           </span><span style='color: #BB0000;'>NA</span><span>
-#&gt; </span><span style='color: #555555;'>2</span><span> 2020-07-04 00001 AL       </span><span style='text-decoration: underline;'>42</span><span>862   </span><span style='text-decoration: underline;'>399</span><span>226  </span><span style='text-decoration: underline;'>1</span><span>007      </span><span style='color: #BB0000;'>NA</span><span>         </span><span style='text-decoration: underline;'>2</span><span>906
-#&gt; </span><span style='color: #555555;'>3</span><span> 2020-07-04 00005 AR       </span><span style='text-decoration: underline;'>23</span><span>209   </span><span style='text-decoration: underline;'>315</span><span>684   286      </span><span style='color: #BB0000;'>NA</span><span>         </span><span style='text-decoration: underline;'>1</span><span>536
-#&gt; </span><span style='color: #555555;'>4</span><span> 2020-07-04 00060 AS           0      696     0      </span><span style='color: #BB0000;'>NA</span><span>           </span><span style='color: #BB0000;'>NA</span><span>
-#&gt; </span><span style='color: #555555;'>5</span><span> 2020-07-04 00004 AZ       </span><span style='text-decoration: underline;'>94</span><span>553   </span><span style='text-decoration: underline;'>494</span><span>955  </span><span style='text-decoration: underline;'>1</span><span>805      </span><span style='color: #BB0000;'>NA</span><span>         </span><span style='text-decoration: underline;'>5</span><span>068
-#&gt; </span><span style='color: #555555;'>6</span><span> 2020-07-04 00006 CA      </span><span style='text-decoration: underline;'>254</span><span>745  4</span><span style='text-decoration: underline;'>298</span><span>286  </span><span style='text-decoration: underline;'>6</span><span>313      </span><span style='color: #BB0000;'>NA</span><span>           </span><span style='color: #BB0000;'>NA</span><span>
-#&gt; </span><span style='color: #555555;'># … with 9 more variables: hospitalizedCurrently </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span style='color: #555555;'>, recovered </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   inIcuCumulative </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span style='color: #555555;'>, inIcuCurrently </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span style='color: #555555;'>, onVentilatorCurrently </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   onVentilatorCumulative </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span style='color: #555555;'>, dateChecked </span><span style='color: #555555;font-style: italic;'>&lt;dttm&gt;</span><span style='color: #555555;'>, dataQualityGrade </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   total_tests </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span></div><div class='input'>
+#&gt;   &lt;date&gt;     &lt;chr&gt; &lt;chr&gt;    &lt;int&gt;    &lt;int&gt; &lt;int&gt;   &lt;int&gt;        &lt;int&gt;
+#&gt; 1 2020-08-07 00002 AK        4288   264563    25      NA           NA
+#&gt; 2 2020-08-07 00001 AL       98301   651115  1735      NA        11537
+#&gt; 3 2020-08-07 00005 AR       48039   503484   521      NA         3168
+#&gt; 4 2020-08-07 00060 AS           0     1396     0      NA           NA
+#&gt; 5 2020-08-07 00004 AZ      185053   819792  4081      NA        19241
+#&gt; 6 2020-08-07 00006 CA      538416  8058466 10011      NA           NA
+#&gt; # … with 9 more variables: hospitalizedCurrently &lt;int&gt;, recovered &lt;int&gt;,
+#&gt; #   inIcuCumulative &lt;int&gt;, inIcuCurrently &lt;int&gt;, onVentilatorCurrently &lt;int&gt;,
+#&gt; #   onVentilatorCumulative &lt;int&gt;, dateChecked &lt;dttm&gt;, dataQualityGrade &lt;chr&gt;,
+#&gt; #   total_tests &lt;int&gt;</div><div class='input'>
 <span class='fu'>plot_epicurve</span>(<span class='no'>cc</span>, <span class='kw'>case_column</span><span class='kw'>=</span><span class='st'>'total_tests'</span>, <span class='kw'>color</span><span class='kw'>=</span><span class='st'>'state'</span>, <span class='kw'>log</span><span class='kw'>=</span><span class='fl'>FALSE</span>) +
     <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span>(<span class='st'>'Total tests by state'</span>) +
     <span class='kw pkg'>ggplot2</span><span class='kw ns'>::</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span>(<span class='kw'>legend.position</span><span class='kw'>=</span><span class='st'>'bottom'</span>)</div><div class='img'><img src='plot_epicurve-3.png' alt='' width='700' height='433' /></div><div class='input'>
@@ -309,7 +307,7 @@ curves on the same plot. See examples.</p>
         <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span>(<span class='st'>'Total tests per 100,000 people'</span>) +
         <span class='kw pkg'>ggplot2</span><span class='kw ns'>::</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span>(<span class='kw'>legend.position</span><span class='kw'>=</span><span class='st'>'bottom'</span>)
 }</div><div class='output co'>#&gt; <span class='message'>Loading required package: tidycensus</span></div><div class='img'><img src='plot_epicurve-4.png' alt='' width='700' height='433' /></div><div class='input'>
-</div></span></pre>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

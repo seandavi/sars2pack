@@ -82,7 +82,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sars2pack</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.2</span>
       </span>
     </div>
 
@@ -136,9 +136,6 @@
     </li>
     <li>
       <a href="../articles/r0_estimates.html">Estimating the replication rate</a>
-    </li>
-    <li>
-      <a href="../articles/tsanalysis.html">Time series analysis of COVID-19 datasets</a>
     </li>
   </ul>
 </li>
@@ -204,6 +201,7 @@ author = "Lucy [van Dorp] and Mislav Acman and Damien Richard and Liam P. Shaw a
 <code><a href='cov_glue_newick_data.html'>cov_glue_newick_data</a>()</code>,
 <code><a href='cov_glue_snp_lineage.html'>cov_glue_snp_lineage</a>()</code></p>
 <p>Other data-import: 
+<code><a href='acaps_government_measures_data.html'>acaps_government_measures_data</a>()</code>,
 <code><a href='apple_mobility_data.html'>apple_mobility_data</a>()</code>,
 <code><a href='beoutbreakprepared_data.html'>beoutbreakprepared_data</a>()</code>,
 <code><a href='cdc_aggregated_projections.html'>cdc_aggregated_projections</a>()</code>,
@@ -237,38 +235,39 @@ author = "Lucy [van Dorp] and Mislav Acman and Damien Richard and Liam P. Shaw a
 <code><a href='us_healthcare_capacity.html'>us_healthcare_capacity</a>()</code>,
 <code><a href='us_hospital_details.html'>us_hospital_details</a>()</code>,
 <code><a href='us_state_distancing_policy.html'>us_state_distancing_policy</a>()</code>,
-<code><a href='usa_facts_data.html'>usa_facts_data</a>()</code></p>
+<code><a href='usa_facts_data.html'>usa_facts_data</a>()</code>,
+<code><a href='who_cases.html'>who_cases</a>()</code></p>
 <p>Other individual-cases: 
 <code><a href='beoutbreakprepared_data.html'>beoutbreakprepared_data</a>()</code>,
 <code><a href='cov_glue_newick_data.html'>cov_glue_newick_data</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>res</span> <span class='kw'>=</span> <span class='fu'>cov_glue_lineage_data</span>()
-<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 6 x 10</span><span>
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; # A tibble: 6 x 10
 #&gt;   `GISAID ID` name  country travel_history date       epiweek lineage
-#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>       </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>          </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>       </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>  
-#&gt; </span><span style='color: #555555;'>1</span><span> EPI_ISL_42… USA/… USA     </span><span style='color: #BB0000;'>NA</span><span>             2020-03-02      10 B.1    
-#&gt; </span><span style='color: #555555;'>2</span><span> EPI_ISL_41… USA/… USA     </span><span style='color: #BB0000;'>NA</span><span>             2020-02-29       9 A.1    
-#&gt; </span><span style='color: #555555;'>3</span><span> EPI_ISL_42… USA/… USA     </span><span style='color: #BB0000;'>NA</span><span>             2020-03-02      10 B.1    
-#&gt; </span><span style='color: #555555;'>4</span><span> EPI_ISL_42… USA/… USA     </span><span style='color: #BB0000;'>NA</span><span>             2020-03-01      10 B.1.5  
-#&gt; </span><span style='color: #555555;'>5</span><span> EPI_ISL_41… USA/… USA     </span><span style='color: #BB0000;'>NA</span><span>             2020-03-01      10 A.1    
-#&gt; </span><span style='color: #555555;'>6</span><span> EPI_ISL_42… USA/… USA     </span><span style='color: #BB0000;'>NA</span><span>             2020-03-01      10 B.2    
-#&gt; </span><span style='color: #555555;'># … with 3 more variables: representative </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, iso3c </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, iso2c </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt;  [1] "GISAID ID"      "name"           "country"        "travel_history"
+#&gt;   &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;          &lt;date&gt;       &lt;dbl&gt; &lt;chr&gt;  
+#&gt; 1 EPI_ISL_42… USA/… USA     &lt;NA&gt;           2020-03-02      10 B.1    
+#&gt; 2 EPI_ISL_41… USA/… USA     &lt;NA&gt;           2020-02-29       9 A.1    
+#&gt; 3 EPI_ISL_42… USA/… USA     &lt;NA&gt;           2020-03-02      10 B.1    
+#&gt; 4 EPI_ISL_42… USA/… USA     &lt;NA&gt;           2020-03-01      10 B.1.5  
+#&gt; 5 EPI_ISL_41… USA/… USA     &lt;NA&gt;           2020-03-01      10 A.1    
+#&gt; 6 EPI_ISL_42… USA/… USA     &lt;NA&gt;           2020-03-01      10 B.2    
+#&gt; # … with 3 more variables: representative &lt;dbl&gt;, iso3c &lt;chr&gt;, iso2c &lt;chr&gt;</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt;  [1] "GISAID ID"      "name"           "country"        "travel_history"
 #&gt;  [5] "date"           "epiweek"        "lineage"        "representative"
 #&gt;  [9] "iso3c"          "iso2c"         </div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Rows: 27,763
 #&gt; Columns: 10
-#&gt; $ `GISAID ID`    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "EPI_ISL_420793", "EPI_ISL_417142", "EPI_ISL_420792", …
-#&gt; $ name           </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "USA/NY_2929/2020", "USA/WA-S89/2020", "USA/NH_0008/20…
-#&gt; $ country        </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "USA", "USA", "USA", "USA", "USA", "USA", "USA", "USA"…
-#&gt; $ travel_history </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
-#&gt; $ date           </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2020-03-02, 2020-02-29, 2020-03-02, 2020-03-01, 2020-…
-#&gt; $ epiweek        </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 10, 9, 10, 10, 10, 10, 9, 9, 10, 9, 9, 9, 10, 10, 10, …
-#&gt; $ lineage        </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "B.1", "A.1", "B.1", "B.1.5", "A.1", "B.2", "A.1", "B.…
-#&gt; $ representative </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 0, 1, 0, …
-#&gt; $ iso3c          </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "USA", "USA", "USA", "USA", "USA", "USA", "USA", "USA"…
-#&gt; $ iso2c          </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "US", "US", "US", "US", "US", "US", "US", "US", "US", …</div><div class='input'>
+#&gt; $ `GISAID ID`    &lt;chr&gt; "EPI_ISL_420793", "EPI_ISL_417142", "EPI_ISL_420792", …
+#&gt; $ name           &lt;chr&gt; "USA/NY_2929/2020", "USA/WA-S89/2020", "USA/NH_0008/20…
+#&gt; $ country        &lt;chr&gt; "USA", "USA", "USA", "USA", "USA", "USA", "USA", "USA"…
+#&gt; $ travel_history &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+#&gt; $ date           &lt;date&gt; 2020-03-02, 2020-02-29, 2020-03-02, 2020-03-01, 2020-…
+#&gt; $ epiweek        &lt;dbl&gt; 10, 9, 10, 10, 10, 10, 9, 9, 10, 9, 9, 9, 10, 10, 10, …
+#&gt; $ lineage        &lt;chr&gt; "B.1", "A.1", "B.1", "B.1.5", "A.1", "B.2", "A.1", "B.…
+#&gt; $ representative &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 0, 1, 0, …
+#&gt; $ iso3c          &lt;chr&gt; "USA", "USA", "USA", "USA", "USA", "USA", "USA", "USA"…
+#&gt; $ iso2c          &lt;chr&gt; "US", "US", "US", "US", "US", "US", "US", "US", "US", …</div><div class='input'>
 
-</div></span></pre>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

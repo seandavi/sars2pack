@@ -85,7 +85,7 @@ are those used here https://covid19.healthdata.org/projections." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sars2pack</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.2</span>
       </span>
     </div>
 
@@ -139,9 +139,6 @@ are those used here https://covid19.healthdata.org/projections." />
     </li>
     <li>
       <a href="../articles/r0_estimates.html">Estimating the replication rate</a>
-    </li>
-    <li>
-      <a href="../articles/tsanalysis.html">Time series analysis of COVID-19 datasets</a>
     </li>
   </ul>
 </li>
@@ -218,6 +215,7 @@ confidence interval, lower confidence interval</p></li>
 </ul>
 
 <p>Other data-import: 
+<code><a href='acaps_government_measures_data.html'>acaps_government_measures_data</a>()</code>,
 <code><a href='apple_mobility_data.html'>apple_mobility_data</a>()</code>,
 <code><a href='beoutbreakprepared_data.html'>beoutbreakprepared_data</a>()</code>,
 <code><a href='cdc_aggregated_projections.html'>cdc_aggregated_projections</a>()</code>,
@@ -251,165 +249,34 @@ confidence interval, lower confidence interval</p></li>
 <code><a href='us_healthcare_capacity.html'>us_healthcare_capacity</a>()</code>,
 <code><a href='us_hospital_details.html'>us_hospital_details</a>()</code>,
 <code><a href='us_state_distancing_policy.html'>us_state_distancing_policy</a>()</code>,
-<code><a href='usa_facts_data.html'>usa_facts_data</a>()</code></p>
+<code><a href='usa_facts_data.html'>usa_facts_data</a>()</code>,
+<code><a href='who_cases.html'>who_cases</a>()</code></p>
 <p>Other healthcare-system: 
 <code><a href='us_healthcare_capacity.html'>us_healthcare_capacity</a>()</code></p>
 <p>Other projections: 
 <code><a href='cdc_aggregated_projections.html'>cdc_aggregated_projections</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>res</span> <span class='kw'>=</span> <span class='fu'>healthdata_projections_data</span>()
-<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt;  [1] "location_name"        "date"                 "allbed_mean"         
-#&gt;  [4] "ICUbed_mean"          "InvVen_mean"          "admis_mean"          
-#&gt;  [7] "newICU_mean"          "bedover_mean"         "icuover_mean"        
-#&gt; [10] "deaths_mean"          "totdea_mean"          "est_infections_mean" 
-#&gt; [13] "allbed_upper"         "ICUbed_upper"         "InvVen_upper"        
-#&gt; [16] "admis_upper"          "newICU_upper"         "bedover_upper"       
-#&gt; [19] "icuover_upper"        "deaths_upper"         "totdea_upper"        
-#&gt; [22] "est_infections_upper" "allbed_lower"         "ICUbed_lower"        
-#&gt; [25] "InvVen_lower"         "admis_lower"          "newICU_lower"        
-#&gt; [28] "bedover_lower"        "icuover_lower"        "deaths_lower"        
-#&gt; [31] "totdea_lower"         "est_infections_lower"</div><div class='input'><span class='no'>res</span>[<span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span>(<span class='fl'>1</span>:<span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span>(<span class='no'>res</span>),<span class='fl'>6</span>),]</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 6 x 32</span><span>
-#&gt;   location_name date       allbed_mean ICUbed_mean InvVen_mean admis_mean
-#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>         </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>           </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>       </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>       </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>      </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #555555;'>1</span><span> Provincia au… 2020-03-18      107.         29.8        28.8       23.3 
-#&gt; </span><span style='color: #555555;'>2</span><span> Valencian Co… 2020-09-08       13.2         4.07        3.73       1.98
-#&gt; </span><span style='color: #555555;'>3</span><span> Antigua and … 2020-09-17        7.15        1.72        1.57       1.26
-#&gt; </span><span style='color: #555555;'>4</span><span> Thuringia     2020-05-25       44.1        14.7        13.0        3.87
-#&gt; </span><span style='color: #555555;'>5</span><span> Oman          2020-02-25        0           0           0          0   
-#&gt; </span><span style='color: #555555;'>6</span><span> Catalonia     2020-07-02       52.5        17.2        15.2        5.76
-#&gt; </span><span style='color: #555555;'># … with 26 more variables: newICU_mean </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, bedover_mean </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   icuover_mean </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, deaths_mean </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, totdea_mean </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   est_infections_mean </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, allbed_upper </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, ICUbed_upper </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   InvVen_upper </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, admis_upper </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, newICU_upper </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   bedover_upper </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, icuover_upper </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, deaths_upper </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   totdea_upper </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, est_infections_upper </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, allbed_lower </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   ICUbed_lower </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, InvVen_lower </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, admis_lower </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   newICU_lower </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, bedover_lower </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, icuover_lower </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   deaths_lower </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, totdea_lower </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, est_infections_lower </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span></div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Rows: 83,386
-#&gt; Columns: 32
-#&gt; $ location_name        </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Abruzzo", "Abruzzo", "Abruzzo", "Abruzzo", "Abr…
-#&gt; $ date                 </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2020-02-04, 2020-02-05, 2020-02-06, 2020-02-07,…
-#&gt; $ allbed_mean          </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-#&gt; $ ICUbed_mean          </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-#&gt; $ InvVen_mean          </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-#&gt; $ admis_mean           </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-#&gt; $ newICU_mean          </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-#&gt; $ bedover_mean         </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-#&gt; $ icuover_mean         </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-#&gt; $ deaths_mean          </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-#&gt; $ totdea_mean          </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-#&gt; $ est_infections_mean  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0.0000000, 0.0000000, 0.0000000, 0.0000000, 0.00…
-#&gt; $ allbed_upper         </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-#&gt; $ ICUbed_upper         </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-#&gt; $ InvVen_upper         </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-#&gt; $ admis_upper          </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-#&gt; $ newICU_upper         </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-#&gt; $ bedover_upper        </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-#&gt; $ icuover_upper        </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-#&gt; $ deaths_upper         </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-#&gt; $ totdea_upper         </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-#&gt; $ est_infections_upper </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0.0000000, 0.0000000, 0.0000000, 0.0000000, 0.00…
-#&gt; $ allbed_lower         </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-#&gt; $ ICUbed_lower         </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-#&gt; $ InvVen_lower         </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-#&gt; $ admis_lower          </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-#&gt; $ newICU_lower         </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-#&gt; $ bedover_lower        </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-#&gt; $ icuover_lower        </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-#&gt; $ deaths_lower         </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-#&gt; $ totdea_lower         </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-#&gt; $ est_infections_lower </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0.0000000, 0.0000000, 0.0000000, 0.0000000, 0.00…</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt;  location_name           date             allbed_mean        ICUbed_mean       
-#&gt;  Length:83386       Min.   :2020-02-04   Min.   :    0.00   Min.   :    0.000  
-#&gt;  Class :character   1st Qu.:2020-04-04   1st Qu.:    0.00   1st Qu.:    0.000  
-#&gt;  Mode  :character   Median :2020-06-03   Median :   33.07   Median :    9.419  
-#&gt;                     Mean   :2020-06-03   Mean   :  915.06   Mean   :  236.274  
-#&gt;                     3rd Qu.:2020-08-02   3rd Qu.:  326.18   3rd Qu.:   87.046  
-#&gt;                     Max.   :2020-10-01   Max.   :99107.16   Max.   :20001.934  
-#&gt;                                                                                
-#&gt;   InvVen_mean          admis_mean         newICU_mean        bedover_mean     
-#&gt;  Min.   :    0.000   Min.   :    0.000   Min.   :   0.000   Min.   :    0.00  
-#&gt;  1st Qu.:    0.000   1st Qu.:    0.000   1st Qu.:   0.000   1st Qu.:    0.00  
-#&gt;  Median :    8.522   Median :    4.501   Median :   1.293   Median :    0.00  
-#&gt;  Mean   :  208.576   Mean   :  122.923   Mean   :  30.939   Mean   :   73.96  
-#&gt;  3rd Qu.:   77.279   3rd Qu.:   44.210   3rd Qu.:  11.602   3rd Qu.:    0.00  
-#&gt;  Max.   :17644.111   Max.   :14534.367   Max.   :3100.729   Max.   :69067.07  
-#&gt;                                                                               
-#&gt;   icuover_mean      deaths_mean         totdea_mean        est_infections_mean
-#&gt;  Min.   :    0.0   Min.   :-235.0000   Min.   :     0.00   Min.   :      0.0  
-#&gt;  1st Qu.:    0.0   1st Qu.:   0.0000   1st Qu.:     2.16   1st Qu.:     11.1  
-#&gt;  Median :    0.0   Median :   0.9819   Median :    83.00   Median :    220.8  
-#&gt;  Mean   :  123.4   Mean   :  21.7923   Mean   :  1935.65   Mean   :   5446.3  
-#&gt;  3rd Qu.:    0.0   3rd Qu.:   8.0000   3rd Qu.:   709.96   3rd Qu.:   1737.3  
-#&gt;  Max.   :19178.9   Max.   :2709.0000   Max.   :175167.53   Max.   :1056381.7  
-#&gt;                    NA's   :236         NA's   :236                            
-#&gt;   allbed_upper       ICUbed_upper       InvVen_upper      admis_upper      
-#&gt;  Min.   :     0.0   Min.   :    0.00   Min.   :    0.0   Min.   :    0.00  
-#&gt;  1st Qu.:     0.0   1st Qu.:    0.00   1st Qu.:    0.0   1st Qu.:    0.00  
-#&gt;  Median :    62.3   Median :   15.35   Median :   13.5   Median :   11.45  
-#&gt;  Mean   :  2021.9   Mean   :  488.72   Mean   :  428.3   Mean   :  287.52  
-#&gt;  3rd Qu.:   565.5   3rd Qu.:  147.00   3rd Qu.:  130.0   3rd Qu.:   87.51  
-#&gt;  Max.   :321829.6   Max.   :71452.00   Max.   :64181.5   Max.   :51512.12  
-#&gt;                                                                            
-#&gt;   newICU_upper      bedover_upper      icuover_upper      deaths_upper   
-#&gt;  Min.   :    0.00   Min.   :     0.0   Min.   :    0.0   Min.   :-235.0  
-#&gt;  1st Qu.:    0.00   1st Qu.:     0.0   1st Qu.:    0.0   1st Qu.:   0.0  
-#&gt;  Median :    2.50   Median :     0.0   Median :    0.0   Median :   1.0  
-#&gt;  Mean   :   65.61   Mean   :   794.8   Mean   :  352.2   Mean   :  42.1  
-#&gt;  3rd Qu.:   21.05   3rd Qu.:     0.0   3rd Qu.:    0.0   3rd Qu.:  13.0  
-#&gt;  Max.   :11433.50   Max.   :303877.6   Max.   :70861.0   Max.   :6140.2  
-#&gt;                                                          NA's   :236     
-#&gt;   totdea_upper       est_infections_upper  allbed_lower     
-#&gt;  Min.   :     0.00   Min.   :      0.0    Min.   :    0.00  
-#&gt;  1st Qu.:     2.34   1st Qu.:     26.6    1st Qu.:    0.00  
-#&gt;  Median :    97.00   Median :    442.1    Median :    1.25  
-#&gt;  Mean   :  2580.30   Mean   :  14395.1    Mean   :  519.02  
-#&gt;  3rd Qu.:   961.96   3rd Qu.:   3320.8    3rd Qu.:  156.98  
-#&gt;  Max.   :208078.85   Max.   :2745003.4    Max.   :60549.94  
-#&gt;  NA's   :236                                                
-#&gt;   ICUbed_lower        InvVen_lower       admis_lower       newICU_lower     
-#&gt;  Min.   :    0.000   Min.   :    0.00   Min.   :   0.00   Min.   :   0.000  
-#&gt;  1st Qu.:    0.000   1st Qu.:    0.00   1st Qu.:   0.00   1st Qu.:   0.000  
-#&gt;  Median :    0.229   Median :    0.10   Median :   0.00   Median :   0.000  
-#&gt;  Mean   :  144.154   Mean   :  128.32   Mean   :  62.67   Mean   :  18.221  
-#&gt;  3rd Qu.:   43.500   3rd Qu.:   38.85   3rd Qu.:  17.49   3rd Qu.:   5.264  
-#&gt;  Max.   :18351.248   Max.   :16725.56   Max.   :8244.18   Max.   :2656.285  
-#&gt;                                                                             
-#&gt;  bedover_lower      icuover_lower      deaths_lower        totdea_lower      
-#&gt;  Min.   :   0.000   Min.   :   0.00   Min.   :-235.0000   Min.   :     0.00  
-#&gt;  1st Qu.:   0.000   1st Qu.:   0.00   1st Qu.:   0.0000   1st Qu.:     2.03  
-#&gt;  Median :   0.000   Median :   0.00   Median :   0.2034   Median :    65.00  
-#&gt;  Mean   :   7.003   Mean   :  57.38   Mean   :  14.4232   Mean   :  1660.81  
-#&gt;  3rd Qu.:   0.000   3rd Qu.:   0.00   3rd Qu.:   4.0000   3rd Qu.:   563.52  
-#&gt;  Max.   :7256.475   Max.   :9036.51   Max.   :2709.0000   Max.   :162370.43  
-#&gt;                                       NA's   :236         NA's   :236        
-#&gt;  est_infections_lower
-#&gt;  Min.   :     0.00   
-#&gt;  1st Qu.:     2.45   
-#&gt;  Median :    71.00   
-#&gt;  Mean   :  2393.54   
-#&gt;  3rd Qu.:   691.76   
-#&gt;  Max.   :254480.58   
-#&gt;                      </div><div class='input'>
+    <pre class="examples"><div class='input'><span class='no'>res</span> <span class='kw'>=</span> <span class='fu'>healthdata_projections_data</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: PCRE pattern compilation error</span>
+#&gt; <span class='warning'>	'POSIX named classes are supported only within a class'</span>
+#&gt; <span class='warning'>	at '[:letter:]+$)'</span></div><div class='output co'>#&gt; <span class='error'>Error in gregexpr(pattern, x, perl = TRUE): invalid regular expression '_(?=[:letter:]+$)'</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; <span class='error'>Error in is.data.frame(x): object 'res' not found</span></div><div class='input'><span class='no'>res</span>[<span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span>(<span class='fl'>1</span>:<span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span>(<span class='no'>res</span>),<span class='fl'>6</span>),]</div><div class='output co'>#&gt; <span class='error'>Error in eval(expr, envir, enclos): object 'res' not found</span></div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; <span class='error'>Error in dplyr::glimpse(res): object 'res' not found</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; <span class='error'>Error in summary(res): object 'res' not found</span></div><div class='input'>
 <span class='co'>#plot the predictions</span>
 
 <span class='no'>regs_of_interest</span> <span class='kw'>=</span> <span class='st'>'Georgia'</span>
 <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>ggplot2</span>)
 <span class='no'>pl</span> <span class='kw'>=</span> <span class='no'>res</span> <span class='kw'>%&gt;%</span>
     <span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span>(<span class='no'>location_name</span> <span class='kw'>%in%</span> <span class='no'>regs_of_interest</span>) <span class='kw'>%&gt;%</span>
-    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>x</span><span class='kw'>=</span><span class='no'>date</span>)) + <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>y</span><span class='kw'>=</span><span class='no'>mean</span>, <span class='kw'>color</span><span class='kw'>=</span><span class='no'>metric</span>))
-
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>x</span><span class='kw'>=</span><span class='no'>date</span>)) + <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>y</span><span class='kw'>=</span><span class='no'>mean</span>, <span class='kw'>color</span><span class='kw'>=</span><span class='no'>metric</span>))</div><div class='output co'>#&gt; <span class='error'>Error in eval(lhs, parent, parent): object 'res' not found</span></div><div class='input'>
 <span class='co'># plot the "mean" prediction</span>
-<span class='no'>pl</span></div><div class='output co'>#&gt; <span class='error'>Error in FUN(X[[i]], ...): object 'metric' not found</span></div><div class='input'>
+<span class='no'>pl</span></div><div class='output co'>#&gt; <span class='error'>Error in eval(expr, envir, enclos): object 'pl' not found</span></div><div class='input'>
 <span class='co'># add 95% confidence bounds</span>
-<span class='no'>pl</span> + <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_ribbon.html'>geom_ribbon</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>ymin</span><span class='kw'>=</span><span class='no'>lower</span>, <span class='kw'>ymax</span><span class='kw'>=</span><span class='no'>upper</span>, <span class='kw'>fill</span><span class='kw'>=</span><span class='no'>metric</span>), <span class='kw'>alpha</span><span class='kw'>=</span><span class='fl'>0.25</span>)</div><div class='output co'>#&gt; <span class='error'>Error in FUN(X[[i]], ...): object 'metric' not found</span></div><div class='input'>
+<span class='no'>pl</span> + <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_ribbon.html'>geom_ribbon</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>ymin</span><span class='kw'>=</span><span class='no'>lower</span>, <span class='kw'>ymax</span><span class='kw'>=</span><span class='no'>upper</span>, <span class='kw'>fill</span><span class='kw'>=</span><span class='no'>metric</span>), <span class='kw'>alpha</span><span class='kw'>=</span><span class='fl'>0.25</span>)</div><div class='output co'>#&gt; <span class='error'>Error in eval(expr, envir, enclos): object 'pl' not found</span></div><div class='input'>
 <span class='no'>regs_of_interest</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>'New York'</span>, <span class='st'>'Italy'</span>)
 <span class='no'>pl</span> <span class='kw'>=</span> <span class='no'>res</span> <span class='kw'>%&gt;%</span>
     <span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span>(<span class='no'>location_name</span> <span class='kw'>%in%</span> <span class='no'>regs_of_interest</span>) <span class='kw'>%&gt;%</span>
     <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>x</span><span class='kw'>=</span><span class='no'>date</span>)) + <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>y</span><span class='kw'>=</span><span class='no'>mean</span>, <span class='kw'>color</span><span class='kw'>=</span><span class='no'>metric</span>)) +
-    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/facet_grid.html'>facet_grid</a></span>(<span class='kw'>rows</span> <span class='kw'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/vars.html'>vars</a></span>(<span class='no'>location_name</span>))
-<span class='no'>pl</span></div><div class='output co'>#&gt; <span class='error'>Error in FUN(X[[i]], ...): object 'metric' not found</span></div><div class='img'><img src='healthdata_projections_data-1.png' alt='' width='700' height='433' /></div><div class='input'>
-</div></span></pre>
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/facet_grid.html'>facet_grid</a></span>(<span class='kw'>rows</span> <span class='kw'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/vars.html'>vars</a></span>(<span class='no'>location_name</span>))</div><div class='output co'>#&gt; <span class='error'>Error in eval(lhs, parent, parent): object 'res' not found</span></div><div class='input'><span class='no'>pl</span></div><div class='output co'>#&gt; <span class='error'>Error in eval(expr, envir, enclos): object 'pl' not found</span></div><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

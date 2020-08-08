@@ -37,7 +37,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sars2pack</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.2</span>
       </span>
     </div>
 
@@ -92,9 +92,6 @@
     <li>
       <a href="../articles/r0_estimates.html">Estimating the replication rate</a>
     </li>
-    <li>
-      <a href="../articles/tsanalysis.html">Time series analysis of COVID-19 datasets</a>
-    </li>
   </ul>
 </li>
 <li>
@@ -123,7 +120,7 @@
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Phylogenetic data</h1>
             
-            <h4 class="date">Jul 05, 2020</h4>
+            <h4 class="date">Aug 08, 2020</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/seandavi/sars2pack/blob/master/vignettes/phylogenetics.Rmd"><code>vignettes/phylogenetics.Rmd</code></a></small>
       <div class="hidden name"><code>phylogenetics.Rmd</code></div>
@@ -139,7 +136,7 @@
 <pre><code>## Loading required package: R0</code></pre>
 <pre><code>## Loading required package: MASS</code></pre>
 <pre><code>## Loading required package: sf</code></pre>
-<pre><code>## Linking to GEOS 3.7.2, GDAL 2.4.2, PROJ 5.2.0</code></pre>
+<pre><code>## Linking to GEOS 3.8.0, GDAL 3.0.4, PROJ 6.3.1</code></pre>
 <pre><code>## Registered S3 method overwritten by 'quantmod':
 ##   method            from
 ##   as.zoo.data.frame zoo</code></pre>
@@ -156,10 +153,11 @@
 <pre><code>## The following objects are masked from 'package:base':
 ## 
 ##     intersect, setdiff, setequal, union</code></pre>
-<div class="sourceCode" id="cb12"><html><body><pre class="r"><span class="no">ntr</span> <span class="kw">=</span> <span class="fu"><a href="../reference/cov_glue_newick_data.html">cov_glue_newick_data</a></span>()
-<span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span>(<span class="no">ntr</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb12"><html><body><pre class="r"><span class="no">ntr</span> <span class="kw">=</span> <span class="fu"><a href="../reference/cov_glue_newick_data.html">cov_glue_newick_data</a></span>()</pre></body></html></div>
+<pre><code>## using temporary cache /tmp/RtmpGLBN0l/BiocFileCache</code></pre>
+<div class="sourceCode" id="cb14"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span>(<span class="no">ntr</span>)</pre></body></html></div>
 <p><img src="phylogenetics_files/figure-html/unnamed-chunk-2-1.png" width="700"></p>
-<div class="sourceCode" id="cb13"><html><body><pre class="r"><span class="no">dat</span> <span class="kw">=</span> <span class="fu"><a href="../reference/cov_glue_lineage_data.html">cov_glue_lineage_data</a></span>()
+<div class="sourceCode" id="cb15"><html><body><pre class="r"><span class="no">dat</span> <span class="kw">=</span> <span class="fu"><a href="../reference/cov_glue_lineage_data.html">cov_glue_lineage_data</a></span>()
 <span class="no">dat</span> <span class="kw">=</span> <span class="no">dat</span> <span class="kw">%&gt;%</span>
     <span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span>(<span class="kw">lineage</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html">sub</a></span>(<span class="st">'^([^.][.]?[^.]+).*'</span>, <span class="st">'\\1'</span>, <span class="no">lineage</span>)) <span class="kw">%&gt;%</span>
     <span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span>(<span class="kw">region</span> <span class="kw">=</span> <span class="kw pkg">countrycode</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/countrycode/man/countrycode.html">countrycode</a></span>(<span class="no">country</span>,<span class="kw">origin</span><span class="kw">=</span><span class="st">'country.name'</span>,
@@ -168,9 +166,12 @@
     <span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span>(<span class="kw">cases</span><span class="kw">=</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span>()) <span class="kw">%&gt;%</span>
     <span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(!<span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span>(<span class="no">region</span>)) <span class="kw">%&gt;%</span>
     <span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">ungroup</a></span>()</pre></body></html></div>
+<pre><code>## Warning: Problem with `mutate()` input `region`.
+## ✖ Some values were not matched unambiguously: South_Korea
+## ℹ Input `region` is `countrycode::countrycode(country, origin = "country.name", destination = "region")`.</code></pre>
 <pre><code>## Warning in countrycode::countrycode(country, origin = "country.name", destination = "region"): Some values were not matched unambiguously: South_Korea</code></pre>
 <pre><code>## `summarise()` regrouping output by 'epiweek', 'lineage' (override with `.groups` argument)</code></pre>
-<div class="sourceCode" id="cb16"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="no">dat</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb19"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="no">dat</span>)</pre></body></html></div>
 <pre><code>## # A tibble: 6 x 4
 ##   epiweek lineage region              cases
 ##     &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;               &lt;int&gt;
@@ -180,7 +181,7 @@
 ## 4       2 B       East Asia &amp; Pacific     7
 ## 5       3 A       East Asia &amp; Pacific     9
 ## 6       3 B       East Asia &amp; Pacific    10</code></pre>
-<div class="sourceCode" id="cb18"><html><body><pre class="r"><span class="no">p</span> <span class="kw">=</span> <span class="no">dat</span> <span class="kw">%&gt;%</span>
+<div class="sourceCode" id="cb21"><html><body><pre class="r"><span class="no">p</span> <span class="kw">=</span> <span class="no">dat</span> <span class="kw">%&gt;%</span>
     <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="kw">x</span><span class="kw">=</span><span class="no">epiweek</span>,<span class="kw">y</span><span class="kw">=</span><span class="no">cases</span>,<span class="kw">fill</span><span class="kw">=</span><span class="no">lineage</span>)) +
     <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span>(<span class="kw">stat</span><span class="kw">=</span><span class="st">'identity'</span>, <span class="kw">position</span><span class="kw">=</span><span class="st">'fill'</span>) +
     <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span>(<span class="st">"region"</span>,<span class="kw">ncol</span><span class="kw">=</span><span class="fl">2</span>) +

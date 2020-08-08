@@ -82,7 +82,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sars2pack</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.2</span>
       </span>
     </div>
 
@@ -136,9 +136,6 @@
     </li>
     <li>
       <a href="../articles/r0_estimates.html">Estimating the replication rate</a>
-    </li>
-    <li>
-      <a href="../articles/tsanalysis.html">Time series analysis of COVID-19 datasets</a>
     </li>
   </ul>
 </li>
@@ -231,6 +228,7 @@ territories listed are aggregated in our database.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>Other data-import: 
+<code><a href='acaps_government_measures_data.html'>acaps_government_measures_data</a>()</code>,
 <code><a href='apple_mobility_data.html'>apple_mobility_data</a>()</code>,
 <code><a href='beoutbreakprepared_data.html'>beoutbreakprepared_data</a>()</code>,
 <code><a href='cdc_aggregated_projections.html'>cdc_aggregated_projections</a>()</code>,
@@ -264,8 +262,10 @@ territories listed are aggregated in our database.</p>
 <code><a href='us_healthcare_capacity.html'>us_healthcare_capacity</a>()</code>,
 <code><a href='us_hospital_details.html'>us_hospital_details</a>()</code>,
 <code><a href='us_state_distancing_policy.html'>us_state_distancing_policy</a>()</code>,
-<code><a href='usa_facts_data.html'>usa_facts_data</a>()</code></p>
+<code><a href='usa_facts_data.html'>usa_facts_data</a>()</code>,
+<code><a href='who_cases.html'>who_cases</a>()</code></p>
 <p>Other data-import: 
+<code><a href='acaps_government_measures_data.html'>acaps_government_measures_data</a>()</code>,
 <code><a href='apple_mobility_data.html'>apple_mobility_data</a>()</code>,
 <code><a href='beoutbreakprepared_data.html'>beoutbreakprepared_data</a>()</code>,
 <code><a href='cdc_aggregated_projections.html'>cdc_aggregated_projections</a>()</code>,
@@ -299,7 +299,8 @@ territories listed are aggregated in our database.</p>
 <code><a href='us_healthcare_capacity.html'>us_healthcare_capacity</a>()</code>,
 <code><a href='us_hospital_details.html'>us_hospital_details</a>()</code>,
 <code><a href='us_state_distancing_policy.html'>us_state_distancing_policy</a>()</code>,
-<code><a href='usa_facts_data.html'>usa_facts_data</a>()</code></p>
+<code><a href='usa_facts_data.html'>usa_facts_data</a>()</code>,
+<code><a href='who_cases.html'>who_cases</a>()</code></p>
 <p>Other case-tracking: 
 <code><a href='align_to_baseline.html'>align_to_baseline</a>()</code>,
 <code><a href='beoutbreakprepared_data.html'>beoutbreakprepared_data</a>()</code>,
@@ -314,23 +315,32 @@ territories listed are aggregated in our database.</p>
 <code><a href='owid_data.html'>owid_data</a>()</code>,
 <code><a href='plot_epicurve.html'>plot_epicurve</a>()</code>,
 <code><a href='test_and_trace_data.html'>test_and_trace_data</a>()</code>,
-<code><a href='usa_facts_data.html'>usa_facts_data</a>()</code></p></div>
+<code><a href='usa_facts_data.html'>usa_facts_data</a>()</code>,
+<code><a href='who_cases.html'>who_cases</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>ecdc</span> <span class='kw'>=</span> <span class='fu'>ecdc_data</span>()
-<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>ecdc</span>)</div><div class='output co'>#&gt; [1] "date"            "location_name"   "iso2c"           "iso3c"          
-#&gt; [5] "population_2019" "continent"       "subset"          "count"          </div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>ecdc</span>)</div><div class='output co'>#&gt; Rows: 55,662
-#&gt; Columns: 8
+<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>ecdc</span>)</div><div class='output co'>#&gt; [1] "date"                                                      
+#&gt; [2] "location_name"                                             
+#&gt; [3] "iso2c"                                                     
+#&gt; [4] "iso3c"                                                     
+#&gt; [5] "population_2019"                                           
+#&gt; [6] "continent"                                                 
+#&gt; [7] "Cumulative_number_for_14_days_of_COVID-19_cases_per_100000"
+#&gt; [8] "subset"                                                    
+#&gt; [9] "count"                                                     </div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>ecdc</span>)</div><div class='output co'>#&gt; Rows: 69,880
+#&gt; Columns: 9
 #&gt; Groups: location_name, subset [420]
-#&gt; $ date            <span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2019-12-31, 2019-12-31, 2019-12-31, 2019-12-31, 2019…
-#&gt; $ location_name   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Afghanistan", "Afghanistan", "Algeria", "Algeria", "…
-#&gt; $ iso2c           </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "AF", "AF", "DZ", "DZ", "AM", "AM", "AU", "AU", "AT",…
-#&gt; $ iso3c           </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "AFG", "AFG", "DZA", "DZA", "ARM", "ARM", "AUS", "AUS…
-#&gt; $ population_2019 </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 38041757, 38041757, 43053054, 43053054, 2957728, 2957…
-#&gt; $ continent       </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Asia", "Asia", "Africa", "Africa", "Europe", "Europe…
-#&gt; $ subset          </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "confirmed", "deaths", "confirmed", "deaths", "confir…
-#&gt; $ count           </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…</div><div class='input'>
-</div></span></pre>
+#&gt; $ date                                                         &lt;date&gt; 2019-12…
+#&gt; $ location_name                                                &lt;chr&gt; "Afghani…
+#&gt; $ iso2c                                                        &lt;chr&gt; "AF", "A…
+#&gt; $ iso3c                                                        &lt;chr&gt; "AFG", "…
+#&gt; $ population_2019                                              &lt;dbl&gt; 38041757…
+#&gt; $ continent                                                    &lt;chr&gt; "Asia", …
+#&gt; $ `Cumulative_number_for_14_days_of_COVID-19_cases_per_100000` &lt;dbl&gt; NA, NA, …
+#&gt; $ subset                                                       &lt;chr&gt; "confirm…
+#&gt; $ count                                                        &lt;dbl&gt; 0, 0, 0,…</div><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

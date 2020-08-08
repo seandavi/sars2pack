@@ -37,7 +37,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sars2pack</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.2</span>
       </span>
     </div>
 
@@ -92,9 +92,6 @@
     <li>
       <a href="../articles/r0_estimates.html">Estimating the replication rate</a>
     </li>
-    <li>
-      <a href="../articles/tsanalysis.html">Time series analysis of COVID-19 datasets</a>
-    </li>
   </ul>
 </li>
 <li>
@@ -125,7 +122,7 @@
                         <h4 class="author">Vincent J. Carey, Brigham and Womens Hospital, Harvard Medical School, Boston, MA</h4>
                         <h4 class="author">Sean R. Davis<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>, Center for Cancer Research, National Cancer Institute, National Institutes of Health, Bethesda, USA</h4>
             
-            <h4 class="date">Jul 05, 2020</h4>
+            <h4 class="date">Aug 08, 2020</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/seandavi/sars2pack/blob/master/vignettes/how_much_testing.Rmd"><code>vignettes/how_much_testing.Rmd</code></a></small>
       <div class="hidden name"><code>how_much_testing.Rmd</code></div>
@@ -163,23 +160,23 @@
 <li>Total tests performed</li>
 <li>Date (in one-day increments)</li>
 </ul>
-<p>One path of evolution for visualization approach is given in Figure @ref(fig:priorApproach) with a representative subset of states in the United States over 28 days ending 2020-07-05. Figure @ref(fig:priorApproach)A depicts the proportion of positive tests on one day but does not provide any visual prompt of size of testing efforts. Figure @ref(fig:priorApproach)B uses a scatterplot approach where the threshold for positive tests is a line. Let <span class="math inline">\(y\)</span> be the number of positive tests and <span class="math inline">\(x\)</span> be the total number of tests.</p>
-<span class="math display">\[\begin{equation}
+<p>One path of evolution for visualization approach is given in Figure @ref(fig:priorApproach) with a representative subset of states in the United States over 28 days ending 2020-08-08. Figure @ref(fig:priorApproach)A depicts the proportion of positive tests on one day but does not provide any visual prompt of size of testing efforts. Figure @ref(fig:priorApproach)B uses a scatterplot approach where the threshold for positive tests is a line. Let <span class="math inline">\(y\)</span> be the number of positive tests and <span class="math inline">\(x\)</span> be the total number of tests.</p>
+<p><span class="math display">\[\begin{equation}
 y = mx + b
-\end{equation}\]</span>
+\end{equation}\]</span></p>
 <p>In equation (1), <span class="math inline">\(b\)</span> is the y-intercept. Assuming that <span class="math inline">\(b = 0\)</span> (since when no tests are done, <span class="math inline">\(x=0\)</span> and <span class="math inline">\(y=0\)</span>). The threshold for “enough” testing is when the slope, <span class="math inline">\(m\)</span>, is equal to the desired proportion of positive tests. Points that fall below the line given by equation (1) are doing adequate testing while those above should strive for more. The dashed line in Figure @ref(fig:priorApproach)B is for <span class="math inline">\(m=0.1\)</span> and the dotted line for <span class="math inline">\(m=0.2\)</span>. Interpreting results near the origin in Figure @ref(fig:priorApproach)B is challenging given to the scale.</p>
 <p><span class="math display">\[
 \log_{10} y = \log_{10} x + \log_{10} m
 \]</span></p>
 <div class="figure">
-<img src="how_much_testing_files/figure-html/priorApproach-1.png" alt="Testing and proportion of positive tests for several states in the United States over the past 28 days (2020-06-07 to 2020-07-05). Included in all panels for orientation, dashed line represents 10 threshold for positive tests and dotted line represents 20. Bar chart of proportion of positive tests at a single time point on the last day of the 28-day window (A) gives no sense of number of tests performed. Positive tests vs total number of tests (B) is hard to interpret near the origin. A log-log plot of positive tests vs total tests (C) deals with visualizing more clearly, but note that .... " width="700"><p class="caption">
-Testing and proportion of positive tests for several states in the United States over the past 28 days (2020-06-07 to 2020-07-05). Included in all panels for orientation, dashed line represents 10 threshold for positive tests and dotted line represents 20. Bar chart of proportion of positive tests at a single time point on the last day of the 28-day window (A) gives no sense of number of tests performed. Positive tests vs total number of tests (B) is hard to interpret near the origin. A log-log plot of positive tests vs total tests (C) deals with visualizing more clearly, but note that ….
+<img src="how_much_testing_files/figure-html/priorApproach-1.png" alt="Testing and proportion of positive tests for several states in the United States over the past 28 days (2020-07-11 to 2020-08-08). Included in all panels for orientation, dashed line represents 10 threshold for positive tests and dotted line represents 20. Bar chart of proportion of positive tests at a single time point on the last day of the 28-day window (A) gives no sense of number of tests performed. Positive tests vs total number of tests (B) is hard to interpret near the origin. A log-log plot of positive tests vs total tests (C) deals with visualizing more clearly, but note that .... " width="700"><p class="caption">
+Testing and proportion of positive tests for several states in the United States over the past 28 days (2020-07-11 to 2020-08-08). Included in all panels for orientation, dashed line represents 10 threshold for positive tests and dotted line represents 20. Bar chart of proportion of positive tests at a single time point on the last day of the 28-day window (A) gives no sense of number of tests performed. Positive tests vs total number of tests (B) is hard to interpret near the origin. A log-log plot of positive tests vs total tests (C) deals with visualizing more clearly, but note that ….
 </p>
 </div>
-<span class="math display">\[\begin{equation}
+<p><span class="math display">\[\begin{equation}
 y = mx + b
-\end{equation}\]</span>
-<span class="math display">\[\begin{align}
+\end{equation}\]</span></p>
+<p><span class="math display">\[\begin{align}
 b = 0\\
 y = mx \\
 \log_{10}y = \log_{10}xm \\
@@ -187,7 +184,7 @@ y = mx \\
 X = log_{10}x, Y=log_{10}y, M=log_{10}m \\
 Y = X + M \\
 X=0, Y=M=log_{10}m
-\end{align}\]</span>
+\end{align}\]</span></p>
 </div>
 <div id="intuitive-visualization-of-amount-of-testing" class="section level2">
 <h2 class="hasAnchor">
@@ -205,25 +202,25 @@ Worldwide testing results.
 </div>
 <div id="refs" class="references">
 <div id="ref-Brumfiel2020-qe">
-<p>Brumfiel, Geoff. 2020. “To End the Coronavirus Crisis We Need Widespread Testing, Experts Say.” <em>NPR</em>, March. <a href="https://www.npr.org/sections/health-shots/2020/03/24/820157519/to-end-the-coronavirus-crisis-we-need-widespread-testing-experts-say" class="uri">https://www.npr.org/sections/health-shots/2020/03/24/820157519/to-end-the-coronavirus-crisis-we-need-widespread-testing-experts-say</a>.</p>
+<p>Brumfiel, Geoff. 2020. “To End the Coronavirus Crisis We Need Widespread Testing, Experts Say.” <em>NPR</em>, March. <a href="https://www.npr.org/sections/health-shots/2020/03/24/820157519/to-end-the-coronavirus-crisis-we-need-widespread-testing-experts-say">https://www.npr.org/sections/health-shots/2020/03/24/820157519/to-end-the-coronavirus-crisis-we-need-widespread-testing-experts-say</a>.</p>
 </div>
 <div id="ref-sars2pack-cx">
-<p>Carey, Vincent J., and Sean R. Davis. 2020. “Sars2pack.” Github. <a href="https://github.com/seandavi/sars2pack" class="uri">https://github.com/seandavi/sars2pack</a>.</p>
+<p>Carey, Vincent J., and Sean R. Davis. 2020. “Sars2pack.” Github. <a href="https://github.com/seandavi/sars2pack">https://github.com/seandavi/sars2pack</a>.</p>
 </div>
 <div id="ref-Huang2020-iz">
-<p>Huang, Pien. 2020. “If Most of Your Coronavirus Tests Come Back Positive, You’re Not Testing Enough.” <em>NPR</em>, March. <a href="https://www.npr.org/sections/coronavirus-live-updates/2020/03/30/824127807/if-most-of-your-coronavirus-tests-come-back-positive-youre-not-testing-enough" class="uri">https://www.npr.org/sections/coronavirus-live-updates/2020/03/30/824127807/if-most-of-your-coronavirus-tests-come-back-positive-youre-not-testing-enough</a>.</p>
+<p>Huang, Pien. 2020. “If Most of Your Coronavirus Tests Come Back Positive, You’re Not Testing Enough.” <em>NPR</em>, March. <a href="https://www.npr.org/sections/coronavirus-live-updates/2020/03/30/824127807/if-most-of-your-coronavirus-tests-come-back-positive-youre-not-testing-enough">https://www.npr.org/sections/coronavirus-live-updates/2020/03/30/824127807/if-most-of-your-coronavirus-tests-come-back-positive-youre-not-testing-enough</a>.</p>
 </div>
 <div id="ref-owidcoronavirus">
 <p>Max Roser, Esteban Ortiz-Ospina, Hannah Ritchie, and Joe Hasell. 2020. “Coronavirus Pandemic (Covid-19).” <em>Our World in Data</em>.</p>
 </div>
 <div id="ref-Rosenthal2020-zs">
-<p>Rosenthal, Philip J. 2020. “The Importance of Diagnostic Testing During a Viral Pandemic: Early Lessons from Novel Coronavirus Disease (COVID-19).” <em>The American Journal of Tropical Medicine and Hygiene</em> 102 (5):915–16. <a href="https://doi.org/10.4269/ajtmh.20-0216" class="uri">https://doi.org/10.4269/ajtmh.20-0216</a>.</p>
+<p>Rosenthal, Philip J. 2020. “The Importance of Diagnostic Testing During a Viral Pandemic: Early Lessons from Novel Coronavirus Disease (COVID-19).” <em>The American Journal of Tropical Medicine and Hygiene</em> 102 (5): 915–16. <a href="https://doi.org/10.4269/ajtmh.20-0216">https://doi.org/10.4269/ajtmh.20-0216</a>.</p>
 </div>
 <div id="ref-covidtracking-vg">
-<p>The COVID Tracking Project. 2020. “The COVID Tracking Project.” <a href="https://covidtracking.com/" class="uri">https://covidtracking.com/</a>. <a href="https://covidtracking.com/" class="uri">https://covidtracking.com/</a>.</p>
+<p>The COVID Tracking Project. 2020. “The COVID Tracking Project.” <a href="https://covidtracking.com/">https://covidtracking.com/</a>. <a href="https://covidtracking.com/">https://covidtracking.com/</a>.</p>
 </div>
 <div id="ref-who-bh">
-<p>World Health Organization. 2020. “WHO Director-General’s Opening Remarks at the Media Briefing on COVID-19 - 16 March 2020.” <a href="https://www.who.int/dg/speeches/detail/who-director-general-s-opening-remarks-at-the-media-briefing-on-covid-19---16-march-2020" class="uri">https://www.who.int/dg/speeches/detail/who-director-general-s-opening-remarks-at-the-media-briefing-on-covid-19---16-march-2020</a>. <a href="https://www.who.int/dg/speeches/detail/who-director-general-s-opening-remarks-at-the-media-briefing-on-covid-19---16-march-2020" class="uri">https://www.who.int/dg/speeches/detail/who-director-general-s-opening-remarks-at-the-media-briefing-on-covid-19---16-march-2020</a>.</p>
+<p>World Health Organization. 2020. “WHO Director-General’s Opening Remarks at the Media Briefing on COVID-19 - 16 March 2020.” <a href="https://www.who.int/dg/speeches/detail/who-director-general-s-opening-remarks-at-the-media-briefing-on-covid-19---16-march-2020">https://www.who.int/dg/speeches/detail/who-director-general-s-opening-remarks-at-the-media-briefing-on-covid-19---16-march-2020</a>. <a href="https://www.who.int/dg/speeches/detail/who-director-general-s-opening-remarks-at-the-media-briefing-on-covid-19---16-march-2020">https://www.who.int/dg/speeches/detail/who-director-general-s-opening-remarks-at-the-media-briefing-on-covid-19---16-march-2020</a>.</p>
 </div>
 </div>
 </div>
@@ -231,7 +228,7 @@ Worldwide testing results.
 <div class="footnotes">
 <hr>
 <ol>
-<li id="fn1"><p><a href="mailto:seandavi@gmail.com">seandavi@gmail.com</a><a href="#fnref1" class="footnote-back">↩</a></p></li>
+<li id="fn1"><p><a href="mailto:seandavi@gmail.com" class="email">seandavi@gmail.com</a><a href="#fnref1" class="footnote-back">↩</a></p></li>
 </ol>
 </div>
   </div>
