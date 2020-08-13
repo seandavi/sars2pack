@@ -7,9 +7,9 @@
 #'
 #' @details
 #'
-#'  Create connections using [RSQLite::SQLite()] for RSQLite, [RMariaDB::MariaDB()] for
-#'  RMariaDB, [RPostgres::Postgres()] for RPostgres, [odbc::odbc()] for
-#'  odbc, and [bigrquery::bigquery()] for BigQuery.
+#'  Create connections using RSQLite::SQLite() for RSQLite, RMariaDB::MariaDB() for
+#'  RMariaDB, RPostgres::Postgres() for RPostgres, odbc::odbc() for
+#'  odbc, and bigrquery::bigquery() for BigQuery.
 #'
 #' @param con a remote data source. See [dplyr::copy_to()]
 #' @param dataset_accessors character() vector of accessors for datasets.
@@ -19,8 +19,6 @@
 #'        name. If FALSE, will throw an error if name already
 #'        exists.
 #' @param \dots passed on to [dplyr::copy_to()]
-#'
-#' @importFrom dplyr copy_to
 #'
 #' @author Sean Davis <seandavi@gmail.com>
 #'
@@ -51,7 +49,7 @@ datasets_to_sql <- function(con, dataset_accessors = available_datasets()$access
         ds = ds[, as.vector(which(sapply(ds, is.vector)))]
         if(is.data.frame(ds)) {
             message(i)
-            copy_to(con, ds, i, ..., overwrite=TRUE)
+            dplyr::copy_to(con, ds, i, ..., overwrite=TRUE)
         }
     }
 }
