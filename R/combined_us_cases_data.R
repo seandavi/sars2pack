@@ -25,22 +25,22 @@
 #' @export
 combined_us_cases_data = function() {
 
-    jhu = jhu_us_data() %>% filter(!is.na(county) & subset=='confirmed') %>%
-        mutate(fips = county_to_state_fips(fips)) %>%
-        group_by(fips,date) %>% summarize(count=sum(count)) %>%
-        select(date,fips,count) %>%
+    jhu = jhu_us_data() %>% filter(!is.na(.data$county) & .data$subset=='confirmed') %>%
+        mutate(fips = county_to_state_fips(.data$fips)) %>%
+        group_by(fips,date) %>% summarize(count=sum(.data$count)) %>%
+        select(.data$date,.data$fips,.data$count) %>%
         add_incidence_column(incidence_col_name = 'incidence',grouping_columns = c('fips'))
 
-    covidtracker = covidtracker_data() %>% select(date,fips,positive) %>%
+    covidtracker = covidtracker_data() %>% select(.data$date,.data$fips,.data$positive) %>%
         rename(count='positive') %>% 
         add_incidence_column(incidence_col_name = 'incidence',grouping_columns = c('fips'))
 
     nytimes = nytimes_state_data() %>% 
         filter(subset=='confirmed') %>%
-        select(date,fips,count) %>%
+        select(.data$date,.data$fips,.data$count) %>%
         add_incidence_column(incidence_col_name = 'incidence',grouping_columns = c('fips'))
 
-    fips_to_states = covidtracker_data() %>% select(state,fips) %>%
+    fips_to_states = covidtracker_data() %>% select(.data$state,.data$fips) %>%
         unique()
 
     us_states = bind_rows(list(jhu=jhu, covidtracker= covidtracker, nytimes=nytimes),.id='dataset') %>%
