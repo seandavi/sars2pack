@@ -218,8 +218,15 @@
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>nyd</span> <span class='kw'>=</span> <span class='fu'><a href='nytimes_county_data.html'>nytimes_state_data</a></span>()
-<span class='no'>mb</span> <span class='kw'>=</span> <span class='fu'>min_bic</span>(<span class='no'>nyd</span>, <span class='kw'>state.in</span><span class='kw'>=</span><span class='st'>"New York"</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='no'>mb</span>)</div><div class='output co'>#&gt; [1] "opt"           "bics"          "fullusa"       "state"        
+<span class='no'>mb</span> <span class='kw'>=</span> <span class='fu'>min_bic</span>(<span class='no'>nyd</span>, <span class='kw'>state.in</span><span class='kw'>=</span><span class='st'>"New York"</span>)</div><div class='output co'>#&gt; Error in stats::arima(x = x, order = order, seasonal = seasonal, xreg = xreg,  : 
+#&gt;   non-stationary AR part from CSS
+#&gt; [1] 5 1 1
+#&gt; [1] "Error in stats::arima(x = x, order = order, seasonal = seasonal, xreg = xreg,  : \n  non-stationary AR part from CSS\n"
+#&gt; attr(,"class")
+#&gt; [1] "try-error"
+#&gt; attr(,"condition")
+#&gt; &lt;simpleError in stats::arima(x = x, order = order, seasonal = seasonal, xreg = xreg,     include.mean = include.mean, method = method, ...): non-stationary AR part from CSS&gt;
+#&gt; Error : $ operator is invalid for atomic vectors</div><div class='output co'>#&gt; <span class='warning'>Warning: NAs introduced by coercion</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='no'>mb</span>)</div><div class='output co'>#&gt; [1] "opt"           "bics"          "fullusa"       "state"        
 #&gt; [5] "date_run"      "max_date"      "lookback_days"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
