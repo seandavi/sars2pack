@@ -227,22 +227,53 @@ and collects and reports broadly on economic and social factors.</p>
 <code><a href='who_cases.html'>who_cases</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>unemp</span> <span class='kw'>=</span> <span class='fu'>oecd_unemployment_data</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: download failed</span>
-#&gt; <span class='warning'>  web resource path: ‘https://stats.oecd.org/sdmx-json/data/DP_LIVE/.UNEMP.../OECD?contentType=csv&amp;detail=code&amp;separator=comma&amp;csv-lang=en’</span>
-#&gt; <span class='warning'>  local file path: ‘/tmp/RtmpyauXXr/BiocFileCache/b8482abe48e5_OECD%3FcontentType%3Dcsv%26detail%3Dcode%26separator%3Dcomma%26csv-lang%3Den’</span>
-#&gt; <span class='warning'>  reason: OpenSSL SSL_read: Connection reset by peer, errno 104</span></div><div class='output co'>#&gt; <span class='warning'>Warning: bfcadd() failed; resource removed</span>
-#&gt; <span class='warning'>  rid: BFC64</span>
-#&gt; <span class='warning'>  fpath: ‘https://stats.oecd.org/sdmx-json/data/DP_LIVE/.UNEMP.../OECD?contentType=csv&amp;detail=code&amp;separator=comma&amp;csv-lang=en’</span>
-#&gt; <span class='warning'>  reason: download failed</span></div><div class='output co'>#&gt; <span class='error'>Error in .util_download(x, rid[i], proxy, config, "bfcadd()", ...): bfcadd() failed; see warnings()</span></div><div class='input'><span class='no'>unemp</span></div><div class='output co'>#&gt; <span class='error'>Error in eval(expr, envir, enclos): object 'unemp' not found</span></div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>unemployment</span>)</div><div class='output co'>#&gt; <span class='error'>Error in dplyr::glimpse(unemployment): object 'unemployment' not found</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>unemp</span>)</div><div class='output co'>#&gt; <span class='error'>Error in summary(unemp): object 'unemp' not found</span></div><div class='input'>
+    <pre class="examples"><div class='input'><span class='no'>unemp</span> <span class='kw'>=</span> <span class='fu'>oecd_unemployment_data</span>()
+<span class='no'>unemp</span></div><div class='output co'>#&gt; # A tibble: 39,209 x 10
+#&gt;    iso3c indicator subject measure frequency value `flag codes` date      
+#&gt;    &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt;        &lt;date&gt;    
+#&gt;  1 GBR   unemp     15_24   PC_LF   annual    19.8  &lt;NA&gt;         1983-01-01
+#&gt;  2 GBR   unemp     15_24   PC_LF   annual    18.8  &lt;NA&gt;         1984-01-01
+#&gt;  3 GBR   unemp     15_24   PC_LF   annual    18.0  &lt;NA&gt;         1985-01-01
+#&gt;  4 GBR   unemp     15_24   PC_LF   annual    17.8  &lt;NA&gt;         1986-01-01
+#&gt;  5 GBR   unemp     15_24   PC_LF   annual    15.2  &lt;NA&gt;         1987-01-01
+#&gt;  6 GBR   unemp     15_24   PC_LF   annual    12.2  &lt;NA&gt;         1988-01-01
+#&gt;  7 GBR   unemp     15_24   PC_LF   annual     9.97 &lt;NA&gt;         1989-01-01
+#&gt;  8 GBR   unemp     15_24   PC_LF   annual    10.4  &lt;NA&gt;         1990-01-01
+#&gt;  9 GBR   unemp     15_24   PC_LF   annual    13.9  &lt;NA&gt;         1991-01-01
+#&gt; 10 GBR   unemp     15_24   PC_LF   annual    16.3  &lt;NA&gt;         1992-01-01
+#&gt; # … with 39,199 more rows, and 2 more variables: country &lt;chr&gt;, region &lt;chr&gt;</div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>unemployment</span>)</div><div class='output co'>#&gt; <span class='error'>Error in dplyr::glimpse(unemployment): object 'unemployment' not found</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>unemp</span>)</div><div class='output co'>#&gt;     iso3c            indicator           subject            measure         
+#&gt;  Length:39209       Length:39209       Length:39209       Length:39209      
+#&gt;  Class :character   Class :character   Class :character   Class :character  
+#&gt;  Mode  :character   Mode  :character   Mode  :character   Mode  :character  
+#&gt;                                                                             
+#&gt;                                                                             
+#&gt;                                                                             
+#&gt;   frequency             value          flag codes             date           
+#&gt;  Length:39209       Min.   : 0.7931   Length:39209       Min.   :1955-01-01  
+#&gt;  Class :character   1st Qu.: 5.5446   Class :character   1st Qu.:1997-02-01  
+#&gt;  Mode  :character   Median : 8.9667   Mode  :character   Median :2006-01-01  
+#&gt;                     Mean   :11.5303                      Mean   :2003-12-17  
+#&gt;                     3rd Qu.:15.8000                      3rd Qu.:2013-03-01  
+#&gt;                     Max.   :59.8000                      Max.   :2020-07-01  
+#&gt;    country             region         
+#&gt;  Length:39209       Length:39209      
+#&gt;  Class :character   Class :character  
+#&gt;  Mode  :character   Mode  :character  
+#&gt;                                       
+#&gt;                                       
+#&gt;                                       </div><div class='input'>
 
 <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>ggplot2</span>)
 <span class='no'>us_month_unemp</span> <span class='kw'>=</span> <span class='no'>unemp</span> <span class='kw'>%&gt;%</span>
-    <span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span>(<span class='no'>iso3c</span><span class='kw'>==</span><span class='st'>'USA'</span> <span class='kw'>&amp;</span> <span class='no'>frequency</span><span class='kw'>==</span><span class='st'>'month'</span>)</div><div class='output co'>#&gt; <span class='error'>Error in eval(lhs, parent, parent): object 'unemp' not found</span></div><div class='input'><span class='no'>p1</span> <span class='kw'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span>(<span class='no'>us_month_unemp</span>,<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>x</span><span class='kw'>=</span><span class='no'>date</span>,<span class='kw'>y</span><span class='kw'>=</span><span class='no'>value</span>,<span class='kw'>color</span><span class='kw'>=</span><span class='no'>subject</span>)) + <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span>()</div><div class='output co'>#&gt; <span class='error'>Error in ggplot(us_month_unemp, aes(x = date, y = value, color = subject)): object 'us_month_unemp' not found</span></div><div class='input'><span class='no'>p2</span> <span class='kw'>=</span> <span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span>(<span class='no'>us_month_unemp</span>,<span class='no'>date</span><span class='kw'>&gt;</span><span class='st'>'2019-11-01'</span>) <span class='kw'>%&gt;%</span>
+    <span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span>(<span class='no'>iso3c</span><span class='kw'>==</span><span class='st'>'USA'</span> <span class='kw'>&amp;</span> <span class='no'>frequency</span><span class='kw'>==</span><span class='st'>'month'</span>)
+<span class='no'>p1</span> <span class='kw'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span>(<span class='no'>us_month_unemp</span>,<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>x</span><span class='kw'>=</span><span class='no'>date</span>,<span class='kw'>y</span><span class='kw'>=</span><span class='no'>value</span>,<span class='kw'>color</span><span class='kw'>=</span><span class='no'>subject</span>)) + <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span>()
+<span class='no'>p2</span> <span class='kw'>=</span> <span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span>(<span class='no'>us_month_unemp</span>,<span class='no'>date</span><span class='kw'>&gt;</span><span class='st'>'2019-11-01'</span>) <span class='kw'>%&gt;%</span>
     <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>x</span><span class='kw'>=</span><span class='no'>date</span>,<span class='kw'>y</span><span class='kw'>=</span><span class='no'>value</span>,<span class='kw'>color</span><span class='kw'>=</span><span class='no'>subject</span>)) +
-    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span>() + <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span>(<span class='kw'>legend.position</span><span class='kw'>=</span><span class='st'>'none'</span>)</div><div class='output co'>#&gt; <span class='error'>Error in dplyr::filter(us_month_unemp, date &gt; "2019-11-01"): object 'us_month_unemp' not found</span></div><div class='input'>
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span>() + <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span>(<span class='kw'>legend.position</span><span class='kw'>=</span><span class='st'>'none'</span>)
+
 <span class='no'>p1</span> + <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/annotation_custom.html'>annotation_custom</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplotGrob.html'>ggplotGrob</a></span>(<span class='no'>p2</span>),
                        <span class='kw'>xmin</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/as.Date.html'>as.Date</a></span>(<span class='st'>"1960-01-01"</span>), <span class='kw'>xmax</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/as.Date.html'>as.Date</a></span>(<span class='st'>"1990-01-01"</span>),
-                       <span class='kw'>ymin</span> <span class='kw'>=</span> <span class='fl'>10</span>, <span class='kw'>ymax</span> <span class='kw'>=</span> <span class='fl'>16</span>)</div><div class='output co'>#&gt; <span class='error'>Error in eval(expr, envir, enclos): object 'p1' not found</span></div><div class='input'>
+                       <span class='kw'>ymin</span> <span class='kw'>=</span> <span class='fl'>10</span>, <span class='kw'>ymax</span> <span class='kw'>=</span> <span class='fl'>16</span>)</div><div class='img'><img src='oecd_unemployment_data-1.png' alt='' width='700' height='433' /></div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
