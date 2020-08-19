@@ -247,31 +247,31 @@ Retrieved from: 'https://ourworldindata.org/coronavirus' Online Resource</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>res</span> <span class='kw'>=</span> <span class='fu'>owid_data</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: 114708 parsing failures.</span>
-#&gt; <span class='warning'> row                      col           expected          actual                                                             file</span>
-#&gt; <span class='warning'>1032 new_tests                1/0/T/F/TRUE/FALSE 75.0            '/tmp/RtmpVC6HQ8/BiocFileCache/39711798cc4f_owid-covid-data.csv'</span>
-#&gt; <span class='warning'>1032 total_tests              1/0/T/F/TRUE/FALSE 75.0            '/tmp/RtmpVC6HQ8/BiocFileCache/39711798cc4f_owid-covid-data.csv'</span>
-#&gt; <span class='warning'>1032 total_tests_per_thousand 1/0/T/F/TRUE/FALSE 0.008           '/tmp/RtmpVC6HQ8/BiocFileCache/39711798cc4f_owid-covid-data.csv'</span>
-#&gt; <span class='warning'>1032 new_tests_per_thousand   1/0/T/F/TRUE/FALSE 0.008           '/tmp/RtmpVC6HQ8/BiocFileCache/39711798cc4f_owid-covid-data.csv'</span>
-#&gt; <span class='warning'>1032 tests_units              1/0/T/F/TRUE/FALSE tests performed '/tmp/RtmpVC6HQ8/BiocFileCache/39711798cc4f_owid-covid-data.csv'</span>
-#&gt; <span class='warning'>.... ........................ .................. ............... ................................................................</span>
+#&gt; <span class='warning'> row                      col           expected        actual                                                             file</span>
+#&gt; <span class='warning'>1239 new_tests                1/0/T/F/TRUE/FALSE 2.0           '/tmp/Rtmp5VVRFn/BiocFileCache/b8475f4396fc_owid-covid-data.csv'</span>
+#&gt; <span class='warning'>1239 total_tests              1/0/T/F/TRUE/FALSE 2.0           '/tmp/Rtmp5VVRFn/BiocFileCache/b8475f4396fc_owid-covid-data.csv'</span>
+#&gt; <span class='warning'>1239 total_tests_per_thousand 1/0/T/F/TRUE/FALSE 0.0           '/tmp/Rtmp5VVRFn/BiocFileCache/b8475f4396fc_owid-covid-data.csv'</span>
+#&gt; <span class='warning'>1239 new_tests_per_thousand   1/0/T/F/TRUE/FALSE 0.0           '/tmp/Rtmp5VVRFn/BiocFileCache/b8475f4396fc_owid-covid-data.csv'</span>
+#&gt; <span class='warning'>1239 tests_units              1/0/T/F/TRUE/FALSE people tested '/tmp/Rtmp5VVRFn/BiocFileCache/b8475f4396fc_owid-covid-data.csv'</span>
+#&gt; <span class='warning'>.... ........................ .................. ............. ................................................................</span>
 #&gt; <span class='warning'>See problems(...) for more details.</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; [1] "iso3c"       "country"     "date"        "confirmed"   "deaths"     
 #&gt; [6] "tests"       "tests_units"</div><div class='input'>
 <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; # A tibble: 6 x 7
-#&gt;   iso3c country date       confirmed deaths tests tests_units
-#&gt;   &lt;chr&gt; &lt;chr&gt;   &lt;date&gt;         &lt;dbl&gt;  &lt;dbl&gt; &lt;lgl&gt; &lt;lgl&gt;      
-#&gt; 1 ABW   Aruba   2020-03-13         2      0 NA    NA         
-#&gt; 2 ABW   Aruba   2020-03-19        NA     NA NA    NA         
-#&gt; 3 ABW   Aruba   2020-03-20         4      0 NA    NA         
-#&gt; 4 ABW   Aruba   2020-03-21        NA     NA NA    NA         
-#&gt; 5 ABW   Aruba   2020-03-22        NA     NA NA    NA         
-#&gt; 6 ABW   Aruba   2020-03-23        NA     NA NA    NA         </div><div class='input'>
-<span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Rows: 37,628
+#&gt;   iso3c country     date       confirmed deaths tests tests_units
+#&gt;   &lt;chr&gt; &lt;chr&gt;       &lt;date&gt;         &lt;dbl&gt;  &lt;dbl&gt; &lt;lgl&gt; &lt;lgl&gt;      
+#&gt; 1 AFG   Afghanistan 2019-12-31         0      0 NA    NA         
+#&gt; 2 AFG   Afghanistan 2020-01-01         0      0 NA    NA         
+#&gt; 3 AFG   Afghanistan 2020-01-02         0      0 NA    NA         
+#&gt; 4 AFG   Afghanistan 2020-01-03         0      0 NA    NA         
+#&gt; 5 AFG   Afghanistan 2020-01-04         0      0 NA    NA         
+#&gt; 6 AFG   Afghanistan 2020-01-05         0      0 NA    NA         </div><div class='input'>
+<span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Rows: 37,839
 #&gt; Columns: 7
-#&gt; $ iso3c       &lt;chr&gt; "ABW", "ABW", "ABW", "ABW", "ABW", "ABW", "ABW", "ABW", "…
-#&gt; $ country     &lt;chr&gt; "Aruba", "Aruba", "Aruba", "Aruba", "Aruba", "Aruba", "Ar…
-#&gt; $ date        &lt;date&gt; 2020-03-13, 2020-03-19, 2020-03-20, 2020-03-21, 2020-03-…
-#&gt; $ confirmed   &lt;dbl&gt; 2, NA, 4, NA, NA, NA, 12, 17, 19, 28, 28, 28, 50, NA, 55,…
-#&gt; $ deaths      &lt;dbl&gt; 0, NA, 0, NA, NA, NA, 0, 0, 0, 0, 0, 0, 0, NA, 0, 0, 0, 0…
+#&gt; $ iso3c       &lt;chr&gt; "AFG", "AFG", "AFG", "AFG", "AFG", "AFG", "AFG", "AFG", "…
+#&gt; $ country     &lt;chr&gt; "Afghanistan", "Afghanistan", "Afghanistan", "Afghanistan…
+#&gt; $ date        &lt;date&gt; 2019-12-31, 2020-01-01, 2020-01-02, 2020-01-03, 2020-01-…
+#&gt; $ confirmed   &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#&gt; $ deaths      &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
 #&gt; $ tests       &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
 #&gt; $ tests_units &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…</div><div class='input'>  
 </div></pre>
