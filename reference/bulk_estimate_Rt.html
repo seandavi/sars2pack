@@ -267,7 +267,7 @@ as other parameters specific to each method.</p>
 #&gt; <span class='warning'>Did you want `data = c(date, count)`?</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Problem with `mutate()` input `rt_df`.</span>
 #&gt; <span class='warning'>ℹ You're estimating R too early in the epidemic to get the desired</span>
 #&gt; <span class='warning'>            posterior CV.</span>
-#&gt; <span class='warning'>ℹ Input `rt_df` is `purrr::map(data, app_fn, ...)`.</span></div><div class='output co'>#&gt; <span class='warning'>Warning: You're estimating R too early in the epidemic to get the desired</span>
+#&gt; <span class='warning'>ℹ Input `rt_df` is `purrr::map(.data$data, app_fn, ...)`.</span></div><div class='output co'>#&gt; <span class='warning'>Warning: You're estimating R too early in the epidemic to get the desired</span>
 #&gt; <span class='warning'>            posterior CV.</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; # A tibble: 6 x 17
 #&gt;   state fips  subset data  t_start t_end `Mean(R)` `Std(R)` `Quantile.0.025…
 #&gt;   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;  &lt;lis&gt;   &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;            &lt;dbl&gt;

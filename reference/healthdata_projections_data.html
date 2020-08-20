@@ -257,25 +257,57 @@ confidence interval, lower confidence interval</p></li>
 <code><a href='cdc_aggregated_projections.html'>cdc_aggregated_projections</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>res</span> <span class='kw'>=</span> <span class='fu'>healthdata_projections_data</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: PCRE pattern compilation error</span>
-#&gt; <span class='warning'>	'POSIX named classes are supported only within a class'</span>
-#&gt; <span class='warning'>	at '[:letter:]+$)'</span></div><div class='output co'>#&gt; <span class='error'>Error in gregexpr(pattern, x, perl = TRUE): invalid regular expression '_(?=[:letter:]+$)'</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; <span class='error'>Error in is.data.frame(x): object 'res' not found</span></div><div class='input'><span class='no'>res</span>[<span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span>(<span class='fl'>1</span>:<span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span>(<span class='no'>res</span>),<span class='fl'>6</span>),]</div><div class='output co'>#&gt; <span class='error'>Error in eval(expr, envir, enclos): object 'res' not found</span></div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; <span class='error'>Error in dplyr::glimpse(res): object 'res' not found</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; <span class='error'>Error in summary(res): object 'res' not found</span></div><div class='input'>
+    <pre class="examples"><div class='input'><span class='no'>res</span> <span class='kw'>=</span> <span class='fu'>healthdata_projections_data</span>()
+<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; [1] "location_name" "date"          "metric"        "mean"         
+#&gt; [5] "upper"         "lower"        </div><div class='input'><span class='no'>res</span>[<span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span>(<span class='fl'>1</span>:<span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span>(<span class='no'>res</span>),<span class='fl'>6</span>),]</div><div class='output co'>#&gt; # A tibble: 6 x 6
+#&gt;   location_name date       metric              mean     upper    lower
+#&gt;   &lt;chr&gt;         &lt;date&gt;     &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+#&gt; 1 Bangladesh    2020-10-18 allbed         11278.    21201.    6341.   
+#&gt; 2 New Mexico    2020-08-20 InvVen            52.0      86.4     30.5  
+#&gt; 3 Hawaii        2020-07-15 admis              0.910     0.910    0.910
+#&gt; 4 New Hampshire 2020-08-03 InvVen             7.69      9.43     6.18 
+#&gt; 5 Latvia        2020-03-25 est_infections    39.7      65.2     22.2  
+#&gt; 6 Guanajuato    2020-03-14 allbed             0         0        0    </div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Rows: 1,005,660
+#&gt; Columns: 6
+#&gt; $ location_name &lt;chr&gt; "Abruzzo", "Abruzzo", "Abruzzo", "Abruzzo", "Abruzzo", …
+#&gt; $ date          &lt;date&gt; 2020-02-04, 2020-02-04, 2020-02-04, 2020-02-04, 2020-0…
+#&gt; $ metric        &lt;chr&gt; "allbed", "ICUbed", "InvVen", "admis", "newICU", "bedov…
+#&gt; $ mean          &lt;dbl&gt; 0.0000000, 0.0000000, 0.0000000, 0.0000000, 0.0000000, …
+#&gt; $ upper         &lt;dbl&gt; 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000…
+#&gt; $ lower         &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt;  location_name           date               metric               mean         
+#&gt;  Length:1005660     Min.   :2020-02-04   Length:1005660     Min.   :   -94.0  
+#&gt;  Class :character   1st Qu.:2020-04-19   Class :character   1st Qu.:     0.0  
+#&gt;  Mode  :character   Median :2020-07-03   Mode  :character   Median :     6.7  
+#&gt;                     Mean   :2020-07-03                      Mean   :  1049.2  
+#&gt;                     3rd Qu.:2020-09-17                      3rd Qu.:   130.2  
+#&gt;                     Max.   :2020-12-01                      Max.   :949550.4  
+#&gt;                                                             NA's   :2942      
+#&gt;      upper               lower          
+#&gt;  Min.   :    -94.0   Min.   :   -94.00  
+#&gt;  1st Qu.:      0.0   1st Qu.:     0.00  
+#&gt;  Median :     10.9   Median :     2.89  
+#&gt;  Mean   :   2084.8   Mean   :   644.86  
+#&gt;  3rd Qu.:    226.8   3rd Qu.:    67.90  
+#&gt;  Max.   :2960298.4   Max.   :242022.40  
+#&gt;  NA's   :2942        NA's   :2942       </div><div class='input'>
 <span class='co'>#plot the predictions</span>
 
 <span class='no'>regs_of_interest</span> <span class='kw'>=</span> <span class='st'>'Georgia'</span>
 <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>ggplot2</span>)
 <span class='no'>pl</span> <span class='kw'>=</span> <span class='no'>res</span> <span class='kw'>%&gt;%</span>
     <span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span>(<span class='no'>location_name</span> <span class='kw'>%in%</span> <span class='no'>regs_of_interest</span>) <span class='kw'>%&gt;%</span>
-    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>x</span><span class='kw'>=</span><span class='no'>date</span>)) + <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>y</span><span class='kw'>=</span><span class='no'>mean</span>, <span class='kw'>color</span><span class='kw'>=</span><span class='no'>metric</span>))</div><div class='output co'>#&gt; <span class='error'>Error in eval(lhs, parent, parent): object 'res' not found</span></div><div class='input'>
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>x</span><span class='kw'>=</span><span class='no'>date</span>)) + <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>y</span><span class='kw'>=</span><span class='no'>mean</span>, <span class='kw'>color</span><span class='kw'>=</span><span class='no'>metric</span>))
+
 <span class='co'># plot the "mean" prediction</span>
-<span class='no'>pl</span></div><div class='output co'>#&gt; <span class='error'>Error in eval(expr, envir, enclos): object 'pl' not found</span></div><div class='input'>
+<span class='no'>pl</span></div><div class='img'><img src='healthdata_projections_data-1.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># add 95% confidence bounds</span>
-<span class='no'>pl</span> + <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_ribbon.html'>geom_ribbon</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>ymin</span><span class='kw'>=</span><span class='no'>lower</span>, <span class='kw'>ymax</span><span class='kw'>=</span><span class='no'>upper</span>, <span class='kw'>fill</span><span class='kw'>=</span><span class='no'>metric</span>), <span class='kw'>alpha</span><span class='kw'>=</span><span class='fl'>0.25</span>)</div><div class='output co'>#&gt; <span class='error'>Error in eval(expr, envir, enclos): object 'pl' not found</span></div><div class='input'>
+<span class='no'>pl</span> + <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_ribbon.html'>geom_ribbon</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>ymin</span><span class='kw'>=</span><span class='no'>lower</span>, <span class='kw'>ymax</span><span class='kw'>=</span><span class='no'>upper</span>, <span class='kw'>fill</span><span class='kw'>=</span><span class='no'>metric</span>), <span class='kw'>alpha</span><span class='kw'>=</span><span class='fl'>0.25</span>)</div><div class='img'><img src='healthdata_projections_data-2.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='no'>regs_of_interest</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>'New York'</span>, <span class='st'>'Italy'</span>)
 <span class='no'>pl</span> <span class='kw'>=</span> <span class='no'>res</span> <span class='kw'>%&gt;%</span>
     <span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span>(<span class='no'>location_name</span> <span class='kw'>%in%</span> <span class='no'>regs_of_interest</span>) <span class='kw'>%&gt;%</span>
     <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>x</span><span class='kw'>=</span><span class='no'>date</span>)) + <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>y</span><span class='kw'>=</span><span class='no'>mean</span>, <span class='kw'>color</span><span class='kw'>=</span><span class='no'>metric</span>)) +
-    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/facet_grid.html'>facet_grid</a></span>(<span class='kw'>rows</span> <span class='kw'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/vars.html'>vars</a></span>(<span class='no'>location_name</span>))</div><div class='output co'>#&gt; <span class='error'>Error in eval(lhs, parent, parent): object 'res' not found</span></div><div class='input'><span class='no'>pl</span></div><div class='output co'>#&gt; <span class='error'>Error in eval(expr, envir, enclos): object 'pl' not found</span></div><div class='input'>
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/facet_grid.html'>facet_grid</a></span>(<span class='kw'>rows</span> <span class='kw'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/vars.html'>vars</a></span>(<span class='no'>location_name</span>))
+<span class='no'>pl</span></div><div class='img'><img src='healthdata_projections_data-3.png' alt='' width='700' height='433' /></div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

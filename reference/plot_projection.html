@@ -222,36 +222,206 @@ examples for details.</p>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>sars2pack</span>)
 
-<span class='no'>hdp</span> <span class='kw'>=</span> <span class='fu'><a href='healthdata_projections_data.html'>healthdata_projections_data</a></span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: PCRE pattern compilation error</span>
-#&gt; <span class='warning'>	'POSIX named classes are supported only within a class'</span>
-#&gt; <span class='warning'>	at '[:letter:]+$)'</span></div><div class='output co'>#&gt; <span class='error'>Error in gregexpr(pattern, x, perl = TRUE): invalid regular expression '_(?=[:letter:]+$)'</span></div><div class='input'>
+<span class='no'>hdp</span> <span class='kw'>=</span> <span class='fu'><a href='healthdata_projections_data.html'>healthdata_projections_data</a></span>()
+
 <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>ggplot2</span>)
 <span class='co'># possible locations</span>
-<span class='fu'><a href='https://rdrr.io/r/base/sort.html'>sort</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/unique.html'>unique</a></span>(<span class='no'>hdp</span>$<span class='no'>location_name</span>))</div><div class='output co'>#&gt; <span class='error'>Error in unique(hdp$location_name): object 'hdp' not found</span></div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/base/sort.html'>sort</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/unique.html'>unique</a></span>(<span class='no'>hdp</span>$<span class='no'>location_name</span>))</div><div class='output co'>#&gt;   [1] "Abruzzo"                            "Acre"                              
+#&gt;   [3] "Afghanistan"                        "Aguascalientes"                    
+#&gt;   [5] "Alabama"                            "Alagoas"                           
+#&gt;   [7] "Alaska"                             "Albania"                           
+#&gt;   [9] "Alberta"                            "Algeria"                           
+#&gt;  [11] "Amapá"                              "Amazonas"                          
+#&gt;  [13] "Andalucia"                          "Andorra"                           
+#&gt;  [15] "Angola"                             "Aragon"                            
+#&gt;  [17] "Argentina"                          "Arizona"                           
+#&gt;  [19] "Arkansas"                           "Armenia"                           
+#&gt;  [21] "Asturias"                           "Australia"                         
+#&gt;  [23] "Austria"                            "Azad Jammu &amp; Kashmir"              
+#&gt;  [25] "Azerbaijan"                         "Baden-Württemberg"                 
+#&gt;  [27] "Bahamas"                            "Bahia"                             
+#&gt;  [29] "Bahrain"                            "Baja California"                   
+#&gt;  [31] "Baja California Sur"                "Balearic Islands"                  
+#&gt;  [33] "Balochistan"                        "Bangladesh"                        
+#&gt;  [35] "Barbados"                           "Basilicata"                        
+#&gt;  [37] "Basque Country"                     "Bavaria"                           
+#&gt;  [39] "Belarus"                            "Belgium"                           
+#&gt;  [41] "Benin"                              "Berlin"                            
+#&gt;  [43] "Bolivia (Plurinational State of)"   "Bosnia and Herzegovina"            
+#&gt;  [45] "Brandenburg"                        "Brazil"                            
+#&gt;  [47] "Bremen"                             "British Columbia"                  
+#&gt;  [49] "Bulgaria"                           "Burkina Faso"                      
+#&gt;  [51] "Cabo Verde"                         "Calabria"                          
+#&gt;  [53] "California"                         "Cameroon"                          
+#&gt;  [55] "Campania"                           "Campeche"                          
+#&gt;  [57] "Canada"                             "Canary Islands"                    
+#&gt;  [59] "Cantabria"                          "Castile and León"                  
+#&gt;  [61] "Castilla-La Mancha"                 "Catalonia"                         
+#&gt;  [63] "Ceará"                              "Central African Republic"          
+#&gt;  [65] "Chad"                               "Chiapas"                           
+#&gt;  [67] "Chihuahua"                          "Chile"                             
+#&gt;  [69] "Coahuila"                           "Colima"                            
+#&gt;  [71] "Colombia"                           "Colorado"                          
+#&gt;  [73] "Community of Madrid"                "Comoros"                           
+#&gt;  [75] "Congo"                              "Connecticut"                       
+#&gt;  [77] "Costa Rica"                         "Côte d'Ivoire"                     
+#&gt;  [79] "Croatia"                            "Cuba"                              
+#&gt;  [81] "Cyprus"                             "Czechia"                           
+#&gt;  [83] "Delaware"                           "Democratic Republic of the Congo"  
+#&gt;  [85] "Denmark"                            "District of Columbia"              
+#&gt;  [87] "Distrito Federal"                   "Djibouti"                          
+#&gt;  [89] "Dominican Republic"                 "Durango"                           
+#&gt;  [91] "Ecuador"                            "Egypt"                             
+#&gt;  [93] "El Salvador"                        "Emilia-Romagna"                    
+#&gt;  [95] "Espírito Santo"                     "Estonia"                           
+#&gt;  [97] "Eswatini"                           "Ethiopia"                          
+#&gt;  [99] "Extremadura"                        "Finland"                           
+#&gt; [101] "Florida"                            "France"                            
+#&gt; [103] "Friuli-Venezia Giulia"              "Gabon"                             
+#&gt; [105] "Galicia"                            "Gambia"                            
+#&gt; [107] "Georgia"                            "Germany"                           
+#&gt; [109] "Ghana"                              "Gilgit-Baltistan"                  
+#&gt; [111] "Goiás"                              "Greece"                            
+#&gt; [113] "Guam"                               "Guanajuato"                        
+#&gt; [115] "Guatemala"                          "Guerrero"                          
+#&gt; [117] "Guinea"                             "Guinea-Bissau"                     
+#&gt; [119] "Guyana"                             "Haiti"                             
+#&gt; [121] "Hamburg"                            "Hawaii"                            
+#&gt; [123] "Hesse"                              "Hidalgo"                           
+#&gt; [125] "Honduras"                           "Hungary"                           
+#&gt; [127] "Iceland"                            "Idaho"                             
+#&gt; [129] "Illinois"                           "Indiana"                           
+#&gt; [131] "Indonesia"                          "Iowa"                              
+#&gt; [133] "Iran (Islamic Republic of)"         "Iraq"                              
+#&gt; [135] "Ireland"                            "Islamabad Capital Territory"       
+#&gt; [137] "Israel"                             "Italy"                             
+#&gt; [139] "Jalisco"                            "Jamaica"                           
+#&gt; [141] "Japan"                              "Jordan"                            
+#&gt; [143] "Kansas"                             "Kazakhstan"                        
+#&gt; [145] "Kentucky"                           "Kenya"                             
+#&gt; [147] "Khyber Pakhtunkhwa"                 "Kuwait"                            
+#&gt; [149] "Kyrgyzstan"                         "La Rioja"                          
+#&gt; [151] "Latvia"                             "Lazio"                             
+#&gt; [153] "Lebanon"                            "Liberia"                           
+#&gt; [155] "Libya"                              "Liguria"                           
+#&gt; [157] "Lithuania"                          "Lombardia"                         
+#&gt; [159] "Louisiana"                          "Lower Saxony"                      
+#&gt; [161] "Luxembourg"                         "Madagascar"                        
+#&gt; [163] "Maine"                              "Malawi"                            
+#&gt; [165] "Malaysia"                           "Maldives"                          
+#&gt; [167] "Mali"                               "Malta"                             
+#&gt; [169] "Manitoba"                           "Maranhão"                          
+#&gt; [171] "Marche"                             "Maryland"                          
+#&gt; [173] "Massachusetts"                      "Mato Grosso"                       
+#&gt; [175] "Mato Grosso do Sul"                 "Mauritania"                        
+#&gt; [177] "Mauritius"                          "Mecklenburg-Vorpommern"            
+#&gt; [179] "Mexico"                             "México"                            
+#&gt; [181] "Mexico City"                        "Michigan"                          
+#&gt; [183] "Michoacán de Ocampo"                "Minas Gerais"                      
+#&gt; [185] "Minnesota"                          "Mississippi"                       
+#&gt; [187] "Missouri"                           "Molise"                            
+#&gt; [189] "Montana"                            "Montenegro"                        
+#&gt; [191] "Morelos"                            "Morocco"                           
+#&gt; [193] "Mozambique"                         "Murcia"                            
+#&gt; [195] "Myanmar"                            "Navarre"                           
+#&gt; [197] "Nayarit"                            "Nebraska"                          
+#&gt; [199] "Nepal"                              "Netherlands"                       
+#&gt; [201] "Nevada"                             "New Hampshire"                     
+#&gt; [203] "New Jersey"                         "New Mexico"                        
+#&gt; [205] "New York"                           "New Zealand"                       
+#&gt; [207] "Nicaragua"                          "Niger"                             
+#&gt; [209] "Nigeria"                            "North Carolina"                    
+#&gt; [211] "North Dakota"                       "North Macedonia"                   
+#&gt; [213] "North Rhine-Westphalia"             "Norway"                            
+#&gt; [215] "Nova Scotia"                        "Nuevo León"                        
+#&gt; [217] "Oaxaca"                             "Ohio"                              
+#&gt; [219] "Oklahoma"                           "Oman"                              
+#&gt; [221] "Ontario"                            "Oregon"                            
+#&gt; [223] "Pakistan"                           "Palestine"                         
+#&gt; [225] "Panama"                             "Pará"                              
+#&gt; [227] "Paraguay"                           "Paraíba"                           
+#&gt; [229] "Paraná"                             "Pennsylvania"                      
+#&gt; [231] "Pernambuco"                         "Peru"                              
+#&gt; [233] "Philippines"                        "Piaui"                             
+#&gt; [235] "Piemonte"                           "Poland"                            
+#&gt; [237] "Portugal"                           "Provincia autonoma di Bolzano"     
+#&gt; [239] "Provincia autonoma di Trento"       "Puebla"                            
+#&gt; [241] "Puerto Rico"                        "Puglia"                            
+#&gt; [243] "Punjab"                             "Qatar"                             
+#&gt; [245] "Quebec"                             "Querétaro"                         
+#&gt; [247] "Quintana Roo"                       "Republic of Korea"                 
+#&gt; [249] "Republic of Moldova"                "Rhineland-Palatinate"              
+#&gt; [251] "Rhode Island"                       "Rio de Janeiro"                    
+#&gt; [253] "Rio Grande do Norte"                "Rio Grande do Sul"                 
+#&gt; [255] "Romania"                            "Rondônia"                          
+#&gt; [257] "Roraima"                            "Russian Federation"                
+#&gt; [259] "Rwanda"                             "Saarland"                          
+#&gt; [261] "San Luis Potosí"                    "San Marino"                        
+#&gt; [263] "Santa Catarina"                     "São Paulo"                         
+#&gt; [265] "Sao Tome and Principe"              "Sardegna"                          
+#&gt; [267] "Saskatchewan"                       "Saudi Arabia"                      
+#&gt; [269] "Saxony"                             "Saxony-Anhalt"                     
+#&gt; [271] "Schleswig-Holstein"                 "Senegal"                           
+#&gt; [273] "Serbia"                             "Sergipe"                           
+#&gt; [275] "Sicilia"                            "Sierra Leone"                      
+#&gt; [277] "Sinaloa"                            "Sindh"                             
+#&gt; [279] "Singapore"                          "Slovakia"                          
+#&gt; [281] "Slovenia"                           "Somalia"                           
+#&gt; [283] "Sonora"                             "South Africa"                      
+#&gt; [285] "South Carolina"                     "South Dakota"                      
+#&gt; [287] "South Sudan"                        "Spain"                             
+#&gt; [289] "Sri Lanka"                          "Sudan"                             
+#&gt; [291] "Suriname"                           "Sweden"                            
+#&gt; [293] "Switzerland"                        "Syrian Arab Republic"              
+#&gt; [295] "Tabasco"                            "Tajikistan"                        
+#&gt; [297] "Tamaulipas"                         "Tennessee"                         
+#&gt; [299] "Texas"                              "Thailand"                          
+#&gt; [301] "Thuringia"                          "Tlaxcala"                          
+#&gt; [303] "Tocantins"                          "Togo"                              
+#&gt; [305] "Toscana"                            "Trinidad and Tobago"               
+#&gt; [307] "Tunisia"                            "Turkey"                            
+#&gt; [309] "Ukraine"                            "Umbria"                            
+#&gt; [311] "United Arab Emirates"               "United Kingdom"                    
+#&gt; [313] "United States of America"           "United States Virgin Islands"      
+#&gt; [315] "Uruguay"                            "Utah"                              
+#&gt; [317] "Uzbekistan"                         "Valencian Community"               
+#&gt; [319] "Valle d'Aosta"                      "Veneto"                            
+#&gt; [321] "Venezuela (Bolivarian Republic of)" "Veracruz de Ignacio de la Llave"   
+#&gt; [323] "Vermont"                            "Virginia"                          
+#&gt; [325] "Washington"                         "West Virginia"                     
+#&gt; [327] "Wisconsin"                          "Wyoming"                           
+#&gt; [329] "Yemen"                              "Yucatán"                           
+#&gt; [331] "Zacatecas"                          "Zambia"                            
+#&gt; [333] "Zimbabwe"                          </div><div class='input'>
 <span class='co'># create a ggplot2 object</span>
 <span class='no'>nyp</span> <span class='kw'>=</span> <span class='fu'>plot_projection</span>(<span class='kw'>projections</span> <span class='kw'>=</span> <span class='no'>hdp</span>,
-    <span class='kw'>location_name</span><span class='kw'>=</span><span class='st'>'New York'</span>)</div><div class='output co'>#&gt; <span class='error'>Error in unique(projections$metric): object 'hdp' not found</span></div><div class='input'>
+    <span class='kw'>location_name</span><span class='kw'>=</span><span class='st'>'New York'</span>)
+
 <span class='co'># and do the plot</span>
-<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='no'>nyp</span>)</div><div class='output co'>#&gt; <span class='error'>Error in print(nyp): object 'nyp' not found</span></div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='no'>nyp</span>)</div><div class='img'><img src='plot_projection-1.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Zoomable html version using plotly</span>
 <span class='kw'>if</span>(<span class='fu'><a href='https://rdrr.io/r/base/library.html'>require</a></span>(<span class='no'>plotly</span>)) {
   <span class='fu'><a href='https://rdrr.io/pkg/plotly/man/ggplotly.html'>ggplotly</a></span>(<span class='no'>nyp</span>)
-}</div><div class='output co'>#&gt; <span class='error'>Error in ggplotly(nyp): object 'nyp' not found</span></div><div class='input'>
+}
+
 <span class='co'># California</span>
 <span class='no'>calip</span> <span class='kw'>=</span> <span class='fu'>plot_projection</span>(<span class='kw'>projections</span> <span class='kw'>=</span> <span class='no'>hdp</span>,
-    <span class='kw'>location_name</span><span class='kw'>=</span><span class='st'>'California'</span>)</div><div class='output co'>#&gt; <span class='error'>Error in unique(projections$metric): object 'hdp' not found</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='no'>calip</span>)</div><div class='output co'>#&gt; <span class='error'>Error in print(calip): object 'calip' not found</span></div><div class='input'>
+    <span class='kw'>location_name</span><span class='kw'>=</span><span class='st'>'California'</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='no'>calip</span>)</div><div class='img'><img src='plot_projection-2.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># entire US</span>
-<span class='fu'>plot_projection</span>(<span class='kw'>location_name</span> <span class='kw'>=</span> <span class='st'>"United States of America"</span>, <span class='kw'>projections</span> <span class='kw'>=</span> <span class='no'>hdp</span>)</div><div class='output co'>#&gt; <span class='error'>Error in unique(projections$metric): object 'hdp' not found</span></div><div class='input'>
+<span class='fu'>plot_projection</span>(<span class='kw'>location_name</span> <span class='kw'>=</span> <span class='st'>"United States of America"</span>, <span class='kw'>projections</span> <span class='kw'>=</span> <span class='no'>hdp</span>)</div><div class='img'><img src='plot_projection-3.png' alt='' width='700' height='433' /></div><div class='input'>
 
 <span class='co'># Compare two countries</span>
-<span class='no'>spain_proj</span> <span class='kw'>=</span> <span class='fu'>plot_projection</span>(<span class='kw'>location_name</span> <span class='kw'>=</span> <span class='st'>"Spain"</span>, <span class='kw'>projections</span> <span class='kw'>=</span> <span class='no'>hdp</span>)</div><div class='output co'>#&gt; <span class='error'>Error in unique(projections$metric): object 'hdp' not found</span></div><div class='input'><span class='no'>portugal_proj</span> <span class='kw'>=</span> <span class='fu'>plot_projection</span>(<span class='kw'>location_name</span> <span class='kw'>=</span> <span class='st'>"Portugal"</span>, <span class='kw'>projections</span> <span class='kw'>=</span> <span class='no'>hdp</span>)</div><div class='output co'>#&gt; <span class='error'>Error in unique(projections$metric): object 'hdp' not found</span></div><div class='input'><span class='co'>#'</span>
-<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='no'>spain_proj</span>)</div><div class='output co'>#&gt; <span class='error'>Error in print(spain_proj): object 'spain_proj' not found</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='no'>portugal_proj</span>)</div><div class='output co'>#&gt; <span class='error'>Error in print(portugal_proj): object 'portugal_proj' not found</span></div><div class='input'>
+<span class='no'>spain_proj</span> <span class='kw'>=</span> <span class='fu'>plot_projection</span>(<span class='kw'>location_name</span> <span class='kw'>=</span> <span class='st'>"Spain"</span>, <span class='kw'>projections</span> <span class='kw'>=</span> <span class='no'>hdp</span>)
+<span class='no'>portugal_proj</span> <span class='kw'>=</span> <span class='fu'>plot_projection</span>(<span class='kw'>location_name</span> <span class='kw'>=</span> <span class='st'>"Portugal"</span>, <span class='kw'>projections</span> <span class='kw'>=</span> <span class='no'>hdp</span>)
+<span class='co'>#'</span>
+<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='no'>spain_proj</span>)</div><div class='img'><img src='plot_projection-4.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='no'>portugal_proj</span>)</div><div class='img'><img src='plot_projection-5.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># plot both on same plot</span>
 <span class='kw'>if</span>(<span class='fu'><a href='https://rdrr.io/r/base/library.html'>require</a></span>(<span class='no'>cowplot</span>)) {
   <span class='fu'><a href='https://rdrr.io/pkg/cowplot/man/plot_grid.html'>plot_grid</a></span>(<span class='no'>spain_proj</span>, <span class='no'>portugal_proj</span>)
 }</div><div class='output co'>#&gt; <span class='message'>Loading required package: cowplot</span></div><div class='output co'>#&gt; <span class='message'></span>
 #&gt; <span class='message'>********************************************************</span></div><div class='output co'>#&gt; <span class='message'>Note: As of version 1.0.0, cowplot does not change the</span></div><div class='output co'>#&gt; <span class='message'>  default ggplot2 theme anymore. To recover the previous</span></div><div class='output co'>#&gt; <span class='message'>  behavior, execute:</span>
-#&gt; <span class='message'>  theme_set(theme_cowplot())</span></div><div class='output co'>#&gt; <span class='message'>********************************************************</span></div><div class='output co'>#&gt; <span class='error'>Error in plot_grid(spain_proj, portugal_proj): object 'spain_proj' not found</span></div><div class='input'>
+#&gt; <span class='message'>  theme_set(theme_cowplot())</span></div><div class='output co'>#&gt; <span class='message'>********************************************************</span></div><div class='img'><img src='plot_projection-6.png' alt='' width='700' height='433' /></div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
