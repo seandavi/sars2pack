@@ -36,7 +36,7 @@
 owid_data = function() {
     url = 'https://covid.ourworldindata.org/data/owid-covid-data.csv'
     rpath = s2p_cached_url(url)
-    dat = readr::read_csv(rpath, col_types = readr::cols())
+    dat = readr::read_csv(rpath, col_types = readr::cols(), guess_max = 5000)
     dat %>% dplyr::select(iso_code, location, date, total_cases, 
                           total_deaths, total_tests, tests_units) %>%
         dplyr::rename(
