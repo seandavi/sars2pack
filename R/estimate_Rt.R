@@ -246,7 +246,7 @@ bulk_estimate_Rt = function(df,
                     date_column = date_column, ...)
     }
     d = df %>% tidyr::nest(-c(grouping_columns)) 
-    d %>% dplyr::mutate(rt_df = purrr::map(data, app_fn, ...)) %>% tidyr::unnest(cols=rt_df)
+    d %>% dplyr::mutate(rt_df = purrr::map(.data$data, app_fn, ...)) %>% tidyr::unnest(cols=.data$rt_df)
 }
 
 

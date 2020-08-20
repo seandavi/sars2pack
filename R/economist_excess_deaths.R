@@ -28,8 +28,8 @@ economist_excess_deaths = function() {
     paths = c('output-data/excess-deaths')
     get_urls = function(repo, path) {
         res = ls_github(repo, path)
-        res %>% dplyr::filter(type=='file' & grepl('csv$',name)) %>%
-            .$download_url
+        res %>% dplyr::filter(.data$type=='file' & grepl('csv$',.data$name)) %>%
+            dplyr::pull(download_url)
     }
     urls = c(sapply(paths, function(x) get_urls(repo, x)))
     urls
