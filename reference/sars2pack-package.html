@@ -413,7 +413,7 @@ COVID-19 data resources.</p></li>
 #&gt; 6 &lt;NA&gt;          Afghanistan    33.9  67.7 2020-01-27     0 confirmed
 #&gt; 
 #&gt; jhu_dt&gt; dplyr::glimpse(res)
-#&gt; Rows: 165,635
+#&gt; Rows: 166,420
 #&gt; Columns: 7
 #&gt; $ ProvinceState &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
 #&gt; $ CountryRegion &lt;chr&gt; "Afghanistan", "Afghanistan", "Afghanistan", "Afghanist…
@@ -445,7 +445,7 @@ COVID-19 data resources.</p></li>
 #&gt; appl__&gt; table(res$transportation_type)
 #&gt; 
 #&gt; driving transit walking 
-#&gt;  670560   48840   78100 
+#&gt;  673608   49062   78455 
 #&gt; 
 #&gt; appl__&gt; require(ggplot2)
 #&gt; 
@@ -490,17 +490,17 @@ COVID-19 data resources.</p></li>
 #&gt; 
 #&gt; hlth__&gt; res[sample(1:nrow(res),6),]
 #&gt; # A tibble: 6 x 6
-#&gt;   location_name              date       metric     mean  upper    lower
-#&gt;   &lt;chr&gt;                      &lt;date&gt;     &lt;chr&gt;     &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;
-#&gt; 1 Zambia                     2020-02-04 allbed     0       0      0    
-#&gt; 2 La Rioja                   2020-02-11 totdea     0       0      0    
-#&gt; 3 Alberta                    2020-09-15 admis      3.70   11.5    0.365
-#&gt; 4 Iran (Islamic Republic of) 2020-10-01 icuover 2890.   5415.  1006.   
-#&gt; 5 Liguria                    2020-06-26 deaths     0       0      0    
-#&gt; 6 Marche                     2020-07-01 totdea   987     987    987    
+#&gt;   location_name date       metric     mean   upper    lower
+#&gt;   &lt;chr&gt;         &lt;date&gt;     &lt;chr&gt;     &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;
+#&gt; 1 Zacatecas     2020-02-04 allbed     0       0       0    
+#&gt; 2 Kyrgyzstan    2020-02-11 totdea     0       0       0    
+#&gt; 3 Alberta       2020-09-15 admis      1.88    3.78    0.559
+#&gt; 4 Iowa          2020-10-01 icuover    0      33.2     0    
+#&gt; 5 Libya         2020-06-26 deaths     0       0       0    
+#&gt; 6 Maranhão      2020-07-01 totdea  2081    2081    2081    
 #&gt; 
 #&gt; hlth__&gt; dplyr::glimpse(res)
-#&gt; Rows: 1,005,660
+#&gt; Rows: 1,008,680
 #&gt; Columns: 6
 #&gt; $ location_name &lt;chr&gt; "Abruzzo", "Abruzzo", "Abruzzo", "Abruzzo", "Abruzzo", …
 #&gt; $ date          &lt;date&gt; 2020-02-04, 2020-02-04, 2020-02-04, 2020-02-04, 2020-0…
@@ -510,22 +510,22 @@ COVID-19 data resources.</p></li>
 #&gt; $ lower         &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
 #&gt; 
 #&gt; hlth__&gt; summary(res)
-#&gt;  location_name           date               metric               mean         
-#&gt;  Length:1005660     Min.   :2020-02-04   Length:1005660     Min.   :   -94.0  
-#&gt;  Class :character   1st Qu.:2020-04-19   Class :character   1st Qu.:     0.0  
-#&gt;  Mode  :character   Median :2020-07-03   Mode  :character   Median :     6.7  
-#&gt;                     Mean   :2020-07-03                      Mean   :  1049.2  
-#&gt;                     3rd Qu.:2020-09-17                      3rd Qu.:   130.2  
-#&gt;                     Max.   :2020-12-01                      Max.   :949550.4  
-#&gt;                                                             NA's   :2942      
+#&gt;  location_name           date               metric               mean       
+#&gt;  Length:1008680     Min.   :2020-02-04   Length:1008680     Min.   :   -94  
+#&gt;  Class :character   1st Qu.:2020-04-19   Class :character   1st Qu.:     0  
+#&gt;  Mode  :character   Median :2020-07-03   Mode  :character   Median :     7  
+#&gt;                     Mean   :2020-07-03                      Mean   :  1033  
+#&gt;                     3rd Qu.:2020-09-17                      3rd Qu.:   133  
+#&gt;                     Max.   :2020-12-01                      Max.   :894610  
+#&gt;                                                             NA's   :3726    
 #&gt;      upper               lower          
 #&gt;  Min.   :    -94.0   Min.   :   -94.00  
 #&gt;  1st Qu.:      0.0   1st Qu.:     0.00  
-#&gt;  Median :     10.9   Median :     2.89  
-#&gt;  Mean   :   2084.8   Mean   :   644.86  
-#&gt;  3rd Qu.:    226.8   3rd Qu.:    67.90  
-#&gt;  Max.   :2960298.4   Max.   :242022.40  
-#&gt;  NA's   :2942        NA's   :2942       
+#&gt;  Median :     10.4   Median :     3.48  
+#&gt;  Mean   :   1927.2   Mean   :   682.46  
+#&gt;  3rd Qu.:    215.2   3rd Qu.:    76.34  
+#&gt;  Max.   :2771862.6   Max.   :277766.77  
+#&gt;  NA's   :3726        NA's   :3726       
 #&gt; 
 #&gt; hlth__&gt; #plot the predictions
 #&gt; hlth__&gt; 

@@ -268,7 +268,7 @@ direct comparison of the shapes of the countries' curves.</p>
 #&gt; 6 2019-12-31 Armenia       AM    ARM           2957728 Europe   
 #&gt; # … with 3 more variables:
 #&gt; #   `Cumulative_number_for_14_days_of_COVID-19_cases_per_100000` &lt;dbl&gt;,
-#&gt; #   subset &lt;chr&gt;, count &lt;dbl&gt;</div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>ecdc</span>)</div><div class='output co'>#&gt; Rows: 74,894
+#&gt; #   subset &lt;chr&gt;, count &lt;dbl&gt;</div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>ecdc</span>)</div><div class='output co'>#&gt; Rows: 75,312
 #&gt; Columns: 9
 #&gt; Groups: location_name, subset [420]
 #&gt; $ date                                                         &lt;date&gt; 2019-12…
@@ -307,7 +307,7 @@ direct comparison of the shapes of the countries' curves.</p>
     <span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span>(<span class='no'>location_name</span> <span class='kw'>%in%</span> <span class='no'>top_10</span><span class='kw'>[[</span><span class='st'>'location_name'</span>]])
 <span class='fu'><a href='plot_epicurve.html'>plot_epicurve</a></span>(<span class='no'>ecdc_top10</span>, <span class='kw'>color</span><span class='kw'>=</span><span class='st'>'location_name'</span>, <span class='kw'>case_column</span><span class='kw'>=</span><span class='st'>'deaths'</span>)</div><div class='output co'>#&gt; <span class='error'>Error: </span></div><div class='input'>
 <span class='no'>ecdc_top10_baseline</span> <span class='kw'>=</span> <span class='fu'>align_to_baseline</span>(<span class='no'>ecdc_top10</span>, <span class='no'>deaths</span><span class='kw'>&gt;</span><span class='fl'>100</span>, <span class='kw'>group_vars</span><span class='kw'>=</span><span class='st'>'location_name'</span>)</div><div class='output co'>#&gt; <span class='error'>Error: Problem with `filter()` input `..1`.</span>
-#&gt; <span class='error'>✖ Input `..1` must be of size 224 or 1, not size 72.</span>
+#&gt; <span class='error'>✖ Input `..1` must be of size 225 or 1, not size 72.</span>
 #&gt; <span class='error'>ℹ Input `..1` is `deaths &gt; 100`.</span>
 #&gt; <span class='error'>ℹ The error occurred in group 1: location_name = "Afghanistan", subset = "confirmed".</span></div><div class='input'>
 <span class='fu'><a href='plot_epicurve.html'>plot_epicurve</a></span>(<span class='no'>ecdc_top10_baseline</span>, <span class='kw'>date_column</span><span class='kw'>=</span><span class='st'>'index'</span>, <span class='kw'>color</span><span class='kw'>=</span><span class='st'>'location_name'</span>) +
