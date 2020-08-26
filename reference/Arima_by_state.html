@@ -226,11 +226,11 @@ case the latest available date is used</p></td>
     <p>instance of S3 class Arima_sars2pack</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>nyd</span> <span class='kw'>=</span> <span class='fu'><a href='nytimes_county_data.html'>nytimes_state_data</a></span>()</div><div class='output co'>#&gt; <span class='message'>using temporary cache /tmp/RtmpsT7ifS/BiocFileCache</span></div><div class='input'><span class='no'>mb</span> <span class='kw'>=</span> <span class='fu'><a href='min_bic.html'>min_bic</a></span>(<span class='no'>nyd</span>, <span class='kw'>state.in</span><span class='kw'>=</span><span class='st'>"New York"</span>)
+    <pre class="examples"><div class='input'><span class='no'>nyd</span> <span class='kw'>=</span> <span class='fu'><a href='nytimes_county_data.html'>nytimes_state_data</a></span>()</div><div class='output co'>#&gt; <span class='message'>using temporary cache /tmp/RtmpQprAA9/BiocFileCache</span></div><div class='input'><span class='no'>mb</span> <span class='kw'>=</span> <span class='fu'><a href='min_bic.html'>min_bic</a></span>(<span class='no'>nyd</span>, <span class='kw'>state.in</span><span class='kw'>=</span><span class='st'>"New York"</span>)
 <span class='no'>lkny</span> <span class='kw'>=</span> <span class='fu'>Arima_by_state</span>(<span class='no'>nyd</span>, <span class='kw'>ARorder</span><span class='kw'>=</span><span class='no'>mb</span>$<span class='no'>opt</span>[<span class='st'>"ARord"</span>], <span class='kw'>MAorder</span><span class='kw'>=</span><span class='no'>mb</span>$<span class='no'>opt</span>[<span class='st'>"MAord"</span>])
 <span class='no'>lkny</span></div><div class='output co'>#&gt; Arima_sars2pack instance for New York 
-#&gt;   computed Wed Aug 26 03:47:26 2020 
-#&gt;   last date used was:  2020-08-24 
+#&gt;   computed Wed Aug 26 15:55:37 2020 
+#&gt;   last date used was:  2020-08-25 
 #&gt;   call was: Arima_by_state(src = nyd, MAorder = mb$opt["MAord"], ARorder = mb$opt["ARord"])
 #&gt;   Model estimates: 
 #&gt; Series: tsfull 
@@ -238,19 +238,19 @@ case the latest available date is used</p></td>
 #&gt; 
 #&gt; Coefficients:
 #&gt;           ma1      ma2     ma3    drift
-#&gt;       -0.9904  -0.9905  0.9999  -2.0830
-#&gt; s.e.   0.2441   0.2287  0.2441   0.6311
+#&gt;       -0.9896  -0.9896  1.0000  -2.2982
+#&gt; s.e.   0.2437   0.2816  0.2438   0.6141
 #&gt; 
-#&gt; sigma^2 estimated as 6028:  log likelihood=-164.83
-#&gt; AIC=339.66   AICc=342.39   BIC=346.32
+#&gt; sigma^2 estimated as 5914:  log likelihood=-164.52
+#&gt; AIC=339.04   AICc=341.77   BIC=345.7
 #&gt; 
 #&gt; Training set error measures:
-#&gt;                    ME     RMSE      MAE       MPE     MAPE   MASE       ACF1
-#&gt; Training set 9.684633 70.63259 57.73185 -0.136127 9.679909 0.5821 0.03615767</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='no'>lkny</span>)</div><div class='img'><img src='Arima_by_state-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='no'>usd</span> <span class='kw'>=</span> <span class='fu'><a href='jhu_us_data.html'>jhu_us_data</a></span>()
+#&gt;                    ME     RMSE     MAE        MPE     MAPE      MASE       ACF1
+#&gt; Training set 8.088918 69.95963 57.0214 -0.3368726 9.589352 0.5460326 0.07632201</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='no'>lkny</span>)</div><div class='img'><img src='Arima_by_state-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='no'>usd</span> <span class='kw'>=</span> <span class='fu'><a href='jhu_us_data.html'>jhu_us_data</a></span>()
 <span class='no'>lkny2</span> <span class='kw'>=</span> <span class='fu'>Arima_by_state</span>(<span class='no'>usd</span>, <span class='kw'>ARorder</span><span class='kw'>=</span><span class='no'>mb</span>$<span class='no'>opt</span>[<span class='st'>"ARord"</span>], <span class='kw'>MAorder</span><span class='kw'>=</span><span class='no'>mb</span>$<span class='no'>opt</span>[<span class='st'>"MAord"</span>])
 <span class='no'>lkny2</span></div><div class='output co'>#&gt; Arima_sars2pack instance for New York 
-#&gt;   computed Wed Aug 26 03:47:30 2020 
-#&gt;   last date used was:  2020-08-24 
+#&gt;   computed Wed Aug 26 15:55:41 2020 
+#&gt;   last date used was:  2020-08-25 
 #&gt;   call was: Arima_by_state(src = usd, MAorder = mb$opt["MAord"], ARorder = mb$opt["ARord"])
 #&gt;   Model estimates: 
 #&gt; Series: tsfull 
@@ -258,15 +258,17 @@ case the latest available date is used</p></td>
 #&gt; 
 #&gt; Coefficients:
 #&gt;           ma1      ma2     ma3    drift
-#&gt;       -0.9896  -0.9886  0.9992  -2.1347
-#&gt; s.e.   0.2356   0.2461  0.2355   0.6215
+#&gt;       -0.9889  -0.9885  0.9997  -2.3484
+#&gt; s.e.   0.2568   0.3462  0.2568   0.6082
 #&gt; 
-#&gt; sigma^2 estimated as 5976:  log likelihood=-164.65
-#&gt; AIC=339.3   AICc=342.03   BIC=345.96
+#&gt; sigma^2 estimated as 5865:  log likelihood=-164.37
+#&gt; AIC=338.73   AICc=341.46   BIC=345.39
 #&gt; 
 #&gt; Training set error measures:
-#&gt;                    ME     RMSE      MAE        MPE    MAPE      MASE       ACF1
-#&gt; Training set 9.741689 70.32601 58.10924 -0.1077906 9.72821 0.5946852 0.04159168</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='no'>lkny2</span>)</div><div class='img'><img src='Arima_by_state-2.png' alt='' width='700' height='433' /></div></pre>
+#&gt;                    ME     RMSE      MAE        MPE     MAPE      MASE
+#&gt; Training set 7.889838 69.66936 57.36466 -0.3476397 9.633603 0.5571317
+#&gt;                    ACF1
+#&gt; Training set 0.08041386</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='no'>lkny2</span>)</div><div class='img'><img src='Arima_by_state-2.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
