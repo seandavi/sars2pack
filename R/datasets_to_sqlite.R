@@ -44,11 +44,12 @@ datasets_to_sql <- function(con, dataset_accessors = available_datasets()$access
 #        stop('Dataset accessors must be included in available_datasets()$accessor')
 #    }
     for(i in dataset_accessors) {
+        message(i)
         ds = try(as.data.frame(get(i)()))
         if(inherits(ds, 'try-error')) next
-        ds = ds[, as.vector(which(sapply(ds, is.vector)))]
+        ds = ds[, as.vector(which(sapply(ds, is.atomic)))]
         if(is.data.frame(ds)) {
-            message(i)
+            message("writing")
             dplyr::copy_to(con, ds, i, ..., overwrite=TRUE)
         }
     }
