@@ -259,37 +259,39 @@ confidence interval, lower confidence interval</p></li>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>res</span> <span class='kw'>=</span> <span class='fu'>healthdata_projections_data</span>()
 <span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; [1] "location_name" "date"          "metric"        "mean"         
-#&gt; [5] "upper"         "lower"        </div><div class='input'><span class='no'>res</span>[<span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span>(<span class='fl'>1</span>:<span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span>(<span class='no'>res</span>),<span class='fl'>6</span>),]</div><div class='output co'>#&gt; # A tibble: 6 x 6
-#&gt;   location_name date       metric               mean      upper      lower
-#&gt;   &lt;chr&gt;         &lt;date&gt;     &lt;chr&gt;               &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;
-#&gt; 1 Bangladesh    2020-10-18 allbed         24918.     61053.     10169.    
-#&gt; 2 New Jersey    2020-08-20 InvVen            39.3       50.7       29.2   
-#&gt; 3 Hamburg       2020-07-15 admis              0.0414     0.0414     0.0414
-#&gt; 4 Nevada        2020-08-03 InvVen           148.       148.       148.    
-#&gt; 5 La Rioja      2020-03-25 est_infections   930.      1225.       706.    
-#&gt; 6 Guam          2020-03-14 allbed             0.612      0.612      0.612 </div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Rows: 1,008,680
-#&gt; Columns: 6
-#&gt; $ location_name &lt;chr&gt; "Abruzzo", "Abruzzo", "Abruzzo", "Abruzzo", "Abruzzo", …
+#&gt; [5] "upper"         "pctupper"      "lower"         "pctlower"     </div><div class='input'><span class='no'>res</span>[<span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span>(<span class='fl'>1</span>:<span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span>(<span class='no'>res</span>),<span class='fl'>6</span>),]</div><div class='output co'>#&gt; # A tibble: 6 x 8
+#&gt;   location_name          date       metric   mean upper pctupper lower pctlower
+#&gt;   &lt;chr&gt;                  &lt;date&gt;     &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;
+#&gt; 1 Estonia                2020-04-07 InvVen   14.8  14.8   NA      14.8   NA    
+#&gt; 2 Hawaii                 2020-09-06 icuover   0     0     NA       0     NA    
+#&gt; 3 Qatar                  2020-04-28 sero     NA    NA     NA      NA     NA    
+#&gt; 4 Florida                2020-02-04 allbed    0     0     NA       0     NA    
+#&gt; 5 Mozambique             2020-03-17 bedover   0     0     NA       0     NA    
+#&gt; 6 Bosnia and Herzegovina 2020-05-04 sero     NA    NA      0.613  NA      0.442</div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Rows: 1,217,664
+#&gt; Columns: 8
+#&gt; $ location_name &lt;chr&gt; "Indonesia", "Indonesia", "Indonesia", "Indonesia", "In…
 #&gt; $ date          &lt;date&gt; 2020-02-04, 2020-02-04, 2020-02-04, 2020-02-04, 2020-0…
 #&gt; $ metric        &lt;chr&gt; "allbed", "ICUbed", "InvVen", "admis", "newICU", "bedov…
-#&gt; $ mean          &lt;dbl&gt; 0.0000000, 0.0000000, 0.0000000, 0.0000000, 0.0000000, …
-#&gt; $ upper         &lt;dbl&gt; 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000…
-#&gt; $ lower         &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt;  location_name           date               metric               mean       
-#&gt;  Length:1008680     Min.   :2020-02-04   Length:1008680     Min.   :   -94  
-#&gt;  Class :character   1st Qu.:2020-04-19   Class :character   1st Qu.:     0  
-#&gt;  Mode  :character   Median :2020-07-03   Mode  :character   Median :     7  
-#&gt;                     Mean   :2020-07-03                      Mean   :  1033  
-#&gt;                     3rd Qu.:2020-09-17                      3rd Qu.:   133  
-#&gt;                     Max.   :2020-12-01                      Max.   :894610  
-#&gt;                                                             NA's   :3726    
-#&gt;      upper               lower          
-#&gt;  Min.   :    -94.0   Min.   :   -94.00  
-#&gt;  1st Qu.:      0.0   1st Qu.:     0.00  
-#&gt;  Median :     10.4   Median :     3.48  
-#&gt;  Mean   :   1927.2   Mean   :   682.46  
-#&gt;  3rd Qu.:    215.2   3rd Qu.:    76.34  
-#&gt;  Max.   :2771862.6   Max.   :277766.77  
-#&gt;  NA's   :3726        NA's   :3726       </div><div class='input'>
+#&gt; $ mean          &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NA, NA, 0, 0, 0, 0, 0, 0,…
+#&gt; $ upper         &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NA, NA, 0, 0, 0, 0, 0, 0,…
+#&gt; $ pctupper      &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+#&gt; $ lower         &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NA, NA, 0, 0, 0, 0, 0, 0,…
+#&gt; $ pctlower      &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt;  location_name           date               metric               mean         
+#&gt;  Length:1217664     Min.   :2020-02-04   Length:1217664     Min.   :     -94  
+#&gt;  Class :character   1st Qu.:2020-04-19   Class :character   1st Qu.:       0  
+#&gt;  Mode  :character   Median :2020-07-03   Mode  :character   Median :       9  
+#&gt;                     Mean   :2020-07-03                      Mean   :   11745  
+#&gt;                     3rd Qu.:2020-09-17                      3rd Qu.:     177  
+#&gt;                     Max.   :2020-12-01                      Max.   :24299850  
+#&gt;                                                             NA's   :167955    
+#&gt;      upper             pctupper           lower             pctlower      
+#&gt;  Min.   :     -94   Min.   : 0.0      Min.   :     -94   Min.   : 0.0     
+#&gt;  1st Qu.:       0   1st Qu.: 0.0      1st Qu.:       0   1st Qu.: 0.0     
+#&gt;  Median :      13   Median : 0.6      Median :       5   Median : 0.4     
+#&gt;  Mean   :   13347   Mean   : 3.1      Mean   :   10661   Mean   : 2.4     
+#&gt;  3rd Qu.:     271   3rd Qu.: 3.0      3rd Qu.:     110   3rd Qu.: 2.3     
+#&gt;  Max.   :24731785   Max.   :44.5      Max.   :23855913   Max.   :41.0     
+#&gt;  NA's   :167955     NA's   :1178625   NA's   :167955     NA's   :1178625  </div><div class='input'>
 <span class='co'>#plot the predictions</span>
 
 <span class='no'>regs_of_interest</span> <span class='kw'>=</span> <span class='st'>'Georgia'</span>
@@ -299,15 +301,15 @@ confidence interval, lower confidence interval</p></li>
     <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>x</span><span class='kw'>=</span><span class='no'>date</span>)) + <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>y</span><span class='kw'>=</span><span class='no'>mean</span>, <span class='kw'>color</span><span class='kw'>=</span><span class='no'>metric</span>))
 
 <span class='co'># plot the "mean" prediction</span>
-<span class='no'>pl</span></div><div class='img'><img src='healthdata_projections_data-1.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='no'>pl</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 604 row(s) containing missing values (geom_path).</span></div><div class='img'><img src='healthdata_projections_data-1.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># add 95% confidence bounds</span>
-<span class='no'>pl</span> + <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_ribbon.html'>geom_ribbon</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>ymin</span><span class='kw'>=</span><span class='no'>lower</span>, <span class='kw'>ymax</span><span class='kw'>=</span><span class='no'>upper</span>, <span class='kw'>fill</span><span class='kw'>=</span><span class='no'>metric</span>), <span class='kw'>alpha</span><span class='kw'>=</span><span class='fl'>0.25</span>)</div><div class='img'><img src='healthdata_projections_data-2.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='no'>pl</span> + <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_ribbon.html'>geom_ribbon</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>ymin</span><span class='kw'>=</span><span class='no'>lower</span>, <span class='kw'>ymax</span><span class='kw'>=</span><span class='no'>upper</span>, <span class='kw'>fill</span><span class='kw'>=</span><span class='no'>metric</span>), <span class='kw'>alpha</span><span class='kw'>=</span><span class='fl'>0.25</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 604 row(s) containing missing values (geom_path).</span></div><div class='output co'>#&gt; <span class='warning'>Warning: no non-missing arguments to max; returning -Inf</span></div><div class='output co'>#&gt; <span class='warning'>Warning: no non-missing arguments to max; returning -Inf</span></div><div class='img'><img src='healthdata_projections_data-2.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='no'>regs_of_interest</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>'New York'</span>, <span class='st'>'Italy'</span>)
 <span class='no'>pl</span> <span class='kw'>=</span> <span class='no'>res</span> <span class='kw'>%&gt;%</span>
     <span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span>(<span class='no'>location_name</span> <span class='kw'>%in%</span> <span class='no'>regs_of_interest</span>) <span class='kw'>%&gt;%</span>
     <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>x</span><span class='kw'>=</span><span class='no'>date</span>)) + <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>y</span><span class='kw'>=</span><span class='no'>mean</span>, <span class='kw'>color</span><span class='kw'>=</span><span class='no'>metric</span>)) +
     <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/facet_grid.html'>facet_grid</a></span>(<span class='kw'>rows</span> <span class='kw'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/vars.html'>vars</a></span>(<span class='no'>location_name</span>))
-<span class='no'>pl</span></div><div class='img'><img src='healthdata_projections_data-3.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='no'>pl</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 977 row(s) containing missing values (geom_path).</span></div><div class='img'><img src='healthdata_projections_data-3.png' alt='' width='700' height='433' /></div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
