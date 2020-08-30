@@ -251,7 +251,7 @@ datasets that are appropriate for passing into here.</p></div>
 #&gt; 5 &lt;NA&gt;          Afghanistan    33.9  67.7 2020-01-26     0 confirmed
 #&gt; 6 &lt;NA&gt;          Afghanistan    33.9  67.7 2020-01-27     0 confirmed</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>j</span>)</div><div class='output co'>#&gt; [1] "ProvinceState" "CountryRegion" "Lat"           "Long"         
 #&gt; [5] "date"          "count"         "subset"       </div><div class='input'>
-<span class='fu'>add_incidence_column</span>(<span class='no'>j</span>, <span class='kw'>grouping_columns</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>'CountryRegion'</span>,<span class='st'>'ProvinceState'</span>))</div><div class='output co'>#&gt; # A tibble: 171,915 x 8
+<span class='fu'>add_incidence_column</span>(<span class='no'>j</span>, <span class='kw'>grouping_columns</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>'CountryRegion'</span>,<span class='st'>'ProvinceState'</span>))</div><div class='output co'>#&gt; # A tibble: 173,485 x 8
 #&gt; # Groups:   CountryRegion, ProvinceState [267]
 #&gt;    ProvinceState CountryRegion   Lat  Long date       count subset      inc
 #&gt;    &lt;chr&gt;         &lt;chr&gt;         &lt;dbl&gt; &lt;dbl&gt; &lt;date&gt;     &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt;
@@ -265,7 +265,7 @@ datasets that are appropriate for passing into here.</p></div>
 #&gt;  8 &lt;NA&gt;          Afghanistan    33.9  67.7 2020-01-29     0 confirmed     0
 #&gt;  9 &lt;NA&gt;          Afghanistan    33.9  67.7 2020-01-30     0 confirmed     0
 #&gt; 10 &lt;NA&gt;          Afghanistan    33.9  67.7 2020-01-31     0 confirmed     0
-#&gt; # … with 171,905 more rows</div><div class='input'>
+#&gt; # … with 173,475 more rows</div><div class='input'>
 <span class='co'># get top 10 countries by cumulative</span>
 <span class='co'># number of cases</span>
 <span class='no'>j_top_10</span> <span class='kw'>=</span> <span class='no'>j</span> <span class='kw'>%&gt;%</span>
@@ -277,24 +277,24 @@ datasets that are appropriate for passing into here.</p></div>
 <span class='no'>j_top_10</span></div><div class='output co'>#&gt; # A tibble: 10 x 2
 #&gt;    CountryRegion   count
 #&gt;    &lt;chr&gt;           &lt;dbl&gt;
-#&gt;  1 US             180824
-#&gt;  2 Brazil         118649
-#&gt;  3 Mexico          62594
-#&gt;  4 India           61529
-#&gt;  5 United Kingdom  41477
-#&gt;  6 Italy           35463
-#&gt;  7 France          30441
-#&gt;  8 Spain           28996
-#&gt;  9 Peru            28124
-#&gt; 10 Iran            21137</div><div class='input'>
+#&gt;  1 US             182761
+#&gt;  2 Brazil         120262
+#&gt;  3 Mexico          63819
+#&gt;  4 India           63498
+#&gt;  5 United Kingdom  41498
+#&gt;  6 Italy           35473
+#&gt;  7 France          30460
+#&gt;  8 Spain           29011
+#&gt;  9 Peru            28471
+#&gt; 10 Iran            21359</div><div class='input'>
 <span class='co'># The JHU data divides some countries into</span>
 <span class='co'># regions, so we can collapse to regions</span>
 <span class='co'># by simply summing over date/country</span>
 <span class='no'>j</span> <span class='kw'>=</span> <span class='no'>j</span> <span class='kw'>%&gt;%</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span>(<span class='no'>CountryRegion</span> <span class='kw'>%in%</span> <span class='no'>j_top_10</span><span class='kw'>[[</span><span class='st'>'CountryRegion'</span>]] <span class='kw'>&amp;</span> <span class='no'>subset</span><span class='kw'>==</span><span class='st'>'deaths'</span>) <span class='kw'>%&gt;%</span>
     <span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span>(<span class='no'>date</span>, <span class='no'>CountryRegion</span>) <span class='kw'>%&gt;%</span>
     <span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarize</a></span>(<span class='kw'>count</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span>(<span class='no'>count</span>))</div><div class='output co'>#&gt; <span class='message'>`summarise()` regrouping output by 'date' (override with `.groups` argument)</span></div><div class='input'>
-<span class='no'>j</span></div><div class='output co'>#&gt; # A tibble: 2,190 x 3
-#&gt; # Groups:   date [219]
+<span class='no'>j</span></div><div class='output co'>#&gt; # A tibble: 2,210 x 3
+#&gt; # Groups:   date [221]
 #&gt;    date       CountryRegion  count
 #&gt;    &lt;date&gt;     &lt;chr&gt;          &lt;dbl&gt;
 #&gt;  1 2020-01-22 Brazil             0
@@ -307,11 +307,11 @@ datasets that are appropriate for passing into here.</p></div>
 #&gt;  8 2020-01-22 Spain              0
 #&gt;  9 2020-01-22 United Kingdom     0
 #&gt; 10 2020-01-22 US                 0
-#&gt; # … with 2,180 more rows</div><div class='input'>
+#&gt; # … with 2,200 more rows</div><div class='input'>
 <span class='co'># Add an incidence column to the cumulative dataset</span>
 <span class='no'>j_inc</span> <span class='kw'>=</span> <span class='fu'>add_incidence_column</span>(<span class='no'>j</span>, <span class='kw'>grouping_columns</span><span class='kw'>=</span><span class='st'>'CountryRegion'</span>)
 
-<span class='no'>j_inc</span></div><div class='output co'>#&gt; # A tibble: 2,190 x 4
+<span class='no'>j_inc</span></div><div class='output co'>#&gt; # A tibble: 2,210 x 4
 #&gt; # Groups:   CountryRegion [10]
 #&gt;    date       CountryRegion  count   inc
 #&gt;    &lt;date&gt;     &lt;chr&gt;          &lt;dbl&gt; &lt;dbl&gt;
@@ -325,7 +325,7 @@ datasets that are appropriate for passing into here.</p></div>
 #&gt;  8 2020-01-22 Spain              0    NA
 #&gt;  9 2020-01-22 United Kingdom     0    NA
 #&gt; 10 2020-01-22 US                 0    NA
-#&gt; # … with 2,180 more rows</div><div class='input'>
+#&gt; # … with 2,200 more rows</div><div class='input'>
 <span class='no'>j_inc</span> <span class='kw'>%&gt;%</span>
     <span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span>(<span class='no'>count</span><span class='kw'>&gt;</span><span class='fl'>0</span>) <span class='kw'>%&gt;%</span>
     <span class='fu'><a href='plot_epicurve.html'>plot_epicurve</a></span>(<span class='kw'>color</span><span class='kw'>=</span><span class='st'>'CountryRegion'</span>, <span class='kw'>case_column</span><span class='kw'>=</span><span class='st'>'inc'</span>) +

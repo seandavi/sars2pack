@@ -413,7 +413,7 @@ COVID-19 data resources.</p></li>
 #&gt; 6 &lt;NA&gt;          Afghanistan    33.9  67.7 2020-01-27     0 confirmed
 #&gt; 
 #&gt; jhu_dt&gt; dplyr::glimpse(res)
-#&gt; Rows: 171,915
+#&gt; Rows: 173,485
 #&gt; Columns: 7
 #&gt; $ ProvinceState &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
 #&gt; $ CountryRegion &lt;chr&gt; "Afghanistan", "Afghanistan", "Afghanistan", "Afghanist…
@@ -445,7 +445,7 @@ COVID-19 data resources.</p></li>
 #&gt; appl__&gt; table(res$transportation_type)
 #&gt; 
 #&gt; driving transit walking 
-#&gt;  694944   50616   80940 
+#&gt;  697992   50838   81295 
 #&gt; 
 #&gt; appl__&gt; require(ggplot2)
 #&gt; 
@@ -490,17 +490,17 @@ COVID-19 data resources.</p></li>
 #&gt; 
 #&gt; hlth__&gt; res[sample(1:nrow(res),6),]
 #&gt; # A tibble: 6 x 8
-#&gt;   location_name date       metric    mean  upper pctupper  lower pctlower
-#&gt;   &lt;chr&gt;         &lt;date&gt;     &lt;chr&gt;    &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;
-#&gt; 1 Armenia       2020-04-30 admis     4.86   4.86       NA   4.86       NA
-#&gt; 2 Nepal         2020-08-22 icuover   0      8.34       NA   0          NA
-#&gt; 3 Guinea        2020-02-27 newICU    0      0          NA   0          NA
-#&gt; 4 Thuringia     2020-07-03 totdea  181    181          NA 181          NA
-#&gt; 5 Egypt         2020-04-12 newICU   22.9   22.9        NA  22.9        NA
-#&gt; 6 Durango       2020-04-30 allbed   20.7   20.7        NA  20.7        NA
+#&gt;   location_name      date       metric    mean   upper pctupper   lower pctlower
+#&gt;   &lt;chr&gt;              &lt;date&gt;     &lt;chr&gt;    &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;
+#&gt; 1 Armenia            2020-04-30 admis     4.86    4.86       NA    4.86       NA
+#&gt; 2 India              2020-08-22 icuov…    0       0          NA    0          NA
+#&gt; 3 Ghana              2020-02-27 newICU    0       0          NA    0          NA
+#&gt; 4 Community of Madr… 2020-07-03 totdea   NA      NA          NA   NA          NA
+#&gt; 5 Egypt              2020-04-12 newICU   22.9    22.9        NA   22.9        NA
+#&gt; 6 Mexico City        2020-04-30 allbed 2399.   2399.         NA 2399.         NA
 #&gt; 
 #&gt; hlth__&gt; dplyr::glimpse(res)
-#&gt; Rows: 1,217,664
+#&gt; Rows: 1,319,136
 #&gt; Columns: 8
 #&gt; $ location_name &lt;chr&gt; "Indonesia", "Indonesia", "Indonesia", "Indonesia", "In…
 #&gt; $ date          &lt;date&gt; 2020-02-04, 2020-02-04, 2020-02-04, 2020-02-04, 2020-0…
@@ -513,21 +513,21 @@ COVID-19 data resources.</p></li>
 #&gt; 
 #&gt; hlth__&gt; summary(res)
 #&gt;  location_name           date               metric               mean         
-#&gt;  Length:1217664     Min.   :2020-02-04   Length:1217664     Min.   :     -94  
+#&gt;  Length:1319136     Min.   :2020-02-04   Length:1319136     Min.   :     -94  
 #&gt;  Class :character   1st Qu.:2020-04-19   Class :character   1st Qu.:       0  
 #&gt;  Mode  :character   Median :2020-07-03   Mode  :character   Median :       9  
-#&gt;                     Mean   :2020-07-03                      Mean   :   11745  
-#&gt;                     3rd Qu.:2020-09-17                      3rd Qu.:     177  
+#&gt;                     Mean   :2020-07-03                      Mean   :   12712  
+#&gt;                     3rd Qu.:2020-09-17                      3rd Qu.:     193  
 #&gt;                     Max.   :2020-12-01                      Max.   :24299850  
-#&gt;                                                             NA's   :167955    
+#&gt;                                                             NA's   :182155    
 #&gt;      upper             pctupper           lower             pctlower      
 #&gt;  Min.   :     -94   Min.   : 0.0      Min.   :     -94   Min.   : 0.0     
 #&gt;  1st Qu.:       0   1st Qu.: 0.0      1st Qu.:       0   1st Qu.: 0.0     
-#&gt;  Median :      13   Median : 0.6      Median :       5   Median : 0.4     
-#&gt;  Mean   :   13347   Mean   : 3.1      Mean   :   10661   Mean   : 2.4     
-#&gt;  3rd Qu.:     271   3rd Qu.: 3.0      3rd Qu.:     110   3rd Qu.: 2.3     
+#&gt;  Median :      13   Median : 0.5      Median :       5   Median : 0.3     
+#&gt;  Mean   :   14892   Mean   : 2.9      Mean   :   11306   Mean   : 2.3     
+#&gt;  3rd Qu.:     298   3rd Qu.: 2.8      3rd Qu.:     119   3rd Qu.: 2.2     
 #&gt;  Max.   :24731785   Max.   :44.5      Max.   :23855913   Max.   :41.0     
-#&gt;  NA's   :167955     NA's   :1178625   NA's   :167955     NA's   :1178625  
+#&gt;  NA's   :182155     NA's   :1277325   NA's   :182155     NA's   :1277325  
 #&gt; 
 #&gt; hlth__&gt; #plot the predictions
 #&gt; hlth__&gt; 
