@@ -32,9 +32,9 @@
 #'
 #' @export
 acaps_government_measures_data <- function() {
-  url1 = 'https://www.acaps.org/sites/acaps/files/resources/files/acaps_covid19_government_measures_dataset_0.xlsx'
+  url1 = 'https://www.acaps.org/sites/acaps/files/resources/files/acaps_covid19_government_measures_dataset.xlsx'
   rpath = s2p_cached_url(url1)
-  readxl::read_excel(rpath,sheet=2) %>%
+  readxl::read_excel(rpath,sheet=3) %>%
     dplyr::rename_all(tolower) %>%
     dplyr::mutate(entry_date = lubridate::as_date(.data$entry_date),
                   date_implemented = lubridate::as_date(.data$date_implemented))
