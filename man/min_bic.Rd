@@ -34,6 +34,6 @@ minimize BIC for ARIMA models with default differencing order 1 over choices of 
 }
 \examples{
 nyd = nytimes_state_data()
-mb = min_bic(nyd, state.in="New York")
-names(mb)
+#mb = min_bic(nyd, state.in="New York")
+#names(mb)
 }

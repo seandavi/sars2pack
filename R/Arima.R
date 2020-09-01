@@ -14,8 +14,8 @@ grid_2d = function(n=5) expand.grid(arorder=seq(0,n), maorder=seq(0,n))
 #' @param \dots passed to `Arima_by_state`
 #' @examples
 #' nyd = nytimes_state_data()
-#' mb = min_bic(nyd, state.in="New York")
-#' names(mb)
+#' #mb = min_bic(nyd, state.in="New York")
+#' #names(mb)
 #' @export
 min_bic = function(src, fullusa=FALSE, state.in="New York", parms=grid_2d(5), max_date=NULL, 
    lookback_days=29, ...) {
