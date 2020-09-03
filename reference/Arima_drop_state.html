@@ -242,26 +242,24 @@ extravagantly variable.</p>
 <span class='no'>usa_full</span> <span class='kw'>=</span> <span class='fu'><a href='Arima_nation.html'>Arima_nation</a></span>(<span class='no'>ej</span>)
 <span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='no'>usa_full</span>)</div><div class='img'><img src='Arima_drop_state-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='no'>nyd</span> <span class='kw'>=</span> <span class='fu'><a href='nytimes_county_data.html'>nytimes_state_data</a></span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: running command 'timedatectl' had status 1</span></div><div class='input'><span class='no'>drny</span> <span class='kw'>=</span> <span class='fu'>Arima_drop_state</span>(<span class='no'>ej</span>, <span class='no'>nyd</span>)
 <span class='no'>drny</span></div><div class='output co'>#&gt; Arima_sars2pack instance for excl New York 
-#&gt;   computed Wed Sep  2 03:51:53 2020 
-#&gt;   last date used was:  2020-08-31 
+#&gt;   computed Thu Sep  3 03:49:54 2020 
+#&gt;   last date used was:  2020-09-01 
 #&gt;   call was: NULL
 #&gt;   Model estimates: 
 #&gt; Series: tsfull 
 #&gt; ARIMA(0,1,2) with drift 
 #&gt; 
 #&gt; Coefficients:
-#&gt;           ma1      ma2      drift
-#&gt;       -0.7761  -0.2239  -602.0896
-#&gt; s.e.   0.1815   0.1539   152.1262
+#&gt;           ma1     ma2      drift
+#&gt;       -0.7559  -0.244  -645.4858
+#&gt; s.e.   0.1857   0.155   146.4336
 #&gt; 
-#&gt; sigma^2 estimated as 36286278:  log likelihood=-283.35
-#&gt; AIC=574.71   AICc=576.45   BIC=580.04
+#&gt; sigma^2 estimated as 32773690:  log likelihood=-281.92
+#&gt; AIC=571.84   AICc=573.57   BIC=577.16
 #&gt; 
 #&gt; Training set error measures:
-#&gt;                    ME     RMSE      MAE        MPE     MAPE      MASE
-#&gt; Training set 631.1212 5592.966 4361.667 -0.2225785 9.565837 0.7896513
-#&gt;                    ACF1
-#&gt; Training set 0.08341028</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='no'>drny</span>)</div><div class='img'><img src='Arima_drop_state-2.png' alt='' width='700' height='433' /></div><div class='input'><span class='no'>opar</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='kw'>no.readonly</span><span class='kw'>=</span><span class='fl'>TRUE</span>)
+#&gt;                     ME     RMSE      MAE      MPE     MAPE      MASE       ACF1
+#&gt; Training set -271.9289 5315.372 4193.278 -1.82734 9.506914 0.7740756 0.01496874</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='no'>drny</span>)</div><div class='img'><img src='Arima_drop_state-2.png' alt='' width='700' height='433' /></div><div class='input'><span class='no'>opar</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='kw'>no.readonly</span><span class='kw'>=</span><span class='fl'>TRUE</span>)
 <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='kw'>mar</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>4</span>,<span class='fl'>3</span>,<span class='fl'>2</span>,<span class='fl'>2</span>), <span class='kw'>mfrow</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>2</span>))
 <span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='no'>usa_full</span>, <span class='kw'>main</span><span class='kw'>=</span><span class='st'>"all states"</span>, <span class='kw'>ylim</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>17000</span>,<span class='fl'>38000</span>))
 <span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='no'>drny</span>, <span class='kw'>main</span><span class='kw'>=</span><span class='st'>"excluding NY"</span>, <span class='kw'>ylim</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>17000</span>,<span class='fl'>38000</span>))</div><div class='img'><img src='Arima_drop_state-3.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='no'>opar</span>)</div></pre>
