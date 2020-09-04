@@ -413,7 +413,7 @@ COVID-19 data resources.</p></li>
 #&gt; 6 &lt;NA&gt;          Afghanistan    33.9  67.7 2020-01-27     0 confirmed
 #&gt; 
 #&gt; jhu_dt&gt; dplyr::glimpse(res)
-#&gt; Rows: 175,840
+#&gt; Rows: 176,625
 #&gt; Columns: 7
 #&gt; $ ProvinceState &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
 #&gt; $ CountryRegion &lt;chr&gt; "Afghanistan", "Afghanistan", "Afghanistan", "Afghanist…
@@ -445,7 +445,7 @@ COVID-19 data resources.</p></li>
 #&gt; appl__&gt; table(res$transportation_type)
 #&gt; 
 #&gt; driving transit walking 
-#&gt;  710184   51726   82715 
+#&gt;  713232  128934  255528 
 #&gt; 
 #&gt; appl__&gt; require(ggplot2)
 #&gt; 
@@ -490,44 +490,44 @@ COVID-19 data resources.</p></li>
 #&gt; 
 #&gt; hlth__&gt; res[sample(1:nrow(res),6),]
 #&gt; # A tibble: 6 x 8
-#&gt;   location_name      date       metric    mean   upper pctupper   lower pctlower
-#&gt;   &lt;chr&gt;              &lt;date&gt;     &lt;chr&gt;    &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;
-#&gt; 1 Armenia            2020-04-30 admis     4.86    4.86       NA    4.86       NA
-#&gt; 2 India              2020-08-22 icuov…    0       0          NA    0          NA
-#&gt; 3 Ghana              2020-02-27 newICU    0       0          NA    0          NA
-#&gt; 4 Community of Madr… 2020-07-03 totdea   NA      NA          NA   NA          NA
-#&gt; 5 Egypt              2020-04-12 newICU   22.9    22.9        NA   22.9        NA
-#&gt; 6 Mexico City        2020-04-30 allbed 2399.   2399.         NA 2399.         NA
+#&gt;   location_name        date       metric   mean  upper pctupper   lower pctlower
+#&gt;   &lt;chr&gt;                &lt;date&gt;     &lt;chr&gt;   &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;
+#&gt; 1 Philippines          2020-04-13 admis  154.   154.      NA    154.       NA   
+#&gt; 2 Tunisia              2020-07-14 totdea  50     50       NA     50        NA   
+#&gt; 3 Eswatini             2020-08-10 allbed 198.   198.      NA    198.       NA   
+#&gt; 4 Abruzzo              2020-12-08 deaths   1.06   3.86    NA      0.427    NA   
+#&gt; 5 Venezuela (Bolivari… 2020-04-28 sero    NA     NA       NA     NA        NA   
+#&gt; 6 Oregon               2020-12-19 sero    NA     NA        1.02  NA         1.04
 #&gt; 
 #&gt; hlth__&gt; dplyr::glimpse(res)
-#&gt; Rows: 1,319,136
+#&gt; Rows: 1,421,244
 #&gt; Columns: 8
-#&gt; $ location_name &lt;chr&gt; "Indonesia", "Indonesia", "Indonesia", "Indonesia", "In…
+#&gt; $ location_name &lt;chr&gt; "Global", "Global", "Global", "Global", "Global", "Glob…
 #&gt; $ date          &lt;date&gt; 2020-02-04, 2020-02-04, 2020-02-04, 2020-02-04, 2020-0…
 #&gt; $ metric        &lt;chr&gt; "allbed", "ICUbed", "InvVen", "admis", "newICU", "bedov…
-#&gt; $ mean          &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NA, NA, 0, 0, 0, 0, 0, 0,…
-#&gt; $ upper         &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NA, NA, 0, 0, 0, 0, 0, 0,…
+#&gt; $ mean          &lt;dbl&gt; 4625.5135, 1301.4015, 1198.9097, 601.0154, 228.4747, 0.…
+#&gt; $ upper         &lt;dbl&gt; 4625.5135, 1301.4015, 1198.9097, 601.0154, 228.4747, 0.…
 #&gt; $ pctupper      &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
-#&gt; $ lower         &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NA, NA, 0, 0, 0, 0, 0, 0,…
+#&gt; $ lower         &lt;dbl&gt; 4625.5135, 1301.4015, 1198.9097, 601.0154, 228.4747, 0.…
 #&gt; $ pctlower      &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
 #&gt; 
 #&gt; hlth__&gt; summary(res)
 #&gt;  location_name           date               metric               mean         
-#&gt;  Length:1319136     Min.   :2020-02-04   Length:1319136     Min.   :     -94  
-#&gt;  Class :character   1st Qu.:2020-04-19   Class :character   1st Qu.:       0  
-#&gt;  Mode  :character   Median :2020-07-03   Mode  :character   Median :       9  
-#&gt;                     Mean   :2020-07-03                      Mean   :   12712  
-#&gt;                     3rd Qu.:2020-09-17                      3rd Qu.:     193  
-#&gt;                     Max.   :2020-12-01                      Max.   :24299850  
-#&gt;                                                             NA's   :182155    
-#&gt;      upper             pctupper           lower             pctlower      
-#&gt;  Min.   :     -94   Min.   : 0.0      Min.   :     -94   Min.   : 0.0     
-#&gt;  1st Qu.:       0   1st Qu.: 0.0      1st Qu.:       0   1st Qu.: 0.0     
-#&gt;  Median :      13   Median : 0.5      Median :       5   Median : 0.3     
-#&gt;  Mean   :   14892   Mean   : 2.9      Mean   :   11306   Mean   : 2.3     
-#&gt;  3rd Qu.:     298   3rd Qu.: 2.8      3rd Qu.:     119   3rd Qu.: 2.2     
-#&gt;  Max.   :24731785   Max.   :44.5      Max.   :23855913   Max.   :41.0     
-#&gt;  NA's   :182155     NA's   :1277325   NA's   :182155     NA's   :1277325  
+#&gt;  Length:1421244     Min.   :2020-02-04   Length:1421244     Min.   :     -94  
+#&gt;  Class :character   1st Qu.:2020-04-27   Class :character   1st Qu.:       0  
+#&gt;  Mode  :character   Median :2020-07-19   Mode  :character   Median :       9  
+#&gt;                     Mean   :2020-07-19                      Mean   :    4527  
+#&gt;                     3rd Qu.:2020-10-10                      3rd Qu.:     187  
+#&gt;                     Max.   :2021-01-01                      Max.   :10977805  
+#&gt;                                                             NA's   :134726    
+#&gt;      upper             pctupper           lower            pctlower      
+#&gt;  Min.   :     -94   Min.   :-0.2      Min.   :    -94   Min.   :-0.2     
+#&gt;  1st Qu.:       0   1st Qu.: 0.0      1st Qu.:      0   1st Qu.: 0.0     
+#&gt;  Median :      13   Median : 0.6      Median :      4   Median : 0.6     
+#&gt;  Mean   :    7575   Mean   : 3.4      Mean   :   2948   Mean   : 3.4     
+#&gt;  3rd Qu.:     308   3rd Qu.: 3.2      3rd Qu.:    103   3rd Qu.: 3.2     
+#&gt;  Max.   :19559377   Max.   :67.5      Max.   :5788294   Max.   :67.8     
+#&gt;  NA's   :134726     NA's   :1373021   NA's   :134726    NA's   :1373021  
 #&gt; 
 #&gt; hlth__&gt; #plot the predictions
 #&gt; hlth__&gt; 
@@ -540,9 +540,9 @@ COVID-19 data resources.</p></li>
 #&gt; hlth__+     ggplot(aes(x=date)) + geom_line(aes(y=mean, color=metric))
 #&gt; 
 #&gt; hlth__&gt; # plot the "mean" prediction
-#&gt; hlth__&gt; pl</div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 604 row(s) containing missing values (geom_path).</span></div><div class='img'><img src='sars2pack-package-4.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; 
+#&gt; hlth__&gt; pl</div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 333 row(s) containing missing values (geom_path).</span></div><div class='img'><img src='sars2pack-package-4.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; 
 #&gt; hlth__&gt; # add 95% confidence bounds
-#&gt; hlth__&gt; pl + geom_ribbon(aes(ymin=lower, ymax=upper, fill=metric), alpha=0.25)</div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 604 row(s) containing missing values (geom_path).</span></div><div class='output co'>#&gt; <span class='warning'>Warning: no non-missing arguments to max; returning -Inf</span></div><div class='output co'>#&gt; <span class='warning'>Warning: no non-missing arguments to max; returning -Inf</span></div><div class='img'><img src='sars2pack-package-5.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; 
+#&gt; hlth__&gt; pl + geom_ribbon(aes(ymin=lower, ymax=upper, fill=metric), alpha=0.25)</div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 333 row(s) containing missing values (geom_path).</span></div><div class='output co'>#&gt; <span class='warning'>Warning: no non-missing arguments to max; returning -Inf</span></div><div class='img'><img src='sars2pack-package-5.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; 
 #&gt; hlth__&gt; regs_of_interest = c('New York', 'Italy')
 #&gt; 
 #&gt; hlth__&gt; pl = res %&gt;%
@@ -550,7 +550,7 @@ COVID-19 data resources.</p></li>
 #&gt; hlth__+     ggplot(aes(x=date)) + geom_line(aes(y=mean, color=metric)) +
 #&gt; hlth__+     facet_grid(rows = vars(location_name))
 #&gt; 
-#&gt; hlth__&gt; pl</div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 977 row(s) containing missing values (geom_path).</span></div><div class='img'><img src='sars2pack-package-6.png' alt='' width='700' height='433' /></div><div class='input'>
+#&gt; hlth__&gt; pl</div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 666 row(s) containing missing values (geom_path).</span></div><div class='img'><img src='sars2pack-package-6.png' alt='' width='700' height='433' /></div><div class='input'>
 
 
 </div></pre>
