@@ -56,7 +56,7 @@ In each region, we scale all the normalized (daily / weekly) popularities using 
 }
 }
 \note{
-Use of this dataset implies acceptance of Google's terms of use \url{{https://policies.google.com/terms}.
+Use of this dataset implies acceptance of Google's terms of use \url{https://policies.google.com/terms}.
 }
 \examples{
 res = google_search_trends_data()
@@ -67,7 +67,7 @@ table(res$country_region)
 table(res$sub_region_1)
 if(require(timetk)) {
 
-  plot_time_series(d3[sub_region_1 \%in\% c('Maryland','Texas','New York','California','Georgia','Arizona','Illinois','New Jersey','Florida') & variable \%in\% c('symptom:Cough','symptom:Fever','symptom:Shortness of breath')][,year := lubridate::year(date)],date,value,.smooth_period='month',.color_var=sub_region_1,.facet_vars = 'variable')
+  plot_time_series(res[sub_region_1 \%in\% c('Maryland','Texas','New York','California','Georgia','Arizona','Illinois','New Jersey','Florida') & variable \%in\% c('symptom:Cough','symptom:Fever','symptom:Shortness of breath')][,year := lubridate::year(date)],date,value,.smooth_period='month',.color_var=sub_region_1,.facet_vars = 'variable')
 
 }
 
@@ -77,6 +77,5 @@ Google LLC "Google COVID-19 Search Trends symptoms dataset".
 http://goo.gle/covid19symptomdataset
 }
 \author{
-i
 Sean Davis \href{mailto:seandavi@gmail.com}{seandavi@gmail.com}
 }
