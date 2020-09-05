@@ -139,7 +139,7 @@
 <p>The case-tracking datasets each contain at least one <code>date</code> column, one <code>count</code> column that describe some quantity of people over time. A third column, <code>subset</code> is often (but not always) present and describes the type of “counting” for each record. For instance, common values for <code>subset</code> are “confirmed” and “deaths”. Additional columns, if present, usually specify geographical data for each record such as the name of the city, state, country, etc.</p>
 <p>The dataset from Johns Hopkins University is one example that we can look at to get familiar with the data.</p>
 <div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="no">jhu</span> <span class="kw">=</span> <span class="fu"><a href="../reference/jhu_data.html">jhu_data</a></span>()
-<span class="co">## using temporary cache /tmp/Rtmp6V52u5/BiocFileCache</span>
+<span class="co">## using temporary cache /tmp/RtmpRBV26Y/BiocFileCache</span>
 <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span>(<span class="no">jhu</span>)
 <span class="co">## [1] "ProvinceState" "CountryRegion" "Lat"           "Long"         </span>
 <span class="co">## [5] "date"          "count"         "subset"</span>
@@ -154,7 +154,7 @@
 <span class="co">## 5 &lt;NA&gt;          Afghanistan    33.9  67.7 2020-01-26     0 confirmed</span>
 <span class="co">## 6 &lt;NA&gt;          Afghanistan    33.9  67.7 2020-01-27     0 confirmed</span>
 <span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/reexports.html">glimpse</a></span>(<span class="no">jhu</span>)
-<span class="co">## Rows: 176,625</span>
+<span class="co">## Rows: 177,410</span>
 <span class="co">## Columns: 7</span>
 <span class="co">## $ ProvinceState &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…</span>
 <span class="co">## $ CountryRegion &lt;chr&gt; "Afghanistan", "Afghanistan", "Afghanistan", "Afghanist…</span>
@@ -166,7 +166,7 @@
 <div class="sourceCode" id="cb3"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span>(<span class="no">jhu</span>$<span class="no">subset</span>)
 <span class="co">## </span>
 <span class="co">## confirmed    deaths recovered </span>
-<span class="co">##     59850     59850     56925</span></pre></body></html></div>
+<span class="co">##     60116     60116     57178</span></pre></body></html></div>
 <div id="compare-us-datasets" class="section level2">
 <h2 class="hasAnchor">
 <a href="#compare-us-datasets" class="anchor"></a>Compare US datasets</h2>
@@ -188,7 +188,7 @@
 <span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span>(<span class="no">us_states</span>$<span class="no">dataset</span>)
 <span class="co">## </span>
 <span class="co">## covidtracker          jhu      nytimes </span>
-<span class="co">##        10290        11700        10134</span></pre></body></html></div>
+<span class="co">##        10346        11752        10189</span></pre></body></html></div>
 <p>To get a sense of the data and their meaning, consider the following series of graphs based on three “randomly” chosen states.</p>
 <div class="sourceCode" id="cb5"><html><body><pre class="r"><span class="no">interesting_states</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">'PA'</span>,<span class="st">'CA'</span>,<span class="st">'GA'</span>)
 <span class="no">pd</span> <span class="kw">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/position_dodge.html">position_dodge</a></span>(<span class="kw">width</span><span class="kw">=</span><span class="fl">0.2</span>)</pre></body></html></div>
