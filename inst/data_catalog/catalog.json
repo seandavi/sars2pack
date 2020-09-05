@@ -112,11 +112,11 @@
   {
     "name": "Published epidemic parameters for COVID-19",
     "accessor": "param_estimates_published",
-    "data_type": ["miscellaneous"],
+    "data_type": ["parameters"],
     "geographical": false,
     "geospatial": false,
-    "region": {},
-    "resolution": {},
+    "region": [],
+    "resolution": [],
     "url": "https://github.com/midas-network/COVID-19/blob/master/parameter_estimates/2019_novel_coronavirus/estimates.csv"
   },
   {
@@ -125,7 +125,7 @@
     "data_type": ["projections"],
     "geographical": true,
     "geospatial": false,
-    "region": {},
+    "region": ["World","United States"],
     "resolution": ["admin0", "admin1"],
     "url": "https://www.cdc.gov/coronavirus/2019-ncov/covid-data/forecasting-us.html"
   },
@@ -138,6 +138,16 @@
     "region": ["World"],
     "resolution": ["admin0", "admin1", "admin2"],
     "url": "https://www.google.com/covid19/mobility/"
+  },
+  {
+    "name": "Google COVID-19 symptom search trends",
+    "accessor": "google_search_trends_data",
+    "data_type": ["time series"],
+    "geographical": true,
+    "geospatial": false,
+    "region": ["United States"],
+    "resolution": ["admin1"],
+    "url": "https://github.com/google-research/open-covid-19-data/tree/master/data/exports/search_trends_symptoms_dataset"
   },
   {
     "name": "World Health Organization (WHO) case tracking",
@@ -266,7 +276,7 @@
     "geographical": true,
     "geospatial": true,
     "region": ["World"],
-    "resolution": ["admon1"],
+    "resolution": ["admin1"],
     "url": "https://population.un.org/wpp/Download/Standard/Population/"
   },
   {
