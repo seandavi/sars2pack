@@ -45,9 +45,9 @@
 #' In each region, we scale all the normalized (daily / weekly) popularities using the same scaling factor. In a single region, you can compare the relative popularity of two (or more) symptoms (at the same time resolution) over any time interval. However, you should not compare the values of symptom popularity across regions or time resolutions — the region and time resolution specific scalings make these comparisons meaningless.
 #'
 #' @note
-#' Use of this dataset implies acceptance of Google's terms of use \url{{https://policies.google.com/terms}.
+#' Use of this dataset implies acceptance of Google's terms of use \url{https://policies.google.com/terms}.
 #'
-#' @author i
+#' @author
 #' Sean Davis <seandavi@gmail.com>
 #'
 #' @references
