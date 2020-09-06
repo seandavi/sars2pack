@@ -135,9 +135,6 @@ Public health experts indicated that trends in search patterns might be helpful 
     <li>
       <a href="../articles/phylogenetics.html">Phylogenetic data</a>
     </li>
-    <li>
-      <a href="../articles/r0_estimates.html">Estimating the replication rate</a>
-    </li>
   </ul>
 </li>
 <li>
@@ -214,25 +211,21 @@ In each region, we scale all the normalized (daily / weekly) popularities using 
 
     <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
 
-    <p>Use of this dataset implies acceptance of Google's terms of use <a href='{https://policies.google.com/terms}.
-'>{https://policies.google.com/terms}.
-</a>
+    <p>Use of this dataset implies acceptance of Google's terms of use <a href='https://policies.google.com/terms'>https://policies.google.com/terms</a>.</p>
+    <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
-res = google_search_trends_data()
-dim(res)
-head(res)
-dplyr::glimpse(res)
-table(res$country_region)
-table(res$sub_region_1)
-if(require(timetk))   plot_time_series(d3[sub_region_1 %in% c('Maryland','Texas','New York','California','Georgia','Arizona','Illinois','New Jersey','Florida') &amp; variable %in% c('symptom:Cough','symptom:Fever','symptom:Shortness of breath')][,year := lubridate::year(date)],date,value,.smooth_period='month',.color_var=sub_region_1,.facet_vars = 'variable')
+    <p>Google LLC "Google COVID-19 Search Trends symptoms dataset".
+http://goo.gle/covid19symptomdataset</p>
 
-Google LLC "Google COVID-19 Search Trends symptoms dataset".
-http://goo.gle/covid19symptomdataset
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='no'>res</span> <span class='kw'>=</span> <span class='fu'>google_search_trends_data</span>()
+<span class='fu'><a href='https://rdrr.io/r/base/dim.html'>dim</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; NULL</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; [1] "2017-08-21" "2017-08-22" "2017-08-23" "2017-08-24" "2017-08-25"
+#&gt; [6] "2017-08-26"</div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt;  Date[1:23846376], format: "2017-08-21" "2017-08-22" "2017-08-23" "2017-08-24" "2017-08-25" ...</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span>(<span class='no'>res</span>$<span class='no'>country_region</span>)</div><div class='output co'>#&gt; <span class='error'>Error in res$country_region: $ operator is invalid for atomic vectors</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span>(<span class='no'>res</span>$<span class='no'>sub_region_1</span>)</div><div class='output co'>#&gt; <span class='error'>Error in res$sub_region_1: $ operator is invalid for atomic vectors</span></div><div class='input'><span class='kw'>if</span>(<span class='fu'><a href='https://rdrr.io/r/base/library.html'>require</a></span>(<span class='no'>timetk</span>)) {
 
+  <span class='fu'>plot_time_series</span>(<span class='no'>res</span>[<span class='no'>sub_region_1</span> <span class='kw'>%in%</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>'Maryland'</span>,<span class='st'>'Texas'</span>,<span class='st'>'New York'</span>,<span class='st'>'California'</span>,<span class='st'>'Georgia'</span>,<span class='st'>'Arizona'</span>,<span class='st'>'Illinois'</span>,<span class='st'>'New Jersey'</span>,<span class='st'>'Florida'</span>) <span class='kw'>&amp;</span> <span class='no'>variable</span> <span class='kw'>%in%</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>'symptom:Cough'</span>,<span class='st'>'symptom:Fever'</span>,<span class='st'>'symptom:Shortness of breath'</span>)][,<span class='no'>year</span> <span class='kw'>:=</span> <span class='kw pkg'>lubridate</span><span class='kw ns'>::</span><span class='fu'><a href='http://lubridate.tidyverse.org/reference/year.html'>year</a></span>(<span class='no'>date</span>)],<span class='no'>date</span>,<span class='no'>value</span>,<span class='kw'>.smooth_period</span><span class='kw'>=</span><span class='st'>'month'</span>,<span class='kw'>.color_var</span><span class='kw'>=</span><span class='no'>sub_region_1</span>,<span class='kw'>.facet_vars</span> <span class='kw'>=</span> <span class='st'>'variable'</span>)
 
-i
-Sean Davis <a href='mailto:seandavi@gmail.com'>seandavi@gmail.com</a></p>
-
+}</div><div class='output co'>#&gt; <span class='message'>Loading required package: timetk</span></div><div class='output co'>#&gt; <span class='warning'>Warning: there is no package called ‘timetk’</span></div><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
