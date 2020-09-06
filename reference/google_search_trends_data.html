@@ -219,8 +219,74 @@ http://goo.gle/covid19symptomdataset</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>res</span> <span class='kw'>=</span> <span class='fu'>google_search_trends_data</span>()
-<span class='fu'><a href='https://rdrr.io/r/base/dim.html'>dim</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; NULL</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; [1] "2017-08-21" "2017-08-22" "2017-08-23" "2017-08-24" "2017-08-25"
-#&gt; [6] "2017-08-26"</div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt;  Date[1:23846376], format: "2017-08-21" "2017-08-22" "2017-08-23" "2017-08-24" "2017-08-25" ...</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span>(<span class='no'>res</span>$<span class='no'>country_region</span>)</div><div class='output co'>#&gt; <span class='error'>Error in res$country_region: $ operator is invalid for atomic vectors</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span>(<span class='no'>res</span>$<span class='no'>sub_region_1</span>)</div><div class='output co'>#&gt; <span class='error'>Error in res$sub_region_1: $ operator is invalid for atomic vectors</span></div><div class='input'><span class='kw'>if</span>(<span class='fu'><a href='https://rdrr.io/r/base/library.html'>require</a></span>(<span class='no'>timetk</span>)) {
+<span class='fu'><a href='https://rdrr.io/r/base/dim.html'>dim</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; [1] 23846376       10</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt;    open_covid_region_code country_region_code country_region sub_region_1
+#&gt; 1:                  US-AK                  US  United States       Alaska
+#&gt; 2:                  US-AK                  US  United States       Alaska
+#&gt; 3:                  US-AK                  US  United States       Alaska
+#&gt; 4:                  US-AK                  US  United States       Alaska
+#&gt; 5:                  US-AK                  US  United States       Alaska
+#&gt; 6:                  US-AK                  US  United States       Alaska
+#&gt;    sub_region_1_code sub_region_2 sub_region_2_code       date
+#&gt; 1:             US-AK           NA                NA 2017-08-21
+#&gt; 2:             US-AK           NA                NA 2017-08-22
+#&gt; 3:             US-AK           NA                NA 2017-08-23
+#&gt; 4:             US-AK           NA                NA 2017-08-24
+#&gt; 5:             US-AK           NA                NA 2017-08-25
+#&gt; 6:             US-AK           NA                NA 2017-08-26
+#&gt;                     variable value
+#&gt; 1: symptom:Abdominal obesity  1.43
+#&gt; 2: symptom:Abdominal obesity  1.55
+#&gt; 3: symptom:Abdominal obesity  1.76
+#&gt; 4: symptom:Abdominal obesity  2.04
+#&gt; 5: symptom:Abdominal obesity  1.40
+#&gt; 6: symptom:Abdominal obesity  1.76</div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Rows: 23,846,376
+#&gt; Columns: 10
+#&gt; $ open_covid_region_code &lt;chr&gt; "US-AK", "US-AK", "US-AK", "US-AK", "US-AK", "…
+#&gt; $ country_region_code    &lt;chr&gt; "US", "US", "US", "US", "US", "US", "US", "US"…
+#&gt; $ country_region         &lt;chr&gt; "United States", "United States", "United Stat…
+#&gt; $ sub_region_1           &lt;chr&gt; "Alaska", "Alaska", "Alaska", "Alaska", "Alask…
+#&gt; $ sub_region_1_code      &lt;chr&gt; "US-AK", "US-AK", "US-AK", "US-AK", "US-AK", "…
+#&gt; $ sub_region_2           &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+#&gt; $ sub_region_2_code      &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+#&gt; $ date                   &lt;date&gt; 2017-08-21, 2017-08-22, 2017-08-23, 2017-08-2…
+#&gt; $ variable               &lt;fct&gt; symptom:Abdominal obesity, symptom:Abdominal o…
+#&gt; $ value                  &lt;dbl&gt; 1.43, 1.55, 1.76, 2.04, 1.40, 1.76, 1.62, 1.49…</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span>(<span class='no'>res</span>$<span class='no'>country_region</span>)</div><div class='output co'>#&gt; 
+#&gt; United States 
+#&gt;      23846376 </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span>(<span class='no'>res</span>$<span class='no'>sub_region_1</span>)</div><div class='output co'>#&gt; 
+#&gt;              Alabama               Alaska              Arizona 
+#&gt;               467576               467576               467576 
+#&gt;             Arkansas           California             Colorado 
+#&gt;               467576               467576               467576 
+#&gt;          Connecticut             Delaware District of Columbia 
+#&gt;               467576               467576               467576 
+#&gt;              Florida              Georgia               Hawaii 
+#&gt;               467576               467576               467576 
+#&gt;                Idaho             Illinois              Indiana 
+#&gt;               467576               467576               467576 
+#&gt;                 Iowa               Kansas             Kentucky 
+#&gt;               467576               467576               467576 
+#&gt;            Louisiana                Maine             Maryland 
+#&gt;               467576               467576               467576 
+#&gt;        Massachusetts             Michigan            Minnesota 
+#&gt;               467576               467576               467576 
+#&gt;          Mississippi             Missouri              Montana 
+#&gt;               467576               467576               467576 
+#&gt;             Nebraska               Nevada        New Hampshire 
+#&gt;               467576               467576               467576 
+#&gt;           New Jersey           New Mexico             New York 
+#&gt;               467576               467576               467576 
+#&gt;       North Carolina         North Dakota                 Ohio 
+#&gt;               467576               467576               467576 
+#&gt;             Oklahoma               Oregon         Pennsylvania 
+#&gt;               467576               467576               467576 
+#&gt;         Rhode Island       South Carolina         South Dakota 
+#&gt;               467576               467576               467576 
+#&gt;            Tennessee                Texas                 Utah 
+#&gt;               467576               467576               467576 
+#&gt;              Vermont             Virginia           Washington 
+#&gt;               467576               467576               467576 
+#&gt;        West Virginia            Wisconsin              Wyoming 
+#&gt;               467576               467576               467576 </div><div class='input'><span class='kw'>if</span>(<span class='fu'><a href='https://rdrr.io/r/base/library.html'>require</a></span>(<span class='no'>timetk</span>)) {
 
   <span class='fu'>plot_time_series</span>(<span class='no'>res</span>[<span class='no'>sub_region_1</span> <span class='kw'>%in%</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>'Maryland'</span>,<span class='st'>'Texas'</span>,<span class='st'>'New York'</span>,<span class='st'>'California'</span>,<span class='st'>'Georgia'</span>,<span class='st'>'Arizona'</span>,<span class='st'>'Illinois'</span>,<span class='st'>'New Jersey'</span>,<span class='st'>'Florida'</span>) <span class='kw'>&amp;</span> <span class='no'>variable</span> <span class='kw'>%in%</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>'symptom:Cough'</span>,<span class='st'>'symptom:Fever'</span>,<span class='st'>'symptom:Shortness of breath'</span>)][,<span class='no'>year</span> <span class='kw'>:=</span> <span class='kw pkg'>lubridate</span><span class='kw ns'>::</span><span class='fu'><a href='http://lubridate.tidyverse.org/reference/year.html'>year</a></span>(<span class='no'>date</span>)],<span class='no'>date</span>,<span class='no'>value</span>,<span class='kw'>.smooth_period</span><span class='kw'>=</span><span class='st'>'month'</span>,<span class='kw'>.color_var</span><span class='kw'>=</span><span class='no'>sub_region_1</span>,<span class='kw'>.facet_vars</span> <span class='kw'>=</span> <span class='st'>'variable'</span>)
 
