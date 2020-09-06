@@ -87,6 +87,6 @@ google_search_trends_data <- function() {
   fnames = c(hist_files,rpath)
   dset_list = lapply(fnames, munge_table)
   dset = data.table::rbindlist(dset_list)
-  dset = as.Date(dset$date)
+  dset$date = as.Date(dset$date)
   dset
 }
