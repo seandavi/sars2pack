@@ -176,10 +176,10 @@ supported by dbplyr.</p>
     </div>
 
     <pre class="usage"><span class='fu'>datasets_to_sql</span>(
-  <span class='no'>con</span>,
-  <span class='kw'>dataset_accessors</span> <span class='kw'>=</span> <span class='fu'><a href='available_datasets.html'>available_datasets</a></span>()$<span class='no'>accessor</span>,
-  <span class='kw'>overwrite</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='no'>...</span>
+  <span class='kw'>con</span>,
+  dataset_accessors = <span class='fu'><a href='available_datasets.html'>available_datasets</a></span>()<span class='op'>$</span><span class='kw'>accessor</span>,
+  overwrite = <span class='fl'>TRUE</span>,
+  <span class='kw'>...</span>
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -215,16 +215,20 @@ odbc, and bigrquery::bigquery() for BigQuery.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><code><a href='https://dplyr.tidyverse.org/reference/copy_to.html'>dplyr::copy_to()</a></code></p></div>
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>Sean Davis <a href='mailto:seandavi@gmail.com'>seandavi@gmail.com</a></p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span>(<span class='fu'><a href='https://rdrr.io/r/base/library.html'>require</a></span>(<span class='no'>RSQLite</span>)) {
-  <span class='no'>sql</span> <span class='kw'>=</span> <span class='kw pkg'>DBI</span><span class='kw ns'>::</span><span class='fu'><a href='https://dbi.r-dbi.org/reference/dbConnect.html'>dbConnect</a></span>(<span class='kw pkg'>RSQLite</span><span class='kw ns'>::</span><span class='fu'><a href='https://rsqlite.r-dbi.org/reference/SQLite.html'>SQLite</a></span>(), <span class='st'>':memory:'</span>)
-  <span class='fu'>datasets_to_sql</span>(<span class='no'>sql</span>, <span class='kw'>dataset_accessors</span> <span class='kw'>=</span> <span class='st'>"apple_mobility_data"</span>)
-  <span class='kw pkg'>DBI</span><span class='kw ns'>::</span><span class='fu'><a href='https://dbi.r-dbi.org/reference/dbListTables.html'>dbListTables</a></span>(<span class='no'>sql</span>)
-  <span class='kw pkg'>DBI</span><span class='kw ns'>::</span><span class='fu'><a href='https://dbi.r-dbi.org/reference/dbDisconnect.html'>dbDisconnect</a></span>(<span class='no'>sql</span>)
-} <span class='kw'>else</span> {
+    <pre class="examples"><div class='input'><span class='co'>if</span>(<span class='fu'><a href='https://rdrr.io/r/base/library.html'>require</a></span>(<span class='kw'><a href='https://rsqlite.r-dbi.org'>RSQLite</a></span>)) {
+  <span class='kw'>sql</span> <span class='op'>=</span> <span class='kw'>DBI</span>::<span class='fu'><a href='https://dbi.r-dbi.org/reference/dbConnect.html'>dbConnect</a></span>(<span class='kw'>RSQLite</span>::<span class='fu'><a href='https://rsqlite.r-dbi.org/reference/SQLite.html'>SQLite</a></span>(), <span class='st'>':memory:'</span>)
+  <span class='fu'>datasets_to_sql</span>(<span class='kw'>sql</span>, dataset_accessors = <span class='st'>"apple_mobility_data"</span>)
+  <span class='kw'>DBI</span>::<span class='fu'><a href='https://dbi.r-dbi.org/reference/dbListTables.html'>dbListTables</a></span>(<span class='kw'>sql</span>)
+  <span class='kw'>DBI</span>::<span class='fu'><a href='https://dbi.r-dbi.org/reference/dbDisconnect.html'>dbDisconnect</a></span>(<span class='kw'>sql</span>)
+} <span class='co'>else</span> {
   <span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='st'>"install.packages('RSQLite') to run this example"</span>)
-}</div><div class='output co'>#&gt; <span class='message'>Loading required package: RSQLite</span></div><div class='output co'>#&gt; <span class='message'>apple_mobility_data</span></div><div class='output co'>#&gt; <span class='message'>writing</span></div><div class='input'>
+}
+</div><div class='output co'>#&gt; <span class='message'>Loading required package: RSQLite</span></div><div class='output co'>#&gt; <span class='message'>apple_mobility_data</span></div><div class='output co'>#&gt; <span class='message'>writing</span></div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -241,7 +245,7 @@ odbc, and bigrquery::bigquery() for BigQuery.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
 </div>
 
       </footer>

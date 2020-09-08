@@ -170,14 +170,14 @@
     </div>
 
     <pre class="usage"><span class='fu'>Arima_nation</span>(
-  <span class='no'>ejhu</span>,
-  <span class='kw'>alp3</span> <span class='kw'>=</span> <span class='st'>"USA"</span>,
-  <span class='kw'>MAorder</span> <span class='kw'>=</span> <span class='fl'>2</span>,
-  <span class='kw'>Difforder</span> <span class='kw'>=</span> <span class='fl'>1</span>,
-  <span class='kw'>basedate</span> <span class='kw'>=</span> <span class='st'>"2020-02-15"</span>,
-  <span class='kw'>lookback_days</span> <span class='kw'>=</span> <span class='fl'>29</span>,
-  <span class='kw'>ARorder</span> <span class='kw'>=</span> <span class='fl'>0</span>,
-  <span class='kw'>max_date</span> <span class='kw'>=</span> <span class='kw'>NULL</span>
+  <span class='kw'>ejhu</span>,
+  alp3 = <span class='st'>"USA"</span>,
+  MAorder = <span class='fl'>2</span>,
+  Difforder = <span class='fl'>1</span>,
+  basedate = <span class='st'>"2020-02-15"</span>,
+  lookback_days = <span class='fl'>29</span>,
+  ARorder = <span class='fl'>0</span>,
+  max_date = <span class='kw'>NULL</span>
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -223,11 +223,12 @@ case the latest available date is used</p></td>
     <p>instance of S3 class Arima_sars2pack</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>ej</span> <span class='kw'>=</span> <span class='fu'><a href='enriched_jhu_data.html'>enriched_jhu_data</a></span>()
-<span class='no'>lkus</span> <span class='kw'>=</span> <span class='fu'>Arima_nation</span>(<span class='no'>ej</span>)
-<span class='no'>lkus</span></div><div class='output co'>#&gt; Arima_sars2pack instance for USA 
-#&gt;   computed Mon Sep  7 03:55:53 2020 
-#&gt;   last date used was:  2020-09-05 
+    <pre class="examples"><div class='input'><span class='kw'>ej</span> <span class='op'>=</span> <span class='fu'><a href='enriched_jhu_data.html'>enriched_jhu_data</a></span>()
+<span class='kw'>lkus</span> <span class='op'>=</span> <span class='fu'>Arima_nation</span>(<span class='kw'>ej</span>)
+<span class='kw'>lkus</span>
+</div><div class='output co'>#&gt; Arima_sars2pack instance for USA 
+#&gt;   computed Tue Sep  8 03:57:41 2020 
+#&gt;   last date used was:  2020-09-06 
 #&gt;   call was: Arima_nation(ejhu = ej)
 #&gt;   Model estimates: 
 #&gt; Series: tsfull 
@@ -235,17 +236,18 @@ case the latest available date is used</p></td>
 #&gt; 
 #&gt; Coefficients:
 #&gt;           ma1      ma2      drift
-#&gt;       -0.7351  -0.2649  -427.1449
-#&gt; s.e.   0.1995   0.1630   161.1094
+#&gt;       -0.7035  -0.2965  -437.8539
+#&gt; s.e.   0.1990   0.1751   165.9031
 #&gt; 
-#&gt; sigma^2 estimated as 38364606:  log likelihood=-284.11
-#&gt; AIC=576.23   AICc=577.96   BIC=581.55
+#&gt; sigma^2 estimated as 3.9e+07:  log likelihood=-284.33
+#&gt; AIC=576.66   AICc=578.4   BIC=581.99
 #&gt; 
 #&gt; Training set error measures:
-#&gt;                     ME     RMSE      MAE       MPE     MAPE      MASE
-#&gt; Training set -538.7271 5750.907 4482.346 -2.615098 10.28055 0.7634259
-#&gt;                    ACF1
-#&gt; Training set 0.01942125</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='no'>lkus</span>)</div><div class='img'><img src='Arima_nation-1.png' alt='' width='700' height='433' /></div></pre>
+#&gt;                    ME     RMSE      MAE       MPE     MAPE      MASE
+#&gt; Training set 67.08511 5798.379 4477.026 -1.529474 10.39687 0.7452129
+#&gt;                      ACF1
+#&gt; Training set -0.007316096</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>(<span class='kw'>lkus</span>)
+</div><div class='img'><img src='Arima_nation-1.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -261,7 +263,7 @@ case the latest available date is used</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
 </div>
 
       </footer>

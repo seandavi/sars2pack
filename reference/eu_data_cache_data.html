@@ -173,9 +173,9 @@ cases in Europe. They pull data from official government websites
 regularly using the open-source scripts inside the repository.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>eu_data_cache_data</span>(<span class='kw'>datasets</span> <span class='kw'>=</span> <span class='fu'>eu_data_cache_datasets</span>(<span class='kw'>include_ecdc</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>))
+    <pre class="usage"><span class='fu'>eu_data_cache_data</span>(datasets = <span class='fu'>eu_data_cache_datasets</span>(include_ecdc = <span class='fl'>FALSE</span>))
 
-<span class='fu'>eu_data_cache_datasets</span>(<span class='kw'>include_ecdc</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
+<span class='fu'>eu_data_cache_datasets</span>(include_ecdc = <span class='fl'>TRUE</span>)</pre>
 
 
     <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
@@ -254,38 +254,43 @@ site at
 <code><a href='who_cases.html'>who_cases</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>eudata</span> <span class='kw'>=</span> <span class='fu'>eu_data_cache_data</span>()
-<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>eudata</span>)</div><div class='output co'>#&gt;  [1] "country"                "nuts_2"                 "cases"                 
+    <pre class="examples"><div class='input'><span class='kw'>eudata</span> <span class='op'>=</span> <span class='fu'>eu_data_cache_data</span>()
+<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='kw'>eudata</span>)
+</div><div class='output co'>#&gt;  [1] "country"                "nuts_2"                 "cases"                 
 #&gt;  [4] "recovered"              "deaths"                 "tests"                 
 #&gt;  [7] "hospitalized"           "intensive_care"         "datetime"              
 #&gt; [10] "date"                   "nuts_3"                 "nuts_1"                
-#&gt; [13] "quarantine"             "lau"                    "hospitalized/100k pop."</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/dim.html'>dim</a></span>(<span class='no'>eudata</span>)</div><div class='output co'>#&gt; [1] 29829    15</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>eudata</span>)</div><div class='output co'>#&gt; # A tibble: 6 x 15
+#&gt; [13] "quarantine"             "lau"                    "hospitalized/100k pop."</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/dim.html'>dim</a></span>(<span class='kw'>eudata</span>)
+</div><div class='output co'>#&gt; [1] 29829    15</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='kw'>eudata</span>)
+</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 6 x 15</span><span>
 #&gt;   country nuts_2 cases recovered deaths tests hospitalized intensive_care
-#&gt;   &lt;chr&gt;   &lt;chr&gt;  &lt;dbl&gt;     &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;        &lt;dbl&gt;          &lt;dbl&gt;
-#&gt; 1 AT      Tirol      2        NA     NA    NA           NA             NA
-#&gt; 2 AT      Salzb…     3        NA     NA    NA           NA             NA
-#&gt; 3 AT      Steie…     4        NA     NA    NA           NA             NA
-#&gt; 4 AT      Niede…     5        NA     NA    NA           NA             NA
-#&gt; 5 AT      Wien      15        NA     NA    NA           NA             NA
-#&gt; 6 AT      Tirol      2        NA     NA    NA           NA             NA
-#&gt; # … with 7 more variables: datetime &lt;dttm&gt;, date &lt;date&gt;, nuts_3 &lt;chr&gt;,
-#&gt; #   nuts_1 &lt;chr&gt;, quarantine &lt;dbl&gt;, lau &lt;chr&gt;, `hospitalized/100k pop.` &lt;dbl&gt;</div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>eudata</span>)</div><div class='output co'>#&gt; Rows: 29,829
+#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>        </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>          </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
+#&gt; </span><span style='color: #555555;'>1</span><span> AT      Tirol      2        </span><span style='color: #BB0000;'>NA</span><span>     </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>           </span><span style='color: #BB0000;'>NA</span><span>             </span><span style='color: #BB0000;'>NA</span><span>
+#&gt; </span><span style='color: #555555;'>2</span><span> AT      Salzb…     3        </span><span style='color: #BB0000;'>NA</span><span>     </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>           </span><span style='color: #BB0000;'>NA</span><span>             </span><span style='color: #BB0000;'>NA</span><span>
+#&gt; </span><span style='color: #555555;'>3</span><span> AT      Steie…     4        </span><span style='color: #BB0000;'>NA</span><span>     </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>           </span><span style='color: #BB0000;'>NA</span><span>             </span><span style='color: #BB0000;'>NA</span><span>
+#&gt; </span><span style='color: #555555;'>4</span><span> AT      Niede…     5        </span><span style='color: #BB0000;'>NA</span><span>     </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>           </span><span style='color: #BB0000;'>NA</span><span>             </span><span style='color: #BB0000;'>NA</span><span>
+#&gt; </span><span style='color: #555555;'>5</span><span> AT      Wien      15        </span><span style='color: #BB0000;'>NA</span><span>     </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>           </span><span style='color: #BB0000;'>NA</span><span>             </span><span style='color: #BB0000;'>NA</span><span>
+#&gt; </span><span style='color: #555555;'>6</span><span> AT      Tirol      2        </span><span style='color: #BB0000;'>NA</span><span>     </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>           </span><span style='color: #BB0000;'>NA</span><span>             </span><span style='color: #BB0000;'>NA</span><span>
+#&gt; </span><span style='color: #555555;'># … with 7 more variables: datetime </span><span style='color: #555555;font-style: italic;'>&lt;dttm&gt;</span><span style='color: #555555;'>, date </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span style='color: #555555;'>, nuts_3 </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>,</span><span>
+#&gt; </span><span style='color: #555555;'>#   nuts_1 </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, quarantine </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, lau </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, `hospitalized/100k pop.` </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span></div><div class='input'><span class='kw'>dplyr</span>::<span class='fu'><a href='https://tibble.tidyverse.org/reference/glimpse.html'>glimpse</a></span>(<span class='kw'>eudata</span>)
+</div><div class='output co'>#&gt; Rows: 29,829
 #&gt; Columns: 15
-#&gt; $ country                  &lt;chr&gt; "AT", "AT", "AT", "AT", "AT", "AT", "AT", "A…
-#&gt; $ nuts_2                   &lt;chr&gt; "Tirol", "Salzburg", "Steiermark", "Niederös…
-#&gt; $ cases                    &lt;dbl&gt; 2, 3, 4, 5, 15, 2, 3, 4, 12, 16, 1, 3, 4, 4,…
-#&gt; $ recovered                &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
-#&gt; $ deaths                   &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
-#&gt; $ tests                    &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
-#&gt; $ hospitalized             &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
-#&gt; $ intensive_care           &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
-#&gt; $ datetime                 &lt;dttm&gt; 2020-03-04 17:45:00, 2020-03-04 17:45:00, 2…
-#&gt; $ date                     &lt;date&gt; 2020-03-04, 2020-03-04, 2020-03-04, 2020-03…
-#&gt; $ nuts_3                   &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
-#&gt; $ nuts_1                   &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
-#&gt; $ quarantine               &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
-#&gt; $ lau                      &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
-#&gt; $ `hospitalized/100k pop.` &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>eudata</span>)</div><div class='output co'>#&gt;    country             nuts_2              cases           recovered     
+#&gt; $ country                  </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "AT", "AT", "AT", "AT", "AT", "AT", "AT", "A…
+#&gt; $ nuts_2                   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Tirol", "Salzburg", "Steiermark", "Niederös…
+#&gt; $ cases                    </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 2, 3, 4, 5, 15, 2, 3, 4, 12, 16, 1, 3, 4, 4,…
+#&gt; $ recovered                </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+#&gt; $ deaths                   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+#&gt; $ tests                    </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+#&gt; $ hospitalized             </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+#&gt; $ intensive_care           </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+#&gt; $ datetime                 </span><span style='color: #555555;font-style: italic;'>&lt;dttm&gt;</span><span> 2020-03-04 17:45:00, 2020-03-04 17:45:00, 2…
+#&gt; $ date                     </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2020-03-04, 2020-03-04, 2020-03-04, 2020-03…
+#&gt; $ nuts_3                   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+#&gt; $ nuts_1                   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+#&gt; $ quarantine               </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+#&gt; $ lau                      </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+#&gt; $ `hospitalized/100k pop.` </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='kw'>eudata</span>)
+</div><div class='output co'>#&gt;    country             nuts_2              cases           recovered     
 #&gt;  Length:29829       Length:29829       Min.   :    0.0   Min.   :   0.0  
 #&gt;  Class :character   Class :character   1st Qu.:    3.0   1st Qu.:   0.0  
 #&gt;  Mode  :character   Mode  :character   Median :   24.0   Median :   0.0  
@@ -319,12 +324,13 @@ site at
 #&gt;                     NA's   :29819                      NA's   :26997         </div><div class='input'>
 <span class='co'># You may wish to look at only one or a few</span>
 <span class='co'># of the available datasets. Here is the list</span>
-<span class='fu'>eu_data_cache_datasets</span>()</div><div class='output co'>#&gt;     at     ch     cz     de   ecdc     fr     hu     ie     it     nl     no 
+<span class='fu'>eu_data_cache_datasets</span>()
+</div><div class='output co'>#&gt;     at     ch     cz     de   ecdc     fr     hu     ie     it     nl     no 
 #&gt;   "at"   "ch"   "cz"   "de" "ecdc"   "fr"   "hu"   "ie"   "it"   "nl"   "no" 
 #&gt;     pl     se     si     uk 
 #&gt;   "pl"   "se"   "si"   "uk" </div><div class='input'>
 
-</div></pre>
+</div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -340,7 +346,7 @@ site at
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
 </div>
 
       </footer>

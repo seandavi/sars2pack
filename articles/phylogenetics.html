@@ -117,7 +117,7 @@
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Phylogenetic data</h1>
             
-            <h4 class="date">Sep 07, 2020</h4>
+            <h4 class="date">Sep 08, 2020</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/seandavi/sars2pack/blob/master/vignettes/phylogenetics.Rmd"><code>vignettes/phylogenetics.Rmd</code></a></small>
       <div class="hidden name"><code>phylogenetics.Rmd</code></div>
@@ -129,7 +129,9 @@
 <div id="phylogenetic-data" class="section level1">
 <h1 class="hasAnchor">
 <a href="#phylogenetic-data" class="anchor"></a>Phylogenetic data</h1>
-<div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">sars2pack</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb1"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw">sars2pack</span>)
+</pre></div>
 <pre><code>## Loading required package: R0</code></pre>
 <pre><code>## Loading required package: MASS</code></pre>
 <pre><code>## Loading required package: sf</code></pre>
@@ -137,8 +139,10 @@
 <pre><code>## Registered S3 method overwritten by 'quantmod':
 ##   method            from
 ##   as.zoo.data.frame zoo</code></pre>
-<div class="sourceCode" id="cb7"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">ggplot2</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">dplyr</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb7"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="http://ggplot2.tidyverse.org">ggplot2</a></span>)
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://dplyr.tidyverse.org">dplyr</a></span>)
+</pre></div>
 <pre><code>## 
 ## Attaching package: 'dplyr'</code></pre>
 <pre><code>## The following object is masked from 'package:MASS':
@@ -150,26 +154,34 @@
 <pre><code>## The following objects are masked from 'package:base':
 ## 
 ##     intersect, setdiff, setequal, union</code></pre>
-<div class="sourceCode" id="cb12"><html><body><pre class="r"><span class="no">ntr</span> <span class="kw">=</span> <span class="fu"><a href="../reference/cov_glue_newick_data.html">cov_glue_newick_data</a></span>()</pre></body></html></div>
-<pre><code>## using temporary cache /tmp/RtmpiwvtIO/BiocFileCache</code></pre>
-<div class="sourceCode" id="cb14"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span>(<span class="no">ntr</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb12"><pre class="downlit">
+<span class="kw">ntr</span> <span class="op">=</span> <span class="fu"><a href="../reference/cov_glue_newick_data.html">cov_glue_newick_data</a></span>()
+</pre></div>
+<pre><code>## using temporary cache /tmp/RtmpvYwxN9/BiocFileCache</code></pre>
+<div class="sourceCode" id="cb14"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/pkg/sf/man/plot.html">plot</a></span>(<span class="kw">ntr</span>)
+</pre></div>
 <p><img src="phylogenetics_files/figure-html/unnamed-chunk-2-1.png" width="700"></p>
-<div class="sourceCode" id="cb15"><html><body><pre class="r"><span class="no">dat</span> <span class="kw">=</span> <span class="fu"><a href="../reference/cov_glue_lineage_data.html">cov_glue_lineage_data</a></span>()
-<span class="no">dat</span> <span class="kw">=</span> <span class="no">dat</span> <span class="kw">%&gt;%</span>
-    <span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span>(<span class="kw">lineage</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html">sub</a></span>(<span class="st">'^([^.][.]?[^.]+).*'</span>, <span class="st">'\\1'</span>, <span class="no">lineage</span>)) <span class="kw">%&gt;%</span>
-    <span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span>(<span class="kw">region</span> <span class="kw">=</span> <span class="kw pkg">countrycode</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/countrycode/man/countrycode.html">countrycode</a></span>(<span class="no">country</span>,<span class="kw">origin</span><span class="kw">=</span><span class="st">'country.name'</span>,
-                                                    <span class="kw">destination</span><span class="kw">=</span><span class="st">'region'</span>)) <span class="kw">%&gt;%</span>
-    <span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span>(<span class="no">epiweek</span>,<span class="no">lineage</span>,<span class="no">region</span>) <span class="kw">%&gt;%</span>
-    <span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span>(<span class="kw">cases</span><span class="kw">=</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span>()) <span class="kw">%&gt;%</span>
-    <span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(!<span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span>(<span class="no">region</span>)) <span class="kw">%&gt;%</span>
-    <span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">ungroup</a></span>()</pre></body></html></div>
+<div class="sourceCode" id="cb15"><pre class="downlit">
+<span class="kw">dat</span> <span class="op">=</span> <span class="fu"><a href="../reference/cov_glue_lineage_data.html">cov_glue_lineage_data</a></span>()
+<span class="kw">dat</span> <span class="op">=</span> <span class="kw">dat</span> <span class="op">%&gt;%</span>
+    <span class="kw">dplyr</span>::<span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span>(lineage = <span class="fu"><a href="https://rdrr.io/r/base/grep.html">sub</a></span>(<span class="st">'^([^.][.]?[^.]+).*'</span>, <span class="st">'\\1'</span>, <span class="kw">lineage</span>)) <span class="op">%&gt;%</span>
+    <span class="kw">dplyr</span>::<span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span>(region = <span class="kw">countrycode</span>::<span class="fu"><a href="https://rdrr.io/pkg/countrycode/man/countrycode.html">countrycode</a></span>(<span class="kw">country</span>,origin=<span class="st">'country.name'</span>,
+                                                    destination=<span class="st">'region'</span>)) <span class="op">%&gt;%</span>
+    <span class="kw">dplyr</span>::<span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span>(<span class="kw">epiweek</span>,<span class="kw">lineage</span>,<span class="kw">region</span>) <span class="op">%&gt;%</span> 
+    <span class="kw">dplyr</span>::<span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span>(cases=<span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span>()) <span class="op">%&gt;%</span>
+    <span class="kw">dplyr</span>::<span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(<span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span>(<span class="kw">region</span>)) <span class="op">%&gt;%</span>
+    <span class="kw">dplyr</span>::<span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">ungroup</a></span>()
+</pre></div>
 <pre><code>## Warning: Problem with `mutate()` input `region`.
 ## ℹ Some values were not matched unambiguously: South_Korea
 ## 
 ## ℹ Input `region` is `countrycode::countrycode(country, origin = "country.name", destination = "region")`.</code></pre>
 <pre><code>## Warning in countrycode::countrycode(country, origin = "country.name", destination = "region"): Some values were not matched unambiguously: South_Korea</code></pre>
 <pre><code>## `summarise()` regrouping output by 'epiweek', 'lineage' (override with `.groups` argument)</code></pre>
-<div class="sourceCode" id="cb19"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="no">dat</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb19"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="kw">dat</span>)
+</pre></div>
 <pre><code>## # A tibble: 6 x 4
 ##   epiweek lineage region              cases
 ##     &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;               &lt;int&gt;
@@ -179,12 +191,14 @@
 ## 4       2 B       East Asia &amp; Pacific     7
 ## 5       3 A       East Asia &amp; Pacific     9
 ## 6       3 B       East Asia &amp; Pacific    10</code></pre>
-<div class="sourceCode" id="cb21"><html><body><pre class="r"><span class="no">p</span> <span class="kw">=</span> <span class="no">dat</span> <span class="kw">%&gt;%</span>
-    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="kw">x</span><span class="kw">=</span><span class="no">epiweek</span>,<span class="kw">y</span><span class="kw">=</span><span class="no">cases</span>,<span class="kw">fill</span><span class="kw">=</span><span class="no">lineage</span>)) +
-    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span>(<span class="kw">stat</span><span class="kw">=</span><span class="st">'identity'</span>, <span class="kw">position</span><span class="kw">=</span><span class="st">'fill'</span>) +
-    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span>(<span class="st">"region"</span>,<span class="kw">ncol</span><span class="kw">=</span><span class="fl">2</span>) +
-    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span>(<span class="kw">legend.position</span><span class="kw">=</span><span class="st">'bottom'</span>)
-<span class="no">p</span></pre></body></html></div>
+<div class="sourceCode" id="cb21"><pre class="downlit">
+<span class="kw">p</span> <span class="op">=</span> <span class="kw">dat</span> <span class="op">%&gt;%</span>
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(x=<span class="kw">epiweek</span>,y=<span class="kw">cases</span>,fill=<span class="kw">lineage</span>)) <span class="op">+</span>
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span>(stat=<span class="st">'identity'</span>, position=<span class="st">'fill'</span>) <span class="op">+</span>
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span>(<span class="st">"region"</span>,ncol=<span class="fl">2</span>) <span class="op">+</span>
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span>(legend.position=<span class="st">'bottom'</span>)
+<span class="kw">p</span>
+</pre></div>
 <pre><code>## Warning: Removed 1 rows containing missing values (position_stack).</code></pre>
 <p><img src="phylogenetics_files/figure-html/unnamed-chunk-4-1.png" width="700"></p>
 <div id="notes" class="section level2">
@@ -212,7 +226,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
 </div>
 
       </footer>

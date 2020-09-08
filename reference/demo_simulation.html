@@ -170,15 +170,15 @@
     </div>
 
     <pre class="usage"><span class='fu'>demo_simulation</span>(
-  <span class='kw'>gt.type</span> <span class='kw'>=</span> <span class='st'>"gamma"</span>,
-  <span class='kw'>gt.val</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>3</span>, <span class='fl'>1.5</span>),
-  <span class='kw'>begin</span> <span class='kw'>=</span> <span class='fl'>1</span>,
-  <span class='kw'>end</span> <span class='kw'>=</span> <span class='fl'>30</span>,
-  <span class='kw'>epid.nb</span> <span class='kw'>=</span> <span class='fl'>1</span>,
-  <span class='kw'>epid.length</span> <span class='kw'>=</span> <span class='fl'>30</span>,
-  <span class='kw'>family</span> <span class='kw'>=</span> <span class='st'>"poisson"</span>,
-  <span class='kw'>R0</span> <span class='kw'>=</span> <span class='fl'>1.67</span>,
-  <span class='kw'>peak.value</span> <span class='kw'>=</span> <span class='fl'>500</span>
+  gt.type = <span class='st'>"gamma"</span>,
+  gt.val = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>3</span>, <span class='fl'>1.5</span>),
+  begin = <span class='fl'>1</span>,
+  end = <span class='fl'>30</span>,
+  epid.nb = <span class='fl'>1</span>,
+  epid.length = <span class='fl'>30</span>,
+  family = <span class='st'>"poisson"</span>,
+  R0 = <span class='fl'>1.67</span>,
+  peak.value = <span class='fl'>500</span>
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -227,12 +227,13 @@
     <p>result of <code>estimate.R</code></p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='no'>d1</span> <span class='kw'>=</span> <span class='fu'>demo_simulation</span>()
+    <pre class="examples"><div class='input'><span class='co'>if</span> (<span class='fl'>FALSE</span>) {
+<span class='kw'>d1</span> <span class='op'>=</span> <span class='fu'>demo_simulation</span>()
 <span class='co'># plot(d1) ## note: R0:::plot.R0.sR is very peculiar and runs dev.new()</span>
-<span class='fu'>plotfit</span>(<span class='no'>d1</span>)  <span class='co'># same here but seems to have simpler behavior</span>
+<span class='fu'>plotfit</span>(<span class='kw'>d1</span>)  <span class='co'># same here but seems to have simpler behavior</span>
 <span class='co'># s.a &lt;- sensitivity.analysis(res=d1$estimates$EG, begin=1:15, end=16:30, sa.type="time")</span>
-}</div></pre>
+}
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -248,7 +249,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
 </div>
 
       </footer>

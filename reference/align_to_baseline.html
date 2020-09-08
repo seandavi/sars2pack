@@ -173,7 +173,7 @@ example), particularly when making graphical displays, it is helpful
 to set a "time baseline" that aligns where all the curves start.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>align_to_baseline</span>(<span class='no'>df</span>, <span class='no'>filter_criteria</span>, <span class='kw'>date_column</span> <span class='kw'>=</span> <span class='st'>"date"</span>, <span class='no'>group_vars</span>)</pre>
+    <pre class="usage"><span class='fu'>align_to_baseline</span>(<span class='kw'>df</span>, <span class='kw'>filter_criteria</span>, date_column = <span class='st'>"date"</span>, <span class='kw'>group_vars</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -246,70 +246,80 @@ direct comparison of the shapes of the countries' curves.</p>
 <p>Other plotting: 
 <code><a href='plot_epicurve.html'>plot_epicurve</a>()</code>,
 <code><a href='plot_projection.html'>plot_projection</a>()</code></p></div>
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>Sean Davis <a href='mailto:seandavi@gmail.com'>seandavi@gmail.com</a></p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>dplyr</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>ggplot2</span>)
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='https://dplyr.tidyverse.org'>dplyr</a></span>)
+<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://ggplot2.tidyverse.org'>ggplot2</a></span>)
 
 <span class='co'># use European CDC dataset</span>
-<span class='no'>ecdc</span> <span class='kw'>=</span> <span class='fu'><a href='ecdc_data.html'>ecdc_data</a></span>()
-<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>ecdc</span>)</div><div class='output co'>#&gt; # A tibble: 6 x 9
-#&gt; # Groups:   location_name, subset [6]
+<span class='kw'>ecdc</span> <span class='op'>=</span> <span class='fu'><a href='ecdc_data.html'>ecdc_data</a></span>()
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='kw'>ecdc</span>)
+</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 6 x 9</span><span>
+#&gt; </span><span style='color: #555555;'># Groups:   location_name, subset [6]</span><span>
 #&gt;   date       location_name iso2c iso3c population_2019 continent
-#&gt;   &lt;date&gt;     &lt;chr&gt;         &lt;chr&gt; &lt;chr&gt;           &lt;dbl&gt; &lt;chr&gt;    
-#&gt; 1 2019-12-31 Afghanistan   AF    AFG          38041757 Asia     
-#&gt; 2 2019-12-31 Afghanistan   AF    AFG          38041757 Asia     
-#&gt; 3 2019-12-31 Algeria       DZ    DZA          43053054 Africa   
-#&gt; 4 2019-12-31 Algeria       DZ    DZA          43053054 Africa   
-#&gt; 5 2019-12-31 Armenia       AM    ARM           2957728 Europe   
-#&gt; 6 2019-12-31 Armenia       AM    ARM           2957728 Europe   
-#&gt; # … with 3 more variables:
-#&gt; #   `Cumulative_number_for_14_days_of_COVID-19_cases_per_100000` &lt;dbl&gt;,
-#&gt; #   subset &lt;chr&gt;, count &lt;dbl&gt;</div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>ecdc</span>)</div><div class='output co'>#&gt; Rows: 82,002
+#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>         </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>           </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>    
+#&gt; </span><span style='color: #555555;'>1</span><span> 2019-12-31 Afghanistan   AF    AFG          38</span><span style='text-decoration: underline;'>041</span><span>757 Asia     
+#&gt; </span><span style='color: #555555;'>2</span><span> 2019-12-31 Afghanistan   AF    AFG          38</span><span style='text-decoration: underline;'>041</span><span>757 Asia     
+#&gt; </span><span style='color: #555555;'>3</span><span> 2019-12-31 Algeria       DZ    DZA          43</span><span style='text-decoration: underline;'>053</span><span>054 Africa   
+#&gt; </span><span style='color: #555555;'>4</span><span> 2019-12-31 Algeria       DZ    DZA          43</span><span style='text-decoration: underline;'>053</span><span>054 Africa   
+#&gt; </span><span style='color: #555555;'>5</span><span> 2019-12-31 Armenia       AM    ARM           2</span><span style='text-decoration: underline;'>957</span><span>728 Europe   
+#&gt; </span><span style='color: #555555;'>6</span><span> 2019-12-31 Armenia       AM    ARM           2</span><span style='text-decoration: underline;'>957</span><span>728 Europe   
+#&gt; </span><span style='color: #555555;'># … with 3 more variables:</span><span>
+#&gt; </span><span style='color: #555555;'>#   `Cumulative_number_for_14_days_of_COVID-19_cases_per_100000` </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
+#&gt; </span><span style='color: #555555;'>#   subset </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, count </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span></div><div class='input'><span class='kw'>dplyr</span>::<span class='fu'><a href='https://tibble.tidyverse.org/reference/glimpse.html'>glimpse</a></span>(<span class='kw'>ecdc</span>)
+</div><div class='output co'>#&gt; Rows: 82,420
 #&gt; Columns: 9
 #&gt; Groups: location_name, subset [420]
-#&gt; $ date                                                         &lt;date&gt; 2019-12…
-#&gt; $ location_name                                                &lt;chr&gt; "Afghani…
-#&gt; $ iso2c                                                        &lt;chr&gt; "AF", "A…
-#&gt; $ iso3c                                                        &lt;chr&gt; "AFG", "…
-#&gt; $ population_2019                                              &lt;dbl&gt; 38041757…
-#&gt; $ continent                                                    &lt;chr&gt; "Asia", …
-#&gt; $ `Cumulative_number_for_14_days_of_COVID-19_cases_per_100000` &lt;dbl&gt; NA, NA, …
-#&gt; $ subset                                                       &lt;chr&gt; "confirm…
-#&gt; $ count                                                        &lt;dbl&gt; 0, 0, 0,…</div><div class='input'>
+#&gt; $ date                                                         </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2019-12…
+#&gt; $ location_name                                                </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Afghani…
+#&gt; $ iso2c                                                        </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "AF", "A…
+#&gt; $ iso3c                                                        </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "AFG", "…
+#&gt; $ population_2019                                              </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 38041757…
+#&gt; $ continent                                                    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Asia", …
+#&gt; $ `Cumulative_number_for_14_days_of_COVID-19_cases_per_100000` </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> NA, NA, …
+#&gt; $ subset                                                       </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "confirm…
+#&gt; $ count                                                        </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0,…</div><div class='input'>
 <span class='co'># get top 10 countries by cumulative</span>
 <span class='co'># number of deaths</span>
-<span class='no'>top_10</span> <span class='kw'>=</span> <span class='no'>ecdc</span> <span class='kw'>%&gt;%</span>
-    <span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span>(<span class='no'>location_name</span>) <span class='kw'>%&gt;%</span>
-    <span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarize</a></span>(<span class='kw'>deaths</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span>(<span class='no'>deaths</span>)) <span class='kw'>%&gt;%</span>
-    <span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/arrange.html'>arrange</a></span>(<span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/desc.html'>desc</a></span>(<span class='no'>deaths</span>)) <span class='kw'>%&gt;%</span>
-    <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='fl'>10</span>)</div><div class='output co'>#&gt; <span class='message'>`summarise()` ungrouping output (override with `.groups` argument)</span></div><div class='input'>
-<span class='no'>top_10</span></div><div class='output co'>#&gt; # A tibble: 10 x 2
+<span class='kw'>top_10</span> <span class='op'>=</span> <span class='kw'>ecdc</span> <span class='op'>%&gt;%</span>
+    <span class='kw'>dplyr</span>::<span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span>(<span class='kw'>location_name</span>) <span class='op'>%&gt;%</span>
+    <span class='kw'>dplyr</span>::<span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarize</a></span>(deaths = <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span>(<span class='kw'>deaths</span>)) <span class='op'>%&gt;%</span>
+    <span class='kw'>dplyr</span>::<span class='fu'><a href='https://dplyr.tidyverse.org/reference/arrange.html'>arrange</a></span>(<span class='kw'>dplyr</span>::<span class='fu'><a href='https://dplyr.tidyverse.org/reference/desc.html'>desc</a></span>(<span class='kw'>deaths</span>)) <span class='op'>%&gt;%</span>
+    <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='fl'>10</span>)
+</div><div class='output co'>#&gt; <span class='message'>`summarise()` ungrouping output (override with `.groups` argument)</span></div><div class='input'>
+<span class='kw'>top_10</span>
+</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 10 x 2</span><span>
 #&gt;    location_name       deaths
-#&gt;    &lt;chr&gt;                &lt;dbl&gt;
-#&gt;  1 Afghanistan           3891
-#&gt;  2 Albania               3891
-#&gt;  3 Algeria               3891
-#&gt;  4 Andorra               3891
-#&gt;  5 Angola                3891
-#&gt;  6 Anguilla              3891
-#&gt;  7 Antigua_and_Barbuda   3891
-#&gt;  8 Argentina             3891
-#&gt;  9 Armenia               3891
-#&gt; 10 Aruba                 3891</div><div class='input'>
+#&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>                </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
+#&gt; </span><span style='color: #555555;'> 1</span><span> Afghanistan           </span><span style='text-decoration: underline;'>3</span><span>891
+#&gt; </span><span style='color: #555555;'> 2</span><span> Albania               </span><span style='text-decoration: underline;'>3</span><span>891
+#&gt; </span><span style='color: #555555;'> 3</span><span> Algeria               </span><span style='text-decoration: underline;'>3</span><span>891
+#&gt; </span><span style='color: #555555;'> 4</span><span> Andorra               </span><span style='text-decoration: underline;'>3</span><span>891
+#&gt; </span><span style='color: #555555;'> 5</span><span> Angola                </span><span style='text-decoration: underline;'>3</span><span>891
+#&gt; </span><span style='color: #555555;'> 6</span><span> Anguilla              </span><span style='text-decoration: underline;'>3</span><span>891
+#&gt; </span><span style='color: #555555;'> 7</span><span> Antigua_and_Barbuda   </span><span style='text-decoration: underline;'>3</span><span>891
+#&gt; </span><span style='color: #555555;'> 8</span><span> Argentina             </span><span style='text-decoration: underline;'>3</span><span>891
+#&gt; </span><span style='color: #555555;'> 9</span><span> Armenia               </span><span style='text-decoration: underline;'>3</span><span>891
+#&gt; </span><span style='color: #555555;'>10</span><span> Aruba                 </span><span style='text-decoration: underline;'>3</span><span>891</div><div class='input'>
 <span class='co'># limit ecdc data to "deaths" and</span>
 <span class='co'># top 10 countries</span>
 
-<span class='no'>ecdc_top10</span> <span class='kw'>=</span> <span class='no'>ecdc</span> <span class='kw'>%&gt;%</span>
-    <span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span>(<span class='no'>location_name</span> <span class='kw'>%in%</span> <span class='no'>top_10</span><span class='kw'>[[</span><span class='st'>'location_name'</span>]])
-<span class='fu'><a href='plot_epicurve.html'>plot_epicurve</a></span>(<span class='no'>ecdc_top10</span>, <span class='kw'>color</span><span class='kw'>=</span><span class='st'>'location_name'</span>, <span class='kw'>case_column</span><span class='kw'>=</span><span class='st'>'deaths'</span>)</div><div class='output co'>#&gt; <span class='error'>Error: </span></div><div class='input'>
-<span class='no'>ecdc_top10_baseline</span> <span class='kw'>=</span> <span class='fu'>align_to_baseline</span>(<span class='no'>ecdc_top10</span>, <span class='no'>deaths</span><span class='kw'>&gt;</span><span class='fl'>100</span>, <span class='kw'>group_vars</span><span class='kw'>=</span><span class='st'>'location_name'</span>)</div><div class='output co'>#&gt; <span class='error'>Error: Problem with `filter()` input `..1`.</span>
-#&gt; <span class='error'>✖ Input `..1` must be of size 241 or 1, not size 72.</span>
-#&gt; <span class='error'>ℹ Input `..1` is `deaths &gt; 100`.</span>
-#&gt; <span class='error'>ℹ The error occurred in group 1: location_name = "Afghanistan", subset = "confirmed".</span></div><div class='input'>
-<span class='fu'><a href='plot_epicurve.html'>plot_epicurve</a></span>(<span class='no'>ecdc_top10_baseline</span>, <span class='kw'>date_column</span><span class='kw'>=</span><span class='st'>'index'</span>, <span class='kw'>color</span><span class='kw'>=</span><span class='st'>'location_name'</span>) +
-    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span>(<span class='st'>'Deaths over time, aligned to date of 100 deaths per country'</span>)</div><div class='output co'>#&gt; <span class='error'>Error in plot_epicurve(ecdc_top10_baseline, date_column = "index", color = "location_name"): object 'ecdc_top10_baseline' not found</span></div><div class='input'>
-</div></pre>
+<span class='kw'>ecdc_top10</span> <span class='op'>=</span> <span class='kw'>ecdc</span> <span class='op'>%&gt;%</span>
+    <span class='kw'>dplyr</span>::<span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span>(<span class='kw'>location_name</span> <span class='op'>%in%</span> <span class='kw'>top_10</span>[[<span class='st'>'location_name'</span>]])
+<span class='fu'><a href='plot_epicurve.html'>plot_epicurve</a></span>(<span class='kw'>ecdc_top10</span>, color=<span class='st'>'location_name'</span>, case_column=<span class='st'>'deaths'</span>)
+</div><div class='output co'>#&gt; <span class='error'>Error: </span></div><div class='input'>
+<span class='kw'>ecdc_top10_baseline</span> <span class='op'>=</span> <span class='fu'>align_to_baseline</span>(<span class='kw'>ecdc_top10</span>, <span class='kw'>deaths</span><span class='op'>&gt;</span><span class='fl'>100</span>, group_vars=<span class='st'>'location_name'</span>)
+</div><div class='output co'>#&gt; <span class='error'>Error: Problem with `filter()` input `..1`.</span>
+#&gt; <span class='error'></span><span style='color: #BB0000;'>✖</span><span> Input `..1` must be of size 242 or 1, not size 72.</span>
+#&gt; <span class='error'></span><span style='color: #0000BB;'>ℹ</span><span> Input `..1` is `deaths &gt; 100`.</span>
+#&gt; <span class='error'></span><span style='color: #0000BB;'>ℹ</span><span> The error occurred in group 1: location_name = "Afghanistan", subset = "confirmed".</span></div><div class='input'>
+<span class='fu'><a href='plot_epicurve.html'>plot_epicurve</a></span>(<span class='kw'>ecdc_top10_baseline</span>, date_column=<span class='st'>'index'</span>, color=<span class='st'>'location_name'</span>) <span class='op'>+</span>
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span>(<span class='st'>'Deaths over time, aligned to date of 100 deaths per country'</span>) 
+</div><div class='output co'>#&gt; <span class='error'>Error in plot_epicurve(ecdc_top10_baseline, date_column = "index", color = "location_name"): object 'ecdc_top10_baseline' not found</span></div><div class='input'>
+</div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -325,7 +335,7 @@ direct comparison of the shapes of the countries' curves.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
 </div>
 
       </footer>

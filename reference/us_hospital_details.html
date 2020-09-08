@@ -223,36 +223,42 @@
 <code><a href='who_cases.html'>who_cases</a>()</code></p>
 <p>Other healthcare-systems: 
 <code><a href='kff_icu_beds.html'>kff_icu_beds</a>()</code></p></div>
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>Sean Davis <a href='mailto:seandavi@gmail.com'>seandavi@gmail.com</a></p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>res</span> <span class='kw'>=</span> <span class='fu'>us_hospital_details</span>()
-<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Simple feature collection with 6 features and 32 fields
+    <pre class="examples"><div class='input'><span class='kw'>res</span> <span class='op'>=</span> <span class='fu'>us_hospital_details</span>()
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='kw'>res</span>)
+</div><div class='output co'>#&gt; Simple feature collection with 6 features and 32 fields
 #&gt; Attribute-geometry relationship: 32 constant, 0 aggregate, 0 identity
 #&gt; geometry type:  POINT
 #&gt; dimension:      XY
 #&gt; bbox:           xmin: -119.6457 ymin: 33.85971 xmax: -117.9674 ymax: 36.33616
 #&gt; geographic CRS: WGS 84
-#&gt; # A tibble: 6 x 33
+#&gt; <span style='color: #555555;'># A tibble: 6 x 33</span><span>
 #&gt;       x     y   fid id    name  address city  state zip   zip4  telephone type 
-#&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;
-#&gt; 1 -120.  36.3     1 0005… CENT… 1025 N… HANF… CA    93230 NOT … NOT AVAI… GENE…
-#&gt; 2 -119.  34.2     2 0053… LOS … 150 VI… WEST… CA    91362 NOT … NOT AVAI… GENE…
-#&gt; 3 -118.  34.0     3 0011… EAST… 4060 W… LOS … CA    90023 NOT … NOT AVAI… GENE…
-#&gt; 4 -118.  34.1     4 0017… SOUT… 6245 D… HOLL… CA    90028 NOT … (323) 46… GENE…
-#&gt; 5 -118.  34.1     5 0023… KIND… 14148 … BALD… CA    91706 NOT … NOT AVAI… GENE…
-#&gt; 6 -118.  33.9     6 0025… LAKE… 3700 E… LAKE… CA    90712 NOT … NOT AVAI… GENE…
-#&gt; # … with 21 more variables: status &lt;chr&gt;, population &lt;dbl&gt;, county &lt;chr&gt;,
-#&gt; #   countyfips &lt;chr&gt;, country &lt;chr&gt;, naics_code &lt;dbl&gt;, naics_desc &lt;chr&gt;,
-#&gt; #   source &lt;chr&gt;, sourcedate &lt;chr&gt;, val_method &lt;chr&gt;, val_date &lt;chr&gt;,
-#&gt; #   website &lt;chr&gt;, state_id &lt;chr&gt;, alt_name &lt;chr&gt;, st_fips &lt;chr&gt;, owner &lt;chr&gt;,
-#&gt; #   ttl_staff &lt;dbl&gt;, beds &lt;dbl&gt;, trauma &lt;chr&gt;, helipad &lt;chr&gt;, geometry &lt;POINT
-#&gt; #   [°]&gt;</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt;  [1] "x"          "y"          "fid"        "id"         "name"      
+#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>
+#&gt; </span><span style='color: #555555;'>1</span><span> -</span><span style='color: #BB0000;'>120.</span><span>  36.3     1 0005… CENT… 1025 N… HANF… CA    93230 NOT … NOT AVAI… GENE…
+#&gt; </span><span style='color: #555555;'>2</span><span> -</span><span style='color: #BB0000;'>119.</span><span>  34.2     2 0053… LOS … 150 VI… WEST… CA    91362 NOT … NOT AVAI… GENE…
+#&gt; </span><span style='color: #555555;'>3</span><span> -</span><span style='color: #BB0000;'>118.</span><span>  34.0     3 0011… EAST… 4060 W… LOS … CA    90023 NOT … NOT AVAI… GENE…
+#&gt; </span><span style='color: #555555;'>4</span><span> -</span><span style='color: #BB0000;'>118.</span><span>  34.1     4 0017… SOUT… 6245 D… HOLL… CA    90028 NOT … (323) 46… GENE…
+#&gt; </span><span style='color: #555555;'>5</span><span> -</span><span style='color: #BB0000;'>118.</span><span>  34.1     5 0023… KIND… 14148 … BALD… CA    91706 NOT … NOT AVAI… GENE…
+#&gt; </span><span style='color: #555555;'>6</span><span> -</span><span style='color: #BB0000;'>118.</span><span>  33.9     6 0025… LAKE… 3700 E… LAKE… CA    90712 NOT … NOT AVAI… GENE…
+#&gt; </span><span style='color: #555555;'># … with 21 more variables: status </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, population </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, county </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>,</span><span>
+#&gt; </span><span style='color: #555555;'>#   countyfips </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, country </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, naics_code </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, naics_desc </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>,</span><span>
+#&gt; </span><span style='color: #555555;'>#   source </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, sourcedate </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, val_method </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, val_date </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>,</span><span>
+#&gt; </span><span style='color: #555555;'>#   website </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, state_id </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, alt_name </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, st_fips </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, owner </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>,</span><span>
+#&gt; </span><span style='color: #555555;'>#   ttl_staff </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, beds </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, trauma </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, helipad </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, geometry </span><span style='color: #555555;font-style: italic;'>&lt;POINT</span><span>
+#&gt; </span><span style='color: #555555;'># </span><span style='color: #555555;font-style: italic;'>  [°]&gt;</span><span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='kw'>res</span>)
+</div><div class='output co'>#&gt;  [1] "x"          "y"          "fid"        "id"         "name"      
 #&gt;  [6] "address"    "city"       "state"      "zip"        "zip4"      
 #&gt; [11] "telephone"  "type"       "status"     "population" "county"    
 #&gt; [16] "countyfips" "country"    "naics_code" "naics_desc" "source"    
 #&gt; [21] "sourcedate" "val_method" "val_date"   "website"    "state_id"  
 #&gt; [26] "alt_name"   "st_fips"    "owner"      "ttl_staff"  "beds"      
-#&gt; [31] "trauma"     "helipad"    "geometry"  </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt;        x                 y               fid            id           
+#&gt; [31] "trauma"     "helipad"    "geometry"  </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='kw'>res</span>)
+</div><div class='output co'>#&gt;        x                 y               fid            id           
 #&gt;  Min.   :-176.64   Min.   :-14.29   Min.   :   1   Length:7596       
 #&gt;  1st Qu.: -98.22   1st Qu.: 33.46   1st Qu.:1902   Class :character  
 #&gt;  Median : -90.09   Median : 37.97   Median :3802   Mode  :character  
@@ -317,7 +323,7 @@
 #&gt;                      </div><div class='input'>
 
 
-</div></pre>
+</div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -333,7 +339,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
 </div>
 
       </footer>

@@ -188,13 +188,13 @@ Public health experts indicated that trends in search patterns might be helpful 
 <p>A single search query can be mapped to more than one symptom. For example, we map a search for “acid reflux and coughing up mucus” to three symptoms: Cough, Gastroesophageal reflux disease, and Heartburn.</p>
 <p>The dataset covers the recent period and we’ll gradually expand its range as part of regular updates. Each update will bring the coverage to within three days of the day of the update.</p>
 <p>Although we are releasing the dataset in English, we count searches in other languages. In each supported country, we include the languages needed to cover the majority of symptom search queries. For example, in the United States we support Spanish and English.</p>
-<p>The data represents a sample of our users and might not represent the exact behavior of a wider population.</p><h3>Preserving privacy</h3>
+<p>The data represents a sample of our users and might not represent the exact behavior of a wider population.</p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Preserving privacy</h3>
 
 
 <p>For this dataset, we use differential privacy, which adds artificial noise to our datasets while enabling high quality results without identifying any individual person.</p>
 <p>To further protect people’s privacy, we ensure that no personal information or individual search queries are included in the dataset, and we don’t link any search-based health inferences to an individual user. More information about the privacy methods used to generate the dataset can be found in this report.</p>
 
-<h3>How we process the data</h3>
+<h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>How we process the data</h3>
 
 
 <p>The data shows the relative popularity of symptoms in searches within a geographical region.</p>
@@ -216,10 +216,15 @@ In each region, we scale all the normalized (daily / weekly) popularities using 
 
     <p>Google LLC "Google COVID-19 Search Trends symptoms dataset".
 http://goo.gle/covid19symptomdataset</p>
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>Sean Davis <a href='mailto:seandavi@gmail.com'>seandavi@gmail.com</a></p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>res</span> <span class='kw'>=</span> <span class='fu'>google_search_trends_data</span>()
-<span class='fu'><a href='https://rdrr.io/r/base/dim.html'>dim</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; [1] 23846376       10</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt;    open_covid_region_code country_region_code country_region sub_region_1
+    <pre class="examples"><div class='input'><span class='kw'>res</span> <span class='op'>=</span> <span class='fu'>google_search_trends_data</span>()
+<span class='fu'><a href='https://rdrr.io/r/base/dim.html'>dim</a></span>(<span class='kw'>res</span>)
+</div><div class='output co'>#&gt; [1] 23846376       10</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='kw'>res</span>)
+</div><div class='output co'>#&gt;    open_covid_region_code country_region_code country_region sub_region_1
 #&gt; 1:                  US-AK                  US  United States       Alaska
 #&gt; 2:                  US-AK                  US  United States       Alaska
 #&gt; 3:                  US-AK                  US  United States       Alaska
@@ -239,20 +244,23 @@ http://goo.gle/covid19symptomdataset</p>
 #&gt; 3: symptom:Abdominal obesity  1.76
 #&gt; 4: symptom:Abdominal obesity  2.04
 #&gt; 5: symptom:Abdominal obesity  1.40
-#&gt; 6: symptom:Abdominal obesity  1.76</div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Rows: 23,846,376
+#&gt; 6: symptom:Abdominal obesity  1.76</div><div class='input'><span class='kw'>dplyr</span>::<span class='fu'><a href='https://tibble.tidyverse.org/reference/glimpse.html'>glimpse</a></span>(<span class='kw'>res</span>)
+</div><div class='output co'>#&gt; Rows: 23,846,376
 #&gt; Columns: 10
-#&gt; $ open_covid_region_code &lt;chr&gt; "US-AK", "US-AK", "US-AK", "US-AK", "US-AK", "…
-#&gt; $ country_region_code    &lt;chr&gt; "US", "US", "US", "US", "US", "US", "US", "US"…
-#&gt; $ country_region         &lt;chr&gt; "United States", "United States", "United Stat…
-#&gt; $ sub_region_1           &lt;chr&gt; "Alaska", "Alaska", "Alaska", "Alaska", "Alask…
-#&gt; $ sub_region_1_code      &lt;chr&gt; "US-AK", "US-AK", "US-AK", "US-AK", "US-AK", "…
-#&gt; $ sub_region_2           &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
-#&gt; $ sub_region_2_code      &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
-#&gt; $ date                   &lt;date&gt; 2017-08-21, 2017-08-22, 2017-08-23, 2017-08-2…
-#&gt; $ variable               &lt;fct&gt; symptom:Abdominal obesity, symptom:Abdominal o…
-#&gt; $ value                  &lt;dbl&gt; 1.43, 1.55, 1.76, 2.04, 1.40, 1.76, 1.62, 1.49…</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span>(<span class='no'>res</span>$<span class='no'>country_region</span>)</div><div class='output co'>#&gt; 
+#&gt; $ open_covid_region_code <span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "US-AK", "US-AK", "US-AK", "US-AK", "US-AK", "…
+#&gt; $ country_region_code    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "US", "US", "US", "US", "US", "US", "US", "US"…
+#&gt; $ country_region         </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "United States", "United States", "United Stat…
+#&gt; $ sub_region_1           </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Alaska", "Alaska", "Alaska", "Alaska", "Alask…
+#&gt; $ sub_region_1_code      </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "US-AK", "US-AK", "US-AK", "US-AK", "US-AK", "…
+#&gt; $ sub_region_2           </span><span style='color: #555555;font-style: italic;'>&lt;lgl&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+#&gt; $ sub_region_2_code      </span><span style='color: #555555;font-style: italic;'>&lt;lgl&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+#&gt; $ date                   </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2017-08-21, 2017-08-22, 2017-08-23, 2017-08-2…
+#&gt; $ variable               </span><span style='color: #555555;font-style: italic;'>&lt;fct&gt;</span><span> symptom:Abdominal obesity, symptom:Abdominal o…
+#&gt; $ value                  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 1.43, 1.55, 1.76, 2.04, 1.40, 1.76, 1.62, 1.49…</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span>(<span class='kw'>res</span><span class='op'>$</span><span class='kw'>country_region</span>)
+</div><div class='output co'>#&gt; 
 #&gt; United States 
-#&gt;      23846376 </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span>(<span class='no'>res</span>$<span class='no'>sub_region_1</span>)</div><div class='output co'>#&gt; 
+#&gt;      23846376 </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span>(<span class='kw'>res</span><span class='op'>$</span><span class='kw'>sub_region_1</span>)
+</div><div class='output co'>#&gt; 
 #&gt;              Alabama               Alaska              Arizona 
 #&gt;               467576               467576               467576 
 #&gt;             Arkansas           California             Colorado 
@@ -286,12 +294,13 @@ http://goo.gle/covid19symptomdataset</p>
 #&gt;              Vermont             Virginia           Washington 
 #&gt;               467576               467576               467576 
 #&gt;        West Virginia            Wisconsin              Wyoming 
-#&gt;               467576               467576               467576 </div><div class='input'><span class='kw'>if</span>(<span class='fu'><a href='https://rdrr.io/r/base/library.html'>require</a></span>(<span class='no'>timetk</span>)) {
+#&gt;               467576               467576               467576 </div><div class='input'><span class='co'>if</span>(<span class='fu'><a href='https://rdrr.io/r/base/library.html'>require</a></span>(<span class='kw'>timetk</span>)) {
 
-  <span class='fu'>plot_time_series</span>(<span class='no'>res</span>[<span class='no'>sub_region_1</span> <span class='kw'>%in%</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>'Maryland'</span>,<span class='st'>'Texas'</span>,<span class='st'>'New York'</span>,<span class='st'>'California'</span>,<span class='st'>'Georgia'</span>,<span class='st'>'Arizona'</span>,<span class='st'>'Illinois'</span>,<span class='st'>'New Jersey'</span>,<span class='st'>'Florida'</span>) <span class='kw'>&amp;</span> <span class='no'>variable</span> <span class='kw'>%in%</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>'symptom:Cough'</span>,<span class='st'>'symptom:Fever'</span>,<span class='st'>'symptom:Shortness of breath'</span>)][,<span class='no'>year</span> <span class='kw'>:=</span> <span class='kw pkg'>lubridate</span><span class='kw ns'>::</span><span class='fu'><a href='http://lubridate.tidyverse.org/reference/year.html'>year</a></span>(<span class='no'>date</span>)],<span class='no'>date</span>,<span class='no'>value</span>,<span class='kw'>.smooth_period</span><span class='kw'>=</span><span class='st'>'month'</span>,<span class='kw'>.color_var</span><span class='kw'>=</span><span class='no'>sub_region_1</span>,<span class='kw'>.facet_vars</span> <span class='kw'>=</span> <span class='st'>'variable'</span>)
+  <span class='fu'>plot_time_series</span>(<span class='kw'>res</span>[<span class='kw'>sub_region_1</span> <span class='op'>%in%</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>'Maryland'</span>,<span class='st'>'Texas'</span>,<span class='st'>'New York'</span>,<span class='st'>'California'</span>,<span class='st'>'Georgia'</span>,<span class='st'>'Arizona'</span>,<span class='st'>'Illinois'</span>,<span class='st'>'New Jersey'</span>,<span class='st'>'Florida'</span>) <span class='op'>&amp;</span> <span class='kw'>variable</span> <span class='op'>%in%</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>'symptom:Cough'</span>,<span class='st'>'symptom:Fever'</span>,<span class='st'>'symptom:Shortness of breath'</span>)][,<span class='kw'>year</span> <span class='op'>:=</span> <span class='kw'>lubridate</span>::<span class='fu'><a href='http://lubridate.tidyverse.org/reference/year.html'>year</a></span>(<span class='kw'>date</span>)],<span class='kw'>date</span>,<span class='kw'>value</span>,.smooth_period=<span class='st'>'month'</span>,.color_var=<span class='kw'>sub_region_1</span>,.facet_vars = <span class='st'>'variable'</span>)
 
-}</div><div class='output co'>#&gt; <span class='message'>Loading required package: timetk</span></div><div class='output co'>#&gt; <span class='warning'>Warning: there is no package called ‘timetk’</span></div><div class='input'>
-</div></pre>
+}
+</div><div class='output co'>#&gt; <span class='message'>Loading required package: timetk</span></div><div class='output co'>#&gt; <span class='warning'>Warning: there is no package called ‘timetk’</span></div><div class='input'>
+</div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -307,7 +316,7 @@ http://goo.gle/covid19symptomdataset</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
 </div>
 
       </footer>

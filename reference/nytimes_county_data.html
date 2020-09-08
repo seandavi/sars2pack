@@ -299,29 +299,36 @@ you would link to our U.S. tracking page at
 <code><a href='test_and_trace_data.html'>test_and_trace_data</a>()</code>,
 <code><a href='usa_facts_data.html'>usa_facts_data</a>()</code>,
 <code><a href='who_cases.html'>who_cases</a>()</code></p></div>
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>Sean Davis <a href='mailto:seandavi@gmail.com'>seandavi@gmail.com</a></p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># state data</span>
-<span class='no'>res</span> <span class='kw'>=</span> <span class='fu'>nytimes_state_data</span>()
-<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; [1] "date"   "state"  "fips"   "count"  "subset"</div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Rows: 20,598
+<span class='kw'>res</span> <span class='op'>=</span> <span class='fu'>nytimes_state_data</span>()
+<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='kw'>res</span>)
+</div><div class='output co'>#&gt; [1] "date"   "state"  "fips"   "count"  "subset"</div><div class='input'><span class='kw'>dplyr</span>::<span class='fu'><a href='https://tibble.tidyverse.org/reference/glimpse.html'>glimpse</a></span>(<span class='kw'>res</span>)
+</div><div class='output co'>#&gt; Rows: 20,708
 #&gt; Columns: 5
-#&gt; $ date   &lt;date&gt; 2020-01-21, 2020-01-22, 2020-01-23, 2020-01-24, 2020-01-24, 2…
-#&gt; $ state  &lt;chr&gt; "Washington", "Washington", "Washington", "Illinois", "Washing…
-#&gt; $ fips   &lt;chr&gt; "00053", "00053", "00053", "00017", "00053", "00006", "00017",…
-#&gt; $ count  &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1,…
-#&gt; $ subset &lt;chr&gt; "confirmed", "confirmed", "confirmed", "confirmed", "confirmed…</div><div class='input'>
+#&gt; $ date   <span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2020-01-21, 2020-01-22, 2020-01-23, 2020-01-24, 2020-01-24, 2…
+#&gt; $ state  </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Washington", "Washington", "Washington", "Illinois", "Washing…
+#&gt; $ fips   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "00053", "00053", "00053", "00017", "00053", "00006", "00017",…
+#&gt; $ count  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1,…
+#&gt; $ subset </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "confirmed", "confirmed", "confirmed", "confirmed", "confirmed…</div><div class='input'>
 <span class='co'># county data</span>
-<span class='no'>res</span> <span class='kw'>=</span> <span class='fu'>nytimes_county_data</span>()
-<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; [1] "date"   "county" "state"  "fips"   "count"  "subset"</div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Rows: 1,001,860
+<span class='kw'>res</span> <span class='op'>=</span> <span class='fu'>nytimes_county_data</span>()
+<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='kw'>res</span>)
+</div><div class='output co'>#&gt; [1] "date"   "county" "state"  "fips"   "count"  "subset"</div><div class='input'><span class='kw'>dplyr</span>::<span class='fu'><a href='https://tibble.tidyverse.org/reference/glimpse.html'>glimpse</a></span>(<span class='kw'>res</span>)
+</div><div class='output co'>#&gt; Rows: 1,008,272
 #&gt; Columns: 6
-#&gt; $ date   &lt;date&gt; 2020-01-21, 2020-01-22, 2020-01-23, 2020-01-24, 2020-01-24, 2…
-#&gt; $ county &lt;chr&gt; "Snohomish", "Snohomish", "Snohomish", "Cook", "Snohomish", "O…
-#&gt; $ state  &lt;chr&gt; "Washington", "Washington", "Washington", "Illinois", "Washing…
-#&gt; $ fips   &lt;chr&gt; "53061", "53061", "53061", "17031", "53061", "06059", "17031",…
-#&gt; $ count  &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…
-#&gt; $ subset &lt;chr&gt; "confirmed", "confirmed", "confirmed", "confirmed", "confirmed…</div><div class='input'>
+#&gt; $ date   </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2020-01-21, 2020-01-22, 2020-01-23, 2020-01-24, 2020-01-24, 2…
+#&gt; $ county </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Snohomish", "Snohomish", "Snohomish", "Cook", "Snohomish", "O…
+#&gt; $ state  </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Washington", "Washington", "Washington", "Illinois", "Washing…
+#&gt; $ fips   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "53061", "53061", "53061", "17031", "53061", "06059", "17031",…
+#&gt; $ count  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…
+#&gt; $ subset </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "confirmed", "confirmed", "confirmed", "confirmed", "confirmed…</div><div class='input'>
  
-</div></pre>
+</div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -337,7 +344,7 @@ you would link to our U.S. tracking page at
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
 </div>
 
       </footer>

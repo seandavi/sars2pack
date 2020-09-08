@@ -170,15 +170,15 @@
     </div>
 
     <pre class="usage"><span class='fu'>Arima_contig_states</span>(
-  <span class='no'>src</span>,
-  <span class='kw'>state.in</span> <span class='kw'>=</span> <span class='st'>"All contig"</span>,
-  <span class='kw'>MAorder</span> <span class='kw'>=</span> <span class='fl'>2</span>,
-  <span class='kw'>Difforder</span> <span class='kw'>=</span> <span class='fl'>1</span>,
-  <span class='kw'>basedate</span> <span class='kw'>=</span> <span class='st'>"2020-02-15"</span>,
-  <span class='kw'>lookback_days</span> <span class='kw'>=</span> <span class='fl'>29</span>,
-  <span class='kw'>ARorder</span> <span class='kw'>=</span> <span class='fl'>0</span>,
-  <span class='kw'>contig_vec</span> <span class='kw'>=</span> <span class='fu'><a href='contig_states_twolet.html'>contig_states_twolet</a></span>(),
-  <span class='kw'>max_date</span> <span class='kw'>=</span> <span class='kw'>NULL</span>
+  <span class='kw'>src</span>,
+  state.in = <span class='st'>"All contig"</span>,
+  MAorder = <span class='fl'>2</span>,
+  Difforder = <span class='fl'>1</span>,
+  basedate = <span class='st'>"2020-02-15"</span>,
+  lookback_days = <span class='fl'>29</span>,
+  ARorder = <span class='fl'>0</span>,
+  contig_vec = <span class='fu'><a href='contig_states_twolet.html'>contig_states_twolet</a></span>(),
+  max_date = <span class='kw'>NULL</span>
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -225,11 +225,12 @@ case the latest available date is used</p></td>
 
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>usd</span> <span class='kw'>=</span> <span class='fu'><a href='usa_facts_data.html'>usa_facts_data</a></span>()
-<span class='no'>cont</span> <span class='kw'>=</span> <span class='fu'>Arima_contig_states</span>(<span class='no'>usd</span>)
-<span class='no'>cont</span></div><div class='output co'>#&gt; Arima_sars2pack instance for all 
-#&gt;   computed Mon Sep  7 03:55:45 2020 
-#&gt;   last date used was:  2020-09-05 
+    <pre class="examples"><div class='input'><span class='kw'>usd</span> <span class='op'>=</span> <span class='fu'><a href='usa_facts_data.html'>usa_facts_data</a></span>()
+<span class='kw'>cont</span> <span class='op'>=</span> <span class='fu'>Arima_contig_states</span>(<span class='kw'>usd</span>)
+<span class='kw'>cont</span>
+</div><div class='output co'>#&gt; Arima_sars2pack instance for all 
+#&gt;   computed Tue Sep  8 03:57:34 2020 
+#&gt;   last date used was:  2020-09-06 
 #&gt;   call was: NULL
 #&gt;   Model estimates: 
 #&gt; Series: tsfull 
@@ -237,17 +238,18 @@ case the latest available date is used</p></td>
 #&gt; 
 #&gt; Coefficients:
 #&gt;           ma1      ma2      drift
-#&gt;       -0.3965  -0.6035  -365.5019
-#&gt; s.e.   0.2212   0.1988   167.6736
+#&gt;       -0.3656  -0.6344  -465.5047
+#&gt; s.e.   0.2278   0.2139   179.7629
 #&gt; 
-#&gt; sigma^2 estimated as 26804190:  log likelihood=-279.05
-#&gt; AIC=566.1   AICc=567.84   BIC=571.43
+#&gt; sigma^2 estimated as 29202340:  log likelihood=-280.26
+#&gt; AIC=568.53   AICc=570.27   BIC=573.86
 #&gt; 
 #&gt; Training set error measures:
-#&gt;                     ME    RMSE      MAE       MPE     MAPE      MASE
-#&gt; Training set -328.6398 4806.98 3736.834 -1.841455 8.832191 0.7791158
+#&gt;                    ME     RMSE      MAE       MPE     MAPE      MASE
+#&gt; Training set -102.992 5017.413 4013.149 -1.521895 9.687061 0.7785288
 #&gt;                     ACF1
-#&gt; Training set -0.04889188</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='no'>cont</span>)</div><div class='img'><img src='Arima_contig_states-1.png' alt='' width='700' height='433' /></div></pre>
+#&gt; Training set -0.08848546</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>(<span class='kw'>cont</span>)
+</div><div class='img'><img src='Arima_contig_states-1.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -263,7 +265,7 @@ case the latest available date is used</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
 </div>
 
       </footer>

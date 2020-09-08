@@ -172,9 +172,9 @@ render a plot or return a ggplot object for further manipulation.</p>
     </div>
 
     <pre class="usage"><span class='fu'>plot_projection</span>(
-  <span class='no'>location_name</span>,
-  <span class='kw'>projections</span> <span class='kw'>=</span> <span class='fu'><a href='healthdata_projections_data.html'>healthdata_projections_data</a></span>(),
-  <span class='kw'>metrics</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/unique.html'>unique</a></span>(<span class='no'>projections</span>$<span class='no'>metric</span>)
+  <span class='kw'>location_name</span>,
+  projections = <span class='fu'><a href='healthdata_projections_data.html'>healthdata_projections_data</a></span>(),
+  metrics = <span class='fu'><a href='https://rdrr.io/r/base/unique.html'>unique</a></span>(<span class='kw'>projections</span><span class='op'>$</span><span class='kw'>metric</span>)
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -215,15 +215,19 @@ examples for details.</p>
 <p>Other plotting: 
 <code><a href='align_to_baseline.html'>align_to_baseline</a>()</code>,
 <code><a href='plot_epicurve.html'>plot_epicurve</a>()</code></p></div>
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>Sean Davis <a href='mailto:seandavi@gmail.com'>seandavi@gmail.com</a></p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>sars2pack</span>)
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'>sars2pack</span>)
 
-<span class='no'>hdp</span> <span class='kw'>=</span> <span class='fu'><a href='healthdata_projections_data.html'>healthdata_projections_data</a></span>()
+<span class='kw'>hdp</span> <span class='op'>=</span> <span class='fu'><a href='healthdata_projections_data.html'>healthdata_projections_data</a></span>()
 
-<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>ggplot2</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://ggplot2.tidyverse.org'>ggplot2</a></span>)
 <span class='co'># possible locations</span>
-<span class='fu'><a href='https://rdrr.io/r/base/sort.html'>sort</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/unique.html'>unique</a></span>(<span class='no'>hdp</span>$<span class='no'>location_name</span>))</div><div class='output co'>#&gt;   [1] "Abruzzo"                                         
+<span class='fu'><a href='https://rdrr.io/r/base/sort.html'>sort</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/unique.html'>unique</a></span>(<span class='kw'>hdp</span><span class='op'>$</span><span class='kw'>location_name</span>))
+</div><div class='output co'>#&gt;   [1] "Abruzzo"                                         
 #&gt;   [2] "Acre"                                            
 #&gt;   [3] "Afghanistan"                                     
 #&gt;   [4] "Aguascalientes"                                  
@@ -612,32 +616,38 @@ examples for details.</p>
 #&gt; [387] "Zambia"                                          
 #&gt; [388] "Zimbabwe"                                        </div><div class='input'>
 <span class='co'># create a ggplot2 object</span>
-<span class='no'>nyp</span> <span class='kw'>=</span> <span class='fu'>plot_projection</span>(<span class='kw'>projections</span> <span class='kw'>=</span> <span class='no'>hdp</span>,
-    <span class='kw'>location_name</span><span class='kw'>=</span><span class='st'>'New York'</span>)
+<span class='kw'>nyp</span> <span class='op'>=</span> <span class='fu'>plot_projection</span>(projections = <span class='kw'>hdp</span>,
+    location_name=<span class='st'>'New York'</span>)
 
 <span class='co'># and do the plot</span>
-<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='no'>nyp</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 333 row(s) containing missing values (geom_path).</span></div><div class='output co'>#&gt; <span class='warning'>Warning: no non-missing arguments to max; returning -Inf</span></div><div class='img'><img src='plot_projection-1.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='kw'>nyp</span>)
+</div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 333 row(s) containing missing values (geom_path).</span></div><div class='output co'>#&gt; <span class='warning'>Warning: no non-missing arguments to max; returning -Inf</span></div><div class='img'><img src='plot_projection-1.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Zoomable html version using plotly</span>
-<span class='kw'>if</span>(<span class='fu'><a href='https://rdrr.io/r/base/library.html'>require</a></span>(<span class='no'>plotly</span>)) {
-  <span class='fu'><a href='https://rdrr.io/pkg/plotly/man/ggplotly.html'>ggplotly</a></span>(<span class='no'>nyp</span>)
+<span class='co'>if</span>(<span class='fu'><a href='https://rdrr.io/r/base/library.html'>require</a></span>(<span class='kw'><a href='https://plotly-r.com'>plotly</a></span>)) {
+  <span class='fu'><a href='https://rdrr.io/pkg/plotly/man/ggplotly.html'>ggplotly</a></span>(<span class='kw'>nyp</span>)
 }
 
 <span class='co'># California</span>
-<span class='no'>calip</span> <span class='kw'>=</span> <span class='fu'>plot_projection</span>(<span class='kw'>projections</span> <span class='kw'>=</span> <span class='no'>hdp</span>,
-    <span class='kw'>location_name</span><span class='kw'>=</span><span class='st'>'California'</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='no'>calip</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 333 row(s) containing missing values (geom_path).</span></div><div class='output co'>#&gt; <span class='warning'>Warning: no non-missing arguments to max; returning -Inf</span></div><div class='img'><img src='plot_projection-2.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='kw'>calip</span> <span class='op'>=</span> <span class='fu'>plot_projection</span>(projections = <span class='kw'>hdp</span>,
+    location_name=<span class='st'>'California'</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='kw'>calip</span>)
+</div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 333 row(s) containing missing values (geom_path).</span></div><div class='output co'>#&gt; <span class='warning'>Warning: no non-missing arguments to max; returning -Inf</span></div><div class='img'><img src='plot_projection-2.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># entire US</span>
-<span class='fu'>plot_projection</span>(<span class='kw'>location_name</span> <span class='kw'>=</span> <span class='st'>"United States of America"</span>, <span class='kw'>projections</span> <span class='kw'>=</span> <span class='no'>hdp</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 333 row(s) containing missing values (geom_path).</span></div><div class='output co'>#&gt; <span class='warning'>Warning: no non-missing arguments to max; returning -Inf</span></div><div class='img'><img src='plot_projection-3.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'>plot_projection</span>(location_name = <span class='st'>"United States of America"</span>, projections = <span class='kw'>hdp</span>)
+</div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 333 row(s) containing missing values (geom_path).</span></div><div class='output co'>#&gt; <span class='warning'>Warning: no non-missing arguments to max; returning -Inf</span></div><div class='img'><img src='plot_projection-3.png' alt='' width='700' height='433' /></div><div class='input'>
 
 <span class='co'># Compare two countries</span>
-<span class='no'>spain_proj</span> <span class='kw'>=</span> <span class='fu'>plot_projection</span>(<span class='kw'>location_name</span> <span class='kw'>=</span> <span class='st'>"Spain"</span>, <span class='kw'>projections</span> <span class='kw'>=</span> <span class='no'>hdp</span>)
-<span class='no'>portugal_proj</span> <span class='kw'>=</span> <span class='fu'>plot_projection</span>(<span class='kw'>location_name</span> <span class='kw'>=</span> <span class='st'>"Portugal"</span>, <span class='kw'>projections</span> <span class='kw'>=</span> <span class='no'>hdp</span>)
+<span class='kw'>spain_proj</span> <span class='op'>=</span> <span class='fu'>plot_projection</span>(location_name = <span class='st'>"Spain"</span>, projections = <span class='kw'>hdp</span>)
+<span class='kw'>portugal_proj</span> <span class='op'>=</span> <span class='fu'>plot_projection</span>(location_name = <span class='st'>"Portugal"</span>, projections = <span class='kw'>hdp</span>)
 <span class='co'>#'</span>
-<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='no'>spain_proj</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 333 row(s) containing missing values (geom_path).</span></div><div class='output co'>#&gt; <span class='warning'>Warning: no non-missing arguments to max; returning -Inf</span></div><div class='img'><img src='plot_projection-4.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='no'>portugal_proj</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 333 row(s) containing missing values (geom_path).</span></div><div class='output co'>#&gt; <span class='warning'>Warning: no non-missing arguments to max; returning -Inf</span></div><div class='img'><img src='plot_projection-5.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='kw'>spain_proj</span>)
+</div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 333 row(s) containing missing values (geom_path).</span></div><div class='output co'>#&gt; <span class='warning'>Warning: no non-missing arguments to max; returning -Inf</span></div><div class='img'><img src='plot_projection-4.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='kw'>portugal_proj</span>)
+</div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 333 row(s) containing missing values (geom_path).</span></div><div class='output co'>#&gt; <span class='warning'>Warning: no non-missing arguments to max; returning -Inf</span></div><div class='img'><img src='plot_projection-5.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># plot both on same plot</span>
-<span class='kw'>if</span>(<span class='fu'><a href='https://rdrr.io/r/base/library.html'>require</a></span>(<span class='no'>cowplot</span>)) {
-  <span class='fu'><a href='https://rdrr.io/pkg/cowplot/man/plot_grid.html'>plot_grid</a></span>(<span class='no'>spain_proj</span>, <span class='no'>portugal_proj</span>)
-}</div><div class='output co'>#&gt; <span class='message'>Loading required package: cowplot</span></div><div class='output co'>#&gt; <span class='message'></span>
+<span class='co'>if</span>(<span class='fu'><a href='https://rdrr.io/r/base/library.html'>require</a></span>(<span class='kw'><a href='https://wilkelab.org/cowplot'>cowplot</a></span>)) {
+  <span class='fu'><a href='https://rdrr.io/pkg/cowplot/man/plot_grid.html'>plot_grid</a></span>(<span class='kw'>spain_proj</span>, <span class='kw'>portugal_proj</span>)
+}
+</div><div class='output co'>#&gt; <span class='message'>Loading required package: cowplot</span></div><div class='output co'>#&gt; <span class='message'></span>
 #&gt; <span class='message'>********************************************************</span></div><div class='output co'>#&gt; <span class='message'>Note: As of version 1.0.0, cowplot does not change the</span></div><div class='output co'>#&gt; <span class='message'>  default ggplot2 theme anymore. To recover the previous</span></div><div class='output co'>#&gt; <span class='message'>  behavior, execute:</span>
 #&gt; <span class='message'>  theme_set(theme_cowplot())</span></div><div class='output co'>#&gt; <span class='message'>********************************************************</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 333 row(s) containing missing values (geom_path).</span></div><div class='output co'>#&gt; <span class='warning'>Warning: no non-missing arguments to max; returning -Inf</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 333 row(s) containing missing values (geom_path).</span></div><div class='output co'>#&gt; <span class='warning'>Warning: no non-missing arguments to max; returning -Inf</span></div><div class='img'><img src='plot_projection-6.png' alt='' width='700' height='433' /></div><div class='input'>
 </div></pre>
@@ -656,7 +666,7 @@ examples for details.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
 </div>
 
       </footer>

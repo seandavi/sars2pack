@@ -314,10 +314,14 @@ territories listed are aggregated in our database.</p>
 <code><a href='test_and_trace_data.html'>test_and_trace_data</a>()</code>,
 <code><a href='usa_facts_data.html'>usa_facts_data</a>()</code>,
 <code><a href='who_cases.html'>who_cases</a>()</code></p></div>
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>Sean Davis <a href='mailto:seandavi@gmail.com'>seandavi@gmail.com</a></p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>ecdc</span> <span class='kw'>=</span> <span class='fu'>ecdc_data</span>()
-<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>ecdc</span>)</div><div class='output co'>#&gt; [1] "date"                                                      
+    <pre class="examples"><div class='input'><span class='kw'>ecdc</span> <span class='op'>=</span> <span class='fu'>ecdc_data</span>()
+<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='kw'>ecdc</span>)
+</div><div class='output co'>#&gt; [1] "date"                                                      
 #&gt; [2] "location_name"                                             
 #&gt; [3] "iso2c"                                                     
 #&gt; [4] "iso3c"                                                     
@@ -325,19 +329,20 @@ territories listed are aggregated in our database.</p>
 #&gt; [6] "continent"                                                 
 #&gt; [7] "Cumulative_number_for_14_days_of_COVID-19_cases_per_100000"
 #&gt; [8] "subset"                                                    
-#&gt; [9] "count"                                                     </div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>ecdc</span>)</div><div class='output co'>#&gt; Rows: 82,002
+#&gt; [9] "count"                                                     </div><div class='input'><span class='kw'>dplyr</span>::<span class='fu'><a href='https://tibble.tidyverse.org/reference/glimpse.html'>glimpse</a></span>(<span class='kw'>ecdc</span>)
+</div><div class='output co'>#&gt; Rows: 82,420
 #&gt; Columns: 9
 #&gt; Groups: location_name, subset [420]
-#&gt; $ date                                                         &lt;date&gt; 2019-12…
-#&gt; $ location_name                                                &lt;chr&gt; "Afghani…
-#&gt; $ iso2c                                                        &lt;chr&gt; "AF", "A…
-#&gt; $ iso3c                                                        &lt;chr&gt; "AFG", "…
-#&gt; $ population_2019                                              &lt;dbl&gt; 38041757…
-#&gt; $ continent                                                    &lt;chr&gt; "Asia", …
-#&gt; $ `Cumulative_number_for_14_days_of_COVID-19_cases_per_100000` &lt;dbl&gt; NA, NA, …
-#&gt; $ subset                                                       &lt;chr&gt; "confirm…
-#&gt; $ count                                                        &lt;dbl&gt; 0, 0, 0,…</div><div class='input'>
-</div></pre>
+#&gt; $ date                                                         <span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2019-12…
+#&gt; $ location_name                                                </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Afghani…
+#&gt; $ iso2c                                                        </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "AF", "A…
+#&gt; $ iso3c                                                        </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "AFG", "…
+#&gt; $ population_2019                                              </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 38041757…
+#&gt; $ continent                                                    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Asia", …
+#&gt; $ `Cumulative_number_for_14_days_of_COVID-19_cases_per_100000` </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> NA, NA, …
+#&gt; $ subset                                                       </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "confirm…
+#&gt; $ count                                                        </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0,…</div><div class='input'>
+</div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -353,7 +358,7 @@ territories listed are aggregated in our database.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
 </div>
 
       </footer>

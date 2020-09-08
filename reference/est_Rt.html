@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>produce an MCMC-based EpiEstim R<a href='https://rdrr.io/r/base/t.html'>t</a> estimate on the 29-day series — est_Rt • sars2pack</title>
+<title>produce an MCMC-based EpiEstim Rt estimate on the 29-day series — est_Rt • sars2pack</title>
 
 
 <!-- jquery -->
@@ -39,7 +39,7 @@
 
 
 
-<meta property="og:title" content="produce an MCMC-based EpiEstim R<a href='https://rdrr.io/r/base/t.html'>t</a> estimate on the 29-day series — est_Rt" />
+<meta property="og:title" content="produce an MCMC-based EpiEstim Rt estimate on the 29-day series — est_Rt" />
 <meta property="og:description" content="produce an MCMC-based EpiEstim Rt estimate on the 29-day series" />
 
 
@@ -169,7 +169,7 @@
     <p>produce an MCMC-based EpiEstim R<a href='https://rdrr.io/r/base/t.html'>t</a> estimate on the 29-day series</p>
     </div>
 
-    <pre class="usage"><span class='fu'>est_Rt</span>(<span class='no'>aout</span>)</pre>
+    <pre class="usage"><span class='fu'>est_Rt</span>(<span class='kw'>aout</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -185,11 +185,14 @@
     <p>Simply uses the tsfull and dates29 components to call EpiEstim::estimate_R</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>nyd</span> <span class='kw'>=</span> <span class='fu'><a href='nytimes_county_data.html'>nytimes_state_data</a></span>()
-<span class='no'>ny</span> <span class='kw'>=</span> <span class='fu'><a href='Arima_by_state.html'>Arima_by_state</a></span>(<span class='no'>nyd</span>, <span class='kw'>state.in</span><span class='kw'>=</span><span class='st'>"New York"</span>)
-<span class='no'>ee</span> <span class='kw'>=</span> <span class='fu'>est_Rt</span>(<span class='no'>ny</span>)</div><div class='output co'>#&gt; <span class='error'>Error in source(system.file("MCMCsupport/code.R", package = "sars2app")): cannot coerce type 'closure' to vector of type 'character'</span></div><div class='input'><span class='no'>od</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/options.html'>options</a></span>()$<span class='no'>digits</span>
-<span class='fu'><a href='https://rdrr.io/r/base/options.html'>options</a></span>(<span class='kw'>digits</span><span class='kw'>=</span><span class='fl'>3</span>)
-<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>tail</a></span>(<span class='no'>ee</span>$<span class='no'>R</span>)</div><div class='output co'>#&gt; <span class='error'>Error in tail(ee$R): object 'ee' not found</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/options.html'>options</a></span>(<span class='kw'>digits</span><span class='kw'>=</span><span class='no'>od</span>)</div></pre>
+    <pre class="examples"><div class='input'><span class='kw'>nyd</span> <span class='op'>=</span> <span class='fu'><a href='nytimes_county_data.html'>nytimes_state_data</a></span>()
+<span class='kw'>ny</span> <span class='op'>=</span> <span class='fu'><a href='Arima_by_state.html'>Arima_by_state</a></span>(<span class='kw'>nyd</span>, state.in=<span class='st'>"New York"</span>)
+<span class='kw'>ee</span> <span class='op'>=</span> <span class='fu'>est_Rt</span>(<span class='kw'>ny</span>)
+</div><div class='output co'>#&gt; <span class='error'>Error in source(system.file("MCMCsupport/code.R", package = "sars2app")): cannot coerce type 'closure' to vector of type 'character'</span></div><div class='input'><span class='kw'>od</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/options.html'>options</a></span>()<span class='op'>$</span><span class='kw'>digits</span>
+<span class='fu'><a href='https://rdrr.io/r/base/options.html'>options</a></span>(digits=<span class='fl'>3</span>)
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>tail</a></span>(<span class='kw'>ee</span><span class='op'>$</span><span class='kw'>R</span>)
+</div><div class='output co'>#&gt; <span class='error'>Error in tail(ee$R): object 'ee' not found</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/options.html'>options</a></span>(digits=<span class='kw'>od</span>)
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -205,7 +208,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
 </div>
 
       </footer>

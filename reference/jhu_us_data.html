@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>US counties COVID-19 data from <a href='https://github.com/CSSEGISandData/COVID-19/'>JHU CSSEGIS</a> — jhu_us_data • sars2pack</title>
+<title>US counties COVID-19 data from JHU CSSEGIS — jhu_us_data • sars2pack</title>
 
 
 <!-- jquery -->
@@ -39,7 +39,7 @@
 
 
 
-<meta property="og:title" content="US counties COVID-19 data from <a href='https://github.com/CSSEGISandData/COVID-19/'>JHU CSSEGIS</a> — jhu_us_data" />
+<meta property="og:title" content="US counties COVID-19 data from JHU CSSEGIS — jhu_us_data" />
 <meta property="og:description" content="This function access and munges the cumulative time series of confirmed,
 and deaths from the US data in the repository for the 2019 Novel Coronavirus Visual
 Dashboard operated by the Johns Hopkins University Center for
@@ -264,28 +264,32 @@ in the source data</p></li>
 <code><a href='who_cases.html'>who_cases</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>res</span> <span class='kw'>=</span> <span class='fu'><a href='jhu_data.html'>jhu_data</a></span>()
-<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; [1] "ProvinceState" "CountryRegion" "Lat"           "Long"         
-#&gt; [5] "date"          "count"         "subset"       </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; # A tibble: 6 x 7
+    <pre class="examples"><div class='input'><span class='kw'>res</span> <span class='op'>=</span> <span class='fu'><a href='jhu_data.html'>jhu_data</a></span>()
+<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='kw'>res</span>)
+</div><div class='output co'>#&gt; [1] "ProvinceState" "CountryRegion" "Lat"           "Long"         
+#&gt; [5] "date"          "count"         "subset"       </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='kw'>res</span>)
+</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 6 x 7</span><span>
 #&gt;   ProvinceState CountryRegion   Lat  Long date       count subset   
-#&gt;   &lt;chr&gt;         &lt;chr&gt;         &lt;dbl&gt; &lt;dbl&gt; &lt;date&gt;     &lt;dbl&gt; &lt;chr&gt;    
-#&gt; 1 &lt;NA&gt;          Afghanistan    33.9  67.7 2020-01-22     0 confirmed
-#&gt; 2 &lt;NA&gt;          Afghanistan    33.9  67.7 2020-01-23     0 confirmed
-#&gt; 3 &lt;NA&gt;          Afghanistan    33.9  67.7 2020-01-24     0 confirmed
-#&gt; 4 &lt;NA&gt;          Afghanistan    33.9  67.7 2020-01-25     0 confirmed
-#&gt; 5 &lt;NA&gt;          Afghanistan    33.9  67.7 2020-01-26     0 confirmed
-#&gt; 6 &lt;NA&gt;          Afghanistan    33.9  67.7 2020-01-27     0 confirmed</div><div class='input'><span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>glimpse</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; Rows: 178,980
+#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>         </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>         </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>    
+#&gt; </span><span style='color: #555555;'>1</span><span> </span><span style='color: #BB0000;'>NA</span><span>            Afghanistan    33.9  67.7 2020-01-22     0 confirmed
+#&gt; </span><span style='color: #555555;'>2</span><span> </span><span style='color: #BB0000;'>NA</span><span>            Afghanistan    33.9  67.7 2020-01-23     0 confirmed
+#&gt; </span><span style='color: #555555;'>3</span><span> </span><span style='color: #BB0000;'>NA</span><span>            Afghanistan    33.9  67.7 2020-01-24     0 confirmed
+#&gt; </span><span style='color: #555555;'>4</span><span> </span><span style='color: #BB0000;'>NA</span><span>            Afghanistan    33.9  67.7 2020-01-25     0 confirmed
+#&gt; </span><span style='color: #555555;'>5</span><span> </span><span style='color: #BB0000;'>NA</span><span>            Afghanistan    33.9  67.7 2020-01-26     0 confirmed
+#&gt; </span><span style='color: #555555;'>6</span><span> </span><span style='color: #BB0000;'>NA</span><span>            Afghanistan    33.9  67.7 2020-01-27     0 confirmed</div><div class='input'><span class='kw'>dplyr</span>::<span class='fu'><a href='https://tibble.tidyverse.org/reference/glimpse.html'>glimpse</a></span>(<span class='kw'>res</span>)
+</div><div class='output co'>#&gt; Rows: 179,765
 #&gt; Columns: 7
-#&gt; $ ProvinceState &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
-#&gt; $ CountryRegion &lt;chr&gt; "Afghanistan", "Afghanistan", "Afghanistan", "Afghanist…
-#&gt; $ Lat           &lt;dbl&gt; 33.93911, 33.93911, 33.93911, 33.93911, 33.93911, 33.93…
-#&gt; $ Long          &lt;dbl&gt; 67.70995, 67.70995, 67.70995, 67.70995, 67.70995, 67.70…
-#&gt; $ date          &lt;date&gt; 2020-01-22, 2020-01-23, 2020-01-24, 2020-01-25, 2020-0…
-#&gt; $ count         &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
-#&gt; $ subset        &lt;chr&gt; "confirmed", "confirmed", "confirmed", "confirmed", "co…</div><div class='input'>
-<span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span>(<span class='no'>res</span>$<span class='no'>state</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: Unknown or uninitialised column: `state`.</span></div><div class='output co'>#&gt; &lt; table of extent 0 &gt;</div><div class='input'>
+#&gt; $ ProvinceState </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+#&gt; $ CountryRegion </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Afghanistan", "Afghanistan", "Afghanistan", "Afghanist…
+#&gt; $ Lat           </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 33.93911, 33.93911, 33.93911, 33.93911, 33.93911, 33.93…
+#&gt; $ Long          </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 67.70995, 67.70995, 67.70995, 67.70995, 67.70995, 67.70…
+#&gt; $ date          </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2020-01-22, 2020-01-23, 2020-01-24, 2020-01-25, 2020-0…
+#&gt; $ count         </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
+#&gt; $ subset        </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "confirmed", "confirmed", "confirmed", "confirmed", "co…</div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span>(<span class='kw'>res</span><span class='op'>$</span><span class='kw'>state</span>)
+</div><div class='output co'>#&gt; <span class='warning'>Warning: Unknown or uninitialised column: `state`.</span></div><div class='output co'>#&gt; &lt; table of extent 0 &gt;</div><div class='input'>
 
-</div></pre>
+</div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -301,7 +305,7 @@ in the source data</p></li>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
 </div>
 
       </footer>

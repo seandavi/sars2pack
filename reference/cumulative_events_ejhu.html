@@ -170,10 +170,10 @@
     </div>
 
     <pre class="usage"><span class='fu'>cumulative_events_ejhu</span>(
-  <span class='no'>src</span>,
-  <span class='kw'>eventtype</span> <span class='kw'>=</span> <span class='st'>"confirmed"</span>,
-  <span class='kw'>alpha3</span> <span class='kw'>=</span> <span class='st'>"USA"</span>,
-  <span class='kw'>ProvinceStateName</span> <span class='kw'>=</span> <span class='kw'>NULL</span>
+  <span class='kw'>src</span>,
+  eventtype = <span class='st'>"confirmed"</span>,
+  alpha3 = <span class='st'>"USA"</span>,
+  ProvinceStateName = <span class='kw'>NULL</span>
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -199,11 +199,12 @@
 
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>dat</span> <span class='kw'>=</span> <span class='fu'><a href='enriched_jhu_data.html'>enriched_jhu_data</a></span>()
-<span class='no'>cchn</span> <span class='kw'>=</span> <span class='fu'>cumulative_events_ejhu</span>(<span class='no'>dat</span>, <span class='kw'>alpha3</span><span class='kw'>=</span><span class='st'>"CHN"</span>, <span class='kw'>ProvinceStateName</span><span class='kw'>=</span><span class='st'>"Hubei"</span>)
-<span class='no'>ichn</span> <span class='kw'>=</span> <span class='fu'><a href='form_incident_events.html'>form_incident_events</a></span>(<span class='no'>cchn</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='no'>cchn</span>$<span class='no'>count</span>[-<span class='fl'>1</span>], <span class='no'>ichn</span>$<span class='no'>count</span>, <span class='kw'>log</span><span class='kw'>=</span><span class='st'>"xy"</span>, <span class='kw'>xlab</span><span class='kw'>=</span><span class='st'>"cumulative"</span>, <span class='kw'>ylab</span><span class='kw'>=</span><span class='st'>"new"</span>,
- <span class='kw'>main</span><span class='kw'>=</span><span class='st'>"Hubei province"</span>) <span class='co'># like https://youtu.be/54XLXg4fYsc</span></div><div class='output co'>#&gt; <span class='warning'>Warning: 166 y values &lt;= 0 omitted from logarithmic plot</span></div><div class='img'><img src='cumulative_events_ejhu-1.png' alt='' width='700' height='433' /></div></pre>
+    <pre class="examples"><div class='input'><span class='kw'>dat</span> <span class='op'>=</span> <span class='fu'><a href='enriched_jhu_data.html'>enriched_jhu_data</a></span>()
+<span class='kw'>cchn</span> <span class='op'>=</span> <span class='fu'>cumulative_events_ejhu</span>(<span class='kw'>dat</span>, alpha3=<span class='st'>"CHN"</span>, ProvinceStateName=<span class='st'>"Hubei"</span>)
+<span class='kw'>ichn</span> <span class='op'>=</span> <span class='fu'><a href='form_incident_events.html'>form_incident_events</a></span>(<span class='kw'>cchn</span>)
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>(<span class='kw'>cchn</span><span class='op'>$</span><span class='kw'>count</span>[<span class='op'>-</span><span class='fl'>1</span>], <span class='kw'>ichn</span><span class='op'>$</span><span class='kw'>count</span>, log=<span class='st'>"xy"</span>, xlab=<span class='st'>"cumulative"</span>, ylab=<span class='st'>"new"</span>, 
+ main=<span class='st'>"Hubei province"</span>) <span class='co'># like https://youtu.be/54XLXg4fYsc</span>
+</div><div class='output co'>#&gt; <span class='warning'>Warning: 167 y values &lt;= 0 omitted from logarithmic plot</span></div><div class='img'><img src='cumulative_events_ejhu-1.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -219,7 +220,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
 </div>
 
       </footer>

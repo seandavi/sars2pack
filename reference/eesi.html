@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>demonstrative app for EpiEstim R<a href='https://rdrr.io/r/base/t.html'>t</a> sensitivity analysis — eesi • sars2pack</title>
+<title>demonstrative app for EpiEstim Rt sensitivity analysis — eesi • sars2pack</title>
 
 
 <!-- jquery -->
@@ -39,7 +39,7 @@
 
 
 
-<meta property="og:title" content="demonstrative app for EpiEstim R<a href='https://rdrr.io/r/base/t.html'>t</a> sensitivity analysis — eesi" />
+<meta property="og:title" content="demonstrative app for EpiEstim Rt sensitivity analysis — eesi" />
 <meta property="og:description" content="demonstrative app for EpiEstim Rt sensitivity analysis" />
 
 
@@ -170,13 +170,13 @@
     </div>
 
     <pre class="usage"><span class='fu'>eesi</span>(
-  <span class='no'>src</span>,
-  <span class='kw'>mean_si_trunc_radius</span> <span class='kw'>=</span> <span class='fl'>3</span>,
-  <span class='kw'>std_si_trunc_radius</span> <span class='kw'>=</span> <span class='fl'>3</span>,
-  <span class='kw'>std_mean_si</span> <span class='kw'>=</span> <span class='fl'>3</span>,
-  <span class='kw'>std_std_si</span> <span class='kw'>=</span> <span class='fl'>5</span>,
-  <span class='kw'>n1</span> <span class='kw'>=</span> <span class='fl'>100</span>,
-  <span class='kw'>n2</span> <span class='kw'>=</span> <span class='fl'>100</span>
+  <span class='kw'>src</span>,
+  mean_si_trunc_radius = <span class='fl'>3</span>,
+  std_si_trunc_radius = <span class='fl'>3</span>,
+  std_mean_si = <span class='fl'>3</span>,
+  std_std_si = <span class='fl'>5</span>,
+  n1 = <span class='fl'>100</span>,
+  n2 = <span class='fl'>100</span>
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -222,10 +222,11 @@ overlay of different R<a href='https://rdrr.io/r/base/t.html'>t</a> fits for dif
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># must run example(eesi, ask=FALSE)</span>
-<span class='kw'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
- <span class='no'>nytdat</span> <span class='kw'>=</span> <span class='fu'><a href='nytimes_county_data.html'>nytimes_state_data</a></span>()
- <span class='fu'>eesi</span>(<span class='no'>nytdat</span>)
-}</div></pre>
+<span class='co'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
+ <span class='kw'>nytdat</span> <span class='op'>=</span> <span class='fu'><a href='nytimes_county_data.html'>nytimes_state_data</a></span>()
+ <span class='fu'>eesi</span>(<span class='kw'>nytdat</span>)
+}
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -241,7 +242,7 @@ overlay of different R<a href='https://rdrr.io/r/base/t.html'>t</a> fits for dif
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
 </div>
 
       </footer>
