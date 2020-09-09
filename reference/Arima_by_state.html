@@ -224,12 +224,12 @@ case the latest available date is used</p></td>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='kw'>nyd</span> <span class='op'>=</span> <span class='fu'><a href='nytimes_county_data.html'>nytimes_state_data</a></span>()
-</div><div class='output co'>#&gt; <span class='message'>using temporary cache /tmp/RtmpusUFkJ/BiocFileCache</span></div><div class='input'><span class='kw'>mb</span> <span class='op'>=</span> <span class='fu'><a href='min_bic.html'>min_bic</a></span>(<span class='kw'>nyd</span>, state.in=<span class='st'>"New York"</span>)
+</div><div class='output co'>#&gt; <span class='message'>using temporary cache /tmp/RtmpF4jEEQ/BiocFileCache</span></div><div class='input'><span class='kw'>mb</span> <span class='op'>=</span> <span class='fu'><a href='min_bic.html'>min_bic</a></span>(<span class='kw'>nyd</span>, state.in=<span class='st'>"New York"</span>)
 <span class='kw'>lkny</span> <span class='op'>=</span> <span class='fu'>Arima_by_state</span>(<span class='kw'>nyd</span>, ARorder=<span class='kw'>mb</span><span class='op'>$</span><span class='kw'>opt</span>[<span class='st'>"ARord"</span>], MAorder=<span class='kw'>mb</span><span class='op'>$</span><span class='kw'>opt</span>[<span class='st'>"MAord"</span>])
 <span class='kw'>lkny</span>
 </div><div class='output co'>#&gt; Arima_sars2pack instance for New York 
-#&gt;   computed Tue Sep  8 03:57:26 2020 
-#&gt;   last date used was:  2020-09-06 
+#&gt;   computed Wed Sep  9 03:55:16 2020 
+#&gt;   last date used was:  2020-09-07 
 #&gt;   call was: Arima_by_state(src = nyd, MAorder = mb$opt["MAord"], ARorder = mb$opt["ARord"])
 #&gt;   Model estimates: 
 #&gt; Series: tsfull 
@@ -237,21 +237,21 @@ case the latest available date is used</p></td>
 #&gt; 
 #&gt; Coefficients:
 #&gt;           ma1   drift
-#&gt;       -0.7155  7.7468
-#&gt; s.e.   0.2478  6.4672
+#&gt;       -1.0000  4.3453
+#&gt; s.e.   0.1667  2.4250
 #&gt; 
-#&gt; sigma^2 estimated as 12109:  log likelihood=-170.68
-#&gt; AIC=347.35   AICc=348.35   BIC=351.35
+#&gt; sigma^2 estimated as 12852:  log likelihood=-172.83
+#&gt; AIC=351.67   AICc=352.67   BIC=355.66
 #&gt; 
 #&gt; Training set error measures:
-#&gt;                    ME     RMSE      MAE       MPE     MAPE      MASE      ACF1
-#&gt; Training set 4.842175 104.1933 77.58139 -1.919514 12.94375 0.8166462 0.1625062</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>(<span class='kw'>lkny</span>)
+#&gt;                      ME     RMSE      MAE       MPE     MAPE     MASE      ACF1
+#&gt; Training set 0.02040957 107.3421 81.63968 -3.017189 13.66361 0.808028 0.3056809</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>(<span class='kw'>lkny</span>)
 </div><div class='img'><img src='Arima_by_state-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='kw'>usd</span> <span class='op'>=</span> <span class='fu'><a href='jhu_us_data.html'>jhu_us_data</a></span>()
 <span class='kw'>lkny2</span> <span class='op'>=</span> <span class='fu'>Arima_by_state</span>(<span class='kw'>usd</span>, ARorder=<span class='kw'>mb</span><span class='op'>$</span><span class='kw'>opt</span>[<span class='st'>"ARord"</span>], MAorder=<span class='kw'>mb</span><span class='op'>$</span><span class='kw'>opt</span>[<span class='st'>"MAord"</span>])
 <span class='kw'>lkny2</span>
 </div><div class='output co'>#&gt; Arima_sars2pack instance for New York 
-#&gt;   computed Tue Sep  8 03:57:31 2020 
-#&gt;   last date used was:  2020-09-06 
+#&gt;   computed Wed Sep  9 03:55:20 2020 
+#&gt;   last date used was:  2020-09-07 
 #&gt;   call was: Arima_by_state(src = usd, MAorder = mb$opt["MAord"], ARorder = mb$opt["ARord"])
 #&gt;   Model estimates: 
 #&gt; Series: tsfull 
@@ -259,15 +259,15 @@ case the latest available date is used</p></td>
 #&gt; 
 #&gt; Coefficients:
 #&gt;           ma1   drift
-#&gt;       -0.7075  7.8305
-#&gt; s.e.   0.2591  6.6106
+#&gt;       -0.9995  4.3742
+#&gt; s.e.   0.1633  2.4317
 #&gt; 
-#&gt; sigma^2 estimated as 12076:  log likelihood=-170.63
-#&gt; AIC=347.25   AICc=348.25   BIC=351.25
+#&gt; sigma^2 estimated as 12929:  log likelihood=-172.91
+#&gt; AIC=351.82   AICc=352.82   BIC=355.82
 #&gt; 
 #&gt; Training set error measures:
-#&gt;                    ME     RMSE     MAE       MPE     MAPE      MASE      ACF1
-#&gt; Training set 4.600384 104.0522 76.8212 -1.938515 12.83073 0.8247675 0.1738255</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>(<span class='kw'>lkny2</span>)
+#&gt;                     ME    RMSE     MAE       MPE     MAPE      MASE      ACF1
+#&gt; Training set 0.1514235 107.664 81.0129 -3.004708 13.57383 0.8165447 0.3176651</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>(<span class='kw'>lkny2</span>)
 </div><div class='img'><img src='Arima_by_state-2.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
