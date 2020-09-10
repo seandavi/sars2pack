@@ -139,7 +139,7 @@
 <p>The dataset from Johns Hopkins University is one example that we can look at to get familiar with the data.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit">
 <span class="kw">jhu</span> <span class="op">=</span> <span class="fu"><a href="../reference/jhu_data.html">jhu_data</a></span>()
-<span class="co">## using temporary cache /tmp/RtmpEex0oj/BiocFileCache</span>
+<span class="co">## using temporary cache /tmp/RtmpZ3rRN2/BiocFileCache</span>
 <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span>(<span class="kw">jhu</span>)
 <span class="co">## [1] "ProvinceState" "CountryRegion" "Lat"           "Long"         </span>
 <span class="co">## [5] "date"          "count"         "subset"</span>
@@ -154,7 +154,7 @@
 <span class="co">## 5 &lt;NA&gt;          Afghanistan    33.9  67.7 2020-01-26     0 confirmed</span>
 <span class="co">## 6 &lt;NA&gt;          Afghanistan    33.9  67.7 2020-01-27     0 confirmed</span>
 <span class="kw">dplyr</span>::<span class="fu"><a href="https://tibble.tidyverse.org/reference/glimpse.html">glimpse</a></span>(<span class="kw">jhu</span>)
-<span class="co">## Rows: 180,550</span>
+<span class="co">## Rows: 181,335</span>
 <span class="co">## Columns: 7</span>
 <span class="co">## $ ProvinceState &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…</span>
 <span class="co">## $ CountryRegion &lt;chr&gt; "Afghanistan", "Afghanistan", "Afghanistan", "Afghanist…</span>
@@ -168,7 +168,7 @@
 <span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span>(<span class="kw">jhu</span><span class="op">$</span><span class="kw">subset</span>)
 <span class="co">## </span>
 <span class="co">## confirmed    deaths recovered </span>
-<span class="co">##     61180     61180     58190</span>
+<span class="co">##     61446     61446     58443</span>
 </pre></div>
 <div id="compare-us-datasets" class="section level2">
 <h2 class="hasAnchor">
@@ -192,7 +192,7 @@
 <span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span>(<span class="kw">us_states</span><span class="op">$</span><span class="kw">dataset</span>)
 <span class="co">## </span>
 <span class="co">## covidtracker          jhu      nytimes </span>
-<span class="co">##        10570        11960        10409</span>
+<span class="co">##        10626        12012        10464</span>
 </pre></div>
 <p>To get a sense of the data and their meaning, consider the following series of graphs based on three “randomly” chosen states.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit">
