@@ -118,7 +118,7 @@
       <h1 data-toc-skip>Building MCMC-based models of SI for SARS-Cov-2</h1>
                         <h4 class="author">Vincent J. Carey, stvjc at channing.harvard.edu</h4>
             
-            <h4 class="date">September 11, 2020</h4>
+            <h4 class="date">September 12, 2020</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/seandavi/sars2pack/blob/master/vignettes/doMCMC.Rmd"><code>vignettes/doMCMC.Rmd</code></a></small>
       <div class="hidden name"><code>doMCMC.Rmd</code></div>
@@ -216,13 +216,13 @@ R[t] = I[t]/\Sigma_{s=1}^t I[t-s]w[s]
 <div class="sourceCode" id="cb10"><pre class="downlit">
 <span class="fu"><a href="https://rdrr.io/r/base/warning.html">suppressWarnings</a></span>({<span class="kw">dat</span> <span class="op">=</span> <span class="fu"><a href="../reference/enriched_jhu_data.html">enriched_jhu_data</a></span>()})
 </pre></div>
-<pre><code>## using temporary cache /tmp/RtmpKLbJX5/BiocFileCache</code></pre>
+<pre><code>## using temporary cache /tmp/Rtmp37cB32/BiocFileCache</code></pre>
 <div class="sourceCode" id="cb12"><pre class="downlit">
 <span class="kw">cusa</span> <span class="op">=</span> <span class="fu"><a href="../reference/cumulative_events_ejhu.html">cumulative_events_ejhu</a></span>(<span class="kw">dat</span>, eventtype=<span class="st">"confirmed"</span>,
       alpha3=<span class="st">"USA"</span>)
 <span class="kw">cusa</span>
 </pre></div>
-<pre><code>## cumulative event data for USA, 2020-01-22 to 2020-09-09 
+<pre><code>## cumulative event data for USA, 2020-01-22 to 2020-09-10 
 ## use plot() to visualize.</code></pre>
 <div class="sourceCode" id="cb14"><pre class="downlit">
 <span class="kw">iusa</span> <span class="op">=</span> <span class="fu"><a href="../reference/form_incident_events.html">form_incident_events</a></span>(<span class="fu"><a href="../reference/trim_from.html">trim_from</a></span>(<span class="kw">cusa</span>, <span class="st">"2020-03-10"</span>))

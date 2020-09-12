@@ -262,40 +262,48 @@ confidence interval, lower confidence interval</p></li>
 </div><div class='output co'>#&gt; [1] "location_name" "date"          "metric"        "mean"         
 #&gt; [5] "upper"         "pctupper"      "lower"         "pctlower"     </div><div class='input'><span class='kw'>res</span>[<span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span>(<span class='fl'>1</span><span class='op'>:</span><span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span>(<span class='kw'>res</span>),<span class='fl'>6</span>),]
 </div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 6 x 8</span><span>
-#&gt;   location_name        date       metric   mean upper pctupper    lower pctlower
-#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>                </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #555555;'>1</span><span> Serbia               2020-12-02 deaths  0.744  4.12   </span><span style='color: #BB0000;'>NA</span><span>      0.001</span><span style='text-decoration: underline;'>44</span><span>   </span><span style='color: #BB0000;'>NA</span><span>    
-#&gt; </span><span style='color: #555555;'>2</span><span> Scotland             2020-12-01 sero   </span><span style='color: #BB0000;'>NA</span><span>     </span><span style='color: #BB0000;'>NA</span><span>       0.245 </span><span style='color: #BB0000;'>NA</span><span>          0.250
-#&gt; </span><span style='color: #555555;'>3</span><span> Kuwait               2020-04-11 icuov…  0      0      </span><span style='color: #BB0000;'>NA</span><span>      0         </span><span style='color: #BB0000;'>NA</span><span>    
-#&gt; </span><span style='color: #555555;'>4</span><span> Northern Ireland     2020-04-14 newICU 21.8   21.8    </span><span style='color: #BB0000;'>NA</span><span>     21.8       </span><span style='color: #BB0000;'>NA</span><span>    
-#&gt; </span><span style='color: #555555;'>5</span><span> Democratic Republic… 2020-10-30 ICUbed 20.9   45.6    </span><span style='color: #BB0000;'>NA</span><span>      6.53      </span><span style='color: #BB0000;'>NA</span><span>    
-#&gt; </span><span style='color: #555555;'>6</span><span> North Rhine-Westpha… 2020-07-30 InvVen 15.6   15.6    </span><span style='color: #BB0000;'>NA</span><span>     15.6       </span><span style='color: #BB0000;'>NA</span><span>    </div><div class='input'><span class='kw'>dplyr</span>::<span class='fu'><a href='https://tibble.tidyverse.org/reference/glimpse.html'>glimpse</a></span>(<span class='kw'>res</span>)
-</div><div class='output co'>#&gt; Rows: 1,421,244
+#&gt;   location_name    date       metric    mean   upper pctupper     lower pctlower
+#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>            </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
+#&gt; </span><span style='color: #555555;'>1</span><span> Poland           2020-08-16 InvVen   115.    115.      </span><span style='color: #BB0000;'>NA</span><span>     1.15</span><span style='color: #555555;'>e</span><span>+2     </span><span style='color: #BB0000;'>NA</span><span>  
+#&gt; </span><span style='color: #555555;'>2</span><span> Mali             2020-12-04 icuov…     0       0       </span><span style='color: #BB0000;'>NA</span><span>     0.  </span><span style='color: #555555;'> </span><span>       </span><span style='color: #BB0000;'>NA</span><span>  
+#&gt; </span><span style='color: #555555;'>3</span><span> Brazil           2020-11-13 sero      </span><span style='color: #BB0000;'>NA</span><span>      </span><span style='color: #BB0000;'>NA</span><span>       22.3  </span><span style='color: #BB0000;'>NA</span><span>   </span><span style='color: #555555;'> </span><span>       22.3
+#&gt; </span><span style='color: #555555;'>4</span><span> Liberia          2020-06-03 allbed    45.0    45.0     </span><span style='color: #BB0000;'>NA</span><span>     4.50</span><span style='color: #555555;'>e</span><span>+1     </span><span style='color: #BB0000;'>NA</span><span>  
+#&gt; </span><span style='color: #555555;'>5</span><span> South Asia       2020-07-16 bedov… </span><span style='text-decoration: underline;'>70</span><span>129.  </span><span style='text-decoration: underline;'>70</span><span>129.      </span><span style='color: #BB0000;'>NA</span><span>     7.01</span><span style='color: #555555;'>e</span><span>+4     </span><span style='color: #BB0000;'>NA</span><span>  
+#&gt; </span><span style='color: #555555;'>6</span><span> Azad Jammu &amp; Ka… 2020-12-01 InvVen   351.   </span><span style='text-decoration: underline;'>1</span><span>684.      </span><span style='color: #BB0000;'>NA</span><span>     3.41</span><span style='color: #555555;'>e</span><span style='color: #BB0000;'>-3</span><span>     </span><span style='color: #BB0000;'>NA</span><span>  </div><div class='input'><span class='kw'>dplyr</span>::<span class='fu'><a href='https://tibble.tidyverse.org/reference/glimpse.html'>glimpse</a></span>(<span class='kw'>res</span>)
+</div><div class='output co'>#&gt; Rows: 1,550,448
 #&gt; Columns: 8
 #&gt; $ location_name </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Global", "Global", "Global", "Global", "Global", "Glob…
 #&gt; $ date          </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2020-02-04, 2020-02-04, 2020-02-04, 2020-02-04, 2020-0…
 #&gt; $ metric        </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "allbed", "ICUbed", "InvVen", "admis", "newICU", "bedov…
-#&gt; $ mean          </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 4625.5135, 1301.4015, 1198.9097, 601.0154, 228.4747, 0.…
-#&gt; $ upper         </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 4625.5135, 1301.4015, 1198.9097, 601.0154, 228.4747, 0.…
+#&gt; $ mean          </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 4697.5466, 1321.0825, 1216.0463, 596.8211, 228.3563, 46…
+#&gt; $ upper         </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 4697.5466, 1321.0825, 1216.0463, 596.8211, 228.3563, 46…
 #&gt; $ pctupper      </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
-#&gt; $ lower         </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 4625.5135, 1301.4015, 1198.9097, 601.0154, 228.4747, 0.…
+#&gt; $ lower         </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 4697.5466, 1321.0825, 1216.0463, 596.8211, 228.3563, 46…
 #&gt; $ pctlower      </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='kw'>res</span>)
-</div><div class='output co'>#&gt;  location_name           date               metric               mean         
-#&gt;  Length:1421244     Min.   :2020-02-04   Length:1421244     Min.   :     -94  
-#&gt;  Class :character   1st Qu.:2020-04-27   Class :character   1st Qu.:       0  
-#&gt;  Mode  :character   Median :2020-07-19   Mode  :character   Median :       9  
-#&gt;                     Mean   :2020-07-19                      Mean   :    4527  
-#&gt;                     3rd Qu.:2020-10-10                      3rd Qu.:     187  
-#&gt;                     Max.   :2021-01-01                      Max.   :10977805  
-#&gt;                                                             NA's   :134726    
-#&gt;      upper             pctupper           lower            pctlower      
-#&gt;  Min.   :     -94   Min.   :-0.2      Min.   :    -94   Min.   :-0.2     
-#&gt;  1st Qu.:       0   1st Qu.: 0.0      1st Qu.:      0   1st Qu.: 0.0     
-#&gt;  Median :      13   Median : 0.6      Median :      4   Median : 0.6     
-#&gt;  Mean   :    7575   Mean   : 3.4      Mean   :   2948   Mean   : 3.4     
-#&gt;  3rd Qu.:     308   3rd Qu.: 3.2      3rd Qu.:    103   3rd Qu.: 3.2     
-#&gt;  Max.   :19559377   Max.   :67.5      Max.   :5788294   Max.   :67.8     
-#&gt;  NA's   :134726     NA's   :1373021   NA's   :134726    NA's   :1373021  </div><div class='input'>
+</div><div class='output co'>#&gt;  location_name           date               metric         
+#&gt;  Length:1550448     Min.   :2020-02-04   Length:1550448    
+#&gt;  Class :character   1st Qu.:2020-04-27   Class :character  
+#&gt;  Mode  :character   Median :2020-07-19   Mode  :character  
+#&gt;                     Mean   :2020-07-19                     
+#&gt;                     3rd Qu.:2020-10-10                     
+#&gt;                     Max.   :2021-01-01                     
+#&gt;                                                            
+#&gt;       mean                upper               pctupper      
+#&gt;  Min.   :       -94   Min.   :       -94   Min.   : 0.0     
+#&gt;  1st Qu.:         0   1st Qu.:         0   1st Qu.: 0.1     
+#&gt;  Median :        15   Median :        22   Median : 1.0     
+#&gt;  Mean   :    216065   Mean   :    218643   Mean   : 4.9     
+#&gt;  3rd Qu.:       423   3rd Qu.:       660   3rd Qu.: 5.7     
+#&gt;  Max.   :1002962989   Max.   :1002962989   Max.   :57.0     
+#&gt;  NA's   :134816       NA's   :134816       NA's   :1425900  
+#&gt;      lower               pctlower      
+#&gt;  Min.   :       -94   Min.   : 0.0     
+#&gt;  1st Qu.:         0   1st Qu.: 0.1     
+#&gt;  Median :         8   Median : 1.0     
+#&gt;  Mean   :    214723   Mean   : 4.9     
+#&gt;  3rd Qu.:       258   3rd Qu.: 5.7     
+#&gt;  Max.   :1002962989   Max.   :57.1     
+#&gt;  NA's   :134816       NA's   :1425900  </div><div class='input'>
 <span class='co'>#plot the predictions</span>
 
 <span class='kw'>regs_of_interest</span> <span class='op'>=</span> <span class='st'>'Georgia'</span>
