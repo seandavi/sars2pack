@@ -222,18 +222,85 @@ http://goo.gle/covid19symptomdataset</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='kw'>res</span> <span class='op'>=</span> <span class='fu'>google_search_trends_data</span>()
-</div><div class='output co'>#&gt; <span class='message'>Column 6 ['country_region_code'] of item 4 appears in position 2 in item 3. Set use.names=TRUE to match by column name, or use.names=FALSE to ignore column names. use.names='check' (default from v1.12.2) emits this message and proceeds as if use.names=FALSE for  backwards compatibility. See news item 5 in v1.12.2 for options to control this message.</span></div><div class='output co'>#&gt; <span class='error'>Error in data.table::rbindlist(dset_list): Class attribute on column 2 of item 4 does not match with column 2 of item 1.</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/dim.html'>dim</a></span>(<span class='kw'>res</span>)
-</div><div class='output co'>#&gt; <span class='error'>Error in eval(expr, envir, enclos): object 'res' not found</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='kw'>res</span>)
-</div><div class='output co'>#&gt; <span class='error'>Error in head(res): object 'res' not found</span></div><div class='input'><span class='kw'>dplyr</span>::<span class='fu'><a href='https://tibble.tidyverse.org/reference/glimpse.html'>glimpse</a></span>(<span class='kw'>res</span>)
-</div><div class='output co'>#&gt; <span class='error'>Error in dplyr::glimpse(res): object 'res' not found</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span>(<span class='kw'>res</span><span class='op'>$</span><span class='kw'>country_region</span>)
-</div><div class='output co'>#&gt; <span class='error'>Error in table(res$country_region): object 'res' not found</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span>(<span class='kw'>res</span><span class='op'>$</span><span class='kw'>sub_region_1</span>)
-</div><div class='output co'>#&gt; <span class='error'>Error in table(res$sub_region_1): object 'res' not found</span></div><div class='input'><span class='co'>if</span>(<span class='fu'><a href='https://rdrr.io/r/base/library.html'>require</a></span>(<span class='kw'>timetk</span>)) {
+<span class='fu'><a href='https://rdrr.io/r/base/dim.html'>dim</a></span>(<span class='kw'>res</span>)
+</div><div class='output co'>#&gt; [1] 24018552       10</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='kw'>res</span>)
+</div><div class='output co'>#&gt;    open_covid_region_code country_region_code country_region sub_region_1
+#&gt; 1:                  US-AK                  US  United States       Alaska
+#&gt; 2:                  US-AK                  US  United States       Alaska
+#&gt; 3:                  US-AK                  US  United States       Alaska
+#&gt; 4:                  US-AK                  US  United States       Alaska
+#&gt; 5:                  US-AK                  US  United States       Alaska
+#&gt; 6:                  US-AK                  US  United States       Alaska
+#&gt;    sub_region_1_code sub_region_2 sub_region_2_code       date
+#&gt; 1:             US-AK           NA                NA 2017-08-21
+#&gt; 2:             US-AK           NA                NA 2017-08-22
+#&gt; 3:             US-AK           NA                NA 2017-08-23
+#&gt; 4:             US-AK           NA                NA 2017-08-24
+#&gt; 5:             US-AK           NA                NA 2017-08-25
+#&gt; 6:             US-AK           NA                NA 2017-08-26
+#&gt;                     variable value
+#&gt; 1: symptom:Abdominal obesity  1.43
+#&gt; 2: symptom:Abdominal obesity  1.55
+#&gt; 3: symptom:Abdominal obesity  1.76
+#&gt; 4: symptom:Abdominal obesity  2.04
+#&gt; 5: symptom:Abdominal obesity  1.40
+#&gt; 6: symptom:Abdominal obesity  1.76</div><div class='input'><span class='kw'>dplyr</span>::<span class='fu'><a href='https://tibble.tidyverse.org/reference/glimpse.html'>glimpse</a></span>(<span class='kw'>res</span>)
+</div><div class='output co'>#&gt; Rows: 24,018,552
+#&gt; Columns: 10
+#&gt; $ open_covid_region_code <span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "US-AK", "US-AK", "US-AK", "US-AK", "US-AK", "…
+#&gt; $ country_region_code    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "US", "US", "US", "US", "US", "US", "US", "US"…
+#&gt; $ country_region         </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "United States", "United States", "United Stat…
+#&gt; $ sub_region_1           </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Alaska", "Alaska", "Alaska", "Alaska", "Alask…
+#&gt; $ sub_region_1_code      </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "US-AK", "US-AK", "US-AK", "US-AK", "US-AK", "…
+#&gt; $ sub_region_2           </span><span style='color: #555555;font-style: italic;'>&lt;lgl&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+#&gt; $ sub_region_2_code      </span><span style='color: #555555;font-style: italic;'>&lt;lgl&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+#&gt; $ date                   </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2017-08-21, 2017-08-22, 2017-08-23, 2017-08-2…
+#&gt; $ variable               </span><span style='color: #555555;font-style: italic;'>&lt;fct&gt;</span><span> symptom:Abdominal obesity, symptom:Abdominal o…
+#&gt; $ value                  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 1.43, 1.55, 1.76, 2.04, 1.40, 1.76, 1.62, 1.49…</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span>(<span class='kw'>res</span><span class='op'>$</span><span class='kw'>country_region</span>)
+</div><div class='output co'>#&gt; 
+#&gt; United States 
+#&gt;      24018552 </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span>(<span class='kw'>res</span><span class='op'>$</span><span class='kw'>sub_region_1</span>)
+</div><div class='output co'>#&gt; 
+#&gt;              Alabama               Alaska              Arizona 
+#&gt;               470952               470952               470952 
+#&gt;             Arkansas           California             Colorado 
+#&gt;               470952               470952               470952 
+#&gt;          Connecticut             Delaware District of Columbia 
+#&gt;               470952               470952               470952 
+#&gt;              Florida              Georgia               Hawaii 
+#&gt;               470952               470952               470952 
+#&gt;                Idaho             Illinois              Indiana 
+#&gt;               470952               470952               470952 
+#&gt;                 Iowa               Kansas             Kentucky 
+#&gt;               470952               470952               470952 
+#&gt;            Louisiana                Maine             Maryland 
+#&gt;               470952               470952               470952 
+#&gt;        Massachusetts             Michigan            Minnesota 
+#&gt;               470952               470952               470952 
+#&gt;          Mississippi             Missouri              Montana 
+#&gt;               470952               470952               470952 
+#&gt;             Nebraska               Nevada        New Hampshire 
+#&gt;               470952               470952               470952 
+#&gt;           New Jersey           New Mexico             New York 
+#&gt;               470952               470952               470952 
+#&gt;       North Carolina         North Dakota                 Ohio 
+#&gt;               470952               470952               470952 
+#&gt;             Oklahoma               Oregon         Pennsylvania 
+#&gt;               470952               470952               470952 
+#&gt;         Rhode Island       South Carolina         South Dakota 
+#&gt;               470952               470952               470952 
+#&gt;            Tennessee                Texas                 Utah 
+#&gt;               470952               470952               470952 
+#&gt;              Vermont             Virginia           Washington 
+#&gt;               470952               470952               470952 
+#&gt;        West Virginia            Wisconsin              Wyoming 
+#&gt;               470952               470952               470952 </div><div class='input'><span class='co'>if</span>(<span class='fu'><a href='https://rdrr.io/r/base/library.html'>require</a></span>(<span class='kw'>timetk</span>)) {
 
   <span class='fu'>plot_time_series</span>(<span class='kw'>res</span>[<span class='kw'>sub_region_1</span> <span class='op'>%in%</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>'Maryland'</span>,<span class='st'>'Texas'</span>,<span class='st'>'New York'</span>,<span class='st'>'California'</span>,<span class='st'>'Georgia'</span>,<span class='st'>'Arizona'</span>,<span class='st'>'Illinois'</span>,<span class='st'>'New Jersey'</span>,<span class='st'>'Florida'</span>) <span class='op'>&amp;</span> <span class='kw'>variable</span> <span class='op'>%in%</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>'symptom:Cough'</span>,<span class='st'>'symptom:Fever'</span>,<span class='st'>'symptom:Shortness of breath'</span>)][,<span class='kw'>year</span> <span class='op'>:=</span> <span class='kw'>lubridate</span>::<span class='fu'><a href='http://lubridate.tidyverse.org/reference/year.html'>year</a></span>(<span class='kw'>date</span>)],<span class='kw'>date</span>,<span class='kw'>value</span>,.smooth_period=<span class='st'>'month'</span>,.color_var=<span class='kw'>sub_region_1</span>,.facet_vars = <span class='st'>'variable'</span>)
 
 }
 </div><div class='output co'>#&gt; <span class='message'>Loading required package: timetk</span></div><div class='output co'>#&gt; <span class='warning'>Warning: there is no package called ‘timetk’</span></div><div class='input'>
-</div></pre>
+</div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
