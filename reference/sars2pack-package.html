@@ -416,7 +416,7 @@ COVID-19 data resources.</p></li>
 #&gt; </span><span style='color: #555555;'>6</span><span> </span><span style='color: #BB0000;'>NA</span><span>            Afghanistan    33.9  67.7 2020-01-27     0 confirmed
 #&gt; 
 #&gt; jhu_dt&gt; dplyr::glimpse(res)
-#&gt; Rows: 187,615
+#&gt; Rows: 193,110
 #&gt; Columns: 7
 #&gt; $ ProvinceState </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
 #&gt; $ CountryRegion </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Afghanistan", "Afghanistan", "Afghanistan", "Afghanist…
@@ -449,7 +449,7 @@ COVID-19 data resources.</p></li>
 #&gt; appl__&gt; table(res$transportation_type)
 #&gt; 
 #&gt; driving transit walking 
-#&gt;  755904  136648  270816 
+#&gt;  777240  140505  278460 
 #&gt; 
 #&gt; appl__&gt; require(ggplot2)
 #&gt; 
@@ -495,52 +495,44 @@ COVID-19 data resources.</p></li>
 #&gt; 
 #&gt; hlth__&gt; res[sample(1:nrow(res),6),]
 #&gt; </span><span style='color: #555555;'># A tibble: 6 x 8</span><span>
-#&gt;   location_name         date       metric   mean  upper pctupper  lower pctlower
-#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>                 </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #555555;'>1</span><span> Hamburg               2020-02-15 InvVen   0      0          </span><span style='color: #BB0000;'>NA</span><span>   0          </span><span style='color: #BB0000;'>NA</span><span>
-#&gt; </span><span style='color: #555555;'>2</span><span> Myanmar               2020-08-24 admis    1.19   1.19       </span><span style='color: #BB0000;'>NA</span><span>   1.19       </span><span style='color: #BB0000;'>NA</span><span>
-#&gt; </span><span style='color: #555555;'>3</span><span> Kuwait                2020-06-03 icuov…   0      0          </span><span style='color: #BB0000;'>NA</span><span>   0          </span><span style='color: #BB0000;'>NA</span><span>
-#&gt; </span><span style='color: #555555;'>4</span><span> North Rhine-Westphal… 2020-12-02 bedov… 206.   530.         </span><span style='color: #BB0000;'>NA</span><span>  52.3        </span><span style='color: #BB0000;'>NA</span><span>
-#&gt; </span><span style='color: #555555;'>5</span><span> Ethiopia              2020-11-13 newICU  84.7  194.         </span><span style='color: #BB0000;'>NA</span><span>  28.4        </span><span style='color: #BB0000;'>NA</span><span>
-#&gt; </span><span style='color: #555555;'>6</span><span> Madhya Pradesh        2020-05-02 totdea 152    152          </span><span style='color: #BB0000;'>NA</span><span> 152          </span><span style='color: #BB0000;'>NA</span><span>
+#&gt;   location_name         date       metric    mean  upper pctupper lower pctlower
+#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>                 </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
+#&gt; </span><span style='color: #555555;'>1</span><span> North Rhine-Westphal… 2020-02-15 InvVen    0    0.  </span><span style='color: #555555;'> </span><span>        </span><span style='color: #BB0000;'>NA</span><span>  0          </span><span style='color: #BB0000;'>NA</span><span>
+#&gt; </span><span style='color: #555555;'>2</span><span> Myanmar               2020-08-24 admis     1.05 1.05</span><span style='color: #555555;'>e</span><span>0       </span><span style='color: #BB0000;'>NA</span><span>  1.05       </span><span style='color: #BB0000;'>NA</span><span>
+#&gt; </span><span style='color: #555555;'>3</span><span> Kuwait                2020-06-03 icuover   0    0.  </span><span style='color: #555555;'> </span><span>        </span><span style='color: #BB0000;'>NA</span><span>  0          </span><span style='color: #BB0000;'>NA</span><span>
+#&gt; </span><span style='color: #555555;'>4</span><span> Saxony                2020-12-02 bedover 165.   1.19</span><span style='color: #555555;'>e</span><span>3       </span><span style='color: #BB0000;'>NA</span><span>  6.70       </span><span style='color: #BB0000;'>NA</span><span>
+#&gt; </span><span style='color: #555555;'>5</span><span> Ethiopia              2020-11-13 newICU   21.1  4.09</span><span style='color: #555555;'>e</span><span>1       </span><span style='color: #BB0000;'>NA</span><span>  7.45       </span><span style='color: #BB0000;'>NA</span><span>
+#&gt; </span><span style='color: #555555;'>6</span><span> Nagaland              2020-05-02 totdea    0    0.  </span><span style='color: #555555;'> </span><span>        </span><span style='color: #BB0000;'>NA</span><span>  0          </span><span style='color: #BB0000;'>NA</span><span>
 #&gt; 
 #&gt; hlth__&gt; dplyr::glimpse(res)
-#&gt; Rows: 1,550,448
+#&gt; Rows: 1,534,464
 #&gt; Columns: 8
 #&gt; $ location_name </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Global", "Global", "Global", "Global", "Global", "Glob…
 #&gt; $ date          </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2020-02-04, 2020-02-04, 2020-02-04, 2020-02-04, 2020-0…
 #&gt; $ metric        </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "allbed", "ICUbed", "InvVen", "admis", "newICU", "bedov…
-#&gt; $ mean          </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 4697.5466, 1321.0825, 1216.0463, 596.8211, 228.3563, 46…
-#&gt; $ upper         </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 4697.5466, 1321.0825, 1216.0463, 596.8211, 228.3563, 46…
+#&gt; $ mean          </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 4707.8848, 1326.3790, 1221.9785, 604.0688, 230.8640, 47…
+#&gt; $ upper         </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 4707.8848, 1326.3790, 1221.9785, 604.0688, 230.8640, 47…
 #&gt; $ pctupper      </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
-#&gt; $ lower         </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 4697.5466, 1321.0825, 1216.0463, 596.8211, 228.3563, 46…
+#&gt; $ lower         </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 4707.8848, 1326.3790, 1221.9785, 604.0688, 230.8640, 47…
 #&gt; $ pctlower      </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
 #&gt; 
 #&gt; hlth__&gt; summary(res)
-#&gt;  location_name           date               metric         
-#&gt;  Length:1550448     Min.   :2020-02-04   Length:1550448    
-#&gt;  Class :character   1st Qu.:2020-04-27   Class :character  
-#&gt;  Mode  :character   Median :2020-07-19   Mode  :character  
-#&gt;                     Mean   :2020-07-19                     
-#&gt;                     3rd Qu.:2020-10-10                     
-#&gt;                     Max.   :2021-01-01                     
-#&gt;                                                            
-#&gt;       mean                upper               pctupper      
-#&gt;  Min.   :       -94   Min.   :       -94   Min.   : 0.0     
-#&gt;  1st Qu.:         0   1st Qu.:         0   1st Qu.: 0.1     
-#&gt;  Median :        15   Median :        22   Median : 1.0     
-#&gt;  Mean   :    216065   Mean   :    218643   Mean   : 4.9     
-#&gt;  3rd Qu.:       423   3rd Qu.:       660   3rd Qu.: 5.7     
-#&gt;  Max.   :1002962989   Max.   :1002962989   Max.   :57.0     
-#&gt;  NA's   :134816       NA's   :134816       NA's   :1425900  
-#&gt;      lower               pctlower      
-#&gt;  Min.   :       -94   Min.   : 0.0     
-#&gt;  1st Qu.:         0   1st Qu.: 0.1     
-#&gt;  Median :         8   Median : 1.0     
-#&gt;  Mean   :    214723   Mean   : 4.9     
-#&gt;  3rd Qu.:       258   3rd Qu.: 5.7     
-#&gt;  Max.   :1002962989   Max.   :57.1     
-#&gt;  NA's   :134816       NA's   :1425900  
+#&gt;  location_name           date               metric               mean          
+#&gt;  Length:1534464     Min.   :2020-02-04   Length:1534464     Min.   :      -94  
+#&gt;  Class :character   1st Qu.:2020-04-27   Class :character   1st Qu.:        0  
+#&gt;  Mode  :character   Median :2020-07-19   Mode  :character   Median :       15  
+#&gt;                     Mean   :2020-07-19                      Mean   :   199262  
+#&gt;                     3rd Qu.:2020-10-10                      3rd Qu.:      410  
+#&gt;                     Max.   :2021-01-01                      Max.   :919512105  
+#&gt;                                                             NA's   :134224     
+#&gt;      upper              pctupper           lower              pctlower      
+#&gt;  Min.   :      -94   Min.   : 0.0      Min.   :      -94   Min.   : 0.0     
+#&gt;  1st Qu.:        0   1st Qu.: 0.2      1st Qu.:        0   1st Qu.: 0.2     
+#&gt;  Median :       21   Median : 1.1      Median :        9   Median : 1.1     
+#&gt;  Mean   :   201341   Mean   : 4.7      Mean   :   198196   Mean   : 4.7     
+#&gt;  3rd Qu.:      615   3rd Qu.: 5.6      3rd Qu.:      272   3rd Qu.: 5.6     
+#&gt;  Max.   :919512105   Max.   :56.5      Max.   :919512105   Max.   :56.5     
+#&gt;  NA's   :134224      NA's   :1411200   NA's   :134224      NA's   :1411200  
 #&gt; 
 #&gt; hlth__&gt; #plot the predictions
 #&gt; hlth__&gt; 

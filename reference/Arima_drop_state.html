@@ -242,24 +242,26 @@ extravagantly variable.</p>
 </div><div class='output co'>#&gt; <span class='warning'>Warning: running command 'timedatectl' had status 1</span></div><div class='input'><span class='kw'>drny</span> <span class='op'>=</span> <span class='fu'>Arima_drop_state</span>(<span class='kw'>ej</span>, <span class='kw'>nyd</span>)
 <span class='kw'>drny</span>
 </div><div class='output co'>#&gt; Arima_sars2pack instance for excl New York 
-#&gt;   computed Fri Sep 18 03:52:17 2020 
-#&gt;   last date used was:  2020-09-16 
+#&gt;   computed Fri Sep 25 03:54:42 2020 
+#&gt;   last date used was:  2020-09-23 
 #&gt;   call was: NULL
 #&gt;   Model estimates: 
 #&gt; Series: tsfull 
 #&gt; ARIMA(0,1,2) with drift 
 #&gt; 
 #&gt; Coefficients:
-#&gt;           ma1      ma2      drift
-#&gt;       -0.2636  -0.7364  -337.9981
-#&gt; s.e.   0.2294   0.2204   183.3727
+#&gt;           ma1      ma2     drift
+#&gt;       -0.4700  -0.5300  -35.3298
+#&gt; s.e.   0.2017   0.1622  195.5203
 #&gt; 
-#&gt; sigma^2 estimated as 27565750:  log likelihood=-279.53
-#&gt; AIC=567.06   AICc=568.8   BIC=572.39
+#&gt; sigma^2 estimated as 39707001:  log likelihood=-284.54
+#&gt; AIC=577.07   AICc=578.81   BIC=582.4
 #&gt; 
 #&gt; Training set error measures:
-#&gt;                    ME    RMSE      MAE       MPE     MAPE      MASE        ACF1
-#&gt; Training set -220.073 4874.79 3684.008 -2.146011 9.872167 0.7180852 -0.04854285</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>(<span class='kw'>drny</span>)
+#&gt;                     ME     RMSE      MAE       MPE     MAPE      MASE
+#&gt; Training set -605.7276 5850.656 4568.093 -3.936321 12.45208 0.7907477
+#&gt;                    ACF1
+#&gt; Training set 0.03947959</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>(<span class='kw'>drny</span>)
 </div><div class='img'><img src='Arima_drop_state-2.png' alt='' width='700' height='433' /></div><div class='input'><span class='kw'>opar</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(no.readonly=<span class='fl'>TRUE</span>)
 <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(mar=<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>4</span>,<span class='fl'>3</span>,<span class='fl'>2</span>,<span class='fl'>2</span>), mfrow=<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>2</span>))
 <span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>(<span class='kw'>usa_full</span>, main=<span class='st'>"all states"</span>, ylim=<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>17000</span>,<span class='fl'>38000</span>))

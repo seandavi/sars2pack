@@ -223,7 +223,7 @@ http://goo.gle/covid19symptomdataset</p>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='kw'>res</span> <span class='op'>=</span> <span class='fu'>google_search_trends_data</span>()
 <span class='fu'><a href='https://rdrr.io/r/base/dim.html'>dim</a></span>(<span class='kw'>res</span>)
-</div><div class='output co'>#&gt; [1] 24018552       10</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='kw'>res</span>)
+</div><div class='output co'>#&gt; [1] 24233772       10</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='kw'>res</span>)
 </div><div class='output co'>#&gt;    open_covid_region_code country_region_code country_region sub_region_1
 #&gt; 1:                  US-AK                  US  United States       Alaska
 #&gt; 2:                  US-AK                  US  United States       Alaska
@@ -245,7 +245,7 @@ http://goo.gle/covid19symptomdataset</p>
 #&gt; 4: symptom:Abdominal obesity  2.04
 #&gt; 5: symptom:Abdominal obesity  1.40
 #&gt; 6: symptom:Abdominal obesity  1.76</div><div class='input'><span class='kw'>dplyr</span>::<span class='fu'><a href='https://tibble.tidyverse.org/reference/glimpse.html'>glimpse</a></span>(<span class='kw'>res</span>)
-</div><div class='output co'>#&gt; Rows: 24,018,552
+</div><div class='output co'>#&gt; Rows: 24,233,772
 #&gt; Columns: 10
 #&gt; $ open_covid_region_code <span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "US-AK", "US-AK", "US-AK", "US-AK", "US-AK", "…
 #&gt; $ country_region_code    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "US", "US", "US", "US", "US", "US", "US", "US"…
@@ -259,42 +259,42 @@ http://goo.gle/covid19symptomdataset</p>
 #&gt; $ value                  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 1.43, 1.55, 1.76, 2.04, 1.40, 1.76, 1.62, 1.49…</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span>(<span class='kw'>res</span><span class='op'>$</span><span class='kw'>country_region</span>)
 </div><div class='output co'>#&gt; 
 #&gt; United States 
-#&gt;      24018552 </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span>(<span class='kw'>res</span><span class='op'>$</span><span class='kw'>sub_region_1</span>)
+#&gt;      24233772 </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span>(<span class='kw'>res</span><span class='op'>$</span><span class='kw'>sub_region_1</span>)
 </div><div class='output co'>#&gt; 
 #&gt;              Alabama               Alaska              Arizona 
-#&gt;               470952               470952               470952 
+#&gt;               475172               475172               475172 
 #&gt;             Arkansas           California             Colorado 
-#&gt;               470952               470952               470952 
+#&gt;               475172               475172               475172 
 #&gt;          Connecticut             Delaware District of Columbia 
-#&gt;               470952               470952               470952 
+#&gt;               475172               475172               475172 
 #&gt;              Florida              Georgia               Hawaii 
-#&gt;               470952               470952               470952 
+#&gt;               475172               475172               475172 
 #&gt;                Idaho             Illinois              Indiana 
-#&gt;               470952               470952               470952 
+#&gt;               475172               475172               475172 
 #&gt;                 Iowa               Kansas             Kentucky 
-#&gt;               470952               470952               470952 
+#&gt;               475172               475172               475172 
 #&gt;            Louisiana                Maine             Maryland 
-#&gt;               470952               470952               470952 
+#&gt;               475172               475172               475172 
 #&gt;        Massachusetts             Michigan            Minnesota 
-#&gt;               470952               470952               470952 
+#&gt;               475172               475172               475172 
 #&gt;          Mississippi             Missouri              Montana 
-#&gt;               470952               470952               470952 
+#&gt;               475172               475172               475172 
 #&gt;             Nebraska               Nevada        New Hampshire 
-#&gt;               470952               470952               470952 
+#&gt;               475172               475172               475172 
 #&gt;           New Jersey           New Mexico             New York 
-#&gt;               470952               470952               470952 
+#&gt;               475172               475172               475172 
 #&gt;       North Carolina         North Dakota                 Ohio 
-#&gt;               470952               470952               470952 
+#&gt;               475172               475172               475172 
 #&gt;             Oklahoma               Oregon         Pennsylvania 
-#&gt;               470952               470952               470952 
+#&gt;               475172               475172               475172 
 #&gt;         Rhode Island       South Carolina         South Dakota 
-#&gt;               470952               470952               470952 
+#&gt;               475172               475172               475172 
 #&gt;            Tennessee                Texas                 Utah 
-#&gt;               470952               470952               470952 
+#&gt;               475172               475172               475172 
 #&gt;              Vermont             Virginia           Washington 
-#&gt;               470952               470952               470952 
+#&gt;               475172               475172               475172 
 #&gt;        West Virginia            Wisconsin              Wyoming 
-#&gt;               470952               470952               470952 </div><div class='input'><span class='co'>if</span>(<span class='fu'><a href='https://rdrr.io/r/base/library.html'>require</a></span>(<span class='kw'>timetk</span>)) {
+#&gt;               475172               475172               475172 </div><div class='input'><span class='co'>if</span>(<span class='fu'><a href='https://rdrr.io/r/base/library.html'>require</a></span>(<span class='kw'>timetk</span>)) {
 
   <span class='fu'>plot_time_series</span>(<span class='kw'>res</span>[<span class='kw'>sub_region_1</span> <span class='op'>%in%</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>'Maryland'</span>,<span class='st'>'Texas'</span>,<span class='st'>'New York'</span>,<span class='st'>'California'</span>,<span class='st'>'Georgia'</span>,<span class='st'>'Arizona'</span>,<span class='st'>'Illinois'</span>,<span class='st'>'New Jersey'</span>,<span class='st'>'Florida'</span>) <span class='op'>&amp;</span> <span class='kw'>variable</span> <span class='op'>%in%</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>'symptom:Cough'</span>,<span class='st'>'symptom:Fever'</span>,<span class='st'>'symptom:Shortness of breath'</span>)][,<span class='kw'>year</span> <span class='op'>:=</span> <span class='kw'>lubridate</span>::<span class='fu'><a href='http://lubridate.tidyverse.org/reference/year.html'>year</a></span>(<span class='kw'>date</span>)],<span class='kw'>date</span>,<span class='kw'>value</span>,.smooth_period=<span class='st'>'month'</span>,.color_var=<span class='kw'>sub_region_1</span>,.facet_vars = <span class='st'>'variable'</span>)
 
