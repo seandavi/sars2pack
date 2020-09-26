@@ -169,7 +169,7 @@
     <p>Get data from the US Census Bureau Population Estimates APIs.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>us_population_details</span>(<span class='kw'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>us_population_details</span><span class='op'>(</span><span class='va'>...</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -185,8 +185,8 @@
     <p>Sean Davis <a href='mailto:seandavi@gmail.com'>seandavi@gmail.com</a></p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>res</span> <span class='op'>=</span> <span class='fu'>us_population_details</span>(geometry=<span class='st'>'state'</span>,year=<span class='fl'>2019</span>)
-</div><div class='output co'>#&gt; <span class='error'>Error in tidycensus::get_estimates(...): argument "geography" is missing, with no default</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='kw'>res</span>)
+    <pre class="examples"><div class='input'><span class='va'>res</span> <span class='op'>=</span> <span class='fu'>us_population_details</span><span class='op'>(</span>geometry<span class='op'>=</span><span class='st'>'state'</span>,year<span class='op'>=</span><span class='fl'>2019</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='error'>Error in tidycensus::get_estimates(...): argument "geography" is missing, with no default</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 6 x 8</span><span>
 #&gt;   location_name date       metric   mean upper pctupper lower pctlower
 #&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>         </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>

@@ -169,17 +169,17 @@
     <p>full incidence for contiguous states</p>
     </div>
 
-    <pre class="usage"><span class='fu'>Arima_contig_states</span>(
-  <span class='kw'>src</span>,
-  state.in = <span class='st'>"All contig"</span>,
-  MAorder = <span class='fl'>2</span>,
-  Difforder = <span class='fl'>1</span>,
-  basedate = <span class='st'>"2020-02-15"</span>,
-  lookback_days = <span class='fl'>29</span>,
-  ARorder = <span class='fl'>0</span>,
-  contig_vec = <span class='fu'><a href='contig_states_twolet.html'>contig_states_twolet</a></span>(),
-  max_date = <span class='kw'>NULL</span>
-)</pre>
+    <pre class="usage"><span class='fu'>Arima_contig_states</span><span class='op'>(</span>
+  <span class='va'>src</span>,
+  state.in <span class='op'>=</span> <span class='st'>"All contig"</span>,
+  MAorder <span class='op'>=</span> <span class='fl'>2</span>,
+  Difforder <span class='op'>=</span> <span class='fl'>1</span>,
+  basedate <span class='op'>=</span> <span class='st'>"2020-02-15"</span>,
+  lookback_days <span class='op'>=</span> <span class='fl'>29</span>,
+  ARorder <span class='op'>=</span> <span class='fl'>0</span>,
+  contig_vec <span class='op'>=</span> <span class='fu'><a href='contig_states_twolet.html'>contig_states_twolet</a></span><span class='op'>(</span><span class='op'>)</span>,
+  max_date <span class='op'>=</span> <span class='cn'>NULL</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -225,12 +225,12 @@ case the latest available date is used</p></td>
 
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>usd</span> <span class='op'>=</span> <span class='fu'><a href='usa_facts_data.html'>usa_facts_data</a></span>()
-<span class='kw'>cont</span> <span class='op'>=</span> <span class='fu'>Arima_contig_states</span>(<span class='kw'>usd</span>)
-<span class='kw'>cont</span>
+    <pre class="examples"><div class='input'><span class='va'>usd</span> <span class='op'>=</span> <span class='fu'><a href='usa_facts_data.html'>usa_facts_data</a></span><span class='op'>(</span><span class='op'>)</span>
+<span class='va'>cont</span> <span class='op'>=</span> <span class='fu'>Arima_contig_states</span><span class='op'>(</span><span class='va'>usd</span><span class='op'>)</span>
+<span class='va'>cont</span>
 </div><div class='output co'>#&gt; Arima_sars2pack instance for all 
-#&gt;   computed Fri Sep 25 03:54:38 2020 
-#&gt;   last date used was:  2020-09-23 
+#&gt;   computed Sat Sep 26 03:51:32 2020 
+#&gt;   last date used was:  2020-09-24 
 #&gt;   call was: NULL
 #&gt;   Model estimates: 
 #&gt; Series: tsfull 
@@ -238,15 +238,17 @@ case the latest available date is used</p></td>
 #&gt; 
 #&gt; Coefficients:
 #&gt;           ma1      ma2     drift
-#&gt;       -0.4703  -0.5296  -43.6196
-#&gt; s.e.   0.1926   0.1521  182.9339
+#&gt;       -0.5312  -0.4680   74.1266
+#&gt; s.e.   0.2151   0.1639  181.8861
 #&gt; 
-#&gt; sigma^2 estimated as 34806945:  log likelihood=-282.69
-#&gt; AIC=573.39   AICc=575.13   BIC=578.71
+#&gt; sigma^2 estimated as 37196053:  log likelihood=-283.62
+#&gt; AIC=575.23   AICc=576.97   BIC=580.56
 #&gt; 
 #&gt; Training set error measures:
-#&gt;                    ME     RMSE      MAE      MPE     MAPE      MASE      ACF1
-#&gt; Training set -636.216 5477.772 4302.648 -3.85105 11.93906 0.7940087 0.0918917</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>(<span class='kw'>cont</span>)
+#&gt;                     ME     RMSE      MAE       MPE     MAPE      MASE
+#&gt; Training set -815.3932 5662.646 4525.608 -4.469744 12.57527 0.8026924
+#&gt;                    ACF1
+#&gt; Training set 0.06874877</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>cont</span><span class='op'>)</span>
 </div><div class='img'><img src='Arima_contig_states-1.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

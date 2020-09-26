@@ -169,7 +169,7 @@
     <p>produce an MCMC-based EpiEstim R<a href='https://rdrr.io/r/base/t.html'>t</a> estimate on the 29-day series</p>
     </div>
 
-    <pre class="usage"><span class='fu'>est_Rt</span>(<span class='kw'>aout</span>)</pre>
+    <pre class="usage"><span class='fu'>est_Rt</span><span class='op'>(</span><span class='va'>aout</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -185,13 +185,13 @@
     <p>Simply uses the tsfull and dates29 components to call EpiEstim::estimate_R</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>nyd</span> <span class='op'>=</span> <span class='fu'><a href='nytimes_county_data.html'>nytimes_state_data</a></span>()
-<span class='kw'>ny</span> <span class='op'>=</span> <span class='fu'><a href='Arima_by_state.html'>Arima_by_state</a></span>(<span class='kw'>nyd</span>, state.in=<span class='st'>"New York"</span>)
-<span class='kw'>ee</span> <span class='op'>=</span> <span class='fu'>est_Rt</span>(<span class='kw'>ny</span>)
-</div><div class='output co'>#&gt; <span class='error'>Error in source(system.file("MCMCsupport/code.R", package = "sars2app")): cannot coerce type 'closure' to vector of type 'character'</span></div><div class='input'><span class='kw'>od</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/options.html'>options</a></span>()<span class='op'>$</span><span class='kw'>digits</span>
-<span class='fu'><a href='https://rdrr.io/r/base/options.html'>options</a></span>(digits=<span class='fl'>3</span>)
-<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>tail</a></span>(<span class='kw'>ee</span><span class='op'>$</span><span class='kw'>R</span>)
-</div><div class='output co'>#&gt; <span class='error'>Error in tail(ee$R): object 'ee' not found</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/options.html'>options</a></span>(digits=<span class='kw'>od</span>)
+    <pre class="examples"><div class='input'><span class='va'>nyd</span> <span class='op'>=</span> <span class='fu'><a href='nytimes_county_data.html'>nytimes_state_data</a></span><span class='op'>(</span><span class='op'>)</span>
+<span class='va'>ny</span> <span class='op'>=</span> <span class='fu'><a href='Arima_by_state.html'>Arima_by_state</a></span><span class='op'>(</span><span class='va'>nyd</span>, state.in<span class='op'>=</span><span class='st'>"New York"</span><span class='op'>)</span>
+<span class='va'>ee</span> <span class='op'>=</span> <span class='fu'>est_Rt</span><span class='op'>(</span><span class='va'>ny</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='error'>Error in source(system.file("MCMCsupport/code.R", package = "sars2app")): cannot coerce type 'closure' to vector of type 'character'</span></div><div class='input'><span class='va'>od</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/options.html'>options</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>$</span><span class='va'>digits</span>
+<span class='fu'><a href='https://rdrr.io/r/base/options.html'>options</a></span><span class='op'>(</span>digits<span class='op'>=</span><span class='fl'>3</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>tail</a></span><span class='op'>(</span><span class='va'>ee</span><span class='op'>$</span><span class='va'>R</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='error'>Error in tail(ee$R): object 'ee' not found</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/options.html'>options</a></span><span class='op'>(</span>digits<span class='op'>=</span><span class='va'>od</span><span class='op'>)</span>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

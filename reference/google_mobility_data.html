@@ -179,7 +179,7 @@ retail and recreation, groceries and pharmacies, parks, transit
 stations, workplaces, and residential.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>google_mobility_data</span>(accept_terms = <span class='fl'>TRUE</span>)</pre>
+    <pre class="usage"><span class='fu'>google_mobility_data</span><span class='op'>(</span>accept_terms <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -281,22 +281,22 @@ preventing the identification of any individual person.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-<span class='kw'>res</span> <span class='op'>=</span> <span class='fu'>google_mobility_data</span>()
+<span class='va'>res</span> <span class='op'>=</span> <span class='fu'>google_mobility_data</span><span class='op'>(</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; <span class='warning'>Warning: 569522 parsing failures.</span>
 #&gt; <span class='warning'>    row              col           expected actual                                                                    file</span>
-#&gt; <span class='warning'>1944958 census_fips_code 1/0/T/F/TRUE/FALSE  01001 '/tmp/RtmpviHFra/BiocFileCache/44721a50fc40_Global_Mobility_Report.csv'</span>
-#&gt; <span class='warning'>1944959 census_fips_code 1/0/T/F/TRUE/FALSE  01001 '/tmp/RtmpviHFra/BiocFileCache/44721a50fc40_Global_Mobility_Report.csv'</span>
-#&gt; <span class='warning'>1944960 census_fips_code 1/0/T/F/TRUE/FALSE  01001 '/tmp/RtmpviHFra/BiocFileCache/44721a50fc40_Global_Mobility_Report.csv'</span>
-#&gt; <span class='warning'>1944961 census_fips_code 1/0/T/F/TRUE/FALSE  01001 '/tmp/RtmpviHFra/BiocFileCache/44721a50fc40_Global_Mobility_Report.csv'</span>
-#&gt; <span class='warning'>1944962 census_fips_code 1/0/T/F/TRUE/FALSE  01001 '/tmp/RtmpviHFra/BiocFileCache/44721a50fc40_Global_Mobility_Report.csv'</span>
+#&gt; <span class='warning'>1944958 census_fips_code 1/0/T/F/TRUE/FALSE  01001 '/tmp/Rtmp7FcyBd/BiocFileCache/447322c2268d_Global_Mobility_Report.csv'</span>
+#&gt; <span class='warning'>1944959 census_fips_code 1/0/T/F/TRUE/FALSE  01001 '/tmp/Rtmp7FcyBd/BiocFileCache/447322c2268d_Global_Mobility_Report.csv'</span>
+#&gt; <span class='warning'>1944960 census_fips_code 1/0/T/F/TRUE/FALSE  01001 '/tmp/Rtmp7FcyBd/BiocFileCache/447322c2268d_Global_Mobility_Report.csv'</span>
+#&gt; <span class='warning'>1944961 census_fips_code 1/0/T/F/TRUE/FALSE  01001 '/tmp/Rtmp7FcyBd/BiocFileCache/447322c2268d_Global_Mobility_Report.csv'</span>
+#&gt; <span class='warning'>1944962 census_fips_code 1/0/T/F/TRUE/FALSE  01001 '/tmp/Rtmp7FcyBd/BiocFileCache/447322c2268d_Global_Mobility_Report.csv'</span>
 #&gt; <span class='warning'>....... ................ .................. ...... .......................................................................</span>
-#&gt; <span class='warning'>See problems(...) for more details.</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='kw'>res</span>)
+#&gt; <span class='warning'>See problems(...) for more details.</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;  [1] "iso2c"                        "country_region"              
 #&gt;  [3] "admin1"                       "admin2"                      
 #&gt;  [5] "metro_area"                   "iso_3166_2_code"             
 #&gt;  [7] "census_fips_code"             "date"                        
 #&gt;  [9] "admin_level"                  "places_category"             
-#&gt; [11] "percent_change_from_baseline"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='kw'>res</span>)
+#&gt; [11] "percent_change_from_baseline"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 6 x 11</span><span>
 #&gt;   iso2c country_region admin1 admin2 metro_area iso_3166_2_code census_fips_code
 #&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>          </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>           </span><span style='color: #555555;font-style: italic;'>&lt;lgl&gt;</span><span>           
@@ -307,7 +307,7 @@ preventing the identification of any individual person.</p>
 #&gt; </span><span style='color: #555555;'>5</span><span> AE    United Arab E… </span><span style='color: #BB0000;'>NA</span><span>     </span><span style='color: #BB0000;'>NA</span><span>     </span><span style='color: #BB0000;'>NA</span><span>         </span><span style='color: #BB0000;'>NA</span><span>              </span><span style='color: #BB0000;'>NA</span><span>              
 #&gt; </span><span style='color: #555555;'>6</span><span> AE    United Arab E… </span><span style='color: #BB0000;'>NA</span><span>     </span><span style='color: #BB0000;'>NA</span><span>     </span><span style='color: #BB0000;'>NA</span><span>         </span><span style='color: #BB0000;'>NA</span><span>              </span><span style='color: #BB0000;'>NA</span><span>              
 #&gt; </span><span style='color: #555555;'># … with 4 more variables: date </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span style='color: #555555;'>, admin_level </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   places_category </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, percent_change_from_baseline </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span></div><div class='input'><span class='kw'>dplyr</span>::<span class='fu'><a href='https://tibble.tidyverse.org/reference/glimpse.html'>glimpse</a></span>(<span class='kw'>res</span>)
+#&gt; </span><span style='color: #555555;'>#   places_category </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, percent_change_from_baseline </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span></div><div class='input'><span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://tibble.tidyverse.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; Rows: 15,306,672
 #&gt; Columns: 11
 #&gt; $ iso2c                        </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "AE", "AE", "AE", "AE", "AE", "AE", "AE"…
@@ -324,11 +324,11 @@ preventing the identification of any individual person.</p>
 <span class='co'># analyze the "admin levels" available for each</span>
 <span class='co'># country:</span>
 
-<span class='kw'>admin_by_country</span> <span class='op'>=</span> <span class='kw'>res</span> <span class='op'>%&gt;%</span>
-    <span class='kw'>dplyr</span>::<span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span>(<span class='kw'>iso2c</span>) <span class='op'>%&gt;%</span>
-    <span class='kw'>dplyr</span>::<span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span>(<span class='kw'>date</span> <span class='op'>==</span> <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span>(<span class='kw'>date</span>))
-<span class='kw'>admin_by_country</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span>(<span class='kw'>admin_by_country</span><span class='op'>$</span><span class='kw'>admin_level</span>, <span class='kw'>admin_by_country</span><span class='op'>$</span><span class='kw'>iso2c</span>)<span class='op'>/</span><span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/unique.html'>unique</a></span>(<span class='kw'>res</span><span class='op'>$</span><span class='kw'>places_category</span>))
-<span class='kw'>admin_by_country</span>
+<span class='va'>admin_by_country</span> <span class='op'>=</span> <span class='va'>res</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>iso2c</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>date</span> <span class='op'>==</span> <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span><span class='op'>(</span><span class='va'>date</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>admin_by_country</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>admin_by_country</span><span class='op'>$</span><span class='va'>admin_level</span>, <span class='va'>admin_by_country</span><span class='op'>$</span><span class='va'>iso2c</span><span class='op'>)</span><span class='op'>/</span><span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/unique.html'>unique</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>$</span><span class='va'>places_category</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>admin_by_country</span>
 </div><div class='output co'>#&gt;    
 #&gt;       AE   AF   AG   AO   AR   AT   AU   AW   BA   BB   BD   BE   BF   BG   BH
 #&gt;   0    1    2    1    1    1    1    1    1    1    1    1    1    1    1    1
@@ -377,15 +377,15 @@ preventing the identification of any individual person.</p>
 <span class='co'># Italy mobility over time</span>
 <span class='co'># Note day-of week effect in plot</span>
 
-<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://ggplot2.tidyverse.org'>ggplot2</a></span>)
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://ggplot2.tidyverse.org'>ggplot2</a></span><span class='op'>)</span>
 
-<span class='kw'>res</span> <span class='op'>%&gt;%</span>
+<span class='va'>res</span> <span class='op'>%&gt;%</span>
 <span class='co'>## Italy, whole country(admin == 0)</span>
-    <span class='kw'>dplyr</span>::<span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span>(<span class='kw'>iso2c</span> <span class='op'>==</span> <span class='st'>"IT"</span> <span class='op'>&amp;</span> <span class='kw'>admin_level</span><span class='op'>==</span><span class='fl'>0</span>) <span class='op'>%&gt;%</span>
-    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(x=<span class='kw'>date</span>,y=<span class='kw'>percent_change_from_baseline</span>,color = <span class='kw'>places_category</span>)) <span class='op'>+</span>
-    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span>() <span class='op'>+</span>
-    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span>(<span class='st'>'Google mobility metric for Italy'</span>) <span class='op'>+</span>
-    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span>(legend.position=<span class='st'>'bottom'</span>)
+    <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>iso2c</span> <span class='op'>==</span> <span class='st'>"IT"</span> <span class='op'>&amp;</span> <span class='va'>admin_level</span><span class='op'>==</span><span class='fl'>0</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>date</span>,y<span class='op'>=</span><span class='va'>percent_change_from_baseline</span>,color <span class='op'>=</span> <span class='va'>places_category</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span><span class='op'>(</span><span class='st'>'Google mobility metric for Italy'</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>legend.position<span class='op'>=</span><span class='st'>'bottom'</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 144 row(s) containing missing values (geom_path).</span></div><div class='img'><img src='google_mobility_data-1.png' alt='' width='700' height='433' /></div><div class='input'>
 
 </div></span></pre>

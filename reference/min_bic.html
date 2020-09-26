@@ -169,15 +169,15 @@
     <p>minimize BIC for ARIMA models with default differencing order 1 over choices of MA and AR order</p>
     </div>
 
-    <pre class="usage"><span class='fu'>min_bic</span>(
-  <span class='kw'>src</span>,
-  fullusa = <span class='fl'>FALSE</span>,
-  state.in = <span class='st'>"New York"</span>,
-  parms = <span class='fu'><a href='grid_2d.html'>grid_2d</a></span>(<span class='fl'>5</span>),
-  max_date = <span class='kw'>NULL</span>,
-  lookback_days = <span class='fl'>29</span>,
-  <span class='kw'>...</span>
-)</pre>
+    <pre class="usage"><span class='fu'>min_bic</span><span class='op'>(</span>
+  <span class='va'>src</span>,
+  fullusa <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  state.in <span class='op'>=</span> <span class='st'>"New York"</span>,
+  parms <span class='op'>=</span> <span class='fu'><a href='grid_2d.html'>grid_2d</a></span><span class='op'>(</span><span class='fl'>5</span><span class='op'>)</span>,
+  max_date <span class='op'>=</span> <span class='cn'>NULL</span>,
+  lookback_days <span class='op'>=</span> <span class='fl'>29</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -214,7 +214,7 @@
 
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>nyd</span> <span class='op'>=</span> <span class='fu'><a href='nytimes_county_data.html'>nytimes_state_data</a></span>()
+    <pre class="examples"><div class='input'><span class='va'>nyd</span> <span class='op'>=</span> <span class='fu'><a href='nytimes_county_data.html'>nytimes_state_data</a></span><span class='op'>(</span><span class='op'>)</span>
 <span class='co'>#mb = min_bic(nyd, state.in="New York")</span>
 <span class='co'>#names(mb)</span>
 </div></pre>

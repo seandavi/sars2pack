@@ -169,7 +169,7 @@
     <p>Kaiser Family Foundation US County-level ICU bed data</p>
     </div>
 
-    <pre class="usage"><span class='fu'>kff_icu_beds</span>()</pre>
+    <pre class="usage"><span class='fu'>kff_icu_beds</span><span class='op'>(</span><span class='op'>)</span></pre>
 
 
     <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
@@ -223,14 +223,14 @@
 <code><a href='us_hospital_details.html'>us_hospital_details</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>res</span> <span class='op'>=</span> <span class='fu'>kff_icu_beds</span>()
-<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='kw'>res</span>)
+    <pre class="examples"><div class='input'><span class='va'>res</span> <span class='op'>=</span> <span class='fu'>kff_icu_beds</span><span class='op'>(</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;  [1] "fips"                      "county"                   
 #&gt;  [3] "st"                        "state"                    
 #&gt;  [5] "hospitals_in_cost_reports" "Hospitals_in_HC"          
 #&gt;  [7] "all_icu"                   "Total_pop"                
 #&gt;  [9] "60plus"                    "60plus_pct"               
-#&gt; [11] "60plus_per_each_icu_bed"  </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='kw'>res</span>)
+#&gt; [11] "60plus_per_each_icu_bed"  </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 6 x 11</span><span>
 #&gt;   fips  county st    state hospitals_in_co… Hospitals_in_HC all_icu Total_pop
 #&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>            </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>           </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
@@ -241,7 +241,7 @@
 #&gt; </span><span style='color: #555555;'>5</span><span> 01009 Blount AL    Alab…                1               1       6     </span><span style='text-decoration: underline;'>57</span><span>667
 #&gt; </span><span style='color: #555555;'>6</span><span> 01011 Bullo… AL    Alab…                1               1       0     </span><span style='text-decoration: underline;'>10</span><span>478
 #&gt; </span><span style='color: #555555;'># … with 3 more variables: `60plus` </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, `60plus_pct` </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   `60plus_per_each_icu_bed` </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span></div><div class='input'><span class='kw'>dplyr</span>::<span class='fu'><a href='https://tibble.tidyverse.org/reference/glimpse.html'>glimpse</a></span>(<span class='kw'>res</span>)
+#&gt; </span><span style='color: #555555;'>#   `60plus_per_each_icu_bed` </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span></div><div class='input'><span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://tibble.tidyverse.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; Rows: 3,142
 #&gt; Columns: 11
 #&gt; $ fips                      </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "01001", "01003", "01005", "01007", "01009"…
@@ -254,7 +254,7 @@
 #&gt; $ Total_pop                 </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 55036, 203360, 26201, 22580, 57667, 10478, …
 #&gt; $ `60plus`                  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 10523, 53519, 6150, 4773, 13600, 2371, 5151…
 #&gt; $ `60plus_pct`              </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0.191, 0.263, 0.235, 0.211, 0.236, 0.226, 0…
-#&gt; $ `60plus_per_each_icu_bed` </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 1754, 1049, 1230, NA, 2267, NA, 736, 1130, …</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='kw'>res</span>)
+#&gt; $ `60plus_per_each_icu_bed` </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 1754, 1049, 1230, NA, 2267, NA, 736, 1130, …</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;      fips              county               st               state          
 #&gt;  Length:3142        Length:3142        Length:3142        Length:3142       
 #&gt;  Class :character   Class :character   Class :character   Class :character  

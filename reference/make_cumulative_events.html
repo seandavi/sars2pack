@@ -169,7 +169,7 @@
     <p>generic cumulative_events generator</p>
     </div>
 
-    <pre class="usage"><span class='fu'>make_cumulative_events</span>(<span class='kw'>cases</span>, <span class='kw'>dates</span>, <span class='kw'>eventtype</span>, <span class='kw'>alpha3</span>, <span class='kw'>ProvinceStateName</span>)</pre>
+    <pre class="usage"><span class='fu'>make_cumulative_events</span><span class='op'>(</span><span class='va'>cases</span>, <span class='va'>dates</span>, <span class='va'>eventtype</span>, <span class='va'>alpha3</span>, <span class='va'>ProvinceStateName</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -198,11 +198,11 @@
 
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>ec</span> <span class='op'>=</span> <span class='fu'><a href='eu_data_cache_data.html'>eu_data_cache_data</a></span>()
-<span class='kw'>ber</span> <span class='op'>=</span> <span class='kw'>ec</span>[<span class='fu'><a href='https://rdrr.io/r/base/which.html'>which</a></span>(<span class='kw'>ec</span><span class='op'>$</span><span class='kw'>nuts_3</span> <span class='op'>==</span> <span class='st'>"Bergamo"</span>),]
-<span class='kw'>mber</span> <span class='op'>=</span> <span class='fu'>make_cumulative_events</span>( cases = <span class='kw'>ber</span><span class='op'>$</span><span class='kw'>cases</span>, dates = <span class='kw'>ber</span><span class='op'>$</span><span class='kw'>date</span>, 
-  eventtype = <span class='st'>"confirmed"</span>, alpha3 = <span class='st'>"ITA"</span>, ProvinceStateName = <span class='st'>"Bergamo"</span>)
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>(<span class='kw'>mber</span>)
+    <pre class="examples"><div class='input'><span class='va'>ec</span> <span class='op'>=</span> <span class='fu'><a href='eu_data_cache_data.html'>eu_data_cache_data</a></span><span class='op'>(</span><span class='op'>)</span>
+<span class='va'>ber</span> <span class='op'>=</span> <span class='va'>ec</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/which.html'>which</a></span><span class='op'>(</span><span class='va'>ec</span><span class='op'>$</span><span class='va'>nuts_3</span> <span class='op'>==</span> <span class='st'>"Bergamo"</span><span class='op'>)</span>,<span class='op'>]</span>
+<span class='va'>mber</span> <span class='op'>=</span> <span class='fu'>make_cumulative_events</span><span class='op'>(</span> cases <span class='op'>=</span> <span class='va'>ber</span><span class='op'>$</span><span class='va'>cases</span>, dates <span class='op'>=</span> <span class='va'>ber</span><span class='op'>$</span><span class='va'>date</span>, 
+  eventtype <span class='op'>=</span> <span class='st'>"confirmed"</span>, alpha3 <span class='op'>=</span> <span class='st'>"ITA"</span>, ProvinceStateName <span class='op'>=</span> <span class='st'>"Bergamo"</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>mber</span><span class='op'>)</span>
 </div><div class='img'><img src='make_cumulative_events-1.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

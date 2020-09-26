@@ -173,7 +173,7 @@ the world and aggregates them into a single data resource.
 See the reference below for details of the models.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>cdc_aggregated_projections</span>()</pre>
+    <pre class="usage"><span class='fu'>cdc_aggregated_projections</span><span class='op'>(</span><span class='op'>)</span></pre>
 
 
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
@@ -233,8 +233,8 @@ This function will attempt to grab the latest version.</p>
     <p>Sean Davis <a href='mailto:seandavi@gmail.com'>seandavi@gmail.com</a></p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>res</span> <span class='op'>=</span> <span class='fu'>cdc_aggregated_projections</span>()
-<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='kw'>res</span>)
+    <pre class="examples"><div class='input'><span class='va'>res</span> <span class='op'>=</span> <span class='fu'>cdc_aggregated_projections</span><span class='op'>(</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 6 x 10</span><span>
 #&gt;   model forecast_date target target_week_end… location_name point quantile_0.025
 #&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>         </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>            </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>         </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>          </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
@@ -245,7 +245,7 @@ This function will attempt to grab the latest version.</p>
 #&gt; </span><span style='color: #555555;'>5</span><span> Auqu… 8/10/2020     1 wk … 8/15/2020        California    </span><span style='text-decoration: underline;'>11</span><span>518          </span><span style='text-decoration: underline;'>11</span><span>328
 #&gt; </span><span style='color: #555555;'>6</span><span> Auqu… 8/10/2020     1 wk … 8/15/2020        Colorado       </span><span style='text-decoration: underline;'>1</span><span>957           </span><span style='text-decoration: underline;'>1</span><span>938
 #&gt; </span><span style='color: #555555;'># … with 3 more variables: quantile_0.25 </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, quantile_0.75 </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   quantile_0.975 </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span></div><div class='input'><span class='kw'>dplyr</span>::<span class='fu'><a href='https://tibble.tidyverse.org/reference/glimpse.html'>glimpse</a></span>(<span class='kw'>res</span>)
+#&gt; </span><span style='color: #555555;'>#   quantile_0.975 </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span></div><div class='input'><span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://tibble.tidyverse.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; Rows: 11,196
 #&gt; Columns: 10
 #&gt; $ model                </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Auquan", "Auquan", "Auquan", "Auquan", "Auquan"…
@@ -259,7 +259,7 @@ This function will attempt to grab the latest version.</p>
 #&gt; $ quantile_0.75        </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 1983, 34, 4649, 650, 11584, 1962, 4537, 622, 616…
 #&gt; $ quantile_0.975       </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 2003, 34, 4691, 659, 11708, 1971, 4547, 625, 619…</div><div class='input'>
 <span class='co'># available models</span>
-<span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span>(<span class='kw'>res</span><span class='op'>$</span><span class='kw'>model</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>$</span><span class='va'>model</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; 
 #&gt;             Auquan                CMU           Columbia       Columbia-UNC 
 #&gt;                208                204                416                  8 
@@ -280,7 +280,7 @@ This function will attempt to grab the latest version.</p>
 #&gt;           UMass-MB                USC                YYG 
 #&gt;                456                456                448 </div><div class='input'>
 <span class='co'># projection targets</span>
-<span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span>(<span class='kw'>res</span><span class='op'>$</span><span class='kw'>target</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>$</span><span class='va'>target</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; 
 #&gt; 1 wk ahead cum death 1 wk ahead inc death 2 wk ahead cum death 
 #&gt;                 1468                 1415                 1412 
@@ -288,38 +288,38 @@ This function will attempt to grab the latest version.</p>
 #&gt;                 1359                 1412                 1359 
 #&gt; 4 wk ahead cum death 4 wk ahead inc death 
 #&gt;                 1412                 1359 </div><div class='input'>
-<span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>min</a></span>(<span class='kw'>res</span><span class='op'>$</span><span class='kw'>forecast_date</span>)
-</div><div class='output co'>#&gt; [1] "8/10/2020"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span>(<span class='kw'>res</span><span class='op'>$</span><span class='kw'>target_week_end_date</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>min</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>$</span><span class='va'>forecast_date</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "8/10/2020"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>$</span><span class='va'>target_week_end_date</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] "9/5/2020"</div><div class='input'>
-<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='https://dplyr.tidyverse.org'>dplyr</a></span>)
-<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://ggplot2.tidyverse.org'>ggplot2</a></span>)
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://dplyr.tidyverse.org'>dplyr</a></span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://ggplot2.tidyverse.org'>ggplot2</a></span><span class='op'>)</span>
 
 <span class='co'># FACET view</span>
-<span class='kw'>res_ny</span> <span class='op'>=</span> <span class='kw'>res</span> <span class='op'>%&gt;%</span>
-    <span class='kw'>dplyr</span>::<span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span>(<span class='kw'>location_name</span><span class='op'>==</span><span class='st'>'New York'</span> <span class='op'>&amp;</span> <span class='fu'><a href='https://rdrr.io/r/base/grep.html'>grepl</a></span>(<span class='st'>'cum death'</span>, <span class='kw'>target</span>)) <span class='op'>%&gt;%</span>
-    <span class='kw'>dplyr</span>::<span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span>(<span class='kw'>model</span>!=<span class='st'>'UMass-MechBayes'</span>)
-<span class='kw'>res_ny</span> <span class='op'>%&gt;%</span>
-    <span class='kw'>dplyr</span>::<span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span>(<span class='kw'>location_name</span><span class='op'>==</span><span class='st'>'New York'</span>) <span class='op'>%&gt;%</span>
-    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(x=<span class='kw'>model</span>, y=<span class='kw'>point</span>, color=<span class='kw'>model</span>)) <span class='op'>+</span>
-    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_linerange.html'>geom_errorbar</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(ymin= <span class='kw'>quantile_0.025</span>, ymax =  <span class='kw'>quantile_0.975</span>)) <span class='op'>+</span>
-    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/facet_wrap.html'>facet_wrap</a></span>(facets=<span class='st'>'target_week_end_date'</span>) <span class='op'>+</span>
-    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span>() <span class='op'>+</span>
-    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span>(y=<span class='st'>'Projected Deaths'</span>) <span class='op'>+</span>
-    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_bw</a></span>() <span class='op'>+</span>
-    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span>(axis.text.x=<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span>()) <span class='op'>+</span>
-    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span>(<span class='st'>'Projected New York deaths for week ending'</span>)
+<span class='va'>res_ny</span> <span class='op'>=</span> <span class='va'>res</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>location_name</span><span class='op'>==</span><span class='st'>'New York'</span> <span class='op'>&amp;</span> <span class='fu'><a href='https://rdrr.io/r/base/grep.html'>grepl</a></span><span class='op'>(</span><span class='st'>'cum death'</span>, <span class='va'>target</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>model</span><span class='op'>!=</span><span class='st'>'UMass-MechBayes'</span><span class='op'>)</span>
+<span class='va'>res_ny</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>location_name</span><span class='op'>==</span><span class='st'>'New York'</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>model</span>, y<span class='op'>=</span><span class='va'>point</span>, color<span class='op'>=</span><span class='va'>model</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_linerange.html'>geom_errorbar</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>ymin<span class='op'>=</span> <span class='va'>quantile_0.025</span>, ymax <span class='op'>=</span>  <span class='va'>quantile_0.975</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/facet_wrap.html'>facet_wrap</a></span><span class='op'>(</span>facets<span class='op'>=</span><span class='st'>'target_week_end_date'</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>y<span class='op'>=</span><span class='st'>'Projected Deaths'</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_bw</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>axis.text.x<span class='op'>=</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span><span class='op'>(</span><span class='st'>'Projected New York deaths for week ending'</span><span class='op'>)</span>
 </div><div class='img'><img src='cdc_aggregated_projections-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'>#'</span>
 <span class='co'># combined view</span>
-<span class='kw'>pd</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/position_dodge.html'>position_dodge</a></span>(width = <span class='fl'>3</span>) <span class='co'># use this to offset points and error bars</span>
-<span class='kw'>res_ny</span> <span class='op'>%&gt;%</span>
-    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(x=<span class='kw'>target_week_end_date</span>, y=<span class='kw'>point</span>, color=<span class='kw'>model</span>)) <span class='op'>+</span>
-    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_linerange.html'>geom_errorbar</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(ymin= <span class='kw'>quantile_0.025</span>, ymax =  <span class='kw'>quantile_0.975</span>), position=<span class='kw'>pd</span>) <span class='op'>+</span>
-    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span>(position=<span class='kw'>pd</span>) <span class='op'>+</span>
-    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span>(y=<span class='st'>'Projected Deaths'</span>) <span class='op'>+</span>
-    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span>(position=<span class='kw'>pd</span>) <span class='op'>+</span>
-    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_bw</a></span>() <span class='op'>+</span>
-    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span>(legend.position=<span class='st'>'bottom'</span>) <span class='op'>+</span>
-    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span>(<span class='st'>'Projected New York deaths for week ending'</span>)
+<span class='va'>pd</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/position_dodge.html'>position_dodge</a></span><span class='op'>(</span>width <span class='op'>=</span> <span class='fl'>3</span><span class='op'>)</span> <span class='co'># use this to offset points and error bars</span>
+<span class='va'>res_ny</span> <span class='op'>%&gt;%</span>
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>target_week_end_date</span>, y<span class='op'>=</span><span class='va'>point</span>, color<span class='op'>=</span><span class='va'>model</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_linerange.html'>geom_errorbar</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>ymin<span class='op'>=</span> <span class='va'>quantile_0.025</span>, ymax <span class='op'>=</span>  <span class='va'>quantile_0.975</span><span class='op'>)</span>, position<span class='op'>=</span><span class='va'>pd</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span>position<span class='op'>=</span><span class='va'>pd</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>y<span class='op'>=</span><span class='st'>'Projected Deaths'</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span>position<span class='op'>=</span><span class='va'>pd</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_bw</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>legend.position<span class='op'>=</span><span class='st'>'bottom'</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span><span class='op'>(</span><span class='st'>'Projected New York deaths for week ending'</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; <span class='warning'>Warning: position_dodge requires non-overlapping x intervals</span></div><div class='output co'>#&gt; <span class='warning'>Warning: position_dodge requires non-overlapping x intervals</span></div><div class='output co'>#&gt; <span class='message'>geom_path: Each group consists of only one observation. Do you need to adjust</span>
 #&gt; <span class='message'>the group aesthetic?</span></div><div class='img'><img src='cdc_aggregated_projections-2.png' alt='' width='700' height='433' /></div><div class='input'>
 

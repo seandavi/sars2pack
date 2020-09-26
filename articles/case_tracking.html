@@ -130,20 +130,19 @@
 <h1 class="hasAnchor">
 <a href="#working-with-case-tracking-datasets" class="anchor"></a>Working with case tracking datasets</h1>
 <div class="sourceCode" id="cb1"><pre class="downlit">
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw">sars2pack</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://dplyr.tidyverse.org">dplyr</a></span>)
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="http://ggplot2.tidyverse.org">ggplot2</a></span>)
-</pre></div>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">sars2pack</span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></pre></div>
 <p>Datasets accessed from the internet come in many forms. We reformat the data into “tidy” data.frames that are described here.</p>
 <p>The case-tracking datasets each contain at least one <code>date</code> column, one <code>count</code> column that describe some quantity of people over time. A third column, <code>subset</code> is often (but not always) present and describes the type of “counting” for each record. For instance, common values for <code>subset</code> are “confirmed” and “deaths”. Additional columns, if present, usually specify geographical data for each record such as the name of the city, state, country, etc.</p>
 <p>The dataset from Johns Hopkins University is one example that we can look at to get familiar with the data.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit">
-<span class="kw">jhu</span> <span class="op">=</span> <span class="fu"><a href="../reference/jhu_data.html">jhu_data</a></span>()
-<span class="co">## using temporary cache /tmp/RtmpRQxI3E/BiocFileCache</span>
-<span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span>(<span class="kw">jhu</span>)
+<span class="va">jhu</span> <span class="op">=</span> <span class="fu"><a href="../reference/jhu_data.html">jhu_data</a></span><span class="op">(</span><span class="op">)</span>
+<span class="co">## using temporary cache /tmp/RtmpLO4hTI/BiocFileCache</span>
+<span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">jhu</span><span class="op">)</span>
 <span class="co">## [1] "ProvinceState" "CountryRegion" "Lat"           "Long"         </span>
 <span class="co">## [5] "date"          "count"         "subset"</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="kw">jhu</span>)
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">jhu</span><span class="op">)</span>
 <span class="co">## # A tibble: 6 x 7</span>
 <span class="co">##   ProvinceState CountryRegion   Lat  Long date       count subset   </span>
 <span class="co">##   &lt;chr&gt;         &lt;chr&gt;         &lt;dbl&gt; &lt;dbl&gt; &lt;date&gt;     &lt;dbl&gt; &lt;chr&gt;    </span>
@@ -153,8 +152,8 @@
 <span class="co">## 4 &lt;NA&gt;          Afghanistan    33.9  67.7 2020-01-25     0 confirmed</span>
 <span class="co">## 5 &lt;NA&gt;          Afghanistan    33.9  67.7 2020-01-26     0 confirmed</span>
 <span class="co">## 6 &lt;NA&gt;          Afghanistan    33.9  67.7 2020-01-27     0 confirmed</span>
-<span class="kw">dplyr</span>::<span class="fu"><a href="https://tibble.tidyverse.org/reference/glimpse.html">glimpse</a></span>(<span class="kw">jhu</span>)
-<span class="co">## Rows: 193,110</span>
+<span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">jhu</span><span class="op">)</span>
+<span class="co">## Rows: 193,895</span>
 <span class="co">## Columns: 7</span>
 <span class="co">## $ ProvinceState &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…</span>
 <span class="co">## $ CountryRegion &lt;chr&gt; "Afghanistan", "Afghanistan", "Afghanistan", "Afghanist…</span>
@@ -162,23 +161,21 @@
 <span class="co">## $ Long          &lt;dbl&gt; 67.70995, 67.70995, 67.70995, 67.70995, 67.70995, 67.70…</span>
 <span class="co">## $ date          &lt;date&gt; 2020-01-22, 2020-01-23, 2020-01-24, 2020-01-25, 2020-0…</span>
 <span class="co">## $ count         &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…</span>
-<span class="co">## $ subset        &lt;chr&gt; "confirmed", "confirmed", "confirmed", "confirmed", "co…</span>
-</pre></div>
+<span class="co">## $ subset        &lt;chr&gt; "confirmed", "confirmed", "confirmed", "confirmed", "co…</span></pre></div>
 <div class="sourceCode" id="cb3"><pre class="downlit">
-<span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span>(<span class="kw">jhu</span><span class="op">$</span><span class="kw">subset</span>)
+<span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">jhu</span><span class="op">$</span><span class="va">subset</span><span class="op">)</span>
 <span class="co">## </span>
 <span class="co">## confirmed    deaths recovered </span>
-<span class="co">##     65436     65436     62238</span>
-</pre></div>
+<span class="co">##     65702     65702     62491</span></pre></div>
 <div id="compare-us-datasets" class="section level2">
 <h2 class="hasAnchor">
 <a href="#compare-us-datasets" class="anchor"></a>Compare US datasets</h2>
 <p>We can employ comparisons of the multiple case-tracking datasets that capture the cases at a US state level to get a sense of systematic biases in the data and look for agreement across datasets. One convenience function, <code><a href="../reference/combined_us_cases_data.html">combined_us_cases_data()</a></code>, yields a stacked dataframe with an identifier for each dataset.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit">
-<span class="kw">us_states</span> <span class="op">=</span> <span class="fu"><a href="../reference/combined_us_cases_data.html">combined_us_cases_data</a></span>()
+<span class="va">us_states</span> <span class="op">=</span> <span class="fu"><a href="../reference/combined_us_cases_data.html">combined_us_cases_data</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">## Warning in system("timedatectl", intern = TRUE): running command 'timedatectl'</span>
 <span class="co">## had status 1</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="kw">us_states</span>)
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">us_states</span><span class="op">)</span>
 <span class="co">## # A tibble: 6 x 6</span>
 <span class="co">## # Groups:   fips [1]</span>
 <span class="co">##   dataset date       fips  count incidence state</span>
@@ -189,24 +186,21 @@
 <span class="co">## 4 jhu     2020-01-25 00001     0         0 AL   </span>
 <span class="co">## 5 jhu     2020-01-26 00001     0         0 AL   </span>
 <span class="co">## 6 jhu     2020-01-27 00001     0         0 AL</span>
-<span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span>(<span class="kw">us_states</span><span class="op">$</span><span class="kw">dataset</span>)
+<span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">us_states</span><span class="op">$</span><span class="va">dataset</span><span class="op">)</span>
 <span class="co">## </span>
 <span class="co">## covidtracker          jhu      nytimes </span>
-<span class="co">##        11466        12792        11289</span>
-</pre></div>
+<span class="co">##        11522        12844        11344</span></pre></div>
 <p>To get a sense of the data and their meaning, consider the following series of graphs based on three “randomly” chosen states.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit">
-<span class="kw">interesting_states</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">'PA'</span>,<span class="st">'CA'</span>,<span class="st">'GA'</span>)
-<span class="kw">pd</span> <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/position_dodge.html">position_dodge</a></span>(width=<span class="fl">0.2</span>)
-</pre></div>
+<span class="va">interesting_states</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'PA'</span>,<span class="st">'CA'</span>,<span class="st">'GA'</span><span class="op">)</span>
+<span class="va">pd</span> <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/position_dodge.html">position_dodge</a></span><span class="op">(</span>width<span class="op">=</span><span class="fl">0.2</span><span class="op">)</span></pre></div>
 <p>The <code>position_dodge</code> here just moves the lines apart a bit so they do not overlap and hide each other. The “confirmed cases” plot here shows that over time, the datasets agree quite well. Adapting the <code><a href="../reference/plot_epicurve.html">plot_epicurve()</a></code> function a bit, we can quickly construct faceted, stratified curves showing the behavior of three datasets across three states over time.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit">
-<span class="fu"><a href="../reference/plot_epicurve.html">plot_epicurve</a></span>(<span class="kw">us_states</span>,
-              filter_expression = <span class="kw">state</span> <span class="op">%in%</span> <span class="kw">interesting_states</span> <span class="op">&amp;</span> <span class="kw">count</span><span class="op">&gt;</span><span class="fl">10</span>,
-              case_column = <span class="st">'count'</span>, color=<span class="st">'dataset'</span>) <span class="op">+</span> 
-    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_grid.html">facet_grid</a></span>(rows=<span class="fu"><a href="https://dplyr.tidyverse.org/reference/vars.html">vars</a></span>(<span class="kw">state</span>)) <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span>(position=<span class="kw">pd</span>) <span class="op">+</span>
-    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span>(<span class="st">'Cumulative cases'</span>)
-</pre></div>
+<span class="fu"><a href="../reference/plot_epicurve.html">plot_epicurve</a></span><span class="op">(</span><span class="va">us_states</span>,
+              filter_expression <span class="op">=</span> <span class="va">state</span> <span class="op">%in%</span> <span class="va">interesting_states</span> <span class="op">&amp;</span> <span class="va">count</span><span class="op">&gt;</span><span class="fl">10</span>,
+              case_column <span class="op">=</span> <span class="st">'count'</span>, color<span class="op">=</span><span class="st">'dataset'</span><span class="op">)</span> <span class="op">+</span> 
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_grid.html">facet_grid</a></span><span class="op">(</span>rows<span class="op">=</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/vars.html">vars</a></span><span class="op">(</span><span class="va">state</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span>position<span class="op">=</span><span class="va">pd</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op">(</span><span class="st">'Cumulative cases'</span><span class="op">)</span></pre></div>
 <div class="figure">
 <img src="case_tracking_files/figure-html/unnamed-chunk-6-1.png" alt="Confirmed cases from combined US states datasets for three states" width="700"><p class="caption">
 Confirmed cases from combined US states datasets for three states
@@ -214,38 +208,36 @@ Confirmed cases from combined US states datasets for three states
 </div>
 <p>However, the infection <strong>rate</strong> is more easily visualized with daily incidence curves.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit">
-<span class="fu"><a href="../reference/plot_epicurve.html">plot_epicurve</a></span>(<span class="kw">us_states</span>,
-              filter_expression = <span class="kw">state</span> <span class="op">%in%</span> <span class="kw">interesting_states</span> <span class="op">&amp;</span> <span class="kw">incidence</span><span class="op">&gt;</span><span class="fl">10</span>,
-              case_column = <span class="st">'incidence'</span>, color=<span class="st">'dataset'</span>, log=<span class="fl">FALSE</span>) <span class="op">+</span> 
-    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_grid.html">facet_grid</a></span>(cols=<span class="fu"><a href="https://dplyr.tidyverse.org/reference/vars.html">vars</a></span>(<span class="kw">state</span>)) <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span>(position=<span class="kw">pd</span>) <span class="op">+</span>
-    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span>(alpha=<span class="fl">0.4</span>) <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span>(<span class="st">'Daily reported cases'</span>)
-<span class="co">## `geom_smooth()` using method = 'loess' and formula 'y ~ x'</span>
-</pre></div>
+<span class="fu"><a href="../reference/plot_epicurve.html">plot_epicurve</a></span><span class="op">(</span><span class="va">us_states</span>,
+              filter_expression <span class="op">=</span> <span class="va">state</span> <span class="op">%in%</span> <span class="va">interesting_states</span> <span class="op">&amp;</span> <span class="va">incidence</span><span class="op">&gt;</span><span class="fl">10</span>,
+              case_column <span class="op">=</span> <span class="st">'incidence'</span>, color<span class="op">=</span><span class="st">'dataset'</span>, log<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span> 
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_grid.html">facet_grid</a></span><span class="op">(</span>cols<span class="op">=</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/vars.html">vars</a></span><span class="op">(</span><span class="va">state</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span>position<span class="op">=</span><span class="va">pd</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span>alpha<span class="op">=</span><span class="fl">0.4</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op">(</span><span class="st">'Daily reported cases'</span><span class="op">)</span>
+<span class="co">## `geom_smooth()` using method = 'loess' and formula 'y ~ x'</span></pre></div>
 <div class="figure">
 <img src="case_tracking_files/figure-html/unnamed-chunk-7-1.png" alt="Daily incidence for three states from multiple data sources" width="700"><p class="caption">
 Daily incidence for three states from multiple data sources
 </p>
 </div>
 <div class="sourceCode" id="cb8"><pre class="downlit">
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="http://zoo.R-Forge.R-project.org">zoo</a></span>)
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://zoo.R-Forge.R-project.org/">zoo</a></span><span class="op">)</span>
 <span class="co">## </span>
 <span class="co">## Attaching package: 'zoo'</span>
 <span class="co">## The following objects are masked from 'package:base':</span>
 <span class="co">## </span>
 <span class="co">##     as.Date, as.Date.numeric</span>
-<span class="fu"><a href="../reference/ecdc_data.html">ecdc_data</a></span>() <span class="op">%&gt;%</span>
-    <span class="kw">dplyr</span>::<span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(<span class="kw">subset</span><span class="op">==</span><span class="st">'deaths'</span>) <span class="op">%&gt;%</span>
-    <span class="kw">dplyr</span>::<span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span>(<span class="kw">date</span>,<span class="kw">continent</span>) <span class="op">%&gt;%</span>
-    <span class="kw">dplyr</span>::<span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span>(count=<span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span>(<span class="kw">count</span>)) <span class="op">%&gt;%</span>
-    <span class="kw">dplyr</span>::<span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span>(<span class="kw">continent</span>) <span class="op">%&gt;%</span>
-    <span class="kw">dplyr</span>::<span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span>(roll_mean = <span class="kw">zoo</span>::<span class="fu"><a href="https://rdrr.io/pkg/zoo/man/rollmean.html">rollmean</a></span>(<span class="kw">count</span>, <span class="fl">7</span>, na.pad=<span class="fl">TRUE</span>)) <span class="op">%&gt;%</span>
-    <span class="fu"><a href="../reference/add_incidence_column.html">add_incidence_column</a></span>(count_column=<span class="st">'roll_mean'</span>, grouping_columns = <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">'continent'</span>)) <span class="op">%&gt;%</span>
-    <span class="kw">dplyr</span>::<span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(<span class="kw">inc</span><span class="op">&gt;</span><span class="fl">0</span>) <span class="op">%&gt;%</span>
-    <span class="fu"><a href="../reference/plot_epicurve.html">plot_epicurve</a></span>(case_column=<span class="st">'inc'</span>,color=<span class="st">'continent'</span>, log=<span class="fl">FALSE</span>) <span class="op">+</span>
-    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span>(<span class="st">'Daily reported deaths'</span>) <span class="op">+</span>
-    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span>(<span class="st">'Daily reported deaths over time'</span>, subtitle=<span class="st">'by continent (7-day moving average)'</span>)
-<span class="co">## `summarise()` regrouping output by 'date' (override with `.groups` argument)</span>
-</pre></div>
+<span class="fu"><a href="../reference/ecdc_data.html">ecdc_data</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span>
+    <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">subset</span><span class="op">==</span><span class="st">'deaths'</span><span class="op">)</span> <span class="op">%&gt;%</span>
+    <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">date</span>,<span class="va">continent</span><span class="op">)</span> <span class="op">%&gt;%</span>
+    <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span><span class="op">(</span>count<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">count</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
+    <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">continent</span><span class="op">)</span> <span class="op">%&gt;%</span>
+    <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>roll_mean <span class="op">=</span> <span class="fu">zoo</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/zoo/man/rollmean.html">rollmean</a></span><span class="op">(</span><span class="va">count</span>, <span class="fl">7</span>, na.pad<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
+    <span class="fu"><a href="../reference/add_incidence_column.html">add_incidence_column</a></span><span class="op">(</span>count_column<span class="op">=</span><span class="st">'roll_mean'</span>, grouping_columns <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'continent'</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
+    <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">inc</span><span class="op">&gt;</span><span class="fl">0</span><span class="op">)</span> <span class="op">%&gt;%</span>
+    <span class="fu"><a href="../reference/plot_epicurve.html">plot_epicurve</a></span><span class="op">(</span>case_column<span class="op">=</span><span class="st">'inc'</span>,color<span class="op">=</span><span class="st">'continent'</span>, log<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">'Daily reported deaths'</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op">(</span><span class="st">'Daily reported deaths over time'</span>, subtitle<span class="op">=</span><span class="st">'by continent (7-day moving average)'</span><span class="op">)</span>
+<span class="co">## `summarise()` regrouping output by 'date' (override with `.groups` argument)</span></pre></div>
 <div class="figure">
 <img src="case_tracking_files/figure-html/unnamed-chunk-8-1.png" alt="Worldwide daily reported deaths by continent (seven day moving average)" width="700"><p class="caption">
 Worldwide daily reported deaths by continent (seven day moving average)

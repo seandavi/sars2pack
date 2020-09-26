@@ -169,11 +169,11 @@
     <p>create cumulative_events instance for state data from NYT</p>
     </div>
 
-    <pre class="usage"><span class='fu'>cumulative_events_nyt_state</span>(
-  <span class='kw'>src</span>,
-  eventtype = <span class='st'>"confirmed"</span>,
-  statename = <span class='st'>"Massachusetts"</span>
-)</pre>
+    <pre class="usage"><span class='fu'>cumulative_events_nyt_state</span><span class='op'>(</span>
+  <span class='va'>src</span>,
+  eventtype <span class='op'>=</span> <span class='st'>"confirmed"</span>,
+  statename <span class='op'>=</span> <span class='st'>"Massachusetts"</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -194,13 +194,13 @@
 
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>nyt</span> <span class='op'>=</span> <span class='fu'><a href='nytimes_county_data.html'>nytimes_state_data</a></span>()
-<span class='kw'>mass</span> <span class='op'>=</span> <span class='fu'>cumulative_events_nyt_state</span>(<span class='kw'>nyt</span>, eventtype = <span class='st'>"confirmed"</span>,
-   statename = <span class='st'>"Massachusetts"</span>)
-<span class='kw'>mass</span>
-</div><div class='output co'>#&gt; cumulative event data for Massachusetts, 2020-02-01 to 2020-09-23 
-#&gt; use plot() to visualize.</div><div class='input'><span class='kw'>imass</span> <span class='op'>=</span> <span class='fu'><a href='form_incident_events.html'>form_incident_events</a></span>(<span class='fu'><a href='trim_from.html'>trim_from</a></span>(<span class='kw'>mass</span>, <span class='st'>"2020-03-01"</span>))
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>(<span class='kw'>imass</span>)
+    <pre class="examples"><div class='input'><span class='va'>nyt</span> <span class='op'>=</span> <span class='fu'><a href='nytimes_county_data.html'>nytimes_state_data</a></span><span class='op'>(</span><span class='op'>)</span>
+<span class='va'>mass</span> <span class='op'>=</span> <span class='fu'>cumulative_events_nyt_state</span><span class='op'>(</span><span class='va'>nyt</span>, eventtype <span class='op'>=</span> <span class='st'>"confirmed"</span>,
+   statename <span class='op'>=</span> <span class='st'>"Massachusetts"</span><span class='op'>)</span>
+<span class='va'>mass</span>
+</div><div class='output co'>#&gt; cumulative event data for Massachusetts, 2020-02-01 to 2020-09-24 
+#&gt; use plot() to visualize.</div><div class='input'><span class='va'>imass</span> <span class='op'>=</span> <span class='fu'><a href='form_incident_events.html'>form_incident_events</a></span><span class='op'>(</span><span class='fu'><a href='trim_from.html'>trim_from</a></span><span class='op'>(</span><span class='va'>mass</span>, <span class='st'>"2020-03-01"</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>imass</span><span class='op'>)</span>
 </div><div class='img'><img src='cumulative_events_nyt_state-1.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

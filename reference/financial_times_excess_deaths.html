@@ -169,7 +169,7 @@
     <p>From the Financial Times: "'Excess mortality' refers to the difference between deaths from all causes during the pandemic and the historic seasonal average. For many of the jurisdictions shown here, this figure is higher than the official Covid-19 fatalities that are published by national governments each day. While not all of these deaths are necessarily attributable to the disease, it does leave a number of unexplained deaths that suggests that the official figures of deaths attributed may significant undercounts of the pandemic's impact."</p>
     </div>
 
-    <pre class="usage"><span class='fu'>financial_times_excess_deaths</span>()</pre>
+    <pre class="usage"><span class='fu'>financial_times_excess_deaths</span><span class='op'>(</span><span class='op'>)</span></pre>
 
 
     <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
@@ -251,9 +251,9 @@ analysis during an epidemic and is therefore not included here.</p>
     <p>Sean Davis <a href='mailto:seandavi@gmail.com'>seandavi@gmail.com</a></p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>res</span> <span class='op'>=</span> <span class='fu'>financial_times_excess_deaths</span>()
+    <pre class="examples"><div class='input'><span class='va'>res</span> <span class='op'>=</span> <span class='fu'>financial_times_excess_deaths</span><span class='op'>(</span><span class='op'>)</span>
 
-<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='kw'>res</span>)
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 6 x 11</span><span>
 #&gt;   country region period  year month  week date       deaths expected_deaths
 #&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>      </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>           </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
@@ -263,14 +263,14 @@ analysis during an epidemic and is therefore not included here.</p>
 #&gt; </span><span style='color: #555555;'>4</span><span> Italy   Berga… week    </span><span style='text-decoration: underline;'>2</span><span>015     2     5 2015-02-05     31              31
 #&gt; </span><span style='color: #555555;'>5</span><span> Italy   Berga… week    </span><span style='text-decoration: underline;'>2</span><span>015     2     6 2015-02-12     38              35
 #&gt; </span><span style='color: #555555;'>6</span><span> Italy   Berga… week    </span><span style='text-decoration: underline;'>2</span><span>015     2     7 2015-02-19     35              32
-#&gt; </span><span style='color: #555555;'># … with 2 more variables: excess_deaths </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, excess_deaths_pct </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span></div><div class='input'><span class='kw'>dplyr</span>::<span class='fu'><a href='https://tibble.tidyverse.org/reference/glimpse.html'>glimpse</a></span>(<span class='kw'>res</span>)
-</div><div class='output co'>#&gt; Rows: 55,731
+#&gt; </span><span style='color: #555555;'># … with 2 more variables: excess_deaths </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, excess_deaths_pct </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span></div><div class='input'><span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://tibble.tidyverse.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Rows: 62,915
 #&gt; Columns: 11
 #&gt; $ country           </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Italy", "Italy", "Italy", "Italy", "Italy", "Italy…
 #&gt; $ region            </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Bergamo city", "Bergamo city", "Bergamo city", "Be…
 #&gt; $ period            </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "week", "week", "week", "week", "week", "week", "we…
 #&gt; $ year              </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2015, 201…
-#&gt; $ month             </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4, 1, …
+#&gt; $ month             </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, …
 #&gt; $ week              </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16,…
 #&gt; $ date              </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2015-01-15, 2015-01-22, 2015-01-29, 2015-02-05, 20…
 #&gt; $ deaths            </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 39, 31, 41, 31, 38, 35, 24, 46, 30, 25, 29, 29, 30,…

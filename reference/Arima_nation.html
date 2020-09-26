@@ -169,16 +169,16 @@
     <p>Use Rob Hyndman's forecast package to estimate drift in ARIMA models</p>
     </div>
 
-    <pre class="usage"><span class='fu'>Arima_nation</span>(
-  <span class='kw'>ejhu</span>,
-  alp3 = <span class='st'>"USA"</span>,
-  MAorder = <span class='fl'>2</span>,
-  Difforder = <span class='fl'>1</span>,
-  basedate = <span class='st'>"2020-02-15"</span>,
-  lookback_days = <span class='fl'>29</span>,
-  ARorder = <span class='fl'>0</span>,
-  max_date = <span class='kw'>NULL</span>
-)</pre>
+    <pre class="usage"><span class='fu'>Arima_nation</span><span class='op'>(</span>
+  <span class='va'>ejhu</span>,
+  alp3 <span class='op'>=</span> <span class='st'>"USA"</span>,
+  MAorder <span class='op'>=</span> <span class='fl'>2</span>,
+  Difforder <span class='op'>=</span> <span class='fl'>1</span>,
+  basedate <span class='op'>=</span> <span class='st'>"2020-02-15"</span>,
+  lookback_days <span class='op'>=</span> <span class='fl'>29</span>,
+  ARorder <span class='op'>=</span> <span class='fl'>0</span>,
+  max_date <span class='op'>=</span> <span class='cn'>NULL</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -223,28 +223,28 @@ case the latest available date is used</p></td>
     <p>instance of S3 class Arima_sars2pack</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>ej</span> <span class='op'>=</span> <span class='fu'><a href='enriched_jhu_data.html'>enriched_jhu_data</a></span>()
-<span class='kw'>lkus</span> <span class='op'>=</span> <span class='fu'>Arima_nation</span>(<span class='kw'>ej</span>)
-<span class='kw'>lkus</span>
+    <pre class="examples"><div class='input'><span class='va'>ej</span> <span class='op'>=</span> <span class='fu'><a href='enriched_jhu_data.html'>enriched_jhu_data</a></span><span class='op'>(</span><span class='op'>)</span>
+<span class='va'>lkus</span> <span class='op'>=</span> <span class='fu'>Arima_nation</span><span class='op'>(</span><span class='va'>ej</span><span class='op'>)</span>
+<span class='va'>lkus</span>
 </div><div class='output co'>#&gt; Arima_sars2pack instance for USA 
-#&gt;   computed Fri Sep 25 03:54:44 2020 
-#&gt;   last date used was:  2020-09-23 
+#&gt;   computed Sat Sep 26 03:51:38 2020 
+#&gt;   last date used was:  2020-09-24 
 #&gt;   call was: Arima_nation(ejhu = ej)
 #&gt;   Model estimates: 
 #&gt; Series: tsfull 
 #&gt; ARIMA(0,1,2) with drift 
 #&gt; 
 #&gt; Coefficients:
-#&gt;           ma1     ma2     drift
-#&gt;       -0.4680  -0.532  -31.9817
-#&gt; s.e.   0.1994   0.160  196.5579
+#&gt;           ma1      ma2     drift
+#&gt;       -0.4735  -0.5265   15.1416
+#&gt; s.e.   0.1998   0.1584  196.4687
 #&gt; 
-#&gt; sigma^2 estimated as 40031449:  log likelihood=-284.65
-#&gt; AIC=577.3   AICc=579.04   BIC=582.63
+#&gt; sigma^2 estimated as 40355115:  log likelihood=-284.76
+#&gt; AIC=577.53   AICc=579.27   BIC=582.86
 #&gt; 
 #&gt; Training set error measures:
-#&gt;                    ME    RMSE      MAE       MPE     MAPE      MASE       ACF1
-#&gt; Training set -596.182 5874.51 4611.042 -3.835553 12.33269 0.7918573 0.04657145</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>(<span class='kw'>lkus</span>)
+#&gt;                     ME     RMSE     MAE       MPE     MAPE      MASE       ACF1
+#&gt; Training set -757.1798 5898.211 4653.07 -4.239238 12.50764 0.7846992 0.04155181</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>lkus</span><span class='op'>)</span>
 </div><div class='img'><img src='Arima_nation-1.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

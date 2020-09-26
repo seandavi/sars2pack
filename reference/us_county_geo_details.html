@@ -169,7 +169,7 @@
     <p>United States county-level geographic details</p>
     </div>
 
-    <pre class="usage"><span class='fu'>us_county_geo_details</span>()</pre>
+    <pre class="usage"><span class='fu'>us_county_geo_details</span><span class='op'>(</span><span class='op'>)</span></pre>
 
 
     <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
@@ -220,8 +220,8 @@
 <code><a href='who_cases.html'>who_cases</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>usc</span> <span class='op'>=</span> <span class='fu'>us_county_geo_details</span>()
-<span class='kw'>dplyr</span>::<span class='fu'><a href='https://tibble.tidyverse.org/reference/glimpse.html'>glimpse</a></span>(<span class='kw'>usc</span>)
+    <pre class="examples"><div class='input'><span class='va'>usc</span> <span class='op'>=</span> <span class='fu'>us_county_geo_details</span><span class='op'>(</span><span class='op'>)</span>
+<span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://tibble.tidyverse.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>usc</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; Rows: 3,220
 #&gt; Columns: 9
 #&gt; $ state           <span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "AL", "AL", "AL", "AL", "AL", "AL", "AL", "AL", "AL",…
@@ -232,7 +232,7 @@
 #&gt; $ area_water      </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 25706961, 1132980868, 50523213, 9602089, 15015467, 60…
 #&gt; $ area_land_sqmi  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 594.444, 1589.823, 885.008, 622.461, 644.831, 622.812…
 #&gt; $ area_water_sqmi </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 9.926, 437.446, 19.507, 3.707, 5.798, 2.331, 1.043, 6…
-#&gt; $ geometry        </span><span style='color: #555555;font-style: italic;'>&lt;POINT&gt;</span><span> POINT (-86.64644 32.53224), POINT (-87.74607 30.659…</div><div class='input'><span class='kw'>usc</span>
+#&gt; $ geometry        </span><span style='color: #555555;font-style: italic;'>&lt;POINT&gt;</span><span> POINT (-86.64644 32.53224), POINT (-87.74607 30.659…</div><div class='input'><span class='va'>usc</span>
 </div><div class='output co'>#&gt; Simple feature collection with 3220 features and 8 fields
 #&gt; geometry type:  POINT
 #&gt; dimension:      XY
@@ -252,7 +252,7 @@
 #&gt; </span><span style='color: #555555;'> 9</span><span> AL    01017 00161534 Chamb…    1.55</span><span style='color: #555555;'>e</span><span>9   16</span><span style='text-decoration: underline;'>971</span><span>700           597.
 #&gt; </span><span style='color: #555555;'>10</span><span> AL    01019 00161535 Chero…    1.43</span><span style='color: #555555;'>e</span><span>9  120</span><span style='text-decoration: underline;'>308</span><span>342           554.
 #&gt; </span><span style='color: #555555;'># … with 3,210 more rows, and 2 more variables: area_water_sqmi </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   geometry </span><span style='color: #555555;font-style: italic;'>&lt;POINT&gt;</span><span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='kw'>usc</span>)
+#&gt; </span><span style='color: #555555;'>#   geometry </span><span style='color: #555555;font-style: italic;'>&lt;POINT&gt;</span><span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>usc</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;     state               fips             ansicode            county         
 #&gt;  Length:3220        Length:3220        Length:3220        Length:3220       
 #&gt;  Class :character   Class :character   Class :character   Class :character  

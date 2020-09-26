@@ -169,9 +169,9 @@
     <p>list and detail available sars2pack datasets</p>
     </div>
 
-    <pre class="usage"><span class='fu'>available_datasets</span>()
+    <pre class="usage"><span class='fu'>available_datasets</span><span class='op'>(</span><span class='op'>)</span>
 
-<span class='fu'>dataset_details</span>()</pre>
+<span class='fu'>dataset_details</span><span class='op'>(</span><span class='op'>)</span></pre>
 
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
@@ -195,8 +195,8 @@ in the list. See examples for details and for viewing suggestions.</p>
 </ul>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>res</span> <span class='op'>=</span> <span class='fu'>available_datasets</span>()
-<span class='kw'>res</span>
+    <pre class="examples"><div class='input'><span class='va'>res</span> <span class='op'>=</span> <span class='fu'>available_datasets</span><span class='op'>(</span><span class='op'>)</span>
+<span class='va'>res</span>
 </div><div class='output co'>#&gt;                                                                     name
 #&gt; 1                           United States CDC Social Vulnerability Index
 #&gt; 2                          Extensive United States hospital capabilities
@@ -353,7 +353,7 @@ in the list. See examples for details and for viewing suggestions.</p>
 #&gt; 36                                                                                                 https://oecd.org
 #&gt; 37                                                                       https://covid19.healthdata.org/projections
 #&gt; 38                                                                       https://covid19.healthdata.org/projections</div><div class='input'><span class='co'># and how to use the accessor programmatically</span>
-<span class='fu'><a href='https://rdrr.io/r/base/get.html'>get</a></span>(<span class='kw'>res</span>[<span class='fl'>1</span>,]<span class='op'>$</span><span class='kw'>accessor</span>)()
+<span class='fu'><a href='https://rdrr.io/r/base/get.html'>get</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>[</span><span class='fl'>1</span>,<span class='op'>]</span><span class='op'>$</span><span class='va'>accessor</span><span class='op'>)</span><span class='op'>(</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 3,142 x 126</span><span>
 #&gt;      fid state_fips state st_abbr county fips  location area_sqmi e_totpop
 #&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>        </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
@@ -394,8 +394,8 @@ in the list. See examples for details and for viewing suggestions.</p>
 
 
 
-<span class='kw'>dd</span> <span class='op'>=</span> <span class='fu'>dataset_details</span>()
-<span class='fu'><a href='https://rdrr.io/r/utils/str.html'>str</a></span>(<span class='kw'>dd</span>,list.len=<span class='fl'>3</span>)
+<span class='va'>dd</span> <span class='op'>=</span> <span class='fu'>dataset_details</span><span class='op'>(</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/str.html'>str</a></span><span class='op'>(</span><span class='va'>dd</span>,list.len<span class='op'>=</span><span class='fl'>3</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; List of 2
 #&gt;  $ datasets :List of 35
 #&gt;   ..$ cdc_social_vulnerability_index    :List of 2
@@ -426,7 +426,7 @@ in the list. See examples for details and for viewing suggestions.</p>
 #&gt;   .. .. ..$ nrow: int 8658
 #&gt;   .. .. ..$ ncol: int 12
 #&gt;   .. [list output truncated]
-#&gt;  $ eval_date: chr "2020-08-19"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='kw'>dd</span><span class='op'>$</span><span class='kw'>datasets</span>)
+#&gt;  $ eval_date: chr "2020-08-19"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>dd</span><span class='op'>$</span><span class='va'>datasets</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;  [1] "cdc_social_vulnerability_index"     "us_hospital_details"               
 #&gt;  [3] "economist_excess_deaths"            "financial_times_excess_deaths"     
 #&gt;  [5] "us_county_health_rankings"          "coronanet_government_response_data"
@@ -445,7 +445,7 @@ in the list. See examples for details and for viewing suggestions.</p>
 #&gt; [31] "healthdata_mobility_data"           "healthdata_projections_data"       
 #&gt; [33] "us_state_distancing_policy"         "oecd_unemployment_data"            
 #&gt; [35] "healthdata_testing_data"           </div><div class='input'><span class='co'># evaluated</span>
-<span class='kw'>dd</span><span class='op'>$</span><span class='kw'>eval_date</span>
+<span class='va'>dd</span><span class='op'>$</span><span class='va'>eval_date</span>
 </div><div class='output co'>#&gt; [1] "2020-08-19"</div><div class='input'>
 
 </div></span></pre>

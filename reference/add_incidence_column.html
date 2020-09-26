@@ -173,13 +173,13 @@ extra column corresponding to the daily incidence counts." />
 extra column corresponding to the daily incidence counts.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>add_incidence_column</span>(
-  <span class='kw'>df</span>,
-  date_column = <span class='st'>"date"</span>,
-  count_column = <span class='st'>"count"</span>,
-  incidence_col_name = <span class='st'>"inc"</span>,
-  grouping_columns = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>()
-)</pre>
+    <pre class="usage"><span class='fu'>add_incidence_column</span><span class='op'>(</span>
+  <span class='va'>df</span>,
+  date_column <span class='op'>=</span> <span class='st'>"date"</span>,
+  count_column <span class='op'>=</span> <span class='st'>"count"</span>,
+  incidence_col_name <span class='op'>=</span> <span class='st'>"inc"</span>,
+  grouping_columns <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>)</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -231,8 +231,8 @@ datasets that are appropriate for passing into here.</p></div>
     <p>Sean Davis <a href='mailto:seandavi@gmail.com'>seandavi@gmail.com</a></p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://ggplot2.tidyverse.org'>ggplot2</a></span>)
-<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='https://dplyr.tidyverse.org'>dplyr</a></span>)
+    <pre class="examples"><div class='input'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://ggplot2.tidyverse.org'>ggplot2</a></span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://dplyr.tidyverse.org'>dplyr</a></span><span class='op'>)</span>
 </div><div class='output co'>#&gt; <span class='message'></span>
 #&gt; <span class='message'>Attaching package: ‘dplyr’</span></div><div class='output co'>#&gt; <span class='message'>The following object is masked from ‘package:MASS’:</span>
 #&gt; <span class='message'></span>
@@ -241,8 +241,8 @@ datasets that are appropriate for passing into here.</p></div>
 #&gt; <span class='message'>    filter, lag</span></div><div class='output co'>#&gt; <span class='message'>The following objects are masked from ‘package:base’:</span>
 #&gt; <span class='message'></span>
 #&gt; <span class='message'>    intersect, setdiff, setequal, union</span></div><div class='input'>
-<span class='kw'>j</span> <span class='op'>=</span> <span class='fu'><a href='jhu_data.html'>jhu_data</a></span>()
-<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='kw'>j</span>)
+<span class='va'>j</span> <span class='op'>=</span> <span class='fu'><a href='jhu_data.html'>jhu_data</a></span><span class='op'>(</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>j</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 6 x 7</span><span>
 #&gt;   ProvinceState CountryRegion   Lat  Long date       count subset   
 #&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>         </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>         </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>    
@@ -251,11 +251,11 @@ datasets that are appropriate for passing into here.</p></div>
 #&gt; </span><span style='color: #555555;'>3</span><span> </span><span style='color: #BB0000;'>NA</span><span>            Afghanistan    33.9  67.7 2020-01-24     0 confirmed
 #&gt; </span><span style='color: #555555;'>4</span><span> </span><span style='color: #BB0000;'>NA</span><span>            Afghanistan    33.9  67.7 2020-01-25     0 confirmed
 #&gt; </span><span style='color: #555555;'>5</span><span> </span><span style='color: #BB0000;'>NA</span><span>            Afghanistan    33.9  67.7 2020-01-26     0 confirmed
-#&gt; </span><span style='color: #555555;'>6</span><span> </span><span style='color: #BB0000;'>NA</span><span>            Afghanistan    33.9  67.7 2020-01-27     0 confirmed</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='kw'>j</span>)
+#&gt; </span><span style='color: #555555;'>6</span><span> </span><span style='color: #BB0000;'>NA</span><span>            Afghanistan    33.9  67.7 2020-01-27     0 confirmed</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>j</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] "ProvinceState" "CountryRegion" "Lat"           "Long"         
 #&gt; [5] "date"          "count"         "subset"       </div><div class='input'>
-<span class='fu'>add_incidence_column</span>(<span class='kw'>j</span>, grouping_columns=<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>'CountryRegion'</span>,<span class='st'>'ProvinceState'</span>))
-</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 193,110 x 8</span><span>
+<span class='fu'>add_incidence_column</span><span class='op'>(</span><span class='va'>j</span>, grouping_columns<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>'CountryRegion'</span>,<span class='st'>'ProvinceState'</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 193,895 x 8</span><span>
 #&gt; </span><span style='color: #555555;'># Groups:   CountryRegion, ProvinceState [267]</span><span>
 #&gt;    ProvinceState CountryRegion   Lat  Long date       count subset      inc
 #&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>         </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>         </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
@@ -269,40 +269,40 @@ datasets that are appropriate for passing into here.</p></div>
 #&gt; </span><span style='color: #555555;'> 8</span><span> </span><span style='color: #BB0000;'>NA</span><span>            Afghanistan    33.9  67.7 2020-01-29     0 confirmed     0
 #&gt; </span><span style='color: #555555;'> 9</span><span> </span><span style='color: #BB0000;'>NA</span><span>            Afghanistan    33.9  67.7 2020-01-30     0 confirmed     0
 #&gt; </span><span style='color: #555555;'>10</span><span> </span><span style='color: #BB0000;'>NA</span><span>            Afghanistan    33.9  67.7 2020-01-31     0 confirmed     0
-#&gt; </span><span style='color: #555555;'># … with 193,100 more rows</span><span></div><div class='input'>
+#&gt; </span><span style='color: #555555;'># … with 193,885 more rows</span><span></div><div class='input'>
 <span class='co'># get top 10 countries by cumulative</span>
 <span class='co'># number of cases</span>
-<span class='kw'>j_top_10</span> <span class='op'>=</span> <span class='kw'>j</span> <span class='op'>%&gt;%</span>
-    <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span>(<span class='kw'>subset</span><span class='op'>==</span><span class='st'>'deaths'</span>) <span class='op'>%&gt;%</span>
-    <span class='kw'>dplyr</span>::<span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span>(<span class='kw'>CountryRegion</span>) <span class='op'>%&gt;%</span>
-    <span class='kw'>dplyr</span>::<span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarize</a></span>(count = <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span>(<span class='kw'>count</span>)) <span class='op'>%&gt;%</span>
-    <span class='kw'>dplyr</span>::<span class='fu'><a href='https://dplyr.tidyverse.org/reference/arrange.html'>arrange</a></span>(<span class='kw'>dplyr</span>::<span class='fu'><a href='https://dplyr.tidyverse.org/reference/desc.html'>desc</a></span>(<span class='kw'>count</span>)) <span class='op'>%&gt;%</span>
-    <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='fl'>10</span>)
+<span class='va'>j_top_10</span> <span class='op'>=</span> <span class='va'>j</span> <span class='op'>%&gt;%</span>
+    <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>subset</span><span class='op'>==</span><span class='st'>'deaths'</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>CountryRegion</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarize</a></span><span class='op'>(</span>count <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span><span class='op'>(</span><span class='va'>count</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/arrange.html'>arrange</a></span><span class='op'>(</span><span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/desc.html'>desc</a></span><span class='op'>(</span><span class='va'>count</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='fl'>10</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; <span class='message'>`summarise()` ungrouping output (override with `.groups` argument)</span></div><div class='input'>
-<span class='kw'>j_top_10</span>
+<span class='va'>j_top_10</span>
 </div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 10 x 2</span><span>
 #&gt;    CountryRegion   count
 #&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>           </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #555555;'> 1</span><span> US             </span><span style='text-decoration: underline;'>201</span><span>884
-#&gt; </span><span style='color: #555555;'> 2</span><span> Brazil         </span><span style='text-decoration: underline;'>138</span><span>105
-#&gt; </span><span style='color: #555555;'> 3</span><span> India           </span><span style='text-decoration: underline;'>90</span><span>020
-#&gt; </span><span style='color: #555555;'> 4</span><span> Mexico          </span><span style='text-decoration: underline;'>74</span><span>949
-#&gt; </span><span style='color: #555555;'> 5</span><span> United Kingdom  </span><span style='text-decoration: underline;'>41</span><span>862
-#&gt; </span><span style='color: #555555;'> 6</span><span> Italy           </span><span style='text-decoration: underline;'>35</span><span>758
-#&gt; </span><span style='color: #555555;'> 7</span><span> Peru            </span><span style='text-decoration: underline;'>31</span><span>568
-#&gt; </span><span style='color: #555555;'> 8</span><span> France          </span><span style='text-decoration: underline;'>31</span><span>252
-#&gt; </span><span style='color: #555555;'> 9</span><span> Spain           </span><span style='text-decoration: underline;'>31</span><span>034
-#&gt; </span><span style='color: #555555;'>10</span><span> Iran            </span><span style='text-decoration: underline;'>24</span><span>840</div><div class='input'>
+#&gt; </span><span style='color: #555555;'> 1</span><span> US             </span><span style='text-decoration: underline;'>202</span><span>798
+#&gt; </span><span style='color: #555555;'> 2</span><span> Brazil         </span><span style='text-decoration: underline;'>139</span><span>808
+#&gt; </span><span style='color: #555555;'> 3</span><span> India           </span><span style='text-decoration: underline;'>91</span><span>149
+#&gt; </span><span style='color: #555555;'> 4</span><span> Mexico          </span><span style='text-decoration: underline;'>75</span><span>439
+#&gt; </span><span style='color: #555555;'> 5</span><span> United Kingdom  </span><span style='text-decoration: underline;'>41</span><span>902
+#&gt; </span><span style='color: #555555;'> 6</span><span> Italy           </span><span style='text-decoration: underline;'>35</span><span>781
+#&gt; </span><span style='color: #555555;'> 7</span><span> Peru            </span><span style='text-decoration: underline;'>31</span><span>870
+#&gt; </span><span style='color: #555555;'> 8</span><span> France          </span><span style='text-decoration: underline;'>31</span><span>333
+#&gt; </span><span style='color: #555555;'> 9</span><span> Spain           </span><span style='text-decoration: underline;'>31</span><span>118
+#&gt; </span><span style='color: #555555;'>10</span><span> Iran            </span><span style='text-decoration: underline;'>25</span><span>015</div><div class='input'>
 <span class='co'># The JHU data divides some countries into</span>
 <span class='co'># regions, so we can collapse to regions</span>
 <span class='co'># by simply summing over date/country</span>
-<span class='kw'>j</span> <span class='op'>=</span> <span class='kw'>j</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span>(<span class='kw'>CountryRegion</span> <span class='op'>%in%</span> <span class='kw'>j_top_10</span>[[<span class='st'>'CountryRegion'</span>]] <span class='op'>&amp;</span> <span class='kw'>subset</span><span class='op'>==</span><span class='st'>'deaths'</span>) <span class='op'>%&gt;%</span>
-    <span class='kw'>dplyr</span>::<span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span>(<span class='kw'>date</span>, <span class='kw'>CountryRegion</span>) <span class='op'>%&gt;%</span>
-    <span class='kw'>dplyr</span>::<span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarize</a></span>(count = <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span>(<span class='kw'>count</span>))
+<span class='va'>j</span> <span class='op'>=</span> <span class='va'>j</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>CountryRegion</span> <span class='op'>%in%</span> <span class='va'>j_top_10</span><span class='op'>[[</span><span class='st'>'CountryRegion'</span><span class='op'>]</span><span class='op'>]</span> <span class='op'>&amp;</span> <span class='va'>subset</span><span class='op'>==</span><span class='st'>'deaths'</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>date</span>, <span class='va'>CountryRegion</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarize</a></span><span class='op'>(</span>count <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>count</span><span class='op'>)</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; <span class='message'>`summarise()` regrouping output by 'date' (override with `.groups` argument)</span></div><div class='input'>
-<span class='kw'>j</span>
-</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 2,460 x 3</span><span>
-#&gt; </span><span style='color: #555555;'># Groups:   date [246]</span><span>
+<span class='va'>j</span>
+</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 2,470 x 3</span><span>
+#&gt; </span><span style='color: #555555;'># Groups:   date [247]</span><span>
 #&gt;    date       CountryRegion  count
 #&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>          </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
 #&gt; </span><span style='color: #555555;'> 1</span><span> 2020-01-22 Brazil             0
@@ -315,12 +315,12 @@ datasets that are appropriate for passing into here.</p></div>
 #&gt; </span><span style='color: #555555;'> 8</span><span> 2020-01-22 Spain              0
 #&gt; </span><span style='color: #555555;'> 9</span><span> 2020-01-22 United Kingdom     0
 #&gt; </span><span style='color: #555555;'>10</span><span> 2020-01-22 US                 0
-#&gt; </span><span style='color: #555555;'># … with 2,450 more rows</span><span></div><div class='input'>
+#&gt; </span><span style='color: #555555;'># … with 2,460 more rows</span><span></div><div class='input'>
 <span class='co'># Add an incidence column to the cumulative dataset</span>
-<span class='kw'>j_inc</span> <span class='op'>=</span> <span class='fu'>add_incidence_column</span>(<span class='kw'>j</span>, grouping_columns=<span class='st'>'CountryRegion'</span>)
+<span class='va'>j_inc</span> <span class='op'>=</span> <span class='fu'>add_incidence_column</span><span class='op'>(</span><span class='va'>j</span>, grouping_columns<span class='op'>=</span><span class='st'>'CountryRegion'</span><span class='op'>)</span>
 
-<span class='kw'>j_inc</span>
-</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 2,460 x 4</span><span>
+<span class='va'>j_inc</span>
+</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 2,470 x 4</span><span>
 #&gt; </span><span style='color: #555555;'># Groups:   CountryRegion [10]</span><span>
 #&gt;    date       CountryRegion  count   inc
 #&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>          </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
@@ -334,21 +334,21 @@ datasets that are appropriate for passing into here.</p></div>
 #&gt; </span><span style='color: #555555;'> 8</span><span> 2020-01-22 Spain              0    </span><span style='color: #BB0000;'>NA</span><span>
 #&gt; </span><span style='color: #555555;'> 9</span><span> 2020-01-22 United Kingdom     0    </span><span style='color: #BB0000;'>NA</span><span>
 #&gt; </span><span style='color: #555555;'>10</span><span> 2020-01-22 US                 0    </span><span style='color: #BB0000;'>NA</span><span>
-#&gt; </span><span style='color: #555555;'># … with 2,450 more rows</span><span></div><div class='input'>
-<span class='kw'>j_inc</span> <span class='op'>%&gt;%</span>
-    <span class='kw'>dplyr</span>::<span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span>(<span class='kw'>count</span><span class='op'>&gt;</span><span class='fl'>0</span>) <span class='op'>%&gt;%</span>
-    <span class='fu'><a href='plot_epicurve.html'>plot_epicurve</a></span>(color=<span class='st'>'CountryRegion'</span>, case_column=<span class='st'>'inc'</span>) <span class='op'>+</span>
-        <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_smooth.html'>geom_smooth</a></span>() <span class='op'>+</span>
-        <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span>(<span class='st'>'Daily death counts in the top 10 most infected countries'</span>)
+#&gt; </span><span style='color: #555555;'># … with 2,460 more rows</span><span></div><div class='input'>
+<span class='va'>j_inc</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>count</span><span class='op'>&gt;</span><span class='fl'>0</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'><a href='plot_epicurve.html'>plot_epicurve</a></span><span class='op'>(</span>color<span class='op'>=</span><span class='st'>'CountryRegion'</span>, case_column<span class='op'>=</span><span class='st'>'inc'</span><span class='op'>)</span> <span class='op'>+</span>
+        <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_smooth.html'>geom_smooth</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+        <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span><span class='op'>(</span><span class='st'>'Daily death counts in the top 10 most infected countries'</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using method = 'loess' and formula 'y ~ x'</span></div><div class='img'><img src='add_incidence_column-1.png' alt='' width='700' height='433' /></div><div class='input'>
 
 <span class='co'># Hospitalizations by day in Maryland</span>
-<span class='fu'><a href='covidtracker_data.html'>covidtracker_data</a></span>() <span class='op'>%&gt;%</span>
-    <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span>(<span class='kw'>state</span><span class='op'>==</span><span class='st'>'MD'</span>) <span class='op'>%&gt;%</span>
-    <span class='fu'>add_incidence_column</span>(count_column=<span class='st'>'hospitalized'</span>) <span class='op'>%&gt;%</span>
-    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(x=<span class='kw'>date</span>,y=<span class='kw'>inc</span>)) <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_smooth.html'>geom_smooth</a></span>() <span class='op'>+</span>
-    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ylab</a></span>(<span class='st'>"New Hospitalizations per day"</span>) <span class='op'>+</span>
-    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span>(<span class='st'>'Hospitalizations in Maryland'</span>, subtitle = <span class='st'>'From covidtracker'</span>)
+<span class='fu'><a href='covidtracker_data.html'>covidtracker_data</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>state</span><span class='op'>==</span><span class='st'>'MD'</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>add_incidence_column</span><span class='op'>(</span>count_column<span class='op'>=</span><span class='st'>'hospitalized'</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>date</span>,y<span class='op'>=</span><span class='va'>inc</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_smooth.html'>geom_smooth</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ylab</a></span><span class='op'>(</span><span class='st'>"New Hospitalizations per day"</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span><span class='op'>(</span><span class='st'>'Hospitalizations in Maryland'</span>, subtitle <span class='op'>=</span> <span class='st'>'From covidtracker'</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using method = 'loess' and formula 'y ~ x'</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 22 rows containing non-finite values (stat_smooth).</span></div><div class='img'><img src='add_incidence_column-2.png' alt='' width='700' height='433' /></div><div class='input'>
 
 

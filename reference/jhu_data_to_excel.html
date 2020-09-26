@@ -175,13 +175,13 @@ data into a form that can be easily written to excel or used
 as a "wide-format" tabular dataset.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>jhu_data_to_excel</span>(
-  dat = <span class='fu'><a href='jhu_data.html'>jhu_data</a></span>(),
-  file = <span class='fl'>NA</span>,
-  cols_to_remove = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"callingCodes"</span>, <span class='st'>"altSpellings"</span>, <span class='st'>"latlng"</span>, <span class='st'>"demonym"</span>, <span class='st'>"timezones"</span>,
-    <span class='st'>"nativeName"</span>, <span class='st'>"currencies"</span>, <span class='st'>"languages"</span>, <span class='st'>"translations"</span>, <span class='st'>"flag"</span>, <span class='st'>"regionalBlocs"</span>),
-  <span class='kw'>...</span>
-)</pre>
+    <pre class="usage"><span class='fu'>jhu_data_to_excel</span><span class='op'>(</span>
+  dat <span class='op'>=</span> <span class='fu'><a href='jhu_data.html'>jhu_data</a></span><span class='op'>(</span><span class='op'>)</span>,
+  file <span class='op'>=</span> <span class='cn'>NA</span>,
+  cols_to_remove <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"callingCodes"</span>, <span class='st'>"altSpellings"</span>, <span class='st'>"latlng"</span>, <span class='st'>"demonym"</span>, <span class='st'>"timezones"</span>,
+    <span class='st'>"nativeName"</span>, <span class='st'>"currencies"</span>, <span class='st'>"languages"</span>, <span class='st'>"translations"</span>, <span class='st'>"flag"</span>, <span class='st'>"regionalBlocs"</span><span class='op'>)</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -217,10 +217,10 @@ an excel format of data to folks more familiar with excel than
 with R.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>xls_form</span> <span class='op'>=</span> <span class='fu'>jhu_data_to_excel</span>()
-</div><div class='output co'>#&gt; <span class='warning'>Warning: Some values were not matched unambiguously: MS Zaandam</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Some values were not matched unambiguously: MS Zaandam</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Some values were not matched unambiguously: MS Zaandam</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='kw'>xls_form</span>)
-</div><div class='output co'>#&gt; [1] "confirmed" "deaths"    "recovered"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='kw'>xls_form</span>[[<span class='fl'>1</span>]])
-</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 6 x 263</span><span>
+    <pre class="examples"><div class='input'><span class='va'>xls_form</span> <span class='op'>=</span> <span class='fu'>jhu_data_to_excel</span><span class='op'>(</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='warning'>Warning: Some values were not matched unambiguously: MS Zaandam</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Some values were not matched unambiguously: MS Zaandam</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Some values were not matched unambiguously: MS Zaandam</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>xls_form</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "confirmed" "deaths"    "recovered"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>xls_form</span><span class='op'>[[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>]</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 6 x 264</span><span>
 #&gt;   name  topLevelDomain alpha2Code alpha3Code capital region subregion population
 #&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;list&gt;</span><span>         </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>          </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span>
 #&gt; </span><span style='color: #555555;'>1</span><span> Afgh… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span>      AF         AFG        Kabul   Asia   Southern…   27</span><span style='text-decoration: underline;'>657</span><span>145
@@ -229,7 +229,7 @@ with R.</p>
 #&gt; </span><span style='color: #555555;'>4</span><span> Ando… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span>      AD         AND        Andorr… Europe Southern…      </span><span style='text-decoration: underline;'>78</span><span>014
 #&gt; </span><span style='color: #555555;'>5</span><span> Ango… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span>      AO         AGO        Luanda  Africa Middle A…   25</span><span style='text-decoration: underline;'>868</span><span>000
 #&gt; </span><span style='color: #555555;'>6</span><span> Anti… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span>      AG         ATG        Saint … Ameri… Caribbean      </span><span style='text-decoration: underline;'>86</span><span>295
-#&gt; </span><span style='color: #555555;'># … with 255 more variables: area </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, gini </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, borders </span><span style='color: #555555;font-style: italic;'>&lt;list&gt;</span><span style='color: #555555;'>,</span><span>
+#&gt; </span><span style='color: #555555;'># … with 256 more variables: area </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, gini </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, borders </span><span style='color: #555555;font-style: italic;'>&lt;list&gt;</span><span style='color: #555555;'>,</span><span>
 #&gt; </span><span style='color: #555555;'>#   numericCode </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, cioc </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, ProvinceState </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, CountryRegion </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>,</span><span>
 #&gt; </span><span style='color: #555555;'>#   Lat </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, Long </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, `2020-01-22` </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, `2020-01-23` </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
 #&gt; </span><span style='color: #555555;'>#   `2020-01-24` </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, `2020-01-25` </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, `2020-01-26` </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
