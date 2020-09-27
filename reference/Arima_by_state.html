@@ -224,50 +224,54 @@ case the latest available date is used</p></td>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='va'>nyd</span> <span class='op'>=</span> <span class='fu'><a href='nytimes_county_data.html'>nytimes_state_data</a></span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='message'>using temporary cache /tmp/Rtmp7FcyBd/BiocFileCache</span></div><div class='input'><span class='va'>mb</span> <span class='op'>=</span> <span class='fu'><a href='min_bic.html'>min_bic</a></span><span class='op'>(</span><span class='va'>nyd</span>, state.in<span class='op'>=</span><span class='st'>"New York"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='message'>using temporary cache /tmp/RtmpiCBJZ9/BiocFileCache</span></div><div class='input'><span class='va'>mb</span> <span class='op'>=</span> <span class='fu'><a href='min_bic.html'>min_bic</a></span><span class='op'>(</span><span class='va'>nyd</span>, state.in<span class='op'>=</span><span class='st'>"New York"</span><span class='op'>)</span>
 <span class='va'>lkny</span> <span class='op'>=</span> <span class='fu'>Arima_by_state</span><span class='op'>(</span><span class='va'>nyd</span>, ARorder<span class='op'>=</span><span class='va'>mb</span><span class='op'>$</span><span class='va'>opt</span><span class='op'>[</span><span class='st'>"ARord"</span><span class='op'>]</span>, MAorder<span class='op'>=</span><span class='va'>mb</span><span class='op'>$</span><span class='va'>opt</span><span class='op'>[</span><span class='st'>"MAord"</span><span class='op'>]</span><span class='op'>)</span>
 <span class='va'>lkny</span>
 </div><div class='output co'>#&gt; Arima_sars2pack instance for New York 
-#&gt;   computed Sat Sep 26 03:51:24 2020 
-#&gt;   last date used was:  2020-09-24 
+#&gt;   computed Sun Sep 27 03:53:03 2020 
+#&gt;   last date used was:  2020-09-25 
 #&gt;   call was: Arima_by_state(src = nyd, MAorder = mb$opt["MAord"], ARorder = mb$opt["ARord"])
 #&gt;   Model estimates: 
 #&gt; Series: tsfull 
-#&gt; ARIMA(0,1,4) with drift 
+#&gt; ARIMA(4,1,2) with drift 
 #&gt; 
 #&gt; Coefficients:
-#&gt;           ma1     ma2      ma3     ma4   drift
-#&gt;       -0.7838  0.0708  -1.0302  0.7432  3.0279
-#&gt; s.e.   0.3668  0.1833   0.2130  0.3842  1.7278
+#&gt;           ar1     ar2      ar3      ar4      ma1      ma2   drift
+#&gt;       -0.4909  0.3587  -0.3464  -0.7162  -0.1988  -0.8012  4.4494
+#&gt; s.e.   0.1287  0.1533   0.1353   0.1171   0.2030   0.1820  1.6015
 #&gt; 
-#&gt; sigma^2 estimated as 8353:  log likelihood=-167.77
-#&gt; AIC=347.54   AICc=351.54   BIC=355.54
+#&gt; sigma^2 estimated as 7620:  log likelihood=-164.21
+#&gt; AIC=344.43   AICc=352.01   BIC=355.08
 #&gt; 
 #&gt; Training set error measures:
-#&gt;                     ME     RMSE     MAE       MPE     MAPE      MASE      ACF1
-#&gt; Training set -6.038592 81.39372 69.7075 -2.529253 10.14405 0.5781428 0.1260138</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>lkny</span><span class='op'>)</span>
+#&gt;                     ME     RMSE      MAE       MPE     MAPE      MASE
+#&gt; Training set 0.2051092 74.28393 58.00702 -1.164879 8.178124 0.4973045
+#&gt;                    ACF1
+#&gt; Training set 0.08222648</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>lkny</span><span class='op'>)</span>
 </div><div class='img'><img src='Arima_by_state-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='va'>usd</span> <span class='op'>=</span> <span class='fu'><a href='jhu_us_data.html'>jhu_us_data</a></span><span class='op'>(</span><span class='op'>)</span>
 <span class='va'>lkny2</span> <span class='op'>=</span> <span class='fu'>Arima_by_state</span><span class='op'>(</span><span class='va'>usd</span>, ARorder<span class='op'>=</span><span class='va'>mb</span><span class='op'>$</span><span class='va'>opt</span><span class='op'>[</span><span class='st'>"ARord"</span><span class='op'>]</span>, MAorder<span class='op'>=</span><span class='va'>mb</span><span class='op'>$</span><span class='va'>opt</span><span class='op'>[</span><span class='st'>"MAord"</span><span class='op'>]</span><span class='op'>)</span>
 <span class='va'>lkny2</span>
 </div><div class='output co'>#&gt; Arima_sars2pack instance for New York 
-#&gt;   computed Sat Sep 26 03:51:30 2020 
-#&gt;   last date used was:  2020-09-24 
+#&gt;   computed Sun Sep 27 03:53:08 2020 
+#&gt;   last date used was:  2020-09-25 
 #&gt;   call was: Arima_by_state(src = usd, MAorder = mb$opt["MAord"], ARorder = mb$opt["ARord"])
 #&gt;   Model estimates: 
 #&gt; Series: tsfull 
-#&gt; ARIMA(0,1,4) with drift 
+#&gt; ARIMA(4,1,2) with drift 
 #&gt; 
 #&gt; Coefficients:
-#&gt;           ma1     ma2      ma3     ma4   drift
-#&gt;       -0.8732  0.0900  -1.0407  0.8238  3.0929
-#&gt; s.e.   0.4779  0.1901   0.2268  0.5027  1.4361
+#&gt;           ar1     ar2      ar3      ar4      ma1      ma2   drift
+#&gt;       -0.4934  0.3428  -0.3592  -0.7097  -0.2163  -0.7837  4.4314
+#&gt; s.e.   0.1333  0.1537   0.1352   0.1180   0.2049   0.1849  1.5996
 #&gt; 
-#&gt; sigma^2 estimated as 8311:  log likelihood=-168.09
-#&gt; AIC=348.17   AICc=352.17   BIC=356.17
+#&gt; sigma^2 estimated as 7923:  log likelihood=-164.71
+#&gt; AIC=345.41   AICc=352.99   BIC=356.07
 #&gt; 
 #&gt; Training set error measures:
-#&gt;                     ME     RMSE      MAE       MPE     MAPE      MASE      ACF1
-#&gt; Training set -6.693907 81.18829 69.54736 -2.626735 10.10707 0.5680648 0.1621137</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>lkny2</span><span class='op'>)</span>
+#&gt;                     ME     RMSE      MAE       MPE     MAPE      MASE
+#&gt; Training set 0.3301003 75.74684 58.70927 -1.194518 8.266756 0.4951385
+#&gt;                    ACF1
+#&gt; Training set 0.05529935</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>lkny2</span><span class='op'>)</span>
 </div><div class='img'><img src='Arima_by_state-2.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
