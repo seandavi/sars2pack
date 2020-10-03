@@ -247,31 +247,31 @@ are those used here <a href='https://covid19.healthdata.org/projections'>https:/
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='va'>res</span> <span class='op'>=</span> <span class='fu'>healthdata_mobility_data</span><span class='op'>(</span><span class='op'>)</span>
 <span class='va'>res</span>
-</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 126,973 x 4</span><span>
+</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 128,219 x 4</span><span>
 #&gt;    mobility_data_type mobility_composite location_name date      
 #&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>                           </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>         </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>    
-#&gt; </span><span style='color: #555555;'> 1</span><span> observed                        -</span><span style='color: #BB0000;'>14.0</span><span> Global        2020-02-08
-#&gt; </span><span style='color: #555555;'> 2</span><span> observed                        -</span><span style='color: #BB0000;'>14.1</span><span> Global        2020-02-09
-#&gt; </span><span style='color: #555555;'> 3</span><span> observed                        -</span><span style='color: #BB0000;'>14.2</span><span> Global        2020-02-10
-#&gt; </span><span style='color: #555555;'> 4</span><span> observed                        -</span><span style='color: #BB0000;'>13.9</span><span> Global        2020-02-11
-#&gt; </span><span style='color: #555555;'> 5</span><span> observed                        -</span><span style='color: #BB0000;'>14.0</span><span> Global        2020-02-12
-#&gt; </span><span style='color: #555555;'> 6</span><span> observed                        -</span><span style='color: #BB0000;'>14.2</span><span> Global        2020-02-13
-#&gt; </span><span style='color: #555555;'> 7</span><span> observed                        -</span><span style='color: #BB0000;'>12.4</span><span> Global        2020-02-14
-#&gt; </span><span style='color: #555555;'> 8</span><span> observed                        -</span><span style='color: #BB0000;'>12.5</span><span> Global        2020-02-15
-#&gt; </span><span style='color: #555555;'> 9</span><span> observed                        -</span><span style='color: #BB0000;'>12.6</span><span> Global        2020-02-16
-#&gt; </span><span style='color: #555555;'>10</span><span> observed                        -</span><span style='color: #BB0000;'>12.6</span><span> Global        2020-02-17
-#&gt; </span><span style='color: #555555;'># … with 126,963 more rows</span><span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
+#&gt; </span><span style='color: #555555;'> 1</span><span> observed                        -</span><span style='color: #BB0000;'>23.7</span><span> Global        2020-02-08
+#&gt; </span><span style='color: #555555;'> 2</span><span> observed                        -</span><span style='color: #BB0000;'>23.9</span><span> Global        2020-02-09
+#&gt; </span><span style='color: #555555;'> 3</span><span> observed                        -</span><span style='color: #BB0000;'>23.9</span><span> Global        2020-02-10
+#&gt; </span><span style='color: #555555;'> 4</span><span> observed                        -</span><span style='color: #BB0000;'>23.4</span><span> Global        2020-02-11
+#&gt; </span><span style='color: #555555;'> 5</span><span> observed                        -</span><span style='color: #BB0000;'>23.5</span><span> Global        2020-02-12
+#&gt; </span><span style='color: #555555;'> 6</span><span> observed                        -</span><span style='color: #BB0000;'>23.2</span><span> Global        2020-02-13
+#&gt; </span><span style='color: #555555;'> 7</span><span> observed                        -</span><span style='color: #BB0000;'>21.3</span><span> Global        2020-02-14
+#&gt; </span><span style='color: #555555;'> 8</span><span> observed                        -</span><span style='color: #BB0000;'>21.4</span><span> Global        2020-02-15
+#&gt; </span><span style='color: #555555;'> 9</span><span> observed                        -</span><span style='color: #BB0000;'>21.3</span><span> Global        2020-02-16
+#&gt; </span><span style='color: #555555;'>10</span><span> observed                        -</span><span style='color: #BB0000;'>21.3</span><span> Global        2020-02-17
+#&gt; </span><span style='color: #555555;'># … with 128,209 more rows</span><span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;  mobility_data_type mobility_composite location_name           date           
-#&gt;  Length:126973      Min.   :-98.929    Length:126973      Min.   :2020-02-08  
-#&gt;  Class :character   1st Qu.:-39.220    Class :character   1st Qu.:2020-04-30  
-#&gt;  Mode  :character   Median :-20.262    Mode  :character   Median :2020-07-21  
-#&gt;                     Mean   :-24.656                       Mean   :2020-07-21  
-#&gt;                     3rd Qu.: -6.836                       3rd Qu.:2020-10-11  
-#&gt;                     Max.   : 99.813                       Max.   :2021-01-01  </div><div class='input'><span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://tibble.tidyverse.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Rows: 126,973
+#&gt;  Length:128219      Min.   :-91.612    Length:128219      Min.   :2020-02-08  
+#&gt;  Class :character   1st Qu.:-38.250    Class :character   1st Qu.:2020-04-30  
+#&gt;  Mode  :character   Median :-21.329    Mode  :character   Median :2020-07-21  
+#&gt;                     Mean   :-24.737                       Mean   :2020-07-21  
+#&gt;                     3rd Qu.: -8.082                       3rd Qu.:2020-10-11  
+#&gt;                     Max.   : 83.996                       Max.   :2021-01-01  </div><div class='input'><span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://tibble.tidyverse.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Rows: 128,219
 #&gt; Columns: 4
 #&gt; $ mobility_data_type </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "observed", "observed", "observed", "observed", "o…
-#&gt; $ mobility_composite </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> -13.971323, -14.129797, -14.202251, -13.861828, -1…
+#&gt; $ mobility_composite </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> -23.696790, -23.880826, -23.919561, -23.374468, -2…
 #&gt; $ location_name      </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Global", "Global", "Global", "Global", "Global", …
 #&gt; $ date               </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2020-02-08, 2020-02-09, 2020-02-10, 2020-02-11, 2…</div><div class='input'>
 </div></span></pre>
