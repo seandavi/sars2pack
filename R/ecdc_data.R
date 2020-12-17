@@ -73,7 +73,7 @@
 #' 
 #' @export
 ecdc_data <- function() {
-    fpath = s2p_cached_url('https://opendata.ecdc.europa.eu/covid19/casedistribution/csv')
+    fpath = s2p_cached_url('https://opendata.ecdc.europa.eu/covid19/casedistribution/csv/data.csv')
     ret = readr::read_csv(fpath, col_types=readr::cols())
     ret %>%
         dplyr::rename(c(date='dateRep',
@@ -81,12 +81,8 @@ ecdc_data <- function() {
                         iso2c='geoId',
                         iso3c='countryterritoryCode',
                         continent='continentExp',
-                        confirmed='cases',
                         population_2019='popData2019')) %>%
-        tidyr::pivot_longer(cols = .data$confirmed:.data$deaths,names_to='subset',values_to = 'count') %>%
-        dplyr::select(-c(.data$day,
-                         .data$month,
-                         .data$year)) %>%
+        tidyr::pivot_longer(cols = .data$cases_weekly:.data$deaths_weekly,names_to='subset',values_to = 'count') %>%
         dplyr::mutate(date=lubridate::dmy(.data$date)) %>%
         dplyr::group_by(.data$location_name,.data$subset) %>%
         dplyr::arrange(.data$date) %>%
