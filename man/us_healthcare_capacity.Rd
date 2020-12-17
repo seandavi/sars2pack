@@ -50,9 +50,6 @@ Other data-import:
 \code{\link{financial_times_excess_deaths}()},
 \code{\link{google_mobility_data}()},
 \code{\link{government_policy_timeline}()},
-\code{\link{healthdata_mobility_data}()},
-\code{\link{healthdata_projections_data}()},
-\code{\link{healthdata_testing_data}()},
 \code{\link{jhu_data}()},
 \code{\link{jhu_us_data}()},
 \code{\link{kff_icu_beds}()},
@@ -67,9 +64,6 @@ Other data-import:
 \code{\link{us_state_distancing_policy}()},
 \code{\link{usa_facts_data}()},
 \code{\link{who_cases}()}
-
-Other healthcare-system: 
-\code{\link{healthdata_projections_data}()}
 }
 \concept{data-import}
 \concept{healthcare-system}

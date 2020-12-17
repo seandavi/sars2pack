@@ -41,8 +41,10 @@ overlay of different R\link{t} fits for different serial interval modeling assum
 }
 \examples{
 # must run example(eesi, ask=FALSE)
+\dontrun{
 if (interactive()) {
  nytdat = nytimes_state_data()
  eesi(nytdat)
+}
 }
 }
