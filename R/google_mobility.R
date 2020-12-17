@@ -101,7 +101,7 @@ google_mobility_data <- function(accept_terms = TRUE) {
         admin_level[!is.na(admin2)] = 2
         admin_level
     }
-    dat = readr::read_csv(rpath, col_types = cols(), guess_max=200000)
+    dat = readr::read_csv(rpath, col_types = cols(), guess_max=3000000)
     dat %>%
         dplyr::rename(iso2c = .data$country_region_code,
                       admin1 = .data$sub_region_1,
