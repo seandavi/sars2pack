@@ -20,8 +20,11 @@
 #'
 #' @export
 available_datasets <- function() {
-    catalog = system.file('data_catalog/catalog.json',package='sars2pack')
-    res = jsonlite::fromJSON(catalog)
+    catalog = system.file('data_catalog/catalog.csv',package='sars2pack')
+    res = readr::read_csv(catalog,col_types = readr::cols()) %>% 
+      dplyr::mutate(data_type=strsplit(data_type,'\\|\\|')) %>%
+      dplyr::mutate(region=strsplit(region,'\\|\\|')) %>%
+      dplyr::mutate(resolution=strsplit(resolution,'\\|\\|'))
     class(res) = c('s2p_avail_datasets',class(res))
     res
 }
