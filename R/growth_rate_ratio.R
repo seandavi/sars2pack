@@ -26,7 +26,7 @@
 #'mgr = nyt %>% dplyr::pull(inc) %>% growth_rate_ratio()
 #'
 #' @export
-estimate_GR = function(v, Ws=3, Wl=7, smooth_window=7) {
+growth_rate_ratio = function(v, Ws=3, Wl=7, smooth_window=7) {
   v = zoo::rollmean(v,7,na.pad=TRUE,align='right')
   threeday = log(zoo::rollmean(v,3,na.pad=TRUE, align='right'))
   sevenday = log(zoo::rollmean(v,7,na.pad=TRUE, align='right'))
