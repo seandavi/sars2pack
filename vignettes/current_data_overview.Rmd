@@ -105,7 +105,10 @@ pop_data = us_population_details(year=2019,geography='state',product='population
 ## COVID positive test results by state
 
 ```{r}
+states_abbrev = c(state.abb,'DC')
+names(states_abbrev) = c(state.name,'District of Columbia')
 nyt = nytimes_state_data()
+nyt$state=states_abbrev[nyt$state]
 (nyt %>%
     dplyr::filter(subset=='confirmed') %>%
     add_incidence_column(grouping_columns = 'state', incidence_col_name = 'confirmed_cases') %>%
