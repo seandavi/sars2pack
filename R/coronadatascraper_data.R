@@ -34,9 +34,5 @@ coronadatascraper_data <- function() {
     url = 'https://coronadatascraper.com/timeseries.csv'
     rpath = s2p_cached_url(url)
     res = readr::read_csv(rpath, col_types = readr::cols(), guess_max = 500000)
-    if(require(sf)) {
-        res = sf::st_as_sf(res, coords = c("long", "lat"), 
-                           crs = 4326, agr = "constant")
-    }
     res
 }
