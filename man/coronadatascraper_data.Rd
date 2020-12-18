@@ -34,6 +34,7 @@ length(unique(res$country))
 \seealso{
 Other data-import: 
 \code{\link{acaps_government_measures_data}()},
+\code{\link{acaps_secondary_impact_date}()},
 \code{\link{apple_mobility_data}()},
 \code{\link{beoutbreakprepared_data}()},
 \code{\link{cdc_aggregated_projections}()},
