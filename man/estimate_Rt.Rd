@@ -131,7 +131,6 @@ Other case-tracking:
 \code{\link{coronadatascraper_data}()},
 \code{\link{covidtracker_data}()},
 \code{\link{ecdc_data}()},
-\code{\link{eu_data_cache_data}()},
 \code{\link{jhu_data}()},
 \code{\link{nytimes_county_data}()},
 \code{\link{owid_data}()},
