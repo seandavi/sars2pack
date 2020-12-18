@@ -21,7 +21,7 @@
 #' @examples 
 #' unemp = oecd_unemployment_data()
 #' unemp
-#' dplyr::glimpse(unemployment)
+#' dplyr::glimpse(unemp)
 #' summary(unemp)
 #' 
 #' 
