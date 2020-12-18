@@ -90,8 +90,7 @@ if(require(tidycensus)) {
 }
 \seealso{
 Other plotting: 
-\code{\link{align_to_baseline}()},
-\code{\link{plot_projection}()}
+\code{\link{align_to_baseline}()}
 
 Other case-tracking: 
 \code{\link{align_to_baseline}()},

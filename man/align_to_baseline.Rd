@@ -102,8 +102,7 @@ Other case-tracking:
 \code{\link{who_cases}()}
 
 Other plotting: 
-\code{\link{plot_epicurve}()},
-\code{\link{plot_projection}()}
+\code{\link{plot_epicurve}()}
 }
 \author{
 Sean Davis \href{mailto:seandavi@gmail.com}{seandavi@gmail.com}
