@@ -45,7 +45,7 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -64,6 +64,9 @@
     </li>
     <li>
       <a href="../articles/case_tracking.html">Case tracking datasets</a>
+    </li>
+    <li>
+      <a href="../articles/current_data_overview.html">COVID-19 Graphical Status Report</a>
     </li>
     <li>
       <a href="../articles/datasets.html">Overview of available datasets</a>
@@ -98,7 +101,7 @@
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="https://github.com/seandavi/sars2pack">
-    <span class="fa fa-github"></span>
+    <span class="fas fa-github"></span>
      
   </a>
 </li>
@@ -112,14 +115,14 @@
 
       
 
-      </header><div class="row">
+      </header><script src="more_visualization_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Visualizing geographic COVID-19 trends without maps</h1>
                         <h4 class="author">Joe A. Wasserman <a href="mailto:jwasserman@rti.org" class="email">jwasserman@rti.org</a> and Crystal T. Nguyen <a href="mailto:ctnguyen@rti.org" class="email">ctnguyen@rti.org</a>
 </h4>
             
-            <h4 class="date">October 05, 2020</h4>
+            <h4 class="date">December 18, 2020</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/seandavi/sars2pack/blob/master/vignettes/more_visualization.Rmd"><code>vignettes/more_visualization.Rmd</code></a></small>
       <div class="hidden name"><code>more_visualization.Rmd</code></div>
@@ -132,23 +135,23 @@
 <h1 class="hasAnchor">
 <a href="#visualizing-geographic-data-without-maps" class="anchor"></a>Visualizing geographic data without maps</h1>
 <p>You may have seen visualizations of COVID-19 cases plotted on a map. These maps often represent quantitative information either using color in proportion to values (these are called “choropleths”) or circle area proportional to values (these are called bubble plots). While visually striking, these maps are limited in terms of the amount of quantitative information they can communicate about regions. Here, we take a different approach that allows us to create basically any visual display of quantitative information and present it with an approximation of the geographic context.</p>
-<div class="sourceCode" id="cb1"><pre class="downlit">
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyr.tidyverse.org">tidyr</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://purrr.tidyverse.org">purrr</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://zoo.R-Forge.R-project.org/">zoo</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://plotly-r.com">plotly</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/hafen/geofacet">geofacet</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">sars2pack</span><span class="op">)</span></pre></div>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">sars2pack</span><span class="op">)</span></code></pre></div>
 <div id="prepping-the-data-from-sars2pack" class="section level2">
 <h2 class="hasAnchor">
 <a href="#prepping-the-data-from-sars2pack" class="anchor"></a>Prepping the data from sars2pack</h2>
 <p>Let’s start with US county-level data from JHU and state-level data from the COVID Tracking Project.</p>
-<div class="sourceCode" id="cb2"><pre class="downlit">
-<span class="va">cusa</span> <span class="op">=</span> <span class="fu"><a href="../reference/jhu_us_data.html">jhu_us_data</a></span><span class="op">(</span><span class="op">)</span>
-<span class="fu"><a href="https://tibble.tidyverse.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">cusa</span><span class="op">)</span></pre></div>
-<pre><code>## Rows: 1,710,080
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">cusa</span> <span class="op">=</span> <span class="fu"><a href="../reference/jhu_us_data.html">jhu_us_data</a></span><span class="op">(</span><span class="op">)</span>
+<span class="fu"><a href="https://tibble.tidyverse.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">cusa</span><span class="op">)</span></code></pre></div>
+<pre><code>## Rows: 2,204,400
 ## Columns: 15
 ## $ UID          &lt;dbl&gt; 84001001, 84001001, 84001001, 84001001, 84001001, 840010…
 ## $ iso2         &lt;chr&gt; "US", "US", "US", "US", "US", "US", "US", "US", "US", "U…
@@ -165,31 +168,31 @@
 ## $ date         &lt;date&gt; 2020-01-22, 2020-01-23, 2020-01-24, 2020-01-25, 2020-01…
 ## $ count        &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…
 ## $ subset       &lt;chr&gt; "confirmed", "confirmed", "confirmed", "confirmed", "con…</code></pre>
-<div class="sourceCode" id="cb4"><pre class="downlit">
-<span class="va">ctp</span> <span class="op">=</span> <span class="fu"><a href="../reference/covidtracker_data.html">covidtracker_data</a></span><span class="op">(</span><span class="op">)</span>
-<span class="fu"><a href="https://tibble.tidyverse.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">ctp</span><span class="op">)</span></pre></div>
-<pre><code>## Rows: 12,026
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">ctp</span> <span class="op">=</span> <span class="fu"><a href="../reference/covidtracker_data.html">covidtracker_data</a></span><span class="op">(</span><span class="op">)</span>
+<span class="fu"><a href="https://tibble.tidyverse.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">ctp</span><span class="op">)</span></code></pre></div>
+<pre><code>## Rows: 16,250
 ## Columns: 16
-## $ date                   &lt;date&gt; 2020-10-04, 2020-10-04, 2020-10-04, 2020-10-0…
+## $ date                   &lt;date&gt; 2020-12-17, 2020-12-17, 2020-12-17, 2020-12-1…
 ## $ fips                   &lt;chr&gt; "00002", "00001", "00005", "00060", "00004", "…
 ## $ state                  &lt;chr&gt; "AK", "AL", "AR", "AS", "AZ", "CA", "CO", "CT"…
-## $ positive               &lt;int&gt; 9376, 159169, 87013, 0, 220754, 823729, 72555,…
-## $ negative               &lt;int&gt; 467442, 1022073, 989037, 1616, 1280104, 143365…
-## $ death                  &lt;int&gt; 58, 2558, 1425, 0, 5706, 16120, 1968, 4513, 63…
-## $ pending                &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 4053, …
-## $ hospitalized           &lt;int&gt; NA, 17420, 5550, NA, 22294, NA, 7666, 11699, N…
-## $ hospitalizedCurrently  &lt;int&gt; 51, 757, 499, NA, 545, 3129, 296, 110, 95, 82,…
-## $ recovered              &lt;int&gt; 5281, 67948, 78358, NA, 35838, NA, 6609, 9408,…
-## $ inIcuCumulative        &lt;int&gt; NA, 1845, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
-## $ inIcuCurrently         &lt;int&gt; NA, NA, 228, NA, 133, 787, NA, NA, 29, 20, NA,…
-## $ onVentilatorCurrently  &lt;int&gt; 6, NA, 88, NA, 59, NA, NA, NA, 15, NA, NA, NA,…
-## $ onVentilatorCumulative &lt;int&gt; NA, 1046, 691, NA, NA, NA, NA, NA, NA, NA, NA,…
-## $ dateChecked            &lt;dttm&gt; 2020-10-04 03:59:00, 2020-10-04 11:00:00, 202…
-## $ dataQualityGrade       &lt;chr&gt; "A", "A", "A+", "D", "A+", "B", "A", "B", "A+"…</code></pre>
+## $ positive               &lt;int&gt; 41418, 310335, 194543, 0, 435036, 1723362, 300…
+## $ negative               &lt;int&gt; 1134305, 1499349, 1734262, 2140, 2165904, 2673…
+## $ death                  &lt;int&gt; 183, 4254, 3112, 0, 7677, 21860, 4226, 5552, 7…
+## $ pending                &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 6473, …
+## $ hospitalized           &lt;int&gt; 921, 29559, 10357, NA, 31851, NA, 16704, 12257…
+## $ hospitalizedCurrently  &lt;int&gt; 140, 2425, 1084, NA, 3884, 16426, 1509, 1205, …
+## $ recovered              &lt;int&gt; 7165, 183625, 169745, NA, 64500, NA, 15874, 98…
+## $ inIcuCumulative        &lt;int&gt; NA, 2383, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+## $ inIcuCurrently         &lt;int&gt; NA, NA, 374, NA, 899, 3392, NA, NA, 80, 58, NA…
+## $ onVentilatorCurrently  &lt;int&gt; 14, NA, 188, NA, 618, NA, NA, NA, 34, NA, NA, …
+## $ onVentilatorCumulative &lt;int&gt; NA, 1369, 1125, NA, NA, NA, NA, NA, NA, NA, NA…
+## $ dateChecked            &lt;dttm&gt; 2020-12-17 03:59:00, 2020-12-17 11:00:00, 202…
+## $ dataQualityGrade       &lt;chr&gt; "A", "A", "A+", "D", "A+", "B", "A", "C", "A+"…</code></pre>
 <p>We need to very lightly clean cumulative data that <em>should</em> be monotonically increasing day-over-day (but isn’t always) and convert it from cumulative values to daily incidents. The data are in different formats, so we’ll use slightly different data munging workflows.</p>
 <p>The JHU data don’t contain a value for every location-date-subset combination, so we need to fill in those gaps.</p>
-<div class="sourceCode" id="cb6"><pre class="downlit">
-<span class="va">iusa</span> <span class="op">&lt;-</span> <span class="va">cusa</span> <span class="op">%&gt;%</span> 
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">iusa</span> <span class="op">&lt;-</span> <span class="va">cusa</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">Combined_Key</span>, <span class="va">subset</span>, <span class="va">date</span><span class="op">)</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">Combined_Key</span>, <span class="va">subset</span><span class="op">)</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>count <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">pmin.int</a></span><span class="op">(</span><span class="va">count</span>, <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/lead-lag.html">lead</a></span><span class="op">(</span><span class="va">count</span>, order_by <span class="op">=</span> <span class="va">date</span><span class="op">)</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,
@@ -207,29 +210,29 @@
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">ungroup</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">date</span> <span class="op">&gt;=</span> <span class="st">"2020-03-15"</span>, <span class="va">iso2</span> <span class="op">==</span> <span class="st">"US"</span><span class="op">)</span>
 
-<span class="fu"><a href="https://tibble.tidyverse.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">iusa</span><span class="op">)</span></pre></div>
-<pre><code>## Rows: 1,444,548
+<span class="fu"><a href="https://tibble.tidyverse.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">iusa</span><span class="op">)</span></code></pre></div>
+<pre><code>## Rows: 1,968,362
 ## Columns: 17
 ## $ date         &lt;date&gt; 2020-03-15, 2020-03-15, 2020-03-15, 2020-03-15, 2020-03…
 ## $ subset       &lt;chr&gt; "confirmed", "confirmed", "confirmed", "confirmed", "con…
-## $ UID          &lt;dbl&gt; 84001001, 84001003, 84001005, 84001007, 84001007, 840010…
+## $ UID          &lt;dbl&gt; 84001001, 84001003, 84001005, 84001007, 84001009, 840010…
 ## $ iso2         &lt;chr&gt; "US", "US", "US", "US", "US", "US", "US", "US", "US", "U…
 ## $ iso3         &lt;chr&gt; "USA", "USA", "USA", "USA", "USA", "USA", "USA", "USA", …
 ## $ code3        &lt;dbl&gt; 840, 840, 840, 840, 840, 840, 840, 840, 840, 840, 840, 8…
-## $ fips         &lt;chr&gt; "01001", "01003", "01005", "01007", "01007", "01009", "0…
-## $ county       &lt;chr&gt; "Autauga", "Baldwin", "Barbour", "Bibb", "Bibb", "Blount…
+## $ fips         &lt;chr&gt; "01001", "01003", "01005", "01007", "01009", "01011", "0…
+## $ county       &lt;chr&gt; "Autauga", "Baldwin", "Barbour", "Bibb", "Blount", "Bull…
 ## $ state        &lt;chr&gt; "Alabama", "Alabama", "Alabama", "Alabama", "Alabama", "…
 ## $ country      &lt;chr&gt; "US", "US", "US", "US", "US", "US", "US", "US", "US", "U…
-## $ Lat          &lt;dbl&gt; 32.53953, 30.72775, 31.86826, 32.99642, 32.99642, 33.982…
-## $ Long         &lt;dbl&gt; -86.64408, -87.72207, -85.38713, -87.12511, -87.12511, -…
+## $ Lat          &lt;dbl&gt; 32.53953, 30.72775, 31.86826, 32.99642, 33.98211, 32.100…
+## $ Long         &lt;dbl&gt; -86.64408, -87.72207, -85.38713, -87.12511, -86.56791, -…
 ## $ Combined_Key &lt;chr&gt; "Autauga, Alabama, US", "Baldwin, Alabama, US", "Barbour…
 ## $ Population   &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
-## $ count        &lt;dbl&gt; 0, 1, 0, 0, NA, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
+## $ count        &lt;dbl&gt; 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…
 ## $ incidents    &lt;dbl&gt; 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…
 ## $ ma7          &lt;dbl&gt; 0.0000000, 0.1428571, 0.0000000, 0.0000000, 0.0000000, 0…</code></pre>
 <p>The COVID Tracking Project data doesn’t have a record for every location-date combination and can contain NA values, so we need to fill in the gaps and also transform it into long format for plotting</p>
-<div class="sourceCode" id="cb8"><pre class="downlit">
-<span class="va">US_states</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'AL'</span>, <span class="st">'AK'</span>, <span class="st">'AR'</span>, <span class="st">'AZ'</span>, <span class="st">'CA'</span>, <span class="st">'CO'</span>, <span class="st">'CT'</span>, <span class="st">'DC'</span>, <span class="st">'DE'</span>, <span class="st">'FL'</span>, <span class="st">'GA'</span>,
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">US_states</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'AL'</span>, <span class="st">'AK'</span>, <span class="st">'AR'</span>, <span class="st">'AZ'</span>, <span class="st">'CA'</span>, <span class="st">'CO'</span>, <span class="st">'CT'</span>, <span class="st">'DC'</span>, <span class="st">'DE'</span>, <span class="st">'FL'</span>, <span class="st">'GA'</span>,
                <span class="st">'HI'</span>, <span class="st">'IA'</span>, <span class="st">'ID'</span>, <span class="st">'IL'</span>, <span class="st">'IN'</span>, <span class="st">'KS'</span>, <span class="st">'KY'</span> ,<span class="st">'LA'</span>, <span class="st">'MA'</span>, <span class="st">'MD'</span>, <span class="st">'ME'</span>,
                <span class="st">'MI'</span>, <span class="st">'MN'</span>, <span class="st">'MO'</span>, <span class="st">'MS'</span>, <span class="st">'MT'</span>, <span class="st">'NC'</span>, <span class="st">'ND'</span>, <span class="st">'NE'</span>, <span class="st">'NH'</span>, <span class="st">'NJ'</span>, <span class="st">'NM'</span>,
                <span class="st">'NV'</span>, <span class="st">'NY'</span>, <span class="st">'OH'</span>, <span class="st">'OK'</span>, <span class="st">'OR'</span>, <span class="st">'PA'</span>, <span class="st">'RI'</span>, <span class="st">'SC'</span>, <span class="st">'SD'</span>, <span class="st">'TN'</span>, <span class="st">'TX'</span>,
@@ -254,17 +257,17 @@
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">ungroup</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">date</span> <span class="op">&gt;=</span> <span class="st">"2020-03-15"</span>, <span class="va">state</span> <span class="op">%in%</span> <span class="va">US_states</span><span class="op">)</span>
 
-<span class="fu"><a href="https://tibble.tidyverse.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">ictp</span><span class="op">)</span></pre></div>
-<pre><code>## Rows: 10,404
+<span class="fu"><a href="https://tibble.tidyverse.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">ictp</span><span class="op">)</span></code></pre></div>
+<pre><code>## Rows: 14,178
 ## Columns: 26
 ## $ date                   &lt;date&gt; 2020-03-15, 2020-03-15, 2020-03-15, 2020-03-1…
 ## $ state                  &lt;chr&gt; "AK", "AL", "AR", "AZ", "CA", "CO", "CT", "DC"…
 ## $ fips                   &lt;chr&gt; "00002", "00001", "00005", "00004", "00006", "…
-## $ positive               &lt;dbl&gt; 1, 12, 16, 12, 293, 131, 20, 16, 6, 116, 99, 2…
-## $ negative               &lt;dbl&gt; 143, 28, 103, 121, 916, 627, 125, 79, 36, 678,…
+## $ positive               &lt;dbl&gt; 0, 12, 16, 12, 293, 131, 20, 16, 6, 91, 99, 2,…
+## $ negative               &lt;dbl&gt; 144, 28, 103, 121, 916, 627, 125, 79, 36, 678,…
 ## $ death                  &lt;dbl&gt; 0, 0, 0, 0, 5, 1, 0, 0, 0, 4, 1, 0, 0, 0, 0, 0…
 ## $ pending                &lt;int&gt; NA, 46, 30, 50, NA, NA, NA, 20, 32, 454, NA, N…
-## $ hospitalized           &lt;int&gt; NA, NA, NA, 36, NA, NA, NA, NA, NA, NA, NA, NA…
+## $ hospitalized           &lt;int&gt; 1, NA, NA, 36, NA, NA, NA, NA, NA, NA, NA, NA,…
 ## $ hospitalizedCurrently  &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
 ## $ recovered              &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
 ## $ inIcuCumulative        &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
@@ -273,33 +276,33 @@
 ## $ onVentilatorCumulative &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
 ## $ dateChecked            &lt;dttm&gt; 2020-03-13 16:30:00, 2020-03-15 14:12:00, 202…
 ## $ dataQualityGrade       &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
-## $ positive_incidents     &lt;dbl&gt; NA, 6, 4, NA, 41, 30, 9, 6, NA, 39, 33, NA, 1,…
-## $ negative_incidents     &lt;dbl&gt; NA, 6, 38, NA, NA, 17, NA, 30, NA, 200, NA, NA…
+## $ positive_incidents     &lt;dbl&gt; NA, 6, 4, NA, 41, NA, 9, 6, NA, 40, 33, NA, 1,…
+## $ negative_incidents     &lt;dbl&gt; NA, 6, 38, NA, NA, NA, NA, 30, NA, 200, NA, NA…
 ## $ death_incidents        &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, 1, NA, NA,…
-## $ test_incidents         &lt;dbl&gt; NA, 12, 42, NA, 41, 47, 9, 36, NA, 239, 33, NA…
+## $ test_incidents         &lt;dbl&gt; NA, 12, 42, NA, 41, NA, 9, 36, NA, 240, 33, NA…
 ## $ pos_pct                &lt;dbl&gt; NaN, 0.50000000, 0.09523810, NaN, 1.00000000, …
-## $ positive_incidents_ma7 &lt;dbl&gt; 0.1428571, 1.7142857, 2.2857143, 1.0000000, 29…
-## $ negative_incidents_ma7 &lt;dbl&gt; 18.428571, 4.000000, 13.857143, 11.000000, 64.…
+## $ positive_incidents_ma7 &lt;dbl&gt; 0.0000000, 1.7142857, 2.2857143, 1.0000000, 29…
+## $ negative_incidents_ma7 &lt;dbl&gt; 18.571429, 4.000000, 13.857143, 11.000000, 64.…
 ## $ death_incidents_ma7    &lt;dbl&gt; 0.0000000, 0.0000000, 0.0000000, 0.0000000, 0.…
 ## $ test_incidents_ma7     &lt;dbl&gt; 18.5714286, 5.7142857, 16.1428571, 12.0000000,…
-## $ positive_pct_ma7       &lt;dbl&gt; 0.007692308, 0.300000000, 0.141592920, 0.08333…</code></pre>
+## $ positive_pct_ma7       &lt;dbl&gt; 0.00000000, 0.30000000, 0.14159292, 0.08333333…</code></pre>
 </div>
 <div id="plotting-one-geographic-unit-example-new-york-state" class="section level2">
 <h2 class="hasAnchor">
 <a href="#plotting-one-geographic-unit-example-new-york-state" class="anchor"></a>Plotting one geographic unit (example: New York state)</h2>
 <p>Before plotting, let’s customize the theme so we don’t have to do so repeatedly for ever plot.</p>
-<div class="sourceCode" id="cb10"><pre class="downlit">
-<span class="va">theme_light2</span> <span class="op">&lt;-</span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_light</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">theme_light2</span> <span class="op">&lt;-</span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_light</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>panel.border <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span>,
         panel.grid.major.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span>,
         panel.grid.minor <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span>,
         axis.text.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>angle <span class="op">=</span> <span class="op">-</span><span class="fl">90</span><span class="op">)</span>,
         strip.background <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span>,
         strip.text <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span>,
-        legend.position <span class="op">=</span> <span class="st">"bottom"</span><span class="op">)</span></pre></div>
+        legend.position <span class="op">=</span> <span class="st">"bottom"</span><span class="op">)</span></code></pre></div>
 <p>Let’s start by plotting confirmed positive cases and deaths in a single state. As you can see by the vertical bars, these data are fairly noisy. We also know that under-reporting is common around weekends. To address both of these issues, we include a line for rolling 7-day means. To facilitate interpretation, we include another line for the proportion of positive tests. Confirmed positive cases and COVID-19 deaths depend on testing–with insufficient tests, these numbers are under-counted. Heuristically, when 10% or fewer tests return positive, testing is considered sufficient.</p>
-<div class="sourceCode" id="cb11"><pre class="downlit">
-<span class="va">g</span> <span class="op">&lt;-</span> <span class="va">ictp</span> <span class="op">%&gt;%</span> 
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">g</span> <span class="op">&lt;-</span> <span class="va">ictp</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">state</span> <span class="op">==</span> <span class="st">"NY"</span><span class="op">)</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">date</span><span class="op">)</span><span class="op">)</span>
 
@@ -316,15 +319,15 @@
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_viridis.html">scale_fill_viridis_d</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_viridis.html">scale_color_viridis_d</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guides.html">guides</a></span><span class="op">(</span>alpha <span class="op">=</span> <span class="st">"none"</span>, fill <span class="op">=</span> <span class="st">"none"</span><span class="op">)</span> <span class="op">+</span>
-  <span class="va">theme_light2</span></pre></div>
+  <span class="va">theme_light2</span></code></pre></div>
 <p><img src="more_visualization_files/figure-html/plot%20WA-1.png" width="576" style="display: block; margin: auto;"></p>
 </div>
 <div id="plotting-multiple-geographic-units-example-all-us-states" class="section level2">
 <h2 class="hasAnchor">
 <a href="#plotting-multiple-geographic-units-example-all-us-states" class="anchor"></a>Plotting multiple geographic units (example: all US states)</h2>
 <p>Now let’s plot all US states (and DC) simultaneously. To situate these states in their approximate geographic context, we use the {geofacet} package. This package provides a convenient way to arrange small multiples in a grid that correspond to their relative geographic positions. Because these small multiples have less area than the single-state plot, we don’t include daily incidents and instead focus only on 7-day rolling averages.</p>
-<div class="sourceCode" id="cb12"><pre class="downlit">
-<span class="va">g_state</span> <span class="op">&lt;-</span> <span class="va">ictp</span> <span class="op">%&gt;%</span> 
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">g_state</span> <span class="op">&lt;-</span> <span class="va">ictp</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">date</span><span class="op">)</span><span class="op">)</span>
 
 <span class="va">g_state</span> <span class="op">+</span> 
@@ -341,15 +344,15 @@
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_viridis.html">scale_color_viridis_d</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guides.html">guides</a></span><span class="op">(</span>alpha <span class="op">=</span> <span class="st">"none"</span>, fill <span class="op">=</span> <span class="st">"none"</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">geofacet</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/geofacet/man/facet_geo.html">facet_geo</a></span><span class="op">(</span><span class="op">~</span> <span class="va">state</span>, label <span class="op">=</span> <span class="st">"state"</span>, move_axes <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span>
-  <span class="va">theme_light2</span></pre></div>
+  <span class="va">theme_light2</span></code></pre></div>
 <p><img src="more_visualization_files/figure-html/plot%20US%20states-1.png" width="1152" style="display: block; margin: auto;"></p>
 </div>
 <div id="plotting-multiple-geographic-units-example-all-washington-state-counties" class="section level2">
 <h2 class="hasAnchor">
 <a href="#plotting-multiple-geographic-units-example-all-washington-state-counties" class="anchor"></a>Plotting multiple geographic units (example: all Washington state counties)</h2>
 <p>We can do something similar at a county level within states using JHU data, which doesn’t include testing information. At the county level, the data are even noisier.</p>
-<div class="sourceCode" id="cb13"><pre class="downlit">
-<span class="va">g_wa</span> <span class="op">&lt;-</span> <span class="va">iusa</span> <span class="op">%&gt;%</span> 
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">g_wa</span> <span class="op">&lt;-</span> <span class="va">iusa</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">state</span> <span class="op">==</span> <span class="st">"Washington"</span><span class="op">)</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>code_fips <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/substr.html">substr</a></span><span class="op">(</span><span class="va">fips</span>, <span class="fl">3</span>, <span class="fl">5</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">date</span><span class="op">)</span><span class="op">)</span>
@@ -362,15 +365,15 @@
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_viridis.html">scale_fill_viridis_d</a></span><span class="op">(</span>direction <span class="op">=</span> <span class="op">-</span><span class="fl">1</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guides.html">guides</a></span><span class="op">(</span>alpha <span class="op">=</span> <span class="st">"none"</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://rdrr.io/pkg/geofacet/man/facet_geo.html">facet_geo</a></span><span class="op">(</span><span class="op">~</span> <span class="va">county</span>, grid <span class="op">=</span> <span class="st">"us_wa_counties_grid1"</span>, label <span class="op">=</span> <span class="st">"name"</span>, move_axes <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span>
-  <span class="va">theme_light2</span></pre></div>
+  <span class="va">theme_light2</span></code></pre></div>
 <p><img src="more_visualization_files/figure-html/plot%20WA%20counties-1.png" width="1056" style="display: block; margin: auto;"></p>
 </div>
 <div id="extending-geographic-facets-to-other-regions" class="section level2">
 <h2 class="hasAnchor">
 <a href="#extending-geographic-facets-to-other-regions" class="anchor"></a>Extending geographic facets to other regions</h2>
 <p>Many additional grids are built-in to {geofacet}.</p>
-<div class="sourceCode" id="cb14"><pre class="downlit">
-<span class="fu"><a href="https://rdrr.io/pkg/geofacet/man/get_grid_names.html">get_grid_names</a></span><span class="op">(</span><span class="op">)</span></pre></div>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/geofacet/man/get_grid_names.html">get_grid_names</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <pre><code>##   [1] "us_state_grid1"                           
 ##   [2] "us_state_grid2"                           
 ##   [3] "eu_grid1"                                 

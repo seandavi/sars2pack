@@ -90,7 +90,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -109,6 +109,9 @@
     </li>
     <li>
       <a href="../articles/case_tracking.html">Case tracking datasets</a>
+    </li>
+    <li>
+      <a href="../articles/current_data_overview.html">COVID-19 Graphical Status Report</a>
     </li>
     <li>
       <a href="../articles/datasets.html">Overview of available datasets</a>
@@ -143,7 +146,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/seandavi/sars2pack">
-    <span class="fa fa-github"></span>
+    <span class="fas fa-github"></span>
      
   </a>
 </li>
@@ -227,24 +230,26 @@ case the latest available date is used</p></td>
 <span class='va'>lkus</span> <span class='op'>=</span> <span class='fu'>Arima_nation</span><span class='op'>(</span><span class='va'>ej</span><span class='op'>)</span>
 <span class='va'>lkus</span>
 </div><div class='output co'>#&gt; Arima_sars2pack instance for USA 
-#&gt;   computed Mon Oct  5 03:55:36 2020 
-#&gt;   last date used was:  2020-10-03 
+#&gt;   computed Fri Dec 18 02:52:10 2020 
+#&gt;   last date used was:  2020-12-16 
 #&gt;   call was: Arima_nation(ejhu = ej)
 #&gt;   Model estimates: 
 #&gt; Series: tsfull 
 #&gt; ARIMA(0,1,2) with drift 
 #&gt; 
 #&gt; Coefficients:
-#&gt;           ma1      ma2     drift
-#&gt;       -0.5759  -0.4241  432.8718
-#&gt; s.e.   0.1846   0.1621  179.6536
+#&gt;           ma1      ma2      drift
+#&gt;       -0.7455  -0.2545  2180.4005
+#&gt; s.e.   0.2001   0.1646   661.7304
 #&gt; 
-#&gt; sigma^2 estimated as 38241595:  log likelihood=-284.02
-#&gt; AIC=576.03   AICc=577.77   BIC=581.36
+#&gt; sigma^2 estimated as 657566791:  log likelihood=-323.9
+#&gt; AIC=655.8   AICc=657.53   BIC=661.12
 #&gt; 
 #&gt; Training set error measures:
-#&gt;                     ME    RMSE      MAE       MPE     MAPE      MASE       ACF1
-#&gt; Training set -339.2848 5741.68 4369.073 -2.951042 11.34537 0.7098371 0.04483847</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>lkus</span><span class='op'>)</span>
+#&gt;                     ME     RMSE      MAE      MPE     MAPE      MASE
+#&gt; Training set -2268.885 23808.99 18748.49 -3.24743 10.82127 0.8369192
+#&gt;                     ACF1
+#&gt; Training set 0.002784988</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>lkus</span><span class='op'>)</span>
 </div><div class='img'><img src='Arima_nation-1.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

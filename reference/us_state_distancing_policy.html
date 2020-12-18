@@ -91,7 +91,7 @@ for states in the United States and District of Columbia." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -110,6 +110,9 @@ for states in the United States and District of Columbia." />
     </li>
     <li>
       <a href="../articles/case_tracking.html">Case tracking datasets</a>
+    </li>
+    <li>
+      <a href="../articles/current_data_overview.html">COVID-19 Graphical Status Report</a>
     </li>
     <li>
       <a href="../articles/datasets.html">Overview of available datasets</a>
@@ -144,7 +147,7 @@ for states in the United States and District of Columbia." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/seandavi/sars2pack">
-    <span class="fa fa-github"></span>
+    <span class="fas fa-github"></span>
      
   </a>
 </li>
@@ -211,9 +214,6 @@ for states in the United States and District of Columbia.</p>
 <code><a href='financial_times_excess_deaths.html'>financial_times_excess_deaths</a>()</code>,
 <code><a href='google_mobility_data.html'>google_mobility_data</a>()</code>,
 <code><a href='government_policy_timeline.html'>government_policy_timeline</a>()</code>,
-<code><a href='healthdata_mobility_data.html'>healthdata_mobility_data</a>()</code>,
-<code><a href='healthdata_projections_data.html'>healthdata_projections_data</a>()</code>,
-<code><a href='healthdata_testing_data.html'>healthdata_testing_data</a>()</code>,
 <code><a href='jhu_data.html'>jhu_data</a>()</code>,
 <code><a href='jhu_us_data.html'>jhu_us_data</a>()</code>,
 <code><a href='kff_icu_beds.html'>kff_icu_beds</a>()</code>,
@@ -238,122 +238,146 @@ for states in the United States and District of Columbia.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='va'>res</span> <span class='op'>=</span> <span class='fu'>us_state_distancing_policy</span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='warning'>Warning: Problem with `mutate()` input `DateEnacted`.</span>
-#&gt; <span class='warning'><span style='color: #0000BB;'>ℹ</span><span>  8 failed to parse.</span>
-#&gt; <span class='warning'></span><span style='color: #0000BB;'>ℹ</span><span> Input `DateEnacted` is `lubridate::ymd(DateEnacted)`.</span></div><div class='output co'>#&gt; <span class='warning'>Warning:  8 failed to parse.</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;  [1] "PID"                 "location_id"         "StateFIPS"          
-#&gt;  [4] "iso2c"               "state"               "StatePolicy"        
-#&gt;  [7] "Mandate"             "StateWide"           "SWGeo"              
-#&gt; [10] "SWPop"               "Encourages"          "InGathLim"          
-#&gt; [13] "OutGathLim"          "InGathLimReligious"  "OutGathLimReligious"
-#&gt; [16] "PublicMaskLevel"     "DateIssued"          "DateEnacted"        
-#&gt; [19] "DateExpiry"          "DateEnded"           "Extends"            
-#&gt; [22] "Expands"             "Eases"               "Ends"               
-#&gt; [25] "Depends"             "Joins"               "PolicyCodingNotes"  
-#&gt; [28] "PolicySource"        "PolicySourceID"      "LastUpdated"        
-#&gt; [31] "LastUpdatedNotes"    "UpdatingSource1"     "UpdatingSource2"    </div><div class='input'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://dplyr.tidyverse.org'>dplyr</a></span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='warning'>Warning: 1 parsing failure.</span>
+#&gt; <span class='warning'> row    col expected actual                                                                            file</span>
+#&gt; <span class='warning'>8800 Curfew a double  $0.00 '/tmp/RtmpVtFPvx/BiocFileCache/6bcbabf0f_USstatesCov19distancingpolicyBETA.csv'</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;  [1] "PID"                   "location_id"           "StateFIPS"            
+#&gt;  [4] "iso2c"                 "state"                 "StatePolicy"          
+#&gt;  [7] "Mandate"               "StateWide"             "SWGeo"                
+#&gt; [10] "SWPop"                 "Curfew"                "CurfewStart"          
+#&gt; [13] "CurfewEnd"             "InGathLim"             "OutGathLim"           
+#&gt; [16] "InGathLimReligious"    "OutGathLimReligious"   "BusinessRestrictLevel"
+#&gt; [19] "SchoolRestrictLevel"   "PublicMaskLevel"       "DateIssued"           
+#&gt; [22] "DateEnacted"           "DateExpiry"            "DateEnded"            
+#&gt; [25] "Extends"               "Expands"               "Eases"                
+#&gt; [28] "Ends"                  "Joins"                 "Leaves"               
+#&gt; [31] "AppliesTo"             "PolicyCodingNotes"     "PolicySource"         
+#&gt; [34] "PolicySourceID"        "LastUpdated"           "LastUpdatedNotes"     
+#&gt; [37] "ReReviewed"            "UpdatingSource1"       "UpdatingSource2"      </div><div class='input'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://dplyr.tidyverse.org'>dplyr</a></span><span class='op'>)</span>
 <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://tibble.tidyverse.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Rows: 6,259
-#&gt; Columns: 33
-#&gt; $ PID                 </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "AL0001", "AL0002", "AL0080", "AL0013", "AL0015",…
-#&gt; $ location_id         </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 523, 523, 523, 523, 523, 523, 523, 523, 523, 523,…
-#&gt; $ StateFIPS           </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "00001", "00001", "00001", "00001", "00001", "000…
-#&gt; $ iso2c               </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "AL", "AL", "AL", "AL", "AL", "AL", "AL", "AL", "…
-#&gt; $ state               </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Alabama", "Alabama", "Alabama", "Alabama", "Alab…
-#&gt; $ StatePolicy         </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "EmergDec", "SchoolClose", "BarRestrict", "GathRe…
-#&gt; $ Mandate             </span><span style='color: #555555;font-style: italic;'>&lt;lgl&gt;</span><span> TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, T…
-#&gt; $ StateWide           </span><span style='color: #555555;font-style: italic;'>&lt;lgl&gt;</span><span> TRUE, TRUE, FALSE, FALSE, FALSE, FALSE, TRUE, TRU…
-#&gt; $ SWGeo               </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…
-#&gt; $ SWPop               </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…
-#&gt; $ Encourages          </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
-#&gt; $ InGathLim           </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> NA, NA, NA, 25, NA, NA, NA, 25, NA, NA, NA, NA, 1…
-#&gt; $ OutGathLim          </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> NA, NA, NA, 25, NA, NA, NA, 25, NA, NA, NA, NA, 1…
-#&gt; $ InGathLimReligious  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> NA, NA, NA, 25, NA, NA, NA, 25, NA, NA, NA, NA, 1…
-#&gt; $ OutGathLimReligious </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> NA, NA, NA, 25, NA, NA, NA, 25, NA, NA, NA, NA, 1…
-#&gt; $ PublicMaskLevel     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
-#&gt; $ DateIssued          </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2020-03-13, 2020-03-13, 2020-03-17, 2020-03-17, …
-#&gt; $ DateEnacted         </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2020-03-13, 2020-03-19, 2020-03-17, 2020-03-17, …
-#&gt; $ DateExpiry          </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> NA, 2020-04-06, 2020-03-24, NA, 2020-03-24, 2020…
-#&gt; $ DateEnded           </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 2020-06-…
-#&gt; $ Extends             </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
-#&gt; $ Expands             </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> NA, NA, NA, NA, NA, NA, "AL0080", "AL0013", NA, "…
-#&gt; $ Eases               </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
-#&gt; $ Ends                </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
-#&gt; $ Depends             </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
-#&gt; $ Joins               </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
-#&gt; $ PolicyCodingNotes   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Public Health Emergency declared. No clear expir…
-#&gt; $ PolicySource        </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "https://governor.alabama.gov/assets/2020/03/2020…
-#&gt; $ PolicySourceID      </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Alabama0001", "Alabama0002", "Alabama0004", "Ala…
-#&gt; $ LastUpdated         </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2020-03-24, 2020-04-30, 2020-07-03, 2020-07-24, …
-#&gt; $ LastUpdatedNotes    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> NA, "Updated DateIssued to 20200313, DateEnacted …
-#&gt; $ UpdatingSource1     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "https://covid19.alaska.gov/health-mandates/", "h…
-#&gt; $ UpdatingSource2     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "https://www.alabamapublichealth.gov/legal/orders…</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Rows: 9,129
+#&gt; Columns: 39
+#&gt; $ PID                   <span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "AL0001", "AL0002", "AL0080", "AL0013", "AL0015…
+#&gt; $ location_id           </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 523, 523, 523, 523, 523, 523, 523, 523, 523, 52…
+#&gt; $ StateFIPS             </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "00001", "00001", "00001", "00001", "00001", "0…
+#&gt; $ iso2c                 </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "AL", "AL", "AL", "AL", "AL", "AL", "AL", "AL",…
+#&gt; $ state                 </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Alabama", "Alabama", "Alabama", "Alabama", "Al…
+#&gt; $ StatePolicy           </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "EmergDec", "SchoolClose", "BarRestrict", "Gath…
+#&gt; $ Mandate               </span><span style='color: #555555;font-style: italic;'>&lt;lgl&gt;</span><span> TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE,…
+#&gt; $ StateWide             </span><span style='color: #555555;font-style: italic;'>&lt;lgl&gt;</span><span> TRUE, TRUE, FALSE, FALSE, FALSE, FALSE, TRUE, T…
+#&gt; $ SWGeo                 </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…
+#&gt; $ SWPop                 </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…
+#&gt; $ Curfew                </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…
+#&gt; $ CurfewStart           </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+#&gt; $ CurfewEnd             </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+#&gt; $ InGathLim             </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> NA, NA, NA, 25, NA, NA, NA, 25, NA, NA, NA, NA,…
+#&gt; $ OutGathLim            </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> NA, NA, NA, 25, NA, NA, NA, 25, NA, NA, NA, NA,…
+#&gt; $ InGathLimReligious    </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> NA, NA, NA, 25, NA, NA, NA, 25, NA, NA, NA, NA,…
+#&gt; $ OutGathLimReligious   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> NA, NA, NA, 25, NA, NA, NA, 25, NA, NA, NA, NA,…
+#&gt; $ BusinessRestrictLevel </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+#&gt; $ SchoolRestrictLevel   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+#&gt; $ PublicMaskLevel       </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+#&gt; $ DateIssued            </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2020-03-13, 2020-03-13, 2020-03-17, 2020-03-17…
+#&gt; $ DateEnacted           </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2020-03-13, 2020-03-19, 2020-03-17, 2020-03-17…
+#&gt; $ DateExpiry            </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> NA, 2020-04-06, 2020-03-24, NA, 2020-03-24, 20…
+#&gt; $ DateEnded             </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 2020-0…
+#&gt; $ Extends               </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+#&gt; $ Expands               </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> NA, NA, NA, NA, NA, NA, "AL0080", "AL0013", NA,…
+#&gt; $ Eases                 </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+#&gt; $ Ends                  </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+#&gt; $ Joins                 </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+#&gt; $ Leaves                </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+#&gt; $ AppliesTo             </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+#&gt; $ PolicyCodingNotes     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Public Health Emergency declared. No clear exp…
+#&gt; $ PolicySource          </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "https://governor.alabama.gov/assets/2020/03/20…
+#&gt; $ PolicySourceID        </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Alabama0001", "Alabama0002", "Alabama0004", "A…
+#&gt; $ LastUpdated           </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2020-03-24, 2020-04-30, 2020-07-03, 2020-07-24…
+#&gt; $ LastUpdatedNotes      </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> NA, "Updated DateIssued to 20200313, DateEnacte…
+#&gt; $ ReReviewed            </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…
+#&gt; $ UpdatingSource1       </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "https://covid19.alaska.gov/health-mandates/", …
+#&gt; $ UpdatingSource2       </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "https://www.alabamapublichealth.gov/legal/orde…</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;      PID             location_id     StateFIPS            iso2c          
-#&gt;  Length:6259        Min.   :523.0   Length:6259        Length:6259       
-#&gt;  Class :character   1st Qu.:534.0   Class :character   Class :character  
-#&gt;  Mode  :character   Median :550.0   Mode  :character   Mode  :character  
-#&gt;                     Mean   :548.2                                        
+#&gt;  Length:9129        Min.   :523.0   Length:9129        Length:9129       
+#&gt;  Class :character   1st Qu.:533.0   Class :character   Class :character  
+#&gt;  Mode  :character   Median :547.0   Mode  :character   Mode  :character  
+#&gt;                     Mean   :547.8                                        
 #&gt;                     3rd Qu.:561.0                                        
-#&gt;                     Max.   :575.0                                        
-#&gt;                                                                          
+#&gt;                     Max.   :573.0                                        
+#&gt;                     NA's   :19                                           
 #&gt;     state           StatePolicy         Mandate        StateWide      
-#&gt;  Length:6259        Length:6259        Mode :logical   Mode :logical  
-#&gt;  Class :character   Class :character   FALSE:651       FALSE:1846     
-#&gt;  Mode  :character   Mode  :character   TRUE :5607      TRUE :4412     
-#&gt;                                        NA's :1         NA's :1        
+#&gt;  Length:9129        Length:9129        Mode :logical   Mode :logical  
+#&gt;  Class :character   Class :character   FALSE:630       FALSE:3081     
+#&gt;  Mode  :character   Mode  :character   TRUE :8479      TRUE :6028     
+#&gt;                                        NA's :20        NA's :20       
 #&gt;                                                                       
 #&gt;                                                                       
 #&gt;                                                                       
-#&gt;      SWGeo            SWPop          Encourages     InGathLim      
-#&gt;  Min.   :0.0000   Min.   :0.0000   Min.   :1      Min.   :    0.0  
-#&gt;  1st Qu.:0.0000   1st Qu.:1.0000   1st Qu.:1      1st Qu.:   10.0  
-#&gt;  Median :1.0000   Median :1.0000   Median :1      Median :   10.0  
-#&gt;  Mean   :0.7261   Mean   :0.9764   Mean   :1      Mean   :  139.1  
-#&gt;  3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1      3rd Qu.:   50.0  
-#&gt;  Max.   :1.0000   Max.   :1.0000   Max.   :1      Max.   :10000.0  
-#&gt;  NA's   :1        NA's   :1        NA's   :6190   NA's   :5627     
-#&gt;    OutGathLim      InGathLimReligious OutGathLimReligious PublicMaskLevel   
-#&gt;  Min.   :    0.0   Min.   :   0.00    Min.   :   0.00     Length:6259       
-#&gt;  1st Qu.:   10.0   1st Qu.:  10.00    1st Qu.:  10.00     Class :character  
-#&gt;  Median :   20.0   Median :  25.00    Median :  25.00     Mode  :character  
-#&gt;  Mean   :  149.7   Mean   :  64.34    Mean   :  62.42                       
-#&gt;  3rd Qu.:   50.0   3rd Qu.:  50.00    3rd Qu.:  50.00                       
-#&gt;  Max.   :10000.0   Max.   :1000.00    Max.   :1000.00                       
-#&gt;  NA's   :5628      NA's   :5821       NA's   :5851                          
-#&gt;    DateIssued          DateEnacted           DateExpiry        
-#&gt;  Min.   :2020-02-29   Min.   :2020-02-29   Min.   :2020-03-21  
-#&gt;  1st Qu.:2020-05-04   1st Qu.:2020-05-07   1st Qu.:2020-05-19  
-#&gt;  Median :2020-06-09   Median :2020-06-10   Median :2020-07-01  
-#&gt;  Mean   :2020-06-12   Mean   :2020-06-13   Mean   :2020-07-04  
-#&gt;  3rd Qu.:2020-07-24   3rd Qu.:2020-07-24   3rd Qu.:2020-08-16  
-#&gt;  Max.   :2020-09-30   Max.   :2020-10-02   Max.   :2021-06-30  
-#&gt;                       NA's   :8            NA's   :2332        
-#&gt;    DateEnded            Extends            Expands             Eases          
-#&gt;  Min.   :2020-04-24   Length:6259        Length:6259        Length:6259       
-#&gt;  1st Qu.:2020-06-01   Class :character   Class :character   Class :character  
-#&gt;  Median :2020-06-26   Mode  :character   Mode  :character   Mode  :character  
-#&gt;  Mean   :2020-07-12                                                           
-#&gt;  3rd Qu.:2020-09-14                                                           
-#&gt;  Max.   :2020-09-26                                                           
-#&gt;  NA's   :5445                                                                 
-#&gt;      Ends             Depends             Joins           PolicyCodingNotes 
-#&gt;  Length:6259        Length:6259        Length:6259        Length:6259       
+#&gt;      SWGeo            SWPop            Curfew        CurfewStart       
+#&gt;  Min.   :0.0000   Min.   :0.0000   Min.   :0.00000   Length:9129       
+#&gt;  1st Qu.:0.0000   1st Qu.:1.0000   1st Qu.:0.00000   Class :character  
+#&gt;  Median :1.0000   Median :1.0000   Median :0.00000   Mode  :character  
+#&gt;  Mean   :0.6809   Mean   :0.9791   Mean   :0.01636                     
+#&gt;  3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:0.00000                     
+#&gt;  Max.   :1.0000   Max.   :1.0000   Max.   :1.00000                     
+#&gt;  NA's   :20       NA's   :20       NA's   :21                          
+#&gt;   CurfewEnd           InGathLim         OutGathLim      InGathLimReligious
+#&gt;  Length:9129        Min.   :    0.0   Min.   :    0.0   Min.   :   0.0    
+#&gt;  Class :character   1st Qu.:   10.0   1st Qu.:   10.0   1st Qu.:  10.0    
+#&gt;  Mode  :character   Median :   10.0   Median :   20.0   Median :  25.0    
+#&gt;                     Mean   :  124.2   Mean   :  141.8   Mean   :  75.5    
+#&gt;                     3rd Qu.:   50.0   3rd Qu.:   50.0   3rd Qu.: 100.0    
+#&gt;                     Max.   :10000.0   Max.   :10000.0   Max.   :3750.0    
+#&gt;                     NA's   :8067      NA's   :8069      NA's   :8500      
+#&gt;  OutGathLimReligious BusinessRestrictLevel SchoolRestrictLevel
+#&gt;  Min.   :   0.0      Length:9129           Length:9129        
+#&gt;  1st Qu.:  10.0      Class :character      Class :character   
+#&gt;  Median :  25.0      Mode  :character      Mode  :character   
+#&gt;  Mean   :  85.1                                               
+#&gt;  3rd Qu.: 100.0                                               
+#&gt;  Max.   :7500.0                                               
+#&gt;  NA's   :8668                                                 
+#&gt;  PublicMaskLevel      DateIssued          DateEnacted        
+#&gt;  Length:9129        Min.   :2020-02-29   Min.   :2020-02-29  
+#&gt;  Class :character   1st Qu.:2020-05-18   1st Qu.:2020-05-20  
+#&gt;  Mode  :character   Median :2020-07-10   Median :2020-07-08  
+#&gt;                     Mean   :2020-07-22   Mean   :2020-07-23  
+#&gt;                     3rd Qu.:2020-10-06   3rd Qu.:2020-10-06  
+#&gt;                     Max.   :2020-12-16   Max.   :2021-01-07  
+#&gt;                     NA's   :19           NA's   :19          
+#&gt;    DateExpiry           DateEnded            Extends         
+#&gt;  Min.   :2020-03-21   Min.   :2020-04-24   Length:9129       
+#&gt;  1st Qu.:2020-05-31   1st Qu.:2020-05-29   Class :character  
+#&gt;  Median :2020-08-01   Median :2020-07-01   Mode  :character  
+#&gt;  Mean   :2020-08-15   Mean   :2020-07-17                     
+#&gt;  3rd Qu.:2020-11-05   3rd Qu.:2020-09-14                     
+#&gt;  Max.   :2021-06-30   Max.   :2020-11-24                     
+#&gt;  NA's   :3012         NA's   :8213                           
+#&gt;    Expands             Eases               Ends              Joins          
+#&gt;  Length:9129        Length:9129        Length:9129        Length:9129       
 #&gt;  Class :character   Class :character   Class :character   Class :character  
 #&gt;  Mode  :character   Mode  :character   Mode  :character   Mode  :character  
 #&gt;                                                                             
 #&gt;                                                                             
 #&gt;                                                                             
 #&gt;                                                                             
-#&gt;  PolicySource       PolicySourceID      LastUpdated         LastUpdatedNotes  
-#&gt;  Length:6259        Length:6259        Min.   :2020-03-24   Length:6259       
-#&gt;  Class :character   Class :character   1st Qu.:2020-06-24   Class :character  
-#&gt;  Mode  :character   Mode  :character   Median :2020-07-24   Mode  :character  
-#&gt;                                        Mean   :2020-07-20                     
-#&gt;                                        3rd Qu.:2020-08-28                     
-#&gt;                                        Max.   :2020-09-30                     
-#&gt;                                                                               
+#&gt;     Leaves           AppliesTo         PolicyCodingNotes  PolicySource      
+#&gt;  Length:9129        Length:9129        Length:9129        Length:9129       
+#&gt;  Class :character   Class :character   Class :character   Class :character  
+#&gt;  Mode  :character   Mode  :character   Mode  :character   Mode  :character  
+#&gt;                                                                             
+#&gt;                                                                             
+#&gt;                                                                             
+#&gt;                                                                             
+#&gt;  PolicySourceID      LastUpdated         LastUpdatedNotes     ReReviewed    
+#&gt;  Length:9129        Min.   :2020-03-24   Length:9129        Min.   :0.0000  
+#&gt;  Class :character   1st Qu.:2020-09-16   Class :character   1st Qu.:0.0000  
+#&gt;  Mode  :character   Median :2020-11-15   Mode  :character   Median :1.0000  
+#&gt;                     Mean   :2020-10-15                      Mean   :0.6299  
+#&gt;                     3rd Qu.:2020-11-28                      3rd Qu.:1.0000  
+#&gt;                     Max.   :2020-12-16                      Max.   :1.0000  
+#&gt;                     NA's   :19                              NA's   :19      
 #&gt;  UpdatingSource1    UpdatingSource2   
-#&gt;  Length:6259        Length:6259       
+#&gt;  Length:9129        Length:9129       
 #&gt;  Class :character   Class :character  
 #&gt;  Mode  :character   Mode  :character  
 #&gt;                                       

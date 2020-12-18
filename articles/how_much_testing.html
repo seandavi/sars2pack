@@ -45,7 +45,7 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -64,6 +64,9 @@
     </li>
     <li>
       <a href="../articles/case_tracking.html">Case tracking datasets</a>
+    </li>
+    <li>
+      <a href="../articles/current_data_overview.html">COVID-19 Graphical Status Report</a>
     </li>
     <li>
       <a href="../articles/datasets.html">Overview of available datasets</a>
@@ -98,7 +101,7 @@
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="https://github.com/seandavi/sars2pack">
-    <span class="fa fa-github"></span>
+    <span class="fas fa-github"></span>
      
   </a>
 </li>
@@ -112,14 +115,14 @@
 
       
 
-      </header><div class="row">
+      </header><script src="how_much_testing_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>HMTPlot: How much testing</h1>
                         <h4 class="author">Vincent J. Carey, Brigham and Womens Hospital, Harvard Medical School, Boston, MA</h4>
                         <h4 class="author">Sean R. Davis<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>, Center for Cancer Research, National Cancer Institute, National Institutes of Health, Bethesda, USA</h4>
             
-            <h4 class="date">Oct 05, 2020</h4>
+            <h4 class="date">Dec 18, 2020</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/seandavi/sars2pack/blob/master/vignettes/how_much_testing.Rmd"><code>vignettes/how_much_testing.Rmd</code></a></small>
       <div class="hidden name"><code>how_much_testing.Rmd</code></div>
@@ -135,8 +138,8 @@
 <h2 class="hasAnchor">
 <a href="#outline-of-the-problem" class="anchor"></a>Outline of the problem</h2>
 <p>The COVID-19 pandemic has disrupted daily life throughout the world. Without a vaccine to confer immunity and lacking effective therapies once infected, public health measures such as social distancing, contact tracing, and case surveillance rule the day with respect to mitigating impacts of the disease on communities. As individual countries emerge from variable levels of lockdown, community testing to detect cases as quickly and thoroughly as possible is a recognized component of controlling the pandemic.</p>
-<p>There is considerable agreement that widespread testing is a required component of moving beyond stay-at-home orders. The World Health Organization (WHO) has highlighted the need for extensive and widespread testing. Tedros Ghebreyesus, the chief executive of WHO, has suggested “You cannot fight a fire blindfolded. Our key message is test, test, test” <span class="citation">(World Health Organization <a href="#ref-who-bh">2020</a>)</span>. Robert Gallo, director of the Institute of Human Virology at the University of Maryland School of Medicine “is absolutely essential to control the epidemic” <span class="citation">(Brumfiel <a href="#ref-Brumfiel2020-qe">2020</a>)</span>. Emily Gurley, an associate scientist at the Johns Hopkins Bloomberg School of Public Health told NPR <span class="citation">(Brumfiel <a href="#ref-Brumfiel2020-qe">2020</a>)</span>, “Everyone staying home is just a very blunt measure. That’s what you say when you’ve got really nothing else. Being able to test folks is really the linchpin in getting beyond what we’re doing now.” Philip J. Rosenthal describes how early application of diagnostic testing lead to strong disease control in some countries <span class="citation">(Rosenthal <a href="#ref-Rosenthal2020-zs">2020</a>)</span>.</p>
-<p>So, how much testing is enough? Michael Ryan, executive director of the WHO Health Emergencies Program suggests that, “We would certainly like to see countries testing at the level of ten negative tests to one positive, as a general benchmark of a system that’s doing enough testing to pick up all cases.” <span class="citation">(Huang <a href="#ref-Huang2020-iz">2020</a>)</span> For particularly high-risk communities such as the elderly or those who are expected to come into contact with others regularly, aiming for a much lower proportion of positive test results is appropriate so as to capture the highest possible proportion of infected and infectious individuals.</p>
+<p>There is considerable agreement that widespread testing is a required component of moving beyond stay-at-home orders. The World Health Organization (WHO) has highlighted the need for extensive and widespread testing. Tedros Ghebreyesus, the chief executive of WHO, has suggested “You cannot fight a fire blindfolded. Our key message is test, test, test” <span class="citation">(World Health Organization <a href="#ref-who-bh" role="doc-biblioref">2020</a>)</span>. Robert Gallo, director of the Institute of Human Virology at the University of Maryland School of Medicine “is absolutely essential to control the epidemic” <span class="citation">(Brumfiel <a href="#ref-Brumfiel2020-qe" role="doc-biblioref">2020</a>)</span>. Emily Gurley, an associate scientist at the Johns Hopkins Bloomberg School of Public Health told NPR <span class="citation">(Brumfiel <a href="#ref-Brumfiel2020-qe" role="doc-biblioref">2020</a>)</span>, “Everyone staying home is just a very blunt measure. That’s what you say when you’ve got really nothing else. Being able to test folks is really the linchpin in getting beyond what we’re doing now.” Philip J. Rosenthal describes how early application of diagnostic testing lead to strong disease control in some countries <span class="citation">(Rosenthal <a href="#ref-Rosenthal2020-zs" role="doc-biblioref">2020</a>)</span>.</p>
+<p>So, how much testing is enough? Michael Ryan, executive director of the WHO Health Emergencies Program suggests that, “We would certainly like to see countries testing at the level of ten negative tests to one positive, as a general benchmark of a system that’s doing enough testing to pick up all cases.” <span class="citation">(Huang <a href="#ref-Huang2020-iz" role="doc-biblioref">2020</a>)</span> For particularly high-risk communities such as the elderly or those who are expected to come into contact with others regularly, aiming for a much lower proportion of positive test results is appropriate so as to capture the highest possible proportion of infected and infectious individuals.</p>
 <p>Here, we present an intuitive and principled approach to visualizing comparative testing data for multiple geographic areas that visually presents:</p>
 <ul>
 <li>Quantity of testing across several orders-of-magnitude</li>
@@ -149,7 +152,7 @@
 <div id="motivation-for-visualization" class="section level2">
 <h2 class="hasAnchor">
 <a href="#motivation-for-visualization" class="anchor"></a>Motivation for visualization</h2>
-<p>We collected longitudinal testing datasets from Our World in Data (OWID) <span class="citation">(Max Roser and Hasell <a href="#ref-owidcoronavirus">2020</a>)</span> and the COVID Tracking Project (covidtracking) <span class="citation">(The COVID Tracking Project <a href="#ref-covidtracking-vg">2020</a>)</span> as provided by the R package, <code>sars2pack</code> <span class="citation">(Carey and Davis <a href="#ref-sars2pack-cx">2020</a>)</span>. The OWID collection tracks glogal test reporting at the national level, though test reporting level (sample, person, case, etc.) varies somewhat by country. The covidtracking resource tracks state-level testing in the United States, again with various definitions for what constitutes a test.</p>
+<p>We collected longitudinal testing datasets from Our World in Data (OWID) <span class="citation">(Max Roser and Hasell <a href="#ref-owidcoronavirus" role="doc-biblioref">2020</a>)</span> and the COVID Tracking Project (covidtracking) <span class="citation">(The COVID Tracking Project <a href="#ref-covidtracking-vg" role="doc-biblioref">2020</a>)</span> as provided by the R package, <code>sars2pack</code> <span class="citation">(Carey and Davis <a href="#ref-sars2pack-cx" role="doc-biblioref">2020</a>)</span>. The OWID collection tracks glogal test reporting at the national level, though test reporting level (sample, person, case, etc.) varies somewhat by country. The covidtracking resource tracks state-level testing in the United States, again with various definitions for what constitutes a test.</p>
 <p>Each dataset is composed of one row per observation:</p>
 <ul>
 <li>Location</li>
@@ -157,7 +160,7 @@
 <li>Total tests performed</li>
 <li>Date (in one-day increments)</li>
 </ul>
-<p>One path of evolution for visualization approach is given in Figure @ref(fig:priorApproach) with a representative subset of states in the United States over 28 days ending 2020-10-05. Figure @ref(fig:priorApproach)A depicts the proportion of positive tests on one day but does not provide any visual prompt of size of testing efforts. Figure @ref(fig:priorApproach)B uses a scatterplot approach where the threshold for positive tests is a line. Let <span class="math inline">\(y\)</span> be the number of positive tests and <span class="math inline">\(x\)</span> be the total number of tests.</p>
+<p>One path of evolution for visualization approach is given in Figure @ref(fig:priorApproach) with a representative subset of states in the United States over 28 days ending 2020-12-18. Figure @ref(fig:priorApproach)A depicts the proportion of positive tests on one day but does not provide any visual prompt of size of testing efforts. Figure @ref(fig:priorApproach)B uses a scatterplot approach where the threshold for positive tests is a line. Let <span class="math inline">\(y\)</span> be the number of positive tests and <span class="math inline">\(x\)</span> be the total number of tests.</p>
 <p><span class="math display">\[\begin{equation}
 y = mx + b
 \end{equation}\]</span></p>
@@ -166,8 +169,8 @@ y = mx + b
 \log_{10} y = \log_{10} x + \log_{10} m
 \]</span></p>
 <div class="figure">
-<img src="how_much_testing_files/figure-html/priorApproach-1.png" alt="Testing and proportion of positive tests for several states in the United States over the past 28 days (2020-09-07 to 2020-10-05). Included in all panels for orientation, dashed line represents 10 threshold for positive tests and dotted line represents 20. Bar chart of proportion of positive tests at a single time point on the last day of the 28-day window (A) gives no sense of number of tests performed. Positive tests vs total number of tests (B) is hard to interpret near the origin. A log-log plot of positive tests vs total tests (C) deals with visualizing more clearly, but note that .... " width="700"><p class="caption">
-Testing and proportion of positive tests for several states in the United States over the past 28 days (2020-09-07 to 2020-10-05). Included in all panels for orientation, dashed line represents 10 threshold for positive tests and dotted line represents 20. Bar chart of proportion of positive tests at a single time point on the last day of the 28-day window (A) gives no sense of number of tests performed. Positive tests vs total number of tests (B) is hard to interpret near the origin. A log-log plot of positive tests vs total tests (C) deals with visualizing more clearly, but note that ….
+<img src="how_much_testing_files/figure-html/priorApproach-1.png" alt="Testing and proportion of positive tests for several states in the United States over the past 28 days (2020-11-20 to 2020-12-18). Included in all panels for orientation, dashed line represents 10 threshold for positive tests and dotted line represents 20. Bar chart of proportion of positive tests at a single time point on the last day of the 28-day window (A) gives no sense of number of tests performed. Positive tests vs total number of tests (B) is hard to interpret near the origin. A log-log plot of positive tests vs total tests (C) deals with visualizing more clearly, but note that .... " width="700"><p class="caption">
+Testing and proportion of positive tests for several states in the United States over the past 28 days (2020-11-20 to 2020-12-18). Included in all panels for orientation, dashed line represents 10 threshold for positive tests and dotted line represents 20. Bar chart of proportion of positive tests at a single time point on the last day of the 28-day window (A) gives no sense of number of tests performed. Positive tests vs total number of tests (B) is hard to interpret near the origin. A log-log plot of positive tests vs total tests (C) deals with visualizing more clearly, but note that ….
 </p>
 </div>
 <p><span class="math display">\[\begin{equation}
@@ -225,7 +228,7 @@ Worldwide testing results.
 <div class="footnotes">
 <hr>
 <ol>
-<li id="fn1"><p><a href="mailto:seandavi@gmail.com" class="email">seandavi@gmail.com</a><a href="#fnref1" class="footnote-back">↩</a></p></li>
+<li id="fn1"><p><a href="mailto:seandavi@gmail.com" class="email">seandavi@gmail.com</a><a href="#fnref1" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
   </div>

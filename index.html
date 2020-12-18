@@ -45,7 +45,7 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -64,6 +64,9 @@
     </li>
     <li>
       <a href="articles/case_tracking.html">Case tracking datasets</a>
+    </li>
+    <li>
+      <a href="articles/current_data_overview.html">COVID-19 Graphical Status Report</a>
     </li>
     <li>
       <a href="articles/datasets.html">Overview of available datasets</a>
@@ -98,7 +101,7 @@
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="https://github.com/seandavi/sars2pack">
-    <span class="fa fa-github"></span>
+    <span class="fas fa-github"></span>
      
   </a>
 </li>
@@ -133,13 +136,13 @@
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode R"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># If you do not have BiocManager installed:</span></a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">install.packages</span>(<span class="st">'BiocManager'</span>)</a>
-<a class="sourceLine" id="cb1-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="co"># Then, if sars2pack is not already installed:</span></a>
-<a class="sourceLine" id="cb1-5" data-line-number="5">BiocManager<span class="op">::</span><span class="kw">install</span>(<span class="st">'seandavi/sars2pack'</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># If you do not have BiocManager installed:</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="kw">install.packages</span>(<span class="st">'BiocManager'</span>)</span>
+<span id="cb1-3"><a href="#cb1-3"></a></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="co"># Then, if sars2pack is not already installed:</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a>BiocManager<span class="op">::</span><span class="kw">install</span>(<span class="st">'seandavi/sars2pack'</span>)</span></code></pre></div>
 <p>After the one-time installation, load the packge to get started.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode R"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">library</span>(sars2pack)</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">library</span>(sars2pack)</span></code></pre></div>
 </div>
 <div id="available-datasets" class="section level2">
 <h2 class="hasAnchor">
@@ -1090,33 +1093,33 @@ admin1
 <a href="#case-tracking" class="anchor"></a>Case tracking</h2>
 <p>Updated tracking of city, county, state, national, and international confirmed cases, deaths, and testing is critical to driving policy, implementing interventions, and measuring their effectiveness. Case tracking datasets include date, a count of cases, and usually numerous other pieces of information related to location of reporting, etc.</p>
 <p>Accessing case-tracking datasets is typically done with one function per dataset. The example here is data from the European Centers for Disease Control, or ECDC.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode R"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">ecdc =<span class="st"> </span><span class="kw">ecdc_data</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>ecdc =<span class="st"> </span><span class="kw">ecdc_data</span>()</span></code></pre></div>
 <p>Get a quick overview of the dataset.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">head</span>(ecdc)</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="co">## # A tibble: 6 x 8</span></a>
-<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="co">## # Groups:   location_name, subset [6]</span></a>
-<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="co">##   date       location_name iso2c iso3c population_2019 continent subset    count</span></a>
-<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="co">##   &lt;date&gt;     &lt;chr&gt;         &lt;chr&gt; &lt;chr&gt;           &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;     &lt;dbl&gt;</span></a>
-<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="co">## 1 2019-12-31 Afghanistan   AF    AFG          38041757 Asia      confirmed     0</span></a>
-<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="co">## 2 2019-12-31 Afghanistan   AF    AFG          38041757 Asia      deaths        0</span></a>
-<a class="sourceLine" id="cb4-9" data-line-number="9"><span class="co">## 3 2019-12-31 Algeria       DZ    DZA          43053054 Africa    confirmed     0</span></a>
-<a class="sourceLine" id="cb4-10" data-line-number="10"><span class="co">## 4 2019-12-31 Algeria       DZ    DZA          43053054 Africa    deaths        0</span></a>
-<a class="sourceLine" id="cb4-11" data-line-number="11"><span class="co">## 5 2019-12-31 Armenia       AM    ARM           2957728 Europe    confirmed     0</span></a>
-<a class="sourceLine" id="cb4-12" data-line-number="12"><span class="co">## 6 2019-12-31 Armenia       AM    ARM           2957728 Europe    deaths        0</span></a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">head</span>(ecdc)</span>
+<span id="cb4-2"><a href="#cb4-2"></a></span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="co">## # A tibble: 6 x 8</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="co">## # Groups:   location_name, subset [6]</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a><span class="co">##   date       location_name iso2c iso3c population_2019 continent subset    count</span></span>
+<span id="cb4-6"><a href="#cb4-6"></a><span class="co">##   &lt;date&gt;     &lt;chr&gt;         &lt;chr&gt; &lt;chr&gt;           &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;     &lt;dbl&gt;</span></span>
+<span id="cb4-7"><a href="#cb4-7"></a><span class="co">## 1 2019-12-31 Afghanistan   AF    AFG          38041757 Asia      confirmed     0</span></span>
+<span id="cb4-8"><a href="#cb4-8"></a><span class="co">## 2 2019-12-31 Afghanistan   AF    AFG          38041757 Asia      deaths        0</span></span>
+<span id="cb4-9"><a href="#cb4-9"></a><span class="co">## 3 2019-12-31 Algeria       DZ    DZA          43053054 Africa    confirmed     0</span></span>
+<span id="cb4-10"><a href="#cb4-10"></a><span class="co">## 4 2019-12-31 Algeria       DZ    DZA          43053054 Africa    deaths        0</span></span>
+<span id="cb4-11"><a href="#cb4-11"></a><span class="co">## 5 2019-12-31 Armenia       AM    ARM           2957728 Europe    confirmed     0</span></span>
+<span id="cb4-12"><a href="#cb4-12"></a><span class="co">## 6 2019-12-31 Armenia       AM    ARM           2957728 Europe    deaths        0</span></span></code></pre></div>
 <p>The <code>ecdc</code> dataset is just a <code>data.frame</code> (actually, a <code>tibble</code>), so applying standard R or tidyverse functionality can get answers to basic questions with little code. The next code block generates a <code>top10</code> of countries with the most deaths recorded to date. Note that if you do this on your own computer, the data will be updated to today’s data values.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">library</span>(dplyr)</a>
-<a class="sourceLine" id="cb5-2" data-line-number="2">top10 =<span class="st"> </span>ecdc <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(subset<span class="op">==</span><span class="st">'deaths'</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="st">    </span><span class="kw">group_by</span>(location_name) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="st">    </span><span class="kw">filter</span>(count<span class="op">==</span><span class="kw">max</span>(count)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="st">    </span><span class="kw">arrange</span>(<span class="kw">desc</span>(count)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="st">    </span><span class="kw">head</span>(<span class="dv">10</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="op">-</span><span class="kw">starts_with</span>(<span class="st">'iso'</span>),<span class="op">-</span>continent,<span class="op">-</span>subset) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb5-7" data-line-number="7"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">rate_per_100k =</span> <span class="fl">1e5</span><span class="op">*</span>count<span class="op">/</span>population_<span class="dv">2019</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb5-2"><a href="#cb5-2"></a>top10 =<span class="st"> </span>ecdc <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(subset<span class="op">==</span><span class="st">'deaths'</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="st">    </span><span class="kw">group_by</span>(location_name) <span class="op">%&gt;%</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="st">    </span><span class="kw">filter</span>(count<span class="op">==</span><span class="kw">max</span>(count)) <span class="op">%&gt;%</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a><span class="st">    </span><span class="kw">arrange</span>(<span class="kw">desc</span>(count)) <span class="op">%&gt;%</span></span>
+<span id="cb5-6"><a href="#cb5-6"></a><span class="st">    </span><span class="kw">head</span>(<span class="dv">10</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="op">-</span><span class="kw">starts_with</span>(<span class="st">'iso'</span>),<span class="op">-</span>continent,<span class="op">-</span>subset) <span class="op">%&gt;%</span></span>
+<span id="cb5-7"><a href="#cb5-7"></a><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">rate_per_100k =</span> <span class="fl">1e5</span><span class="op">*</span>count<span class="op">/</span>population_<span class="dv">2019</span>)</span></code></pre></div>
 <p>Finally, present a nice table of those countries:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode R"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">knitr<span class="op">::</span><span class="kw">kable</span>(</a>
-<a class="sourceLine" id="cb6-2" data-line-number="2">    top10,</a>
-<a class="sourceLine" id="cb6-3" data-line-number="3">    <span class="dt">caption =</span> <span class="st">"Reported COVID-19-related deaths in ten most affected countries."</span>,</a>
-<a class="sourceLine" id="cb6-4" data-line-number="4">    <span class="dt">format =</span> <span class="st">'pandoc'</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>knitr<span class="op">::</span><span class="kw">kable</span>(</span>
+<span id="cb6-2"><a href="#cb6-2"></a>    top10,</span>
+<span id="cb6-3"><a href="#cb6-3"></a>    <span class="dt">caption =</span> <span class="st">"Reported COVID-19-related deaths in ten most affected countries."</span>,</span>
+<span id="cb6-4"><a href="#cb6-4"></a>    <span class="dt">format =</span> <span class="st">'pandoc'</span>)</span></code></pre></div>
 <table class="table">
 <caption>
 Reported COVID-19-related deaths in ten most affected countries.
@@ -1312,14 +1315,14 @@ India
 </tbody>
 </table>
 <p>Examine the spread of the pandemic throughout the world by examining cumulative deaths reported for the top 10 countries above.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode R"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">ecdc_top10 =<span class="st"> </span>ecdc <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(location_name <span class="op">%in%</span><span class="st"> </span>top10<span class="op">$</span>location_name <span class="op">&amp;</span><span class="st"> </span>subset<span class="op">==</span><span class="st">'deaths'</span>)</a>
-<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="kw">plot_epicurve</span>(ecdc_top10,</a>
-<a class="sourceLine" id="cb7-3" data-line-number="3">              <span class="dt">filter_expression =</span> count <span class="op">&gt;</span><span class="st"> </span><span class="dv">10</span>, </a>
-<a class="sourceLine" id="cb7-4" data-line-number="4">              <span class="dt">color=</span><span class="st">'location_name'</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>ecdc_top10 =<span class="st"> </span>ecdc <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(location_name <span class="op">%in%</span><span class="st"> </span>top10<span class="op">$</span>location_name <span class="op">&amp;</span><span class="st"> </span>subset<span class="op">==</span><span class="st">'deaths'</span>)</span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="kw">plot_epicurve</span>(ecdc_top10,</span>
+<span id="cb7-3"><a href="#cb7-3"></a>              <span class="dt">filter_expression =</span> count <span class="op">&gt;</span><span class="st"> </span><span class="dv">10</span>, </span>
+<span id="cb7-4"><a href="#cb7-4"></a>              <span class="dt">color=</span><span class="st">'location_name'</span>)</span></code></pre></div>
 <p><img src="https://i.imgur.com/KilVPg5.png" width="100%"></p>
 <p>Comparing the features of disease spread is easiest if all curves are shifted to “start” at the same absolute level of infection. In this case, shift the origin for all countries to start at the first time point when more than 100 cumulative cases had been observed. Note how some curves cross others which is evidence of less infection control at the same relative time in the pandemic for that country (eg., Brazil).</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode R"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">ecdc_top10 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">align_to_baseline</span>(count<span class="op">&gt;</span><span class="dv">100</span>,<span class="dt">group_vars=</span><span class="kw">c</span>(<span class="st">'location_name'</span>)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="st">    </span><span class="kw">plot_epicurve</span>(<span class="dt">date_column =</span> <span class="st">'index'</span>,<span class="dt">color=</span><span class="st">'location_name'</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>ecdc_top10 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">align_to_baseline</span>(count<span class="op">&gt;</span><span class="dv">100</span>,<span class="dt">group_vars=</span><span class="kw">c</span>(<span class="st">'location_name'</span>)) <span class="op">%&gt;%</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="st">    </span><span class="kw">plot_epicurve</span>(<span class="dt">date_column =</span> <span class="st">'index'</span>,<span class="dt">color=</span><span class="st">'location_name'</span>)</span></code></pre></div>
 <p><img src="https://i.imgur.com/sDHPp2t.png" width="100%"></p>
 </div>
 <div id="contributions" class="section level2">
