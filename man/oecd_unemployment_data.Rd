@@ -19,7 +19,7 @@ Unemployment rate is the number of unemployed people as a percentage of the labo
 \examples{
 unemp = oecd_unemployment_data()
 unemp
-dplyr::glimpse(unemployment)
+dplyr::glimpse(unemp)
 summary(unemp)
 
 

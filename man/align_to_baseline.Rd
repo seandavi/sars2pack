@@ -62,8 +62,9 @@ dplyr::glimpse(ecdc)
 # get top 10 countries by cumulative
 # number of deaths
 top_10 = ecdc \%>\%
+    dplyr::filter(subset=='deaths_weekly') \%>\%
     dplyr::group_by(location_name) \%>\%
-    dplyr::summarize(deaths = max(deaths)) \%>\%
+    dplyr::summarize(deaths = max(count)) \%>\%
     dplyr::arrange(dplyr::desc(deaths)) \%>\%
     head(10)
 
@@ -73,10 +74,10 @@ top_10
 # top 10 countries
 
 ecdc_top10 = ecdc \%>\%
-    dplyr::filter(location_name \%in\% top_10[['location_name']])
-plot_epicurve(ecdc_top10, color='location_name', case_column='deaths')
+    dplyr::filter(location_name \%in\% top_10[['location_name']] & subset=='deaths_weekly')
+plot_epicurve(ecdc_top10, color='location_name', case_column='count')
 
-ecdc_top10_baseline = align_to_baseline(ecdc_top10, deaths>100, group_vars='location_name')
+ecdc_top10_baseline = align_to_baseline(ecdc_top10, count>100, group_vars='location_name')
 
 plot_epicurve(ecdc_top10_baseline, date_column='index', color='location_name') +
     ggtitle('Deaths over time, aligned to date of 100 deaths per country') 
