@@ -97,7 +97,8 @@ Other data-import:
 \code{\link{us_hospital_details}()},
 \code{\link{us_state_distancing_policy}()},
 \code{\link{usa_facts_data}()},
-\code{\link{who_cases}()}
+\code{\link{who_cases}()},
+\code{\link{yougov_behavioral_data}()}
 
 Other NPI: 
 \code{\link{acaps_government_measures_data}()},
