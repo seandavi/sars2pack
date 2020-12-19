@@ -53,11 +53,14 @@ jobs:
 
       - name: Check
         env:
+          CENSUS_API_KEY: ${{ secrets.CENSUS_API_KEY }}
           _R_CHECK_CRAN_INCOMING_: false
         run: rcmdcheck::rcmdcheck(args = c("--no-manual"), error_on = "error", check_dir = "check")
         shell: Rscript {0}
 
       - name: Show testthat output
+        env:
+          CENSUS_API_KEY: ${{ secrets.CENSUS_API_KEY }}
         if: always()
         run: find check -name 'testthat.Rout*' -exec cat '{}' \; || true
         shell: bash
@@ -70,5 +73,7 @@ jobs:
           path: check
 
       - name: Test coverage
+        env:
+          CENSUS_API_KEY: ${{ secrets.CENSUS_API_KEY }}
         run: covr::codecov()
         shell: Rscript {0}
