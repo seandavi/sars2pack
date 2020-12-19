@@ -9,10 +9,10 @@ on:
       - main
       - master
 name: test-coverage
+env:
+  CENSUS_API_KEY: ${{ secrets.CENSUS_API_KEY }}
 
 jobs:
-  env:
-    CENSUS_API_KEY: ${{ secrets.CENSUS_API_KEY }}
   test-coverage:
     runs-on: macOS-latest
     env:
