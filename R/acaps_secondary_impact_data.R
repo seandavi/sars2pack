@@ -30,7 +30,7 @@
 #' dim(res)
 #' 
 #' @export
-acaps_secondary_impact_date = function() {
+acaps_secondary_impact_data = function() {
   url = 'https://www.acaps.org/sites/acaps/files/resources/files/acaps_covid19_secondary_impacts_beta.xlsx'
   rpath = s2p_cached_url(url)
   dat = reaxl::read_excel(rpath) %>%
