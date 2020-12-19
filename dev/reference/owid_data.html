@@ -200,7 +200,6 @@ Retrieved from: 'https://ourworldindata.org/coronavirus' Online Resource</p>
 <code><a href='covidtracker_data.html'>covidtracker_data</a>()</code>,
 <code><a href='ecdc_data.html'>ecdc_data</a>()</code>,
 <code><a href='estimate_Rt.html'>estimate_Rt</a>()</code>,
-<code><a href='eu_data_cache_data.html'>eu_data_cache_data</a>()</code>,
 <code><a href='jhu_data.html'>jhu_data</a>()</code>,
 <code><a href='nytimes_county_data.html'>nytimes_county_data</a>()</code>,
 <code><a href='plot_epicurve.html'>plot_epicurve</a>()</code>,
@@ -209,6 +208,7 @@ Retrieved from: 'https://ourworldindata.org/coronavirus' Online Resource</p>
 <code><a href='who_cases.html'>who_cases</a>()</code></p>
 <p>Other data-import: 
 <code><a href='acaps_government_measures_data.html'>acaps_government_measures_data</a>()</code>,
+<code><a href='acaps_secondary_impact_data.html'>acaps_secondary_impact_data</a>()</code>,
 <code><a href='apple_mobility_data.html'>apple_mobility_data</a>()</code>,
 <code><a href='beoutbreakprepared_data.html'>beoutbreakprepared_data</a>()</code>,
 <code><a href='cdc_aggregated_projections.html'>cdc_aggregated_projections</a>()</code>,
@@ -223,7 +223,6 @@ Retrieved from: 'https://ourworldindata.org/coronavirus' Online Resource</p>
 <code><a href='descartes_mobility_data.html'>descartes_mobility_data</a>()</code>,
 <code><a href='ecdc_data.html'>ecdc_data</a>()</code>,
 <code><a href='economist_excess_deaths.html'>economist_excess_deaths</a>()</code>,
-<code><a href='eu_data_cache_data.html'>eu_data_cache_data</a>()</code>,
 <code><a href='financial_times_excess_deaths.html'>financial_times_excess_deaths</a>()</code>,
 <code><a href='google_mobility_data.html'>google_mobility_data</a>()</code>,
 <code><a href='government_policy_timeline.html'>government_policy_timeline</a>()</code>,
@@ -240,21 +239,22 @@ Retrieved from: 'https://ourworldindata.org/coronavirus' Online Resource</p>
 <code><a href='us_hospital_details.html'>us_hospital_details</a>()</code>,
 <code><a href='us_state_distancing_policy.html'>us_state_distancing_policy</a>()</code>,
 <code><a href='usa_facts_data.html'>usa_facts_data</a>()</code>,
-<code><a href='who_cases.html'>who_cases</a>()</code></p></div>
+<code><a href='who_cases.html'>who_cases</a>()</code>,
+<code><a href='yougov_behavioral_data.html'>yougov_behavioral_data</a>()</code></p></div>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
     <p>Sean Davis <a href='mailto:seandavi@gmail.com'>seandavi@gmail.com</a></p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='va'>res</span> <span class='op'>=</span> <span class='fu'>owid_data</span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='warning'>Warning: 12 parsing failures.</span>
-#&gt; <span class='warning'>  row                            col           expected              actual                                                            file</span>
-#&gt; <span class='warning'>40571 total_vaccinations             1/0/T/F/TRUE/FALSE 100000.0            '/tmp/RtmpL942tp/BiocFileCache/6ba697306c6_owid-covid-data.csv'</span>
-#&gt; <span class='warning'>40571 total_vaccinations_per_hundred 1/0/T/F/TRUE/FALSE 0.069               '/tmp/RtmpL942tp/BiocFileCache/6ba697306c6_owid-covid-data.csv'</span>
-#&gt; <span class='warning'>40579 total_vaccinations             1/0/T/F/TRUE/FALSE 150000.0            '/tmp/RtmpL942tp/BiocFileCache/6ba697306c6_owid-covid-data.csv'</span>
-#&gt; <span class='warning'>40579 total_vaccinations_per_hundred 1/0/T/F/TRUE/FALSE 0.10300000000000001 '/tmp/RtmpL942tp/BiocFileCache/6ba697306c6_owid-covid-data.csv'</span>
-#&gt; <span class='warning'>51786 total_vaccinations             1/0/T/F/TRUE/FALSE 137897.0            '/tmp/RtmpL942tp/BiocFileCache/6ba697306c6_owid-covid-data.csv'</span>
-#&gt; <span class='warning'>..... .............................. .................. ................... ...............................................................</span>
+</div><div class='output co'>#&gt; <span class='warning'>Warning: 30 parsing failures.</span>
+#&gt; <span class='warning'> row                            col           expected actual                                                            file</span>
+#&gt; <span class='warning'>9021 total_vaccinations             1/0/T/F/TRUE/FALSE 5.0    '/tmp/RtmpHKysZl/BiocFileCache/6e140f1a0b2_owid-covid-data.csv'</span>
+#&gt; <span class='warning'>9021 total_vaccinations_per_hundred 1/0/T/F/TRUE/FALSE 0.0    '/tmp/RtmpHKysZl/BiocFileCache/6e140f1a0b2_owid-covid-data.csv'</span>
+#&gt; <span class='warning'>9022 total_vaccinations             1/0/T/F/TRUE/FALSE 729.0  '/tmp/RtmpHKysZl/BiocFileCache/6e140f1a0b2_owid-covid-data.csv'</span>
+#&gt; <span class='warning'>9022 total_vaccinations_per_hundred 1/0/T/F/TRUE/FALSE 0.002  '/tmp/RtmpHKysZl/BiocFileCache/6e140f1a0b2_owid-covid-data.csv'</span>
+#&gt; <span class='warning'>9023 total_vaccinations             1/0/T/F/TRUE/FALSE 3148.0 '/tmp/RtmpHKysZl/BiocFileCache/6e140f1a0b2_owid-covid-data.csv'</span>
+#&gt; <span class='warning'>.... .............................. .................. ...... ...............................................................</span>
 #&gt; <span class='warning'>See problems(...) for more details.</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] "iso3c"       "country"     "date"        "confirmed"   "deaths"     
 #&gt; [6] "tests"       "tests_units"</div><div class='input'>
@@ -269,7 +269,7 @@ Retrieved from: 'https://ourworldindata.org/coronavirus' Online Resource</p>
 #&gt; </span><span style='color: #555555;'>5</span><span> AFG   Afghanistan 2020-02-28         1     </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span> </span><span style='color: #BB0000;'>NA</span><span>         
 #&gt; </span><span style='color: #555555;'>6</span><span> AFG   Afghanistan 2020-02-29         1     </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span> </span><span style='color: #BB0000;'>NA</span><span>         </div><div class='input'>
 <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://tibble.tidyverse.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Rows: 54,741
+</div><div class='output co'>#&gt; Rows: 54,753
 #&gt; Columns: 7
 #&gt; $ iso3c       </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "AFG", "AFG", "AFG", "AFG", "AFG", "AFG", "AFG", "AFG", "…
 #&gt; $ country     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Afghanistan", "Afghanistan", "Afghanistan", "Afghanistan…

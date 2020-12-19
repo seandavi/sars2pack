@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>full incidence for contiguous states — Arima_contig_states • sars2pack</title>
+<title>Estimate the growth rate ratio — growth_rate_ratio • sars2pack</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="full incidence for contiguous states — Arima_contig_states" />
-<meta property="og:description" content="full incidence for contiguous states" />
+<meta property="og:title" content="Estimate the growth rate ratio — growth_rate_ratio" />
+<meta property="og:description" content="Calculate the growth rate ratio as defined in Badr et al." />
 
 
 <meta name="robots" content="noindex">
@@ -163,96 +163,63 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>full incidence for contiguous states</h1>
-    <small class="dont-index">Source: <a href='https://github.com/seandavi/sars2pack/blob/master/R/Arima.R'><code>R/Arima.R</code></a></small>
-    <div class="hidden name"><code>Arima_contig_states.Rd</code></div>
+    <h1>Estimate the growth rate ratio</h1>
+    <small class="dont-index">Source: <a href='https://github.com/seandavi/sars2pack/blob/master/R/growth_rate_ratio.R'><code>R/growth_rate_ratio.R</code></a></small>
+    <div class="hidden name"><code>growth_rate_ratio.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>full incidence for contiguous states</p>
+    <p>Calculate the growth rate ratio as defined in Badr et al.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>Arima_contig_states</span><span class='op'>(</span>
-  <span class='va'>src</span>,
-  state.in <span class='op'>=</span> <span class='st'>"All contig"</span>,
-  MAorder <span class='op'>=</span> <span class='fl'>2</span>,
-  Difforder <span class='op'>=</span> <span class='fl'>1</span>,
-  basedate <span class='op'>=</span> <span class='st'>"2020-02-15"</span>,
-  lookback_days <span class='op'>=</span> <span class='fl'>29</span>,
-  ARorder <span class='op'>=</span> <span class='fl'>0</span>,
-  contig_vec <span class='op'>=</span> <span class='fu'><a href='contig_states_twolet.html'>contig_states_twolet</a></span><span class='op'>(</span><span class='op'>)</span>,
-  max_date <span class='op'>=</span> <span class='cn'>NULL</span>
-<span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>growth_rate_ratio</span><span class='op'>(</span><span class='va'>v</span>, Ws <span class='op'>=</span> <span class='fl'>3</span>, Wl <span class='op'>=</span> <span class='fl'>7</span>, smooth_window <span class='op'>=</span> <span class='fl'>7</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>src</th>
-      <td><p>tibble for state level data like that of nytimes_state_data()</p></td>
+      <th>v</th>
+      <td><p>a numeric vector of new cases per day</p></td>
     </tr>
     <tr>
-      <th>state.in</th>
-      <td><p>character(1) state name</p></td>
+      <th>Ws</th>
+      <td><p>integer(1), the number of days to average for the shorter window</p></td>
     </tr>
     <tr>
-      <th>MAorder</th>
-      <td><p>numeric(1) order of moving average component</p></td>
+      <th>Wl</th>
+      <td><p>integer(1), the number of days to average to the longer window</p></td>
     </tr>
     <tr>
-      <th>Difforder</th>
-      <td><p>numeric(1) differencing order d of ARIMA(p,d,q)</p></td>
-    </tr>
-    <tr>
-      <th>basedate</th>
-      <td><p>character(1) used by lubridate::as_date to filter away all earlier records</p></td>
-    </tr>
-    <tr>
-      <th>lookback_days</th>
-      <td><p>numeric(1) only uses this many days from most recent in src</p></td>
-    </tr>
-    <tr>
-      <th>ARorder</th>
-      <td><p>order of autoregressive component</p></td>
-    </tr>
-    <tr>
-      <th>contig_vec</th>
-      <td><p>character() vector of tokens for subsetting src</p></td>
-    </tr>
-    <tr>
-      <th>max_date</th>
-      <td><p>a date from which to start lookback ... defaults to NULL in which
-case the latest available date is used</p></td>
+      <th>smooth_window</th>
+      <td><p>integer(1), the size of the window to apply rolling mean
+smoothing to. The smoothing is applied <em>before</em> the summary process occurs</p></td>
     </tr>
     </table>
 
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>The Growth Rate Ratio is defined as the logarithmic rate of change
+(number of newly reported cases)
+over the previous Ws days relative to the logarithmic rate of change over
+the longer Wl days. GR for any county j on a day t was calculated as follows:
+where Cjt is the number of new cases reported in county j on a day t.</p>
+    <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
+
+    
+<ul>
+<li><p><a href='https://doi.org/10.1016/S1473-3099(20)30553-3'>https://doi.org/10.1016/S1473-3099(20)30553-3</a></p></li>
+</ul>
+
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>Sean Davis <a href='mailto:seandavi@gmail.com'>seandavi@gmail.com</a></p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='va'>usd</span> <span class='op'>=</span> <span class='fu'><a href='usa_facts_data.html'>usa_facts_data</a></span><span class='op'>(</span><span class='op'>)</span>
-<span class='va'>cont</span> <span class='op'>=</span> <span class='fu'>Arima_contig_states</span><span class='op'>(</span><span class='va'>usd</span><span class='op'>)</span>
-<span class='va'>cont</span>
-</div><div class='output co'>#&gt; Arima_sars2pack instance for all 
-#&gt;   computed Sat Dec 19 03:21:53 2020 
-#&gt;   last date used was:  2020-12-17 
-#&gt;   call was: NULL
-#&gt;   Model estimates: 
-#&gt; Series: tsfull 
-#&gt; ARIMA(0,1,2) with drift 
-#&gt; 
-#&gt; Coefficients:
-#&gt;           ma1      ma2      drift
-#&gt;       -0.8323  -0.1675  2083.7760
-#&gt; s.e.   0.2209   0.1901   686.7507
-#&gt; 
-#&gt; sigma^2 estimated as 809417788:  log likelihood=-326.85
-#&gt; AIC=661.71   AICc=663.45   BIC=667.04
-#&gt; 
-#&gt; Training set error measures:
-#&gt;                     ME     RMSE      MAE       MPE     MAPE     MASE
-#&gt; Training set -3545.428 26415.41 19622.94 -4.692286 12.19623 0.679369
-#&gt;                     ACF1
-#&gt; Training set -0.02218646</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>cont</span><span class='op'>)</span>
-</div><div class='img'><img src='Arima_contig_states-1.png' alt='' width='700' height='433' /></div></pre>
+    <pre class="examples"><div class='input'><span class='va'>nyt</span><span class='op'>=</span> <span class='fu'><a href='nytimes_county_data.html'>nytimes_state_data</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>fips</span><span class='op'>==</span><span class='st'>'00053'</span> <span class='op'>&amp;</span> <span class='va'>subset</span><span class='op'>==</span><span class='st'>'confirmed'</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+     <span class='fu'><a href='add_incidence_column.html'>add_incidence_column</a></span><span class='op'>(</span><span class='op'>)</span>
+<span class='va'>mgr</span> <span class='op'>=</span> <span class='va'>nyt</span> <span class='op'>%&gt;%</span> <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/pull.html'>pull</a></span><span class='op'>(</span><span class='va'>inc</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='fu'>growth_rate_ratio</span><span class='op'>(</span><span class='op'>)</span>
+
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
