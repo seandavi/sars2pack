@@ -27,7 +27,7 @@ combined_us_cases_data = function() {
 
     jhu = jhu_us_data() %>% filter(!is.na(.data$county) & .data$subset=='confirmed') %>%
         mutate(fips = county_to_state_fips(.data$fips)) %>%
-        group_by(fips,date) %>% summarize(count=sum(.data$count)) %>%
+        group_by(.data$fips,.data$date) %>% summarize(count=sum(.data$count)) %>%
         select(.data$date,.data$fips,.data$count) %>%
         add_incidence_column(incidence_col_name = 'incidence',grouping_columns = c('fips'))
 
