@@ -13,7 +13,7 @@
 cumulative_events_nyt_state = function (src, eventtype = "confirmed", 
       statename = "Massachusetts") {
     stopifnot(statename %in% src$state)
-    cur = src %>% dplyr::filter(subset == eventtype & state == statename)
+    cur = src %>% dplyr::filter(.data$subset == eventtype & .data$state == statename)
     cumul = cur$count
     dates = cur$date
     ans = list(count = cumul, dates = dates)

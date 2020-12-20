@@ -30,8 +30,8 @@ aws_hospital_admissions_index_data <- function() {
 }
 
 covidcast_signal_data <- function(...) {
-    if(require('covidcastR')) {
-        return(covidcast_signal(...))
+    if(requireNamespace('covidcastR')) {
+        return(covidcastR::covidcast_signal(...))
     }
     stop('The covidcastR package is required for this functionality. Please install from https://github.com/cmu-delphi/covidcast')
 }

@@ -140,7 +140,7 @@ chksel = function(nyd, ej) {
    } )
   output$sel2 = renderPlot( {
     validate(need(nchar(input$inidat)>0, "abc"))
-    data("Flu2009", package="EpiEstim")
+    utils::data(Flu2009, package="EpiEstim")
     zz = obtain_incidence( findSelRegion(), input$region, nyd, ej, input$inidat ) 
     ee = EpiEstim::estimate_R( zz,
        method="non_parametric_si",

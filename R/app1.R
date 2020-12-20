@@ -15,9 +15,11 @@
 #' overlay of different R[t] fits for different serial interval modeling assumptions.
 #' @examples
 #' # must run example(eesi, ask=FALSE)
+#' \dontrun{
 #' if (interactive()) {
 #'  nytdat = nytimes_state_data()
 #'  eesi(nytdat)
+#' }
 #' }
 #' @export
 eesi = function(src,

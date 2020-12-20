@@ -1,6 +1,8 @@
+
+
 world_population_data <- function() {
   .fix_df = function(df) {
-    df %>% tidyr::pivot_longer(cols=`0-4`:`100+`,names_to='age_group',values_to='population') %>%
+    df %>% tidyr::pivot_longer(cols="0-4":"100+",names_to='age_group',values_to='population') %>%
       dplyr::select(-c("Index"))
   }
   get_url = function(url1) {
