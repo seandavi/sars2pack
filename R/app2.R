@@ -180,7 +180,7 @@ obtain_incidence = function( type, selection, nytd, ejhu, initdat ) {
    print(any(chk$I<0))
    bad = which(chk$I < 0)
    chk$I[bad] = 0
-   toastr_warning("negative incidence values set to zero")
+   shinytoastR::toastr_warning("negative incidence values set to zero")
    }
  chk
 }
