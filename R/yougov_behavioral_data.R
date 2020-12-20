@@ -20,9 +20,9 @@ yougov_behavioral_data = function() {
   url = 'https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/yougov/YouGov-Imperial%20COVID-19%20Behavior%20Tracker.csv'
   rpath = s2p_cached_url(url)
   dat = readr::read_csv(rpath, col_types = readr::cols()) %>%
-    dplyr::mutate(Date=as.Date('2020-01-01')+Date) %>%
-    dplyr::rename(Entity=country) %>%
-    dplyr::rename(Date=date)
+    dplyr::mutate(Date=as.Date('2020-01-01')+.data$Date) %>%
+    dplyr::rename(country=.data$Entity) %>%
+    dplyr::rename(date=.data$Date)
   dat
 }
 

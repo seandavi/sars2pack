@@ -33,6 +33,6 @@
 coronadatascraper_data <- function() {
     url = 'https://coronadatascraper.com/timeseries.csv'
     rpath = s2p_cached_url(url)
-    res = readr::read_csv(rpath, col_types = readr::cols(), guess_max = 500000)
+    res = data.table::fread(rpath)
     res
 }

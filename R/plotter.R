@@ -84,7 +84,6 @@ fix_slash_dates = function(x) gsub("/", "-", x) # ok if they are already non-sla
 
 #' supersimple series extraction
 #' @importFrom magrittr "%>%"
-#' @importFrom dplyr filter
 #' @param province character(1) must be found in dataset ProvinceState field, "" is typical for data aggregated only at country level, and that is the default
 #' @param country character(1) must be found in CountryRegion field
 #' @param dataset data.frame as returned by jhu_data()
@@ -98,9 +97,9 @@ get_series = function(province="", country,
   if (inherits(dataset, "try-error")) stop("could not get data from jhu_data()")
   stopifnot(all(c("ProvinceState", "CountryRegion") %in% colnames(dataset)))
   stopifnot(country %in% dataset$CountryRegion)
-  ans = dataset %>% dplyr::filter(CountryRegion==country)
+  ans = dataset %>% dplyr::filter(.data$CountryRegion==country)
   if(!is.na(province)) {
-      ans = ans %>% dplyr::filter(ProvinceState==province)
+      ans = ans %>% dplyr::filter(.data$ProvinceState==province)
   }
   ans[,-c(1:4)]
 }

@@ -99,10 +99,10 @@ get_EpiEstim_SI_model = function( cens = TRUE, distr = "G" ) {
 allopts = function() sort(c( all_nyt_states(), all_ejhu_alpha3(),
    all_ejhu_alpha2(), all_ejhu_names()))
 
-#library(shinyalert)
+# library(shinyalert)
 chksel = function(nyd, ej) {
  ui = fluidPage(
-  useToastr(),
+  shinytoastr::useToastr(),
   sidebarLayout(
    sidebarPanel(
     selectInput("region", "Region", choices=allopts(), selected="France"),
@@ -140,7 +140,7 @@ chksel = function(nyd, ej) {
    } )
   output$sel2 = renderPlot( {
     validate(need(nchar(input$inidat)>0, "abc"))
-    data("Flu2009", package="EpiEstim")
+    utils::data(Flu2009, package="EpiEstim")
     zz = obtain_incidence( findSelRegion(), input$region, nyd, ej, input$inidat ) 
     ee = EpiEstim::estimate_R( zz,
        method="non_parametric_si",
@@ -180,7 +180,7 @@ obtain_incidence = function( type, selection, nytd, ejhu, initdat ) {
    print(any(chk$I<0))
    bad = which(chk$I < 0)
    chk$I[bad] = 0
-   toastr_warning("negative incidence values set to zero")
+   shinytoastR::toastr_warning("negative incidence values set to zero")
    }
  chk
 }

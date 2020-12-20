@@ -93,11 +93,12 @@ plot.covid_events = function (x, main=NULL, ylab=NULL, xlab=NULL,  ...) {
 #' @export
 cumulative_events_ejhu = function(src, eventtype = "confirmed", 
    alpha3="USA", ProvinceStateName=NULL) {
- cur = src %>% filter(subset == eventtype &
-                alpha3Code == alpha3 )
+ cur = src %>% dplyr::filter(.data$subset == eventtype &
+                .data$alpha3Code == alpha3 )
  if (!is.null(ProvinceStateName) & !isTRUE(is.na(ProvinceStateName))) # i.e. not multiprovince like GBR
-   cur = cur %>% filter(ProvinceState == ProvinceStateName)
- if (isTRUE(is.na(ProvinceStateName))) cur = cur %>% filter(isTRUE(is.na(ProvinceState)))
+   cur = cur %>% dplyr::filter(.data$ProvinceState == ProvinceStateName)
+ if (isTRUE(is.na(ProvinceStateName))) cur = cur %>% 
+     dplyr::filter(isTRUE(is.na(.data$ProvinceState)))
  cumul = cur$count
  dates = cur$date
  ans = list(count=cumul, dates=dates)

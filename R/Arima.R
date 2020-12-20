@@ -133,17 +133,17 @@ make_cumul_events = function(count, dates,
 
 form_inc_state = function(src, regtag, max_date=NULL) {
  fullsumm = src %>% 
-  dplyr::select(state,date,count) %>% group_by(date) %>% 
-   summarise(count=sum(count))  # counts by date collapsed over states
- if (!is.null(max_date)) fullsumm = filter(fullsumm, date <= lubridate::as_date(max_date))
+  dplyr::select(c("state","date","count")) %>% dplyr::group_by(.data$date) %>% 
+   dplyr::summarise(count=sum(count))  # counts by date collapsed over states
+ if (!is.null(max_date)) fullsumm = dplyr::filter(fullsumm, .data$date <= lubridate::as_date(max_date))
  thecum = make_cumul_events(count=fullsumm$count, dates=fullsumm$date, regtag=regtag)
  form_incident_events(thecum)
 }
 
 form_inc_nation = function(src, regtag, max_date=NULL) {
  fullsumm = src %>% 
-  dplyr::select(date,count) %>% group_by(date) %>% 
-   summarise(count=sum(count))  # counts by date 
+  dplyr::select(date,count) %>% dplyr::group_by(date) %>% 
+   dplyr::summarise(count=sum(count))  # counts by date 
  if (!is.null(max_date)) fullsumm = filter(fullsumm, date <= lubridate::as_date(max_date))
  thecum = make_cumul_events(count=fullsumm$count, dates=fullsumm$date, regtag=regtag)
  form_incident_events(thecum)
@@ -175,7 +175,7 @@ form_inc_nation = function(src, regtag, max_date=NULL) {
 #' @export
 Arima_by_state = function(src, state.in="New York", MAorder=2, 
    Difforder=1, basedate="2020-02-15", lookback_days=29, ARorder=0, max_date=NULL) {
-   cbyd = dplyr::filter(src, date >= basedate & subset=="confirmed" & state==state.in) 
+   cbyd = dplyr::filter(src, date >= basedate & subset=="confirmed" & .data$state==state.in) 
    ibyd = form_inc_state(cbyd, regtag=state.in, max_date=max_date)
    tc = match.call()
    .Arima_inc(ibyd, state.in=state.in, MAorder=MAorder,
@@ -202,7 +202,7 @@ Arima_by_state = function(src, state.in="New York", MAorder=2,
 #' @export
 Arima_nation = function(ejhu, alp3="USA", MAorder=2,
    Difforder=1, basedate="2020-02-15", lookback_days=29, ARorder=0, max_date=NULL) {
-   cbyd = dplyr::filter(ejhu, date >= basedate & subset=="confirmed" & alpha3Code==alp3)
+   cbyd = dplyr::filter(ejhu, date >= basedate & subset=="confirmed" & .data$alpha3Code==alp3)
    ibyd = form_inc_nation(cbyd, regtag=alp3, max_date=max_date)
    tc = match.call()
    .Arima_inc(ibyd, state.in=alp3, MAorder=MAorder,
@@ -214,14 +214,14 @@ Arima_nation = function(ejhu, alp3="USA", MAorder=2,
    Difforder=1, basedate="2020-02-15", lookback_days=29, ARorder=0, max_date=NULL, topcall=NULL) {
    if (is.null(MAorder) | is.null(ARorder)) stop("MA/AR order inputs cannot be NULL")
    iuse = trim_from(ibyd, basedate)
-   full29 = tail(ibyd$count,lookback_days)
-   dates29 = tail(ibyd$date,lookback_days)
+   full29 = utils::tail(ibyd$count,lookback_days)
+   dates29 = utils::tail(ibyd$date,lookback_days)
    nlb=lookback_days-1
    time = (0:nlb)/nlb
 
    origin = max(ibyd$date)-lookback_days+1
    time.from.origin = as.numeric(dates29-origin)
-   tsfull = ts(full29, freq=1)
+   tsfull = stats::ts(full29, freq=1)
    Arima.full = try(Arima(tsfull, order=c(ARorder,Difforder,MAorder), include.drift=TRUE))
    if (inherits(Arima.full, "try-error")) {
      print(c(ARorder,Difforder,MAorder))
@@ -254,10 +254,10 @@ plot.Arima_sars2pack = function(x, y, ...) {
  y_ = x$tsfull
  x_ = x$origin+x$time.from.origin
  plot(x_, y_, pch=19, xlab="date", ylab="incidence", ...)
- lines(x$origin+x$time.from.origin, x$pred)
+ graphics::lines(x$origin+x$time.from.origin, x$pred)
  if (x$Difforder==1) {
   slo = coef(x$fit)["drift"]
-  y1 = median(y_) #x$pred[29]
+  y1 = stats::median(y_) #x$pred[29]
   y0 = y1 + slo*(-as.numeric(x$origin)-13) # x$time.from.origin[29] = 28
   abline(y0, slo, lty=2, lwd=2)
   se = sqrt(x$fit$var.coef["drift", "drift"])
@@ -307,7 +307,7 @@ Arima_drop_state = function(src_us, src_st, state.in="New York", MAorder=2,
    st = Arima_by_state(src_st, state.in=state.in, MAorder=MAorder, Difforder=Difforder, basedate=basedate,
          lookback_days=lookback_days, ARorder=ARorder, max_date=max_date)
    cbyd_shim = dplyr::filter(src_st,  # shim
-            date >= basedate & subset=="confirmed" & state==state.in)
+            date >= basedate & subset=="confirmed" & .data$state==state.in)
    ibyd_shim = form_inc_state(cbyd_shim, regtag=state.in, max_date=max_date)
    ibyd_shim$count = as.numeric(nat$tsfull)-as.numeric(st$tsfull)
    .Arima_inc(ibyd_shim, state.in=paste("excl", state.in), MAorder=MAorder,
@@ -325,7 +325,7 @@ Arima_drop_states = function(src_us, src_st, states.in= c("New York", "New Jerse
          lookback_days=lookback_days, ARorder=ARorder, max_date=max_date))
    names(sts) = states.in
    cbyd_shims = lapply(states.in, function(x) dplyr::filter(src_st,  # shim
-            date >= basedate & subset=="confirmed" & state==x))
+            date >= basedate & subset=="confirmed" & .data$state==x))
    names(cbyd_shims) = states.in
    ibyd_shims = lapply(states.in, function(x) form_inc_state(cbyd_shims[[x]], regtag=x, max_date=max_date))
    ibyd_shim = ibyd_shims[[1]]
