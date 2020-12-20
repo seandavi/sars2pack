@@ -13,7 +13,7 @@ epicurve.data.frame <- function(x, count_column = 'count',
 print.epicurve <- function(x, ...) {
     epiattr = attr(x, 'epicurve')
     cat('# epicurve \n')
-    cat(str(epiattr))
+    cat(utils::str(epiattr))
     NextMethod()
 }
 
