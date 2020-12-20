@@ -99,10 +99,10 @@ get_EpiEstim_SI_model = function( cens = TRUE, distr = "G" ) {
 allopts = function() sort(c( all_nyt_states(), all_ejhu_alpha3(),
    all_ejhu_alpha2(), all_ejhu_names()))
 
-#library(shinyalert)
+# library(shinyalert)
 chksel = function(nyd, ej) {
  ui = fluidPage(
-  useToastr(),
+  shinytoastr::useToastr(),
   sidebarLayout(
    sidebarPanel(
     selectInput("region", "Region", choices=allopts(), selected="France"),
