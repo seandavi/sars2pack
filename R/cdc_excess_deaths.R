@@ -89,6 +89,6 @@ cdc_excess_deaths <- function() {
                ) %>%
         mutate(week_of_year=lubridate::week(date))
     colnames(dat) = stringr::str_replace_all(colnames(dat),' ', '_') %>% tolower()
-    dat = dplyr::select(dat, -c(starts_with('total'), starts_with('percent'),year))
+    dat = dplyr::select(dat, -c(starts_with('total'), starts_with('percent'),'year'))
     dat
 }

@@ -79,7 +79,7 @@ google_search_trends_data <- function() {
   }
   rpath = s2p_cached_url("https://github.com/google-research/open-covid-19-data/releases/download/v0.0.2/US_search_trends_symptoms_dataset.zip")
   td = tempfile()
-  unzip(rpath,exdir=td)
+  utils::unzip(rpath,exdir=td)
   hist_files = list.files(td,pattern='_US_daily_symptoms_dataset\\.csv',
                           recursive=TRUE, full.names = TRUE)
   url = "https://raw.githubusercontent.com/google-research/open-covid-19-data/master/data/exports/search_trends_symptoms_dataset/United%20States%20of%20America/2020_US_daily_symptoms_dataset.csv"
