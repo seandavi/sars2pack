@@ -107,7 +107,8 @@ google_mobility_data <- function(accept_terms = TRUE) {
                       admin1 = .data$sub_region_1,
                       admin2 = .data$sub_region_2) %>%
         dplyr::mutate(admin_level = .admin_level(.data$admin1, .data$admin2)) %>%
-        tidyr::pivot_longer(cols = dplyr::ends_with('_percent_change_from_baseline'), values_to = 'percent_change_from_baseline', names_to = 'places_category') %>%
+        tidyr::pivot_longer(cols = dplyr::ends_with('_percent_change_from_baseline'), 
+                            values_to = 'percent_change_from_baseline', names_to = 'places_category') %>%
         dplyr::mutate(places_category = sub('_percent_change_from_baseline','', .data$places_category))
 
 }
