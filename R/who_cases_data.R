@@ -23,16 +23,15 @@
 #'
 #' @export
 who_cases <- function() {
-  readr::read_csv(s2p_cached_url('https://covid19.who.int/WHO-COVID-19-global-data.csv'),
-                  col_types = readr::cols()) %>%
-    dplyr::select(-New_cases, -New_deaths) %>%
+  data.table::fread(s2p_cached_url('https://covid19.who.int/WHO-COVID-19-global-data.csv')) %>%
+    dplyr::select(-c("New_cases", "New_deaths")) %>%
     dplyr::rename(date='Date_reported',
                   country='Country',
                   iso2c = 'Country_code',
                   who_region = "WHO_region",
                   confirmed = "Cumulative_cases",
                   deaths = "Cumulative_deaths") %>%
-    tidyr::pivot_longer(cols = confirmed:deaths,
+    tidyr::pivot_longer(cols = "confirmed":"deaths",
                         names_to = 'subset',
                         values_to = 'count')
 
