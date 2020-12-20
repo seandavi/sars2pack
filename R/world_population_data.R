@@ -7,7 +7,7 @@ world_population_data <- function() {
   }
   get_url = function(url1) {
     tf <- tempfile(fileext = ".xlsx")
-    download.file(url1,tf)
+    utils::download.file(url1,tf)
     tf
   }
   f = get_url('https://population.un.org/wpp/Download/Files/1_Indicators%20(Standard)/EXCEL_FILES/1_Population/WPP2019_POP_F15_2_ANNUAL_POPULATION_BY_AGE_MALE.xlsx')
