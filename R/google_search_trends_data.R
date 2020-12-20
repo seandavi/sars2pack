@@ -66,7 +66,12 @@
 #' table(res$sub_region_1)
 #' if(require(timetk)) {
 #'
-#'   plot_time_series(res[sub_region_1 %in% c('Maryland','Texas','New York','California','Georgia','Arizona','Illinois','New Jersey','Florida') & variable %in% c('symptom:Cough','symptom:Fever','symptom:Shortness of breath')][,year := lubridate::year(date)],date,value,.smooth_period='month',.color_var=sub_region_1,.facet_vars = 'variable')
+#'   plot_time_series(res[sub_region_1 %in% c('Maryland','Texas','New York',
+#'                                            'California','Georgia','Arizona',
+#'                                            'Illinois','New Jersey','Florida') & 
+#'                          variable %in% c(
+#'                            'symptom:Cough','symptom:Fever','symptom:Shortness of breath')][,year := lubridate::year(date)],
+#'                    date,value,.smooth_period='month',.color_var=sub_region_1,.facet_vars = 'variable')
 #'
 #' }
 #'

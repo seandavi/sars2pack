@@ -60,7 +60,8 @@ testers \%>\% dplyr::filter(date==Sys.Date()-4) \%>\%
     coord_flip() +
     xlab('State or Jurisdiction') +
     ylab('Contract tracers per new case') +
-    ggtitle(sprintf('Contract tracers per new case on \%s', Sys.Date() - 4), subtitle='Goal is 5-15 tracers per new case')
+    ggtitle(sprintf('Contract tracers per new case on \%s', Sys.Date() - 4), 
+            subtitle='Goal is 5-15 tracers per new case')
 
 }
 \references{

@@ -75,7 +75,8 @@
 #' admin_by_country = res %>%
 #'     dplyr::group_by(iso2c) %>%
 #'     dplyr::filter(date == max(date))
-#' admin_by_country = table(admin_by_country$admin_level, admin_by_country$iso2c)/length(unique(res$places_category))
+#' admin_by_country = table(admin_by_country$admin_level, 
+#'                          admin_by_country$iso2c)/length(unique(res$places_category))
 #' admin_by_country
 #'
 #' # Italy mobility over time
