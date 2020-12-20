@@ -254,10 +254,10 @@ plot.Arima_sars2pack = function(x, y, ...) {
  y_ = x$tsfull
  x_ = x$origin+x$time.from.origin
  plot(x_, y_, pch=19, xlab="date", ylab="incidence", ...)
- lines(x$origin+x$time.from.origin, x$pred)
+ graphics::lines(x$origin+x$time.from.origin, x$pred)
  if (x$Difforder==1) {
   slo = coef(x$fit)["drift"]
-  y1 = median(y_) #x$pred[29]
+  y1 = stats::median(y_) #x$pred[29]
   y0 = y1 + slo*(-as.numeric(x$origin)-13) # x$time.from.origin[29] = 28
   abline(y0, slo, lty=2, lwd=2)
   se = sqrt(x$fit$var.coef["drift", "drift"])
