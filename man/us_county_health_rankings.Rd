@@ -20,6 +20,9 @@ ret = us_county_health_rankings()
 head(ret)
 colnames(ret)
 
+# available measurements (a bunch of them)
+unique(ret$variable)
+
 
 }
 \references{
@@ -64,8 +67,16 @@ Other data-import:
 \code{\link{usa_facts_data}()},
 \code{\link{who_cases}()},
 \code{\link{yougov_behavioral_data}()}
+
+Other social: 
+\code{\link{acaps_secondary_impact_data}()}
+
+Other economics: 
+\code{\link{acaps_secondary_impact_data}()}
 }
 \author{
 Sean Davis \href{mailto:seandavi@gmail.com}{seandavi@gmail.com}
 }
 \concept{data-import}
+\concept{economics}
+\concept{social}

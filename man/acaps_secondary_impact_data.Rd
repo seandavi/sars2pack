@@ -68,6 +68,12 @@ Other data-import:
 \code{\link{usa_facts_data}()},
 \code{\link{who_cases}()},
 \code{\link{yougov_behavioral_data}()}
+
+Other economics: 
+\code{\link{us_county_health_rankings}()}
+
+Other social: 
+\code{\link{us_county_health_rankings}()}
 }
 \author{
 Sean Davis \href{mailto:seandavi@gmail.com}{seandavi@gmail.com}
