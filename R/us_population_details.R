@@ -2,7 +2,7 @@
 #'
 #' Get data from the US Census Bureau Population Estimates APIs.
 #'
-#' @param \dots Passed along to \code{\link{tidycensus::get_estimates}}.
+#' @param \dots Passed along to \code{\link[tidycensus]{get_estimates}}.
 #'
 #' @author Sean Davis <seandavi@gmail.com>
 #'

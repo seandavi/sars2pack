@@ -27,7 +27,7 @@ dplyr::glimpse(res)
 \references{
 Max Roser, Hannah Ritchie, Esteban Ortiz-Ospina and Joe Hasell (2020) -
 "Coronavirus Pandemic (COVID-19)". Published online at OurWorldInData.org.
-Retrieved from: 'https://ourworldindata.org/coronavirus' \link{Online Resource}
+Retrieved from: 'https://ourworldindata.org/coronavirus'
 }
 \seealso{
 Other case-tracking: 

@@ -21,7 +21,7 @@ make_cumulative_events(cases, dates, eventtype, alpha3, ProvinceStateName)
 generic cumulative_events generator
 }
 \examples{
-ec = eu_data_cache_data()
+ec = jhu_data()
 ber = ec[which(ec$nuts_3 == "Bergamo"),]
 mber = make_cumulative_events( cases = ber$cases, dates = ber$date, 
   eventtype = "confirmed", alpha3 = "ITA", ProvinceStateName = "Bergamo")
