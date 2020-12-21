@@ -350,8 +350,8 @@ Arima_drop_states = function(src_us, src_st, states.in= c("New York", "New Jerse
 Arima_contig_states = function(src, state.in="All contig", MAorder=2, 
    Difforder=1, basedate="2020-02-15", lookback_days=29, ARorder=0,
    contig_vec = contig_states_twolet(), max_date=NULL) {
-   cbyd = dplyr::filter(src, date >= basedate & 
-       subset=="confirmed" & state %in% contig_vec)
+   cbyd = dplyr::filter(src, .data$date >= basedate & 
+       .data$subset=="confirmed" & .data$state %in% contig_vec)
    ibyd = form_inc_state(cbyd, regtag=state.in, max_date=max_date)
    .Arima_inc(ibyd, state.in="all", MAorder=MAorder,
       Difforder=Difforder, basedate=basedate, lookback_days=lookback_days, ARorder=ARorder, max_date=max_date)

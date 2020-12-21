@@ -12,7 +12,7 @@
 #'
 #' @export
 us_population_details <- function(...) {
-  if(!require("tidycensus")) {
+  if(!requireNamespace("tidycensus")) {
     message("The tidycensus package is required for this ")
     message("functionality. Please install it first.")
     stop()
