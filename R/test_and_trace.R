@@ -40,7 +40,6 @@
 #' dplyr::glimpse(TAndT)
 #'
 #' nyt = nytimes_state_data() %>% dplyr::select(-state) %>%
-#'     dplyr::mutate(fips = substr(fips,4,5)) %>%
 #'     dplyr::filter(subset=='confirmed') %>%
 #'     add_incidence_column(grouping_columns = 'fips')
 #'     
@@ -62,7 +61,8 @@ test_and_trace_data <- function() {
     url = 'https://github.com/covid-projections/covid-data-public/raw/main/data/test-and-trace/state_data.csv'
     rpath = s2p_cached_url(url)
     res = data.table::fread(rpath) %>%
-        dplyr::rename(iso2c='state')
+        dplyr::rename(iso2c='state') %>%
+        dplyr::mutate(fips=integer_to_fips(.data$fips))
     .simple_states = data.frame(iso2c = datasets::state.abb,
                                 state = datasets::state.name,
                                 region = datasets::state.region)

@@ -46,7 +46,6 @@ colnames(TAndT)
 dplyr::glimpse(TAndT)
 
 nyt = nytimes_state_data() \%>\% dplyr::select(-state) \%>\%
-    dplyr::mutate(fips = substr(fips,4,5)) \%>\%
     dplyr::filter(subset=='confirmed') \%>\%
     add_incidence_column(grouping_columns = 'fips')
     
