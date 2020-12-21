@@ -82,7 +82,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sars2pack</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.3</span>
       </span>
     </div>
 
@@ -118,9 +118,6 @@
     </li>
     <li>
       <a href="../articles/doMCMC.html">Building MCMC-based models of SI for SARS-Cov-2</a>
-    </li>
-    <li>
-      <a href="../articles/how_much_testing.html">HMTPlot: How much testing</a>
     </li>
     <li>
       <a href="../articles/index.html">Introduction to sars2pack</a>
@@ -230,26 +227,26 @@ case the latest available date is used</p></td>
 <span class='va'>lkus</span> <span class='op'>=</span> <span class='fu'>Arima_nation</span><span class='op'>(</span><span class='va'>ej</span><span class='op'>)</span>
 <span class='va'>lkus</span>
 </div><div class='output co'>#&gt; Arima_sars2pack instance for USA 
-#&gt;   computed Sun Dec 20 03:21:17 2020 
-#&gt;   last date used was:  2020-12-18 
+#&gt;   computed Mon Dec 21 05:26:49 2020 
+#&gt;   last date used was:  2020-12-19 
 #&gt;   call was: Arima_nation(ejhu = ej)
 #&gt;   Model estimates: 
 #&gt; Series: tsfull 
 #&gt; ARIMA(0,1,2) with drift 
 #&gt; 
 #&gt; Coefficients:
-#&gt;           ma1     ma2     drift
-#&gt;       -0.7760  -0.224  2633.035
-#&gt; s.e.   0.1987   0.170   641.777
+#&gt;           ma1      ma2     drift
+#&gt;       -0.8610  -0.1390  2603.466
+#&gt; s.e.   0.2108   0.1814   614.844
 #&gt; 
-#&gt; sigma^2 estimated as 648730029:  log likelihood=-323.72
-#&gt; AIC=655.45   AICc=657.19   BIC=660.78
+#&gt; sigma^2 estimated as 665638949:  log likelihood=-324.14
+#&gt; AIC=656.28   AICc=658.02   BIC=661.61
 #&gt; 
 #&gt; Training set error measures:
 #&gt;                     ME     RMSE      MAE       MPE     MAPE      MASE
-#&gt; Training set -3185.028 23648.47 18776.25 -3.706638 10.75619 0.8370978
-#&gt;                    ACF1
-#&gt; Training set 0.01869841</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>lkus</span><span class='op'>)</span>
+#&gt; Training set -861.5923 23954.68 19845.51 -2.343205 11.02072 0.8352159
+#&gt;                     ACF1
+#&gt; Training set 0.008718149</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>lkus</span><span class='op'>)</span>
 </div><div class='img'><img src='Arima_nation-1.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

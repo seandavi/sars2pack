@@ -100,7 +100,7 @@ personal decisions for months or even years to come." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sars2pack</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.3</span>
       </span>
     </div>
 
@@ -136,9 +136,6 @@ personal decisions for months or even years to come." />
     </li>
     <li>
       <a href="../articles/doMCMC.html">Building MCMC-based models of SI for SARS-Cov-2</a>
-    </li>
-    <li>
-      <a href="../articles/how_much_testing.html">HMTPlot: How much testing</a>
     </li>
     <li>
       <a href="../articles/index.html">Introduction to sars2pack</a>
@@ -231,11 +228,6 @@ data science ecosystem to visualize, analyze, and integrate
 COVID-19 data resources.</p></li>
 </ol>
 
-    <h2 class="hasAnchor" id="foo-functions"><a class="anchor" href="#foo-functions"></a>Foo functions</h2>
-
-    
-
-<p>The foo functions ...</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
@@ -257,97 +249,6 @@ COVID-19 data resources.</p></li>
 #&gt; </span><span style='color: #555555;'> 9</span><span> GISAID … cov_glu… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span> TRUE         FALSE      </span><span style='color: #555555;'>&lt;chr </span><span>… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span>  https:…
 #&gt; </span><span style='color: #555555;'>10</span><span> Newick … cov_glu… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span> FALSE        FALSE      </span><span style='color: #555555;'>&lt;chr </span><span>… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span>  https:…
 #&gt; </span><span style='color: #555555;'># … with 25 more rows</span><span></div><div class='input'>
-<span class='fu'><a href='https://rdrr.io/r/utils/example.html'>example</a></span><span class='op'>(</span><span class='va'>jhu_data</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; 
-#&gt; jhu_dt&gt; res = jhu_data()
-#&gt; 
-#&gt; jhu_dt&gt; colnames(res)
-#&gt; [1] "ProvinceState" "CountryRegion" "Lat"           "Long"         
-#&gt; [5] "date"          "count"         "subset"       
-#&gt; 
-#&gt; jhu_dt&gt; head(res)
-#&gt; </span><span style='color: #555555;'># A tibble: 6 x 7</span><span>
-#&gt;   ProvinceState CountryRegion   Lat  Long date       count subset   
-#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>         </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>         </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>    
-#&gt; </span><span style='color: #555555;'>1</span><span> </span><span style='color: #BB0000;'>NA</span><span>            Afghanistan    33.9  67.7 2020-01-22     0 confirmed
-#&gt; </span><span style='color: #555555;'>2</span><span> </span><span style='color: #BB0000;'>NA</span><span>            Afghanistan    33.9  67.7 2020-01-23     0 confirmed
-#&gt; </span><span style='color: #555555;'>3</span><span> </span><span style='color: #BB0000;'>NA</span><span>            Afghanistan    33.9  67.7 2020-01-24     0 confirmed
-#&gt; </span><span style='color: #555555;'>4</span><span> </span><span style='color: #BB0000;'>NA</span><span>            Afghanistan    33.9  67.7 2020-01-25     0 confirmed
-#&gt; </span><span style='color: #555555;'>5</span><span> </span><span style='color: #BB0000;'>NA</span><span>            Afghanistan    33.9  67.7 2020-01-26     0 confirmed
-#&gt; </span><span style='color: #555555;'>6</span><span> </span><span style='color: #BB0000;'>NA</span><span>            Afghanistan    33.9  67.7 2020-01-27     0 confirmed
-#&gt; 
-#&gt; jhu_dt&gt; dplyr::glimpse(res)
-#&gt; Rows: 264,936
-#&gt; Columns: 7
-#&gt; $ ProvinceState </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
-#&gt; $ CountryRegion </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Afghanistan", "Afghanistan", "Afghanistan", "Afghanist…
-#&gt; $ Lat           </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 33.93911, 33.93911, 33.93911, 33.93911, 33.93911, 33.93…
-#&gt; $ Long          </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 67.70995, 67.70995, 67.70995, 67.70995, 67.70995, 67.70…
-#&gt; $ date          </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2020-01-22, 2020-01-23, 2020-01-24, 2020-01-25, 2020-0…
-#&gt; $ count         </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
-#&gt; $ subset        </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "confirmed", "confirmed", "confirmed", "confirmed", "co…</div><div class='input'>
-<span class='fu'><a href='https://rdrr.io/r/utils/example.html'>example</a></span><span class='op'>(</span><span class='va'>apple_mobility_data</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; 
-#&gt; appl__&gt; res = apple_mobility_data()
-#&gt; 
-#&gt; appl__&gt; colnames(res)
-#&gt; [1] "geo_type"            "region"              "transportation_type"
-#&gt; [4] "alternative_name"    "sub-region"          "country"            
-#&gt; [7] "date"                "mobility_index"     
-#&gt; 
-#&gt; appl__&gt; head(res)
-#&gt; </span><span style='color: #555555;'># A tibble: 6 x 8</span><span>
-#&gt;   geo_type region transportation_… alternative_name `sub-region` country
-#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>            </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>            </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>        </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>  
-#&gt; </span><span style='color: #555555;'>1</span><span> country… Alban… driving          </span><span style='color: #BB0000;'>NA</span><span>               </span><span style='color: #BB0000;'>NA</span><span>           </span><span style='color: #BB0000;'>NA</span><span>     
-#&gt; </span><span style='color: #555555;'>2</span><span> country… Alban… driving          </span><span style='color: #BB0000;'>NA</span><span>               </span><span style='color: #BB0000;'>NA</span><span>           </span><span style='color: #BB0000;'>NA</span><span>     
-#&gt; </span><span style='color: #555555;'>3</span><span> country… Alban… driving          </span><span style='color: #BB0000;'>NA</span><span>               </span><span style='color: #BB0000;'>NA</span><span>           </span><span style='color: #BB0000;'>NA</span><span>     
-#&gt; </span><span style='color: #555555;'>4</span><span> country… Alban… driving          </span><span style='color: #BB0000;'>NA</span><span>               </span><span style='color: #BB0000;'>NA</span><span>           </span><span style='color: #BB0000;'>NA</span><span>     
-#&gt; </span><span style='color: #555555;'>5</span><span> country… Alban… driving          </span><span style='color: #BB0000;'>NA</span><span>               </span><span style='color: #BB0000;'>NA</span><span>           </span><span style='color: #BB0000;'>NA</span><span>     
-#&gt; </span><span style='color: #555555;'>6</span><span> country… Alban… driving          </span><span style='color: #BB0000;'>NA</span><span>               </span><span style='color: #BB0000;'>NA</span><span>           </span><span style='color: #BB0000;'>NA</span><span>     
-#&gt; </span><span style='color: #555555;'># … with 2 more variables: date </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span style='color: #555555;'>, mobility_index </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; 
-#&gt; appl__&gt; table(res$transportation_type)
-#&gt; 
-#&gt; driving transit walking 
-#&gt; 1039368  187891  372372 
-#&gt; 
-#&gt; appl__&gt; require(ggplot2)
-#&gt; 
-#&gt; appl__&gt; pl = res %&gt;%
-#&gt; appl__+     dplyr::filter(region %in% c('Russia','New York City','Italy')) %&gt;%
-#&gt; appl__+     ggplot(aes(x=date)) +
-#&gt; appl__+         geom_line(aes(y=mobility_index,color=transportation_type)) +
-#&gt; appl__+         scale_x_date(date_breaks = '1 week', date_labels='%b-%d') +
-#&gt; appl__+         facet_grid(rows=vars(region)) +
-#&gt; appl__+         ggtitle('Changes in Apple Mobility Index over time')
-#&gt; 
-#&gt; appl__&gt; pl</div><div class='img'><img src='sars2pack-package-1.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; 
-#&gt; appl__&gt; regs_of_interest = c('Seattle', 'New York City',
-#&gt; appl__+                      'Chicago', 'Italy',
-#&gt; appl__+                      'Russia', 'UK',
-#&gt; appl__+                      'Brazil')
-#&gt; 
-#&gt; appl__&gt; res %&gt;%
-#&gt; appl__+     dplyr::filter(region %in% regs_of_interest) %&gt;%
-#&gt; appl__+     ggplot(aes(x=date, y=region, fill=mobility_index)) +
-#&gt; appl__+         geom_tile() +
-#&gt; appl__+         facet_grid(rows=vars(transportation_type)) +
-#&gt; appl__+         ggtitle('Changes in Apple Mobility Index over time')</div><div class='img'><img src='sars2pack-package-2.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; 
-#&gt; appl__&gt; if(require(viridis)) {
-#&gt; appl__+ res %&gt;%
-#&gt; appl__+     dplyr::filter(region %in% regs_of_interest) %&gt;%
-#&gt; appl__+     ggplot(aes(x=date, y=region, fill=mobility_index)) +
-#&gt; appl__+         geom_tile() +
-#&gt; appl__+         facet_grid(rows=vars(transportation_type)) +
-#&gt; appl__+         scale_fill_viridis() +
-#&gt; appl__+         ggtitle('Changes in Apple Mobility Index over time')
-#&gt; appl__+ }</div><div class='img'><img src='sars2pack-package-3.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; 
-#&gt; appl__&gt; if(require(plotly)) {
-#&gt; appl__+     ggplotly(pl)
-#&gt; appl__+ }</div><div class='input'>
-<span class='fu'><a href='https://rdrr.io/r/utils/example.html'>example</a></span><span class='op'>(</span><span class='va'>healthdata_projections_data</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='warning'>Warning: no help found for ‘healthdata_projections_data’</span></div><div class='input'>
 
 
 </div></span></pre>

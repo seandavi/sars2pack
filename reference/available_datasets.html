@@ -82,7 +82,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sars2pack</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.3</span>
       </span>
     </div>
 
@@ -118,9 +118,6 @@
     </li>
     <li>
       <a href="../articles/doMCMC.html">Building MCMC-based models of SI for SARS-Cov-2</a>
-    </li>
-    <li>
-      <a href="../articles/how_much_testing.html">HMTPlot: How much testing</a>
     </li>
     <li>
       <a href="../articles/index.html">Introduction to sars2pack</a>
@@ -258,7 +255,7 @@ in the list. See examples for details and for viewing suggestions.</p>
 <span class='va'>dd</span> <span class='op'>=</span> <span class='fu'>dataset_details</span><span class='op'>(</span><span class='op'>)</span>
 <span class='fu'><a href='https://rdrr.io/r/utils/str.html'>str</a></span><span class='op'>(</span><span class='va'>dd</span>,list.len<span class='op'>=</span><span class='fl'>3</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; List of 2
-#&gt;  $ datasets :List of 32
+#&gt;  $ datasets :List of 35
 #&gt;   ..$ cdc_social_vulnerability_index    :List of 2
 #&gt;   .. ..$ columns   :List of 126
 #&gt;   .. .. ..$ grasp_id    : chr "numeric"
@@ -287,7 +284,7 @@ in the list. See examples for details and for viewing suggestions.</p>
 #&gt;   .. .. ..$ nrow: int 13592
 #&gt;   .. .. ..$ ncol: int 12
 #&gt;   .. [list output truncated]
-#&gt;  $ eval_date: chr "2020-12-18"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>dd</span><span class='op'>$</span><span class='va'>datasets</span><span class='op'>)</span>
+#&gt;  $ eval_date: chr "2020-12-20"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>dd</span><span class='op'>$</span><span class='va'>datasets</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;  [1] "cdc_social_vulnerability_index"     "us_hospital_details"               
 #&gt;  [3] "economist_excess_deaths"            "financial_times_excess_deaths"     
 #&gt;  [5] "us_county_health_rankings"          "coronanet_government_response_data"
@@ -295,17 +292,19 @@ in the list. See examples for details and for viewing suggestions.</p>
 #&gt;  [9] "cov_glue_lineage_data"              "cov_glue_newick_data"              
 #&gt; [11] "cdc_excess_deaths"                  "param_estimates_published"         
 #&gt; [13] "cdc_aggregated_projections"         "google_mobility_data"              
-#&gt; [15] "google_search_trends_data"          "ecdc_data"                         
-#&gt; [17] "beoutbreakprepared_data"            "descartes_mobility_data"           
-#&gt; [19] "apple_mobility_data"                "usa_facts_data"                    
-#&gt; [21] "jhu_data"                           "jhu_us_data"                       
-#&gt; [23] "nytimes_county_data"                "nytimes_state_data"                
-#&gt; [25] "kff_icu_beds"                       "world_population_data"             
-#&gt; [27] "us_county_geo_details"              "covidtracker_data"                 
-#&gt; [29] "us_healthcare_capacity"             "government_policy_timeline"        
-#&gt; [31] "us_state_distancing_policy"         "oecd_unemployment_data"            </div><div class='input'><span class='co'># evaluated</span>
+#&gt; [15] "google_search_trends_data"          "who_cases"                         
+#&gt; [17] "ecdc_data"                          "beoutbreakprepared_data"           
+#&gt; [19] "descartes_mobility_data"            "apple_mobility_data"               
+#&gt; [21] "usa_facts_data"                     "jhu_data"                          
+#&gt; [23] "jhu_us_data"                        "nytimes_county_data"               
+#&gt; [25] "nytimes_state_data"                 "kff_icu_beds"                      
+#&gt; [27] "world_population_data"              "us_county_geo_details"             
+#&gt; [29] "covidtracker_data"                  "us_healthcare_capacity"            
+#&gt; [31] "government_policy_timeline"         "us_state_distancing_policy"        
+#&gt; [33] "oecd_unemployment_data"             "yougov_behavioral_data"            
+#&gt; [35] "acaps_secondary_impact_data"       </div><div class='input'><span class='co'># evaluated</span>
 <span class='va'>dd</span><span class='op'>$</span><span class='va'>eval_date</span>
-</div><div class='output co'>#&gt; [1] "2020-12-18"</div><div class='input'>
+</div><div class='output co'>#&gt; [1] "2020-12-20"</div><div class='input'>
 
 </div></span></pre>
   </div>
