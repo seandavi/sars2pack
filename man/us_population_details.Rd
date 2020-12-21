@@ -13,9 +13,12 @@ us_population_details(...)
 Get data from the US Census Bureau Population Estimates APIs.
 }
 \examples{
-res = us_population_details(geometry='state',year=2019)
+res = us_population_details(geography='county', product='population', year=2019)
 head(res)
 
+}
+\seealso{
+\code{link[tidycensus]{get_estimates}}
 }
 \author{
 Sean Davis \href{mailto:seandavi@gmail.com}{seandavi@gmail.com}
