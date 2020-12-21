@@ -70,8 +70,10 @@
 #'                                            'California','Georgia','Arizona',
 #'                                            'Illinois','New Jersey','Florida') & 
 #'                          variable %in% c(
-#'                            'symptom:Cough','symptom:Fever','symptom:Shortness of breath')][,year := lubridate::year(date)],
-#'                    date,value,.smooth_period='month',.color_var=sub_region_1,.facet_vars = 'variable')
+#'                            'symptom:Cough','symptom:Fever',
+#'                            'symptom:Shortness of breath')][,year := lubridate::year(date)],
+#'                    date,value,.smooth_period='month',
+#'                    .color_var=sub_region_1,.facet_vars = 'variable')
 #'
 #' }
 #'
