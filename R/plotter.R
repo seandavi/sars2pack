@@ -126,8 +126,7 @@ plot_series = function(province="", country, dataset=try(jhu_data()), ...) {
 
 #' estimate R0
 #'
-#'
-#'
+#' @param x a data.frame with incidences
 #'
 #' @export
 estimate_R <- function(x, ...) UseMethod('estimate_R', x)

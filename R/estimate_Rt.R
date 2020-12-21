@@ -205,6 +205,7 @@ estimate_Rt = function(df, filter_expression,
 #'     will break `df` into chunks for estimation (i.e., location, etc.). The default is normally
 #'     correct and includes all
 #'     columns except for date_column and case_column.
+#' @param ... passed on to \code{\link{estimate_Rt}}
 #' 
 #' @author Sean Davis <seandavi@gmail.com>
 #' 

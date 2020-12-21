@@ -27,6 +27,8 @@ of interest.}
 
 \item{date_column}{character(1) the column in \code{df} that includes the date information
 about when cases reported.}
+
+\item{...}{passed on to \code{\link{estimate_Rt}}}
 }
 \value{
 A "stacked" data.frame with the outputs from the R(t) estimation process

@@ -3,7 +3,11 @@
 #' This function takes a data.frame and returns a simple
 #' summary of the columns and their content as a data.frame.
 #'
-#' @importFrom tibble tibble
+#'
+#' @param df a data.frame object
+#' 
+#' @param dates_as_char logical() whether to treat date columns
+#'     as character
 #'
 #' @return
 #' a `tibble` with two columns, `name` and `column_details`.
@@ -37,7 +41,7 @@ column_summaries <- function(x, dates_as_char = TRUE) {
     }
     ret = lapply(x, .one_col)
     names(ret) = NULL
-    ret = tibble(name = names(x), column_details = ret)
+    ret = tibble::tibble(name = names(x), column_details = ret)
     attr(ret, 'class') = c('column_details', class(ret))
     ret
 }

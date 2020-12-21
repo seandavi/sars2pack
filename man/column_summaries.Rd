@@ -6,6 +6,12 @@
 \usage{
 column_summaries(x, dates_as_char = TRUE)
 }
+\arguments{
+\item{dates_as_char}{logical() whether to treat date columns
+as character}
+
+\item{df}{a data.frame object}
+}
 \value{
 a \code{tibble} with two columns, \code{name} and \code{column_details}.
 The name column is the column name. The \code{column_details}

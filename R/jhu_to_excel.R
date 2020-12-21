@@ -98,6 +98,7 @@ enriched_jhu_data <- function(cols_to_remove = .cols_to_remove, warn=FALSE) {
 #'     records from the supplied data.frame in `dat`.
 #' @param cols_to_remove a character vector of column names from
 #'     [country_metadata()] to remove.
+#' @param ... passed to write.xlsx
 #'
 #' @return A list of three `data.frames` named `deaths`, `confirmed`,
 #' and `recovered`.

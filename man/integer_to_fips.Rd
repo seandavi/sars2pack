@@ -10,10 +10,10 @@ integer_to_fips(v)
 county_to_state_fips(fips)
 }
 \arguments{
+\item{v}{integer vector of length 1 or more}
+
 \item{fips}{character vector of county or state-level fips (5-digit zero-padded string)
 to be converted}
-
-\item{integer}{vector of length 1 or more}
 }
 \value{
 character vector with each member a 0-padded representation of the original
