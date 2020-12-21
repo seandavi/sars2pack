@@ -59,9 +59,9 @@
 #'
 #' @export
 test_and_trace_data <- function() {
-    url = 'https://raw.githubusercontent.com/covid-projections/covid-data-public/master/data/test-and-trace/state_data.csv'
+    url = 'https://github.com/covid-projections/covid-data-public/raw/main/data/test-and-trace/state_data.csv'
     rpath = s2p_cached_url(url)
-    res = readr::read_csv(rpath, col_types = readr::cols()) %>%
+    res = data.table::fread(rpath) %>%
         dplyr::rename(iso2c='state')
     .simple_states = data.frame(iso2c = datasets::state.abb,
                                 state = datasets::state.name,
