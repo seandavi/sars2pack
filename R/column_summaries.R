@@ -25,7 +25,7 @@
 #' str(cs$column_details)
 #' 
 #' @export
-column_summaries <- function(x, dates_as_char = TRUE) {
+column_summaries <- function(df, dates_as_char = TRUE) {
     .one_col = function(one) {
         cl = class(one)
         min = tryCatch(min(one, na.rm=TRUE), error=function(e) NA)
@@ -39,9 +39,9 @@ column_summaries <- function(x, dates_as_char = TRUE) {
         }
         list(min = min, max = max, class = cl, nrows=nrow(x), sample_values = samp)
     }
-    ret = lapply(x, .one_col)
+    ret = lapply(df, .one_col)
     names(ret) = NULL
-    ret = tibble::tibble(name = names(x), column_details = ret)
+    ret = tibble::tibble(name = names(df), column_details = ret)
     attr(ret, 'class') = c('column_details', class(ret))
     ret
 }

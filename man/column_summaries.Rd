@@ -4,13 +4,13 @@
 \alias{column_summaries}
 \title{convenience function for summarizing data.frame columns}
 \usage{
-column_summaries(x, dates_as_char = TRUE)
+column_summaries(df, dates_as_char = TRUE)
 }
 \arguments{
+\item{df}{a data.frame object}
+
 \item{dates_as_char}{logical() whether to treat date columns
 as character}
-
-\item{df}{a data.frame object}
 }
 \value{
 a \code{tibble} with two columns, \code{name} and \code{column_details}.
