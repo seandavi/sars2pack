@@ -2,7 +2,8 @@ sars2pack
 =========
 
 <!-- badges: start -->
-[![codecov](https://codecov.io/gh/seandavi/sars2pack/branch/main/graph/badge.svg?token=CHJSMJXAYL)](https://codecov.io/gh/seandavi/sars2pack)
+[![codecov](https://codecov.io/gh/seandavi/sars2pack/branch/main/graph/badge.svg?token=CHJSMJXAYL)](https://codecov.io/gh/seandavi/sars2pack) ![test-coverage](https://github.com/seandavi/sars2pack/workflows/test-coverage/badge.svg)
+
 <!-- badges: end -->
 
 Questions addressed by sars2pack
