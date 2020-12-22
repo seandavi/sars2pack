@@ -97,45 +97,6 @@
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Articles
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="../articles/add_a_dataset.html">How to add a new dataset to sars2pack</a>
-    </li>
-    <li>
-      <a href="../articles/case_tracking.html">Case tracking datasets</a>
-    </li>
-    <li>
-      <a href="../articles/current_data_overview.html">COVID-19 Graphical Status Report</a>
-    </li>
-    <li>
-      <a href="../articles/datasets.html">Overview of available datasets</a>
-    </li>
-    <li>
-      <a href="../articles/doMCMC.html">Building MCMC-based models of SI for SARS-Cov-2</a>
-    </li>
-    <li>
-      <a href="../articles/index.html">Introduction to sars2pack</a>
-    </li>
-    <li>
-      <a href="../articles/map_visualization.html">Geospatial visualization of COVID-19 datasets</a>
-    </li>
-    <li>
-      <a href="../articles/more_visualization.html">Visualizing geographic COVID-19 trends without maps</a>
-    </li>
-    <li>
-      <a href="../articles/overview.html">Exploring the COVID-19 pandemic using sars2pack</a>
-    </li>
-    <li>
-      <a href="../articles/phylogenetics.html">Phylogenetic data</a>
-    </li>
-  </ul>
-</li>
 <li>
   <a href="../news/index.html">Changelog</a>
 </li>
@@ -242,8 +203,8 @@ extravagantly variable.</p>
 <span class='va'>drny</span> <span class='op'>=</span> <span class='fu'>Arima_drop_state</span><span class='op'>(</span><span class='va'>ej</span>, <span class='va'>nyd</span><span class='op'>)</span>
 <span class='va'>drny</span>
 </div><div class='output co'>#&gt; Arima_sars2pack instance for excl New York 
-#&gt;   computed Tue Dec 22 03:39:45 2020 
-#&gt;   last date used was:  2020-12-20 
+#&gt;   computed Tue Dec 22 11:55:20 2020 
+#&gt;   last date used was:  2020-12-21 
 #&gt;   call was: NULL
 #&gt;   Model estimates: 
 #&gt; Series: tsfull 
@@ -251,17 +212,15 @@ extravagantly variable.</p>
 #&gt; 
 #&gt; Coefficients:
 #&gt;           ma1      ma2      drift
-#&gt;       -0.7730  -0.2270  2292.8143
-#&gt; s.e.   0.2079   0.1704   649.5083
+#&gt;       -0.7411  -0.2589  1883.4719
+#&gt; s.e.   0.2103   0.1605   678.2885
 #&gt; 
-#&gt; sigma^2 estimated as 661471664:  log likelihood=-324
-#&gt; AIC=655.99   AICc=657.73   BIC=661.32
+#&gt; sigma^2 estimated as 6.87e+08:  log likelihood=-324.51
+#&gt; AIC=657.02   AICc=658.75   BIC=662.34
 #&gt; 
 #&gt; Training set error measures:
-#&gt;                    ME     RMSE      MAE        MPE     MAPE      MASE
-#&gt; Training set 1703.604 23879.58 20071.01 -0.8175206 11.44417 0.8994876
-#&gt;                     ACF1
-#&gt; Training set -0.00381002</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>drny</span><span class='op'>)</span>
+#&gt;                    ME     RMSE      MAE       MPE     MAPE      MASE       ACF1
+#&gt; Training set 1167.701 24335.32 20207.61 -1.263595 11.44934 0.9348992 0.02062307</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>drny</span><span class='op'>)</span>
 </div><div class='img'><img src='Arima_drop_state-2.png' alt='' width='700' height='433' /></div><div class='input'><span class='va'>opar</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span>no.readonly<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span>
 <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span>mar<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>4</span>,<span class='fl'>3</span>,<span class='fl'>2</span>,<span class='fl'>2</span><span class='op'>)</span>, mfrow<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>,<span class='fl'>2</span><span class='op'>)</span><span class='op'>)</span>
 <span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>usa_full</span>, main<span class='op'>=</span><span class='st'>"all states"</span>, ylim<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>17000</span>,<span class='fl'>38000</span><span class='op'>)</span><span class='op'>)</span>

@@ -97,45 +97,6 @@
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Articles
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="../articles/add_a_dataset.html">How to add a new dataset to sars2pack</a>
-    </li>
-    <li>
-      <a href="../articles/case_tracking.html">Case tracking datasets</a>
-    </li>
-    <li>
-      <a href="../articles/current_data_overview.html">COVID-19 Graphical Status Report</a>
-    </li>
-    <li>
-      <a href="../articles/datasets.html">Overview of available datasets</a>
-    </li>
-    <li>
-      <a href="../articles/doMCMC.html">Building MCMC-based models of SI for SARS-Cov-2</a>
-    </li>
-    <li>
-      <a href="../articles/index.html">Introduction to sars2pack</a>
-    </li>
-    <li>
-      <a href="../articles/map_visualization.html">Geospatial visualization of COVID-19 datasets</a>
-    </li>
-    <li>
-      <a href="../articles/more_visualization.html">Visualizing geographic COVID-19 trends without maps</a>
-    </li>
-    <li>
-      <a href="../articles/overview.html">Exploring the COVID-19 pandemic using sars2pack</a>
-    </li>
-    <li>
-      <a href="../articles/phylogenetics.html">Phylogenetic data</a>
-    </li>
-  </ul>
-</li>
 <li>
   <a href="../news/index.html">Changelog</a>
 </li>
@@ -224,12 +185,12 @@ case the latest available date is used</p></td>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='va'>nyd</span> <span class='op'>=</span> <span class='fu'><a href='nytimes_county_data.html'>nytimes_state_data</a></span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='message'>using temporary cache /tmp/RtmpRQ4Lob/BiocFileCache</span></div><div class='input'><span class='va'>mb</span> <span class='op'>=</span> <span class='fu'><a href='min_bic.html'>min_bic</a></span><span class='op'>(</span><span class='va'>nyd</span>, state.in<span class='op'>=</span><span class='st'>"New York"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='message'>using temporary cache /tmp/RtmpTjxKSa/BiocFileCache</span></div><div class='input'><span class='va'>mb</span> <span class='op'>=</span> <span class='fu'><a href='min_bic.html'>min_bic</a></span><span class='op'>(</span><span class='va'>nyd</span>, state.in<span class='op'>=</span><span class='st'>"New York"</span><span class='op'>)</span>
 <span class='va'>lkny</span> <span class='op'>=</span> <span class='fu'>Arima_by_state</span><span class='op'>(</span><span class='va'>nyd</span>, ARorder<span class='op'>=</span><span class='va'>mb</span><span class='op'>$</span><span class='va'>opt</span><span class='op'>[</span><span class='st'>"ARord"</span><span class='op'>]</span>, MAorder<span class='op'>=</span><span class='va'>mb</span><span class='op'>$</span><span class='va'>opt</span><span class='op'>[</span><span class='st'>"MAord"</span><span class='op'>]</span><span class='op'>)</span>
 <span class='va'>lkny</span>
 </div><div class='output co'>#&gt; Arima_sars2pack instance for New York 
-#&gt;   computed Tue Dec 22 03:39:29 2020 
-#&gt;   last date used was:  2020-12-20 
+#&gt;   computed Tue Dec 22 11:55:05 2020 
+#&gt;   last date used was:  2020-12-21 
 #&gt;   call was: Arima_by_state(src = nyd, MAorder = mb$opt["MAord"], ARorder = mb$opt["ARord"])
 #&gt;   Model estimates: 
 #&gt; Series: tsfull 
@@ -237,21 +198,23 @@ case the latest available date is used</p></td>
 #&gt; 
 #&gt; Coefficients:
 #&gt;          drift
-#&gt;       145.2857
-#&gt; s.e.  224.2975
+#&gt;       126.6071
+#&gt; s.e.  223.9178
 #&gt; 
-#&gt; sigma^2 estimated as 1460830:  log likelihood=-237.94
-#&gt; AIC=479.89   AICc=480.37   BIC=482.55
+#&gt; sigma^2 estimated as 1455889:  log likelihood=-237.9
+#&gt; AIC=479.79   AICc=480.27   BIC=482.46
 #&gt; 
 #&gt; Training set error measures:
-#&gt;                     ME     RMSE      MAE       MPE     MAPE      MASE      ACF1
-#&gt; Training set 0.1807142 1166.226 962.3482 -0.648114 11.19182 0.9404492 -0.101194</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>lkny</span><span class='op'>)</span>
+#&gt;                     ME     RMSE      MAE        MPE     MAPE      MASE
+#&gt; Training set 0.1994617 1164.252 955.5024 -0.7133219 11.03022 0.9511205
+#&gt;                     ACF1
+#&gt; Training set -0.08780134</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>lkny</span><span class='op'>)</span>
 </div><div class='img'><img src='Arima_by_state-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='va'>usd</span> <span class='op'>=</span> <span class='fu'><a href='jhu_us_data.html'>jhu_us_data</a></span><span class='op'>(</span><span class='op'>)</span>
 <span class='va'>lkny2</span> <span class='op'>=</span> <span class='fu'>Arima_by_state</span><span class='op'>(</span><span class='va'>usd</span>, ARorder<span class='op'>=</span><span class='va'>mb</span><span class='op'>$</span><span class='va'>opt</span><span class='op'>[</span><span class='st'>"ARord"</span><span class='op'>]</span>, MAorder<span class='op'>=</span><span class='va'>mb</span><span class='op'>$</span><span class='va'>opt</span><span class='op'>[</span><span class='st'>"MAord"</span><span class='op'>]</span><span class='op'>)</span>
 <span class='va'>lkny2</span>
 </div><div class='output co'>#&gt; Arima_sars2pack instance for New York 
-#&gt;   computed Tue Dec 22 03:39:35 2020 
-#&gt;   last date used was:  2020-12-20 
+#&gt;   computed Tue Dec 22 11:55:11 2020 
+#&gt;   last date used was:  2020-12-21 
 #&gt;   call was: Arima_by_state(src = usd, MAorder = mb$opt["MAord"], ARorder = mb$opt["ARord"])
 #&gt;   Model estimates: 
 #&gt; Series: tsfull 
@@ -259,17 +222,15 @@ case the latest available date is used</p></td>
 #&gt; 
 #&gt; Coefficients:
 #&gt;          drift
-#&gt;       169.1071
-#&gt; s.e.  226.7561
+#&gt;       109.3571
+#&gt; s.e.  229.1222
 #&gt; 
-#&gt; sigma^2 estimated as 1493032:  log likelihood=-238.25
-#&gt; AIC=480.5   AICc=480.98   BIC=483.16
+#&gt; sigma^2 estimated as 1524352:  log likelihood=-238.54
+#&gt; AIC=481.08   AICc=481.56   BIC=483.74
 #&gt; 
 #&gt; Training set error measures:
-#&gt;                     ME    RMSE      MAE        MPE     MAPE      MASE
-#&gt; Training set 0.1742376 1179.01 959.7112 -0.6903606 11.31521 0.9362057
-#&gt;                    ACF1
-#&gt; Training set -0.1915445</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>lkny2</span><span class='op'>)</span>
+#&gt;                    ME     RMSE     MAE        MPE     MAPE      MASE       ACF1
+#&gt; Training set 0.201229 1191.312 983.349 -0.7752236 11.44674 0.9517377 -0.1680292</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>lkny2</span><span class='op'>)</span>
 </div><div class='img'><img src='Arima_by_state-2.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

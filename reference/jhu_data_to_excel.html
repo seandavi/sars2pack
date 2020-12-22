@@ -100,45 +100,6 @@ as a &quot;wide-format&quot; tabular dataset." />
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Articles
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="../articles/add_a_dataset.html">How to add a new dataset to sars2pack</a>
-    </li>
-    <li>
-      <a href="../articles/case_tracking.html">Case tracking datasets</a>
-    </li>
-    <li>
-      <a href="../articles/current_data_overview.html">COVID-19 Graphical Status Report</a>
-    </li>
-    <li>
-      <a href="../articles/datasets.html">Overview of available datasets</a>
-    </li>
-    <li>
-      <a href="../articles/doMCMC.html">Building MCMC-based models of SI for SARS-Cov-2</a>
-    </li>
-    <li>
-      <a href="../articles/index.html">Introduction to sars2pack</a>
-    </li>
-    <li>
-      <a href="../articles/map_visualization.html">Geospatial visualization of COVID-19 datasets</a>
-    </li>
-    <li>
-      <a href="../articles/more_visualization.html">Visualizing geographic COVID-19 trends without maps</a>
-    </li>
-    <li>
-      <a href="../articles/overview.html">Exploring the COVID-19 pandemic using sars2pack</a>
-    </li>
-    <li>
-      <a href="../articles/phylogenetics.html">Phylogenetic data</a>
-    </li>
-  </ul>
-</li>
 <li>
   <a href="../news/index.html">Changelog</a>
 </li>
@@ -224,7 +185,7 @@ with R.</p>
     <pre class="examples"><div class='input'><span class='va'>xls_form</span> <span class='op'>=</span> <span class='fu'>jhu_data_to_excel</span><span class='op'>(</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; <span class='warning'>Warning: Some values were not matched unambiguously: MS Zaandam</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Some values were not matched unambiguously: MS Zaandam</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Some values were not matched unambiguously: MS Zaandam</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>xls_form</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] "confirmed" "deaths"    "recovered"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>xls_form</span><span class='op'>[[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>]</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 6 x 351</span><span>
+</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 6 x 352</span><span>
 #&gt;   name  topLevelDomain alpha2Code alpha3Code capital region subregion population
 #&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;list&gt;</span><span>         </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>          </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span>
 #&gt; </span><span style='color: #555555;'>1</span><span> Afgh… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span>      AF         AFG        Kabul   Asia   Southern…   27</span><span style='text-decoration: underline;'>657</span><span>145
@@ -233,7 +194,7 @@ with R.</p>
 #&gt; </span><span style='color: #555555;'>4</span><span> Ando… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span>      AD         AND        Andorr… Europe Southern…      </span><span style='text-decoration: underline;'>78</span><span>014
 #&gt; </span><span style='color: #555555;'>5</span><span> Ango… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span>      AO         AGO        Luanda  Africa Middle A…   25</span><span style='text-decoration: underline;'>868</span><span>000
 #&gt; </span><span style='color: #555555;'>6</span><span> Anti… </span><span style='color: #555555;'>&lt;chr [1]&gt;</span><span>      AG         ATG        Saint … Ameri… Caribbean      </span><span style='text-decoration: underline;'>86</span><span>295
-#&gt; </span><span style='color: #555555;'># … with 343 more variables: area </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, gini </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, borders </span><span style='color: #555555;font-style: italic;'>&lt;list&gt;</span><span style='color: #555555;'>,</span><span>
+#&gt; </span><span style='color: #555555;'># … with 344 more variables: area </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, gini </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, borders </span><span style='color: #555555;font-style: italic;'>&lt;list&gt;</span><span style='color: #555555;'>,</span><span>
 #&gt; </span><span style='color: #555555;'>#   numericCode </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, cioc </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, ProvinceState </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, CountryRegion </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>,</span><span>
 #&gt; </span><span style='color: #555555;'>#   Lat </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, Long </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, `2020-01-22` </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, `2020-01-23` </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
 #&gt; </span><span style='color: #555555;'>#   `2020-01-24` </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, `2020-01-25` </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, `2020-01-26` </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
