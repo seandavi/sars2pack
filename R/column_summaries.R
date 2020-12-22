@@ -37,7 +37,7 @@ column_summaries <- function(df, dates_as_char = TRUE) {
             max = as.character(max)
             samp = as.character(samp)
         }
-        list(min = min, max = max, class = cl, nrows=nrow(x), sample_values = samp)
+        list(min = min, max = max, class = cl, nrows=nrow(df), sample_values = samp)
     }
     ret = lapply(df, .one_col)
     names(ret) = NULL
