@@ -266,34 +266,33 @@
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='va'>TAndT</span> <span class='op'>=</span> <span class='fu'>test_and_trace_data</span><span class='op'>(</span><span class='op'>)</span>
 <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>TAndT</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;    fips       date iso2c contact_tracers_count   state region
-#&gt; 1:    1 2020-05-11    AL                   120 Alabama  South
-#&gt; 2:    1 2020-05-12    AL                   120 Alabama  South
-#&gt; 3:    1 2020-05-13    AL                   120 Alabama  South
-#&gt; 4:    1 2020-05-14    AL                   120 Alabama  South
-#&gt; 5:    1 2020-05-15    AL                   120 Alabama  South
-#&gt; 6:    1 2020-05-16    AL                   120 Alabama  South</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>TAndT</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;     fips       date iso2c contact_tracers_count   state region
+#&gt; 1: 00001 2020-05-11    AL                   120 Alabama  South
+#&gt; 2: 00001 2020-05-12    AL                   120 Alabama  South
+#&gt; 3: 00001 2020-05-13    AL                   120 Alabama  South
+#&gt; 4: 00001 2020-05-14    AL                   120 Alabama  South
+#&gt; 5: 00001 2020-05-15    AL                   120 Alabama  South
+#&gt; 6: 00001 2020-05-16    AL                   120 Alabama  South</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>TAndT</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] "fips"                  "date"                  "iso2c"                
 #&gt; [4] "contact_tracers_count" "state"                 "region"               </div><div class='input'><span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://tibble.tidyverse.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>TAndT</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Rows: 11,724
+</div><div class='output co'>#&gt; Rows: 11,775
 #&gt; Columns: 6
-#&gt; $ fips                  <span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…
+#&gt; $ fips                  <span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "00001", "00001", "00001", "00001", "00001", "0…
 #&gt; $ date                  </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2020-05-11, 2020-05-12, 2020-05-13, 2020-05-14…
 #&gt; $ iso2c                 </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "AL", "AL", "AL", "AL", "AL", "AL", "AL", "AL",…
 #&gt; $ contact_tracers_count </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> 120, 120, 120, 120, 120, 120, 120, 120, 120, 12…
 #&gt; $ state                 </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Alabama", "Alabama", "Alabama", "Alabama", "Al…
 #&gt; $ region                </span><span style='color: #555555;font-style: italic;'>&lt;fct&gt;</span><span> South, South, South, South, South, South, South…</div><div class='input'>
 <span class='va'>nyt</span> <span class='op'>=</span> <span class='fu'><a href='nytimes_county_data.html'>nytimes_state_data</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='op'>-</span><span class='va'>state</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-    <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>fips <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/substr.html'>substr</a></span><span class='op'>(</span><span class='va'>fips</span>,<span class='fl'>4</span>,<span class='fl'>5</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
     <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>subset</span><span class='op'>==</span><span class='st'>'confirmed'</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
     <span class='fu'><a href='add_incidence_column.html'>add_incidence_column</a></span><span class='op'>(</span>grouping_columns <span class='op'>=</span> <span class='st'>'fips'</span><span class='op'>)</span>
     
 <span class='va'>testers</span> <span class='op'>=</span> <span class='va'>TAndT</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>date<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/as.Date.html'>as.Date</a></span><span class='op'>(</span><span class='va'>.data</span><span class='op'>$</span><span class='va'>date</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
     <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate-joins.html'>left_join</a></span><span class='op'>(</span><span class='va'>nyt</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>'fips'</span><span class='op'>=</span><span class='st'>'fips'</span>,<span class='st'>'date'</span><span class='op'>=</span><span class='st'>'date'</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
     <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>tracers_per_new_case <span class='op'>=</span> <span class='va'>contact_tracers_count</span><span class='op'>/</span><span class='va'>inc</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='error'>Error: Can't join on `x$fips` x `y$fips` because of incompatible types.</span>
-#&gt; <span class='error'></span><span style='color: #0000BB;'>ℹ</span><span> `x$fips` is of type &lt;integer&gt;&gt;.</span>
-#&gt; <span class='error'></span><span style='color: #0000BB;'>ℹ</span><span> `y$fips` is of type &lt;character&gt;&gt;.</span></div><div class='input'>
+
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>require</a></span><span class='op'>(</span><span class='va'><a href='http://ggplot2.tidyverse.org'>ggplot2</a></span><span class='op'>)</span>
 <span class='va'>testers</span> <span class='op'>%&gt;%</span> <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>date</span><span class='op'>==</span><span class='fu'><a href='https://rdrr.io/r/base/Sys.time.html'>Sys.Date</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>-</span><span class='fl'>4</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
     <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/stats/reorder.factor.html'>reorder</a></span><span class='op'>(</span><span class='va'>iso2c</span>,<span class='va'>tracers_per_new_case</span><span class='op'>)</span>,y<span class='op'>=</span><span class='va'>tracers_per_new_case</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
     <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_bar</a></span><span class='op'>(</span>stat<span class='op'>=</span><span class='st'>'identity'</span><span class='op'>)</span> <span class='op'>+</span>
@@ -302,7 +301,7 @@
     <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ylab</a></span><span class='op'>(</span><span class='st'>'Contract tracers per new case'</span><span class='op'>)</span> <span class='op'>+</span>
     <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/sprintf.html'>sprintf</a></span><span class='op'>(</span><span class='st'>'Contract tracers per new case on %s'</span>, <span class='fu'><a href='https://rdrr.io/r/base/Sys.time.html'>Sys.Date</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>-</span> <span class='fl'>4</span><span class='op'>)</span>, 
             subtitle<span class='op'>=</span><span class='st'>'Goal is 5-15 tracers per new case'</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='error'>Error in dplyr::filter(., date == Sys.Date() - 4): object 'testers' not found</span></div><div class='input'>
+</div><div class='img'><img src='test_and_trace_data-1.png' alt='' width='700' height='433' /></div><div class='input'>
 </div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

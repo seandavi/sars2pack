@@ -224,11 +224,11 @@ case the latest available date is used</p></td>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='va'>nyd</span> <span class='op'>=</span> <span class='fu'><a href='nytimes_county_data.html'>nytimes_state_data</a></span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='message'>using temporary cache /tmp/RtmpTwmPg5/BiocFileCache</span></div><div class='input'><span class='va'>mb</span> <span class='op'>=</span> <span class='fu'><a href='min_bic.html'>min_bic</a></span><span class='op'>(</span><span class='va'>nyd</span>, state.in<span class='op'>=</span><span class='st'>"New York"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='message'>using temporary cache /tmp/Rtmp8PJpsa/BiocFileCache</span></div><div class='input'><span class='va'>mb</span> <span class='op'>=</span> <span class='fu'><a href='min_bic.html'>min_bic</a></span><span class='op'>(</span><span class='va'>nyd</span>, state.in<span class='op'>=</span><span class='st'>"New York"</span><span class='op'>)</span>
 <span class='va'>lkny</span> <span class='op'>=</span> <span class='fu'>Arima_by_state</span><span class='op'>(</span><span class='va'>nyd</span>, ARorder<span class='op'>=</span><span class='va'>mb</span><span class='op'>$</span><span class='va'>opt</span><span class='op'>[</span><span class='st'>"ARord"</span><span class='op'>]</span>, MAorder<span class='op'>=</span><span class='va'>mb</span><span class='op'>$</span><span class='va'>opt</span><span class='op'>[</span><span class='st'>"MAord"</span><span class='op'>]</span><span class='op'>)</span>
 <span class='va'>lkny</span>
 </div><div class='output co'>#&gt; Arima_sars2pack instance for New York 
-#&gt;   computed Mon Dec 21 19:30:08 2020 
+#&gt;   computed Tue Dec 22 01:38:43 2020 
 #&gt;   last date used was:  2020-12-20 
 #&gt;   call was: Arima_by_state(src = nyd, MAorder = mb$opt["MAord"], ARorder = mb$opt["ARord"])
 #&gt;   Model estimates: 
@@ -250,7 +250,7 @@ case the latest available date is used</p></td>
 <span class='va'>lkny2</span> <span class='op'>=</span> <span class='fu'>Arima_by_state</span><span class='op'>(</span><span class='va'>usd</span>, ARorder<span class='op'>=</span><span class='va'>mb</span><span class='op'>$</span><span class='va'>opt</span><span class='op'>[</span><span class='st'>"ARord"</span><span class='op'>]</span>, MAorder<span class='op'>=</span><span class='va'>mb</span><span class='op'>$</span><span class='va'>opt</span><span class='op'>[</span><span class='st'>"MAord"</span><span class='op'>]</span><span class='op'>)</span>
 <span class='va'>lkny2</span>
 </div><div class='output co'>#&gt; Arima_sars2pack instance for New York 
-#&gt;   computed Mon Dec 21 19:30:14 2020 
+#&gt;   computed Tue Dec 22 01:38:49 2020 
 #&gt;   last date used was:  2020-12-20 
 #&gt;   call was: Arima_by_state(src = usd, MAorder = mb$opt["MAord"], ARorder = mb$opt["ARord"])
 #&gt;   Model estimates: 
