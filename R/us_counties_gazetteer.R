@@ -24,6 +24,6 @@ us_county_geo_details <- function() {
     res = readr::read_tsv(s2p_cached_url('https://raw.githubusercontent.com/josh-byster/fips_lat_long/master/counties.txt'),
                           col_types = readr::cols())
     res = sf::st_as_sf(res, coords=c('INTPTLONG','INTPTLAT'))
-    colnames(res)[1:8] = c('state','fips','ansicode','county','area_land','area_water','area_land_sqmi','area_water_sqmi')
+    colnames(res)[seq_len(8)] = c('state','fips','ansicode','county','area_land','area_water','area_land_sqmi','area_water_sqmi')
     res
 }

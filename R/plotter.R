@@ -15,7 +15,7 @@ plot2 = function(x, xscale="w", TD.split=FALSE, ...) UseMethod("plot2")
 #' @export
 plot2.R0.sR = function (x, xscale = "w", TD.split = FALSE, ...) 
 {
-    if (class(x) != "R0.sR") {
+    if (!is(x,"R0.sR")) {
         stop("'x' must be of class 'R0.sR'")
     }
     if (xscale != "d" & xscale != "w" & xscale != "f" & xscale != 
@@ -58,7 +58,7 @@ plotfit2 = function(x, all=TRUE, xscale="w", SB.dist=TRUE, ...) UseMethod("plotf
 #' @export
 plotfit2.R0.sR = function (x, all = TRUE, xscale = "w", SB.dist = TRUE, ...) 
 {
-    if (class(x) != "R0.sR") {
+    if (!is(x,"R0.sR")) {
         stop("'x' must be of class 'sR'")
     }
     if (xscale != "d" & xscale != "w" & xscale != "f" & xscale != 
@@ -101,7 +101,7 @@ get_series = function(province="", country,
   if(!is.na(province)) {
       ans = ans %>% dplyr::filter(.data$ProvinceState==province)
   }
-  ans[,-c(1:4)]
+  ans[,-c(1,2,3,4)]
 }
 
 #' supersimple series plotter
@@ -118,7 +118,7 @@ get_series = function(province="", country,
 plot_series = function(province="", country, dataset=try(jhu_data()), ...) {
  if (inherits(dataset, "try-error")) stop("could not get data from fetch_JHU_Data()")
  ser = get_series(province=province, country=country, dataset=dataset)
- dates = lubridate::as_date(mdy(fix_slash_dates(names(dataset)[-c(1:4)])))
+ dates = lubridate::as_date(mdy(fix_slash_dates(names(dataset)[-c(1,2,3,4)])))
  plot(dates, ser, main=paste(province, country), ...)
 }
 

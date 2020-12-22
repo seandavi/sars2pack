@@ -9,7 +9,7 @@
 #' @return df, but without any `data.frame` columns
 #' @keywords internal
 .remove_df_columns <- function(df) {
-    df_cols = which(sapply(df, class)=='data.frame')
+    df_cols = which(vapply(df, class, 'stringtype')=='data.frame')
     df[, -c(df_cols)]
 }
 
