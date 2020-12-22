@@ -7,6 +7,8 @@
 #' 
 #' @param cache character(1), the path to the cache directory. See [BiocFileCache::BiocFileCache()].
 #'
+#' @return a `BiocFileCache` instance
+#'
 #' @keywords internal
 s2p_get_cache <- function(cache = rappdirs::user_cache_dir(appname='sars2pack')) {
     BiocFileCache::BiocFileCache(cache=cache)

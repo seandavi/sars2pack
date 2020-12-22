@@ -11,6 +11,9 @@ trim_leading_values(x, value = 0)
 
 \item{value}{value of which to remove leading repeats}
 }
+\value{
+a vector trimmed of all leading values equal to \code{value}
+}
 \description{
 trim leading repeats of a given value from a vector
 }

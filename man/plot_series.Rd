@@ -15,6 +15,9 @@ plot_series(province = "", country, dataset = try(jhu_data()), ...)
 
 \item{\dots}{passed to base::plot}
 }
+\value{
+none, used for side effects
+}
 \description{
 supersimple series plotter
 }

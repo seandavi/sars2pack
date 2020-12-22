@@ -6,6 +6,9 @@
 \usage{
 yougov_behavioral_data()
 }
+\value{
+a \code{data.frame}
+}
 \description{
 These data represent a large collection of survey
 materials from multiple countries.

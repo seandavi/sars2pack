@@ -49,6 +49,8 @@
 #'
 #' @author
 #' Sean Davis <seandavi@gmail.com>
+#' 
+#' @return a data.frame
 #'
 #' @references
 #' Google LLC "Google COVID-19 Search Trends symptoms dataset".

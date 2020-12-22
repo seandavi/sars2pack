@@ -15,6 +15,8 @@ A data.frame in which each row represents an available dataset.
 \item name: the short name of the dataset
 \item accessor: accessor function
 }
+
+a list, with each dataset as an item
 }
 \description{
 list and detail available sars2pack datasets

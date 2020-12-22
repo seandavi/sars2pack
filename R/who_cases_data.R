@@ -12,6 +12,8 @@
 #'
 #' @family data-import
 #' @family case-tracking
+#' 
+#' @return a `data.frame`
 #'
 #' @examples
 #'

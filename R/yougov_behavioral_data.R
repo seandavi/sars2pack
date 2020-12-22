@@ -8,6 +8,8 @@
 #' @family data-import
 #' @family behavior
 #' 
+#' @return a `data.frame`
+#' 
 #' @examples 
 #' 
 #' res = yougov_behavioral_data()

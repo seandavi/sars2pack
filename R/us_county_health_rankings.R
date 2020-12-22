@@ -24,6 +24,8 @@
 #' 
 #' @author Sean Davis <seandavi@gmail.com>
 #' 
+#' @return a `data.frame`
+#' 
 #' @examples 
 #' ret = us_county_health_rankings()
 #' head(ret)

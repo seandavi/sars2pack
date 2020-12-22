@@ -7,6 +7,8 @@
 #' @seealso \code{link[tidycensus]{get_estimates}}
 #'
 #' @author Sean Davis <seandavi@gmail.com>
+#' 
+#' @return a `data.frame`
 #'
 #' @examples
 #' res = us_population_details(geography='county', product='population', year=2019)

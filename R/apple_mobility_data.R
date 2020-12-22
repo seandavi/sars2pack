@@ -45,6 +45,8 @@
 #' @importFrom dplyr `%>%` mutate
 #' @importFrom tidyr pivot_longer
 #' 
+#' @return a data.frame
+#' 
 #' @note
 #' Apple requires that all users agree to their terms of use.
 #' See \url{https://www.apple.com/covid19/mobility}.

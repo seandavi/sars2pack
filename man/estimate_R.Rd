@@ -9,6 +9,9 @@ estimate_R(x, ...)
 \arguments{
 \item{x}{a data.frame with incidences}
 }
+\value{
+a data.frame
+}
 \description{
 estimate R0
 }

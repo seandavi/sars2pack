@@ -6,6 +6,9 @@
 \usage{
 acaps_secondary_impact_data()
 }
+\value{
+a data.frame
+}
 \description{
 The objective of the dataset is to provide information for decision makers to improve their efforts in addressing the wider effects of the COVID-19 pandemic.
 }

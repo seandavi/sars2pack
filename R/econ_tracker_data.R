@@ -2,6 +2,8 @@
 #' 
 #' @name econtracker
 #' 
+#' @return data.frame
+#' 
 #' @references 
 #' - \url{https://tracktherecovery.org/}
 #' 
@@ -11,14 +13,11 @@
 #' @rdname econtracker
 NULL
 
-#' @section abc:
-#' 
-#' | Tables        | Are           | Cool  |
-#' | ------------- |:-------------:| -----:|
-#' | col 3 is      | right-aligned | $1600 |
-#' | col 2 is      | centered      |   $12 |
+
 #' 
 #' @rdname econtracker
+#' 
+
 #' 
 #' 
 #' @export

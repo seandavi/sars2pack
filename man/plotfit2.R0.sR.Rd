@@ -17,6 +17,9 @@
 
 \item{\dots}{passed to base::plot}
 }
+\value{
+none, used for side effects
+}
 \description{
 version of R0:::plotfit.R0.sR that does not use dev.new
 }

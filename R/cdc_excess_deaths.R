@@ -50,6 +50,8 @@
 #'
 #' @author Sean Davis <seandavi@gmail.com>
 #'
+#' @return a data.frame
+#'
 #' @examples
 #' cdcdeaths = cdc_excess_deaths()
 #' head(cdcdeaths)

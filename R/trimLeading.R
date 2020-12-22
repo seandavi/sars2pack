@@ -9,6 +9,8 @@
 #' trim_leading_values(c(0,0,0,1,2,3))
 #' trim_leading_values(c('a','a','d','e'), 'a')
 #'
+#' @return a vector trimmed of all leading values equal to `value`
+#'
 #' @export
 trim_leading_values <- function(x, value = 0) {
     w <- which.max(cummax(x != value))

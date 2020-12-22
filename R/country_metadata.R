@@ -13,6 +13,8 @@
 #'
 #' @seealso \url{https://restcountries.eu/rest/v2/all}
 #' 
+#' @return a data.frame
+#' 
 #' @examples
 #' cmd = country_metadata()
 #' colnames(cmd)

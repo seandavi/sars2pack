@@ -22,6 +22,8 @@
 #' @family case-tracking
 #' @family data-import
 #' 
+#' @return a data.frame
+#' 
 #' @author Sean Davis <seandavi@gmail.com>
 #' 
 #' @examples 

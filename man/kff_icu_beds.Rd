@@ -12,6 +12,9 @@
 \usage{
 kff_icu_beds()
 }
+\value{
+a data.frame
+}
 \description{
 Kaiser Family Foundation US County-level ICU bed data
 }

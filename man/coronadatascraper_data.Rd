@@ -9,6 +9,9 @@
 \usage{
 coronadatascraper_data()
 }
+\value{
+a data.frame
+}
 \description{
 Corona Data Scraper pulls COVID-19 Coronavirus case data from
 verified sources, finds the corresponding GeoJSON features, and

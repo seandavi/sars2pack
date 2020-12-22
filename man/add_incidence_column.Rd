@@ -31,6 +31,9 @@ for grouping when calculating the incidence data. See examples for
 details. \strong{Be very careful to include the appropriate columns in
 grouping, or results will be misleading}.}
 }
+\value{
+a data.frame
+}
 \description{
 For a data.frame that includes cumulative case counts over time
 +/- extra columns for location, etc., this function adds an

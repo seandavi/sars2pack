@@ -9,6 +9,9 @@ s2p_get_cache(cache = rappdirs::user_cache_dir(appname = "sars2pack"))
 \arguments{
 \item{cache}{character(1), the path to the cache directory. See \code{\link[BiocFileCache:BiocFileCache-class]{BiocFileCache::BiocFileCache()}}.}
 }
+\value{
+a \code{BiocFileCache} instance
+}
 \description{
 Set up or get location of BiocFileCache. By default,
 this uses the name BiocFileCache.

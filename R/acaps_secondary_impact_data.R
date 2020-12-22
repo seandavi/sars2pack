@@ -14,6 +14,8 @@
 #' 
 #' @author Sean Davis <seandavi@gmail.com>
 #' 
+#' @return a data.frame
+#' 
 #' @references 
 #' - https://www.acaps.org/secondary-impacts-covid-19
 #' 

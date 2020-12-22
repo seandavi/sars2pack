@@ -15,6 +15,9 @@ plot2(x, xscale = "w", TD.split = FALSE, ...)
 
 \item{\dots}{passed to base::plot}
 }
+\value{
+none, used for side effects
+}
 \description{
 generic for simpler plotter for R0.sR
 }

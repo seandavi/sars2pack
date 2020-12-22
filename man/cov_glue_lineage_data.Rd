@@ -6,6 +6,9 @@
 \usage{
 cov_glue_lineage_data()
 }
+\value{
+a data.frame
+}
 \description{
 COVID GLUE datasets
 }

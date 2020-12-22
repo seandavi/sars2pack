@@ -17,6 +17,8 @@
 #' OECD (2020), Unemployment rate (indicator). doi: 10.1787/997c8750-en (Accessed on 05 June 2020)
 #'
 #' @author Sean Davis <seandavi@gmail.com>
+#' 
+#' @return a data.frame
 #'
 #' @examples 
 #' unemp = oecd_unemployment_data()

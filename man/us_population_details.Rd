@@ -9,6 +9,9 @@ us_population_details(...)
 \arguments{
 \item{\dots}{Passed along to \code{\link[tidycensus]{get_estimates}}.}
 }
+\value{
+a \code{data.frame}
+}
 \description{
 Get data from the US Census Bureau Population Estimates APIs.
 }

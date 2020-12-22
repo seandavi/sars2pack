@@ -8,6 +8,8 @@
 #' @family case-tracking
 #'
 #' @author Sean Davis <seandavi@gmail.com>
+#' 
+#' @return a data.frame
 #'
 #' @examples
 #' cus = combined_us_cases_data()

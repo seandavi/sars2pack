@@ -36,6 +36,8 @@
 #'   print("install.packages('RSQLite') to run this example")
 #' }
 #' 
+#' @return used for side effects
+#' 
 #' @export
 datasets_to_sql <- function(con, dataset_accessors = available_datasets()$accessor,
                             overwrite=TRUE, ...) {

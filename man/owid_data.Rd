@@ -11,6 +11,9 @@
 \usage{
 owid_data()
 }
+\value{
+a data.frame
+}
 \description{
 The OurWoldInData dataset includes country-level testing,
 deaths, and confirmed cases for most countries in the world.

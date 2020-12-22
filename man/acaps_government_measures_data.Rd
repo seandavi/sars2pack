@@ -6,6 +6,9 @@
 \usage{
 acaps_government_measures_data()
 }
+\value{
+a data.frame
+}
 \description{
 ACAPS government measures catalogs worldwide COVID-19 government interventions
 }

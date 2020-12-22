@@ -22,6 +22,8 @@
 #'
 #' @family data-import
 #' @family NPI
+#' 
+#' @return a data.frame
 #'
 #' @examples
 #' res = acaps_government_measures_data()

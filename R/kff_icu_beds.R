@@ -8,6 +8,8 @@
 #'
 #' @family data-import
 #' @family healthcare-systems
+#' 
+#' @return a data.frame
 #'
 #' @examples
 #' res = kff_icu_beds()

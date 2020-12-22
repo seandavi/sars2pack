@@ -11,6 +11,9 @@
 \usage{
 param_estimates_published()
 }
+\value{
+a data.frame
+}
 \description{
 Published estimates of epidemiological characteristics from both
 peer-reviewed and non-peer-reviewed resources, encoded by community

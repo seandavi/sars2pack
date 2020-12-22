@@ -11,6 +11,9 @@
 \usage{
 government_policy_timeline()
 }
+\value{
+a data.frame
+}
 \description{
 Governments are taking a wide range of measures in response to the COVID-19 outbreak. The Oxford COVID-19 Government Response Tracker (OxCGRT) aims to track and compare government responses to the coronavirus outbreak worldwide rigorously and consistently.
 }

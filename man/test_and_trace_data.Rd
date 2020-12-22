@@ -11,6 +11,9 @@
 \usage{
 test_and_trace_data()
 }
+\value{
+a \code{data.frame}
+}
 \description{
 Testing and tracing statistics for United States from testandtrace.com
 }

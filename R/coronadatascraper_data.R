@@ -18,6 +18,8 @@
 #' @family data-import
 #' @family case-tracking
 #' 
+#' @return a data.frame
+#' 
 #' @examples
 #' res = coronadatascraper_data()
 #' colnames(res)

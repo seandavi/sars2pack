@@ -30,6 +30,9 @@ line types to separate out datasets.}
 
 \item{log}{logical(1) TRUE for log10 based y-scale, FALSE for linear}
 }
+\value{
+a ggplot2 object
+}
 \description{
 \code{plot_epicurve} is a simplifying wrapper around ggplot to
 produce curves of cumulative cases versus time. The input

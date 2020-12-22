@@ -6,6 +6,9 @@
 \usage{
 cov_glue_snp_lineage()
 }
+\value{
+a data.frame
+}
 \description{
 This function maps lineage name to snps and to
 taxon names. Everything is GISAID-specific.

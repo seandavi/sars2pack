@@ -33,6 +33,8 @@
 #' @family data-import
 #' @family case-tracking
 #' 
+#' @return a `data.frame`
+#' 
 #' @examples
 #' TAndT = test_and_trace_data()
 #' head(TAndT)

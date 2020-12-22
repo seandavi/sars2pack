@@ -21,6 +21,8 @@
 #' @family data-import
 #' @family NPI
 #' 
+#' @return a data.frame
+#' 
 #' 
 #' @examples
 #' library(dplyr)

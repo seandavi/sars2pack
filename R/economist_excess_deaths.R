@@ -14,6 +14,8 @@
 #' 
 #' @family data-import
 #' @family excess-deaths
+#' 
+#' @return a data.frame
 #'
 #' @examples
 #' res = economist_excess_deaths()

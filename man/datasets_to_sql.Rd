@@ -24,6 +24,9 @@ exists.}
 
 \item{\dots}{passed on to \code{\link[dplyr:copy_to]{dplyr::copy_to()}}}
 }
+\value{
+used for side effects
+}
 \description{
 SQL databases are the cornerstone of many data science efforts.
 We provide this simple function to export all the available

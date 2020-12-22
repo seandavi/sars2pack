@@ -4,6 +4,9 @@
 #' @param xscale character code for x axis scale
 #' @param TD.split logical
 #' @param \dots passed to base::plot
+#' 
+#' @return none, used for side effects
+#' 
 #' @export
 plot2 = function(x, xscale="w", TD.split=FALSE, ...) UseMethod("plot2")
 
@@ -12,6 +15,9 @@ plot2 = function(x, xscale="w", TD.split=FALSE, ...) UseMethod("plot2")
 #' @param xscale character(1) scale to be used on x axis (d = daily, w=weekly, f=fortnightly, m=monthly)
 #' @param TD.split logical(1) "to force the display of both R(t) and the epidemic curve in the same window for TD method"
 #' @param \dots passed to base::plot
+#' 
+#' @return none, used for side effects
+#' 
 #' @export
 plot2.R0.sR = function (x, xscale = "w", TD.split = FALSE, ...) 
 {
@@ -46,6 +52,9 @@ plot2.R0.sR = function (x, xscale = "w", TD.split = FALSE, ...)
 #' @param xscale character code for x axis scale
 #' @param SB.dist logical(1)
 #' @param \dots passed to base::plot
+#' 
+#' @return none, used for side effects
+#' 
 #' @export
 plotfit2 = function(x, all=TRUE, xscale="w", SB.dist=TRUE, ...) UseMethod("plotfit2")
 
@@ -55,6 +64,9 @@ plotfit2 = function(x, all=TRUE, xscale="w", SB.dist=TRUE, ...) UseMethod("plotf
 #' @param xscale character(1) scale to be used on x axis (d = daily, w=weekly, f=fortnightly, m=monthly)
 #' @param SB.dist logical(1)
 #' @param \dots passed to base::plot
+#' 
+#' @return none, used for side effects
+#' 
 #' @export
 plotfit2.R0.sR = function (x, all = TRUE, xscale = "w", SB.dist = TRUE, ...) 
 {
@@ -110,6 +122,9 @@ get_series = function(province="", country,
 #' @param country character(1) must be found in CountryRegion field
 #' @param dataset data.frame as returned by fetch_JHU_Data
 #' @param \dots passed to base::plot
+#' 
+#' @return none, used for side effects
+#' 
 #' @note An effort is made to change dates used as column names to lubridate date objects
 #' that are respected in plotting.
 #' @examples
@@ -127,6 +142,8 @@ plot_series = function(province="", country, dataset=try(jhu_data()), ...) {
 #' estimate R0
 #'
 #' @param x a data.frame with incidences
+#'
+#' @return a data.frame
 #'
 #' @export
 estimate_R <- function(x, ...) UseMethod('estimate_R', x)

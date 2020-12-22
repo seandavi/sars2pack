@@ -11,6 +11,9 @@
 \usage{
 economist_excess_deaths()
 }
+\value{
+a data.frame
+}
 \description{
 Return the data behind The Economist’s tracker for \href{https://www.economist.com/graphic-detail/2020/04/16/tracking-covid-19-excess-deaths-across-countries}{covid-19 excess deaths}
 (which is free to read)

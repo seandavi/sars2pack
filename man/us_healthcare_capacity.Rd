@@ -12,6 +12,9 @@
 \usage{
 us_healthcare_capacity()
 }
+\value{
+a \code{data.frame}
+}
 \description{
 United States healthcare system capacity by provider
 }

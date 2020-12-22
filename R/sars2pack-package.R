@@ -20,6 +20,13 @@
 #' and granular datasets will inform business, policy, and even
 #' personal decisions for months or even years to come.
 #'
+#' @importFrom rlang .data
+#' @importFrom rlang sym
+#' @importFrom rlang syms
+#' @importFrom dplyr summarise
+#' @importFrom dplyr count
+#' @importFrom methods is
+#'
 #' @section Purpose:
 #'
 #' The `sars2pack` R package aims to:
