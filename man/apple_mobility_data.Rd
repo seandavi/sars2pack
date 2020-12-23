@@ -87,8 +87,8 @@ res \%>\%
         ggtitle('Changes in Apple Mobility Index over time')
 
 
-if(requireNamespace(plotly)) {
-    plotly::ggplotly(pl)
+if(require(plotly)) {
+    ggplotly(pl)
 }
 
 
