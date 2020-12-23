@@ -28,10 +28,10 @@
 #' @param count_column character(1) giving the column name of the cumulative
 #'     counts in the dataset
 #'
-#' @param data_column  character(1) giving the column name of date column
+#' @param date_column  character(1) giving the column name of date column
 #'     in the dataset
 #'
-#' 
+#' @return a data.frame 
 #'
 #' @author Sean Davis <seandavi@gmail.com>
 #'

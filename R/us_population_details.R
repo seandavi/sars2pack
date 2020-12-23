@@ -3,11 +3,15 @@
 #' Get data from the US Census Bureau Population Estimates APIs.
 #'
 #' @param \dots Passed along to \code{\link[tidycensus]{get_estimates}}.
+#' 
+#' @seealso \code{link[tidycensus]{get_estimates}}
 #'
 #' @author Sean Davis <seandavi@gmail.com>
+#' 
+#' @return a `data.frame`
 #'
 #' @examples
-#' res = us_population_details(geometry='state',year=2019)
+#' res = us_population_details(geography='county', product='population', year=2019)
 #' head(res)
 #'
 #' @export

@@ -1,4 +1,21 @@
-
+#' World population details from United Nations
+#' 
+#' @source 
+#' - \url{https://population.un.org}
+#' 
+#' @author Sean Davis <seandavi@gmail.com>
+#' 
+#' @return a `data.frame`
+#' 
+#' @examples 
+#' res = world_population_data()
+#' 
+#' colnames(res)
+#' dplyr::glimpse(res)
+#' head(res)
+#' 
+#' 
+#' @export
 
 world_population_data <- function() {
   .fix_df = function(df) {

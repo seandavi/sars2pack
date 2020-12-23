@@ -7,7 +7,7 @@
 growth_rate_ratio(v, Ws = 3, Wl = 7, smooth_window = 7)
 }
 \arguments{
-\item{v}{a numeric vector of new cases per day}
+\item{v}{a numeric vector of new cases per day (incidence)}
 
 \item{Ws}{integer(1), the number of days to average for the shorter window}
 
@@ -15,6 +15,9 @@ growth_rate_ratio(v, Ws = 3, Wl = 7, smooth_window = 7)
 
 \item{smooth_window}{integer(1), the size of the window to apply rolling mean
 smoothing to. The smoothing is applied \emph{before} the summary process occurs}
+}
+\value{
+a numeric vector
 }
 \description{
 Calculate the growth rate ratio as defined in Badr et al.

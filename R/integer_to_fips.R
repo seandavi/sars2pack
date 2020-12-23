@@ -9,7 +9,7 @@
 #' @references
 #' List of United States FIPS codes by county: \url{https://en.wikipedia.org/wiki/List_of_United_States_FIPS_codes_by_county}.
 #'
-#' @param integer vector of length 1 or more
+#' @param v integer vector of length 1 or more
 #'
 #' @return
 #' character vector with each member a 0-padded representation of the original

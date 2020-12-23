@@ -11,6 +11,9 @@
 \usage{
 ecdc_data()
 }
+\value{
+a data.frame
+}
 \description{
 Daily COVID-19 deaths and confirmed cases from the European CDC
 }

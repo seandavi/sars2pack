@@ -49,6 +49,8 @@
 #'
 #' @author
 #' Sean Davis <seandavi@gmail.com>
+#' 
+#' @return a data.frame
 #'
 #' @references
 #' Google LLC "Google COVID-19 Search Trends symptoms dataset".
@@ -82,7 +84,7 @@ google_search_trends_data <- function() {
   ## Historical Data
   munge_table = function(fname) {
     data.table::fread(fname) %>%
-      data.table::melt(id.vars=1:8)
+      data.table::melt(id.vars=seq_len(8))
   }
   rpath = s2p_cached_url("https://github.com/google-research/open-covid-19-data/releases/download/v0.0.2/US_search_trends_symptoms_dataset.zip")
   td = tempfile()

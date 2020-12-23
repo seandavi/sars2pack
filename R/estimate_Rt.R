@@ -22,6 +22,8 @@
 #' @param method character(1) passed to `EpiEstim::estimate_R()`
 #' @param config list() passed to `EpiEstim::make_config()`. Typically used to 
 #'     set up the serial interval distribution.
+#' @param cumulative logical(1) whether the case counts are cumulative (TRUE)
+#'     or are daily incidence (FALSE)
 #' @param invert **Unused** default FALSE, but if TRUE, returns 1/R(t) or related
 #'     estimate, useful for plotting, since we are often most interested
 #'     in looking at R(t) near or below 1. 
@@ -205,6 +207,7 @@ estimate_Rt = function(df, filter_expression,
 #'     will break `df` into chunks for estimation (i.e., location, etc.). The default is normally
 #'     correct and includes all
 #'     columns except for date_column and case_column.
+#' @param ... passed on to \code{\link{estimate_Rt}}
 #' 
 #' @author Sean Davis <seandavi@gmail.com>
 #' 

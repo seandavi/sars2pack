@@ -97,9 +97,9 @@
 nytimes_county_data = function() {
     rpath = s2p_cached_url('https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv')
     dat = readr::read_csv(rpath, col_types=cols())
-    confirmed = dat[,1:5]
+    confirmed = dat[,c(1,2,3,4,5)]
     confirmed$subset = 'confirmed'
-    deaths = dat[,c(1:4,6)]
+    deaths = dat[,c(1,2,3,4,6)]
     deaths$subset='deaths'
     colnames(deaths)[5]='count'
     colnames(confirmed)[5]='count'
@@ -121,9 +121,9 @@ nytimes_county_data = function() {
 nytimes_state_data = function() {
     rpath = s2p_cached_url('https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-states.csv')
     dat = readr::read_csv(rpath, col_types=cols())
-    confirmed = dat[,1:4]
+    confirmed = dat[,c(1,2,3,4)]
     confirmed$subset = 'confirmed'
-    deaths = dat[,c(1:3,5)]
+    deaths = dat[,c(1,2,3,5)]
     deaths$subset='deaths'
     colnames(deaths)[4]='count'
     colnames(confirmed)[4]='count'

@@ -6,6 +6,9 @@
 \usage{
 us_county_health_rankings()
 }
+\value{
+a \code{data.frame}
+}
 \description{
 The County Health Rankings, a collaboration between the Robert Wood Johnson Foundation and the University of Wisconsin Population Health Institute, measure the health of nearly all counties in the nation and rank them within states. The Rankings are compiled using county-level measures from a variety of national and state data sources.
 }

@@ -7,6 +7,8 @@
 #' 
 #' @author Sean Davis <seandavi@gmail.com>
 #' 
+#' @return a `data.frame`
+#' 
 #' @source 
 #' 
 #' - [https://hub.arcgis.com/datasets/geoplatform::hospitals](https://hub.arcgis.com/datasets/geoplatform::hospitals)

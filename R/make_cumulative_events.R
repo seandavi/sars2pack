@@ -4,6 +4,9 @@
 #' @param eventtype character(1) should be "confirmed" or "deaths"
 #' @param alpha3 character(1) country code not checked
 #' @param ProvinceStateName character(1) 
+#' 
+#' @return a list with counts and dates
+#' 
 #' @examples
 #' # ec = jhu_data()
 #' # ber = ec[which(ec$nuts_3 == "Bergamo"),]

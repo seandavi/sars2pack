@@ -24,6 +24,8 @@ records from the supplied data.frame in \code{dat}.}
 
 \item{cols_to_remove}{a character vector of column names from
 \code{\link[=country_metadata]{country_metadata()}} to remove.}
+
+\item{...}{passed to write.xlsx}
 }
 \value{
 A list of three \code{data.frames} named \code{deaths}, \code{confirmed},

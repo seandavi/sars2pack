@@ -17,6 +17,9 @@ add_incidence_column(
 at least ordered quantity and a cumulative \code{count} column. These
 types of data often arise from one of the case-count type datasets.}
 
+\item{date_column}{character(1) giving the column name of date column
+in the dataset}
+
 \item{count_column}{character(1) giving the column name of the cumulative
 counts in the dataset}
 
@@ -27,9 +30,9 @@ to add}
 for grouping when calculating the incidence data. See examples for
 details. \strong{Be very careful to include the appropriate columns in
 grouping, or results will be misleading}.}
-
-\item{data_column}{character(1) giving the column name of date column
-in the dataset}
+}
+\value{
+a data.frame
 }
 \description{
 For a data.frame that includes cumulative case counts over time

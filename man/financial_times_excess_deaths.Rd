@@ -9,6 +9,9 @@
 \usage{
 financial_times_excess_deaths()
 }
+\value{
+a data.frame
+}
 \description{
 From the Financial Times: "'Excess mortality' refers to the difference between deaths from all causes during the pandemic and the historic seasonal average. For many of the jurisdictions shown here, this figure is higher than the official Covid-19 fatalities that are published by national governments each day. While not all of these deaths are necessarily attributable to the disease, it does leave a number of unexplained deaths that suggests that the official figures of deaths attributed may significant undercounts of the pandemic's impact."
 }

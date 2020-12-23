@@ -12,6 +12,9 @@
 \usage{
 who_cases()
 }
+\value{
+a \code{data.frame}
+}
 \description{
 Each row of data reports cumulative counts based on best reporting
 up to the moment published. Cases and deaths are reported for all

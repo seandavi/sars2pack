@@ -19,6 +19,8 @@
 #' @family data-import
 #' @family NPI
 #' 
+#' @return a `data.frame`
+#' 
 #' @examples 
 #' res = us_state_distancing_policy()
 #' colnames(res)

@@ -14,6 +14,8 @@
 #' - \url{https://midasnetwork.us/covid-19/}
 #'
 #' @family data-import
+#' 
+#' @return a data.frame
 #'
 #' @examples
 #' library(dplyr)

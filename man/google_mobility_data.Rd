@@ -16,6 +16,9 @@ google_mobility_data(accept_terms = TRUE)
 and any downstream users are aware that they are accepting
 Google's terms of service. See the note below.}
 }
+\value{
+a data.frame
+}
 \description{
 From the Google website: These Community Mobility Reports aim to
 provide insights into what has changed in response to policies

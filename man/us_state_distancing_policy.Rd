@@ -11,6 +11,9 @@
 \usage{
 us_state_distancing_policy()
 }
+\value{
+a \code{data.frame}
+}
 \description{
 An updated, curated set of social distancing and non-pharmaceutical interventions
 for states in the United States and District of Columbia.

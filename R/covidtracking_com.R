@@ -72,7 +72,7 @@ covidtracker_data <- function() {
         ## of names in select statement.
         dplyr::select(.covidtracker_cols_to_keep)
     ret$date = lubridate::as_date(as.character(res$date))
-    coltypes = sapply(ret,class)
+    coltypes = lapply(ret,class)
     ret[,coltypes=='numeric'] = lapply(ret[,coltypes=='numeric'],as.integer)
     ret$fips = integer_to_fips(as.numeric(ret$fips))
     ret

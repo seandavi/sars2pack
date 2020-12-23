@@ -4,6 +4,8 @@
 #' @importFrom dplyr rename %>%
 #' @importFrom countrycode countrycode
 #' 
+#' @return a data.frame
+#' 
 #' @references
 #' 
 #' \code{{
@@ -61,6 +63,8 @@ cov_glue_lineage_data <- function() {
 #' @family lineage
 #' @family data-import
 #' 
+#' @return a data.frame
+#' 
 #' @seealso cov_glue_lineage_data(), cov_glue_newick_data()
 #'
 #' @examples
@@ -90,6 +94,8 @@ cov_glue_snp_lineage = function() {
 #' - \url{https://www.biorxiv.org/content/10.1101/2020.04.17.046086v1}
 #'
 #' @seealso cov_glue_lineage_data(), cov_glue_snp_lineage()
+#'
+#' @return a newick tree
 #'
 #' @examples
 #' tr = cov_glue_newick_data()

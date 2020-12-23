@@ -6,6 +6,9 @@
 \usage{
 create_dataset_details(fname = "inst/data_catalog/dataset_details.yaml")
 }
+\value{
+No value
+}
 \description{
 This function runs available_datasets() and then
 loops over the datasets to collect a list that looks like:

@@ -26,6 +26,8 @@
 #' time, or both. This sort of data is not suitable for ongoing
 #' analysis during an epidemic and is therefore not included here.
 #' 
+#' @return a data.frame
+#' 
 #' @references
 #' Coronavirus tracked: the latest figures as countries start to reopenFree to read, \url{https://www.ft.com/content/a26fbf7e-48f8-11ea-aeb3-955839e06441}
 #'

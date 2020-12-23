@@ -6,6 +6,9 @@
 \usage{
 country_metadata()
 }
+\value{
+a data.frame
+}
 \description{
 This function uses the rest api here
 \url{https://restcountries.eu/rest/v2/all'}

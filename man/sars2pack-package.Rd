@@ -48,8 +48,6 @@ COVID-19 data resources.
 
 \examples{
 
-library(sars2pack)
-
 # Show me all the available datasets
 available_datasets()
 

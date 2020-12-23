@@ -6,6 +6,9 @@
 \usage{
 cov_glue_newick_data()
 }
+\value{
+a newick tree
+}
 \description{
 COVID GLUE Newick tree
 }

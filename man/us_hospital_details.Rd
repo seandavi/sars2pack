@@ -11,6 +11,9 @@
 \usage{
 us_hospital_details()
 }
+\value{
+a \code{data.frame}
+}
 \description{
 Includes details of beds, NAICS codes, and geolocation data for US states and territories.
 }

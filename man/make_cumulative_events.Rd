@@ -17,6 +17,9 @@ make_cumulative_events(cases, dates, eventtype, alpha3, ProvinceStateName)
 
 \item{ProvinceStateName}{character(1)}
 }
+\value{
+a list with counts and dates
+}
 \description{
 generic cumulative_events generator
 }

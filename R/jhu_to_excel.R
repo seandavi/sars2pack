@@ -9,7 +9,7 @@
 #' @return df, but without any `data.frame` columns
 #' @keywords internal
 .remove_df_columns <- function(df) {
-    df_cols = which(sapply(df, class)=='data.frame')
+    df_cols = which(vapply(df, class, 'stringtype')=='data.frame')
     df[, -c(df_cols)]
 }
 
@@ -98,6 +98,7 @@ enriched_jhu_data <- function(cols_to_remove = .cols_to_remove, warn=FALSE) {
 #'     records from the supplied data.frame in `dat`.
 #' @param cols_to_remove a character vector of column names from
 #'     [country_metadata()] to remove.
+#' @param ... passed to write.xlsx
 #'
 #' @return A list of three `data.frames` named `deaths`, `confirmed`,
 #' and `recovered`.

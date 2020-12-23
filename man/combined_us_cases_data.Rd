@@ -6,6 +6,9 @@
 \usage{
 combined_us_cases_data()
 }
+\value{
+a data.frame
+}
 \description{
 This is a convenience function to combine results from
 sources providing US state-level datasets. A primary use

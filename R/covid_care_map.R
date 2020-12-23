@@ -13,6 +13,8 @@
 #' - \url{https://github.com/covidcaremap/covid19-healthsystemcapacity}
 #' - \url{https://raw.githubusercontent.com/covidcaremap/covid19-healthsystemcapacity/master/data/published/us_healthcare_capacity-facility-CovidCareMap.csv}
 #'
+#' @return a `data.frame`
+#'
 #' @examples
 #' res = us_healthcare_capacity()
 #' colnames(res)

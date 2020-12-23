@@ -15,6 +15,9 @@
 
 \item{\dots}{passed to base::plot}
 }
+\value{
+none, used for side effects
+}
 \description{
 version of R0:::plot.R0.sR that does not use dev.new
 }

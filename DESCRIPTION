@@ -1,8 +1,32 @@
 Package: sars2pack
 Title: COVID-19 data resources and analysis tools
-Description: The sars2pack package includes COVID-19 data resources, analysis tools, and workflows in R.
-Version: 0.9.3
-Date: 2020-12-19
+Description: On January 30, 2020, the World Health Organization declared
+    coronavirus disease 2019 (COVID-19) a Public Health Emergency of
+    International concern (PHEIC) and within six weeks had
+    characterized the outbreak as a pandemic. Compared to the 2003-2004
+    severe acute respiratory syndrome (SARS) PHEIC, the COVID-19
+    pandemic spreads more quickly and with a much higher death
+    toll. However, the current pandemic is occurring in a more digital
+    and interconnected world. Traditional public health organizations
+    as well as data-mature organizations not traditionally involved
+    directly in public health have rapidly developed digital disease
+    surveillance infrastructuree that provides nearly realtime epidemic
+    tracking data. These data resources have proven invaluable to
+    understanding disease spread, to drive non-pharmacologic
+    intervention (NPI), and, when combined with additional data
+    resources, to project impacts to communities and healthcare systems
+    around the world. Even as the urgency of the initial “hammer” of
+    the COVID-19 pandemic begins to abate, the need for timely, robust,
+    and granular datasets will inform business, policy, and even
+    personal decisions for months or even years to come. This package provides
+    documentation and access to highly-cited COVID-19 datasets and 
+    secondary data that allow real-time analysis, visualization, and
+    interpretation of the state of COVID-19 at a community, national, 
+    or international level. By exposing these resources easily to the
+    enormous community of data scientists using R, we hope to increase
+    value and accelarate reporting, analysis, and decision-making. 
+Version: 0.99.0
+Date: 2020-12-23
 Authors@R: c(person("Sean", "Davis", role = c("aut","cre"),
                     email = 'seandavi@gmail.com',
                     comment = c('ORCID'="0000-0002-8991-6458")),
@@ -34,18 +58,26 @@ Suggests:
     tsibble,
     rcmdcheck,
     sessioninfo,
-    covr
-Depends: R (>= 3.5.0), R0, sf
-Imports: methods, utils, lubridate, magrittr, dplyr, tidyr, countrycode,
+    covr,
+    timetk,
+    DBI,
+    RSQLite
+Depends: R (>= 4.0.0), R0, sf
+Imports: methods, utils, lubridate, magrittr, dplyr, countrycode,
     openxlsx, tibble, jsonlite, httr, readr, BiocFileCache, readxl,
-    stringr, ggplot2, yaml, rlang, EpiEstim, shiny, rvest, xml2,
-    RSelenium, wdman, purrr, ape, forecast, shinytoastr, rmeta, genbankr
+    stringr, ggplot2, yaml, rlang, EpiEstim, 
+    RSelenium, wdman, purrr, ape, tidyr
 Url: https://seandavi.github.io/sars2pack, https://github.com/seandavi/sars2pack
 BugReports: https://github.com/seandavi/sars2pack/issues/new
 License: MIT + file LICENSE
 LazyLoad: yes
 LazyData: yes
 VignetteBuilder: knitr
+biocViews: TimeCourse,
+    DataImport,
+    ThirdPartyClient,
+    DataRepresentation,
+    Phylogenetics
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 Encoding: UTF-8

@@ -14,6 +14,8 @@
 #' 
 #' @family data-import
 #' @family excess-deaths
+#' 
+#' @return a data.frame
 #'
 #' @examples
 #' res = economist_excess_deaths()
@@ -25,17 +27,17 @@
 #' @export
 economist_excess_deaths = function() {
     repo = 'TheEconomist/covid-19-excess-deaths-tracker'
-    paths = c('output-data/excess-deaths')
+    path = c('output-data/excess-deaths')
     get_urls = function(repo, path) {
         res = ls_github(repo, path)
         res %>% dplyr::filter(.data$type=='file' & grepl('csv$',.data$name)) %>%
             dplyr::pull(.data$download_url)
     }
-    urls = c(sapply(paths, function(x) get_urls(repo, x)))
+    urls = get_urls(repo, path)
     urls
-    res = sapply(urls, s2p_cached_url)
+    res = vapply(urls, s2p_cached_url,'filename')
     reader = function(x) {
-        res = readr::read_csv(x,col_types=readr::cols())[,1:11]
+        res = data.table::fread(x)[,seq_len(11)]
         res$region_code=as.character(res$region_code)
         res$expected_deaths=suppressWarnings(as.numeric(res$expected_deaths))
         res

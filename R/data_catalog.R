@@ -100,6 +100,7 @@ add_dataset_to_catalog = function(name, accessor, data_type=list(), url="",
 #'   the min and max dates included in the dataset. Each dataset is an item
 #'   in the list. See examples for details and for viewing suggestions.
 #' 
+#' @return a list, with each dataset as an item
 #' 
 #' @examples 
 #' dd = dataset_details()
@@ -155,6 +156,8 @@ dataset_details = function() {
 #'     nrow: 3220
 #'     ncol: 9
 #' ```
+#' 
+#' @return No value
 #' 
 #' @importFrom yaml as.yaml
 #' 

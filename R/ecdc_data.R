@@ -71,6 +71,8 @@
 #' @family data-import
 #' @family case-tracking
 #' 
+#' @return a data.frame
+#' 
 #' @export
 ecdc_data <- function() {
     fpath = s2p_cached_url('https://opendata.ecdc.europa.eu/covid19/casedistribution/csv/data.csv')

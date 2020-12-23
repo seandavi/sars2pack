@@ -11,6 +11,9 @@
 \usage{
 cdc_excess_deaths()
 }
+\value{
+a data.frame
+}
 \description{
 Understanding the potentially unmeasured death toll due to COVID-19
 starts with understanding the expected vs observed death rates over

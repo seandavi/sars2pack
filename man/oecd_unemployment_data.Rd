@@ -9,6 +9,9 @@
 \usage{
 oecd_unemployment_data()
 }
+\value{
+a data.frame
+}
 \description{
 The Organisation for Economic Co-operation and Development (OECD) is an international organisation
 and collects and reports broadly on economic and social factors.

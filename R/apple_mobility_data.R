@@ -45,6 +45,8 @@
 #' @importFrom dplyr `%>%` mutate
 #' @importFrom tidyr pivot_longer
 #' 
+#' @return a data.frame
+#' 
 #' @note
 #' Apple requires that all users agree to their terms of use.
 #' See \url{https://www.apple.com/covid19/mobility}.
@@ -78,15 +80,15 @@
 #'         facet_grid(rows=vars(transportation_type)) +
 #'         ggtitle('Changes in Apple Mobility Index over time')
 #' 
-#' if(require(viridis)) {
+#'
 #' res %>%
 #'     dplyr::filter(region %in% regs_of_interest) %>%
 #'     ggplot(aes(x=date, y=region, fill=mobility_index)) +
 #'         geom_tile() +
 #'         facet_grid(rows=vars(transportation_type)) +
-#'         scale_fill_viridis() +
+#'         scale_fill_viridis_b() +
 #'         ggtitle('Changes in Apple Mobility Index over time')
-#' }
+#' 
 #'
 #' if(require(plotly)) {
 #'     ggplotly(pl)

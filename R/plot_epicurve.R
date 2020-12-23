@@ -24,6 +24,8 @@
 #' @param log logical(1) TRUE for log10 based y-scale, FALSE for linear
 #' @param ... passed to `ggplot2::aes_string()`, useful providing colors or
 #'     line types to separate out datasets. 
+#'     
+#' @return a ggplot2 object
 #' 
 #' @examples 
 #' library(dplyr)

@@ -13,6 +13,8 @@
 #' @family data-import
 #' @family projections
 #' 
+#' @return a data.frame
+#' 
 #' @references 
 #' - \url{https://www.cdc.gov/coronavirus/2019-ncov/covid-data/forecasting-us.html}
 #' 

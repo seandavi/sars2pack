@@ -11,6 +11,9 @@
 \usage{
 test_and_trace_data()
 }
+\value{
+a \code{data.frame}
+}
 \description{
 Testing and tracing statistics for United States from testandtrace.com
 }
@@ -46,14 +49,15 @@ colnames(TAndT)
 dplyr::glimpse(TAndT)
 
 nyt = nytimes_state_data() \%>\% dplyr::select(-state) \%>\%
-    dplyr::mutate(fips = substr(fips,4,5)) \%>\%
     dplyr::filter(subset=='confirmed') \%>\%
     add_incidence_column(grouping_columns = 'fips')
     
 testers = TAndT \%>\%
+    dplyr::mutate(date=as.Date(.data$date)) \%>\%
     dplyr::left_join(nyt, c('fips'='fips','date'='date')) \%>\%
     dplyr::mutate(tracers_per_new_case = contact_tracers_count/inc)
 
+require(ggplot2)
 testers \%>\% dplyr::filter(date==Sys.Date()-4) \%>\%
     ggplot(aes(x=reorder(iso2c,tracers_per_new_case),y=tracers_per_new_case)) +
     geom_bar(stat='identity') +

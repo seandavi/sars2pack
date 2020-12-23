@@ -17,6 +17,9 @@ plotfit2(x, all = TRUE, xscale = "w", SB.dist = TRUE, ...)
 
 \item{\dots}{passed to base::plot}
 }
+\value{
+none, used for side effects
+}
 \description{
 generic for simpler plotter for plotfit for R0.sR
 }

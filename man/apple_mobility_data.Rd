@@ -15,6 +15,9 @@ has agreed to Apple's terms of use. See references and note.}
 \item{message_url}{logical, output a message with the URL for the day
 since Apple changes it daily.}
 }
+\value{
+a data.frame
+}
 \description{
 From Apple's website:
 "Learn about COVID‑19 mobility trends in countries/regions and cities. Reports are published daily and reflect requests for directions in Apple Maps. Privacy is one of our core values, so Maps doesn’t associate your data with your Apple ID, and Apple doesn’t keep a history of where you’ve been."
@@ -74,15 +77,15 @@ res \%>\%
         facet_grid(rows=vars(transportation_type)) +
         ggtitle('Changes in Apple Mobility Index over time')
 
-if(require(viridis)) {
+
 res \%>\%
     dplyr::filter(region \%in\% regs_of_interest) \%>\%
     ggplot(aes(x=date, y=region, fill=mobility_index)) +
         geom_tile() +
         facet_grid(rows=vars(transportation_type)) +
-        scale_fill_viridis() +
+        scale_fill_viridis_b() +
         ggtitle('Changes in Apple Mobility Index over time')
-}
+
 
 if(require(plotly)) {
     ggplotly(pl)

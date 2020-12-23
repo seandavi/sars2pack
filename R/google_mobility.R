@@ -51,6 +51,8 @@
 #' 
 #' @author Sean Davis <seandavi@gmail.com>
 #' 
+#' @return a data.frame
+#' 
 #' @source
 #' - \url{https://www.google.com/covid19/mobility/}
 #'

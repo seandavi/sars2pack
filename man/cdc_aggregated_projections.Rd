@@ -6,6 +6,9 @@
 \usage{
 cdc_aggregated_projections()
 }
+\value{
+a data.frame
+}
 \description{
 The US CDC gathers projections from several groups around
 the world and aggregates them into a single data resource.

@@ -21,6 +21,8 @@
 #' @family data-import
 #' @family NPI
 #' 
+#' @return a data.frame
+#' 
 #' 
 #' @examples
 #' library(dplyr)
@@ -35,6 +37,6 @@ government_policy_timeline = function () {
     rpath = s2p_cached_url('https://github.com/OxCGRT/covid-policy-tracker/raw/master/data/OxCGRT_latest.csv')
     dat = readr::read_csv(rpath, guess_max = 50000, col_types = cols())
     dat$Date = lubridate::ymd(dat$Date)
-    colnames(dat)[1:3]=c('country', 'iso3c', 'date')
+    colnames(dat)[c(1,2,3)]=c('country', 'iso3c', 'date')
     dat
 }

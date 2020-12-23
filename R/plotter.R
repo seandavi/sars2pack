@@ -4,6 +4,9 @@
 #' @param xscale character code for x axis scale
 #' @param TD.split logical
 #' @param \dots passed to base::plot
+#' 
+#' @return none, used for side effects
+#' 
 #' @export
 plot2 = function(x, xscale="w", TD.split=FALSE, ...) UseMethod("plot2")
 
@@ -12,10 +15,13 @@ plot2 = function(x, xscale="w", TD.split=FALSE, ...) UseMethod("plot2")
 #' @param xscale character(1) scale to be used on x axis (d = daily, w=weekly, f=fortnightly, m=monthly)
 #' @param TD.split logical(1) "to force the display of both R(t) and the epidemic curve in the same window for TD method"
 #' @param \dots passed to base::plot
+#' 
+#' @return none, used for side effects
+#' 
 #' @export
 plot2.R0.sR = function (x, xscale = "w", TD.split = FALSE, ...) 
 {
-    if (class(x) != "R0.sR") {
+    if (!is(x,"R0.sR")) {
         stop("'x' must be of class 'R0.sR'")
     }
     if (xscale != "d" & xscale != "w" & xscale != "f" & xscale != 
@@ -46,6 +52,9 @@ plot2.R0.sR = function (x, xscale = "w", TD.split = FALSE, ...)
 #' @param xscale character code for x axis scale
 #' @param SB.dist logical(1)
 #' @param \dots passed to base::plot
+#' 
+#' @return none, used for side effects
+#' 
 #' @export
 plotfit2 = function(x, all=TRUE, xscale="w", SB.dist=TRUE, ...) UseMethod("plotfit2")
 
@@ -55,10 +64,13 @@ plotfit2 = function(x, all=TRUE, xscale="w", SB.dist=TRUE, ...) UseMethod("plotf
 #' @param xscale character(1) scale to be used on x axis (d = daily, w=weekly, f=fortnightly, m=monthly)
 #' @param SB.dist logical(1)
 #' @param \dots passed to base::plot
+#' 
+#' @return none, used for side effects
+#' 
 #' @export
 plotfit2.R0.sR = function (x, all = TRUE, xscale = "w", SB.dist = TRUE, ...) 
 {
-    if (class(x) != "R0.sR") {
+    if (!is(x,"R0.sR")) {
         stop("'x' must be of class 'sR'")
     }
     if (xscale != "d" & xscale != "w" & xscale != "f" & xscale != 
@@ -101,7 +113,7 @@ get_series = function(province="", country,
   if(!is.na(province)) {
       ans = ans %>% dplyr::filter(.data$ProvinceState==province)
   }
-  ans[,-c(1:4)]
+  ans[,-c(1,2,3,4)]
 }
 
 #' supersimple series plotter
@@ -110,6 +122,9 @@ get_series = function(province="", country,
 #' @param country character(1) must be found in CountryRegion field
 #' @param dataset data.frame as returned by fetch_JHU_Data
 #' @param \dots passed to base::plot
+#' 
+#' @return none, used for side effects
+#' 
 #' @note An effort is made to change dates used as column names to lubridate date objects
 #' that are respected in plotting.
 #' @examples
@@ -118,7 +133,7 @@ get_series = function(province="", country,
 plot_series = function(province="", country, dataset=try(jhu_data()), ...) {
  if (inherits(dataset, "try-error")) stop("could not get data from fetch_JHU_Data()")
  ser = get_series(province=province, country=country, dataset=dataset)
- dates = lubridate::as_date(mdy(fix_slash_dates(names(dataset)[-c(1:4)])))
+ dates = lubridate::as_date(mdy(fix_slash_dates(names(dataset)[-c(1,2,3,4)])))
  plot(dates, ser, main=paste(province, country), ...)
 }
 
@@ -126,8 +141,10 @@ plot_series = function(province="", country, dataset=try(jhu_data()), ...) {
 
 #' estimate R0
 #'
+#' @param x a data.frame with incidences
+#' @param ... passed along to dispatched function
 #'
-#'
+#' @return a data.frame
 #'
 #' @export
 estimate_R <- function(x, ...) UseMethod('estimate_R', x)
