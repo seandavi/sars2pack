@@ -2,8 +2,8 @@ sars2pack
 =========
 
 <!-- badges: start -->
-[![Launch Rstudio
-Binder](http://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/seandavi/sars2pack/f83370f?urlpath=rstudio)
+[![codecov](https://codecov.io/gh/seandavi/sars2pack/branch/main/graph/badge.svg?token=CHJSMJXAYL)](https://codecov.io/gh/seandavi/sars2pack) ![test-coverage](https://github.com/seandavi/sars2pack/workflows/test-coverage/badge.svg)
+
 <!-- badges: end -->
 
 Questions addressed by sars2pack
