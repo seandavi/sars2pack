@@ -99,6 +99,18 @@ earlier entries in the data when they receive new information." />
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/overview.html">Exploring the COVID-19 pandemic using sars2pack</a>
+    </li>
+  </ul>
+</li>
 <li>
   <a href="../news/index.html">Changelog</a>
 </li>
@@ -266,7 +278,7 @@ you would link to our U.S. tracking page at
 <span class='va'>res</span> <span class='op'>=</span> <span class='fu'>nytimes_state_data</span><span class='op'>(</span><span class='op'>)</span>
 <span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] "date"   "state"  "fips"   "count"  "subset"</div><div class='input'><span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://tibble.tidyverse.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Rows: 32,368
+</div><div class='output co'>#&gt; Rows: 32,478
 #&gt; Columns: 5
 #&gt; $ date   <span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2020-01-21, 2020-01-22, 2020-01-23, 2020-01-24, 2020-01-24, 2…
 #&gt; $ state  </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Washington", "Washington", "Washington", "Illinois", "Washing…
@@ -277,7 +289,7 @@ you would link to our U.S. tracking page at
 <span class='va'>res</span> <span class='op'>=</span> <span class='fu'>nytimes_county_data</span><span class='op'>(</span><span class='op'>)</span>
 <span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] "date"   "county" "state"  "fips"   "count"  "subset"</div><div class='input'><span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://tibble.tidyverse.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Rows: 1,690,166
+</div><div class='output co'>#&gt; Rows: 1,696,608
 #&gt; Columns: 6
 #&gt; $ date   </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2020-01-21, 2020-01-22, 2020-01-23, 2020-01-24, 2020-01-24, 2…
 #&gt; $ county </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Snohomish", "Snohomish", "Snohomish", "Cook", "Snohomish", "O…
