@@ -34,6 +34,8 @@ summary(res)
 }
 \seealso{
 Other data-import: 
+\code{\link{acaps_government_measures_data}()},
+\code{\link{acaps_secondary_impact_data}()},
 \code{\link{apple_mobility_data}()},
 \code{\link{beoutbreakprepared_data}()},
 \code{\link{cdc_aggregated_projections}()},
@@ -48,12 +50,8 @@ Other data-import:
 \code{\link{descartes_mobility_data}()},
 \code{\link{ecdc_data}()},
 \code{\link{economist_excess_deaths}()},
-\code{\link{eu_data_cache_data}()},
 \code{\link{financial_times_excess_deaths}()},
 \code{\link{google_mobility_data}()},
-\code{\link{healthdata_mobility_data}()},
-\code{\link{healthdata_projections_data}()},
-\code{\link{healthdata_testing_data}()},
 \code{\link{jhu_data}()},
 \code{\link{jhu_us_data}()},
 \code{\link{kff_icu_beds}()},
@@ -67,9 +65,12 @@ Other data-import:
 \code{\link{us_healthcare_capacity}()},
 \code{\link{us_hospital_details}()},
 \code{\link{us_state_distancing_policy}()},
-\code{\link{usa_facts_data}()}
+\code{\link{usa_facts_data}()},
+\code{\link{who_cases}()},
+\code{\link{yougov_behavioral_data}()}
 
 Other NPI: 
+\code{\link{acaps_government_measures_data}()},
 \code{\link{coronanet_government_response_data}()},
 \code{\link{us_state_distancing_policy}()}
 }

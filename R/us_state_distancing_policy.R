@@ -29,21 +29,21 @@
 #' @export
 us_state_distancing_policy = function() {
     rpath = s2p_cached_url('https://raw.githubusercontent.com/COVID19StatePolicy/SocialDistancing/master/data/USstatesCov19distancingpolicyBETA.csv')
-    res = readr::read_csv(rpath,col_types = cols())
+    res = data.table::fread(rpath)
     res %>% dplyr::select(-dplyr::starts_with('X')) %>%
         dplyr::mutate(
-            DateIssued = lubridate::ymd(DateIssued),
-            DateEnacted = lubridate::ymd(DateEnacted),
-            DateEnded = lubridate::ymd(DateEnded),
-            DateExpiry = lubridate::ymd(DateExpiry),
-            LastUpdated = lubridate::ymd(LastUpdated),
-            Mandate = as.logical(Mandate),
-            StateFIPS = integer_to_fips(StateFIPS),
-            StateWide = as.logical(StateWide),
-            Mandate = as.logical(Mandate)
+            DateIssued = lubridate::ymd(.data$DateIssued),
+            DateEnacted = lubridate::ymd(.data$DateEnacted),
+            DateEnded = lubridate::ymd(.data$DateEnded),
+            DateExpiry = lubridate::ymd(.data$DateExpiry),
+            LastUpdated = lubridate::ymd(.data$LastUpdated),
+            Mandate = as.logical(.data$Mandate),
+            StateFIPS = integer_to_fips(.data$StateFIPS),
+            StateWide = as.logical(.data$StateWide),
         ) %>%
         dplyr::rename(
-            state = 'StateName',
-            iso2c  = 'StatePostal'
-        )
+            "state" = 'StateName',
+            "iso2c"  = 'StatePostal'
+        ) %>%
+        dplyr::rename_with(tolower)
 }

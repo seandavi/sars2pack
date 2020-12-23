@@ -7,9 +7,9 @@
 #'
 #' @details
 #'
-#'  Create connections using [RSQLite::SQLite()] for RSQLite, [RMariaDB::MariaDB()] for
-#'  RMariaDB, [RPostgres::Postgres()] for RPostgres, [odbc::odbc()] for
-#'  odbc, and [bigrquery::bigquery()] for BigQuery.
+#'  Create connections using RSQLite::SQLite() for RSQLite, RMariaDB::MariaDB() for
+#'  RMariaDB, RPostgres::Postgres() for RPostgres, odbc::odbc() for
+#'  odbc, and bigrquery::bigquery() for BigQuery.
 #'
 #' @param con a remote data source. See [dplyr::copy_to()]
 #' @param dataset_accessors character() vector of accessors for datasets.
@@ -19,7 +19,6 @@
 #'        name. If FALSE, will throw an error if name already
 #'        exists.
 #' @param \dots passed on to [dplyr::copy_to()]
-#'
 #'
 #' @author Sean Davis <seandavi@gmail.com>
 #'
@@ -46,10 +45,13 @@ datasets_to_sql <- function(con, dataset_accessors = available_datasets()$access
     }
     for(i in dataset_accessors) {
         ds = get(i)()
+        message(i)
+        ds = try(as.data.frame(get(i)()))
+        if(inherits(ds, 'try-error')) next
+        ds = ds[, as.vector(which(sapply(ds, is.atomic)))]
         if(is.data.frame(ds)) {
-            ds = ds[, as.vector(which(sapply(ds, is.vector)))]
+            message("writing")
             dplyr::copy_to(con, ds, i, ..., overwrite=TRUE)
-            message('Wrote %d records to table %s', nrow(i), i)
         }
     }
 }

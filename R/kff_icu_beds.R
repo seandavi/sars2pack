@@ -17,10 +17,11 @@
 #' summary(res)
 #' 
 #' @export
-kff_icu_beds <- function() {
-    rpath = 'https://khn.org/wp-content/uploads/sites/2/2020/03/KHN-ICU-bed-county-analysis_2.zip'
-    z = s2p_cached_url(rpath)
-    dat2 = unzip(z)
+kff_icu_beds <- function() {    
+    tmpd = tempdir()
+    url = 'https://khn.org/wp-content/uploads/sites/2/2020/03/KHN-ICU-bed-county-analysis_2.zip'
+    rpath = s2p_cached_url(url)
+    dat2 = utils::unzip(rpath, overwrite=TRUE, exdir=tmpd)
     dat3 = readxl::read_xlsx(dat2[1])
     colnames(dat3)[1:2] = c('fips','county')
     dat3

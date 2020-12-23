@@ -21,6 +21,7 @@ knitr::opts_chunk$set(
 library(sars2pack)
 library(dplyr)
 library(ggplot2)
+library(plotly)
 ```
 
 Datasets accessed from the internet come in many forms. We reformat
@@ -99,15 +100,15 @@ plot_epicurve(us_states,
 
 ```{r fig.cap='Worldwide daily reported deaths by continent (seven day moving average)'}
 library(zoo)
-ecdc_data() %>%
-    dplyr::filter(subset=='deaths') %>%
+(ecdc_data() %>%
+    dplyr::filter(subset=='deaths_weekly') %>%
     dplyr::group_by(date,continent) %>%
     dplyr::summarize(count=sum(count)) %>%
     dplyr::group_by(continent) %>%
-    dplyr::mutate(roll_mean = zoo::rollmean(count, 7, na.pad=TRUE)) %>%
-    add_incidence_column(count_column='roll_mean', grouping_columns = c('continent')) %>%
+    add_incidence_column(count_column='count', grouping_columns = c('continent')) %>%
     dplyr::filter(inc>0) %>%
     plot_epicurve(case_column='inc',color='continent', log=FALSE) +
-    ylab('Daily reported deaths') +
-    ggtitle('Daily reported deaths over time', subtitle='by continent (7-day moving average)')
+    ylab('Weekly reported deaths') +
+    ggtitle('Weekly reported deaths over time', subtitle='by continent (totaled by week)')) %>%
+  ggplotly()
 ```

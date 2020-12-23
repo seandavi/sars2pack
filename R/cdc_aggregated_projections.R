@@ -7,10 +7,7 @@
 #' These models are not updated daily but more like weekly.
 #' This function will attempt to grab the latest version. 
 #' 
-#' @importFrom xml2 read_html 
-#' @importFrom rvest html_nodes html_attr
-#' @importFrom readr read_csv
-#' 
+#'
 #' @author Sean Davis <seandavi@gmail.com>
 #' 
 #' @family data-import
@@ -66,11 +63,7 @@
 #' 
 #' @export
 cdc_aggregated_projections <- function() {
-    path = xml2::read_html("https://www.cdc.gov/coronavirus/2019-ncov/covid-data/forecasting-us.html") %>%
-        rvest::html_nodes("a") %>% 
-        rvest::html_attr('href') %>% 
-        grep('model-data.csv$',.,value=TRUE)
-    url = file.path('https://www.cdc.gov', path)
+    url = file.path('https://www.cdc.gov/coronavirus/2019-ncov/covid-data/files/2020-08-10-model-data.csv')
     rpath = s2p_cached_url(url)
     res = readr::read_csv(rpath, col_types = cols())
     res

@@ -13,15 +13,16 @@ epicurve.data.frame <- function(x, count_column = 'count',
 print.epicurve <- function(x, ...) {
     epiattr = attr(x, 'epicurve')
     cat('# epicurve \n')
-    cat(str(epiattr))
+    cat(utils::str(epiattr))
     NextMethod()
 }
 
 ggplot_epicurve <- function(x, ...) {
-    require(ggplot2)
     epiattr = attr(x, 'epicurve')
     print(epiattr$date_column)
-    ggplot(x, aes_string(x = epiattr$date_column, y = epiattr$count_column)) + geom_line()
+    ggplot2::ggplot(x, ggplot2::aes_string(x = epiattr$date_column,
+                                           y = epiattr$count_column)) + 
+        ggplot2::geom_line()
 }
 
 

@@ -1,7 +1,7 @@
 datasets:
   cdc_social_vulnerability_index:
     columns:
-      fid: numeric
+      grasp_id: numeric
       state_fips: character
       state: character
       st_abbr: character
@@ -134,7 +134,7 @@ datasets:
     columns:
       x: numeric
       'y': numeric
-      fid: numeric
+      objectid: numeric
       id: character
       name: character
       address: character
@@ -185,7 +185,7 @@ datasets:
       expected_deaths: numeric
       week: numeric
     dimensions:
-      nrow: 6924
+      nrow: 13592
       ncol: 12
   financial_times_excess_deaths:
     columns:
@@ -201,19 +201,19 @@ datasets:
       excess_deaths: numeric
       excess_deaths_pct: numeric
     dimensions:
-      nrow: 53947
+      nrow: 62915
       ncol: 11
     dates:
       min: '2010-01-05'
-      max: '2020-12-31'
+      max: '2020-09-23'
   us_county_health_rankings:
     columns:
-      statecode: character
-      countycode: character
-      fips: character
+      statecode: integer
+      countycode: integer
+      fips: integer
       state: character
       county: character
-      year: numeric
+      year: integer
       county_ranked: logical
       variable: character
       value: numeric
@@ -224,30 +224,25 @@ datasets:
     columns:
       record_id: character
       policy_id: numeric
-      recorded_date:
-      - POSIXct
-      - POSIXt
-      date_updated: Date
+      entry_type: character
+      correct_type: character
+      update_type: character
+      update_level: character
+      description: character
       date_announced: Date
       date_start: Date
       date_end: Date
-      entry_type: character
-      update_type: character
-      event_description: character
-      domestic_policy: numeric
-      type: character
-      type_sub_cat: character
-      type_text: numeric
-      index_high_est: numeric
-      index_med_est: numeric
-      index_low_est: numeric
-      index_country_rank: numeric
-      correct_type: character
       country: character
+      iso3c: character
+      iso2c: character
       init_country_level: character
+      domestic_policy: numeric
       province: character
       city: character
-      source_corr_type: character
+      type: character
+      type_sub_cat: character
+      type_text: character
+      institution_status: character
       target_country: character
       target_geog_level: character
       target_region: character
@@ -259,12 +254,18 @@ datasets:
       travel_mechanism: character
       compliance: character
       enforcer: character
+      index_high_est: numeric
+      index_med_est: numeric
+      index_low_est: numeric
+      index_country_rank: numeric
       link: character
-      iso3c: character
-      iso2c: character
+      date_updated: Date
+      recorded_date:
+      - POSIXct
+      - POSIXt
     dimensions:
-      nrow: 15982
-      ncol: 38
+      nrow: 49026
+      ncol: 39
   country_metadata:
     columns:
       name: character
@@ -298,17 +299,19 @@ datasets:
     columns:
       iso3c: character
       country: character
-      date: Date
+      date:
+      - IDate
+      - Date
       confirmed: numeric
       deaths: numeric
       tests: numeric
       tests_units: character
     dimensions:
-      nrow: 27169
+      nrow: 55126
       ncol: 7
     dates:
-      min: '2019-12-31'
-      max: '2020-06-30'
+      min: '2020-01-01'
+      max: '2020-12-20'
   cov_glue_lineage_data:
     columns:
       GISAID ID: character
@@ -355,11 +358,11 @@ datasets:
       note: character
       week_of_year: numeric
     dimensions:
-      nrow: 28998
+      nrow: 33048
       ncol: 13
     dates:
       min: '2017-01-14'
-      max: '2020-06-13'
+      max: '2020-12-05'
   param_estimates_published:
     columns:
       id: character
@@ -392,55 +395,94 @@ datasets:
       entry_person: character
       entry_email: character
     dimensions:
-      nrow: 799
+      nrow: 845
       ncol: 29
   cdc_aggregated_projections:
     columns:
       model: character
-      forecast_date: Date
+      forecast_date: character
       target: character
-      target_week_end_date: Date
+      target_week_end_date: character
       location_name: character
       point: numeric
       quantile_0.025: numeric
+      quantile_0.25: numeric
+      quantile_0.75: numeric
       quantile_0.975: numeric
     dimensions:
-      nrow: 4229
-      ncol: 8
+      nrow: 11196
+      ncol: 10
   google_mobility_data:
     columns:
       iso2c: character
       country_region: character
       admin1: character
-      admin2: logical
+      admin2: character
+      metro_area: character
       iso_3166_2_code: character
-      census_fips_code: logical
+      census_fips_code: character
       date: Date
       admin_level: numeric
       places_category: character
       percent_change_from_baseline: numeric
     dimensions:
-      nrow: 3638802
-      ncol: 10
+      nrow: 21098226
+      ncol: 11
     dates:
       min: '2020-02-15'
-      max: '2020-06-27'
+      max: '2020-12-15'
+  google_search_trends_data:
+    columns:
+      open_covid_region_code: character
+      country_region_code: character
+      country_region: character
+      sub_region_1: character
+      sub_region_1_code: character
+      sub_region_2: logical
+      sub_region_2_code: logical
+      date: Date
+      variable: factor
+      value: numeric
+    dimensions:
+      nrow: 25955532
+      ncol: 10
+    dates:
+      min: '2017-08-21'
+      max: '2020-12-08'
+  who_cases:
+    columns:
+      date:
+      - IDate
+      - Date
+      iso2c: character
+      country: character
+      who_region: character
+      subset: character
+      count: integer
+    dimensions:
+      nrow: 167322
+      ncol: 6
+    dates:
+      min: '2020-01-03'
+      max: '2020-12-20'
   ecdc_data:
     columns:
       date: Date
-      confirmed: numeric
-      deaths: numeric
+      year_week: character
       location_name: character
       iso2c: character
       iso3c: character
       population_2019: numeric
       continent: character
+      notification_rate_per_100000_population_14-days: numeric
+      subset: character
+      count: numeric
     dimensions:
-      nrow: 26771
-      ncol: 8
+      nrow: 17876
+      ncol: 10
     dates:
-      min: '2019-12-31'
-      max: '2020-06-30'
+      min: '2020-01-06'
+      max: '2020-12-14'
   beoutbreakprepared_data:
     columns:
       ID: character
@@ -479,31 +521,6 @@ datasets:
     dimensions:
       nrow: 2676311
       ncol: 33
-  eu_data_cache_data:
-    columns:
-      country: character
-      nuts_2: character
-      cases: numeric
-      recovered: numeric
-      deaths: numeric
-      tests: numeric
-      hospitalized: numeric
-      intensive_care: numeric
-      datetime:
-      - POSIXct
-      - POSIXt
-      date: Date
-      nuts_3: character
-      nuts_1: character
-      quarantine: numeric
-      lau: character
-      hospitalized/100k pop.: numeric
-    dimensions:
-      nrow: 29829
-      ncol: 15
-    dates:
-      min: '2020-02-24'
-      max: '2020-04-16'
   descartes_mobility_data:
     columns:
       date: Date
@@ -516,11 +533,11 @@ datasets:
       m50: numeric
       m50_index: numeric
     dimensions:
-      nrow: 318165
+      nrow: 764370
       ncol: 9
     dates:
       min: '2020-03-01'
-      max: '2020-06-28'
+      max: '2020-12-10'
   apple_mobility_data:
     columns:
       geo_type: character
@@ -532,11 +549,11 @@ datasets:
       date: Date
       mobility_index: numeric
     dimensions:
-      nrow: 612625
+      nrow: 1604322
       ncol: 8
     dates:
       min: '2020-01-13'
-      max: '2020-06-29'
+      max: '2020-12-19'
   usa_facts_data:
     columns:
       fips: character
@@ -544,13 +561,13 @@ datasets:
       state: character
       subset: character
       date: Date
-      count: numeric
+      count: integer
     dimensions:
-      nrow: 1022400
+      nrow: 2127870
       ncol: 6
     dates:
       min: '2020-01-22'
-      max: '2020-06-29'
+      max: '2020-12-19'
   jhu_data:
     columns:
       ProvinceState: character
@@ -561,11 +578,11 @@ datasets:
       count: numeric
       subset: character
     dimensions:
-      nrow: 125600
+      nrow: 265734
       ncol: 7
     dates:
       min: '2020-01-22'
-      max: '2020-06-29'
+      max: '2020-12-19'
   jhu_us_data:
     columns:
       UID: numeric
@@ -584,11 +601,11 @@ datasets:
       count: numeric
       subset: character
     dimensions:
-      nrow: 1043520
+      nrow: 2224440
       ncol: 15
     dates:
       min: '2020-01-22'
-      max: '2020-06-29'
+      max: '2020-12-19'
   nytimes_county_data:
     columns:
       date: Date
@@ -598,11 +615,11 @@ datasets:
       count: numeric
       subset: character
     dimensions:
-      nrow: 559604
+      nrow: 1677282
       ncol: 6
     dates:
       min: '2020-01-21'
-      max: '2020-06-29'
+      max: '2020-12-19'
   nytimes_state_data:
     columns:
       date: Date
@@ -611,11 +628,11 @@ datasets:
       count: numeric
       subset: character
     dimensions:
-      nrow: 13118
+      nrow: 32148
       ncol: 5
     dates:
       min: '2020-01-21'
-      max: '2020-06-29'
+      max: '2020-12-19'
   kff_icu_beds:
     columns:
       fips: character
@@ -632,6 +649,21 @@ datasets:
     dimensions:
       nrow: 3142
       ncol: 11
+  world_population_data:
+    columns:
+      gender: character
+      variant: character
+      region_type: character
+      notes: character
+      region_code: numeric
+      data_category: character
+      parent_region_code: numeric
+      year: numeric
+      age_group: character
+      population: numeric
+    dimensions:
+      nrow: 760410
+      ncol: 10
   us_county_geo_details:
     columns:
       state: character
@@ -669,11 +701,11 @@ datasets:
       - POSIXt
       dataQualityGrade: character
     dimensions:
-      nrow: 6569
+      nrow: 16427
       ncol: 16
     dates:
-      min: '2020-01-22'
-      max: '2020-06-30'
+      min: '2020-01-13'
+      max: '2020-12-20'
   us_healthcare_capacity:
     columns:
       Name: character
@@ -682,7 +714,7 @@ datasets:
       Address_2: character
       City: character
       State: character
-      Zipcode: numeric
+      Zipcode: integer
       County: character
       Latitude: numeric
       Longitude: numeric
@@ -696,18 +728,21 @@ datasets:
       Licensed All Beds - SOURCE: character
       All Bed Occupancy Rate - SOURCE: character
       ICU Bed Occupancy Rate - SOURCE: character
-      CCM_ID: numeric
-      DH-ID: numeric
-      HCRIS-ID: character
+      CCM_ID: character
+      DH-ID: integer
+      HCRIS-ID: integer
       HIFLD-ID: numeric
     dimensions:
-      nrow: 7146
+      nrow: 7154
       ncol: 24
   government_policy_timeline:
     columns:
       country: character
       iso3c: character
-      date: Date
+      date: character
+      RegionCode: character
+      Jurisdiction: character
+      Date: Date
       C1_School closing: numeric
       C1_Flag: numeric
       C2_Workplace closing: numeric
@@ -734,6 +769,10 @@ datasets:
       H3_Contact tracing: numeric
       H4_Emergency investment in healthcare: numeric
       H5_Investment in vaccines: numeric
+      H6_Facial Coverings: numeric
+      H6_Flag: numeric
+      H7_Vaccination policy: numeric
+      H7_Flag: numeric
       M1_Wildcard: logical
       ConfirmedCases: numeric
       ConfirmedDeaths: numeric
@@ -748,94 +787,55 @@ datasets:
       EconomicSupportIndex: numeric
       EconomicSupportIndexForDisplay: numeric
     dimensions:
-      nrow: 32396
-      ncol: 42
+      nrow: 99680
+      ncol: 49
     dates:
-      min: '2020-01-01'
-      max: '2020-06-30'
-  healthdata_mobility_data:
-    columns:
-      mobility_data_type: character
-      mobility_composite: numeric
-      location_name: character
-      date: Date
-    dimensions:
-      nrow: 81010
-      ncol: 4
-    dates:
-      min: '2020-02-08'
-      max: '2020-10-01'
-  healthdata_projections_data:
-    columns:
-      location_name: character
-      date: Date
-      allbed_mean: numeric
-      ICUbed_mean: numeric
-      InvVen_mean: numeric
-      admis_mean: numeric
-      newICU_mean: numeric
-      bedover_mean: numeric
-      icuover_mean: numeric
-      deaths_mean: numeric
-      totdea_mean: numeric
-      est_infections_mean: numeric
-      allbed_upper: numeric
-      ICUbed_upper: numeric
-      InvVen_upper: numeric
-      admis_upper: numeric
-      newICU_upper: numeric
-      bedover_upper: numeric
-      icuover_upper: numeric
-      deaths_upper: numeric
-      totdea_upper: numeric
-      est_infections_upper: numeric
-      allbed_lower: numeric
-      ICUbed_lower: numeric
-      InvVen_lower: numeric
-      admis_lower: numeric
-      newICU_lower: numeric
-      bedover_lower: numeric
-      icuover_lower: numeric
-      deaths_lower: numeric
-      totdea_lower: numeric
-      est_infections_lower: numeric
-    dimensions:
-      nrow: 83386
-      ncol: 32
-    dates:
-      min: '2020-02-04'
-      max: '2020-10-01'
+      min: Acre
+      max: Yukon
   us_state_distancing_policy:
     columns:
-      PID: character
-      location_id: numeric
-      StateFIPS: character
+      pid: character
+      location_id: integer
+      statefips: character
       iso2c: character
       state: character
-      StatePolicy: character
-      Mandate: logical
-      StateWide: logical
-      SWGeo: numeric
-      SWPop: numeric
-      DateIssued: Date
-      DateEnacted: Date
-      DateExpiry: Date
-      DateEnded: Date
-      Extends: character
-      Expands: character
-      Eases: character
-      Ends: character
-      Depends: character
-      PolicyCodingNotes: character
-      PolicySource: character
-      PolicySourceID: character
-      LastUpdated: Date
-      LastUpdatedNotes: character
-      UpdatingSource1: character
-      UpdatingSource2: character
+      statepolicy: character
+      mandate: logical
+      statewide: logical
+      swgeo: integer
+      swpop: integer
+      curfew: character
+      curfewstart: character
+      curfewend: character
+      ingathlim: integer
+      outgathlim: integer
+      ingathlimreligious: integer
+      outgathlimreligious: integer
+      businessrestrictlevel: character
+      schoolrestrictlevel: character
+      publicmasklevel: character
+      dateissued: Date
+      dateenacted: Date
+      dateexpiry: Date
+      dateended: Date
+      extends: character
+      expands: character
+      eases: character
+      ends: character
+      joins: character
+      leaves: character
+      appliesto: character
+      policycodingnotes: character
+      policysource: character
+      policysourceid: character
+      lastupdated: Date
+      lastupdatednotes: character
+      rereviewed: integer
+      updatingsource1: character
+      updatingsource2: character
     dimensions:
-      nrow: 3385
-      ncol: 26
+      nrow: 9129
+      ncol: 39
   oecd_unemployment_data:
     columns:
       iso3c: character
@@ -849,22 +849,112 @@ datasets:
       country: character
       region: character
     dimensions:
-      nrow: 38300
+      nrow: 39620
       ncol: 10
     dates:
       min: '1955-01-01'
-      max: '2020-05-01'
-  healthdata_testing_data:
+      max: '2020-11-01'
+  yougov_behavioral_data:
     columns:
-      total_tests_data_type: character
-      total_tests: numeric
-      location_name: character
+      country: character
+      date: Date
+      household_members_contact: numeric
+      people_contact_outside_household: numeric
+      times_left_home_yesterday: numeric
+      contact_symptomatic_person_before_own_symptoms: numeric
+      isolated_with_symptoms: numeric
+      doctor_visit_last_week_with_symptoms: numeric
+      visited_covid_location_before_symptoms: numeric
+      willingness_isolate_if_symptoms: numeric
+      difficult_to_isolate: numeric
+      willingness_isolate_if_advised: numeric
+      mask_outside_home: numeric
+      washed_hands: numeric
+      hand_sanitiser: numeric
+      covered_mouth_sneeze: numeric
+      avoided_people_with_symptoms: numeric
+      avoided_going_out: numeric
+      avoided_healthcare_settings: numeric
+      avoided_public_transport: numeric
+      avoided_working_outside_home: numeric
+      children_avoided_school: numeric
+      avoided_guests_at_home: numeric
+      avoided_small_gatherings: numeric
+      avoided_medium_gatherings: numeric
+      avoided_large_gatherings: numeric
+      avoided_crowded_areas: numeric
+      avoided_shops: numeric
+      slept_separate_bedrooms: numeric
+      eaten_separately: numeric
+      cleaned_surfaces_home: numeric
+      avoided_objects_public: numeric
+      handwashing_yesterday: numeric
+      scared_contracting_covid: numeric
+      happier_two_weeks_ago: numeric
+      government_responded_well: numeric
+      mask_at_home: numeric
+      mask_grocery_store: numeric
+      mask_clothing_store: numeric
+      mask_at_work: numeric
+      mask_public_transport: numeric
+      covid_dangerous_to_me: numeric
+      likely_get_covid_future: numeric
+      mask_protect_me: numeric
+      mask_protect_others: numeric
+      mask_not_possible: numeric
+      activities_improve_health: numeric
+      life_greatly_affected: numeric
+      willingness_provide_contact_info: numeric
+      willingness_share_people_contact_with: numeric
+      avoided_public_events: numeric
+      trust_people_in_region: numeric
+      trust_government: numeric
+      public_sector_efficiency: numeric
+      country_united: numeric
+      sense_of_belonging_community: numeric
+      sense_belonging_increased: numeric
+      community_care_last_month: numeric
+    dimensions:
+      nrow: 610
+      ncol: 58
+    dates:
+      min: '2020-03-10'
+      max: '2020-11-03'
+  acaps_secondary_impact_data:
+    columns:
+      id: numeric
+      iso3: character
+      country: character
+      _data_type: character
+      pillar: character
+      block: character
+      indicator: character
+      infogap: character
+      not_applicable: character
+      field_type: character
+      values: character
+      number_value: numeric
+      percentage_value: numeric
+      value_date: character
+      drivers_of_covid-19_impact: character
+      localised_geographic_impact: character
+      justification: character
+      source: character
+      source_type: character
+      source_date:
+      - POSIXct
+      - POSIXt
+      link: character
+      alternative_source: character
+      entry_date:
+      - POSIXct
+      - POSIXt
       date: Date
     dimensions:
-      nrow: 74935
-      ncol: 4
+      nrow: 6460
+      ncol: 24
     dates:
-      min: '2020-02-04'
-      max: '2020-10-01'
-eval_date: '2020-06-30'
+      min: .na.character
+      max: .na.character
+eval_date: '2020-12-20'
 

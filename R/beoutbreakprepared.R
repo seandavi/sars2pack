@@ -58,7 +58,7 @@
 beoutbreakprepared_data = function(quietly=TRUE) {
     fpath = s2p_cached_url('https://raw.githubusercontent.com/beoutbreakprepared/nCoV2019/master/latest_data/latestdata.tar.gz')
     tmpd = tempdir()
-    untar(gzfile(fpath,'rb'), exdir=tmpd)
+    suppressWarnings(utils::untar(gzfile(fpath,'rb'), exdir=tmpd))
     dat = readr::read_csv(file.path(tmpd, 'latestdata.csv'),
                           col_types = cols(),
                           # needed for col types to be correct

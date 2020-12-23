@@ -14,6 +14,8 @@
 #' different states. See references below for details.
 #' 
 #' @family data-import
+#' @family social
+#' @family economics
 #' 
 #' @references
 #' 
@@ -27,16 +29,22 @@
 #' head(ret)
 #' colnames(ret)
 #' 
+#' # available measurements (a bunch of them)
+#' unique(ret$variable)
+#' 
 #' 
 #' @export
 us_county_health_rankings = function() {
     url = 'https://www.countyhealthrankings.org/sites/default/files/media/document/analytic_data2020.csv'
     rpath = s2p_cached_url(url)
-    dat = readr::read_csv(rpath, skip=1, col_types = cols(), guess_max=10000)
+    dat = data.table::fread(rpath, skip=1)
     dat1 = readr::read_csv(rpath, col_types = cols(), n_max=1)
     colnames(dat)[8:ncol(dat)]=colnames(dat1)[8:ncol(dat1)]
-    dat = tidyr::pivot_longer(dat, cols = -c(statecode:county_ranked), 
+    dat[,8:ncol(dat)]=lapply(dat[,8:ncol(dat)],as.numeric)
+    colnames(dat) = gsub(' ','_',tolower(colnames(dat)))
+    dat = tidyr::pivot_longer(dat, cols = -c("statecode":"county_ranked"), 
                               names_to='variable',values_to='value')
     dat$county_ranked = as.logical(dat$county_ranked)
-    dat %>% dplyr::rename(fips='fipscode')
+    names(dat)[names(dat)=='fipscode']='fips'
+    dat
 }

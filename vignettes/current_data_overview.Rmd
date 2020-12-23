@@ -1,0 +1,122 @@
+---
+title: "COVID-19 Graphical Status Report"
+date: "`r Sys.Date()`"
+author: "Sean Davis"
+package: sars2pack
+output: 
+  BiocStyle::html_document:
+    toc: true
+      
+vignette: >
+  %\VignetteIndexEntry{COVID-19 Graphical Status Report}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}  
+---
+
+```{r style, echo = FALSE, results = 'asis'}
+  BiocStyle::markdown()
+```
+
+```{r warning=FALSE,message=FALSE,echo=FALSE}
+library(knitr)
+library(sars2pack)
+library(ggplot2)
+library(plotly)
+library(dplyr)
+library(zoo)
+knitr::opts_chunk$set(warning=FALSE,message=FALSE,echo=FALSE)
+```
+
+
+# United States
+
+## COVID-19 Hospitalizations by state
+
+```{r}
+covid_tracker = covidtracker_data()
+```
+
+```{r}
+(covid_tracker %>%
+  ggplot(aes(x=date,y=hospitalizedCurrently,fill=state)) + 
+  geom_area() + 
+  scale_fill_viridis_d()) %>%
+  ggplotly()
+```
+
+## COVID-19 patients in the ICU by state
+
+^[Note the discontinuities when state reporting started or changed.] 
+
+```{r}
+(covid_tracker %>%
+  ggplot(aes(x=date,y=inIcuCurrently,fill=state)) + 
+  geom_area() + 
+  scale_fill_viridis_d()) %>%
+  ggplotly()
+```
+
+## COVID-19 patients on a ventilator by state
+
+Note the discontinuities when state reporting started. 
+
+```{r}
+(covid_tracker %>%
+  ggplot(aes(x=date,y=onVentilatorCurrently,fill=state)) + 
+  geom_area() + 
+  scale_fill_viridis_d()) %>%
+  ggplotly()
+```
+
+## COVID-related deaths by state
+
+```{r}
+(covid_tracker %>%
+    add_incidence_column(count_column='death',incidence_col_name = 'deaths',grouping_columns = 'state') %>%
+    dplyr::group_by(state) %>%
+    dplyr::arrange(date) %>%
+    dplyr::mutate(deaths = rollapply(deaths,width=7,median,align='right',fill=NA)) %>%
+  ggplot(aes(x=date,y=deaths,fill=state)) + 
+  geom_area() + 
+  scale_fill_viridis_d()) %>%
+  ggplotly()
+```
+
+## COVID-related deaths per 100k population
+
+```{r}
+pop_data = us_population_details(year=2019,geography='state',product='population') %>%
+  dplyr::filter(variable=='POP') %>%
+  dplyr::rename(population=value)
+(covid_tracker %>%
+    dplyr::mutate(fips=substr(fips,4,5)) %>%
+    dplyr::left_join(pop_data,by=c("fips"="GEOID")) %>%
+    add_incidence_column(count_column='death',incidence_col_name = 'deaths',grouping_columns = 'state') %>%
+    dplyr::group_by(state) %>%
+    dplyr::arrange(date) %>%
+    dplyr::mutate(deaths = rollapply(deaths,width=7,median,align='right',fill=NA)) %>%
+    dplyr::mutate(deaths_per_100k=(deaths/population*100000)) %>%
+  ggplot(aes(x=date,y=deaths_per_100k,fill=state)) + 
+  geom_area() + 
+  scale_fill_viridis_d()) %>%
+  ggplotly()
+```
+
+## COVID positive test results by state
+
+```{r}
+states_abbrev = c(state.abb,'DC')
+names(states_abbrev) = c(state.name,'District of Columbia')
+nyt = nytimes_state_data()
+nyt$state=states_abbrev[nyt$state]
+(nyt %>%
+    dplyr::filter(subset=='confirmed') %>%
+    add_incidence_column(grouping_columns = 'state', incidence_col_name = 'confirmed_cases') %>%
+    dplyr::group_by(state) %>%
+    dplyr::arrange(date) %>%
+    dplyr::mutate(confirmed_cases = rollapply(confirmed_cases,width=7,median,align='right',fill=NA)) %>%
+  ggplot(aes(x=date,y=confirmed_cases,fill=state)) + 
+  geom_area() + 
+  scale_fill_viridis_d()) %>%
+  ggplotly()
+```

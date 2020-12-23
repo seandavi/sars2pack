@@ -82,12 +82,10 @@
 #' @export
 usa_facts_data = function() {
     confirmed_path = s2p_cached_url('https://static.usafacts.org/public/data/covid-19/covid_confirmed_usafacts.csv')
-    confirmed = readr::read_csv(confirmed_path,
-                                col_types = cols())
+    confirmed = data.table::fread(confirmed_path)
     confirmed$subset = 'confirmed'
     deaths_path = s2p_cached_url('https://static.usafacts.org/public/data/covid-19/covid_deaths_usafacts.csv')
-    deaths = readr::read_csv(deaths_path,
-                             col_types=cols())
+    deaths = data.table::fread(deaths_path)
     deaths$subset = 'deaths'
     ret = dplyr::bind_rows(confirmed,deaths)
     colnames(ret)[2] = 'county'
@@ -95,7 +93,7 @@ usa_facts_data = function() {
     colnames(ret)[1] = 'fips'
     ret = ret[-4]
     ret$fips = integer_to_fips(ret$fips)
-    ret = tidyr::pivot_longer(ret,cols=-c(fips,state,county,subset),names_to='date',values_to='count')
+    ret = tidyr::pivot_longer(ret,cols=-c("fips","state","county","subset"),names_to='date',values_to='count')
     ret$date = lubridate::mdy(ret$date)
     ret
 }

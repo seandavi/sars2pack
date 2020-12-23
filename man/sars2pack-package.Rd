@@ -46,23 +46,12 @@ COVID-19 data resources.
 }
 }
 
-\section{Foo functions}{
-
-The foo functions ...
-}
-
 \examples{
 
 library(sars2pack)
 
 # Show me all the available datasets
 available_datasets()
-
-example(jhu_data)
-
-example(apple_mobility_data)
-
-example(healthdata_projections_data)
 
 
 

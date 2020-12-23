@@ -16,7 +16,7 @@
 #' 
 #' Max Roser, Hannah Ritchie, Esteban Ortiz-Ospina and Joe Hasell (2020) - 
 #' "Coronavirus Pandemic (COVID-19)". Published online at OurWorldInData.org. 
-#' Retrieved from: 'https://ourworldindata.org/coronavirus' [Online Resource]
+#' Retrieved from: 'https://ourworldindata.org/coronavirus'
 #' 
 #' 
 #' @family case-tracking
@@ -36,14 +36,15 @@
 owid_data = function() {
     url = 'https://covid.ourworldindata.org/data/owid-covid-data.csv'
     rpath = s2p_cached_url(url)
-    dat = readr::read_csv(rpath, col_types = readr::cols())
-    dat %>% dplyr::select(iso_code, location, date, total_cases, 
-                          total_deaths, total_tests, tests_units) %>%
+    dat = data.table::fread(rpath)
+    dat %>% dplyr::select(c('iso_code', 'location', 'date', 
+                            'total_cases', 'total_deaths', 
+                            'total_tests', 'tests_units')) %>%
         dplyr::rename(
-            iso3c = 'iso_code',
-            country = 'location',
-            confirmed = 'total_cases',
-            deaths = 'total_deaths',
-            tests = 'total_tests'
+            'iso3c' = 'iso_code',
+            'country' = 'location',
+            'confirmed' = 'total_cases',
+            'deaths' = 'total_deaths',
+            'tests' = 'total_tests'
         )
 }

@@ -35,13 +35,13 @@ Other case-tracking:
 \code{\link{covidtracker_data}()},
 \code{\link{ecdc_data}()},
 \code{\link{estimate_Rt}()},
-\code{\link{eu_data_cache_data}()},
 \code{\link{jhu_data}()},
 \code{\link{nytimes_county_data}()},
 \code{\link{owid_data}()},
 \code{\link{plot_epicurve}()},
 \code{\link{test_and_trace_data}()},
-\code{\link{usa_facts_data}()}
+\code{\link{usa_facts_data}()},
+\code{\link{who_cases}()}
 }
 \author{
 Sean Davis \href{mailto:seandavi@gmail.com}{seandavi@gmail.com}

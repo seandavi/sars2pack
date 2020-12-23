@@ -3,7 +3,7 @@ sars2pack
 
 <!-- badges: start -->
 [![Launch Rstudio
-Binder](http://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/seandavi/sars2pack/master?urlpath=rstudio)
+Binder](http://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/seandavi/sars2pack/f83370f?urlpath=rstudio)
 <!-- badges: end -->
 
 Questions addressed by sars2pack

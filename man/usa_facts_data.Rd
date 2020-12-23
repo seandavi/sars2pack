@@ -84,6 +84,8 @@ max(res$date)
 }
 \seealso{
 Other data-import: 
+\code{\link{acaps_government_measures_data}()},
+\code{\link{acaps_secondary_impact_data}()},
 \code{\link{apple_mobility_data}()},
 \code{\link{beoutbreakprepared_data}()},
 \code{\link{cdc_aggregated_projections}()},
@@ -98,13 +100,9 @@ Other data-import:
 \code{\link{descartes_mobility_data}()},
 \code{\link{ecdc_data}()},
 \code{\link{economist_excess_deaths}()},
-\code{\link{eu_data_cache_data}()},
 \code{\link{financial_times_excess_deaths}()},
 \code{\link{google_mobility_data}()},
 \code{\link{government_policy_timeline}()},
-\code{\link{healthdata_mobility_data}()},
-\code{\link{healthdata_projections_data}()},
-\code{\link{healthdata_testing_data}()},
 \code{\link{jhu_data}()},
 \code{\link{jhu_us_data}()},
 \code{\link{kff_icu_beds}()},
@@ -117,7 +115,9 @@ Other data-import:
 \code{\link{us_county_health_rankings}()},
 \code{\link{us_healthcare_capacity}()},
 \code{\link{us_hospital_details}()},
-\code{\link{us_state_distancing_policy}()}
+\code{\link{us_state_distancing_policy}()},
+\code{\link{who_cases}()},
+\code{\link{yougov_behavioral_data}()}
 
 Other case-tracking: 
 \code{\link{align_to_baseline}()},
@@ -128,12 +128,12 @@ Other case-tracking:
 \code{\link{covidtracker_data}()},
 \code{\link{ecdc_data}()},
 \code{\link{estimate_Rt}()},
-\code{\link{eu_data_cache_data}()},
 \code{\link{jhu_data}()},
 \code{\link{nytimes_county_data}()},
 \code{\link{owid_data}()},
 \code{\link{plot_epicurve}()},
-\code{\link{test_and_trace_data}()}
+\code{\link{test_and_trace_data}()},
+\code{\link{who_cases}()}
 }
 \concept{case-tracking}
 \concept{data-import}
