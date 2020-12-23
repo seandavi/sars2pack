@@ -175,15 +175,19 @@ datasets:
       country: character
       region: character
       region_code: character
-      start_date: Date
-      end_date: Date
-      year: numeric
-      month: numeric
-      population: numeric
+      start_date:
+      - IDate
+      - Date
+      end_date:
+      - IDate
+      - Date
+      year: integer
+      month: integer
+      population: integer
       total_deaths: numeric
       covid_deaths: numeric
       expected_deaths: numeric
-      week: numeric
+      week: integer
     dimensions:
       nrow: 13592
       ncol: 12
@@ -201,11 +205,11 @@ datasets:
       excess_deaths: numeric
       excess_deaths_pct: numeric
     dimensions:
-      nrow: 62915
+      nrow: 97429
       ncol: 11
     dates:
-      min: '2010-01-05'
-      max: '2020-09-23'
+      min: '2000-01-07'
+      max: '2020-12-16'
   us_county_health_rankings:
     columns:
       statecode: integer
@@ -264,7 +268,7 @@ datasets:
       - POSIXct
       - POSIXt
     dimensions:
-      nrow: 49026
+      nrow: 49494
       ncol: 39
   country_metadata:
     columns:
@@ -307,11 +311,11 @@ datasets:
       tests: numeric
       tests_units: character
     dimensions:
-      nrow: 55126
+      nrow: 55512
       ncol: 7
     dates:
       min: '2020-01-01'
-      max: '2020-12-20'
+      max: '2020-12-21'
   cov_glue_lineage_data:
     columns:
       GISAID ID: character
@@ -426,11 +430,11 @@ datasets:
       places_category: character
       percent_change_from_baseline: numeric
     dimensions:
-      nrow: 21098226
+      nrow: 21333762
       ncol: 11
     dates:
       min: '2020-02-15'
-      max: '2020-12-15'
+      max: '2020-12-18'
   google_search_trends_data:
     columns:
       open_covid_region_code: character
@@ -460,11 +464,11 @@ datasets:
       subset: character
       count: integer
     dimensions:
-      nrow: 167322
+      nrow: 168270
       ncol: 6
     dates:
       min: '2020-01-03'
-      max: '2020-12-20'
+      max: '2020-12-22'
   ecdc_data:
     columns:
       date: Date
@@ -533,11 +537,11 @@ datasets:
       m50: numeric
       m50_index: numeric
     dimensions:
-      nrow: 764370
+      nrow: 767091
       ncol: 9
     dates:
       min: '2020-03-01'
-      max: '2020-12-10'
+      max: '2020-12-19'
   apple_mobility_data:
     columns:
       geo_type: character
@@ -549,11 +553,11 @@ datasets:
       date: Date
       mobility_index: numeric
     dimensions:
-      nrow: 1604322
+      nrow: 1613704
       ncol: 8
     dates:
       min: '2020-01-13'
-      max: '2020-12-19'
+      max: '2020-12-21'
   usa_facts_data:
     columns:
       fips: character
@@ -563,11 +567,11 @@ datasets:
       date: Date
       count: integer
     dimensions:
-      nrow: 2127870
+      nrow: 2134260
       ncol: 6
     dates:
       min: '2020-01-22'
-      max: '2020-12-19'
+      max: '2020-12-20'
   jhu_data:
     columns:
       ProvinceState: character
@@ -578,11 +582,11 @@ datasets:
       count: numeric
       subset: character
     dimensions:
-      nrow: 265734
+      nrow: 267330
       ncol: 7
     dates:
       min: '2020-01-22'
-      max: '2020-12-19'
+      max: '2020-12-21'
   jhu_us_data:
     columns:
       UID: numeric
@@ -601,11 +605,11 @@ datasets:
       count: numeric
       subset: character
     dimensions:
-      nrow: 2224440
+      nrow: 2237800
       ncol: 15
     dates:
       min: '2020-01-22'
-      max: '2020-12-19'
+      max: '2020-12-21'
   nytimes_county_data:
     columns:
       date: Date
@@ -615,11 +619,11 @@ datasets:
       count: numeric
       subset: character
     dimensions:
-      nrow: 1677282
+      nrow: 1690166
       ncol: 6
     dates:
       min: '2020-01-21'
-      max: '2020-12-19'
+      max: '2020-12-21'
   nytimes_state_data:
     columns:
       date: Date
@@ -628,11 +632,11 @@ datasets:
       count: numeric
       subset: character
     dimensions:
-      nrow: 32148
+      nrow: 32368
       ncol: 5
     dates:
       min: '2020-01-21'
-      max: '2020-12-19'
+      max: '2020-12-21'
   kff_icu_beds:
     columns:
       fips: character
@@ -701,11 +705,11 @@ datasets:
       - POSIXt
       dataQualityGrade: character
     dimensions:
-      nrow: 16427
+      nrow: 16483
       ncol: 16
     dates:
       min: '2020-01-13'
-      max: '2020-12-20'
+      max: '2020-12-21'
   us_healthcare_capacity:
     columns:
       Name: character
@@ -787,7 +791,7 @@ datasets:
       EconomicSupportIndex: numeric
       EconomicSupportIndexForDisplay: numeric
     dimensions:
-      nrow: 99680
+      nrow: 99960
       ncol: 49
     dates:
       min: Acre
@@ -956,5 +960,5 @@ datasets:
     dates:
       min: .na.character
       max: .na.character
-eval_date: '2020-12-20'
+eval_date: '2020-12-22'
 

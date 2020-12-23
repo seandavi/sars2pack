@@ -26,6 +26,7 @@
 #' @importFrom dplyr summarise
 #' @importFrom dplyr count
 #' @importFrom methods is
+#' 
 #'
 #' @section Purpose:
 #'

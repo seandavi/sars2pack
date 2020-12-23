@@ -39,7 +39,7 @@ RMariaDB, RPostgres::Postgres() for RPostgres, odbc::odbc() for
 odbc, and bigrquery::bigquery() for BigQuery.
 }
 \examples{
-if(require(RSQLite)) {
+if(requireNamespace(RSQLite) & requireNamespace(DBI)) {
   sql = DBI::dbConnect(RSQLite::SQLite(), ':memory:')
   datasets_to_sql(sql, dataset_accessors = "apple_mobility_data")
   DBI::dbListTables(sql)

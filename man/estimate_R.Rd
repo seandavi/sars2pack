@@ -8,6 +8,8 @@ estimate_R(x, ...)
 }
 \arguments{
 \item{x}{a data.frame with incidences}
+
+\item{...}{passed along to dispatched function}
 }
 \value{
 a data.frame

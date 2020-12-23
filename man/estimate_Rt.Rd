@@ -38,6 +38,9 @@ case-tracking datasets.}
 \item{config}{list() passed to \code{EpiEstim::make_config()}. Typically used to
 set up the serial interval distribution.}
 
+\item{cumulative}{logical(1) whether the case counts are cumulative (TRUE)
+or are daily incidence (FALSE)}
+
 \item{estimation_family}{One of \code{epiestim}}
 
 \item{invert}{\strong{Unused} default FALSE, but if TRUE, returns 1/R(t) or related

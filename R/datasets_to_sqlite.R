@@ -27,7 +27,7 @@
 #' @family data-export
 #' 
 #' @examples
-#' if(require(RSQLite)) {
+#' if(requireNamespace(RSQLite) & requireNamespace(DBI)) {
 #'   sql = DBI::dbConnect(RSQLite::SQLite(), ':memory:')
 #'   datasets_to_sql(sql, dataset_accessors = "apple_mobility_data")
 #'   DBI::dbListTables(sql)

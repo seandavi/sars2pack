@@ -142,6 +142,7 @@ plot_series = function(province="", country, dataset=try(jhu_data()), ...) {
 #' estimate R0
 #'
 #' @param x a data.frame with incidences
+#' @param ... passed along to dispatched function
 #'
 #' @return a data.frame
 #'
