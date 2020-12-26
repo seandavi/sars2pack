@@ -9,9 +9,9 @@ sars2pack
 Overview
 --------
 
-The sars2pack R package provides one-line access to over 40 COVID-related datasets. Datasets are accessed in real time directly from their sources and then transformed to `tidy-data` form where possible and applicable. The result of each dataset accessor is a ready-to-use R dataset, often a dataframe. Documentation includes dataset descriptions, sources and references, and examples. Online documentation includes:
+The sars2pack R package provides one-line access to over 40 COVID-related datasets. Datasets are accessed in real time directly from their sources and then transformed to `tidy-data` form where possible and applicable. The result of each dataset accessor is a ready-to-use R dataset, often a dataframe. Documentation includes dataset descriptions, sources and references, and examples. Online documentation is available in two locations:
 
-- [The sars2pack documentation](https://seandavi.github.io/sars2pack)
+- [The sars2pack documentation](https://seandavi.github.io/sars2pack), which includes reference docs and detailed dataset descriptions.
 - [Extended workflows and use cases, as an online book](https://seandavi.github.io/sars2pack-book/)
 
 
