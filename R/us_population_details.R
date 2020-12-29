@@ -2,7 +2,8 @@
 #'
 #' Get data from the US Census Bureau Population Estimates APIs.
 #'
-#' @param \dots Passed along to \code{\link[tidycensus]{get_estimates}}.
+#' @param \dots Passed along to \code{\link[tidycensus]{get_estimates}}. Typical 
+#'   arguments would be something like `(geography='county', product='population', year=2019)`.
 #' 
 #' @seealso \code{link[tidycensus]{get_estimates}}
 #'

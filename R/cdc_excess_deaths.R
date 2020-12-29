@@ -39,7 +39,6 @@
 #'
 #' @importFrom dplyr %>% filter mutate select rename
 #' @importFrom readr read_csv
-#' @importFrom lubridate week dmy
 #' @importFrom ggplot2 vars ggplot geom_point geom_line facet_grid ggtitle aes
 #'
 #' @references

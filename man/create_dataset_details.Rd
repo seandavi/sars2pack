@@ -4,7 +4,7 @@
 \alias{create_dataset_details}
 \title{create data details yaml file for all datasets}
 \usage{
-create_dataset_details(fname = "inst/data_catalog/dataset_details.yaml")
+create_dataset_details()
 }
 \value{
 No value

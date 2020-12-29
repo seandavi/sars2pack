@@ -46,10 +46,6 @@
 #' @format list with components `si_sample` (matrix) and `si_parametric_distr (character)
 "si_pos_W"
 
-#' genbank records including available sequence for SARS-Cov-2 accessions available 14 May 2020
-#' @format list
-"sars2gb_2020_05_14"
-
 #' a statewide collection of best AR/MA model orders
 #' @docType data
 #' @format S3 instance

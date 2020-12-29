@@ -7,7 +7,8 @@
 us_population_details(...)
 }
 \arguments{
-\item{\dots}{Passed along to \code{\link[tidycensus]{get_estimates}}.}
+\item{\dots}{Passed along to \code{\link[tidycensus]{get_estimates}}. Typical
+arguments would be something like \verb{(geography='county', product='population', year=2019)}.}
 }
 \value{
 a \code{data.frame}
