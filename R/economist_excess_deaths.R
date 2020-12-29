@@ -37,7 +37,9 @@ economist_excess_deaths = function() {
     urls
     res = vapply(urls, s2p_cached_url,'filename')
     reader = function(x) {
-        res = data.table::fread(x)[,seq_len(11)]
+        res = data.table::fread(x)
+        keep_cols = seq_len(11)
+        res = res[,..keep_cols]
         res$region_code=as.character(res$region_code)
         res$expected_deaths=suppressWarnings(as.numeric(res$expected_deaths))
         res
