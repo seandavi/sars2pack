@@ -40,6 +40,7 @@ Other data-import:
 \code{\link{acaps_secondary_impact_data}()},
 \code{\link{apple_mobility_data}()},
 \code{\link{beoutbreakprepared_data}()},
+\code{\link{cci_us_vaccine_data}()},
 \code{\link{cdc_aggregated_projections}()},
 \code{\link{cdc_excess_deaths}()},
 \code{\link{cdc_social_vulnerability_index}()},
