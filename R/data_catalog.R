@@ -1,3 +1,6 @@
+.catalog_file=system.file('data_catalog/catalog.csv',package='sars2pack')
+.dataset_details_file = system.file('data_catalog/dataset_details.yaml',
+                                    package='sars2pack')
 #' list and detail available sars2pack datasets 
 #'
 #' @importFrom jsonlite fromJSON
@@ -20,7 +23,7 @@
 #'
 #' @export
 available_datasets <- function() {
-    catalog = system.file('data_catalog/catalog.csv',package='sars2pack')
+    catalog = .catalog_file
     res = readr::read_csv(catalog,col_types = readr::cols()) %>% 
       dplyr::mutate(data_type=strsplit(.data$data_type,'\\|\\|')) %>%
       dplyr::mutate(region=strsplit(.data$region,'\\|\\|')) %>%
@@ -47,47 +50,6 @@ available_datasets <- function() {
 #     "url": "https://github.com/TheEconomist/covid-19-excess-deaths-tracker"
 # },
 
-#' add a dataset to the package catalog
-#'
-#' This is an *internal* convenience function for adding a new dataset to the
-#' package catalog. 
-#'
-#' @param name character(1) long name
-#' @param accessor character(1) name of accessor function
-#' @param data_type character() vector of data_types
-#' @param url character() url of source
-#' @param geographical logical(1) includes geographical information or not
-#' @param geospatial logical(1) includes geospatial information or not
-#' @param resolution logical(1) if geographical, one of admin0, admin1, admin2, admin3
-#' @param region character() with World (global), international (more than one nation),
-#'    United States
-#' @param jsonfile character(1) name of json file to append to.
-#' @param write logical(1) write the file (TRUE) or simply (invisibly) return the
-#'    resulting new list for inspection
-#'
-#' @return
-#' A list ready for appending to json
-#' 
-#' @author Sean Davis <seandavi@gmail.com>
-#' 
-#' 
-add_dataset_to_catalog = function(name, accessor, data_type=list(), url="", 
-                       geographical=TRUE, geospatial=FALSE,
-                       resolution=NULL, region=NULL,
-                       jsonfile='inst/data_catalog/catalog.json',
-                       write=FALSE) {
-    x = list(name=name,accessor=accessor,data_type=data_type,
-         url=url,geographical=geographical,geospatial=geospatial,
-         resolution=resolution,region=region)
-    js = jsonlite::fromJSON(jsonfile, simplifyDataFrame = FALSE)
-    js$datasets = c(js$datasets,list(x))
-    if(write) {
-        writeLines(
-            jsonlite::toJSON(js,pretty = 2),
-            con = jsonfile)
-    }
-    invisible(js)
-}
 
 
             
@@ -112,10 +74,31 @@ add_dataset_to_catalog = function(name, accessor, data_type=list(), url="",
 #' 
 #' @export
 dataset_details = function() {
-    dd = system.file('data_catalog/dataset_details.yaml',package='sars2pack')
+    dd = .dataset_details_file
     yaml::yaml.load_file(dd)
 }
 
+write_dataset_details = function(dd) {
+  dd[['eval_date']] = as.character(Sys.Date())
+  writeLines(yaml::as.yaml(dd),.dataset_details_file)
+}
+
+add_or_update_dataset_details = function(accessor_name) {
+  res = dataset_details()
+  res$datasets[[accessor_name]]=create_dataset_detail_record(accessor_name)
+  write_dataset_details(res)
+}
+
+create_dataset_detail_record = function(accessor_name) {
+  a = get(accessor_name)()
+  ret = list(columns=lapply(a, class), 
+             dimensions=list(nrow=nrow(a), ncol = ncol(a)))
+  if('date' %in% colnames(a)) {
+    ret[['dates']]=list(min = as.character(min(a[['date']],na.rm=TRUE)), 
+                        max = as.character(max(a[['date']],na.rm=TRUE)))
+  }
+  ret
+}
 
 #' create data details yaml file for all datasets
 #' 
@@ -162,7 +145,8 @@ dataset_details = function() {
 #' @importFrom yaml as.yaml
 #' 
 #' @keywords internal
-create_dataset_details = function(fname='inst/data_catalog/dataset_details.yaml') {
+create_dataset_details = function() {
+    fname = .dataset_details_file
     z = available_datasets()
     res = lapply(unique(z$accessor), function(f) {
         a = get(f)()
