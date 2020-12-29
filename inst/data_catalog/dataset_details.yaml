@@ -302,20 +302,59 @@ datasets:
   owid_data:
     columns:
       iso3c: character
+      continent: character
       country: character
       date:
       - IDate
       - Date
       confirmed: numeric
+      new_cases: numeric
       deaths: numeric
+      new_deaths: numeric
+      total_cases_per_million: numeric
+      new_cases_per_million: numeric
+      total_deaths_per_million: numeric
+      new_deaths_per_million: numeric
+      reproduction_rate: numeric
+      icu_patients: numeric
+      icu_patients_per_million: numeric
+      hosp_patients: numeric
+      hosp_patients_per_million: numeric
+      weekly_icu_admissions: numeric
+      weekly_icu_admissions_per_million: numeric
+      weekly_hosp_admissions: numeric
+      weekly_hosp_admissions_per_million: numeric
+      new_tests: numeric
       tests: numeric
+      total_tests_per_thousand: numeric
+      new_tests_per_thousand: numeric
+      positive_rate: numeric
+      tests_per_case: numeric
       tests_units: character
+      total_vaccinations: numeric
+      total_vaccinations_per_hundred: numeric
+      stringency_index: numeric
+      population: numeric
+      population_density: numeric
+      median_age: numeric
+      aged_65_older: numeric
+      aged_70_older: numeric
+      gdp_per_capita: numeric
+      extreme_poverty: numeric
+      cardiovasc_death_rate: numeric
+      diabetes_prevalence: numeric
+      female_smokers: numeric
+      male_smokers: numeric
+      handwashing_facilities: numeric
+      hospital_beds_per_thousand: numeric
+      life_expectancy: numeric
+      human_development_index: numeric
     dimensions:
-      nrow: 55512
-      ncol: 7
+      nrow: 56854
+      ncol: 46
     dates:
       min: '2020-01-01'
-      max: '2020-12-21'
+      max: '2020-12-29'
   cov_glue_lineage_data:
     columns:
       GISAID ID: character
