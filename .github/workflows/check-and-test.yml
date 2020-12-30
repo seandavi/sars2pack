@@ -2,13 +2,10 @@ on:
   push:
     branches:
       - main
-      - master
-      - develop
   pull_request:
     branches:
       - main
-      - master
-name: test-coverage
+name: "check, test, and coverage"
 env:
   CENSUS_API_KEY: ${{ secrets.CENSUS_API_KEY }}
 
