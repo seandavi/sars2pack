@@ -27,6 +27,18 @@ table(vacc$unit)
 table(vacc$status)
 table(vacc$entity)
 
+us_pop = us_population_details(geography='state', product='population', year=2019)
+us_pop = us_pop[us_pop$variable=='POP',]
+vacc = vacc[vacc$variable=='people_admin_first-dose',]
+vac_pop = merge(us_pop,vacc,by.x="NAME",by.y="province_state")
+
+if(requireNamespace('ggplot2',quiet=TRUE)) {
+  ggplot(vac_pop, aes(x=date,y=count/value*100000, color=stabbr)) +
+    geom_line() + ggtitle("Number of first vaccine doses delivered by state",'Cumulative counts') +
+    xlab("Date") +
+    ylab("Number of people vaccinated/100k population")
+}
+
 }
 \seealso{
 Other data-import: 
