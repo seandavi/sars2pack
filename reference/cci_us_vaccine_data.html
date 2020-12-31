@@ -204,23 +204,30 @@ been administered. As of December, 2020, this dataset is not complete.</p>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
 <span class='va'>vacc</span> <span class='op'>=</span> <span class='fu'>cci_us_vaccine_data</span><span class='op'>(</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>vacc</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;          date province_state stabbr          variable count  unit status entity
-#&gt; 1: 2020-12-14        Alabama     AL doses_alloc_total 40950 doses  alloc  total
-#&gt; 2: 2020-12-18        Alabama     AL doses_alloc_total    NA doses  alloc  total
-#&gt; 3: 2020-12-14         Alaska     AK doses_alloc_total 61900 doses  alloc  total
-#&gt; 4: 2020-12-18         Alaska     AK doses_alloc_total    NA doses  alloc  total
-#&gt; 5: 2020-12-20         Alaska     AK doses_alloc_total    NA doses  alloc  total
-#&gt; 6: 2020-12-21         Alaska     AK doses_alloc_total    NA doses  alloc  total</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>vacc</span><span class='op'>$</span><span class='va'>unit</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='warning'>Warning: Stopped early on line 87. Expected 18 fields but found 17. Consider fill=TRUE and comment.char=. First discarded non-empty line: &lt;&lt;12/29/20,Georgia,GA,Yes,502725,234600,268125,,375350197900,177450,,61870,,,61870,61870,&gt;&gt;</span></div><div class='output co'>#&gt; <span class='warning'>Warning: 'measure.vars' [doses_alloc_total, doses_alloc_moderna, doses_alloc_pfizer, doses_alloc_unknown, ...] are not all of the same type. By order of hierarchy, the molten data value column will be of type 'integer'. All measure variables not of type 'integer' will be coerced too. Check DETAILS in ?melt.data.table for more on coercion.</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>vacc</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;          date province_state stabbr          variable  count  unit status
+#&gt; 1: 2020-12-14        Alabama     AL doses_alloc_total  40950 doses  alloc
+#&gt; 2: 2020-12-18        Alabama     AL doses_alloc_total     NA doses  alloc
+#&gt; 3: 2020-12-27        Alabama     AL doses_alloc_total     NA doses  alloc
+#&gt; 4: 2020-12-28        Alabama     AL doses_alloc_total 128175 doses  alloc
+#&gt; 5: 2020-12-14         Alaska     AK doses_alloc_total  61900 doses  alloc
+#&gt; 6: 2020-12-18         Alaska     AK doses_alloc_total     NA doses  alloc
+#&gt;    entity
+#&gt; 1:  total
+#&gt; 2:  total
+#&gt; 3:  total
+#&gt; 4:  total
+#&gt; 5:  total
+#&gt; 6:  total</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>vacc</span><span class='op'>$</span><span class='va'>unit</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; 
 #&gt;  doses people 
-#&gt;   5064    844 </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>vacc</span><span class='op'>$</span><span class='va'>status</span><span class='op'>)</span>
+#&gt;   1020    170 </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>vacc</span><span class='op'>$</span><span class='va'>status</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; 
 #&gt;   admin   alloc shipped 
-#&gt;    2532    1688    1688 </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>vacc</span><span class='op'>$</span><span class='va'>entity</span><span class='op'>)</span>
+#&gt;     510     340     340 </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>vacc</span><span class='op'>$</span><span class='va'>entity</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; 
 #&gt;  first-dose     moderna      pfizer second-dose       total     unknown 
-#&gt;         422        1266        1266         422        1266        1266 </div><div class='input'>
+#&gt;          85         255         255          85         255         255 </div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
