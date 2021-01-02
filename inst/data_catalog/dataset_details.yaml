@@ -1020,5 +1020,94 @@ datasets:
     dimensions:
       nrow: 13415836
       ncol: 12
-eval_date: '2021-01-01'
+  econ_tracker_unemp_national_data:
+    columns:
+      initclaims_count_regular: integer
+      contclaims_count_regular: integer
+      initclaims_count_pua: integer
+      contclaims_count_pua: integer
+      contclaims_count_peuc: integer
+      initclaims_rate_regular: numeric
+      contclaims_rate_regular: numeric
+      initclaims_rate_pua: numeric
+      contclaims_rate_pua: numeric
+      contclaims_rate_peuc: numeric
+      initclaims_count_combined: integer
+      contclaims_count_combined: integer
+      initclaims_rate_combined: numeric
+      contclaims_rate_combined: numeric
+      date:
+      - IDate
+      - Date
+    dimensions:
+      nrow: 49
+      ncol: 15
+    dates:
+      min: '2020-01-04'
+      max: '2020-12-05'
+  econ_tracker_unemp_state_data:
+    columns:
+      statefips: character
+      initclaims_count_regular: integer
+      initclaims_rate_regular: numeric
+      contclaims_count_regular: integer
+      contclaims_rate_regular: numeric
+      initclaims_count_pua: integer
+      contclaims_count_pua: integer
+      contclaims_count_peuc: integer
+      initclaims_rate_pua: numeric
+      contclaims_rate_pua: numeric
+      contclaims_rate_peuc: numeric
+      initclaims_count_combined: integer
+      contclaims_count_combined: integer
+      initclaims_rate_combined: numeric
+      contclaims_rate_combined: numeric
+      date:
+      - IDate
+      - Date
+      statename: character
+      stateabbrev: character
+      state_pop2019: integer
+    dimensions:
+      nrow: 2499
+      ncol: 19
+    dates:
+      min: '2020-01-04'
+      max: '2020-12-05'
+  econ_tracker_unemp_city_data:
+    columns:
+      cityid: integer
+      initclaims_count_regular: integer
+      initclaims_rate_regular: numeric
+      date:
+      - IDate
+      - Date
+    dimensions:
+      nrow: 1219
+      ncol: 4
+    dates:
+      min: '2020-01-11'
+      max: '2020-11-28'
+  econ_tracker_unemp_county_data:
+    columns:
+      countyfips: character
+      initclaims_count_regular: numeric
+      initclaims_rate_regular: numeric
+      date:
+      - IDate
+      - Date
+      countyname: character
+      cz: integer
+      czname: character
+      statename: character
+      statefips: character
+      stateabbrev: character
+      county_pop2019: integer
+    dimensions:
+      nrow: 60808
+      ncol: 11
+    dates:
+      min: '2020-01-11'
+      max: '2020-11-28'
+eval_date: '2021-01-02'
 

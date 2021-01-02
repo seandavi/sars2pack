@@ -48,6 +48,7 @@ Other data-import:
 \code{\link{covidtracker_data}()},
 \code{\link{descartes_mobility_data}()},
 \code{\link{ecdc_data}()},
+\code{\link{econ_tracker_unemp_data}},
 \code{\link{economist_excess_deaths}()},
 \code{\link{financial_times_excess_deaths}()},
 \code{\link{google_mobility_data}()},

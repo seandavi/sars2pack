@@ -52,6 +52,7 @@ Other data-import:
 \code{\link{covidtracker_data}()},
 \code{\link{descartes_mobility_data}()},
 \code{\link{ecdc_data}()},
+\code{\link{econ_tracker_unemp_data}},
 \code{\link{economist_excess_deaths}()},
 \code{\link{financial_times_excess_deaths}()},
 \code{\link{google_mobility_data}()},
@@ -75,7 +76,8 @@ Other social:
 \code{\link{acaps_secondary_impact_data}()}
 
 Other economics: 
-\code{\link{acaps_secondary_impact_data}()}
+\code{\link{acaps_secondary_impact_data}()},
+\code{\link{econ_tracker_unemp_data}}
 }
 \author{
 Sean Davis \href{mailto:seandavi@gmail.com}{seandavi@gmail.com}
