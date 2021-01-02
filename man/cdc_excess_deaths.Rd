@@ -111,8 +111,7 @@ Other data-import:
 \code{\link{us_hospital_details}()},
 \code{\link{us_state_distancing_policy}()},
 \code{\link{usa_facts_data}()},
-\code{\link{who_cases}()},
-\code{\link{yougov_behavioral_data}()}
+\code{\link{who_cases}()}
 
 Other excess-deaths: 
 \code{\link{economist_excess_deaths}()},

@@ -32,7 +32,7 @@ s2p_cached_url <- function(url, rname = url, ask_on_update=FALSE,
             lubridate::parse_date_time2(bfcres$access_time, "YmdHMS", tz=Sys.timezone())
     }
     # if needs update, do the download
-    if(!isFALSE(bfcneedsupdate(bfc, rid))) {
+    if(isTRUE(bfcneedsupdate(bfc, rid))) {
         bfcdownload(bfc, rid, ask=FALSE, ...)
     } else if (fileage > lubridate::as.period(max_cache_age)) {
         bfcdownload(bfc, rid, ask=FALSE, ...)

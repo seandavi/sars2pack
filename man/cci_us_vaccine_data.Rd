@@ -27,6 +27,18 @@ table(vacc$unit)
 table(vacc$status)
 table(vacc$entity)
 
+us_pop = us_population_details(geography='state', product='population', year=2019)
+us_pop = us_pop[us_pop$variable=='POP',]
+vacc = vacc[vacc$variable=='people_admin_first-dose',]
+vac_pop = merge(us_pop,vacc,by.x="NAME",by.y="province_state")
+
+if(require('ggplot2')) {
+  ggplot(vac_pop, aes(x=date,y=count/value*100000, color=stabbr)) +
+    geom_line() + ggtitle("Number of first vaccine doses delivered by state",'Cumulative counts') +
+    xlab("Date") +
+    ylab("Number of people vaccinated/100k population")
+}
+
 }
 \seealso{
 Other data-import: 
@@ -63,8 +75,7 @@ Other data-import:
 \code{\link{us_hospital_details}()},
 \code{\link{us_state_distancing_policy}()},
 \code{\link{usa_facts_data}()},
-\code{\link{who_cases}()},
-\code{\link{yougov_behavioral_data}()}
+\code{\link{who_cases}()}
 }
 \author{
 Sean Davis \href{mailto:seandavi@gmail.com}{seandavi@gmail.com}

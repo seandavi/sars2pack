@@ -3,10 +3,7 @@
 #' The OurWoldInData dataset includes country-level testing,
 #' deaths, and confirmed cases for most countries in the world.
 #'
-#' @importFrom readr read_csv cols
 #' @importFrom dplyr %>% mutate
-#' @importFrom lubridate ymd
-#' @importFrom tidyr pivot_longer
 #' 
 #' @source 
 #' 
@@ -39,14 +36,12 @@ owid_data = function() {
     url = 'https://covid.ourworldindata.org/data/owid-covid-data.csv'
     rpath = s2p_cached_url(url)
     dat = data.table::fread(rpath)
-    dat %>% dplyr::select(c('iso_code', 'location', 'date', 
-                            'total_cases', 'total_deaths', 
-                            'total_tests', 'tests_units')) %>%
-        dplyr::rename(
-            'iso3c' = 'iso_code',
-            'country' = 'location',
-            'confirmed' = 'total_cases',
-            'deaths' = 'total_deaths',
-            'tests' = 'total_tests'
-        )
+    not_to_keep=grep('smoothed',names(dat), value=TRUE)
+    dat[,c(not_to_keep):=NULL]
+    data.table::setnames(
+        dat,
+        c('iso_code','location','total_cases','total_deaths','total_tests'),
+        c('iso3c','country','confirmed','deaths','tests')
+    )
+    dat
 }

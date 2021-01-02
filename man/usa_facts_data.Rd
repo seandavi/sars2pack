@@ -10,7 +10,7 @@
 usa_facts_data()
 }
 \value{
-a tidy data tibble with columns:
+a tidy data.table with columns:
 \itemize{
 \item fips
 \item county
@@ -117,8 +117,7 @@ Other data-import:
 \code{\link{us_healthcare_capacity}()},
 \code{\link{us_hospital_details}()},
 \code{\link{us_state_distancing_policy}()},
-\code{\link{who_cases}()},
-\code{\link{yougov_behavioral_data}()}
+\code{\link{who_cases}()}
 
 Other case-tracking: 
 \code{\link{align_to_baseline}()},
