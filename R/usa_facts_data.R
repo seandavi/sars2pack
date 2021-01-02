@@ -44,7 +44,7 @@
 #' 
 #' @return
 #'
-#' a tidy data tibble with columns:
+#' a tidy data.table with columns:
 #'
 #'   - fips
 #'   - county
@@ -83,9 +83,21 @@
 usa_facts_data = function() {
     confirmed_path = s2p_cached_url('https://static.usafacts.org/public/data/covid-19/covid_confirmed_usafacts.csv')
     confirmed = data.table::fread(confirmed_path)
+    # This converts all the integer cols to integer,
+    # even in the case of parsing errors. Uses data.table
+    # idioms.
+    for(col in colnames(confirmed)[5:ncol(confirmed)]) {
+        set(confirmed, j=col, value=as.integer(confirmed[[col]]))
+    }
     confirmed$subset = 'confirmed'
     deaths_path = s2p_cached_url('https://static.usafacts.org/public/data/covid-19/covid_deaths_usafacts.csv')
     deaths = data.table::fread(deaths_path)
+    # This converts all the integer cols to integer,
+    # even in the case of parsing errors. Uses data.table
+    # idioms.
+    for(col in colnames(deaths)[5:ncol(deaths)]) {
+        set(deaths, j=col, value=as.integer(deaths[[col]]))
+    }
     deaths$subset = 'deaths'
     ret = dplyr::bind_rows(confirmed,deaths)
     colnames(ret)[2] = 'county'
@@ -94,6 +106,6 @@ usa_facts_data = function() {
     ret = ret[-4]
     ret$fips = integer_to_fips(ret$fips)
     ret = tidyr::pivot_longer(ret,cols=-c("fips","state","county","subset"),names_to='date',values_to='count')
-    ret$date = lubridate::mdy(ret$date)
+    ret$date = lubridate::mdy(ret$date,quiet = TRUE)
     ret
 }
