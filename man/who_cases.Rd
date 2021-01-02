@@ -64,8 +64,7 @@ Other data-import:
 \code{\link{us_healthcare_capacity}()},
 \code{\link{us_hospital_details}()},
 \code{\link{us_state_distancing_policy}()},
-\code{\link{usa_facts_data}()},
-\code{\link{yougov_behavioral_data}()}
+\code{\link{usa_facts_data}()}
 
 Other case-tracking: 
 \code{\link{align_to_baseline}()},
