@@ -2,7 +2,7 @@
 % Please edit documentation in R/test_and_trace.R
 \name{test_and_trace_data}
 \alias{test_and_trace_data}
-\title{Testing and tracing statistics for United States from testandtrace.com}
+\title{Contact tracing counts for United States from testandtrace.com}
 \source{
 \itemize{
 \item \url{https://github.com/covid-projections/covid-data-public/blob/master/data/test-and-trace/state_data.csv}
@@ -15,7 +15,7 @@ test_and_trace_data()
 a \code{data.frame}
 }
 \description{
-Testing and tracing statistics for United States from testandtrace.com
+Contact tracing counts for United States from testandtrace.com
 }
 \details{
 From the testandtrace website:

@@ -953,5 +953,72 @@ datasets:
     dates:
       min: '2020-12-10'
       max: '2020-12-28'
+  coronadatascraper_data:
+    columns:
+      name: character
+      level: character
+      city: character
+      county: character
+      state: character
+      country: character
+      population: integer
+      lat: numeric
+      long: numeric
+      url: character
+      aggregate: character
+      tz: character
+      cases: integer
+      deaths: integer
+      recovered: integer
+      active: integer
+      tested: integer
+      hospitalized: integer
+      hospitalized_current: integer
+      discharged: integer
+      icu: integer
+      icu_current: integer
+      growthFactor: numeric
+      date:
+      - IDate
+      - Date
+    dimensions:
+      nrow: 428748
+      ncol: 24
+    dates:
+      min: '2020-01-22'
+      max: '2020-07-12'
+  test_and_trace_data:
+    columns:
+      fips: character
+      date:
+      - IDate
+      - Date
+      iso2c: character
+      contact_tracers_count: integer
+      state: character
+      region: factor
+    dimensions:
+      nrow: 12336
+      ncol: 6
+    dates:
+      min: '2020-05-11'
+      max: '2021-01-02'
+  cdc_us_linelist_data:
+    columns:
+      cdc_case_earliest_dt: Date
+      cdc_report_dt: Date
+      pos_spec_dt: Date
+      onset_dt: Date
+      current_status: character
+      sex: character
+      age_group: character
+      race_ethnicity_combined: character
+      hosp_yn: logical
+      icu_yn: logical
+      death_yn: logical
+      medcond_yn: logical
+    dimensions:
+      nrow: 13415836
+      ncol: 12
 eval_date: '2021-01-01'
 

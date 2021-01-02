@@ -1,4 +1,4 @@
-#' Testing and tracing statistics for United States from testandtrace.com
+#' Contact tracing counts for United States from testandtrace.com
 #'
 #'
 #' @details
