@@ -31,7 +31,7 @@
 #' vacc = vacc[vacc$variable=='people_admin_first-dose',]
 #' vac_pop = merge(us_pop,vacc,by.x="NAME",by.y="province_state")
 #'
-#' if(requireNamespace('ggplot2',quiet=TRUE)) {
+#' if(require('ggplot2')) {
 #'   ggplot(vac_pop, aes(x=date,y=count/value*100000, color=stabbr)) +
 #'     geom_line() + ggtitle("Number of first vaccine doses delivered by state",'Cumulative counts') +
 #'     xlab("Date") +
