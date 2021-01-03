@@ -39,12 +39,18 @@ Geographies: National, State, County, Metro
 \item Resturants and Hotels
 \item Transportation
 }
+}
 
-###By Consumer Zip Code Income. Transactions are linked to zip codes where the consumer lives and zip codes are classified into income categories based on measurements of median household income and population provided by the American Community Survey (2014 - 2018).
+\subsection{By Consumer Zip Code Income. Transactions are linked to zip codes where the consumer lives and zip codes are classified into income categories based on measurements of median household income and population provided by the American Community Survey (2014 - 2018).}{
 \itemize{
 \item High Income (median household income greater than $78,000 per year)
 \item Middle Income (median household income between $46,000 per year and $78,000 per year)
 \item Low Income (median household income less than $46,000 per year)
+}
+}
+
+\subsection{Column descriptions}{
+\itemize{
 \item spend_all: Seasonally adjusted credit/debit card spending relative to January 4-31 2020 in all merchant category codes (MCC), 7 day moving average.
 \item spend_acf: Seasonally adjusted credit/debit card spending relative to January 4-31 2020 in accomodation and food service (ACF) MCCs, 7 day moving average, 7 day moving average.
 \item spend_aer: Seasonally adjusted credit/debit card spending relative to January 4-31 2020 in arts, entertainment, and recreation (AER) MCCs, 7 day moving average.
