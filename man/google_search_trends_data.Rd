@@ -4,13 +4,13 @@
 \alias{google_search_trends_data}
 \title{Google search trends for COVID-19 and illness-related terms}
 \source{
-\url{https://github.com/google-research/open-covid-19-data/tree/master/data/exports/search_trends_symptoms_dataset}
+\url{https://github.com/GoogleCloudPlatform/covid-19-open-data}
 }
 \usage{
-google_search_trends_data()
+google_search_trends_data(verbose = TRUE)
 }
 \value{
-a data.frame
+a data.table
 }
 \description{
 This aggregated, anonymized dataset shows trends in search patterns for symptoms and is intended to help researchers to better understand the impact of COVID-19.
@@ -62,23 +62,17 @@ In each region, we scale all the normalized (daily / weekly) popularities using 
 Use of this dataset implies acceptance of Google's terms of use \url{https://policies.google.com/terms}.
 }
 \examples{
+\donttest{
+
+# This example loads the dataset which is large. 
+# Do not expect this example to run without sufficient
+# memory.
+
 res = google_search_trends_data()
-dim(res)
-head(res)
-dplyr::glimpse(res)
-table(res$country_region)
-table(res$sub_region_1)
-if(require(timetk)) {
 
-  plot_time_series(res[sub_region_1 \%in\% c('Maryland','Texas','New York',
-                                           'California','Georgia','Arizona',
-                                           'Illinois','New Jersey','Florida') & 
-                         variable \%in\% c(
-                           'symptom:Cough','symptom:Fever',
-                           'symptom:Shortness of breath')][,year := lubridate::year(date)],
-                   date,value,.smooth_period='month',
-                   .color_var=sub_region_1,.facet_vars = 'variable')
-
+head(res[,1:10])
+colnames(res)
+grep('fever',colnames(res))
 }
 
 }
