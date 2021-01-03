@@ -60,7 +60,7 @@
 #' \url{https://github.com/GoogleCloudPlatform/covid-19-open-data}
 #'
 #' @examples
-#' donotrun{
+#' dontrun{
 #' res = google_search_trends_data()
 #'
 #' head(res[,1:10])

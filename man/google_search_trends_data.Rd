@@ -62,7 +62,7 @@ In each region, we scale all the normalized (daily / weekly) popularities using 
 Use of this dataset implies acceptance of Google's terms of use \url{https://policies.google.com/terms}.
 }
 \examples{
-donotrun{
+dontrun{
 res = google_search_trends_data()
 
 head(res[,1:10])
