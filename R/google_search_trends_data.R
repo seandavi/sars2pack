@@ -50,52 +50,37 @@
 #' @author
 #' Sean Davis <seandavi@gmail.com>
 #' 
-#' @return a data.frame
+#' @return a data.table
 #'
 #' @references
 #' Google LLC "Google COVID-19 Search Trends symptoms dataset".
 #' http://goo.gle/covid19symptomdataset
 #'
 #' @source
-#' \url{https://github.com/google-research/open-covid-19-data/tree/master/data/exports/search_trends_symptoms_dataset}
+#' \url{https://github.com/GoogleCloudPlatform/covid-19-open-data}
 #'
 #' @examples
+#' donotrun{
 #' res = google_search_trends_data()
-#' dim(res)
-#' head(res)
-#' dplyr::glimpse(res)
-#' table(res$country_region)
-#' table(res$sub_region_1)
-#' if(require(timetk)) {
 #'
-#'   plot_time_series(res[sub_region_1 %in% c('Maryland','Texas','New York',
-#'                                            'California','Georgia','Arizona',
-#'                                            'Illinois','New Jersey','Florida') & 
-#'                          variable %in% c(
-#'                            'symptom:Cough','symptom:Fever',
-#'                            'symptom:Shortness of breath')][,year := lubridate::year(date)],
-#'                    date,value,.smooth_period='month',
-#'                    .color_var=sub_region_1,.facet_vars = 'variable')
-#'
+#' head(res[,1:10])
+#' colnames(res)
+#' grep('fever',colnames(res))
 #' }
 #'
 #' @export
-google_search_trends_data <- function() {
-  ## Historical Data
-  munge_table = function(fname) {
-    data.table::fread(fname) %>%
-      data.table::melt(id.vars=seq_len(8))
+google_search_trends_data <- function(verbose=TRUE) {
+  if(verbose) {
+    message("This is a VERY large dataset that may take some time to load and requires about 5GB of free RAM to load")
   }
-  rpath = s2p_cached_url("https://github.com/google-research/open-covid-19-data/releases/download/v0.0.2/US_search_trends_symptoms_dataset.zip")
-  td = tempfile()
-  utils::unzip(rpath,exdir=td)
-  hist_files = list.files(td,pattern='_US_daily_symptoms_dataset\\.csv',
-                          recursive=TRUE, full.names = TRUE)
-  url = "https://raw.githubusercontent.com/google-research/open-covid-19-data/master/data/exports/search_trends_symptoms_dataset/United%20States%20of%20America/2020_US_daily_symptoms_dataset.csv"
+  url = 'https://storage.googleapis.com/covid19-open-data/v2/index.csv'
   rpath = s2p_cached_url(url)
-  fnames = c(hist_files,rpath)
-  dset_list = lapply(fnames, munge_table)
-  dset = data.table::rbindlist(dset_list)
-  dset$date = as.Date(dset$date)
-  dset
+  idx_data = data.table::fread(rpath,na.strings = '')
+  data.table::setkey(idx_data,"key")
+  url = "https://storage.googleapis.com/covid19-open-data/v2/google-search-trends.csv"
+  rpath = s2p_cached_url(url)
+  dset = data.table::fread(rpath,na.strings='')
+  data.table::setnames(dset, colnames(dset), sub('search_trends_','',colnames(dset)))
+  data.table::setkey(dset,"key")
+  merge(dset,idx_data,on='key',all.x=FALSE)
 }
