@@ -60,7 +60,12 @@
 #' \url{https://github.com/GoogleCloudPlatform/covid-19-open-data}
 #'
 #' @examples
-#' dontrun{
+#' \donttest{
+#' 
+#' # This example loads the dataset which is large. 
+#' # Do not expect this example to run without sufficient
+#' # memory.
+#' 
 #' res = google_search_trends_data()
 #'
 #' head(res[,1:10])
