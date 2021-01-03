@@ -1538,5 +1538,111 @@ datasets:
     dates:
       min: '2020-01-11'
       max: '2020-11-28'
-eval_date: '2021-01-02'
+  econ_tracker_consumer_spending_city_data:
+    columns:
+      cityid: integer
+      cityname: character
+      stateabbrev: character
+      statename: character
+      statefips: character
+      city_pop2019: integer
+      freq: character
+      spend_acf: numeric
+      spend_aer: numeric
+      spend_all: numeric
+      spend_apg: numeric
+      spend_grf: numeric
+      spend_hcs: numeric
+      spend_tws: numeric
+      spend_retail_w_grocery: numeric
+      spend_retail_no_grocery: numeric
+      provisional: integer
+      date:
+      - IDate
+      - Date
+    dimensions:
+      nrow: 16750
+      ncol: 18
+    dates:
+      min: '2020-01-01'
+      max: '2020-12-06'
+  econ_tracker_consumer_spending_county_data:
+    columns:
+      countyfips: character
+      countyname: character
+      cz: integer
+      czname: character
+      statename: character
+      statefips: character
+      stateabbrev: character
+      county_pop2019: integer
+      freq: character
+      spend_all: numeric
+      provisional: integer
+      date:
+      - IDate
+      - Date
+    dimensions:
+      nrow: 559923
+      ncol: 12
+    dates:
+      min: '2020-01-01'
+      max: '2020-12-06'
+  econ_tracker_consumer_spending_state_data:
+    columns:
+      statefips: character
+      statename: character
+      stateabbrev: character
+      state_pop2019: integer
+      freq: character
+      spend_acf: numeric
+      spend_aer: numeric
+      spend_all: numeric
+      spend_apg: numeric
+      spend_grf: numeric
+      spend_hcs: numeric
+      spend_tws: numeric
+      spend_all_inchigh: numeric
+      spend_all_inclow: numeric
+      spend_all_incmiddle: numeric
+      spend_retail_w_grocery: numeric
+      spend_retail_no_grocery: numeric
+      provisional: integer
+      date:
+      - IDate
+      - Date
+    dimensions:
+      nrow: 17085
+      ncol: 19
+    dates:
+      min: '2020-01-01'
+      max: '2020-12-06'
+  econ_tracker_consumer_spending_national_data:
+    columns:
+      freq: character
+      spend_all: numeric
+      spend_apg: numeric
+      spend_aer: numeric
+      spend_grf: numeric
+      spend_hcs: numeric
+      spend_acf: numeric
+      spend_tws: numeric
+      spend_retail_no_grocery: numeric
+      spend_retail_w_grocery: numeric
+      spend_all_inclow: numeric
+      spend_all_incmiddle: numeric
+      spend_all_inchigh: numeric
+      spend_all_q2: numeric
+      spend_all_q3: numeric
+      provisional: integer
+      date:
+      - IDate
+      - Date
+    dimensions:
+      nrow: 694
+      ncol: 17
+    dates:
+      min: '2019-01-07'
+      max: '2020-12-06'
+eval_date: '2021-01-03'
 

@@ -1,3 +1,13 @@
+.fix_econ_tracker_dates = function(dat) {
+  if(!is(dat,'data.table')) {
+    stop("input is expected to be a data.table object")
+  }
+  data.table::set(dat, j="date", value=data.table::as.IDate(paste(dat$year,dat$month,dat$day_endofweek,sep="-")))
+  data.table::set(dat, j=c('year','month','day_endofweek'), value=NULL)
+  dat
+}
+
+
 #' Econ tracker information
 #' 
 #' @name econtracker
@@ -17,7 +27,6 @@ NULL
 #' 
 #' @rdname econtracker
 #' 
-
 #' 
 #' 
 #' @export
@@ -43,7 +52,7 @@ econ_tracker_city_geo = function(){
 econ_tracker_state_geo = function(){
   url = "https://raw.githubusercontent.com/OpportunityInsights/EconomicTracker/main/data/GeoIDs%20-%20State.csv"
   rpath = s2p_cached_url(url)
-  dat = data.table::fread(rpath)
+  dat = data.table::fread(rpath,na.strings = '.')
   dat$statefips = integer_to_fips(dat$statefips)
   dat
 }
