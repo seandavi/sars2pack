@@ -71,6 +71,21 @@ Geographies: National, State, County, Metro
 \note{
 The raw data contains discontinuous breaks caused by entry or exit of credit card providers from the sample. In order to reliably identify and correct these breaks, we require at least 3 weeks of data. The most recent 3 weeks of data are therefore marked 'provisional' and are subject to non-negligible changes as new data is posted. For breaks found prior to the last 3 weeks, we correct for it using a method outlined in the paper. Otherwise we substitute the national mean for more recent breaks while we gather enough data to implement the corrections outlined in the paper. Additionally, at the county-level when are there more than one structural breaks the data is too noisy to correct for these breaks and counties with multiple breaks are dropped from the sample. Lastly, Affinity Solutions suppresses any cut of the data with fewer than five transactions. For more details refer to the accompanying paper.
 }
+\examples{
+res = econ_tracker_consumer_spending_city_data()
+res
+
+res = econ_tracker_consumer_spending_county_data()
+res
+
+
+res = econ_tracker_consumer_spending_state_data()
+res
+
+res = econ_tracker_consumer_spending_national_data()
+res
+
+}
 \references{
 \itemize{
 \item \url{https://opportunityinsights.org/wp-content/uploads/2020/05/tracker_paper.pdf}

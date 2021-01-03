@@ -54,6 +54,10 @@
 #' @family data-import
 #' @family econonics
 #' 
+#' @examples 
+#' res = econ_tracker_consumer_spending_city_data()
+#' res
+#' 
 #' @export
 econ_tracker_consumer_spending_city_data = function() {
     locs = econ_tracker_city_geo()
@@ -68,6 +72,12 @@ econ_tracker_consumer_spending_city_data = function() {
 }
 
 #' @rdname econ_tracker_consumer_spending
+#' 
+#' @examples 
+#' res = econ_tracker_consumer_spending_county_data()
+#' res
+#' 
+#' 
 #' @export
 econ_tracker_consumer_spending_county_data = function() {
   locs = econ_tracker_county_geo()
@@ -83,6 +93,10 @@ econ_tracker_consumer_spending_county_data = function() {
 }
 
 #' @rdname econ_tracker_consumer_spending
+#' @examples 
+#' res = econ_tracker_consumer_spending_state_data()
+#' res
+#' 
 #' @export
 econ_tracker_consumer_spending_state_data = function() {
   locs = econ_tracker_state_geo()
@@ -98,6 +112,11 @@ econ_tracker_consumer_spending_state_data = function() {
 }
 
 #' @rdname econ_tracker_consumer_spending
+#' 
+#' @examples 
+#' res = econ_tracker_consumer_spending_national_data()
+#' res
+#' 
 #' @export
 econ_tracker_consumer_spending_national_data = function() {
   url = "https://github.com/OpportunityInsights/EconomicTracker/raw/main/data/Affinity%20-%20National%20-%20Daily.csv"
