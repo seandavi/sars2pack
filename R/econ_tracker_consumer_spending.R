@@ -52,7 +52,7 @@
 #' @name econ_tracker_consumer_spending
 #' 
 #' @family data-import
-#' @family econonics
+#' @family economics
 #' 
 #' @examples 
 #' res = econ_tracker_consumer_spending_city_data()

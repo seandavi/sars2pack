@@ -129,9 +129,14 @@ Other data-import:
 \code{\link{us_state_distancing_policy}()},
 \code{\link{usa_facts_data}()},
 \code{\link{who_cases}()}
+
+Other economics: 
+\code{\link{acaps_secondary_impact_data}()},
+\code{\link{econ_tracker_unemp_data}},
+\code{\link{us_county_health_rankings}()}
 }
 \author{
 Sean Davis \href{mailto:seandavi@gmail.com}{seandavi@gmail.com}
 }
 \concept{data-import}
-\concept{econonics}
+\concept{economics}

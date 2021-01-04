@@ -78,6 +78,7 @@ Other social:
 
 Other economics: 
 \code{\link{acaps_secondary_impact_data}()},
+\code{\link{econ_tracker_consumer_spending}},
 \code{\link{econ_tracker_unemp_data}}
 }
 \author{

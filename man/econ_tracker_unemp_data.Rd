@@ -118,6 +118,7 @@ Other data-import:
 
 Other economics: 
 \code{\link{acaps_secondary_impact_data}()},
+\code{\link{econ_tracker_consumer_spending}},
 \code{\link{us_county_health_rankings}()}
 }
 \concept{data-import}
