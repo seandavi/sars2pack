@@ -2,8 +2,7 @@
 
 ## New datasets
 
-- United states Bureau of Labor Statistics Unemployment data `bls_unemployment_data()`
-- Excess deaths during coronavirus `economist_excess_deaths()` `cdc_excess_deaths()`
+- Excess deaths during coronavirus `economist_excess_deaths()` `cdc_excess_deaths()` `financial_times_excess_deaths()`
 - Coronavirus Vaccine Data Tracking in the United States `cci_us_vaccine_data()`
 - Corona Data Scraper data	`coronadatascraper_data()`
 - United States CDC Line list (anonymized)	`cdc_us_linelist_data()`
