@@ -60,10 +60,10 @@ In order to provide closer to real time data, we forecast the most recent employ
 }
 \examples{
 
-res = econ_tracker_city_data()
+res = econ_tracker_employment_city_data()
 res
 
-res = econ_tracker_county_data()
+res = econ_tracker_employment_county_data()
 res
 
 

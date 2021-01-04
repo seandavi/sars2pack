@@ -48,7 +48,7 @@
 #' 
 #' @examples 
 #' 
-#' res = econ_tracker_city_data()
+#' res = econ_tracker_employment_city_data()
 #' res
 #' 
 #' @export
@@ -67,7 +67,7 @@ econ_tracker_employment_city_data = function() {
 #' @rdname econ_tracker_employment
 #' 
 #' @examples 
-#' res = econ_tracker_county_data()
+#' res = econ_tracker_employment_county_data()
 #' res
 #' 
 #' 
