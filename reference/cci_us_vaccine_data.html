@@ -177,6 +177,7 @@ been administered. As of December, 2020, this dataset is not complete.</p>
 <code><a href='covidtracker_data.html'>covidtracker_data</a>()</code>,
 <code><a href='descartes_mobility_data.html'>descartes_mobility_data</a>()</code>,
 <code><a href='ecdc_data.html'>ecdc_data</a>()</code>,
+<code><a href='econ_tracker_consumer_spending.html'>econ_tracker_consumer_spending</a></code>,
 <code><a href='econ_tracker_unemp_data.html'>econ_tracker_unemp_data</a></code>,
 <code><a href='economist_excess_deaths.html'>economist_excess_deaths</a>()</code>,
 <code><a href='financial_times_excess_deaths.html'>financial_times_excess_deaths</a>()</code>,
@@ -221,13 +222,13 @@ been administered. As of December, 2020, this dataset is not complete.</p>
 #&gt; 6:  total</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>vacc</span><span class='op'>$</span><span class='va'>unit</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; 
 #&gt;  doses people 
-#&gt;   1419    373 </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>vacc</span><span class='op'>$</span><span class='va'>status</span><span class='op'>)</span>
+#&gt;   1464    390 </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>vacc</span><span class='op'>$</span><span class='va'>status</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; 
 #&gt;   admin   alloc shipped 
-#&gt;    1171     225     396 </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>vacc</span><span class='op'>$</span><span class='va'>entity</span><span class='op'>)</span>
+#&gt;    1223     226     405 </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>vacc</span><span class='op'>$</span><span class='va'>entity</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; 
 #&gt; first-dose    moderna     pfizer      total    unknown 
-#&gt;        373        158        317        637        307 </div><div class='input'>
+#&gt;        390        160        320        659        325 </div><div class='input'>
 <span class='va'>us_pop</span> <span class='op'>=</span> <span class='fu'><a href='us_population_details.html'>us_population_details</a></span><span class='op'>(</span>geography<span class='op'>=</span><span class='st'>'state'</span>, product<span class='op'>=</span><span class='st'>'population'</span>, year<span class='op'>=</span><span class='fl'>2019</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; <span class='message'>Loading required namespace: tidycensus</span></div><div class='input'><span class='va'>us_pop</span> <span class='op'>=</span> <span class='va'>us_pop</span><span class='op'>[</span><span class='va'>us_pop</span><span class='op'>$</span><span class='va'>variable</span><span class='op'>==</span><span class='st'>'POP'</span>,<span class='op'>]</span>
 <span class='va'>vacc</span> <span class='op'>=</span> <span class='va'>vacc</span><span class='op'>[</span><span class='va'>vacc</span><span class='op'>$</span><span class='va'>variable</span><span class='op'>==</span><span class='st'>'people_admin_first-dose'</span>,<span class='op'>]</span>
