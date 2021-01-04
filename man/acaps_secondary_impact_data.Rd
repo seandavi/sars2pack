@@ -75,6 +75,7 @@ Other data-import:
 \code{\link{who_cases}()}
 
 Other economics: 
+\code{\link{econ_tracker_consumer_spending}},
 \code{\link{econ_tracker_unemp_data}},
 \code{\link{us_county_health_rankings}()}
 

@@ -1,8 +1,33 @@
+# sars2pack 0.99.2
+
+## New datasets
+
+- Corona Data Scraper data	`coronadatascraper_data()`
+- United States CDC Line list (anonymized)	`cdc_us_linelist_data()`
+- United States contact tracers by state from testandtrace.com	`test_and_trace_data()`
+- United States Unemployment Insurance claims by week	 `econ_tracker_unemp_national_data()`
+- United States Unemployment Insurance claims by week	`econ_tracker_unemp_state_data()`
+- United States Unemployment Insurance claims by week	`econ_tracker_unemp_county_data()`
+- United States Unemployment Insurance claims by week	`econ_tracker_unemp_city_data()`
+- United States Consumer Spending from Econ Tracker and Affinity	`econ_tracker_consumer_spending_national_data()`
+- United States Consumer Spending from Econ Tracker and Affinity	`econ_tracker_consumer_spending_state_data()`
+- United States Consumer Spending from Econ Tracker and Affinity	`econ_tracker_consumer_spending_county_data()`
+- United States Consumer Spending from Econ Tracker and Affinity	`econ_tracker_consumer_spending_city_data()`
+
+## Enhancements
+
+- Vignettes are large and unwieldy, so are now in a separate [`bookdown` site](https://seandavi.github.io/sars2pack-book).
+
+# sars2pack 0.99.0
+
+Start Bioconductor submission process
+
 # sars2pack 0.1.2
 
 ## New datasets
 
 - US CDC Social Vulnerability Index: `cdc_social_vulnerability_index()`
+- 
 
 
 ## bug fixes
