@@ -42,7 +42,7 @@ odbc, and bigrquery::bigquery() for BigQuery.
 if(requireNamespace("RSQLite", quietly=TRUE) 
    & requireNamespace("DBI", quietly=TRUE)) {
   sql = DBI::dbConnect(RSQLite::SQLite(), ':memory:')
-  datasets_to_sql(sql, dataset_accessors = "apple_mobility_data")
+  datasets_to_sql(sql, dataset_accessors = "coronadatascraper_data")
   DBI::dbListTables(sql)
   DBI::dbDisconnect(sql)
 } else {
