@@ -7,6 +7,10 @@
 - Corona Data Scraper data	`coronadatascraper_data()`
 - United States CDC Line list (anonymized)	`cdc_us_linelist_data()`
 - United States contact tracers by state from testandtrace.com	`test_and_trace_data()`
+- United States employment data by week	 `econ_tracker_employment_national_data()`
+- United States employment data by week	`econ_tracker_employment_state_data()`
+- United States employment data by week	`econ_tracker_employment_county_data()`
+- United States employment data by week	`econ_tracker_employment_city_data()`
 - United States Unemployment Insurance claims by week	 `econ_tracker_unemp_national_data()`
 - United States Unemployment Insurance claims by week	`econ_tracker_unemp_state_data()`
 - United States Unemployment Insurance claims by week	`econ_tracker_unemp_county_data()`
