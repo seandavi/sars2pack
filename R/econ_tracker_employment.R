@@ -128,6 +128,17 @@ econ_tracker_employment_national_data = function() {
   .melt_econ_tracker_employment(dat)
 }
 
+
+#' Convert employment data to long form
+#' 
+#' Also adds columns to make data easier to 
+#' filter.
+#' 
+#' @param dtable a `data.table` object
+#' 
+#' @returns a long-form `data.table`
+#' 
+#' @keywords internal
 .melt_econ_tracker_employment = function(dtable) {
   cols_to_stack = grep('emp_combined',colnames(dtable))
   tmp = data.table::melt(dtable, measure.vars=cols_to_stack)
