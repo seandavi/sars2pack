@@ -73,6 +73,7 @@ res
 res = econ_tracker_employment_national_data()
 res
 
+library(ggplot2)
 ggplot(res, aes(x=date,y=value,color=variable,lty=variable_type)) + 
     geom_line() + 
     ggtitle('Proportion of workforce employed in the United States', 
