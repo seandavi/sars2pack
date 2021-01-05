@@ -1644,5 +1644,79 @@ datasets:
     dates:
       min: '2019-01-07'
       max: '2020-12-06'
-eval_date: '2021-01-03'
+  econ_tracker_employment_national_data:
+    columns:
+      date:
+      - IDate
+      - Date
+      variable: character
+      value: numeric
+      variable_type: character
+    dimensions:
+      nrow: 2488
+      ncol: 4
+    dates:
+      min: '2020-01-14'
+      max: '2020-11-19'
+  econ_tracker_employment_city_data:
+    columns:
+      cityid: integer
+      cityname: character
+      stateabbrev: character
+      statename: character
+      statefips: character
+      city_pop2019: integer
+      date:
+      - IDate
+      - Date
+      variable: character
+      value: numeric
+      variable_type: character
+    dimensions:
+      nrow: 58512
+      ncol: 10
+    dates:
+      min: '2020-01-14'
+      max: '2020-10-15'
+  econ_tracker_employment_state_data:
+    columns:
+      statefips: character
+      statename: character
+      stateabbrev: character
+      state_pop2019: integer
+      date:
+      - IDate
+      - Date
+      variable: character
+      value: numeric
+      variable_type: character
+    dimensions:
+      nrow: 112608
+      ncol: 8
+    dates:
+      min: '2020-01-14'
+      max: '2020-10-15'
+  econ_tracker_employment_county_data:
+    columns:
+      countyfips: character
+      countyname: character
+      cz: integer
+      czname: character
+      statename: character
+      statefips: character
+      stateabbrev: character
+      county_pop2019: integer
+      date:
+      - IDate
+      - Date
+      variable: character
+      value: numeric
+      variable_type: character
+    dimensions:
+      nrow: 3302064
+      ncol: 12
+    dates:
+      min: '2020-01-14'
+      max: '2020-10-15'
+eval_date: '2021-01-05'
 

@@ -109,6 +109,7 @@ Other data-import:
 \code{\link{covidtracker_data}()},
 \code{\link{descartes_mobility_data}()},
 \code{\link{ecdc_data}()},
+\code{\link{econ_tracker_employment}},
 \code{\link{econ_tracker_unemp_data}},
 \code{\link{economist_excess_deaths}()},
 \code{\link{financial_times_excess_deaths}()},
@@ -132,6 +133,7 @@ Other data-import:
 
 Other economics: 
 \code{\link{acaps_secondary_impact_data}()},
+\code{\link{econ_tracker_employment}},
 \code{\link{econ_tracker_unemp_data}},
 \code{\link{us_county_health_rankings}()}
 }
