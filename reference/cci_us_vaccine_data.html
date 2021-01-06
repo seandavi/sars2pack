@@ -210,10 +210,10 @@ been administered. As of December, 2020, this dataset is not complete.</p>
 </div><div class='output co'>#&gt;          date province_state stabbr          variable  count  unit status
 #&gt; 1: 2020-12-14        Alabama     AL doses_alloc_total  40950 doses  alloc
 #&gt; 2: 2020-12-28        Alabama     AL doses_alloc_total 128175 doses  alloc
-#&gt; 3: 2021-01-02        Alabama     AL doses_alloc_total 226250 doses  alloc
-#&gt; 4: 2020-12-14         Alaska     AK doses_alloc_total  61900 doses  alloc
-#&gt; 5: 2020-12-27         Alaska     AK doses_alloc_total  61900 doses  alloc
-#&gt; 6: 2020-12-28         Alaska     AK doses_alloc_total  61900 doses  alloc
+#&gt; 3: 2020-12-29        Alabama     AL doses_alloc_total 128175 doses  alloc
+#&gt; 4: 2020-12-30        Alabama     AL doses_alloc_total 128175 doses  alloc
+#&gt; 5: 2020-12-31        Alabama     AL doses_alloc_total 128175 doses  alloc
+#&gt; 6: 2021-01-01        Alabama     AL doses_alloc_total 128175 doses  alloc
 #&gt;    entity
 #&gt; 1:  total
 #&gt; 2:  total
@@ -223,13 +223,13 @@ been administered. As of December, 2020, this dataset is not complete.</p>
 #&gt; 6:  total</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>vacc</span><span class='op'>$</span><span class='va'>unit</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; 
 #&gt;  doses people 
-#&gt;   1614    549 </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>vacc</span><span class='op'>$</span><span class='va'>status</span><span class='op'>)</span>
+#&gt;   2209    750 </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>vacc</span><span class='op'>$</span><span class='va'>status</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; 
 #&gt;   admin   alloc shipped 
-#&gt;    1465     244     454 </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>vacc</span><span class='op'>$</span><span class='va'>entity</span><span class='op'>)</span>
+#&gt;    2015     352     592 </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>vacc</span><span class='op'>$</span><span class='va'>entity</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; 
 #&gt;  first-dose     moderna      pfizer second-dose       total     unknown 
-#&gt;         412         186         348         137         718         362 </div><div class='input'>
+#&gt;         547         274         460         203         979         496 </div><div class='input'>
 <span class='va'>us_pop</span> <span class='op'>=</span> <span class='fu'><a href='us_population_details.html'>us_population_details</a></span><span class='op'>(</span>geography<span class='op'>=</span><span class='st'>'state'</span>, product<span class='op'>=</span><span class='st'>'population'</span>, year<span class='op'>=</span><span class='fl'>2019</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; <span class='message'>Loading required namespace: tidycensus</span></div><div class='input'><span class='va'>us_pop</span> <span class='op'>=</span> <span class='va'>us_pop</span><span class='op'>[</span><span class='va'>us_pop</span><span class='op'>$</span><span class='va'>variable</span><span class='op'>==</span><span class='st'>'POP'</span>,<span class='op'>]</span>
 <span class='va'>vacc</span> <span class='op'>=</span> <span class='va'>vacc</span><span class='op'>[</span><span class='va'>vacc</span><span class='op'>$</span><span class='va'>variable</span><span class='op'>==</span><span class='st'>'people_admin_first-dose'</span>,<span class='op'>]</span>
