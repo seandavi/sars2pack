@@ -67,6 +67,9 @@ preventing the identification of any individual person.
 
 \examples{
 
+# requires significant memory to run
+
+\dontrun{
 res = google_mobility_data()
 colnames(res)
 head(res)
@@ -94,7 +97,7 @@ res \%>\%
     geom_line() +
     ggtitle('Google mobility metric for Italy') +
     theme(legend.position='bottom')
-
+}
 
 }
 \seealso{

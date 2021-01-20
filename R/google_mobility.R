@@ -66,6 +66,9 @@
 #'
 #' @examples
 #'
+#' # requires significant memory to run
+#' 
+#' \dontrun{
 #' res = google_mobility_data()
 #' colnames(res)
 #' head(res)
@@ -93,7 +96,7 @@
 #'     geom_line() +
 #'     ggtitle('Google mobility metric for Italy') +
 #'     theme(legend.position='bottom')
-#'
+#' }
 #' 
 #' @export
 google_mobility_data <- function(accept_terms = TRUE) {
