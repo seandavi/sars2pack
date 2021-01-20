@@ -1,8 +1,46 @@
+# sars2pack 0.99.2
+
+## New datasets
+
+- Excess deaths during coronavirus `economist_excess_deaths()` `cdc_excess_deaths()` `financial_times_excess_deaths()`
+- Coronavirus Vaccine Data Tracking in the United States `cci_us_vaccine_data()`
+- Corona Data Scraper data	`coronadatascraper_data()`
+- United States CDC Line list (anonymized)	`cdc_us_linelist_data()`
+- United States contact tracers by state from testandtrace.com	`test_and_trace_data()`
+- United States employment data by week	 `econ_tracker_employment_national_data()`
+- United States employment data by week	`econ_tracker_employment_state_data()`
+- United States employment data by week	`econ_tracker_employment_county_data()`
+- United States employment data by week	`econ_tracker_employment_city_data()`
+- United States Unemployment Insurance claims by week	 `econ_tracker_unemp_national_data()`
+- United States Unemployment Insurance claims by week	`econ_tracker_unemp_state_data()`
+- United States Unemployment Insurance claims by week	`econ_tracker_unemp_county_data()`
+- United States Unemployment Insurance claims by week	`econ_tracker_unemp_city_data()`
+- United States Consumer Spending from Econ Tracker and Affinity	`econ_tracker_consumer_spending_national_data()`
+- United States Consumer Spending from Econ Tracker and Affinity	`econ_tracker_consumer_spending_state_data()`
+- United States Consumer Spending from Econ Tracker and Affinity	`econ_tracker_consumer_spending_county_data()`
+- United States Consumer Spending from Econ Tracker and Affinity	`econ_tracker_consumer_spending_city_data()`
+- ACAPS Secondary impacts of covid data `acaps_secondary_impact_data()`
+
+## Dataset updates
+
+- Google search trends data `google_search_trends_data()`
+- United States social distancing policy data `us_state_distancing_policy()`
+- 
+
+## Enhancements
+
+- Vignettes are large and unwieldy, so are now in a separate [`bookdown` site](https://seandavi.github.io/sars2pack-book).
+
+# sars2pack 0.99.0
+
+Start Bioconductor submission process
+
 # sars2pack 0.1.2
 
 ## New datasets
 
 - US CDC Social Vulnerability Index: `cdc_social_vulnerability_index()`
+- 
 
 
 ## bug fixes

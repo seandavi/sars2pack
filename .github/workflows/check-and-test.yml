@@ -37,6 +37,8 @@ jobs:
 
       - name: Install dependencies
         run: |
+          # This line precludes source builds if the binary is available
+          options(install.packages.check.source = "no")
           install.packages(c("remotes"))
           install.packages("BiocManager")
           remotes::install_deps(dependencies = TRUE, repos = BiocManager::repositories())

@@ -96,6 +96,7 @@ Other data-import:
 \code{\link{descartes_mobility_data}()},
 \code{\link{ecdc_data}()},
 \code{\link{econ_tracker_consumer_spending}},
+\code{\link{econ_tracker_employment}},
 \code{\link{economist_excess_deaths}()},
 \code{\link{financial_times_excess_deaths}()},
 \code{\link{google_mobility_data}()},
@@ -118,6 +119,8 @@ Other data-import:
 
 Other economics: 
 \code{\link{acaps_secondary_impact_data}()},
+\code{\link{econ_tracker_consumer_spending}},
+\code{\link{econ_tracker_employment}},
 \code{\link{us_county_health_rankings}()}
 }
 \concept{data-import}
