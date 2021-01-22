@@ -66,6 +66,9 @@
 #'
 #' @examples
 #'
+#' # requires significant memory to run
+#' 
+#' \dontrun{
 #' res = google_mobility_data()
 #' colnames(res)
 #' head(res)
@@ -93,7 +96,7 @@
 #'     geom_line() +
 #'     ggtitle('Google mobility metric for Italy') +
 #'     theme(legend.position='bottom')
-#'
+#' }
 #' 
 #' @export
 google_mobility_data <- function(accept_terms = TRUE) {
@@ -104,7 +107,7 @@ google_mobility_data <- function(accept_terms = TRUE) {
         admin_level[!is.na(admin2)] = 2
         admin_level
     }
-    dat = readr::read_csv(rpath, col_types = cols(), guess_max=3000000)
+    dat = data.table::fread(rpath)
     dat %>%
         dplyr::rename(iso2c = .data$country_region_code,
                       admin1 = .data$sub_region_1,
@@ -113,6 +116,6 @@ google_mobility_data <- function(accept_terms = TRUE) {
         tidyr::pivot_longer(cols = dplyr::ends_with('_percent_change_from_baseline'), 
                             values_to = 'percent_change_from_baseline', names_to = 'places_category') %>%
         dplyr::mutate(places_category = sub('_percent_change_from_baseline','', .data$places_category))
-
+    
 }
     
