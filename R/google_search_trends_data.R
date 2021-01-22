@@ -74,10 +74,8 @@
 #' }
 #'
 #' @export
-google_search_trends_data <- function(verbose=TRUE) {
-  if(verbose) {
-    message("This is a VERY large dataset that may take some time to load and requires about 5GB of free RAM to load")
-  }
+google_search_trends_data <- function() {
+  message("This is a VERY large dataset that may take some time to load and requires about 5GB of free RAM to load")
   url = 'https://storage.googleapis.com/covid19-open-data/v2/index.csv'
   rpath = s2p_cached_url(url)
   idx_data = data.table::fread(rpath,na.strings = '')
