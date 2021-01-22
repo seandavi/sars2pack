@@ -257,38 +257,14 @@ preventing the identification of any individual person.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
+<span class='co'># requires significant memory to run</span>
+
+<span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
 <span class='va'>res</span> <span class='op'>=</span> <span class='fu'>google_mobility_data</span><span class='op'>(</span><span class='op'>)</span>
 <span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;  [1] "iso2c"                        "country_region"              
-#&gt;  [3] "admin1"                       "admin2"                      
-#&gt;  [5] "metro_area"                   "iso_3166_2_code"             
-#&gt;  [7] "census_fips_code"             "date"                        
-#&gt;  [9] "admin_level"                  "places_category"             
-#&gt; [11] "percent_change_from_baseline"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 6 x 11</span><span>
-#&gt;   iso2c country_region admin1 admin2 metro_area iso_3166_2_code census_fips_code
-#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>          </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>                      </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span>
-#&gt; </span><span style='color: #555555;'>1</span><span> AE    United Arab E… </span><span style='color: #555555;'>""</span><span>     </span><span style='color: #555555;'>""</span><span>     </span><span style='color: #555555;'>""</span><span>         </span><span style='color: #555555;'>""</span><span>                            </span><span style='color: #BB0000;'>NA</span><span>
-#&gt; </span><span style='color: #555555;'>2</span><span> AE    United Arab E… </span><span style='color: #555555;'>""</span><span>     </span><span style='color: #555555;'>""</span><span>     </span><span style='color: #555555;'>""</span><span>         </span><span style='color: #555555;'>""</span><span>                            </span><span style='color: #BB0000;'>NA</span><span>
-#&gt; </span><span style='color: #555555;'>3</span><span> AE    United Arab E… </span><span style='color: #555555;'>""</span><span>     </span><span style='color: #555555;'>""</span><span>     </span><span style='color: #555555;'>""</span><span>         </span><span style='color: #555555;'>""</span><span>                            </span><span style='color: #BB0000;'>NA</span><span>
-#&gt; </span><span style='color: #555555;'>4</span><span> AE    United Arab E… </span><span style='color: #555555;'>""</span><span>     </span><span style='color: #555555;'>""</span><span>     </span><span style='color: #555555;'>""</span><span>         </span><span style='color: #555555;'>""</span><span>                            </span><span style='color: #BB0000;'>NA</span><span>
-#&gt; </span><span style='color: #555555;'>5</span><span> AE    United Arab E… </span><span style='color: #555555;'>""</span><span>     </span><span style='color: #555555;'>""</span><span>     </span><span style='color: #555555;'>""</span><span>         </span><span style='color: #555555;'>""</span><span>                            </span><span style='color: #BB0000;'>NA</span><span>
-#&gt; </span><span style='color: #555555;'>6</span><span> AE    United Arab E… </span><span style='color: #555555;'>""</span><span>     </span><span style='color: #555555;'>""</span><span>     </span><span style='color: #555555;'>""</span><span>         </span><span style='color: #555555;'>""</span><span>                            </span><span style='color: #BB0000;'>NA</span><span>
-#&gt; </span><span style='color: #555555;'># … with 4 more variables: date </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span style='color: #555555;'>, admin_level </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   places_category </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, percent_change_from_baseline </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span></div><div class='input'><span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://tibble.tidyverse.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Rows: 23,554,986
-#&gt; Columns: 11
-#&gt; $ iso2c                        </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "AE", "AE", "AE", "AE", "AE", "AE", "AE"…
-#&gt; $ country_region               </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "United Arab Emirates", "United Arab Emi…
-#&gt; $ admin1                       </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "", "", "", "", "", "", "", "", "", "", …
-#&gt; $ admin2                       </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "", "", "", "", "", "", "", "", "", "", …
-#&gt; $ metro_area                   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "", "", "", "", "", "", "", "", "", "", …
-#&gt; $ iso_3166_2_code              </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "", "", "", "", "", "", "", "", "", "", …
-#&gt; $ census_fips_code             </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
-#&gt; $ date                         </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2020-02-15, 2020-02-15, 2020-02-15, 202…
-#&gt; $ admin_level                  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2…
-#&gt; $ places_category              </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "retail_and_recreation", "grocery_and_ph…
-#&gt; $ percent_change_from_baseline </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> 0, 4, 5, 0, 2, 1, 1, 4, 4, 1, 2, 1, -1, …</div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
+<span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://tibble.tidyverse.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
+
 <span class='co'># analyze the "admin levels" available for each</span>
 <span class='co'># country:</span>
 
@@ -298,33 +274,7 @@ preventing the identification of any individual person.</p>
 <span class='va'>admin_by_country</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>admin_by_country</span><span class='op'>$</span><span class='va'>admin_level</span>, 
                          <span class='va'>admin_by_country</span><span class='op'>$</span><span class='va'>iso2c</span><span class='op'>)</span><span class='op'>/</span><span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/unique.html'>unique</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>$</span><span class='va'>places_category</span><span class='op'>)</span><span class='op'>)</span>
 <span class='va'>admin_by_country</span>
-</div><div class='output co'>#&gt;    
-#&gt;       AE   AF   AG   AO   AR   AT   AU   AW   BA   BB   BD   BE   BF   BG   BH
-#&gt;   2    8    2    3    3  426   95  248    1    1    5    1   14    3   90    1
-#&gt;    
-#&gt;       BJ   BO   BR   BS   BW   BY   BZ   CA   CH   CI   CL   CM   CO   CR   CV
-#&gt;   2    5   51 1588    4    6    1    4  215   26   12   71   26  335    1    4
-#&gt;    
-#&gt;       CZ   DE   DK   DO   EC   EE   EG   ES   FI   FJ   FR   GA   GB   GE   GH
-#&gt;   2   91   17   88   30  131    7   30   63   73    1  110    3  415    2    3
-#&gt;    
-#&gt;       GR   GT   GW   HK   HN   HR   HT   HU   ID   IE   IL   IN   IQ   IT   JM
-#&gt;   2    8  106    1    1   51   22    9   21   35   27   20  668    1  127   15
-#&gt;    
-#&gt;       JO   JP   KE   KG   KH   KR   KW   KZ   LA   LB   LI   LK   LT   LU   LV
-#&gt;   2   14   48   35    8   21    2    8    1    1   31    1    1   50    1    9
-#&gt;    
-#&gt;       LY   MA   MD   MK   ML   MM   MN   MT   MU   MX   MY   MZ   NE   NG   NI
-#&gt;   2   11    4    1    1    2    3    2    1   10   33   17   19    5  186   17
-#&gt;    
-#&gt;       NL   NO   NP   NZ   OM   PA   PE   PG   PH   PK   PL   PR   PT   PY   QA
-#&gt;   2  271   69    1   17   12    2  135    1   26   21  374   54  154   18    2
-#&gt;    
-#&gt;       RE   RO   RS   RU   RW   SA   SE   SG   SI   SK   SN   SV   TG   TH   TJ
-#&gt;   2    2  176    2   17   10   14  149    1   38   72   12   15    2    1    2
-#&gt;    
-#&gt;       TR   TT   TW   TZ   UA   UG   US   UY   VE   VN   YE   ZA   ZM   ZW
-#&gt;   2  539    1    1   50    2   12 2134   21    1   64    1   10    2   12</div><div class='input'>
+
 <span class='co'># Italy mobility over time</span>
 <span class='co'># Note day-of week effect in plot</span>
 
@@ -337,9 +287,9 @@ preventing the identification of any individual person.</p>
     <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
     <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span><span class='op'>(</span><span class='st'>'Google mobility metric for Italy'</span><span class='op'>)</span> <span class='op'>+</span>
     <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>legend.position<span class='op'>=</span><span class='st'>'bottom'</span><span class='op'>)</span>
-</div><div class='img'><img src='google_mobility_data-1.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='op'>}</span>
 
-</div></span></pre>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
