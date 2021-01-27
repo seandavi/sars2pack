@@ -245,20 +245,30 @@
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='va'>TAndT</span> <span class='op'>=</span> <span class='fu'>test_and_trace_data</span><span class='op'>(</span><span class='op'>)</span>
 <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>TAndT</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;     fips       date iso2c contact_tracers_count   state region
-#&gt; 1: 00001 2020-05-11    AL                   120 Alabama  South
-#&gt; 2: 00001 2020-05-12    AL                   120 Alabama  South
-#&gt; 3: 00001 2020-05-13    AL                   120 Alabama  South
-#&gt; 4: 00001 2020-05-14    AL                   120 Alabama  South
-#&gt; 5: 00001 2020-05-15    AL                   120 Alabama  South
-#&gt; 6: 00001 2020-05-16    AL                   120 Alabama  South</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>TAndT</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;     fips       date iso2c country aggregate_level contact_tracers_count   state
+#&gt; 1: 00001 2020-05-11    AL     USA           state                   120 Alabama
+#&gt; 2: 00001 2020-05-12    AL     USA           state                   120 Alabama
+#&gt; 3: 00001 2020-05-13    AL     USA           state                   120 Alabama
+#&gt; 4: 00001 2020-05-14    AL     USA           state                   120 Alabama
+#&gt; 5: 00001 2020-05-15    AL     USA           state                   120 Alabama
+#&gt; 6: 00001 2020-05-16    AL     USA           state                   120 Alabama
+#&gt;    region
+#&gt; 1:  South
+#&gt; 2:  South
+#&gt; 3:  South
+#&gt; 4:  South
+#&gt; 5:  South
+#&gt; 6:  South</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>TAndT</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] "fips"                  "date"                  "iso2c"                
-#&gt; [4] "contact_tracers_count" "state"                 "region"               </div><div class='input'><span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://tibble.tidyverse.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>TAndT</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Rows: 13,560
-#&gt; Columns: 6
+#&gt; [4] "country"               "aggregate_level"       "contact_tracers_count"
+#&gt; [7] "state"                 "region"               </div><div class='input'><span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://tibble.tidyverse.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>TAndT</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Rows: 13,611
+#&gt; Columns: 8
 #&gt; $ fips                  <span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "00001", "00001", "00001", "00001", "00001", "0…
 #&gt; $ date                  </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2020-05-11, 2020-05-12, 2020-05-13, 2020-05-14…
 #&gt; $ iso2c                 </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "AL", "AL", "AL", "AL", "AL", "AL", "AL", "AL",…
+#&gt; $ country               </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "USA", "USA", "USA", "USA", "USA", "USA", "USA"…
+#&gt; $ aggregate_level       </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "state", "state", "state", "state", "state", "s…
 #&gt; $ contact_tracers_count </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> 120, 120, 120, 120, 120, 120, 120, 120, 120, 12…
 #&gt; $ state                 </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Alabama", "Alabama", "Alabama", "Alabama", "Al…
 #&gt; $ region                </span><span style='color: #555555;font-style: italic;'>&lt;fct&gt;</span><span> South, South, South, South, South, South, South…</div><div class='input'>
