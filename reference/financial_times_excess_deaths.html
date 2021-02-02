@@ -231,30 +231,10 @@ analysis during an epidemic and is therefore not included here.</p>
     <pre class="examples"><div class='input'><span class='va'>res</span> <span class='op'>=</span> <span class='fu'>financial_times_excess_deaths</span><span class='op'>(</span><span class='op'>)</span>
 
 <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 6 x 11</span><span>
-#&gt;   country region period  year month  week date       deaths expected_deaths
-#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>      </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>           </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #555555;'>1</span><span> Russia  Russia month   </span><span style='text-decoration: underline;'>2</span><span>006     1    </span><span style='color: #BB0000;'>NA</span><span> 2006-01-31 </span><span style='text-decoration: underline;'>209</span><span>058          </span><span style='text-decoration: underline;'>209</span><span>058
-#&gt; </span><span style='color: #555555;'>2</span><span> Russia  Russia month   </span><span style='text-decoration: underline;'>2</span><span>006     2    </span><span style='color: #BB0000;'>NA</span><span> 2006-02-28 </span><span style='text-decoration: underline;'>181</span><span>608          </span><span style='text-decoration: underline;'>181</span><span>608
-#&gt; </span><span style='color: #555555;'>3</span><span> Russia  Russia month   </span><span style='text-decoration: underline;'>2</span><span>006     3    </span><span style='color: #BB0000;'>NA</span><span> 2006-03-31 </span><span style='text-decoration: underline;'>195</span><span>086          </span><span style='text-decoration: underline;'>195</span><span>086
-#&gt; </span><span style='color: #555555;'>4</span><span> Russia  Russia month   </span><span style='text-decoration: underline;'>2</span><span>006     4    </span><span style='color: #BB0000;'>NA</span><span> 2006-04-30 </span><span style='text-decoration: underline;'>172</span><span>981          </span><span style='text-decoration: underline;'>172</span><span>981
-#&gt; </span><span style='color: #555555;'>5</span><span> Russia  Russia month   </span><span style='text-decoration: underline;'>2</span><span>006     5    </span><span style='color: #BB0000;'>NA</span><span> 2006-05-31 </span><span style='text-decoration: underline;'>193</span><span>808          </span><span style='text-decoration: underline;'>193</span><span>808
-#&gt; </span><span style='color: #555555;'>6</span><span> Russia  Russia month   </span><span style='text-decoration: underline;'>2</span><span>006     6    </span><span style='color: #BB0000;'>NA</span><span> 2006-06-30 </span><span style='text-decoration: underline;'>178</span><span>184          </span><span style='text-decoration: underline;'>178</span><span>184
-#&gt; </span><span style='color: #555555;'># … with 2 more variables: excess_deaths </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, excess_deaths_pct </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span></div><div class='input'><span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://tibble.tidyverse.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='error'>Error in gsub(finish, start, ..., fixed = TRUE): zero-length pattern</span></div><div class='input'><span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://tibble.tidyverse.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; Rows: 97,429
-#&gt; Columns: 11
-#&gt; $ country           </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Russia", "Russia", "Russia", "Russia", "Russia", "…
-#&gt; $ region            </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Russia", "Russia", "Russia", "Russia", "Russia", "…
-#&gt; $ period            </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "month", "month", "month", "month", "month", "month…
-#&gt; $ year              </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 2006, 2006, 2006, 2006, 2006, 2006, 2006, 2006, 200…
-#&gt; $ month             </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 1, 2, 3, 4, …
-#&gt; $ week              </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
-#&gt; $ date              </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2006-01-31, 2006-02-28, 2006-03-31, 2006-04-30, 20…
-#&gt; $ deaths            </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 209058, 181608, 195086, 172981, 193808, 178184, 167…
-#&gt; $ expected_deaths   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 209058, 181608, 195086, 172981, 193808, 178184, 167…
-#&gt; $ excess_deaths     </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-#&gt; $ excess_deaths_pct </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 17.58406, 17.58406, 17.58406, 17.58406, 17.58406, 1…</div><div class='input'>
-</div></span></pre>
+#&gt; Columns: 11</div><div class='output co'>#&gt; <span class='error'>Error in gsub(finish, start, ..., fixed = TRUE): zero-length pattern</span></div><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

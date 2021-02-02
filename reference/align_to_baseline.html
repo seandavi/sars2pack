@@ -228,32 +228,10 @@ direct comparison of the shapes of the countries' curves.</p>
 <span class='co'># use European CDC dataset</span>
 <span class='va'>ecdc</span> <span class='op'>=</span> <span class='fu'><a href='ecdc_data.html'>ecdc_data</a></span><span class='op'>(</span><span class='op'>)</span>
 <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>ecdc</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 6 x 10</span><span>
-#&gt; </span><span style='color: #555555;'># Groups:   location_name, subset [6]</span><span>
-#&gt;   date       year_week location_name iso2c iso3c population_2019 continent
-#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>         </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>           </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>    
-#&gt; </span><span style='color: #555555;'>1</span><span> 2020-01-06 2020-01   Afghanistan   AF    AFG          38</span><span style='text-decoration: underline;'>041</span><span>757 Asia     
-#&gt; </span><span style='color: #555555;'>2</span><span> 2020-01-06 2020-01   Afghanistan   AF    AFG          38</span><span style='text-decoration: underline;'>041</span><span>757 Asia     
-#&gt; </span><span style='color: #555555;'>3</span><span> 2020-01-06 2020-01   Algeria       DZ    DZA          43</span><span style='text-decoration: underline;'>053</span><span>054 Africa   
-#&gt; </span><span style='color: #555555;'>4</span><span> 2020-01-06 2020-01   Algeria       DZ    DZA          43</span><span style='text-decoration: underline;'>053</span><span>054 Africa   
-#&gt; </span><span style='color: #555555;'>5</span><span> 2020-01-06 2020-01   Armenia       AM    ARM           2</span><span style='text-decoration: underline;'>957</span><span>728 Europe   
-#&gt; </span><span style='color: #555555;'>6</span><span> 2020-01-06 2020-01   Armenia       AM    ARM           2</span><span style='text-decoration: underline;'>957</span><span>728 Europe   
-#&gt; </span><span style='color: #555555;'># … with 3 more variables:</span><span>
-#&gt; </span><span style='color: #555555;'>#   `notification_rate_per_100000_population_14-days` </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, subset </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   count </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span></div><div class='input'><span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://tibble.tidyverse.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>ecdc</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='error'>Error in gsub(finish, start, ..., fixed = TRUE): zero-length pattern</span></div><div class='input'><span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://tibble.tidyverse.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>ecdc</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; Rows: 20,438
 #&gt; Columns: 10
-#&gt; Groups: location_name, subset [430]
-#&gt; $ date                                              </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2020-01-06, 2020-0…
-#&gt; $ year_week                                         </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "2020-01", "2020-01…
-#&gt; $ location_name                                     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Afghanistan", "Afg…
-#&gt; $ iso2c                                             </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "AF", "AF", "DZ", "…
-#&gt; $ iso3c                                             </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "AFG", "AFG", "DZA"…
-#&gt; $ population_2019                                   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 38041757, 38041757,…
-#&gt; $ continent                                         </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Asia", "Asia", "Af…
-#&gt; $ `notification_rate_per_100000_population_14-days` </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> NA, NA, NA, NA, NA,…
-#&gt; $ subset                                            </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "cases_weekly", "de…
-#&gt; $ count                                             </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0…</div><div class='input'>
+#&gt; Groups: location_name, subset [430]</div><div class='output co'>#&gt; <span class='error'>Error in gsub(finish, start, ..., fixed = TRUE): zero-length pattern</span></div><div class='input'>
 <span class='co'># get top 10 countries by cumulative</span>
 <span class='co'># number of deaths</span>
 <span class='va'>top_10</span> <span class='op'>=</span> <span class='va'>ecdc</span> <span class='op'>%&gt;%</span>
@@ -264,19 +242,7 @@ direct comparison of the shapes of the countries' curves.</p>
     <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='fl'>10</span><span class='op'>)</span>
 
 <span class='va'>top_10</span>
-</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 10 x 2</span><span>
-#&gt;    location_name            deaths
-#&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>                     </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #555555;'> 1</span><span> United_States_of_America </span><span style='text-decoration: underline;'>421</span><span>129
-#&gt; </span><span style='color: #555555;'> 2</span><span> Brazil                   </span><span style='text-decoration: underline;'>217</span><span>664
-#&gt; </span><span style='color: #555555;'> 3</span><span> India                    </span><span style='text-decoration: underline;'>153</span><span>470
-#&gt; </span><span style='color: #555555;'> 4</span><span> Mexico                   </span><span style='text-decoration: underline;'>150</span><span>273
-#&gt; </span><span style='color: #555555;'> 5</span><span> United_Kingdom            </span><span style='text-decoration: underline;'>97</span><span>939
-#&gt; </span><span style='color: #555555;'> 6</span><span> Italy                     </span><span style='text-decoration: underline;'>85</span><span>461
-#&gt; </span><span style='color: #555555;'> 7</span><span> France                    </span><span style='text-decoration: underline;'>73</span><span>049
-#&gt; </span><span style='color: #555555;'> 8</span><span> Russia                    </span><span style='text-decoration: underline;'>69</span><span>918
-#&gt; </span><span style='color: #555555;'> 9</span><span> Iran                      </span><span style='text-decoration: underline;'>57</span><span>383
-#&gt; </span><span style='color: #555555;'>10</span><span> Spain                     </span><span style='text-decoration: underline;'>56</span><span>208</div><div class='input'>
+</div><div class='output co'>#&gt; <span class='error'>Error in gsub(finish, start, ..., fixed = TRUE): zero-length pattern</span></div><div class='input'>
 <span class='co'># limit ecdc data to "deaths" and</span>
 <span class='co'># top 10 countries</span>
 
@@ -289,7 +255,7 @@ direct comparison of the shapes of the countries' curves.</p>
 <span class='fu'><a href='plot_epicurve.html'>plot_epicurve</a></span><span class='op'>(</span><span class='va'>ecdc_top10_baseline</span>, date_column<span class='op'>=</span><span class='st'>'index'</span>, color<span class='op'>=</span><span class='st'>'location_name'</span><span class='op'>)</span> <span class='op'>+</span>
     <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span><span class='op'>(</span><span class='st'>'Deaths over time, aligned to date of 100 deaths per country'</span><span class='op'>)</span> 
 </div><div class='img'><img src='align_to_baseline-2.png' alt='' width='700' height='433' /></div><div class='input'>
-</div></span></pre>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

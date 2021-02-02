@@ -262,16 +262,8 @@
 </div><div class='output co'>#&gt; [1] "fips"                  "date"                  "iso2c"                
 #&gt; [4] "country"               "aggregate_level"       "contact_tracers_count"
 #&gt; [7] "state"                 "region"               </div><div class='input'><span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://tibble.tidyverse.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>TAndT</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Rows: 13,866
-#&gt; Columns: 8
-#&gt; $ fips                  <span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "00001", "00001", "00001", "00001", "00001", "0…
-#&gt; $ date                  </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 2020-05-11, 2020-05-12, 2020-05-13, 2020-05-14…
-#&gt; $ iso2c                 </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "AL", "AL", "AL", "AL", "AL", "AL", "AL", "AL",…
-#&gt; $ country               </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "USA", "USA", "USA", "USA", "USA", "USA", "USA"…
-#&gt; $ aggregate_level       </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "state", "state", "state", "state", "state", "s…
-#&gt; $ contact_tracers_count </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> 120, 120, 120, 120, 120, 120, 120, 120, 120, 12…
-#&gt; $ state                 </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Alabama", "Alabama", "Alabama", "Alabama", "Al…
-#&gt; $ region                </span><span style='color: #555555;font-style: italic;'>&lt;fct&gt;</span><span> South, South, South, South, South, South, South…</div><div class='input'>
+</div><div class='output co'>#&gt; Rows: 13,917
+#&gt; Columns: 8</div><div class='output co'>#&gt; <span class='error'>Error in gsub(finish, start, ..., fixed = TRUE): zero-length pattern</span></div><div class='input'>
 <span class='va'>nyt</span> <span class='op'>=</span> <span class='fu'><a href='nytimes_county_data.html'>nytimes_state_data</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='op'>-</span><span class='va'>state</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
     <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>subset</span><span class='op'>==</span><span class='st'>'confirmed'</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
     <span class='fu'><a href='add_incidence_column.html'>add_incidence_column</a></span><span class='op'>(</span>grouping_columns <span class='op'>=</span> <span class='st'>'fips'</span><span class='op'>)</span>
@@ -291,7 +283,7 @@
     <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/sprintf.html'>sprintf</a></span><span class='op'>(</span><span class='st'>'Contract tracers per new case on %s'</span>, <span class='fu'><a href='https://rdrr.io/r/base/Sys.time.html'>Sys.Date</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>-</span> <span class='fl'>4</span><span class='op'>)</span>, 
             subtitle<span class='op'>=</span><span class='st'>'Goal is 5-15 tracers per new case'</span><span class='op'>)</span>
 </div><div class='img'><img src='test_and_trace_data-1.png' alt='' width='700' height='433' /></div><div class='input'>
-</div></span></pre>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

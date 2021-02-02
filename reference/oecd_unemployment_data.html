@@ -212,48 +212,25 @@ improvement in the labour market.</p>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='va'>unemp</span> <span class='op'>=</span> <span class='fu'>oecd_unemployment_data</span><span class='op'>(</span><span class='op'>)</span>
 <span class='va'>unemp</span>
-</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 39,721 x 10</span><span>
-#&gt;    iso3c indicator subject measure frequency value `flag codes` date      
-#&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>        </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>    
-#&gt; </span><span style='color: #555555;'> 1</span><span> GBR   unemp     15_24   PC_LF   annual    19.8  </span><span style='color: #BB0000;'>NA</span><span>           1983-01-01
-#&gt; </span><span style='color: #555555;'> 2</span><span> GBR   unemp     15_24   PC_LF   annual    18.8  </span><span style='color: #BB0000;'>NA</span><span>           1984-01-01
-#&gt; </span><span style='color: #555555;'> 3</span><span> GBR   unemp     15_24   PC_LF   annual    18.0  </span><span style='color: #BB0000;'>NA</span><span>           1985-01-01
-#&gt; </span><span style='color: #555555;'> 4</span><span> GBR   unemp     15_24   PC_LF   annual    17.8  </span><span style='color: #BB0000;'>NA</span><span>           1986-01-01
-#&gt; </span><span style='color: #555555;'> 5</span><span> GBR   unemp     15_24   PC_LF   annual    15.2  </span><span style='color: #BB0000;'>NA</span><span>           1987-01-01
-#&gt; </span><span style='color: #555555;'> 6</span><span> GBR   unemp     15_24   PC_LF   annual    12.2  </span><span style='color: #BB0000;'>NA</span><span>           1988-01-01
-#&gt; </span><span style='color: #555555;'> 7</span><span> GBR   unemp     15_24   PC_LF   annual     9.97 </span><span style='color: #BB0000;'>NA</span><span>           1989-01-01
-#&gt; </span><span style='color: #555555;'> 8</span><span> GBR   unemp     15_24   PC_LF   annual    10.4  </span><span style='color: #BB0000;'>NA</span><span>           1990-01-01
-#&gt; </span><span style='color: #555555;'> 9</span><span> GBR   unemp     15_24   PC_LF   annual    13.9  </span><span style='color: #BB0000;'>NA</span><span>           1991-01-01
-#&gt; </span><span style='color: #555555;'>10</span><span> GBR   unemp     15_24   PC_LF   annual    16.3  </span><span style='color: #BB0000;'>NA</span><span>           1992-01-01
-#&gt; </span><span style='color: #555555;'># … with 39,711 more rows, and 2 more variables: country </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, region </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span></div><div class='input'><span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://tibble.tidyverse.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>unemp</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Rows: 39,721
-#&gt; Columns: 10
-#&gt; $ iso3c        </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "GBR", "GBR", "GBR", "GBR", "GBR", "GBR", "GBR", "GBR", …
-#&gt; $ indicator    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "unemp", "unemp", "unemp", "unemp", "unemp", "unemp", "u…
-#&gt; $ subject      </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "15_24", "15_24", "15_24", "15_24", "15_24", "15_24", "1…
-#&gt; $ measure      </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "PC_LF", "PC_LF", "PC_LF", "PC_LF", "PC_LF", "PC_LF", "P…
-#&gt; $ frequency    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "annual", "annual", "annual", "annual", "annual", "annua…
-#&gt; $ value        </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> 19.783330, 18.825000, 18.033330, 17.766670, 15.233330, 1…
-#&gt; $ `flag codes` </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
-#&gt; $ date         </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span> 1983-01-01, 1984-01-01, 1985-01-01, 1986-01-01, 1987-01…
-#&gt; $ country      </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "United Kingdom", "United Kingdom", "United Kingdom", "U…
-#&gt; $ region       </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> "Europe &amp; Central Asia", "Europe &amp; Central Asia", "Europ…</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>unemp</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='error'>Error in gsub(finish, start, ..., fixed = TRUE): zero-length pattern</span></div><div class='input'><span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://tibble.tidyverse.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>unemp</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Rows: 39,733
+#&gt; Columns: 10</div><div class='output co'>#&gt; <span class='error'>Error in gsub(finish, start, ..., fixed = TRUE): zero-length pattern</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>unemp</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;     iso3c            indicator           subject            measure         
-#&gt;  Length:39721       Length:39721       Length:39721       Length:39721      
+#&gt;  Length:39733       Length:39733       Length:39733       Length:39733      
 #&gt;  Class :character   Class :character   Class :character   Class :character  
 #&gt;  Mode  :character   Mode  :character   Mode  :character   Mode  :character  
 #&gt;                                                                             
 #&gt;                                                                             
 #&gt;                                                                             
 #&gt;   frequency             value          flag codes             date           
-#&gt;  Length:39721       Min.   : 0.7931   Length:39721       Min.   :1955-01-01  
-#&gt;  Class :character   1st Qu.: 5.5500   Class :character   1st Qu.:1997-04-01  
-#&gt;  Mode  :character   Median : 8.9850   Mode  :character   Median :2006-02-01  
-#&gt;                     Mean   :11.5377                      Mean   :2004-03-04  
+#&gt;  Length:39733       Min.   : 0.7931   Length:39733       Min.   :1955-01-01  
+#&gt;  Class :character   1st Qu.: 5.5463   Class :character   1st Qu.:1997-04-01  
+#&gt;  Mode  :character   Median : 8.9750   Mode  :character   Median :2006-02-01  
+#&gt;                     Mean   :11.5362                      Mean   :2004-03-06  
 #&gt;                     3rd Qu.:15.8000                      3rd Qu.:2013-06-01  
 #&gt;                     Max.   :61.7000                      Max.   :2020-12-01  
 #&gt;    country             region         
-#&gt;  Length:39721       Length:39721      
+#&gt;  Length:39733       Length:39733      
 #&gt;  Class :character   Class :character  
 #&gt;  Mode  :character   Mode  :character  
 #&gt;                                       
@@ -272,7 +249,7 @@ improvement in the labour market.</p>
                        xmin <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/as.Date.html'>as.Date</a></span><span class='op'>(</span><span class='st'>"1960-01-01"</span><span class='op'>)</span>, xmax <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/as.Date.html'>as.Date</a></span><span class='op'>(</span><span class='st'>"1990-01-01"</span><span class='op'>)</span>, 
                        ymin <span class='op'>=</span> <span class='fl'>10</span>, ymax <span class='op'>=</span> <span class='fl'>16</span><span class='op'>)</span>
 </div><div class='img'><img src='oecd_unemployment_data-1.png' alt='' width='700' height='433' /></div><div class='input'>
-</div></span></pre>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
