@@ -218,43 +218,44 @@
 #&gt;  [5] "end_date"        "days"            "year"            "month"          
 #&gt;  [9] "population"      "total_deaths"    "covid_deaths"    "expected_deaths"
 #&gt; [13] "week"           </div><div class='input'><span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://tibble.tidyverse.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Rows: 17,868
+</div><div class='output co'>#&gt; Rows: 18,742
 #&gt; Columns: 13</div><div class='output co'>#&gt; <span class='error'>Error in gsub(finish, start, ..., fixed = TRUE): zero-length pattern</span></div><div class='input'><span class='va'>res</span>
 </div><div class='output co'>#&gt;              country        region region_code start_date   end_date days year
-#&gt;     1:       Ecuador       Ecuador          EC 2020-01-01 2020-01-31   31 2020
-#&gt;     2:       Ecuador       Ecuador          EC 2020-02-01 2020-02-29   29 2020
-#&gt;     3:       Ecuador       Ecuador          EC 2020-03-01 2020-03-31   31 2020
-#&gt;     4:       Ecuador       Ecuador          EC 2020-04-01 2020-04-30   30 2020
-#&gt;     5:       Ecuador       Ecuador          EC 2020-05-01 2020-05-31   31 2020
+#&gt;     1:       Bolivia          Beni        BO-B 2020-01-01 2020-01-31   31 2020
+#&gt;     2:       Bolivia          Beni        BO-B 2020-02-01 2020-02-29   29 2020
+#&gt;     3:       Bolivia          Beni        BO-B 2020-03-01 2020-03-31   31 2020
+#&gt;     4:       Bolivia          Beni        BO-B 2020-05-01 2020-05-31   31 2020
+#&gt;     5:       Bolivia          Beni        BO-B 2020-06-01 2020-06-30   30 2020
 #&gt;    ---                                                                        
-#&gt; 17864: United States United States         USA 2020-11-29 2020-12-05    7 2020
-#&gt; 17865: United States United States         USA 2020-12-06 2020-12-12    7 2020
-#&gt; 17866: United States United States         USA 2020-12-13 2020-12-19    7 2020
-#&gt; 17867: United States United States         USA 2020-12-20 2020-12-26    7 2020
-#&gt; 17868: United States United States         USA 2020-12-27 2021-01-02    7 2020
+#&gt; 18738: United States United States         USA 2020-12-06 2020-12-12    7 2020
+#&gt; 18739: United States United States         USA 2020-12-13 2020-12-19    7 2020
+#&gt; 18740: United States United States         USA 2020-12-20 2020-12-26    7 2020
+#&gt; 18741: United States United States         USA 2020-12-27 2021-01-02    7 2020
+#&gt; 18742: United States United States         USA 2021-01-03 2021-01-09    7 2021
 #&gt;        month population total_deaths covid_deaths expected_deaths week
-#&gt;     1:     1   17226800         6692            0              NA   NA
-#&gt;     2:     2   17226800         6035            0              NA   NA
-#&gt;     3:     3   17226800         9921           75              NA   NA
-#&gt;     4:     4   17226800        20704          825              NA   NA
-#&gt;     5:     5   17226800         9961         2458              NA   NA
+#&gt;     1:     1     480308          187            0              NA   NA
+#&gt;     2:     2     480308          188            0              NA   NA
+#&gt;     3:     3     480308          156            0              NA   NA
+#&gt;     4:     5     480308           22           91              NA   NA
+#&gt;     5:     6     480308          135          138              NA   NA
 #&gt;    ---                                                                
-#&gt; 17864:    NA  317812460        73607        14133              NA   49
-#&gt; 17865:    NA  317812460        76605        16068              NA   50
-#&gt; 17866:    NA  317812460        74967        16944              NA   51
-#&gt; 17867:    NA  316020313        72421        13906              NA   52
-#&gt; 17868:    NA  305722807        67840        17795              NA   53</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/unique.html'>unique</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>$</span><span class='va'>country</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;  [1] "Ecuador"        "Indonesia"      "Peru"           "Russia"        
-#&gt;  [5] "Australia"      "Austria"        "Belgium"        "Brazil"        
-#&gt;  [9] "Britain"        "Bulgaria"       "Canada"         "Chile"         
-#&gt; [13] "Croatia"        "Czech Republic" "Denmark"        "Estonia"       
-#&gt; [17] "Finland"        "France"         "Germany"        "Greece"        
-#&gt; [21] "Hungary"        "Iceland"        "Israel"         "Italy"         
-#&gt; [25] "Latvia"         "Lithuania"      "Luxembourg"     "Mexico"        
-#&gt; [29] "Netherlands"    "New Zealand"    "Norway"         "Poland"        
-#&gt; [33] "Portugal"       "Slovakia"       "Slovenia"       "South Africa"  
-#&gt; [37] "South Korea"    "Spain"          "Sweden"         "Switzerland"   
-#&gt; [41] "Taiwan"         "Turkey"         "United States" </div><div class='input'>
+#&gt; 18738:    NA  317812460        77487        16068              NA   50
+#&gt; 18739:    NA  317812460        76693        16944              NA   51
+#&gt; 18740:    NA  317812460        75675        13912              NA   52
+#&gt; 18741:    NA  312455026        74409        18403              NA   53
+#&gt; 18742:    NA  312455026        69405        20103              NA    1</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/unique.html'>unique</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>$</span><span class='va'>country</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;  [1] "Bolivia"        "Ecuador"        "Indonesia"      "Peru"          
+#&gt;  [5] "Russia"         "Australia"      "Austria"        "Belgium"       
+#&gt;  [9] "Brazil"         "Britain"        "Bulgaria"       "Canada"        
+#&gt; [13] "Chile"          "Colombia"       "Croatia"        "Czech Republic"
+#&gt; [17] "Denmark"        "Estonia"        "Finland"        "France"        
+#&gt; [21] "Germany"        "Greece"         "Hungary"        "Iceland"       
+#&gt; [25] "Israel"         "Italy"          "Latvia"         "Lithuania"     
+#&gt; [29] "Luxembourg"     "Mexico"         "Netherlands"    "New Zealand"   
+#&gt; [33] "Norway"         "Poland"         "Portugal"       "Slovakia"      
+#&gt; [37] "Slovenia"       "South Africa"   "South Korea"    "Spain"         
+#&gt; [41] "Sweden"         "Switzerland"    "Taiwan"         "Turkey"        
+#&gt; [45] "United States" </div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
