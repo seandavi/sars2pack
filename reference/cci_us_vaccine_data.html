@@ -223,13 +223,13 @@ been administered. As of December, 2020, this dataset is not complete.</p>
 #&gt; 6:  total</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>vacc</span><span class='op'>$</span><span class='va'>unit</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; 
 #&gt;  doses people 
-#&gt;  10163   3448 </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>vacc</span><span class='op'>$</span><span class='va'>status</span><span class='op'>)</span>
+#&gt;  10435   3561 </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>vacc</span><span class='op'>$</span><span class='va'>status</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; 
 #&gt;   admin   alloc shipped 
-#&gt;    8710    1595    3306 </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>vacc</span><span class='op'>$</span><span class='va'>entity</span><span class='op'>)</span>
+#&gt;    8970    1623    3403 </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>vacc</span><span class='op'>$</span><span class='va'>entity</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; 
 #&gt;  first-dose     moderna      pfizer second-dose       total     unknown 
-#&gt;        1923        1176        1614        1525        4454        2919 </div><div class='input'>
+#&gt;        1979        1204        1643        1582        4573        3015 </div><div class='input'>
 <span class='va'>us_pop</span> <span class='op'>=</span> <span class='fu'><a href='us_population_details.html'>us_population_details</a></span><span class='op'>(</span>geography<span class='op'>=</span><span class='st'>'state'</span>, product<span class='op'>=</span><span class='st'>'population'</span>, year<span class='op'>=</span><span class='fl'>2019</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; <span class='message'>Loading required namespace: tidycensus</span></div><div class='input'><span class='va'>us_pop</span> <span class='op'>=</span> <span class='va'>us_pop</span><span class='op'>[</span><span class='va'>us_pop</span><span class='op'>$</span><span class='va'>variable</span><span class='op'>==</span><span class='st'>'POP'</span>,<span class='op'>]</span>
 <span class='va'>vacc</span> <span class='op'>=</span> <span class='va'>vacc</span><span class='op'>[</span><span class='va'>vacc</span><span class='op'>$</span><span class='va'>variable</span><span class='op'>==</span><span class='st'>'people_admin_first-dose'</span>,<span class='op'>]</span>
