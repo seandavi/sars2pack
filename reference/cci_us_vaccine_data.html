@@ -206,7 +206,7 @@ been administered. As of December, 2020, this dataset is not complete.</p>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
 <span class='va'>vacc</span> <span class='op'>=</span> <span class='fu'>cci_us_vaccine_data</span><span class='op'>(</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>vacc</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='warning'>Warning: 'measure.vars' [doses_alloc_total, doses_alloc_moderna, doses_alloc_pfizer, doses_alloc_unknown, ...] are not all of the same type. By order of hierarchy, the molten data value column will be of type 'character'. All measure variables not of type 'character' will be coerced too. Check DETAILS in ?melt.data.table for more on coercion.</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>vacc</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;          date province_state stabbr          variable  count  unit status
 #&gt; 1: 2020-12-14        Alabama     AL doses_alloc_total  40950 doses  alloc
 #&gt; 2: 2020-12-28        Alabama     AL doses_alloc_total 128175 doses  alloc
@@ -223,13 +223,13 @@ been administered. As of December, 2020, this dataset is not complete.</p>
 #&gt; 6:  total</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>vacc</span><span class='op'>$</span><span class='va'>unit</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; 
 #&gt;  doses people 
-#&gt;  11808   4114 </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>vacc</span><span class='op'>$</span><span class='va'>status</span><span class='op'>)</span>
+#&gt;  12090   5273 </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>vacc</span><span class='op'>$</span><span class='va'>status</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; 
 #&gt;   admin   alloc shipped 
-#&gt;   10256    1702    3964 </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>vacc</span><span class='op'>$</span><span class='va'>entity</span><span class='op'>)</span>
+#&gt;   11564    1728    4071 </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>vacc</span><span class='op'>$</span><span class='va'>entity</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; 
 #&gt;  first-dose     moderna      pfizer second-dose       total     unknown 
-#&gt;        2253        1345        1749        1861        5174        3540 </div><div class='input'>
+#&gt;        3353        1373        1777        1920        5298        3642 </div><div class='input'>
 <span class='va'>us_pop</span> <span class='op'>=</span> <span class='fu'><a href='us_population_details.html'>us_population_details</a></span><span class='op'>(</span>geography<span class='op'>=</span><span class='st'>'state'</span>, product<span class='op'>=</span><span class='st'>'population'</span>, year<span class='op'>=</span><span class='fl'>2019</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; <span class='message'>Loading required namespace: tidycensus</span></div><div class='input'><span class='va'>us_pop</span> <span class='op'>=</span> <span class='va'>us_pop</span><span class='op'>[</span><span class='va'>us_pop</span><span class='op'>$</span><span class='va'>variable</span><span class='op'>==</span><span class='st'>'POP'</span>,<span class='op'>]</span>
 <span class='va'>vacc</span> <span class='op'>=</span> <span class='va'>vacc</span><span class='op'>[</span><span class='va'>vacc</span><span class='op'>$</span><span class='va'>variable</span><span class='op'>==</span><span class='st'>'people_admin_first-dose'</span>,<span class='op'>]</span>
@@ -241,7 +241,7 @@ been administered. As of December, 2020, this dataset is not complete.</p>
     <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>xlab</a></span><span class='op'>(</span><span class='st'>"Date"</span><span class='op'>)</span> <span class='op'>+</span>
     <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ylab</a></span><span class='op'>(</span><span class='st'>"Number of people vaccinated/100k population"</span><span class='op'>)</span>
 <span class='op'>}</span>
-</div><div class='img'><img src='cci_us_vaccine_data-1.png' alt='' width='700' height='433' /></div><div class='input'>
+</div><div class='output co'>#&gt; <span class='error'>Error in count/value: non-numeric argument to binary operator</span></div><div class='img'><img src='cci_us_vaccine_data-1.png' alt='' width='700' height='433' /></div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
