@@ -297,20 +297,9 @@ territories listed are aggregated in our database.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='va'>ecdc</span> <span class='op'>=</span> <span class='fu'>ecdc_data</span><span class='op'>(</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>ecdc</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;  [1] "date"                                           
-#&gt;  [2] "year_week"                                      
-#&gt;  [3] "location_name"                                  
-#&gt;  [4] "iso2c"                                          
-#&gt;  [5] "iso3c"                                          
-#&gt;  [6] "population_2019"                                
-#&gt;  [7] "continent"                                      
-#&gt;  [8] "notification_rate_per_100000_population_14-days"
-#&gt;  [9] "subset"                                         
-#&gt; [10] "count"                                          </div><div class='input'><span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://tibble.tidyverse.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>ecdc</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Rows: 21,294
-#&gt; Columns: 10
-#&gt; Groups: location_name, subset [430]</div><div class='output co'>#&gt; <span class='error'>Error in gsub(finish, start, ..., fixed = TRUE): zero-length pattern</span></div><div class='input'>
+</div><div class='output co'>#&gt; <span class='error'>Error: Column `cases_weekly` not found in `.data`</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>ecdc</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='error'>Error in is.data.frame(x): object 'ecdc' not found</span></div><div class='input'><span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://tibble.tidyverse.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>ecdc</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='error'>Error in dplyr::glimpse(ecdc): object 'ecdc' not found</span></div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
