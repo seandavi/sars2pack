@@ -210,9 +210,29 @@ This function will attempt to grab the latest version.</p>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='va'>res</span> <span class='op'>=</span> <span class='fu'>cdc_aggregated_projections</span><span class='op'>(</span><span class='op'>)</span>
 <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='error'>Error in gsub(finish, start, ..., fixed = TRUE): zero-length pattern</span></div><div class='input'><span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://tibble.tidyverse.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 6 x 10</span><span>
+#&gt;   model forecast_date target target_week_end… location_name point quantile_0.025
+#&gt;   </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>         </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>  </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>            </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>         </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>          </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>
+#&gt; </span><span style='color: #BCBCBC;'>1</span><span> Auqu… 8/10/2020     1 wk … 8/15/2020        Alabama        </span><span style='text-decoration: underline;'>1</span><span>972           </span><span style='text-decoration: underline;'>1</span><span>938
+#&gt; </span><span style='color: #BCBCBC;'>2</span><span> Auqu… 8/10/2020     1 wk … 8/15/2020        Alaska           33             32
+#&gt; </span><span style='color: #BCBCBC;'>3</span><span> Auqu… 8/10/2020     1 wk … 8/15/2020        Arizona        </span><span style='text-decoration: underline;'>4</span><span>625           </span><span style='text-decoration: underline;'>4</span><span>552
+#&gt; </span><span style='color: #BCBCBC;'>4</span><span> Auqu… 8/10/2020     1 wk … 8/15/2020        Arkansas        644            627
+#&gt; </span><span style='color: #BCBCBC;'>5</span><span> Auqu… 8/10/2020     1 wk … 8/15/2020        California    </span><span style='text-decoration: underline;'>11</span><span>518          </span><span style='text-decoration: underline;'>11</span><span>328
+#&gt; </span><span style='color: #BCBCBC;'>6</span><span> Auqu… 8/10/2020     1 wk … 8/15/2020        Colorado       </span><span style='text-decoration: underline;'>1</span><span>957           </span><span style='text-decoration: underline;'>1</span><span>938
+#&gt; </span><span style='color: #949494;'># … with 3 more variables: quantile_0.25 &lt;dbl&gt;, quantile_0.75 &lt;dbl&gt;,</span><span>
+#&gt; </span><span style='color: #949494;'>#   quantile_0.975 &lt;dbl&gt;</span><span></div><div class='input'><span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://pillar.r-lib.org//reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; Rows: 11,196
-#&gt; Columns: 10</div><div class='output co'>#&gt; <span class='error'>Error in gsub(finish, start, ..., fixed = TRUE): zero-length pattern</span></div><div class='input'>
+#&gt; Columns: 10
+#&gt; $ model                </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span> "Auquan", "Auquan", "Auquan", "Auquan", "Auquan",…
+#&gt; $ forecast_date        </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span> "8/10/2020", "8/10/2020", "8/10/2020", "8/10/2020…
+#&gt; $ target               </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span> "1 wk ahead cum death", "1 wk ahead cum death", "…
+#&gt; $ target_week_end_date </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span> "8/15/2020", "8/15/2020", "8/15/2020", "8/15/2020…
+#&gt; $ location_name        </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span> "Alabama", "Alaska", "Arizona", "Arkansas", "Cali…
+#&gt; $ point                </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> 1972, 33, 4625, 644, 11518, 1957, 4532, 621, 615,…
+#&gt; $ quantile_0.025       </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> 1938, 32, 4552, 627, 11328, 1938, 4517, 616, 611,…
+#&gt; $ quantile_0.25        </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> 1960, 33, 4598, 638, 11458, 1950, 4527, 619, 614,…
+#&gt; $ quantile_0.75        </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> 1983, 34, 4649, 650, 11584, 1962, 4537, 622, 616,…
+#&gt; $ quantile_0.975       </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> 2003, 34, 4691, 659, 11708, 1971, 4547, 625, 619,…</div><div class='input'>
 <span class='co'># available models</span>
 <span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>$</span><span class='va'>model</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; 
@@ -278,7 +298,7 @@ This function will attempt to grab the latest version.</p>
 </div><div class='output co'>#&gt; <span class='warning'>Warning: position_dodge requires non-overlapping x intervals</span></div><div class='output co'>#&gt; <span class='warning'>Warning: position_dodge requires non-overlapping x intervals</span></div><div class='output co'>#&gt; <span class='message'>geom_path: Each group consists of only one observation. Do you need to adjust</span>
 #&gt; <span class='message'>the group aesthetic?</span></div><div class='img'><img src='cdc_aggregated_projections-2.png' alt='' width='700' height='433' /></div><div class='input'>
 
-</div></pre>
+</div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
