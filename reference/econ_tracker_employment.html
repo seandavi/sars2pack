@@ -243,56 +243,68 @@
     <pre class="examples"><div class='input'>
 <span class='va'>res</span> <span class='op'>=</span> <span class='fu'>econ_tracker_employment_city_data</span><span class='op'>(</span><span class='op'>)</span>
 <span class='va'>res</span>
-</div><div class='output co'>#&gt;        cityid    cityname stateabbrev  statename statefips city_pop2019
-#&gt;     1:      1 Los Angeles          CA California     00006     10039107
-#&gt;     2:      1 Los Angeles          CA California     00006     10039107
-#&gt;     3:      1 Los Angeles          CA California     00006     10039107
-#&gt;     4:      1 Los Angeles          CA California     00006     10039107
-#&gt;     5:      1 Los Angeles          CA California     00006     10039107
-#&gt;    ---                                                                 
-#&gt; 69320:     53       Tulsa          OK   Oklahoma     00040       651552
-#&gt; 69321:     53       Tulsa          OK   Oklahoma     00040       651552
-#&gt; 69322:     53       Tulsa          OK   Oklahoma     00040       651552
-#&gt; 69323:     53       Tulsa          OK   Oklahoma     00040       651552
-#&gt; 69324:     53       Tulsa          OK   Oklahoma     00040       651552
-#&gt;              date variable   value variable_type
-#&gt;     1: 2020-01-14 everyone 0.00139         total
-#&gt;     2: 2020-01-15 everyone 0.00188         total
-#&gt;     3: 2020-01-16 everyone 0.00206         total
-#&gt;     4: 2020-01-17 everyone 0.00192         total
-#&gt;     5: 2020-01-18 everyone 0.00149         total
-#&gt;    ---                                          
-#&gt; 69320: 2020-12-01  inchigh 0.02080         wages
-#&gt; 69321: 2020-12-02  inchigh 0.02100         wages
-#&gt; 69322: 2020-12-03  inchigh 0.02120         wages
-#&gt; 69323: 2020-12-04  inchigh 0.02150         wages
-#&gt; 69324: 2020-12-05  inchigh 0.02160         wages</div><div class='input'>
+</div><div class='output co'>#&gt;        cityid    cityname stateabbrev  statename statefips   lat     lon
+#&gt;     1:      1 Los Angeles          CA California     00006 34.05 -118.24
+#&gt;     2:      1 Los Angeles          CA California     00006 34.05 -118.24
+#&gt;     3:      1 Los Angeles          CA California     00006 34.05 -118.24
+#&gt;     4:      1 Los Angeles          CA California     00006 34.05 -118.24
+#&gt;     5:      1 Los Angeles          CA California     00006 34.05 -118.24
+#&gt;    ---                                                                  
+#&gt; 69320:     53       Tulsa          OK   Oklahoma     00040 36.15  -95.99
+#&gt; 69321:     53       Tulsa          OK   Oklahoma     00040 36.15  -95.99
+#&gt; 69322:     53       Tulsa          OK   Oklahoma     00040 36.15  -95.99
+#&gt; 69323:     53       Tulsa          OK   Oklahoma     00040 36.15  -95.99
+#&gt; 69324:     53       Tulsa          OK   Oklahoma     00040 36.15  -95.99
+#&gt;        city_pop2019       date variable   value variable_type
+#&gt;     1:     10039107 2020-01-14 everyone 0.00139         total
+#&gt;     2:     10039107 2020-01-15 everyone 0.00188         total
+#&gt;     3:     10039107 2020-01-16 everyone 0.00206         total
+#&gt;     4:     10039107 2020-01-17 everyone 0.00192         total
+#&gt;     5:     10039107 2020-01-18 everyone 0.00149         total
+#&gt;    ---                                                       
+#&gt; 69320:       651552 2020-12-01  inchigh 0.02080         wages
+#&gt; 69321:       651552 2020-12-02  inchigh 0.02100         wages
+#&gt; 69322:       651552 2020-12-03  inchigh 0.02120         wages
+#&gt; 69323:       651552 2020-12-04  inchigh 0.02150         wages
+#&gt; 69324:       651552 2020-12-05  inchigh 0.02160         wages</div><div class='input'>
 <span class='va'>res</span> <span class='op'>=</span> <span class='fu'>econ_tracker_employment_county_data</span><span class='op'>(</span><span class='op'>)</span>
 <span class='va'>res</span>
-</div><div class='output co'>#&gt;          countyfips countyname    cz     czname statename statefips stateabbrev
-#&gt;       1:      01001    Autauga 11101 Montgomery   Alabama     00001          AL
-#&gt;       2:      01001    Autauga 11101 Montgomery   Alabama     00001          AL
-#&gt;       3:      01001    Autauga 11101 Montgomery   Alabama     00001          AL
-#&gt;       4:      01001    Autauga 11101 Montgomery   Alabama     00001          AL
-#&gt;       5:      01001    Autauga 11101 Montgomery   Alabama     00001          AL
-#&gt;      ---                                                                       
-#&gt; 3946232:      56045     Weston 34601   Gillette   Wyoming     00056          WY
-#&gt; 3946233:      56045     Weston 34601   Gillette   Wyoming     00056          WY
-#&gt; 3946234:      56045     Weston 34601   Gillette   Wyoming     00056          WY
-#&gt; 3946235:      56045     Weston 34601   Gillette   Wyoming     00056          WY
-#&gt; 3946236:      56045     Weston 34601   Gillette   Wyoming     00056          WY
-#&gt;          county_pop2019       date variable value variable_type
-#&gt;       1:          55869 2020-01-14 everyone    NA         total
-#&gt;       2:          55869 2020-01-15 everyone    NA         total
-#&gt;       3:          55869 2020-01-16 everyone    NA         total
-#&gt;       4:          55869 2020-01-17 everyone    NA         total
-#&gt;       5:          55869 2020-01-18 everyone    NA         total
-#&gt;      ---                                                       
-#&gt; 3946232:           6927 2020-12-01  inchigh    NA         wages
-#&gt; 3946233:           6927 2020-12-02  inchigh    NA         wages
-#&gt; 3946234:           6927 2020-12-03  inchigh    NA         wages
-#&gt; 3946235:           6927 2020-12-04  inchigh    NA         wages
-#&gt; 3946236:           6927 2020-12-05  inchigh    NA         wages</div><div class='input'>
+</div><div class='output co'>#&gt;          countyfips countyname cityid cityname    cz     czname statename
+#&gt;       1:      01001    Autauga     NA          11101 Montgomery   Alabama
+#&gt;       2:      01001    Autauga     NA          11101 Montgomery   Alabama
+#&gt;       3:      01001    Autauga     NA          11101 Montgomery   Alabama
+#&gt;       4:      01001    Autauga     NA          11101 Montgomery   Alabama
+#&gt;       5:      01001    Autauga     NA          11101 Montgomery   Alabama
+#&gt;      ---                                                                 
+#&gt; 3946232:      56045     Weston     NA          34601   Gillette   Wyoming
+#&gt; 3946233:      56045     Weston     NA          34601   Gillette   Wyoming
+#&gt; 3946234:      56045     Weston     NA          34601   Gillette   Wyoming
+#&gt; 3946235:      56045     Weston     NA          34601   Gillette   Wyoming
+#&gt; 3946236:      56045     Weston     NA          34601   Gillette   Wyoming
+#&gt;          statefips stateabbrev county_pop2019       date variable value
+#&gt;       1:     00001          AL          55869 2020-01-14 everyone    NA
+#&gt;       2:     00001          AL          55869 2020-01-15 everyone    NA
+#&gt;       3:     00001          AL          55869 2020-01-16 everyone    NA
+#&gt;       4:     00001          AL          55869 2020-01-17 everyone    NA
+#&gt;       5:     00001          AL          55869 2020-01-18 everyone    NA
+#&gt;      ---                                                               
+#&gt; 3946232:     00056          WY           6927 2020-12-01  inchigh    NA
+#&gt; 3946233:     00056          WY           6927 2020-12-02  inchigh    NA
+#&gt; 3946234:     00056          WY           6927 2020-12-03  inchigh    NA
+#&gt; 3946235:     00056          WY           6927 2020-12-04  inchigh    NA
+#&gt; 3946236:     00056          WY           6927 2020-12-05  inchigh    NA
+#&gt;          variable_type
+#&gt;       1:         total
+#&gt;       2:         total
+#&gt;       3:         total
+#&gt;       4:         total
+#&gt;       5:         total
+#&gt;      ---              
+#&gt; 3946232:         wages
+#&gt; 3946233:         wages
+#&gt; 3946234:         wages
+#&gt; 3946235:         wages
+#&gt; 3946236:         wages</div><div class='input'>
 
 <span class='va'>res</span> <span class='op'>=</span> <span class='fu'>econ_tracker_employment_state_data</span><span class='op'>(</span><span class='op'>)</span>
 <span class='va'>res</span>
