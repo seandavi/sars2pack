@@ -287,7 +287,7 @@ Pandemic.” SocArXiv. April 12. doi:10.31235/osf.io/dkvxy.</p><ul>
 #&gt; [35] "dist_index_med_est"      "dist_index_low_est"     
 #&gt; [37] "dist_index_country_rank" "link"                   
 #&gt; [39] "date_updated"            "recorded_date"          </div><div class='input'><span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://pillar.r-lib.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Rows: 60,659
+</div><div class='output co'>#&gt; Rows: 60,733
 #&gt; Columns: 40
 #&gt; $ record_id               </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span> "R_3nCudDknlhUIjpONA", "R_3OoySQxTamo89oXNA", …
 #&gt; $ policy_id               </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> 2975738, 7024226, 889484, 129322, 6721435, 672…
@@ -330,39 +330,39 @@ Pandemic.” SocArXiv. April 12. doi:10.31235/osf.io/dkvxy.</p><ul>
 #&gt; $ date_updated            </span><span style='color: #949494;font-style: italic;'>&lt;date&gt;</span><span> 2020-08-21, 2020-09-13, 2020-09-12, 2020-09-0…
 #&gt; $ recorded_date           </span><span style='color: #949494;font-style: italic;'>&lt;dttm&gt;</span><span> 2020-08-21 18:32:29, 2020-09-13 18:56:27, 202…</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;   record_id           policy_id          entry_type        correct_type      
-#&gt;  Length:60659       Min.   :0.000e+00   Length:60659       Length:60659      
+#&gt;  Length:60733       Min.   :0.000e+00   Length:60733       Length:60733      
 #&gt;  Class :character   1st Qu.:2.463e+06   Class :character   Class :character  
-#&gt;  Mode  :character   Median :4.976e+06   Mode  :character   Mode  :character  
-#&gt;                     Mean   :1.037e+09                                        
-#&gt;                     3rd Qu.:7.448e+06                                        
+#&gt;  Mode  :character   Median :4.979e+06   Mode  :character   Mode  :character  
+#&gt;                     Mean   :1.035e+09                                        
+#&gt;                     3rd Qu.:7.450e+06                                        
 #&gt;                     Max.   :6.258e+13                                        
 #&gt;                     NA's   :1                                                
 #&gt;  update_type        update_level       description        date_announced      
-#&gt;  Length:60659       Length:60659       Length:60659       Min.   :2019-12-31  
+#&gt;  Length:60733       Length:60733       Length:60733       Min.   :2019-12-31  
 #&gt;  Class :character   Class :character   Class :character   1st Qu.:2020-03-21  
 #&gt;  Mode  :character   Mode  :character   Mode  :character   Median :2020-04-16  
-#&gt;                                                           Mean   :2020-05-09  
+#&gt;                                                           Mean   :2020-05-10  
 #&gt;                                                           3rd Qu.:2020-06-07  
 #&gt;                                                           Max.   :2022-12-22  
 #&gt;                                                           NA's   :12          
 #&gt;    date_start            date_end            country         
-#&gt;  Min.   :2019-12-31   Min.   :2020-01-06   Length:60659      
+#&gt;  Min.   :2019-12-31   Min.   :2020-01-06   Length:60733      
 #&gt;  1st Qu.:2020-03-22   1st Qu.:2020-04-19   Class :character  
-#&gt;  Median :2020-04-17   Median :2020-05-28   Mode  :character  
-#&gt;  Mean   :2020-05-11   Mean   :2020-06-24                     
+#&gt;  Median :2020-04-17   Median :2020-05-29   Mode  :character  
+#&gt;  Mean   :2020-05-12   Mean   :2020-06-25                     
 #&gt;  3rd Qu.:2020-06-08   3rd Qu.:2020-08-02                     
 #&gt;  Max.   :2024-05-29   Max.   :2024-05-29                     
-#&gt;                       NA's   :28262                          
-#&gt;     iso3c              iso2c           init_country_level domestic_policy 
-#&gt;  Length:60659       Length:60659       Length:60659       Min.   :0.0000  
-#&gt;  Class :character   Class :character   Class :character   1st Qu.:1.0000  
-#&gt;  Mode  :character   Mode  :character   Mode  :character   Median :1.0000  
-#&gt;                                                           Mean   :0.9372  
-#&gt;                                                           3rd Qu.:1.0000  
-#&gt;                                                           Max.   :1.0000  
-#&gt;                                                                           
+#&gt;                       NA's   :28222                          
+#&gt;     iso3c              iso2c           init_country_level domestic_policy
+#&gt;  Length:60733       Length:60733       Length:60733       Min.   :0.000  
+#&gt;  Class :character   Class :character   Class :character   1st Qu.:1.000  
+#&gt;  Mode  :character   Mode  :character   Mode  :character   Median :1.000  
+#&gt;                                                           Mean   :0.937  
+#&gt;                                                           3rd Qu.:1.000  
+#&gt;                                                           Max.   :1.000  
+#&gt;                                                                          
 #&gt;    province            ISO_L2              city               type          
-#&gt;  Length:60659       Length:60659       Length:60659       Length:60659      
+#&gt;  Length:60733       Length:60733       Length:60733       Length:60733      
 #&gt;  Class :character   Class :character   Class :character   Class :character  
 #&gt;  Mode  :character   Mode  :character   Mode  :character   Mode  :character  
 #&gt;                                                                             
@@ -370,7 +370,7 @@ Pandemic.” SocArXiv. April 12. doi:10.31235/osf.io/dkvxy.</p><ul>
 #&gt;                                                                             
 #&gt;                                                                             
 #&gt;  type_sub_cat        type_text         institution_status target_country    
-#&gt;  Length:60659       Length:60659       Length:60659       Length:60659      
+#&gt;  Length:60733       Length:60733       Length:60733       Length:60733      
 #&gt;  Class :character   Class :character   Class :character   Class :character  
 #&gt;  Mode  :character   Mode  :character   Mode  :character   Mode  :character  
 #&gt;                                                                             
@@ -378,7 +378,7 @@ Pandemic.” SocArXiv. April 12. doi:10.31235/osf.io/dkvxy.</p><ul>
 #&gt;                                                                             
 #&gt;                                                                             
 #&gt;  target_geog_level  target_region      target_province    target_city       
-#&gt;  Length:60659       Length:60659       Length:60659       Length:60659      
+#&gt;  Length:60733       Length:60733       Length:60733       Length:60733      
 #&gt;  Class :character   Class :character   Class :character   Class :character  
 #&gt;  Mode  :character   Mode  :character   Mode  :character   Mode  :character  
 #&gt;                                                                             
@@ -386,36 +386,36 @@ Pandemic.” SocArXiv. April 12. doi:10.31235/osf.io/dkvxy.</p><ul>
 #&gt;                                                                             
 #&gt;                                                                             
 #&gt;  target_other   target_who_what    target_direction   travel_mechanism  
-#&gt;  Mode:logical   Length:60659       Length:60659       Length:60659      
-#&gt;  NA's:60659     Class :character   Class :character   Class :character  
+#&gt;  Mode:logical   Length:60733       Length:60733       Length:60733      
+#&gt;  NA's:60733     Class :character   Class :character   Class :character  
 #&gt;                 Mode  :character   Mode  :character   Mode  :character  
 #&gt;                                                                         
 #&gt;                                                                         
 #&gt;                                                                         
 #&gt;                                                                         
 #&gt;   compliance          enforcer         dist_index_high_est dist_index_med_est
-#&gt;  Length:60659       Length:60659       Min.   :13.30       Min.   : 9.893    
-#&gt;  Class :character   Class :character   1st Qu.:57.84       1st Qu.:54.962    
+#&gt;  Length:60733       Length:60733       Min.   :13.30       Min.   : 9.893    
+#&gt;  Class :character   Class :character   1st Qu.:57.88       1st Qu.:54.953    
 #&gt;  Mode  :character   Mode  :character   Median :67.60       Median :64.409    
-#&gt;                                        Mean   :65.81       Mean   :62.508    
-#&gt;                                        3rd Qu.:75.05       3rd Qu.:71.497    
+#&gt;                                        Mean   :65.82       Mean   :62.515    
+#&gt;                                        3rd Qu.:75.06       3rd Qu.:71.506    
 #&gt;                                        Max.   :98.75       Max.   :98.298    
-#&gt;                                        NA's   :4433        NA's   :4433      
+#&gt;                                        NA's   :4485        NA's   :4485      
 #&gt;  dist_index_low_est dist_index_country_rank     link          
-#&gt;  Min.   : 3.146     Min.   :  1.00          Length:60659      
+#&gt;  Min.   : 3.146     Min.   :  1.00          Length:60733      
 #&gt;  1st Qu.:51.730     1st Qu.: 60.00          Class :character  
 #&gt;  Median :61.218     Median : 98.00          Mode  :character  
-#&gt;  Mean   :59.123     Mean   : 88.59                            
+#&gt;  Mean   :59.129     Mean   : 88.56                            
 #&gt;  3rd Qu.:68.283     3rd Qu.:122.00                            
 #&gt;  Max.   :97.683     Max.   :139.00                            
-#&gt;  NA's   :4433       NA's   :4433                              
+#&gt;  NA's   :4485       NA's   :4485                              
 #&gt;   date_updated        recorded_date                
 #&gt;  Min.   :2020-03-26   Min.   :2020-03-26 05:04:08  
-#&gt;  1st Qu.:2020-06-09   1st Qu.:2020-06-09 23:22:22  
-#&gt;  Median :2020-08-23   Median :2020-08-23 07:36:33  
-#&gt;  Mean   :2020-09-06   Mean   :2020-09-07 02:25:41  
-#&gt;  3rd Qu.:2020-12-11   3rd Qu.:2020-12-11 17:45:41  
-#&gt;  Max.   :2021-03-05   Max.   :2021-03-05 23:58:39  
+#&gt;  1st Qu.:2020-06-10   1st Qu.:2020-06-10 14:56:03  
+#&gt;  Median :2020-08-23   Median :2020-08-23 22:08:16  
+#&gt;  Mean   :2020-09-07   Mean   :2020-09-08 00:15:41  
+#&gt;  3rd Qu.:2020-12-13   3rd Qu.:2020-12-13 12:55:36  
+#&gt;  Max.   :2021-03-08   Max.   :2021-03-08 23:30:58  
 #&gt;                                                    </div><div class='input'>
 
 </div></span></pre>
