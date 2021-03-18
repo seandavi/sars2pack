@@ -230,7 +230,7 @@ for states in the United States and District of Columbia.</p>
 #&gt; [34] "policysourceid"        "lastupdated"           "lastupdatednotes"     
 #&gt; [37] "rereviewed"            "updatingsource1"       "updatingsource2"      </div><div class='input'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://dplyr.tidyverse.org'>dplyr</a></span><span class='op'>)</span>
 <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://pillar.r-lib.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Rows: 12,551
+</div><div class='output co'>#&gt; Rows: 12,792
 #&gt; Columns: 39
 #&gt; $ pid                   <span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span> "AL0001", "AL0002", "AL0080", "AL0013", "AL0015"…
 #&gt; $ location_id           </span><span style='color: #949494;font-style: italic;'>&lt;int&gt;</span><span> 523, 523, 523, 523, 523, 523, 523, 523, 523, 523…
@@ -272,63 +272,63 @@ for states in the United States and District of Columbia.</p>
 #&gt; $ updatingsource1       </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span> "https://covid19.alaska.gov/health-mandates/", "…
 #&gt; $ updatingsource2       </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span> "https://www.alabamapublichealth.gov/legal/order…</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;      pid             location_id     statefips            iso2c          
-#&gt;  Length:12551       Min.   :523.0   Length:12551       Length:12551      
-#&gt;  Class :character   1st Qu.:531.0   Class :character   Class :character  
-#&gt;  Mode  :character   Median :547.0   Mode  :character   Mode  :character  
-#&gt;                     Mean   :546.8                                        
-#&gt;                     3rd Qu.:561.0                                        
+#&gt;  Length:12792       Min.   :523.0   Length:12792       Length:12792      
+#&gt;  Class :character   1st Qu.:530.0   Class :character   Class :character  
+#&gt;  Mode  :character   Median :546.0   Mode  :character   Mode  :character  
+#&gt;                     Mean   :546.6                                        
+#&gt;                     3rd Qu.:560.0                                        
 #&gt;                     Max.   :573.0                                        
 #&gt;                                                                          
 #&gt;     state           statepolicy         mandate        statewide      
-#&gt;  Length:12551       Length:12551       Mode :logical   Mode :logical  
-#&gt;  Class :character   Class :character   FALSE:832       FALSE:4723     
-#&gt;  Mode  :character   Mode  :character   TRUE :11719     TRUE :7828     
+#&gt;  Length:12792       Length:12792       Mode :logical   Mode :logical  
+#&gt;  Class :character   Class :character   FALSE:845       FALSE:4837     
+#&gt;  Mode  :character   Mode  :character   TRUE :11947     TRUE :7955     
 #&gt;                                                                       
 #&gt;                                                                       
 #&gt;                                                                       
 #&gt;                                                                       
-#&gt;      swgeo            swpop            curfew        curfewstart       
-#&gt;  Min.   :0.0000   Min.   :0.0000   Min.   :0.00000   Length:12551      
-#&gt;  1st Qu.:0.0000   1st Qu.:1.0000   1st Qu.:0.00000   Class :character  
-#&gt;  Median :1.0000   Median :1.0000   Median :0.00000   Mode  :character  
-#&gt;  Mean   :0.6419   Mean   :0.9806   Mean   :0.03721                     
-#&gt;  3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:0.00000                     
-#&gt;  Max.   :1.0000   Max.   :1.0000   Max.   :1.00000                     
-#&gt;                                                                        
+#&gt;      swgeo            swpop            curfew       curfewstart       
+#&gt;  Min.   :0.0000   Min.   :0.0000   Min.   :0.0000   Length:12792      
+#&gt;  1st Qu.:0.0000   1st Qu.:1.0000   1st Qu.:0.0000   Class :character  
+#&gt;  Median :1.0000   Median :1.0000   Median :0.0000   Mode  :character  
+#&gt;  Mean   :0.6397   Mean   :0.9809   Mean   :0.0376                     
+#&gt;  3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:0.0000                     
+#&gt;  Max.   :1.0000   Max.   :1.0000   Max.   :1.0000                     
+#&gt;                                                                       
 #&gt;   curfewend           ingathlim         outgathlim      ingathlimreligious
-#&gt;  Length:12551       Min.   :    0.0   Min.   :    0.0   Min.   :   0.00   
+#&gt;  Length:12792       Min.   :    0.0   Min.   :    0.0   Min.   :   0.00   
 #&gt;  Class :character   1st Qu.:   10.0   1st Qu.:   10.0   1st Qu.:  10.00   
 #&gt;  Mode  :character   Median :   10.0   Median :   15.0   Median :  50.00   
-#&gt;                     Mean   :  100.6   Mean   :  119.9   Mean   :  69.56   
+#&gt;                     Mean   :  100.6   Mean   :  119.5   Mean   :  69.66   
 #&gt;                     3rd Qu.:   25.0   3rd Qu.:   50.0   3rd Qu.: 100.00   
 #&gt;                     Max.   :10000.0   Max.   :10000.0   Max.   :1000.00   
-#&gt;                     NA's   :11140     NA's   :11148     NA's   :11930     
+#&gt;                     NA's   :11365     NA's   :11374     NA's   :12169     
 #&gt;  outgathlimreligious businessrestrictlevel schoolrestrictlevel
-#&gt;  Min.   :   0.00     Length:12551          Length:12551       
+#&gt;  Min.   :   0.00     Length:12792          Length:12792       
 #&gt;  1st Qu.:  10.00     Class :character      Class :character   
 #&gt;  Median :  25.00     Mode  :character      Mode  :character   
-#&gt;  Mean   :  69.29                                              
+#&gt;  Mean   :  69.24                                              
 #&gt;  3rd Qu.: 100.00                                              
 #&gt;  Max.   :1000.00                                              
-#&gt;  NA's   :12129                                                
+#&gt;  NA's   :12369                                                
 #&gt;  publicmasklevel      dateissued          dateenacted        
-#&gt;  Length:12551       Min.   :2020-02-29   Min.   :2020-02-29  
-#&gt;  Class :character   1st Qu.:2020-06-01   1st Qu.:2020-06-01  
-#&gt;  Mode  :character   Median :2020-09-02   Median :2020-09-03  
-#&gt;                     Mean   :2020-09-04   Mean   :2020-09-05  
-#&gt;                     3rd Qu.:2020-12-05   3rd Qu.:2020-12-06  
-#&gt;                     Max.   :2021-03-09   Max.   :2021-04-09  
+#&gt;  Length:12792       Min.   :2020-02-29   Min.   :2020-02-29  
+#&gt;  Class :character   1st Qu.:2020-06-02   1st Qu.:2020-06-03  
+#&gt;  Mode  :character   Median :2020-09-04   Median :2020-09-04  
+#&gt;                     Mean   :2020-09-07   Mean   :2020-09-09  
+#&gt;                     3rd Qu.:2020-12-09   3rd Qu.:2020-12-09  
+#&gt;                     Max.   :2021-03-16   Max.   :2021-05-24  
 #&gt;                                                              
 #&gt;    dateexpiry           dateended            extends         
-#&gt;  Min.   :2020-03-21   Min.   :2020-04-24   Length:12551      
-#&gt;  1st Qu.:2020-06-27   1st Qu.:2020-06-26   Class :character  
-#&gt;  Median :2020-10-02   Median :2021-01-25   Mode  :character  
-#&gt;  Mean   :2020-09-30   Mean   :2020-11-07                     
-#&gt;  3rd Qu.:2021-01-05   3rd Qu.:2021-03-03                     
-#&gt;  Max.   :2021-06-30   Max.   :2021-03-10                     
-#&gt;  NA's   :3300         NA's   :10792                          
+#&gt;  Min.   :2020-03-21   Min.   :2020-04-24   Length:12792      
+#&gt;  1st Qu.:2020-06-29   1st Qu.:2020-07-03   Class :character  
+#&gt;  Median :2020-10-09   Median :2021-02-07   Mode  :character  
+#&gt;  Mean   :2020-10-04   Mean   :2020-11-18                     
+#&gt;  3rd Qu.:2021-01-06   3rd Qu.:2021-03-03                     
+#&gt;  Max.   :2021-06-30   Max.   :2021-04-01                     
+#&gt;  NA's   :3354         NA's   :10869                          
 #&gt;    expands             eases               ends              joins          
-#&gt;  Length:12551       Length:12551       Length:12551       Length:12551      
+#&gt;  Length:12792       Length:12792       Length:12792       Length:12792      
 #&gt;  Class :character   Class :character   Class :character   Class :character  
 #&gt;  Mode  :character   Mode  :character   Mode  :character   Mode  :character  
 #&gt;                                                                             
@@ -336,23 +336,23 @@ for states in the United States and District of Columbia.</p>
 #&gt;                                                                             
 #&gt;                                                                             
 #&gt;     leaves           appliesto         policycodingnotes  policysource      
-#&gt;  Length:12551       Length:12551       Length:12551       Length:12551      
+#&gt;  Length:12792       Length:12792       Length:12792       Length:12792      
 #&gt;  Class :character   Class :character   Class :character   Class :character  
 #&gt;  Mode  :character   Mode  :character   Mode  :character   Mode  :character  
 #&gt;                                                                             
 #&gt;                                                                             
 #&gt;                                                                             
 #&gt;                                                                             
-#&gt;  policysourceid      lastupdated         lastupdatednotes     rereviewed   
-#&gt;  Length:12551       Min.   :2020-03-24   Length:12551       Min.   :0.000  
-#&gt;  Class :character   1st Qu.:2020-11-18   Class :character   1st Qu.:1.000  
-#&gt;  Mode  :character   Median :2020-12-13   Mode  :character   Median :1.000  
-#&gt;                     Mean   :2020-12-12                      Mean   :0.848  
-#&gt;                     3rd Qu.:2021-02-04                      3rd Qu.:1.000  
-#&gt;                     Max.   :2021-03-10                      Max.   :1.000  
-#&gt;                                                             NA's   :3      
+#&gt;  policysourceid      lastupdated         lastupdatednotes     rereviewed    
+#&gt;  Length:12792       Min.   :2020-03-24   Length:12792       Min.   :0.0000  
+#&gt;  Class :character   1st Qu.:2020-11-19   Class :character   1st Qu.:1.0000  
+#&gt;  Mode  :character   Median :2020-12-15   Mode  :character   Median :1.0000  
+#&gt;                     Mean   :2020-12-18                      Mean   :0.8633  
+#&gt;                     3rd Qu.:2021-02-09                      3rd Qu.:1.0000  
+#&gt;                     Max.   :2021-03-17                      Max.   :1.0000  
+#&gt;                                                                             
 #&gt;  updatingsource1    updatingsource2   
-#&gt;  Length:12551       Length:12551      
+#&gt;  Length:12792       Length:12792      
 #&gt;  Class :character   Class :character  
 #&gt;  Mode  :character   Mode  :character  
 #&gt;                                       
