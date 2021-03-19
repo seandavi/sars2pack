@@ -290,7 +290,7 @@
 #&gt; [47] "ContainmentHealthIndexForDisplay"     
 #&gt; [48] "EconomicSupportIndex"                 
 #&gt; [49] "EconomicSupportIndexForDisplay"       </div><div class='input'><span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://pillar.r-lib.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Rows: 124,483
+</div><div class='output co'>#&gt; Rows: 124,764
 #&gt; Columns: 49
 #&gt; $ country                                 </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span> "Aruba", "Aruba", "Aruba", "Ar…
 #&gt; $ iso3c                                   </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span> "ABW", "ABW", "ABW", "ABW", "A…
@@ -342,7 +342,7 @@
 #&gt; $ EconomicSupportIndex                    </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
 #&gt; $ EconomicSupportIndexForDisplay          </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;    country             iso3c               date            RegionCode       
-#&gt;  Length:124483      Length:124483      Length:124483      Length:124483     
+#&gt;  Length:124764      Length:124764      Length:124764      Length:124764     
 #&gt;  Class :character   Class :character   Class :character   Class :character  
 #&gt;  Mode  :character   Mode  :character   Mode  :character   Mode  :character  
 #&gt;                                                                             
@@ -350,21 +350,21 @@
 #&gt;                                                                             
 #&gt;                                                                             
 #&gt;  Jurisdiction            Date            C1_School closing    C1_Flag     
-#&gt;  Length:124483      Min.   :2020-01-01   Min.   :0.0       Min.   :0.000  
-#&gt;  Class :character   1st Qu.:2020-04-20   1st Qu.:1.0       1st Qu.:1.000  
-#&gt;  Mode  :character   Median :2020-08-09   Median :2.0       Median :1.000  
-#&gt;                     Mean   :2020-08-09   Mean   :1.8       Mean   :0.772  
-#&gt;                     3rd Qu.:2020-11-28   3rd Qu.:3.0       3rd Qu.:1.000  
-#&gt;                     Max.   :2021-03-18   Max.   :3.0       Max.   :1.000  
-#&gt;                                          NA's   :4382      NA's   :30483  
+#&gt;  Length:124764      Min.   :2020-01-01   Min.   :0.000     Min.   :0.000  
+#&gt;  Class :character   1st Qu.:2020-04-20   1st Qu.:1.000     1st Qu.:1.000  
+#&gt;  Mode  :character   Median :2020-08-09   Median :2.000     Median :1.000  
+#&gt;                     Mean   :2020-08-09   Mean   :1.801     Mean   :0.772  
+#&gt;                     3rd Qu.:2020-11-28   3rd Qu.:3.000     3rd Qu.:1.000  
+#&gt;                     Max.   :2021-03-19   Max.   :3.000     Max.   :1.000  
+#&gt;                                          NA's   :4587      NA's   :30691  
 #&gt;  C2_Workplace closing    C2_Flag      C3_Cancel public events    C3_Flag     
 #&gt;  Min.   :0.0          Min.   :0.00    Min.   :0.000           Min.   :0.000  
 #&gt;  1st Qu.:0.0          1st Qu.:1.00    1st Qu.:1.000           1st Qu.:1.000  
 #&gt;  Median :2.0          Median :1.00    Median :2.000           Median :1.000  
-#&gt;  Mean   :1.4          Mean   :0.77    Mean   :1.347           Mean   :0.865  
+#&gt;  Mean   :1.4          Mean   :0.77    Mean   :1.348           Mean   :0.865  
 #&gt;  3rd Qu.:2.0          3rd Qu.:1.00    3rd Qu.:2.000           3rd Qu.:1.000  
 #&gt;  Max.   :3.0          Max.   :1.00    Max.   :2.000           Max.   :1.000  
-#&gt;  NA's   :4335         NA's   :37233   NA's   :4290            NA's   :30419  
+#&gt;  NA's   :4546         NA's   :37447   NA's   :4521            NA's   :30653  
 #&gt;  C4_Restrictions on gatherings    C4_Flag      C5_Close public transport
 #&gt;  Min.   :0.000                 Min.   :0.00    Min.   :0.000            
 #&gt;  1st Qu.:0.000                 1st Qu.:1.00    1st Qu.:0.000            
@@ -372,7 +372,7 @@
 #&gt;  Mean   :2.469                 Mean   :0.81    Mean   :0.542            
 #&gt;  3rd Qu.:4.000                 3rd Qu.:1.00    3rd Qu.:1.000            
 #&gt;  Max.   :4.000                 Max.   :1.00    Max.   :2.000            
-#&gt;  NA's   :4309                  NA's   :35882   NA's   :4595             
+#&gt;  NA's   :4539                  NA's   :36115   NA's   :4825             
 #&gt;     C5_Flag      C6_Stay at home requirements    C6_Flag     
 #&gt;  Min.   :0.00    Min.   :0.000                Min.   :0.00   
 #&gt;  1st Qu.:0.00    1st Qu.:0.000                1st Qu.:1.00   
@@ -380,15 +380,15 @@
 #&gt;  Mean   :0.66    Mean   :0.966                Mean   :0.75   
 #&gt;  3rd Qu.:1.00    3rd Qu.:2.000                3rd Qu.:1.00   
 #&gt;  Max.   :1.00    Max.   :3.000                Max.   :1.00   
-#&gt;  NA's   :72934   NA's   :4575                 NA's   :47690  
+#&gt;  NA's   :73176   NA's   :4805                 NA's   :47926  
 #&gt;  C7_Restrictions on internal movement    C7_Flag     
-#&gt;  Min.   :0.000                        Min.   :0.00   
-#&gt;  1st Qu.:0.000                        1st Qu.:0.00   
-#&gt;  Median :1.000                        Median :1.00   
-#&gt;  Mean   :0.939                        Mean   :0.69   
-#&gt;  3rd Qu.:2.000                        3rd Qu.:1.00   
-#&gt;  Max.   :2.000                        Max.   :1.00   
-#&gt;  NA's   :4567                         NA's   :53412  
+#&gt;  Min.   :0.00                         Min.   :0.00   
+#&gt;  1st Qu.:0.00                         1st Qu.:0.00   
+#&gt;  Median :1.00                         Median :1.00   
+#&gt;  Mean   :0.94                         Mean   :0.69   
+#&gt;  3rd Qu.:2.00                         3rd Qu.:1.00   
+#&gt;  Max.   :2.00                         Max.   :1.00   
+#&gt;  NA's   :4797                         NA's   :53653  
 #&gt;  C8_International travel controls E1_Income support    E1_Flag     
 #&gt;  Min.   :0.000                    Min.   :0.000     Min.   :0.00   
 #&gt;  1st Qu.:2.000                    1st Qu.:0.000     1st Qu.:0.00   
@@ -396,15 +396,15 @@
 #&gt;  Mean   :2.484                    Mean   :0.828     Mean   :0.51   
 #&gt;  3rd Qu.:3.000                    3rd Qu.:2.000     3rd Qu.:1.00   
 #&gt;  Max.   :4.000                    Max.   :2.000     Max.   :1.00   
-#&gt;  NA's   :5458                     NA's   :6507      NA's   :57455  
+#&gt;  NA's   :5688                     NA's   :6742      NA's   :57690  
 #&gt;  E2_Debt/contract relief E3_Fiscal measures  E4_International support
 #&gt;  Min.   :0.000           Min.   :0.000e+00   Min.   :0.000e+00       
 #&gt;  1st Qu.:0.000           1st Qu.:0.000e+00   1st Qu.:0.000e+00       
 #&gt;  Median :1.000           Median :0.000e+00   Median :0.000e+00       
-#&gt;  Mean   :0.962           Mean   :1.381e+08   Mean   :9.358e+06       
+#&gt;  Mean   :0.962           Mean   :1.380e+08   Mean   :9.351e+06       
 #&gt;  3rd Qu.:2.000           3rd Qu.:0.000e+00   3rd Qu.:0.000e+00       
 #&gt;  Max.   :2.000           Max.   :1.958e+12   Max.   :8.344e+11       
-#&gt;  NA's   :5988            NA's   :27986       NA's   :27946           
+#&gt;  NA's   :6218            NA's   :28197       NA's   :28152           
 #&gt;  H1_Public information campaigns    H1_Flag      H2_Testing policy
 #&gt;  Min.   :0.000                   Min.   :0.000   Min.   :0.000    
 #&gt;  1st Qu.:2.000                   1st Qu.:1.000   1st Qu.:1.000    
@@ -412,71 +412,71 @@
 #&gt;  Mean   :1.739                   Mean   :0.991   Mean   :1.678    
 #&gt;  3rd Qu.:2.000                   3rd Qu.:1.000   3rd Qu.:2.000    
 #&gt;  Max.   :2.000                   Max.   :1.000   Max.   :3.000    
-#&gt;  NA's   :4605                    NA's   :16704   NA's   :4737     
+#&gt;  NA's   :4835                    NA's   :16934   NA's   :4967     
 #&gt;  H3_Contact tracing H4_Emergency investment in healthcare
 #&gt;  Min.   :0.000      Min.   :0.000e+00                    
 #&gt;  1st Qu.:1.000      1st Qu.:0.000e+00                    
 #&gt;  Median :1.000      Median :0.000e+00                    
-#&gt;  Mean   :1.315      Mean   :8.624e+06                    
+#&gt;  Mean   :1.315      Mean   :1.483e+07                    
 #&gt;  3rd Qu.:2.000      3rd Qu.:0.000e+00                    
-#&gt;  Max.   :2.000      Max.   :2.424e+11                    
-#&gt;  NA's   :4873       NA's   :28202                        
+#&gt;  Max.   :2.000      Max.   :5.989e+11                    
+#&gt;  NA's   :5103       NA's   :28408                        
 #&gt;  H5_Investment in vaccines H6_Facial Coverings    H6_Flag     
 #&gt;  Min.   :0.000e+00         Min.   :0.000       Min.   :0.00   
 #&gt;  1st Qu.:0.000e+00         1st Qu.:0.000       1st Qu.:1.00   
 #&gt;  Median :0.000e+00         Median :2.000       Median :1.00   
-#&gt;  Mean   :5.938e+05         Mean   :1.976       Mean   :0.85   
+#&gt;  Mean   :5.942e+05         Mean   :1.977       Mean   :0.85   
 #&gt;  3rd Qu.:0.000e+00         3rd Qu.:3.000       3rd Qu.:1.00   
 #&gt;  Max.   :1.575e+10         Max.   :4.000       Max.   :1.00   
-#&gt;  NA's   :28066             NA's   :5140        NA's   :39999  
+#&gt;  NA's   :28272             NA's   :5370        NA's   :40229  
 #&gt;  H7_Vaccination policy    H7_Flag       M1_Wildcard    ConfirmedCases    
 #&gt;  Min.   :0.000         Min.   :0.00     Mode:logical   Min.   :       0  
-#&gt;  1st Qu.:0.000         1st Qu.:1.00     NA's:124483    1st Qu.:     357  
-#&gt;  Median :0.000         Median :1.00                    Median :    8882  
-#&gt;  Mean   :0.263         Mean   :0.99                    Mean   :  185136  
-#&gt;  3rd Qu.:0.000         3rd Qu.:1.00                    3rd Qu.:   94339  
-#&gt;  Max.   :5.000         Max.   :1.00                    Max.   :29549003  
-#&gt;  NA's   :21611         NA's   :112113                  NA's   :10715     
+#&gt;  1st Qu.:0.000         1st Qu.:1.00     NA's:124764    1st Qu.:     361  
+#&gt;  Median :0.000         Median :1.00                    Median :    8937  
+#&gt;  Mean   :0.265         Mean   :0.99                    Mean   :  186151  
+#&gt;  3rd Qu.:0.000         3rd Qu.:1.00                    3rd Qu.:   94976  
+#&gt;  Max.   :5.000         Max.   :1.00                    Max.   :29607483  
+#&gt;  NA's   :21841         NA's   :112343                  NA's   :10718     
 #&gt;  ConfirmedDeaths  StringencyIndex  StringencyIndexForDisplay
 #&gt;  Min.   :     0   Min.   :  0.00   Min.   :  0.00           
 #&gt;  1st Qu.:     6   1st Qu.: 36.11   1st Qu.: 36.11           
-#&gt;  Median :   171   Median : 57.87   Median : 57.87           
-#&gt;  Mean   :  4726   Mean   : 52.12   Mean   : 52.15           
-#&gt;  3rd Qu.:  2051   3rd Qu.: 72.22   3rd Qu.: 72.22           
-#&gt;  Max.   :536914   Max.   :100.00   Max.   :100.00           
-#&gt;  NA's   :10825    NA's   :4673     NA's   :3817             
+#&gt;  Median :   173   Median : 57.87   Median : 57.87           
+#&gt;  Mean   :  4746   Mean   : 52.13   Mean   : 52.15           
+#&gt;  3rd Qu.:  2061   3rd Qu.: 72.22   3rd Qu.: 72.22           
+#&gt;  Max.   :538087   Max.   :100.00   Max.   :100.00           
+#&gt;  NA's   :10828    NA's   :4904     NA's   :3964             
 #&gt;  StringencyLegacyIndex StringencyLegacyIndexForDisplay GovernmentResponseIndex
 #&gt;  Min.   :  0.00        Min.   :  0.00                  Min.   : 0.00          
-#&gt;  1st Qu.: 46.43        1st Qu.: 46.43                  1st Qu.:38.33          
+#&gt;  1st Qu.: 46.43        1st Qu.: 46.43                  1st Qu.:38.50          
 #&gt;  Median : 66.19        Median : 66.19                  Median :55.56          
-#&gt;  Mean   : 58.54        Mean   : 58.56                  Mean   :48.29          
+#&gt;  Mean   : 58.54        Mean   : 58.57                  Mean   :48.30          
 #&gt;  3rd Qu.: 78.57        3rd Qu.: 78.57                  3rd Qu.:65.00          
 #&gt;  Max.   :100.00        Max.   :100.00                  Max.   :89.17          
-#&gt;  NA's   :4671          NA's   :3815                    NA's   :4868           
+#&gt;  NA's   :4901          NA's   :3962                    NA's   :5099           
 #&gt;  GovernmentResponseIndexForDisplay ContainmentHealthIndex
 #&gt;  Min.   : 0.00                     Min.   : 0.00         
 #&gt;  1st Qu.:38.61                     1st Qu.:39.10         
 #&gt;  Median :55.56                     Median :56.73         
-#&gt;  Mean   :48.34                     Mean   :49.45         
+#&gt;  Mean   :48.35                     Mean   :49.45         
 #&gt;  3rd Qu.:65.00                     3rd Qu.:66.35         
 #&gt;  Max.   :89.17                     Max.   :91.35         
-#&gt;  NA's   :4002                      NA's   :4725          
+#&gt;  NA's   :4151                      NA's   :4956          
 #&gt;  ContainmentHealthIndexForDisplay EconomicSupportIndex
 #&gt;  Min.   : 0.00                    Min.   :  0.00      
 #&gt;  1st Qu.:39.10                    1st Qu.:  0.00      
 #&gt;  Median :56.92                    Median : 50.00      
-#&gt;  Mean   :49.50                    Mean   : 41.26      
+#&gt;  Mean   :49.51                    Mean   : 41.27      
 #&gt;  3rd Qu.:66.35                    3rd Qu.: 62.50      
 #&gt;  Max.   :91.35                    Max.   :100.00      
-#&gt;  NA's   :3869                     NA's   :6677        
+#&gt;  NA's   :4016                     NA's   :6912        
 #&gt;  EconomicSupportIndexForDisplay
 #&gt;  Min.   :  0.00                
 #&gt;  1st Qu.:  0.00                
 #&gt;  Median : 50.00                
-#&gt;  Mean   : 41.27                
+#&gt;  Mean   : 41.28                
 #&gt;  3rd Qu.: 62.50                
 #&gt;  Max.   :100.00                
-#&gt;  NA's   :5808                  </div><div class='input'>
+#&gt;  NA's   :5958                  </div><div class='input'>
 </div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
