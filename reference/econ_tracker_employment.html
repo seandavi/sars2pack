@@ -242,117 +242,49 @@
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
 <span class='va'>res</span> <span class='op'>=</span> <span class='fu'>econ_tracker_employment_city_data</span><span class='op'>(</span><span class='op'>)</span>
-<span class='va'>res</span>
-</div><div class='output co'>#&gt;        cityid    cityname stateabbrev  statename statefips   lat     lon
-#&gt;     1:      1 Los Angeles          CA California     00006 34.05 -118.24
-#&gt;     2:      1 Los Angeles          CA California     00006 34.05 -118.24
-#&gt;     3:      1 Los Angeles          CA California     00006 34.05 -118.24
-#&gt;     4:      1 Los Angeles          CA California     00006 34.05 -118.24
-#&gt;     5:      1 Los Angeles          CA California     00006 34.05 -118.24
-#&gt;    ---                                                                  
-#&gt; 80556:     53       Tulsa          OK   Oklahoma     00040 36.15  -95.99
-#&gt; 80557:     53       Tulsa          OK   Oklahoma     00040 36.15  -95.99
-#&gt; 80558:     53       Tulsa          OK   Oklahoma     00040 36.15  -95.99
-#&gt; 80559:     53       Tulsa          OK   Oklahoma     00040 36.15  -95.99
-#&gt; 80560:     53       Tulsa          OK   Oklahoma     00040 36.15  -95.99
-#&gt;        city_pop2019       date variable     value variable_type
-#&gt;     1:     10039107 2020-01-14 everyone -0.003990         total
-#&gt;     2:     10039107 2020-01-15 everyone -0.002250         total
-#&gt;     3:     10039107 2020-01-16 everyone -0.000713         total
-#&gt;     4:     10039107 2020-01-17 everyone  0.000591         total
-#&gt;     5:     10039107 2020-01-18 everyone  0.001650         total
-#&gt;    ---                                                         
-#&gt; 80556:       651552 2021-01-23  inchigh -0.053200         wages
-#&gt; 80557:       651552 2021-01-24  inchigh -0.055500         wages
-#&gt; 80558:       651552 2021-01-25  inchigh -0.057800         wages
-#&gt; 80559:       651552 2021-01-26  inchigh -0.059900         wages
-#&gt; 80560:       651552 2021-01-27  inchigh -0.061600         wages</div><div class='input'>
+</div><div class='output co'>#&gt; <span class='warning'>Warning: download failed</span>
+#&gt; <span class='warning'>  web resource path: ‘https://raw.githubusercontent.com/OpportunityInsights/EconomicTracker/main/data/Employment%20Combined%20-%20City%20-%20Daily.csv’</span>
+#&gt; <span class='warning'>  local file path: ‘/tmp/RtmpXRHpL1/BiocFileCache/9156cefbf06_Employment%2520Combined%2520-%2520City%2520-%2520Daily.csv’</span>
+#&gt; <span class='warning'>  reason: Not Found (HTTP 404).</span></div><div class='output co'>#&gt; <span class='warning'>Warning: bfcadd() failed; resource removed</span>
+#&gt; <span class='warning'>  rid: BFC26</span>
+#&gt; <span class='warning'>  fpath: ‘https://raw.githubusercontent.com/OpportunityInsights/EconomicTracker/main/data/Employment%20Combined%20-%20City%20-%20Daily.csv’</span>
+#&gt; <span class='warning'>  reason: download failed</span></div><div class='output co'>#&gt; <span class='error'>Error in .util_download(x, rid[i], proxy, config, "bfcadd()", ...): bfcadd() failed; see warnings()</span></div><div class='input'><span class='va'>res</span>
+</div><div class='output co'>#&gt; <span class='error'>Error in eval(expr, envir, enclos): object 'res' not found</span></div><div class='input'>
 <span class='va'>res</span> <span class='op'>=</span> <span class='fu'>econ_tracker_employment_county_data</span><span class='op'>(</span><span class='op'>)</span>
-<span class='va'>res</span>
-</div><div class='output co'>#&gt;          countyfips countyname cityid cityname    cz     czname statename
-#&gt;       1:      01001    Autauga     NA          11101 Montgomery   Alabama
-#&gt;       2:      01001    Autauga     NA          11101 Montgomery   Alabama
-#&gt;       3:      01001    Autauga     NA          11101 Montgomery   Alabama
-#&gt;       4:      01001    Autauga     NA          11101 Montgomery   Alabama
-#&gt;       5:      01001    Autauga     NA          11101 Montgomery   Alabama
-#&gt;      ---                                                                 
-#&gt; 4601036:      56045     Weston     NA          34601   Gillette   Wyoming
-#&gt; 4601037:      56045     Weston     NA          34601   Gillette   Wyoming
-#&gt; 4601038:      56045     Weston     NA          34601   Gillette   Wyoming
-#&gt; 4601039:      56045     Weston     NA          34601   Gillette   Wyoming
-#&gt; 4601040:      56045     Weston     NA          34601   Gillette   Wyoming
-#&gt;          statefips stateabbrev county_pop2019       date variable value
-#&gt;       1:     00001          AL          55869 2020-01-14 everyone    NA
-#&gt;       2:     00001          AL          55869 2020-01-15 everyone    NA
-#&gt;       3:     00001          AL          55869 2020-01-16 everyone    NA
-#&gt;       4:     00001          AL          55869 2020-01-17 everyone    NA
-#&gt;       5:     00001          AL          55869 2020-01-18 everyone    NA
-#&gt;      ---                                                               
-#&gt; 4601036:     00056          WY           6927 2021-01-23  inchigh    NA
-#&gt; 4601037:     00056          WY           6927 2021-01-24  inchigh    NA
-#&gt; 4601038:     00056          WY           6927 2021-01-25  inchigh    NA
-#&gt; 4601039:     00056          WY           6927 2021-01-26  inchigh    NA
-#&gt; 4601040:     00056          WY           6927 2021-01-27  inchigh    NA
-#&gt;          variable_type
-#&gt;       1:         total
-#&gt;       2:         total
-#&gt;       3:         total
-#&gt;       4:         total
-#&gt;       5:         total
-#&gt;      ---              
-#&gt; 4601036:         wages
-#&gt; 4601037:         wages
-#&gt; 4601038:         wages
-#&gt; 4601039:         wages
-#&gt; 4601040:         wages</div><div class='input'>
+</div><div class='output co'>#&gt; <span class='warning'>Warning: download failed</span>
+#&gt; <span class='warning'>  web resource path: ‘https://raw.githubusercontent.com/OpportunityInsights/EconomicTracker/main/data/Employment%20Combined%20-%20County%20-%20Daily.csv’</span>
+#&gt; <span class='warning'>  local file path: ‘/tmp/RtmpXRHpL1/BiocFileCache/91563bac418_Employment%2520Combined%2520-%2520County%2520-%2520Daily.csv’</span>
+#&gt; <span class='warning'>  reason: Not Found (HTTP 404).</span></div><div class='output co'>#&gt; <span class='warning'>Warning: bfcadd() failed; resource removed</span>
+#&gt; <span class='warning'>  rid: BFC27</span>
+#&gt; <span class='warning'>  fpath: ‘https://raw.githubusercontent.com/OpportunityInsights/EconomicTracker/main/data/Employment%20Combined%20-%20County%20-%20Daily.csv’</span>
+#&gt; <span class='warning'>  reason: download failed</span></div><div class='output co'>#&gt; <span class='error'>Error in .util_download(x, rid[i], proxy, config, "bfcadd()", ...): bfcadd() failed; see warnings()</span></div><div class='input'><span class='va'>res</span>
+</div><div class='output co'>#&gt; <span class='error'>Error in eval(expr, envir, enclos): object 'res' not found</span></div><div class='input'>
 
 <span class='va'>res</span> <span class='op'>=</span> <span class='fu'>econ_tracker_employment_state_data</span><span class='op'>(</span><span class='op'>)</span>
-<span class='va'>res</span>
-</div><div class='output co'>#&gt;         statefips statename stateabbrev state_pop2019       date variable
-#&gt;      1:     00001   Alabama          AL       4903185 2020-01-14 everyone
-#&gt;      2:     00001   Alabama          AL       4903185 2020-01-15 everyone
-#&gt;      3:     00001   Alabama          AL       4903185 2020-01-16 everyone
-#&gt;      4:     00001   Alabama          AL       4903185 2020-01-17 everyone
-#&gt;      5:     00001   Alabama          AL       4903185 2020-01-18 everyone
-#&gt;     ---                                                                  
-#&gt; 155036:     00056   Wyoming          WY        578759 2021-01-23     ss70
-#&gt; 155037:     00056   Wyoming          WY        578759 2021-01-24     ss70
-#&gt; 155038:     00056   Wyoming          WY        578759 2021-01-25     ss70
-#&gt; 155039:     00056   Wyoming          WY        578759 2021-01-26     ss70
-#&gt; 155040:     00056   Wyoming          WY        578759 2021-01-27     ss70
-#&gt;            value variable_type
-#&gt;      1: -0.00354         total
-#&gt;      2: -0.00317         total
-#&gt;      3: -0.00270         total
-#&gt;      4: -0.00216         total
-#&gt;      5: -0.00156         total
-#&gt;     ---                       
-#&gt; 155036: -0.13300         NAICS
-#&gt; 155037: -0.15500         NAICS
-#&gt; 155038: -0.17900         NAICS
-#&gt; 155039: -0.20500         NAICS
-#&gt; 155040: -0.23200         NAICS</div><div class='input'>
+</div><div class='output co'>#&gt; <span class='warning'>Warning: download failed</span>
+#&gt; <span class='warning'>  web resource path: ‘https://raw.githubusercontent.com/OpportunityInsights/EconomicTracker/main/data/Employment%20Combined%20-%20State%20-%20Daily.csv’</span>
+#&gt; <span class='warning'>  local file path: ‘/tmp/RtmpXRHpL1/BiocFileCache/91549ecf707_Employment%2520Combined%2520-%2520State%2520-%2520Daily.csv’</span>
+#&gt; <span class='warning'>  reason: Not Found (HTTP 404).</span></div><div class='output co'>#&gt; <span class='warning'>Warning: bfcadd() failed; resource removed</span>
+#&gt; <span class='warning'>  rid: BFC28</span>
+#&gt; <span class='warning'>  fpath: ‘https://raw.githubusercontent.com/OpportunityInsights/EconomicTracker/main/data/Employment%20Combined%20-%20State%20-%20Daily.csv’</span>
+#&gt; <span class='warning'>  reason: download failed</span></div><div class='output co'>#&gt; <span class='error'>Error in .util_download(x, rid[i], proxy, config, "bfcadd()", ...): bfcadd() failed; see warnings()</span></div><div class='input'><span class='va'>res</span>
+</div><div class='output co'>#&gt; <span class='error'>Error in eval(expr, envir, enclos): object 'res' not found</span></div><div class='input'>
 <span class='va'>res</span> <span class='op'>=</span> <span class='fu'>econ_tracker_employment_national_data</span><span class='op'>(</span><span class='op'>)</span>
-<span class='va'>res</span>
-</div><div class='output co'>#&gt;             date       variable     value variable_type
-#&gt;    1: 2020-01-14       everyone -0.002940         total
-#&gt;    2: 2020-01-15       everyone -0.001950         total
-#&gt;    3: 2020-01-16       everyone -0.001010         total
-#&gt;    4: 2020-01-17       everyone -0.000163         total
-#&gt;    5: 2020-01-18       everyone  0.000580         total
-#&gt;   ---                                                  
-#&gt; 4928: 2021-02-23 retail_inchigh        NA         total
-#&gt; 4929: 2021-02-24 retail_inchigh        NA         total
-#&gt; 4930: 2021-02-25 retail_inchigh        NA         total
-#&gt; 4931: 2021-02-26 retail_inchigh        NA         total
-#&gt; 4932: 2021-02-27 retail_inchigh        NA         total</div><div class='input'>
+</div><div class='output co'>#&gt; <span class='warning'>Warning: download failed</span>
+#&gt; <span class='warning'>  web resource path: ‘https://raw.githubusercontent.com/OpportunityInsights/EconomicTracker/main/data/Employment%20Combined%20-%20National%20-%20Daily.csv’</span>
+#&gt; <span class='warning'>  local file path: ‘/tmp/RtmpXRHpL1/BiocFileCache/915369d3af3_Employment%2520Combined%2520-%2520National%2520-%2520Daily.csv’</span>
+#&gt; <span class='warning'>  reason: Not Found (HTTP 404).</span></div><div class='output co'>#&gt; <span class='warning'>Warning: bfcadd() failed; resource removed</span>
+#&gt; <span class='warning'>  rid: BFC29</span>
+#&gt; <span class='warning'>  fpath: ‘https://raw.githubusercontent.com/OpportunityInsights/EconomicTracker/main/data/Employment%20Combined%20-%20National%20-%20Daily.csv’</span>
+#&gt; <span class='warning'>  reason: download failed</span></div><div class='output co'>#&gt; <span class='error'>Error in .util_download(x, rid[i], proxy, config, "bfcadd()", ...): bfcadd() failed; see warnings()</span></div><div class='input'><span class='va'>res</span>
+</div><div class='output co'>#&gt; <span class='error'>Error in eval(expr, envir, enclos): object 'res' not found</span></div><div class='input'>
 <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://ggplot2.tidyverse.org'>ggplot2</a></span><span class='op'>)</span>
 <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>res</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>date</span>,y<span class='op'>=</span><span class='va'>value</span>,color<span class='op'>=</span><span class='va'>variable</span>,lty<span class='op'>=</span><span class='va'>variable_type</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> 
     <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> 
     <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span><span class='op'>(</span><span class='st'>'Proportion of workforce employed in the United States'</span>, 
             subtitle<span class='op'>=</span><span class='st'>'Broken down by industry and income level, normalized to January 2020'</span><span class='op'>)</span> <span class='op'>+</span>
     <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ylab</a></span><span class='op'>(</span><span class='st'>'Proportion of workforce'</span><span class='op'>)</span> 
-</div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 248 row(s) containing missing values (geom_path).</span></div><div class='img'><img src='econ_tracker_employment-1.png' alt='' width='700' height='433' /></div><div class='input'>
+</div><div class='output co'>#&gt; <span class='error'>Error in ggplot(res, aes(x = date, y = value, color = variable, lty = variable_type)): object 'res' not found</span></div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

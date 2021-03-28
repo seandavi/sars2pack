@@ -209,24 +209,63 @@ This function will attempt to grab the latest version.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='va'>res</span> <span class='op'>=</span> <span class='fu'>cdc_aggregated_projections</span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='warning'>Warning: download failed</span>
-#&gt; <span class='warning'>  web resource path: ‘https://www.cdc.gov/coronavirus/2019-ncov/covid-data/files/2020-08-10-model-data.csv’</span>
-#&gt; <span class='warning'>  local file path: ‘/tmp/RtmpNdh2A0/BiocFileCache/915763237eb_2020-08-10-model-data.csv’</span>
-#&gt; <span class='warning'>  reason: Timeout was reached: [www.cdc.gov] Resolving timed out after 10000 milliseconds</span></div><div class='output co'>#&gt; <span class='warning'>Warning: bfcadd() failed; resource removed</span>
-#&gt; <span class='warning'>  rid: BFC12</span>
-#&gt; <span class='warning'>  fpath: ‘https://www.cdc.gov/coronavirus/2019-ncov/covid-data/files/2020-08-10-model-data.csv’</span>
-#&gt; <span class='warning'>  reason: download failed</span></div><div class='output co'>#&gt; <span class='error'>Error in .util_download(x, rid[i], proxy, config, "bfcadd()", ...): bfcadd() failed; see warnings()</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='error'>Error in head(res): object 'res' not found</span></div><div class='input'><span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://pillar.r-lib.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='error'>Error in dplyr::glimpse(res): object 'res' not found</span></div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 6 x 10</span><span>
+#&gt;   model forecast_date target target_week_end… location_name point quantile_0.025
+#&gt;   </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>         </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>  </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>            </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>         </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>          </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>
+#&gt; </span><span style='color: #BCBCBC;'>1</span><span> Auqu… 8/10/2020     1 wk … 8/15/2020        Alabama        </span><span style='text-decoration: underline;'>1</span><span>972           </span><span style='text-decoration: underline;'>1</span><span>938
+#&gt; </span><span style='color: #BCBCBC;'>2</span><span> Auqu… 8/10/2020     1 wk … 8/15/2020        Alaska           33             32
+#&gt; </span><span style='color: #BCBCBC;'>3</span><span> Auqu… 8/10/2020     1 wk … 8/15/2020        Arizona        </span><span style='text-decoration: underline;'>4</span><span>625           </span><span style='text-decoration: underline;'>4</span><span>552
+#&gt; </span><span style='color: #BCBCBC;'>4</span><span> Auqu… 8/10/2020     1 wk … 8/15/2020        Arkansas        644            627
+#&gt; </span><span style='color: #BCBCBC;'>5</span><span> Auqu… 8/10/2020     1 wk … 8/15/2020        California    </span><span style='text-decoration: underline;'>11</span><span>518          </span><span style='text-decoration: underline;'>11</span><span>328
+#&gt; </span><span style='color: #BCBCBC;'>6</span><span> Auqu… 8/10/2020     1 wk … 8/15/2020        Colorado       </span><span style='text-decoration: underline;'>1</span><span>957           </span><span style='text-decoration: underline;'>1</span><span>938
+#&gt; </span><span style='color: #949494;'># … with 3 more variables: quantile_0.25 &lt;dbl&gt;, quantile_0.75 &lt;dbl&gt;,</span><span>
+#&gt; </span><span style='color: #949494;'>#   quantile_0.975 &lt;dbl&gt;</span><span></div><div class='input'><span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://pillar.r-lib.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Rows: 11,196
+#&gt; Columns: 10
+#&gt; $ model                </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span> "Auquan", "Auquan", "Auquan", "Auquan", "Auquan",…
+#&gt; $ forecast_date        </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span> "8/10/2020", "8/10/2020", "8/10/2020", "8/10/2020…
+#&gt; $ target               </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span> "1 wk ahead cum death", "1 wk ahead cum death", "…
+#&gt; $ target_week_end_date </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span> "8/15/2020", "8/15/2020", "8/15/2020", "8/15/2020…
+#&gt; $ location_name        </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span> "Alabama", "Alaska", "Arizona", "Arkansas", "Cali…
+#&gt; $ point                </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> 1972, 33, 4625, 644, 11518, 1957, 4532, 621, 615,…
+#&gt; $ quantile_0.025       </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> 1938, 32, 4552, 627, 11328, 1938, 4517, 616, 611,…
+#&gt; $ quantile_0.25        </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> 1960, 33, 4598, 638, 11458, 1950, 4527, 619, 614,…
+#&gt; $ quantile_0.75        </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> 1983, 34, 4649, 650, 11584, 1962, 4537, 622, 616,…
+#&gt; $ quantile_0.975       </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> 2003, 34, 4691, 659, 11708, 1971, 4547, 625, 619,…</div><div class='input'>
 <span class='co'># available models</span>
 <span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>$</span><span class='va'>model</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='error'>Error in table(res$model): object 'res' not found</span></div><div class='input'>
+</div><div class='output co'>#&gt; 
+#&gt;             Auquan                CMU           Columbia       Columbia-UNC 
+#&gt;                208                204                416                  8 
+#&gt;                DDS           Ensemble               ERDC                ESG 
+#&gt;                416                456                416                432 
+#&gt;             Geneva            GT-CHHS       GT-DeepCOVID               IHME 
+#&gt;                112                  8                360                416 
+#&gt;                JCB                JHU             Karlen               LANL 
+#&gt;                448                448                416                432 
+#&gt;                LNQ              LSHTM            MIT-ORC               MOBS 
+#&gt;                456                224                208                408 
+#&gt;     NotreDame-FRED NotreDame-Mobility       Oliver Wyman                PSI 
+#&gt;                 56                440                416                440 
+#&gt;             QJHong             RPI-UW                STH                 UA 
+#&gt;                  8                264                 16                416 
+#&gt;               UCLA                UCM           UGA-CEID                 UM 
+#&gt;                440                 16                456                376 
+#&gt;           UMass-MB                USC                YYG 
+#&gt;                456                456                448 </div><div class='input'>
 <span class='co'># projection targets</span>
 <span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>$</span><span class='va'>target</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='error'>Error in table(res$target): object 'res' not found</span></div><div class='input'>
+</div><div class='output co'>#&gt; 
+#&gt; 1 wk ahead cum death 1 wk ahead inc death 2 wk ahead cum death 
+#&gt;                 1468                 1415                 1412 
+#&gt; 2 wk ahead inc death 3 wk ahead cum death 3 wk ahead inc death 
+#&gt;                 1359                 1412                 1359 
+#&gt; 4 wk ahead cum death 4 wk ahead inc death 
+#&gt;                 1412                 1359 </div><div class='input'>
 <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>min</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>$</span><span class='va'>forecast_date</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='error'>Error in eval(expr, envir, enclos): object 'res' not found</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>$</span><span class='va'>target_week_end_date</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='error'>Error in eval(expr, envir, enclos): object 'res' not found</span></div><div class='input'>
+</div><div class='output co'>#&gt; [1] "8/10/2020"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>$</span><span class='va'>target_week_end_date</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "9/5/2020"</div><div class='input'>
 <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://dplyr.tidyverse.org'>dplyr</a></span><span class='op'>)</span>
 <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://ggplot2.tidyverse.org'>ggplot2</a></span><span class='op'>)</span>
 
@@ -234,7 +273,7 @@ This function will attempt to grab the latest version.</p>
 <span class='va'>res_ny</span> <span class='op'>=</span> <span class='va'>res</span> <span class='op'>%&gt;%</span>
     <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>location_name</span><span class='op'>==</span><span class='st'>'New York'</span> <span class='op'>&amp;</span> <span class='fu'><a href='https://rdrr.io/r/base/grep.html'>grepl</a></span><span class='op'>(</span><span class='st'>'cum death'</span>, <span class='va'>target</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
     <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>model</span><span class='op'>!=</span><span class='st'>'UMass-MechBayes'</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='error'>Error in dplyr::filter(., location_name == "New York" &amp; grepl("cum death",     target)): object 'res' not found</span></div><div class='input'><span class='va'>res_ny</span> <span class='op'>%&gt;%</span>
+<span class='va'>res_ny</span> <span class='op'>%&gt;%</span>
     <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>location_name</span><span class='op'>==</span><span class='st'>'New York'</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
     <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>model</span>, y<span class='op'>=</span><span class='va'>point</span>, color<span class='op'>=</span><span class='va'>model</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
     <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_linerange.html'>geom_errorbar</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>ymin<span class='op'>=</span> <span class='va'>quantile_0.025</span>, ymax <span class='op'>=</span>  <span class='va'>quantile_0.975</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
@@ -244,7 +283,7 @@ This function will attempt to grab the latest version.</p>
     <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_bw</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
     <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>axis.text.x<span class='op'>=</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
     <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span><span class='op'>(</span><span class='st'>'Projected New York deaths for week ending'</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='error'>Error in dplyr::filter(., location_name == "New York"): object 'res_ny' not found</span></div><div class='input'><span class='co'>#'</span>
+</div><div class='img'><img src='cdc_aggregated_projections-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'>#'</span>
 <span class='co'># combined view</span>
 <span class='va'>pd</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/position_dodge.html'>position_dodge</a></span><span class='op'>(</span>width <span class='op'>=</span> <span class='fl'>3</span><span class='op'>)</span> <span class='co'># use this to offset points and error bars</span>
 <span class='va'>res_ny</span> <span class='op'>%&gt;%</span>
@@ -256,9 +295,10 @@ This function will attempt to grab the latest version.</p>
     <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_bw</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
     <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>legend.position<span class='op'>=</span><span class='st'>'bottom'</span><span class='op'>)</span> <span class='op'>+</span>
     <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span><span class='op'>(</span><span class='st'>'Projected New York deaths for week ending'</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='error'>Error in ggplot(., aes(x = target_week_end_date, y = point, color = model)): object 'res_ny' not found</span></div><div class='input'>
+</div><div class='output co'>#&gt; <span class='warning'>Warning: position_dodge requires non-overlapping x intervals</span></div><div class='output co'>#&gt; <span class='warning'>Warning: position_dodge requires non-overlapping x intervals</span></div><div class='output co'>#&gt; <span class='message'>geom_path: Each group consists of only one observation. Do you need to adjust</span>
+#&gt; <span class='message'>the group aesthetic?</span></div><div class='img'><img src='cdc_aggregated_projections-2.png' alt='' width='700' height='433' /></div><div class='input'>
 
-</div></pre>
+</div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
