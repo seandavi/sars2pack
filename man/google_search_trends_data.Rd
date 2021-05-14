@@ -7,7 +7,12 @@
 \url{https://github.com/GoogleCloudPlatform/covid-19-open-data}
 }
 \usage{
-google_search_trends_data(verbose = TRUE)
+google_search_trends_data(nrows = Inf)
+}
+\arguments{
+\item{nrows}{integer(1) passed directly to \code{\link[data.table:fread]{data.table::fread()}}. Note that
+fread treats this as the \emph{maximum} number of rows to read, not the \emph{exact}
+number of rows.}
 }
 \value{
 a data.table
@@ -68,7 +73,7 @@ Use of this dataset implies acceptance of Google's terms of use \url{https://pol
 # Do not expect this example to run without sufficient
 # memory.
 
-res = google_search_trends_data()
+res = google_search_trends_data(nrows=50000)
 
 head(res[,1:10])
 colnames(res)

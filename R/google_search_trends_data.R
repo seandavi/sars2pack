@@ -44,6 +44,10 @@
 #' Finally, we store the scaling factor and use it to scale values (for the same region and time resolution) in subsequent releases. In future updates, when a symptom popularity exceeds the previously-observed maximum value (found in step 3), then the new scaled value will be larger than 100.
 #' In each region, we scale all the normalized (daily / weekly) popularities using the same scaling factor. In a single region, you can compare the relative popularity of two (or more) symptoms (at the same time resolution) over any time interval. However, you should not compare the values of symptom popularity across regions or time resolutions — the region and time resolution specific scalings make these comparisons meaningless.
 #'
+#' @param nrows integer(1) passed directly to [data.table::fread()]. Note that
+#'   fread treats this as the *maximum* number of rows to read, not the *exact*
+#'   number of rows. 
+#'
 #' @note
 #' Use of this dataset implies acceptance of Google's terms of use \url{https://policies.google.com/terms}.
 #'
@@ -66,7 +70,7 @@
 #' # Do not expect this example to run without sufficient
 #' # memory.
 #' 
-#' res = google_search_trends_data()
+#' res = google_search_trends_data(nrows=50000)
 #'
 #' head(res[,1:10])
 #' colnames(res)
@@ -74,11 +78,11 @@
 #' }
 #'
 #' @export
-google_search_trends_data <- function() {
-  message("This is a VERY large dataset that may take some time to load and requires about 5GB of free RAM to load")
+google_search_trends_data <- function(nrows=Inf) {
+  message("This is a VERY large dataset that may take some time to load \nand requires multiple GB of free RAM to load. \nConsider setting nrows to a smaller value to test first. ")
   url = 'https://storage.googleapis.com/covid19-open-data/v2/index.csv'
   rpath = s2p_cached_url(url)
-  idx_data = data.table::fread(rpath,na.strings = '')
+  idx_data = data.table::fread(rpath,na.strings = '',nrows = nrows)
   data.table::setkey(idx_data,"key")
   url = "https://storage.googleapis.com/covid19-open-data/v2/google-search-trends.csv"
   rpath = s2p_cached_url(url)
