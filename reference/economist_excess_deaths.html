@@ -83,7 +83,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sars2pack</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.99.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.99.20</span>
       </span>
     </div>
 
@@ -218,7 +218,7 @@
 #&gt;  [5] "end_date"        "days"            "year"            "month"          
 #&gt;  [9] "population"      "total_deaths"    "covid_deaths"    "expected_deaths"
 #&gt; [13] "quarter"         "week"           </div><div class='input'><span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://pillar.r-lib.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Rows: 23,558
+</div><div class='output co'>#&gt; Rows: 25,086
 #&gt; Columns: 14
 #&gt; $ country         <span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span> "Albania", "Albania", "Albania", "Albania", "Albania",…
 #&gt; $ region          </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span> "Albania", "Albania", "Albania", "Albania", "Albania",…
@@ -241,11 +241,11 @@
 #&gt;     4:    Albania    Albania           0 2020-04-01 2020-04-30   30 2020     4
 #&gt;     5:    Albania    Albania           0 2020-05-01 2020-05-31   31 2020     5
 #&gt;    ---                                                                        
-#&gt; 23554: Uzbekistan Uzbekistan           0 2020-08-01 2020-08-31   31 2020     8
-#&gt; 23555: Uzbekistan Uzbekistan           0 2020-09-01 2020-09-30   30 2020     9
-#&gt; 23556: Uzbekistan Uzbekistan           0 2020-10-01 2020-10-31   31 2020    10
-#&gt; 23557: Uzbekistan Uzbekistan           0 2020-11-01 2020-11-30   30 2020    11
-#&gt; 23558: Uzbekistan Uzbekistan           0 2020-12-01 2020-12-31   31 2020    12
+#&gt; 25082: Uzbekistan Uzbekistan           0 2020-11-01 2020-11-30   30 2020    11
+#&gt; 25083: Uzbekistan Uzbekistan           0 2020-12-01 2020-12-31   31 2020    12
+#&gt; 25084: Uzbekistan Uzbekistan           0 2021-01-01 2021-01-31   31 2021     1
+#&gt; 25085: Uzbekistan Uzbekistan           0 2021-02-01 2021-02-28   28 2021     2
+#&gt; 25086: Uzbekistan Uzbekistan           0 2021-03-01 2021-03-31   31 2021     3
 #&gt;        population total_deaths covid_deaths expected_deaths quarter week
 #&gt;     1:    2845955         2187            0              NA      NA   NA
 #&gt;     2:    2845955         2018            0              NA      NA   NA
@@ -253,11 +253,11 @@
 #&gt;     4:    2845955         1804           16              NA      NA   NA
 #&gt;     5:    2845955         1803            2              NA      NA   NA
 #&gt;    ---                                                                  
-#&gt; 23554:   33570609        20706          179              NA      NA   NA
-#&gt; 23555:   33570609        13161          150              NA      NA   NA
-#&gt; 23556:   33570609        15629           96              NA      NA   NA
-#&gt; 23557:   33570609        14204           44              NA      NA   NA
-#&gt; 23558:   33570609        19938            4              NA      NA   NA</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/unique.html'>unique</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>$</span><span class='va'>country</span><span class='op'>)</span>
+#&gt; 25082:   33570609        14204           44              NA      NA   NA
+#&gt; 25083:   33570609        19938            4              NA      NA   NA
+#&gt; 25084:   33570609        11921            7              NA      NA   NA
+#&gt; 25085:   33570609        14002            1              NA      NA   NA
+#&gt; 25086:   33570609        13676            7              NA      NA   NA</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/unique.html'>unique</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>$</span><span class='va'>country</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;  [1] "Albania"                "Armenia"                "Azerbaijan"            
 #&gt;  [4] "Belarus"                "Bolivia"                "Bosnia and Herzegovina"
 #&gt;  [7] "Brazil"                 "Costa Rica"             "Ecuador"               
@@ -266,21 +266,21 @@
 #&gt; [16] "Kazakhstan"             "Kosovo"                 "Kyrgyzstan"            
 #&gt; [19] "Mauritius"              "Moldova"                "Mongolia"              
 #&gt; [22] "Nicaragua"              "North Macedonia"        "Oman"                  
-#&gt; [25] "Panama"                 "Paraguay"               "Peru"                  
-#&gt; [28] "Philippines"            "Qatar"                  "Russia"                
-#&gt; [31] "Serbia"                 "Singapore"              "Thailand"              
-#&gt; [34] "Ukraine"                "Uzbekistan"             "Iran"                  
-#&gt; [37] "Malaysia"               "Tajikistan"             "Australia"             
-#&gt; [40] "Austria"                "Belgium"                "Britain"               
-#&gt; [43] "Bulgaria"               "Canada"                 "Chile"                 
-#&gt; [46] "Colombia"               "Croatia"                "Cyprus"                
-#&gt; [49] "Czech Republic"         "Denmark"                "Estonia"               
-#&gt; [52] "Finland"                "France"                 "Germany"               
-#&gt; [55] "Greece"                 "Hungary"                "Iceland"               
-#&gt; [58] "Israel"                 "Italy"                  "Latvia"                
-#&gt; [61] "Lithuania"              "Luxembourg"             "Malta"                 
-#&gt; [64] "Mexico"                 "Montenegro"             "Netherlands"           
-#&gt; [67] "New Zealand"            "Norway"                 "Poland"                
+#&gt; [25] "Panama"                 "Paraguay"               "Philippines"           
+#&gt; [28] "Qatar"                  "Russia"                 "Serbia"                
+#&gt; [31] "Singapore"              "Thailand"               "Ukraine"               
+#&gt; [34] "Uzbekistan"             "Iran"                   "Malaysia"              
+#&gt; [37] "Tajikistan"             "Australia"              "Austria"               
+#&gt; [40] "Belgium"                "Britain"                "Bulgaria"              
+#&gt; [43] "Canada"                 "Chile"                  "Colombia"              
+#&gt; [46] "Croatia"                "Cyprus"                 "Czech Republic"        
+#&gt; [49] "Denmark"                "Estonia"                "Finland"               
+#&gt; [52] "France"                 "Germany"                "Greece"                
+#&gt; [55] "Hungary"                "Iceland"                "Israel"                
+#&gt; [58] "Italy"                  "Latvia"                 "Lithuania"             
+#&gt; [61] "Luxembourg"             "Malta"                  "Mexico"                
+#&gt; [64] "Montenegro"             "Netherlands"            "New Zealand"           
+#&gt; [67] "Norway"                 "Peru"                   "Poland"                
 #&gt; [70] "Portugal"               "Romania"                "Slovakia"              
 #&gt; [73] "Slovenia"               "South Africa"           "South Korea"           
 #&gt; [76] "Spain"                  "Sweden"                 "Switzerland"           
