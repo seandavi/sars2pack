@@ -84,7 +84,7 @@ ecdc_data <- function() {
                         iso3c='countryterritoryCode',
                         continent='continentExp',
                         population_2019='popData2019')) %>%
-        tidyr::pivot_longer(cols = .data$cases_weekly:.data$deaths_weekly,names_to='subset',values_to = 'count') %>%
+        tidyr::pivot_longer(cols = .data$cases:.data$deaths,names_to='subset',values_to = 'count') %>%
         dplyr::mutate(date=lubridate::dmy(.data$date)) %>%
         dplyr::group_by(.data$location_name,.data$subset) %>%
         dplyr::arrange(.data$date) %>%
