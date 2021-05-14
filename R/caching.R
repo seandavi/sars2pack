@@ -28,7 +28,7 @@ s2p_cached_url <- function(url, rname = url, ask_on_update=FALSE,
     if(!length(rid)) {
         rid = names(bfcadd(bfc, rname, url))
     } else {
-        fileage = lubridate::now() -
+        fileage = lubridate::as_datetime(Sys.time()) -
             lubridate::parse_date_time2(bfcres$access_time, "YmdHMS", tz=Sys.timezone())
     }
     # if needs update, do the download

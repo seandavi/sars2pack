@@ -181,16 +181,18 @@ datasets:
       end_date:
       - IDate
       - Date
+      days: integer
       year: integer
       month: integer
       population: integer
-      total_deaths: numeric
+      total_deaths: integer
       covid_deaths: numeric
       expected_deaths: numeric
+      quarter: integer
       week: integer
     dimensions:
-      nrow: 15280
-      ncol: 12
+      nrow: 25086
+      ncol: 14
   financial_times_excess_deaths:
     columns:
       country: character
@@ -203,13 +205,13 @@ datasets:
       deaths: numeric
       expected_deaths: numeric
       excess_deaths: numeric
-      excess_deaths_pct: numeric
+      total_excess_deaths_pct: numeric
     dimensions:
-      nrow: 97429
+      nrow: 88422
       ncol: 11
     dates:
       min: '2000-01-07'
-      max: '2020-12-16'
+      max: '2021-05-02'
   us_county_health_rankings:
     columns:
       statecode: integer
@@ -227,7 +229,7 @@ datasets:
   coronanet_government_response_data:
     columns:
       record_id: character
-      policy_id: numeric
+      policy_id: character
       entry_type: character
       correct_type: character
       update_type: character
@@ -242,6 +244,7 @@ datasets:
       init_country_level: character
       domestic_policy: numeric
       province: character
+      ISO_L2: character
       city: character
       type: character
       type_sub_cat: character
@@ -258,18 +261,18 @@ datasets:
       travel_mechanism: character
       compliance: character
       enforcer: character
-      index_high_est: numeric
-      index_med_est: numeric
-      index_low_est: numeric
-      index_country_rank: numeric
+      dist_index_high_est: numeric
+      dist_index_med_est: numeric
+      dist_index_low_est: numeric
+      dist_index_country_rank: numeric
       link: character
       date_updated: Date
       recorded_date:
       - POSIXct
       - POSIXt
     dimensions:
-      nrow: 49494
-      ncol: 39
+      nrow: 69824
+      ncol: 40
   country_metadata:
     columns:
       name: character
@@ -332,7 +335,12 @@ datasets:
       tests_per_case: numeric
       tests_units: character
       total_vaccinations: numeric
+      people_vaccinated: numeric
+      people_fully_vaccinated: numeric
+      new_vaccinations: numeric
       total_vaccinations_per_hundred: numeric
+      people_vaccinated_per_hundred: numeric
+      people_fully_vaccinated_per_hundred: numeric
       stringency_index: numeric
       population: numeric
       population_density: numeric
@@ -350,11 +358,11 @@ datasets:
       life_expectancy: numeric
       human_development_index: numeric
     dimensions:
-      nrow: 56854
-      ncol: 46
+      nrow: 87950
+      ncol: 51
     dates:
       min: '2020-01-01'
-      max: '2020-12-29'
+      max: '2021-05-12'
   cov_glue_lineage_data:
     columns:
       GISAID ID: character
@@ -463,17 +471,20 @@ datasets:
       admin2: character
       metro_area: character
       iso_3166_2_code: character
-      census_fips_code: character
-      date: Date
+      census_fips_code: integer
+      place_id: character
+      date:
+      - IDate
+      - Date
       admin_level: numeric
       places_category: character
-      percent_change_from_baseline: numeric
+      percent_change_from_baseline: integer
     dimensions:
-      nrow: 21333762
-      ncol: 11
+      nrow: 32012058
+      ncol: 12
     dates:
       min: '2020-02-15'
-      max: '2020-12-18'
+      max: '2021-05-10'
   google_search_trends_data:
     columns:
       key: character
@@ -1305,13 +1316,9 @@ datasets:
       rereviewed: integer
       updatingsource1: character
       updatingsource2: character
-      v40: logical
-      v41: logical
-      v42: logical
-      v43: logical
     dimensions:
-      nrow: 9423
-      ncol: 43
+      nrow: 10107
+      ncol: 39
   oecd_unemployment_data:
     columns:
       iso3c: character
@@ -1718,5 +1725,5 @@ datasets:
     dates:
       min: '2020-01-14'
       max: '2020-10-15'
-eval_date: '2021-01-21'
+eval_date: '2021-05-13'
 
