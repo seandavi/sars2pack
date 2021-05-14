@@ -69,12 +69,13 @@
 #' # This example loads the dataset which is large. 
 #' # Do not expect this example to run without sufficient
 #' # memory.
-#' 
+#' \dontrun{
 #' res = google_search_trends_data(nrows=50000)
 #'
 #' head(res[,1:10])
 #' colnames(res)
 #' grep('fever',colnames(res))
+#' }
 #' }
 #'
 #' @export
