@@ -206,101 +206,19 @@
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='va'>res</span> <span class='op'>=</span> <span class='fu'>us_hospital_details</span><span class='op'>(</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Simple feature collection with 6 features and 32 fields
-#&gt; Attribute-geometry relationship: 32 constant, 0 aggregate, 0 identity
-#&gt; Geometry type: POINT
-#&gt; Dimension:     XY
-#&gt; Bounding box:  xmin: -119.6457 ymin: 33.85971 xmax: -117.9674 ymax: 36.33616
-#&gt; Geodetic CRS:  WGS 84
-#&gt; <span style='color: #949494;'># A tibble: 6 x 33</span><span>
-#&gt;       x     y objectid id     name    address  city  state zip   zip4  telephone
-#&gt;   </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>    </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>  </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>    </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>    
-#&gt; </span><span style='color: #BCBCBC;'>1</span><span> -</span><span style='color: #BB0000;'>120.</span><span>  36.3        1 00057… CENTRA… 1025 NO… HANF… CA    93230 NOT … NOT AVAI…
-#&gt; </span><span style='color: #BCBCBC;'>2</span><span> -</span><span style='color: #BB0000;'>119.</span><span>  34.2        2 00533… LOS RO… 150 VIA… WEST… CA    91362 NOT … NOT AVAI…
-#&gt; </span><span style='color: #BCBCBC;'>3</span><span> -</span><span style='color: #BB0000;'>118.</span><span>  34.0        3 00111… EAST L… 4060 WH… LOS … CA    90023 NOT … NOT AVAI…
-#&gt; </span><span style='color: #BCBCBC;'>4</span><span> -</span><span style='color: #BB0000;'>118.</span><span>  34.1        4 00170… SOUTHE… 6245 DE… HOLL… CA    90028 NOT … (323) 46…
-#&gt; </span><span style='color: #BCBCBC;'>5</span><span> -</span><span style='color: #BB0000;'>118.</span><span>  34.1        5 00236… KINDRE… 14148 F… BALD… CA    91706 NOT … NOT AVAI…
-#&gt; </span><span style='color: #BCBCBC;'>6</span><span> -</span><span style='color: #BB0000;'>118.</span><span>  33.9        6 00251… LAKEWO… 3700 EA… LAKE… CA    90712 NOT … NOT AVAI…
-#&gt; </span><span style='color: #949494;'># … with 22 more variables: type &lt;chr&gt;, status &lt;chr&gt;, population &lt;dbl&gt;,</span><span>
-#&gt; </span><span style='color: #949494;'>#   county &lt;chr&gt;, countyfips &lt;chr&gt;, country &lt;chr&gt;, naics_code &lt;dbl&gt;,</span><span>
-#&gt; </span><span style='color: #949494;'>#   naics_desc &lt;chr&gt;, source &lt;chr&gt;, sourcedate &lt;chr&gt;, val_method &lt;chr&gt;,</span><span>
-#&gt; </span><span style='color: #949494;'>#   val_date &lt;chr&gt;, website &lt;chr&gt;, state_id &lt;chr&gt;, alt_name &lt;chr&gt;,</span><span>
-#&gt; </span><span style='color: #949494;'>#   st_fips &lt;chr&gt;, owner &lt;chr&gt;, ttl_staff &lt;dbl&gt;, beds &lt;dbl&gt;, trauma &lt;chr&gt;,</span><span>
-#&gt; </span><span style='color: #949494;'>#   helipad &lt;chr&gt;, geometry &lt;POINT [°]&gt;</span><span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;  [1] "x"          "y"          "objectid"   "id"         "name"      
-#&gt;  [6] "address"    "city"       "state"      "zip"        "zip4"      
-#&gt; [11] "telephone"  "type"       "status"     "population" "county"    
-#&gt; [16] "countyfips" "country"    "naics_code" "naics_desc" "source"    
-#&gt; [21] "sourcedate" "val_method" "val_date"   "website"    "state_id"  
-#&gt; [26] "alt_name"   "st_fips"    "owner"      "ttl_staff"  "beds"      
-#&gt; [31] "trauma"     "helipad"    "geometry"  </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;        x                 y             objectid         id           
-#&gt;  Min.   :-176.64   Min.   :-14.29   Min.   :   1   Length:7596       
-#&gt;  1st Qu.: -98.22   1st Qu.: 33.46   1st Qu.:1902   Class :character  
-#&gt;  Median : -90.09   Median : 37.97   Median :3802   Mode  :character  
-#&gt;  Mean   : -92.40   Mean   : 37.32   Mean   :3804                     
-#&gt;  3rd Qu.: -81.74   3rd Qu.: 41.30   3rd Qu.:5707                     
-#&gt;  Max.   : 145.72   Max.   : 71.30   Max.   :7611                     
-#&gt;      name             address              city              state          
-#&gt;  Length:7596        Length:7596        Length:7596        Length:7596       
-#&gt;  Class :character   Class :character   Class :character   Class :character  
-#&gt;  Mode  :character   Mode  :character   Mode  :character   Mode  :character  
-#&gt;                                                                             
-#&gt;                                                                             
-#&gt;                                                                             
-#&gt;      zip                zip4            telephone             type          
-#&gt;  Length:7596        Length:7596        Length:7596        Length:7596       
-#&gt;  Class :character   Class :character   Class :character   Class :character  
-#&gt;  Mode  :character   Mode  :character   Mode  :character   Mode  :character  
-#&gt;                                                                             
-#&gt;                                                                             
-#&gt;                                                                             
-#&gt;     status            population         county           countyfips       
-#&gt;  Length:7596        Min.   :-999.00   Length:7596        Length:7596       
-#&gt;  Class :character   1st Qu.:  25.00   Class :character   Class :character  
-#&gt;  Mode  :character   Median :  72.00   Mode  :character   Mode  :character  
-#&gt;                     Mean   :  99.85                                        
-#&gt;                     3rd Qu.: 187.00                                        
-#&gt;                     Max.   :1592.00                                        
-#&gt;    country            naics_code      naics_desc           source         
-#&gt;  Length:7596        Min.   :622110   Length:7596        Length:7596       
-#&gt;  Class :character   1st Qu.:622110   Class :character   Class :character  
-#&gt;  Mode  :character   Median :622110   Mode  :character   Mode  :character  
-#&gt;                     Mean   :622142                                        
-#&gt;                     3rd Qu.:622110                                        
-#&gt;                     Max.   :622310                                        
-#&gt;   sourcedate         val_method          val_date           website         
-#&gt;  Length:7596        Length:7596        Length:7596        Length:7596       
-#&gt;  Class :character   Class :character   Class :character   Class :character  
-#&gt;  Mode  :character   Mode  :character   Mode  :character   Mode  :character  
-#&gt;                                                                             
-#&gt;                                                                             
-#&gt;                                                                             
-#&gt;    state_id           alt_name           st_fips             owner          
-#&gt;  Length:7596        Length:7596        Length:7596        Length:7596       
-#&gt;  Class :character   Class :character   Class :character   Class :character  
-#&gt;  Mode  :character   Mode  :character   Mode  :character   Mode  :character  
-#&gt;                                                                             
-#&gt;                                                                             
-#&gt;                                                                             
-#&gt;    ttl_staff         beds            trauma            helipad         
-#&gt;  Min.   :-999   Min.   :-999.00   Length:7596        Length:7596       
-#&gt;  1st Qu.:-999   1st Qu.:  25.00   Class :character   Class :character  
-#&gt;  Median :-999   Median :  72.00   Mode  :character   Mode  :character  
-#&gt;  Mean   :-999   Mean   :  99.85                                        
-#&gt;  3rd Qu.:-999   3rd Qu.: 187.00                                        
-#&gt;  Max.   :-999   Max.   :1592.00                                        
-#&gt;           geometry   
-#&gt;  POINT        :7596  
-#&gt;  epsg:4326    :   0  
-#&gt;  +proj=long...:   0  
-#&gt;                      
-#&gt;                      
-#&gt;                      </div><div class='input'>
+</div><div class='output co'>#&gt; <span class='warning'>Warning: download failed</span>
+#&gt; <span class='warning'>  web resource path: ‘https://opendata.arcgis.com/datasets/6ac5e325468c4cb9b905f1728d6fbf0f_0.csv’</span>
+#&gt; <span class='warning'>  local file path: ‘/tmp/Rtmpzvdqxs/BiocFileCache/90e278e944_6ac5e325468c4cb9b905f1728d6fbf0f_0.csv’</span>
+#&gt; <span class='warning'>  reason: Bad Gateway (HTTP 502).</span></div><div class='output co'>#&gt; <span class='warning'>Warning: bfcadd() failed; resource removed</span>
+#&gt; <span class='warning'>  rid: BFC131</span>
+#&gt; <span class='warning'>  fpath: ‘https://opendata.arcgis.com/datasets/6ac5e325468c4cb9b905f1728d6fbf0f_0.csv’</span>
+#&gt; <span class='warning'>  reason: download failed</span></div><div class='output co'>#&gt; <span class='error'>Error in .util_download(x, rid[i], proxy, config, "bfcadd()", ...): bfcadd() failed; see warnings()</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='error'>Error in head(res): object 'res' not found</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='error'>Error in is.data.frame(x): object 'res' not found</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='error'>Error in summary(res): object 'res' not found</span></div><div class='input'>
 
 
-</div></span></pre>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
