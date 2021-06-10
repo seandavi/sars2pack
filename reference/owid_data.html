@@ -249,7 +249,7 @@ Retrieved from: 'https://ourworldindata.org/coronavirus'</p>
 #&gt; [45] "diabetes_prevalence"                 "female_smokers"                     
 #&gt; [47] "male_smokers"                        "handwashing_facilities"             
 #&gt; [49] "hospital_beds_per_thousand"          "life_expectancy"                    
-#&gt; [51] "human_development_index"            </div><div class='input'>
+#&gt; [51] "human_development_index"             "excess_mortality"                   </div><div class='input'>
 <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;    iso3c continent     country       date confirmed new_cases deaths new_deaths
 #&gt; 1:   AFG      Asia Afghanistan 2020-02-24         1         1     NA         NA
@@ -348,10 +348,17 @@ Retrieved from: 'https://ourworldindata.org/coronavirus'</p>
 #&gt; 3:                        0.5           64.83                   0.511
 #&gt; 4:                        0.5           64.83                   0.511
 #&gt; 5:                        0.5           64.83                   0.511
-#&gt; 6:                        0.5           64.83                   0.511</div><div class='input'>
+#&gt; 6:                        0.5           64.83                   0.511
+#&gt;    excess_mortality
+#&gt; 1:               NA
+#&gt; 2:               NA
+#&gt; 3:               NA
+#&gt; 4:               NA
+#&gt; 5:               NA
+#&gt; 6:               NA</div><div class='input'>
 <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://pillar.r-lib.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Rows: 94,158
-#&gt; Columns: 51
+</div><div class='output co'>#&gt; Rows: 94,441
+#&gt; Columns: 52
 #&gt; $ iso3c                               <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "AFG", "AFG", "AFG", "AFG", "AFG",…
 #&gt; $ continent                           <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "Asia", "Asia", "Asia", "Asia", "A…
 #&gt; $ country                             <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "Afghanistan", "Afghanistan", "Afg…
@@ -402,7 +409,8 @@ Retrieved from: 'https://ourworldindata.org/coronavirus'</p>
 #&gt; $ handwashing_facilities              <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 37.746, 37.746, 37.746, 37.746, 37…
 #&gt; $ hospital_beds_per_thousand          <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5,…
 #&gt; $ life_expectancy                     <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 64.83, 64.83, 64.83, 64.83, 64.83,…
-#&gt; $ human_development_index             <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 0.511, 0.511, 0.511, 0.511, 0.511,…</div><div class='input'>  
+#&gt; $ human_development_index             <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 0.511, 0.511, 0.511, 0.511, 0.511,…
+#&gt; $ excess_mortality                    <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA…</div><div class='input'>  
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
