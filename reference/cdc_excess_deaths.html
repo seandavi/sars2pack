@@ -252,12 +252,12 @@ limitations can be found in the <a href='https://www.cdc.gov/nchs/nvss/vsrr/covi
 </div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 6 x 13</span>
 #&gt;   date       state  deaths upper_bound_thres… exceeds_thresho… average_expected…
 #&gt;   <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>              <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;lgl&gt;</span>                        <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>
-#&gt; <span style='color: #BCBCBC;'>1</span> 2017-01-14 Alaba…   <span style='text-decoration: underline;'>1</span>130               <span style='text-decoration: underline;'>1</span>163 FALSE                         <span style='text-decoration: underline;'>1</span>035
-#&gt; <span style='color: #BCBCBC;'>2</span> 2017-01-21 Alaba…   <span style='text-decoration: underline;'>1</span>048               <span style='text-decoration: underline;'>1</span>167 FALSE                         <span style='text-decoration: underline;'>1</span>041
-#&gt; <span style='color: #BCBCBC;'>3</span> 2017-01-28 Alaba…   <span style='text-decoration: underline;'>1</span>026               <span style='text-decoration: underline;'>1</span>190 FALSE                         <span style='text-decoration: underline;'>1</span>061
-#&gt; <span style='color: #BCBCBC;'>4</span> 2017-02-04 Alaba…   <span style='text-decoration: underline;'>1</span>036               <span style='text-decoration: underline;'>1</span>189 FALSE                         <span style='text-decoration: underline;'>1</span>058
-#&gt; <span style='color: #BCBCBC;'>5</span> 2017-02-11 Alaba…   <span style='text-decoration: underline;'>1</span>058               <span style='text-decoration: underline;'>1</span>181 FALSE                         <span style='text-decoration: underline;'>1</span>055
-#&gt; <span style='color: #BCBCBC;'>6</span> 2017-02-18 Alaba…   <span style='text-decoration: underline;'>1</span>060               <span style='text-decoration: underline;'>1</span>202 FALSE                         <span style='text-decoration: underline;'>1</span>071
+#&gt; <span style='color: #BCBCBC;'>1</span> 2017-01-14 Alaba…   <span style='text-decoration: underline;'>1</span>130               <span style='text-decoration: underline;'>1</span>157 FALSE                         <span style='text-decoration: underline;'>1</span>030
+#&gt; <span style='color: #BCBCBC;'>2</span> 2017-01-21 Alaba…   <span style='text-decoration: underline;'>1</span>048               <span style='text-decoration: underline;'>1</span>162 FALSE                         <span style='text-decoration: underline;'>1</span>036
+#&gt; <span style='color: #BCBCBC;'>3</span> 2017-01-28 Alaba…   <span style='text-decoration: underline;'>1</span>026               <span style='text-decoration: underline;'>1</span>184 FALSE                         <span style='text-decoration: underline;'>1</span>057
+#&gt; <span style='color: #BCBCBC;'>4</span> 2017-02-04 Alaba…   <span style='text-decoration: underline;'>1</span>036               <span style='text-decoration: underline;'>1</span>183 FALSE                         <span style='text-decoration: underline;'>1</span>053
+#&gt; <span style='color: #BCBCBC;'>5</span> 2017-02-11 Alaba…   <span style='text-decoration: underline;'>1</span>058               <span style='text-decoration: underline;'>1</span>174 FALSE                         <span style='text-decoration: underline;'>1</span>048
+#&gt; <span style='color: #BCBCBC;'>6</span> 2017-02-18 Alaba…   <span style='text-decoration: underline;'>1</span>060               <span style='text-decoration: underline;'>1</span>188 FALSE                         <span style='text-decoration: underline;'>1</span>060
 #&gt; <span style='color: #949494;'># … with 7 more variables: excess_lower_estimate &lt;dbl&gt;,</span>
 #&gt; <span style='color: #949494;'>#   excess_higher_estimate &lt;dbl&gt;, type &lt;chr&gt;, outcome &lt;chr&gt;, suppress &lt;chr&gt;,</span>
 #&gt; <span style='color: #949494;'>#   note &lt;chr&gt;, week_of_year &lt;dbl&gt;</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>cdcdeaths</span><span class='op'>)</span>
@@ -268,7 +268,7 @@ limitations can be found in the <a href='https://www.cdc.gov/nchs/nvss/vsrr/covi
 #&gt; [13] "week_of_year"          </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>cdcdeaths</span><span class='op'>$</span><span class='va'>outcome</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; 
 #&gt;                     All causes All causes, excluding COVID-19 
-#&gt;                          25056                          12528 </div><div class='input'>
+#&gt;                          25164                          12582 </div><div class='input'>
 
 <span class='co'># Examine excess deaths in three states</span>
 <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://ggplot2.tidyverse.org'>ggplot2</a></span><span class='op'>)</span>

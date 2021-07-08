@@ -246,49 +246,77 @@ Pandemic.” SocArXiv. April 12. doi:10.31235/osf.io/dkvxy.</p><ul>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='va'>res</span> <span class='op'>=</span> <span class='fu'>coronanet_government_response_data</span><span class='op'>(</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 6 x 40</span>
+</div><div class='output co'>#&gt; <span class='warning'>Warning: 4 parsing failures.</span>
+#&gt; <span class='warning'>  row               col               expected  actual                                                      file</span>
+#&gt; <span class='warning'> 6591 type_vac_cost_num no trailing characters 1-2     '~/.cache/sars2pack/b1874a33a43_coronanet_release.csv.gz'</span>
+#&gt; <span class='warning'> 6602 type_vac_cost_num no trailing characters 1.6-2.0 '~/.cache/sars2pack/b1874a33a43_coronanet_release.csv.gz'</span>
+#&gt; <span class='warning'> 6603 type_vac_cost_num no trailing characters 1.6-2.0 '~/.cache/sars2pack/b1874a33a43_coronanet_release.csv.gz'</span>
+#&gt; <span class='warning'>19453 type_vac_amt_num  no trailing characters 1.410.3 '~/.cache/sars2pack/b1874a33a43_coronanet_release.csv.gz'</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 6 x 65</span>
 #&gt;   record_id           policy_id entry_type correct_type update_type update_level
 #&gt;   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>               <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>      <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>        <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>       <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>       
 #&gt; <span style='color: #BCBCBC;'>1</span> R_3nCudDknlhUIjpONA 2975738   new_entry  original     <span style='color: #BB0000;'>NA</span>          <span style='color: #BB0000;'>NA</span>          
 #&gt; <span style='color: #BCBCBC;'>2</span> R_3OoySQxTamo89oXNA 7024226   new_entry  original     <span style='color: #BB0000;'>NA</span>          <span style='color: #BB0000;'>NA</span>          
 #&gt; <span style='color: #BCBCBC;'>3</span> R_3kLn6IU4rQGHtCbNA 889484    new_entry  original     <span style='color: #BB0000;'>NA</span>          <span style='color: #BB0000;'>NA</span>          
 #&gt; <span style='color: #BCBCBC;'>4</span> R_1rAmwrNMSZPgFhrNA 129322    new_entry  original     <span style='color: #BB0000;'>NA</span>          <span style='color: #BB0000;'>NA</span>          
-#&gt; <span style='color: #BCBCBC;'>5</span> R_21oIyCpRWpNISIDDy 6721435Dy new_entry  correction   <span style='color: #BB0000;'>NA</span>          <span style='color: #BB0000;'>NA</span>          
-#&gt; <span style='color: #BCBCBC;'>6</span> R_21oIyCpRWpNISIDEa 6721435Ea new_entry  correction   <span style='color: #BB0000;'>NA</span>          <span style='color: #BB0000;'>NA</span>          
-#&gt; <span style='color: #949494;'># … with 34 more variables: description &lt;chr&gt;, date_announced &lt;date&gt;,</span>
-#&gt; <span style='color: #949494;'>#   date_start &lt;date&gt;, date_end &lt;date&gt;, country &lt;chr&gt;, iso3c &lt;chr&gt;,</span>
-#&gt; <span style='color: #949494;'>#   iso2c &lt;chr&gt;, init_country_level &lt;chr&gt;, domestic_policy &lt;dbl&gt;,</span>
+#&gt; <span style='color: #BCBCBC;'>5</span> R_21oIyCpRWpNISIDEa 6721435Ea new_entry  correction   <span style='color: #BB0000;'>NA</span>          <span style='color: #BB0000;'>NA</span>          
+#&gt; <span style='color: #BCBCBC;'>6</span> R_21oIyCpRWpNISIDEc 6721435Ec new_entry  correction   <span style='color: #BB0000;'>NA</span>          <span style='color: #BB0000;'>NA</span>          
+#&gt; <span style='color: #949494;'># … with 59 more variables: description &lt;chr&gt;, date_announced &lt;date&gt;,</span>
+#&gt; <span style='color: #949494;'>#   date_start &lt;date&gt;, date_end &lt;date&gt;, date_end_spec &lt;chr&gt;, country &lt;chr&gt;,</span>
+#&gt; <span style='color: #949494;'>#   iso3c &lt;chr&gt;, iso2c &lt;chr&gt;, init_country_level &lt;chr&gt;, domestic_policy &lt;dbl&gt;,</span>
 #&gt; <span style='color: #949494;'>#   province &lt;chr&gt;, ISO_L2 &lt;chr&gt;, city &lt;chr&gt;, type &lt;chr&gt;, type_sub_cat &lt;chr&gt;,</span>
-#&gt; <span style='color: #949494;'>#   type_text &lt;chr&gt;, institution_status &lt;chr&gt;, target_country &lt;chr&gt;,</span>
-#&gt; <span style='color: #949494;'>#   target_geog_level &lt;chr&gt;, target_region &lt;chr&gt;, target_province &lt;chr&gt;,</span>
-#&gt; <span style='color: #949494;'>#   target_city &lt;chr&gt;, target_other &lt;lgl&gt;, target_who_what &lt;chr&gt;,</span>
-#&gt; <span style='color: #949494;'>#   target_direction &lt;chr&gt;, travel_mechanism &lt;chr&gt;, compliance &lt;chr&gt;,</span>
-#&gt; <span style='color: #949494;'>#   enforcer &lt;chr&gt;, dist_index_high_est &lt;dbl&gt;, dist_index_med_est &lt;dbl&gt;,</span>
-#&gt; <span style='color: #949494;'>#   dist_index_low_est &lt;dbl&gt;, dist_index_country_rank &lt;dbl&gt;, link &lt;chr&gt;,</span>
+#&gt; <span style='color: #949494;'>#   type_new_admin_coop &lt;chr&gt;, type_vac_cat &lt;chr&gt;, type_vac_mix &lt;chr&gt;,</span>
+#&gt; <span style='color: #949494;'>#   type_vac_reg &lt;chr&gt;, type_vac_purchase &lt;chr&gt;, type_vac_group &lt;chr&gt;,</span>
+#&gt; <span style='color: #949494;'>#   type_vac_group_rank &lt;dbl&gt;, type_vac_who_pays &lt;chr&gt;,</span>
+#&gt; <span style='color: #949494;'>#   type_vac_dist_admin &lt;chr&gt;, type_vac_loc &lt;chr&gt;, type_vac_cost_num &lt;dbl&gt;,</span>
+#&gt; <span style='color: #949494;'>#   type_vac_cost_scale &lt;chr&gt;, type_vac_cost_unit &lt;chr&gt;,</span>
+#&gt; <span style='color: #949494;'>#   type_vac_cost_gov_perc &lt;dbl&gt;, type_vac_amt_num &lt;dbl&gt;,</span>
+#&gt; <span style='color: #949494;'>#   type_vac_amt_scale &lt;chr&gt;, type_vac_amt_unit &lt;chr&gt;,</span>
+#&gt; <span style='color: #949494;'>#   type_vac_amt_gov_perc &lt;dbl&gt;, type_text &lt;chr&gt;, institution_cat &lt;chr&gt;,</span>
+#&gt; <span style='color: #949494;'>#   institution_status &lt;chr&gt;, institution_conditions &lt;chr&gt;,</span>
+#&gt; <span style='color: #949494;'>#   target_init_same &lt;chr&gt;, target_country &lt;chr&gt;, target_geog_level &lt;chr&gt;,</span>
+#&gt; <span style='color: #949494;'>#   target_region &lt;chr&gt;, target_province &lt;chr&gt;, target_city &lt;chr&gt;,</span>
+#&gt; <span style='color: #949494;'>#   target_intl_org &lt;chr&gt;, target_other &lt;lgl&gt;, target_who_what &lt;chr&gt;,</span>
+#&gt; <span style='color: #949494;'>#   target_who_gen &lt;chr&gt;, target_direction &lt;chr&gt;, travel_mechanism &lt;chr&gt;,</span>
+#&gt; <span style='color: #949494;'>#   compliance &lt;chr&gt;, enforcer &lt;chr&gt;, dist_index_high_est &lt;dbl&gt;,</span>
+#&gt; <span style='color: #949494;'>#   dist_index_med_est &lt;dbl&gt;, dist_index_low_est &lt;dbl&gt;,</span>
+#&gt; <span style='color: #949494;'>#   dist_index_country_rank &lt;dbl&gt;, pdf_link &lt;chr&gt;, link &lt;chr&gt;,</span>
 #&gt; <span style='color: #949494;'>#   date_updated &lt;date&gt;, recorded_date &lt;dttm&gt;</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;  [1] "record_id"               "policy_id"              
 #&gt;  [3] "entry_type"              "correct_type"           
 #&gt;  [5] "update_type"             "update_level"           
 #&gt;  [7] "description"             "date_announced"         
 #&gt;  [9] "date_start"              "date_end"               
-#&gt; [11] "country"                 "iso3c"                  
-#&gt; [13] "iso2c"                   "init_country_level"     
-#&gt; [15] "domestic_policy"         "province"               
-#&gt; [17] "ISO_L2"                  "city"                   
-#&gt; [19] "type"                    "type_sub_cat"           
-#&gt; [21] "type_text"               "institution_status"     
-#&gt; [23] "target_country"          "target_geog_level"      
-#&gt; [25] "target_region"           "target_province"        
-#&gt; [27] "target_city"             "target_other"           
-#&gt; [29] "target_who_what"         "target_direction"       
-#&gt; [31] "travel_mechanism"        "compliance"             
-#&gt; [33] "enforcer"                "dist_index_high_est"    
-#&gt; [35] "dist_index_med_est"      "dist_index_low_est"     
-#&gt; [37] "dist_index_country_rank" "link"                   
-#&gt; [39] "date_updated"            "recorded_date"          </div><div class='input'><span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://pillar.r-lib.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Rows: 76,022
-#&gt; Columns: 40
+#&gt; [11] "date_end_spec"           "country"                
+#&gt; [13] "iso3c"                   "iso2c"                  
+#&gt; [15] "init_country_level"      "domestic_policy"        
+#&gt; [17] "province"                "ISO_L2"                 
+#&gt; [19] "city"                    "type"                   
+#&gt; [21] "type_sub_cat"            "type_new_admin_coop"    
+#&gt; [23] "type_vac_cat"            "type_vac_mix"           
+#&gt; [25] "type_vac_reg"            "type_vac_purchase"      
+#&gt; [27] "type_vac_group"          "type_vac_group_rank"    
+#&gt; [29] "type_vac_who_pays"       "type_vac_dist_admin"    
+#&gt; [31] "type_vac_loc"            "type_vac_cost_num"      
+#&gt; [33] "type_vac_cost_scale"     "type_vac_cost_unit"     
+#&gt; [35] "type_vac_cost_gov_perc"  "type_vac_amt_num"       
+#&gt; [37] "type_vac_amt_scale"      "type_vac_amt_unit"      
+#&gt; [39] "type_vac_amt_gov_perc"   "type_text"              
+#&gt; [41] "institution_cat"         "institution_status"     
+#&gt; [43] "institution_conditions"  "target_init_same"       
+#&gt; [45] "target_country"          "target_geog_level"      
+#&gt; [47] "target_region"           "target_province"        
+#&gt; [49] "target_city"             "target_intl_org"        
+#&gt; [51] "target_other"            "target_who_what"        
+#&gt; [53] "target_who_gen"          "target_direction"       
+#&gt; [55] "travel_mechanism"        "compliance"             
+#&gt; [57] "enforcer"                "dist_index_high_est"    
+#&gt; [59] "dist_index_med_est"      "dist_index_low_est"     
+#&gt; [61] "dist_index_country_rank" "pdf_link"               
+#&gt; [63] "link"                    "date_updated"           
+#&gt; [65] "recorded_date"          </div><div class='input'><span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://pillar.r-lib.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Rows: 77,747
+#&gt; Columns: 65
 #&gt; $ record_id               <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "R_3nCudDknlhUIjpONA", "R_3OoySQxTamo89oXNA", …
 #&gt; $ policy_id               <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "2975738", "7024226", "889484", "129322", "672…
 #&gt; $ entry_type              <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "new_entry", "new_entry", "new_entry", "new_en…
@@ -299,6 +327,7 @@ Pandemic.” SocArXiv. April 12. doi:10.31235/osf.io/dkvxy.</p><ul>
 #&gt; $ date_announced          <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span> 2020-03-06, 2020-03-16, 2020-05-28, 2020-06-2…
 #&gt; $ date_start              <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span> 2020-03-06, 2020-03-16, 2020-05-28, 2020-06-2…
 #&gt; $ date_end                <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 2020-…
+#&gt; $ date_end_spec           <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, "The p…
 #&gt; $ country                 <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "Afghanistan", "Afghanistan", "Afghanistan", "…
 #&gt; $ iso3c                   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "AFG", "AFG", "AFG", "AFG", "AFG", "AFG", "AFG…
 #&gt; $ iso2c                   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "AF", "AF", "AF", "AF", "AF", "AF", "AF", "AF"…
@@ -309,15 +338,38 @@ Pandemic.” SocArXiv. April 12. doi:10.31235/osf.io/dkvxy.</p><ul>
 #&gt; $ city                    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
 #&gt; $ type                    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "Anti-Disinformation Measures", "Anti-Disinfor…
 #&gt; $ type_sub_cat            <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> NA, NA, NA, NA, "Preschool or childcare facili…
+#&gt; $ type_new_admin_coop     <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+#&gt; $ type_vac_cat            <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+#&gt; $ type_vac_mix            <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+#&gt; $ type_vac_reg            <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+#&gt; $ type_vac_purchase       <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+#&gt; $ type_vac_group          <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+#&gt; $ type_vac_group_rank     <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+#&gt; $ type_vac_who_pays       <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+#&gt; $ type_vac_dist_admin     <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+#&gt; $ type_vac_loc            <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+#&gt; $ type_vac_cost_num       <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+#&gt; $ type_vac_cost_scale     <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+#&gt; $ type_vac_cost_unit      <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+#&gt; $ type_vac_cost_gov_perc  <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+#&gt; $ type_vac_amt_num        <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+#&gt; $ type_vac_amt_scale      <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+#&gt; $ type_vac_amt_unit       <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+#&gt; $ type_vac_amt_gov_perc   <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
 #&gt; $ type_text               <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+#&gt; $ institution_cat         <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
 #&gt; $ institution_status      <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, "Primary Schools c…
+#&gt; $ institution_conditions  <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+#&gt; $ target_init_same        <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "Yes", "Yes", "No", "Yes", "Yes", "Yes", "Yes"…
 #&gt; $ target_country          <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "Afghanistan", "Afghanistan", "Afghanistan", "…
 #&gt; $ target_geog_level       <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "One or more countries, but not all countries"…
 #&gt; $ target_region           <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
 #&gt; $ target_province         <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> NA, NA, "Balkh; Kabul; Nangarhar; Kunar; Parwa…
 #&gt; $ target_city             <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+#&gt; $ target_intl_org         <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
 #&gt; $ target_other            <span style='color: #949494; font-style: italic;'>&lt;lgl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
 #&gt; $ target_who_what         <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "All Residents (Citizen Residents + Foreign Re…
+#&gt; $ target_who_gen          <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "No special population targeted", "No special …
 #&gt; $ target_direction        <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
 #&gt; $ travel_mechanism        <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> NA, NA, "Not Applicable", NA, NA, NA, NA, NA, …
 #&gt; $ compliance              <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "Voluntary/Recommended but No Penalties", "Man…
@@ -326,11 +378,12 @@ Pandemic.” SocArXiv. April 12. doi:10.31235/osf.io/dkvxy.</p><ul>
 #&gt; $ dist_index_med_est      <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 44.30324, 45.55852, 79.82725, 79.73033, 44.864…
 #&gt; $ dist_index_low_est      <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 34.85850, 36.72021, 73.13763, 71.94793, 34.432…
 #&gt; $ dist_index_country_rank <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 123, 60, 131, 135, 121, 121, 121, 106, 106, 10…
+#&gt; $ pdf_link                <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "https://tummgmt.eu.qualtrics.com/Q/File.php?F…
 #&gt; $ link                    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "https://www.etilaatroz.com/94246/fears-rumors…
 #&gt; $ date_updated            <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span> 2020-08-21, 2020-09-13, 2020-09-12, 2020-09-0…
 #&gt; $ recorded_date           <span style='color: #949494; font-style: italic;'>&lt;dttm&gt;</span> 2020-08-21 18:32:29, 2020-09-13 18:56:27, 202…</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;   record_id          policy_id          entry_type        correct_type      
-#&gt;  Length:76022       Length:76022       Length:76022       Length:76022      
+#&gt;  Length:77747       Length:77747       Length:77747       Length:77747      
 #&gt;  Class :character   Class :character   Class :character   Class :character  
 #&gt;  Mode  :character   Mode  :character   Mode  :character   Mode  :character  
 #&gt;                                                                             
@@ -338,84 +391,140 @@ Pandemic.” SocArXiv. April 12. doi:10.31235/osf.io/dkvxy.</p><ul>
 #&gt;                                                                             
 #&gt;                                                                             
 #&gt;  update_type        update_level       description        date_announced      
-#&gt;  Length:76022       Length:76022       Length:76022       Min.   :2019-12-31  
+#&gt;  Length:77747       Length:77747       Length:77747       Min.   :2019-12-31  
 #&gt;  Class :character   Class :character   Class :character   1st Qu.:2020-03-24  
 #&gt;  Mode  :character   Mode  :character   Mode  :character   Median :2020-04-28  
-#&gt;                                                           Mean   :2020-05-28  
-#&gt;                                                           3rd Qu.:2020-06-30  
+#&gt;                                                           Mean   :2020-05-30  
+#&gt;                                                           3rd Qu.:2020-07-01  
 #&gt;                                                           Max.   :2022-12-22  
 #&gt;                                                           NA's   :11          
-#&gt;    date_start            date_end            country         
-#&gt;  Min.   :2019-12-31   Min.   :2020-01-01   Length:76022      
-#&gt;  1st Qu.:2020-03-24   1st Qu.:2020-04-23   Class :character  
-#&gt;  Median :2020-04-30   Median :2020-06-12   Mode  :character  
-#&gt;  Mean   :2020-05-31   Mean   :2020-07-30                     
-#&gt;  3rd Qu.:2020-07-02   3rd Qu.:2020-09-25                     
+#&gt;    date_start            date_end          date_end_spec     
+#&gt;  Min.   :2019-12-31   Min.   :2020-01-01   Length:77747      
+#&gt;  1st Qu.:2020-03-25   1st Qu.:2020-04-24   Class :character  
+#&gt;  Median :2020-04-30   Median :2020-06-14   Mode  :character  
+#&gt;  Mean   :2020-06-02   Mean   :2020-08-01                     
+#&gt;  3rd Qu.:2020-07-06   3rd Qu.:2020-09-30                     
 #&gt;  Max.   :2024-05-29   Max.   :2024-05-29                     
-#&gt;                       NA's   :35125                          
-#&gt;     iso3c              iso2c           init_country_level domestic_policy 
-#&gt;  Length:76022       Length:76022       Length:76022       Min.   :0.0000  
-#&gt;  Class :character   Class :character   Class :character   1st Qu.:1.0000  
-#&gt;  Mode  :character   Mode  :character   Mode  :character   Median :1.0000  
-#&gt;                                                           Mean   :0.9114  
-#&gt;                                                           3rd Qu.:1.0000  
-#&gt;                                                           Max.   :1.0000  
-#&gt;                                                           NA's   :122     
-#&gt;    province            ISO_L2              city               type          
-#&gt;  Length:76022       Length:76022       Length:76022       Length:76022      
+#&gt;                       NA's   :35886                          
+#&gt;    country             iso3c              iso2c           init_country_level
+#&gt;  Length:77747       Length:77747       Length:77747       Length:77747      
 #&gt;  Class :character   Class :character   Class :character   Class :character  
 #&gt;  Mode  :character   Mode  :character   Mode  :character   Mode  :character  
 #&gt;                                                                             
 #&gt;                                                                             
 #&gt;                                                                             
 #&gt;                                                                             
-#&gt;  type_sub_cat        type_text         institution_status target_country    
-#&gt;  Length:76022       Length:76022       Length:76022       Length:76022      
+#&gt;  domestic_policy    province            ISO_L2              city          
+#&gt;  Min.   :0.0000   Length:77747       Length:77747       Length:77747      
+#&gt;  1st Qu.:1.0000   Class :character   Class :character   Class :character  
+#&gt;  Median :1.0000   Mode  :character   Mode  :character   Mode  :character  
+#&gt;  Mean   :0.9114                                                           
+#&gt;  3rd Qu.:1.0000                                                           
+#&gt;  Max.   :1.0000                                                           
+#&gt;  NA's   :122                                                              
+#&gt;      type           type_sub_cat       type_new_admin_coop type_vac_cat      
+#&gt;  Length:77747       Length:77747       Length:77747        Length:77747      
+#&gt;  Class :character   Class :character   Class :character    Class :character  
+#&gt;  Mode  :character   Mode  :character   Mode  :character    Mode  :character  
+#&gt;                                                                              
+#&gt;                                                                              
+#&gt;                                                                              
+#&gt;                                                                              
+#&gt;  type_vac_mix       type_vac_reg       type_vac_purchase  type_vac_group    
+#&gt;  Length:77747       Length:77747       Length:77747       Length:77747      
 #&gt;  Class :character   Class :character   Class :character   Class :character  
 #&gt;  Mode  :character   Mode  :character   Mode  :character   Mode  :character  
 #&gt;                                                                             
 #&gt;                                                                             
 #&gt;                                                                             
 #&gt;                                                                             
-#&gt;  target_geog_level  target_region      target_province    target_city       
-#&gt;  Length:76022       Length:76022       Length:76022       Length:76022      
+#&gt;  type_vac_group_rank type_vac_who_pays  type_vac_dist_admin type_vac_loc      
+#&gt;  Min.   :1.00        Length:77747       Length:77747        Length:77747      
+#&gt;  1st Qu.:1.00        Class :character   Class :character    Class :character  
+#&gt;  Median :1.00        Mode  :character   Mode  :character    Mode  :character  
+#&gt;  Mean   :1.74                                                                 
+#&gt;  3rd Qu.:2.00                                                                 
+#&gt;  Max.   :9.00                                                                 
+#&gt;  NA's   :77630                                                                
+#&gt;  type_vac_cost_num  type_vac_cost_scale type_vac_cost_unit
+#&gt;  Min.   :     0.0   Length:77747        Length:77747      
+#&gt;  1st Qu.:     2.3   Class :character    Class :character  
+#&gt;  Median :    10.0   Mode  :character    Mode  :character  
+#&gt;  Mean   : 32125.5                                         
+#&gt;  3rd Qu.:   200.0                                         
+#&gt;  Max.   :800000.0                                         
+#&gt;  NA's   :77722                                            
+#&gt;  type_vac_cost_gov_perc type_vac_amt_num   type_vac_amt_scale
+#&gt;  Min.   :  0.00         Min.   :     1.0   Length:77747      
+#&gt;  1st Qu.:100.00         1st Qu.:     9.0   Class :character  
+#&gt;  Median :100.00         Median :    46.2   Mode  :character  
+#&gt;  Mean   : 94.76         Mean   :  9300.7                     
+#&gt;  3rd Qu.:100.00         3rd Qu.:   200.0                     
+#&gt;  Max.   :100.00         Max.   :940800.0                     
+#&gt;  NA's   :77701          NA's   :77593                        
+#&gt;  type_vac_amt_unit  type_vac_amt_gov_perc  type_text         institution_cat   
+#&gt;  Length:77747       Min.   :  0.00        Length:77747       Length:77747      
+#&gt;  Class :character   1st Qu.:100.00        Class :character   Class :character  
+#&gt;  Mode  :character   Median :100.00        Mode  :character   Mode  :character  
+#&gt;                     Mean   : 96.88                                             
+#&gt;                     3rd Qu.:100.00                                             
+#&gt;                     Max.   :100.00                                             
+#&gt;                     NA's   :77651                                              
+#&gt;  institution_status institution_conditions target_init_same  
+#&gt;  Length:77747       Length:77747           Length:77747      
+#&gt;  Class :character   Class :character       Class :character  
+#&gt;  Mode  :character   Mode  :character       Mode  :character  
+#&gt;                                                              
+#&gt;                                                              
+#&gt;                                                              
+#&gt;                                                              
+#&gt;  target_country     target_geog_level  target_region      target_province   
+#&gt;  Length:77747       Length:77747       Length:77747       Length:77747      
 #&gt;  Class :character   Class :character   Class :character   Class :character  
 #&gt;  Mode  :character   Mode  :character   Mode  :character   Mode  :character  
 #&gt;                                                                             
 #&gt;                                                                             
 #&gt;                                                                             
 #&gt;                                                                             
-#&gt;  target_other   target_who_what    target_direction   travel_mechanism  
-#&gt;  Mode:logical   Length:76022       Length:76022       Length:76022      
-#&gt;  NA's:76022     Class :character   Class :character   Class :character  
-#&gt;                 Mode  :character   Mode  :character   Mode  :character  
+#&gt;  target_city        target_intl_org    target_other   target_who_what   
+#&gt;  Length:77747       Length:77747       Mode:logical   Length:77747      
+#&gt;  Class :character   Class :character   NA's:77747     Class :character  
+#&gt;  Mode  :character   Mode  :character                  Mode  :character  
 #&gt;                                                                         
 #&gt;                                                                         
 #&gt;                                                                         
 #&gt;                                                                         
-#&gt;   compliance          enforcer         dist_index_high_est dist_index_med_est
-#&gt;  Length:76022       Length:76022       Min.   :13.30       Min.   : 9.893    
-#&gt;  Class :character   Class :character   1st Qu.:58.59       1st Qu.:55.550    
-#&gt;  Mode  :character   Mode  :character   Median :67.77       Median :64.504    
-#&gt;                                        Mean   :66.31       Mean   :63.035    
-#&gt;                                        3rd Qu.:75.90       3rd Qu.:72.644    
-#&gt;                                        Max.   :98.75       Max.   :98.298    
-#&gt;                                        NA's   :7980        NA's   :7980      
-#&gt;  dist_index_low_est dist_index_country_rank     link          
-#&gt;  Min.   : 3.146     Min.   :  1.00          Length:76022      
-#&gt;  1st Qu.:52.375     1st Qu.: 61.00          Class :character  
-#&gt;  Median :61.366     Median : 99.00          Mode  :character  
-#&gt;  Mean   :59.672     Mean   : 89.27                            
-#&gt;  3rd Qu.:68.860     3rd Qu.:123.00                            
-#&gt;  Max.   :97.683     Max.   :139.00                            
-#&gt;  NA's   :7980       NA's   :7980                              
+#&gt;  target_who_gen     target_direction   travel_mechanism    compliance       
+#&gt;  Length:77747       Length:77747       Length:77747       Length:77747      
+#&gt;  Class :character   Class :character   Class :character   Class :character  
+#&gt;  Mode  :character   Mode  :character   Mode  :character   Mode  :character  
+#&gt;                                                                             
+#&gt;                                                                             
+#&gt;                                                                             
+#&gt;                                                                             
+#&gt;    enforcer         dist_index_high_est dist_index_med_est dist_index_low_est
+#&gt;  Length:77747       Min.   :13.30       Min.   : 9.893     Min.   : 3.146    
+#&gt;  Class :character   1st Qu.:58.58       1st Qu.:55.547     1st Qu.:52.360    
+#&gt;  Mode  :character   Median :67.68       Median :64.445     Median :61.282    
+#&gt;                     Mean   :66.32       Mean   :63.039     Mean   :59.676    
+#&gt;                     3rd Qu.:75.95       3rd Qu.:72.675     3rd Qu.:68.960    
+#&gt;                     Max.   :98.75       Max.   :98.298     Max.   :97.683    
+#&gt;                     NA's   :8338        NA's   :8338       NA's   :8338      
+#&gt;  dist_index_country_rank   pdf_link             link          
+#&gt;  Min.   :  1.00          Length:77747       Length:77747      
+#&gt;  1st Qu.: 60.00          Class :character   Class :character  
+#&gt;  Median : 99.00          Mode  :character   Mode  :character  
+#&gt;  Mean   : 89.28                                               
+#&gt;  3rd Qu.:123.00                                               
+#&gt;  Max.   :139.00                                               
+#&gt;  NA's   :8338                                                 
 #&gt;   date_updated        recorded_date                
 #&gt;  Min.   :2020-03-28   Min.   :2020-03-28 06:37:36  
-#&gt;  1st Qu.:2020-07-23   1st Qu.:2020-07-23 13:54:06  
-#&gt;  Median :2020-12-28   Median :2020-12-28 17:57:31  
-#&gt;  Mean   :2020-11-29   Mean   :2020-11-29 21:36:44  
-#&gt;  3rd Qu.:2021-04-06   3rd Qu.:2021-04-06 13:11:55  
-#&gt;  Max.   :2021-06-23   Max.   :2021-06-23 23:19:09  
+#&gt;  1st Qu.:2020-07-26   1st Qu.:2020-07-26 08:55:41  
+#&gt;  Median :2021-01-03   Median :2021-01-03 11:11:14  
+#&gt;  Mean   :2020-12-05   Mean   :2020-12-05 13:57:16  
+#&gt;  3rd Qu.:2021-04-12   3rd Qu.:2021-04-12 19:37:21  
+#&gt;  Max.   :2021-07-01   Max.   :2021-07-01 23:54:11  
 #&gt;                                                    </div><div class='input'>
 
 </div></pre>
