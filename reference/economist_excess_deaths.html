@@ -218,7 +218,7 @@
 #&gt;  [5] "end_date"        "days"            "year"            "month"          
 #&gt;  [9] "population"      "total_deaths"    "covid_deaths"    "expected_deaths"
 #&gt; [13] "quarter"         "week"           </div><div class='input'><span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://pillar.r-lib.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Rows: 7,670
+</div><div class='output co'>#&gt; Rows: 15,698
 #&gt; Columns: 14
 #&gt; $ country         <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "Albania", "Albania", "Albania", "Albania", "Albania",…
 #&gt; $ region          <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "Albania", "Albania", "Albania", "Albania", "Albania",…
@@ -234,44 +234,44 @@
 #&gt; $ expected_deaths <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
 #&gt; $ quarter         <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
 #&gt; $ week            <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</div><div class='input'><span class='va'>res</span>
-</div><div class='output co'>#&gt;          country     region region_code start_date   end_date days year month
-#&gt;    1:    Albania    Albania           0 2020-01-01 2020-01-31   31 2020     1
-#&gt;    2:    Albania    Albania           0 2020-02-01 2020-02-29   29 2020     2
-#&gt;    3:    Albania    Albania           0 2020-03-01 2020-03-31   31 2020     3
-#&gt;    4:    Albania    Albania           0 2020-04-01 2020-04-30   30 2020     4
-#&gt;    5:    Albania    Albania           0 2020-05-01 2020-05-31   31 2020     5
-#&gt;   ---                                                                        
-#&gt; 7666: Uzbekistan Uzbekistan           0 2020-11-01 2020-11-30   30 2020    11
-#&gt; 7667: Uzbekistan Uzbekistan           0 2020-12-01 2020-12-31   31 2020    12
-#&gt; 7668: Uzbekistan Uzbekistan           0 2021-01-01 2021-01-31   31 2021     1
-#&gt; 7669: Uzbekistan Uzbekistan           0 2021-02-01 2021-02-28   28 2021     2
-#&gt; 7670: Uzbekistan Uzbekistan           0 2021-03-01 2021-03-31   31 2021     3
-#&gt;       population total_deaths covid_deaths expected_deaths quarter week
-#&gt;    1:    2845955         2187            0              NA      NA   NA
-#&gt;    2:    2845955         2018            0              NA      NA   NA
-#&gt;    3:    2845955         1993           15              NA      NA   NA
-#&gt;    4:    2845955         1804           16              NA      NA   NA
-#&gt;    5:    2845955         1803            2              NA      NA   NA
-#&gt;   ---                                                                  
-#&gt; 7666:   33570609        14204           44              NA      NA   NA
-#&gt; 7667:   33570609        19938            4              NA      NA   NA
-#&gt; 7668:   33570609        11921            7              NA      NA   NA
-#&gt; 7669:   33570609        14002            1              NA      NA   NA
-#&gt; 7670:   33570609        13676            7              NA      NA   NA</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/unique.html'>unique</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>$</span><span class='va'>country</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;           country     region region_code start_date   end_date days year month
+#&gt;     1:    Albania    Albania           0 2020-01-01 2020-01-31   31 2020     1
+#&gt;     2:    Albania    Albania           0 2020-02-01 2020-02-29   29 2020     2
+#&gt;     3:    Albania    Albania           0 2020-03-01 2020-03-31   31 2020     3
+#&gt;     4:    Albania    Albania           0 2020-04-01 2020-04-30   30 2020     4
+#&gt;     5:    Albania    Albania           0 2020-05-01 2020-05-31   31 2020     5
+#&gt;    ---                                                                        
+#&gt; 15694: Uzbekistan Uzbekistan           0 2020-11-01 2020-11-30   30 2020    11
+#&gt; 15695: Uzbekistan Uzbekistan           0 2020-12-01 2020-12-31   31 2020    12
+#&gt; 15696: Uzbekistan Uzbekistan           0 2021-01-01 2021-01-31   31 2021     1
+#&gt; 15697: Uzbekistan Uzbekistan           0 2021-02-01 2021-02-28   28 2021     2
+#&gt; 15698: Uzbekistan Uzbekistan           0 2021-03-01 2021-03-31   31 2021     3
+#&gt;        population total_deaths covid_deaths expected_deaths quarter week
+#&gt;     1:    2845955         2187            0              NA      NA   NA
+#&gt;     2:    2845955         2018            0              NA      NA   NA
+#&gt;     3:    2845955         1993           15              NA      NA   NA
+#&gt;     4:    2845955         1804           16              NA      NA   NA
+#&gt;     5:    2845955         1803            2              NA      NA   NA
+#&gt;    ---                                                                  
+#&gt; 15694:   33570609        14204           44              NA      NA   NA
+#&gt; 15695:   33570609        19938            4              NA      NA   NA
+#&gt; 15696:   33570609        11921            7              NA      NA   NA
+#&gt; 15697:   33570609        14002            1              NA      NA   NA
+#&gt; 15698:   33570609        13676            7              NA      NA   NA</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/unique.html'>unique</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>$</span><span class='va'>country</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;  [1] "Albania"                "Armenia"                "Azerbaijan"            
 #&gt;  [4] "Belarus"                "Bolivia"                "Bosnia and Herzegovina"
 #&gt;  [7] "Brazil"                 "Costa Rica"             "Cuba"                  
 #&gt; [10] "Egypt"                  "El Salvador"            "Georgia"               
 #&gt; [13] "Indonesia"              "Ireland"                "Jamaica"               
 #&gt; [16] "Japan"                  "Kazakhstan"             "Kosovo"                
-#&gt; [19] "Kyrgyzstan"             "Lebanon"                "Mauritius"             
-#&gt; [22] "Moldova"                "Mongolia"               "Nicaragua"             
-#&gt; [25] "North Macedonia"        "Oman"                   "Panama"                
-#&gt; [28] "Paraguay"               "Philippines"            "Qatar"                 
-#&gt; [31] "Russia"                 "Serbia"                 "Singapore"             
-#&gt; [34] "Taiwan"                 "Thailand"               "Ukraine"               
-#&gt; [37] "Uruguay"                "Uzbekistan"             "Iran"                  
-#&gt; [40] "Malaysia"               "Tajikistan"             "Australia"             
+#&gt; [19] "Kyrgyzstan"             "Lebanon"                "Malaysia"              
+#&gt; [22] "Mauritius"              "Moldova"                "Mongolia"              
+#&gt; [25] "Nicaragua"              "North Macedonia"        "Oman"                  
+#&gt; [28] "Panama"                 "Paraguay"               "Philippines"           
+#&gt; [31] "Qatar"                  "Russia"                 "Serbia"                
+#&gt; [34] "Singapore"              "Taiwan"                 "Thailand"              
+#&gt; [37] "Ukraine"                "Uruguay"                "Uzbekistan"            
+#&gt; [40] "Iran"                   "Tajikistan"             "Australia"             
 #&gt; [43] "Austria"                "Belgium"                "Britain"               
 #&gt; [46] "Bulgaria"               "Canada"                 "Chile"                 
 #&gt; [49] "Colombia"               "Croatia"                "Cyprus"                
