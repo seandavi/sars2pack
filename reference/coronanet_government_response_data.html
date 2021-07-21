@@ -246,12 +246,13 @@ Pandemic.” SocArXiv. April 12. doi:10.31235/osf.io/dkvxy.</p><ul>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='va'>res</span> <span class='op'>=</span> <span class='fu'>coronanet_government_response_data</span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='warning'>Warning: 4 parsing failures.</span>
-#&gt; <span class='warning'>  row               col               expected  actual                                                      file</span>
-#&gt; <span class='warning'> 6620 type_vac_cost_num no trailing characters 1-2     '~/.cache/sars2pack/77b33030b47_coronanet_release.csv.gz'</span>
-#&gt; <span class='warning'> 6631 type_vac_cost_num no trailing characters 1.6-2.0 '~/.cache/sars2pack/77b33030b47_coronanet_release.csv.gz'</span>
-#&gt; <span class='warning'> 6632 type_vac_cost_num no trailing characters 1.6-2.0 '~/.cache/sars2pack/77b33030b47_coronanet_release.csv.gz'</span>
-#&gt; <span class='warning'>19609 type_vac_amt_num  no trailing characters 1.410.3 '~/.cache/sars2pack/77b33030b47_coronanet_release.csv.gz'</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='warning'>Warning: 5 parsing failures.</span>
+#&gt; <span class='warning'>  row               col               expected      actual                                                      file</span>
+#&gt; <span class='warning'> 6991 type_vac_cost_num no trailing characters 1-2         '~/.cache/sars2pack/78857fed200_coronanet_release.csv.gz'</span>
+#&gt; <span class='warning'> 7002 type_vac_cost_num no trailing characters 1.6-2.0     '~/.cache/sars2pack/78857fed200_coronanet_release.csv.gz'</span>
+#&gt; <span class='warning'> 7003 type_vac_cost_num no trailing characters 1.6-2.0     '~/.cache/sars2pack/78857fed200_coronanet_release.csv.gz'</span>
+#&gt; <span class='warning'>20080 type_vac_amt_num  no trailing characters 1.410.3     '~/.cache/sars2pack/78857fed200_coronanet_release.csv.gz'</span>
+#&gt; <span class='warning'>71236 type_vac_amt_num  no trailing characters 1.5 billion '~/.cache/sars2pack/78857fed200_coronanet_release.csv.gz'</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 6 x 65</span>
 #&gt;   record_id       policy_id entry_type update_type update_level update_level_var
 #&gt;   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>           <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>      <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>       <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>        <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>           
@@ -315,7 +316,7 @@ Pandemic.” SocArXiv. April 12. doi:10.31235/osf.io/dkvxy.</p><ul>
 #&gt; [61] "dist_index_country_rank" "pdf_link"               
 #&gt; [63] "link"                    "date_updated"           
 #&gt; [65] "recorded_date"          </div><div class='input'><span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://pillar.r-lib.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Rows: 79,113
+</div><div class='output co'>#&gt; Rows: 81,221
 #&gt; Columns: 65
 #&gt; $ record_id               <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "R_3nCudDknlhUIjpONA", "R_3OoySQxTamo89oXNA", …
 #&gt; $ policy_id               <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "2975738", "7024226", "889484", "129322", "672…
@@ -383,7 +384,7 @@ Pandemic.” SocArXiv. April 12. doi:10.31235/osf.io/dkvxy.</p><ul>
 #&gt; $ date_updated            <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span> 2020-08-21, 2020-09-13, 2020-09-12, 2020-09-0…
 #&gt; $ recorded_date           <span style='color: #949494; font-style: italic;'>&lt;dttm&gt;</span> 2020-08-21 18:32:29, 2020-09-13 18:56:27, 202…</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;   record_id          policy_id          entry_type        update_type       
-#&gt;  Length:79113       Length:79113       Length:79113       Length:79113      
+#&gt;  Length:81221       Length:81221       Length:81221       Length:81221      
 #&gt;  Class :character   Class :character   Class :character   Class :character  
 #&gt;  Mode  :character   Mode  :character   Mode  :character   Mode  :character  
 #&gt;                                                                             
@@ -391,23 +392,23 @@ Pandemic.” SocArXiv. April 12. doi:10.31235/osf.io/dkvxy.</p><ul>
 #&gt;                                                                             
 #&gt;                                                                             
 #&gt;  update_level       update_level_var   description        date_announced      
-#&gt;  Length:79113       Length:79113       Length:79113       Min.   :2019-12-31  
+#&gt;  Length:81221       Length:81221       Length:81221       Min.   :2019-12-31  
 #&gt;  Class :character   Class :character   Class :character   1st Qu.:2020-03-24  
-#&gt;  Mode  :character   Mode  :character   Mode  :character   Median :2020-04-29  
-#&gt;                                                           Mean   :2020-06-02  
-#&gt;                                                           3rd Qu.:2020-07-04  
+#&gt;  Mode  :character   Mode  :character   Mode  :character   Median :2020-04-30  
+#&gt;                                                           Mean   :2020-06-04  
+#&gt;                                                           3rd Qu.:2020-07-09  
 #&gt;                                                           Max.   :2022-12-22  
 #&gt;                                                           NA's   :11          
 #&gt;    date_start            date_end          date_end_spec     
-#&gt;  Min.   :2019-12-31   Min.   :2020-01-01   Length:79113      
-#&gt;  1st Qu.:2020-03-25   1st Qu.:2020-04-25   Class :character  
-#&gt;  Median :2020-05-01   Median :2020-06-14   Mode  :character  
-#&gt;  Mean   :2020-06-04   Mean   :2020-08-04                     
-#&gt;  3rd Qu.:2020-07-09   3rd Qu.:2020-10-03                     
+#&gt;  Min.   :2019-12-31   Min.   :2020-01-01   Length:81221      
+#&gt;  1st Qu.:2020-03-25   1st Qu.:2020-04-26   Class :character  
+#&gt;  Median :2020-05-04   Median :2020-06-15   Mode  :character  
+#&gt;  Mean   :2020-06-06   Mean   :2020-08-07                     
+#&gt;  3rd Qu.:2020-07-13   3rd Qu.:2020-10-11                     
 #&gt;  Max.   :2024-05-29   Max.   :2024-05-29                     
-#&gt;                       NA's   :36343                          
+#&gt;                       NA's   :36919                          
 #&gt;    country             iso3c              iso2c           init_country_level
-#&gt;  Length:79113       Length:79113       Length:79113       Length:79113      
+#&gt;  Length:81221       Length:81221       Length:81221       Length:81221      
 #&gt;  Class :character   Class :character   Class :character   Class :character  
 #&gt;  Mode  :character   Mode  :character   Mode  :character   Mode  :character  
 #&gt;                                                                             
@@ -415,15 +416,15 @@ Pandemic.” SocArXiv. April 12. doi:10.31235/osf.io/dkvxy.</p><ul>
 #&gt;                                                                             
 #&gt;                                                                             
 #&gt;  domestic_policy    province            ISO_L2              city          
-#&gt;  Min.   :0.0000   Length:79113       Length:79113       Length:79113      
+#&gt;  Min.   :0.0000   Length:81221       Length:81221       Length:81221      
 #&gt;  1st Qu.:1.0000   Class :character   Class :character   Class :character  
 #&gt;  Median :1.0000   Mode  :character   Mode  :character   Mode  :character  
-#&gt;  Mean   :0.9113                                                           
+#&gt;  Mean   :0.9128                                                           
 #&gt;  3rd Qu.:1.0000                                                           
 #&gt;  Max.   :1.0000                                                           
-#&gt;  NA's   :123                                                              
+#&gt;  NA's   :126                                                              
 #&gt;      type           type_sub_cat       type_new_admin_coop type_vac_cat      
-#&gt;  Length:79113       Length:79113       Length:79113        Length:79113      
+#&gt;  Length:81221       Length:81221       Length:81221        Length:81221      
 #&gt;  Class :character   Class :character   Class :character    Class :character  
 #&gt;  Mode  :character   Mode  :character   Mode  :character    Mode  :character  
 #&gt;                                                                              
@@ -431,7 +432,7 @@ Pandemic.” SocArXiv. April 12. doi:10.31235/osf.io/dkvxy.</p><ul>
 #&gt;                                                                              
 #&gt;                                                                              
 #&gt;  type_vac_mix       type_vac_reg       type_vac_purchase  type_vac_group    
-#&gt;  Length:79113       Length:79113       Length:79113       Length:79113      
+#&gt;  Length:81221       Length:81221       Length:81221       Length:81221      
 #&gt;  Class :character   Class :character   Class :character   Class :character  
 #&gt;  Mode  :character   Mode  :character   Mode  :character   Mode  :character  
 #&gt;                                                                             
@@ -439,39 +440,39 @@ Pandemic.” SocArXiv. April 12. doi:10.31235/osf.io/dkvxy.</p><ul>
 #&gt;                                                                             
 #&gt;                                                                             
 #&gt;  type_vac_group_rank type_vac_who_pays  type_vac_dist_admin type_vac_loc      
-#&gt;  Min.   :1.00        Length:79113       Length:79113        Length:79113      
+#&gt;  Min.   :1.00        Length:81221       Length:81221        Length:81221      
 #&gt;  1st Qu.:1.00        Class :character   Class :character    Class :character  
 #&gt;  Median :1.00        Mode  :character   Mode  :character    Mode  :character  
-#&gt;  Mean   :1.74                                                                 
+#&gt;  Mean   :1.67                                                                 
 #&gt;  3rd Qu.:2.00                                                                 
 #&gt;  Max.   :9.00                                                                 
-#&gt;  NA's   :78996                                                                
+#&gt;  NA's   :81066                                                                
 #&gt;  type_vac_cost_num  type_vac_cost_scale type_vac_cost_unit
-#&gt;  Min.   :     0.0   Length:79113        Length:79113      
+#&gt;  Min.   :     0.0   Length:81221        Length:81221      
 #&gt;  1st Qu.:     2.2   Class :character    Class :character  
-#&gt;  Median :    10.0   Mode  :character    Mode  :character  
-#&gt;  Mean   : 29746.9                                         
-#&gt;  3rd Qu.:   188.5                                         
+#&gt;  Median :     9.2   Mode  :character    Mode  :character  
+#&gt;  Mean   : 25913.1                                         
+#&gt;  3rd Qu.:   153.5                                         
 #&gt;  Max.   :800000.0                                         
-#&gt;  NA's   :79086                                            
+#&gt;  NA's   :81190                                            
 #&gt;  type_vac_cost_gov_perc type_vac_amt_num   type_vac_amt_scale
-#&gt;  Min.   :  0.00         Min.   :     1.0   Length:79113      
-#&gt;  1st Qu.:100.00         1st Qu.:     9.1   Class :character  
-#&gt;  Median :100.00         Median :    48.4   Mode  :character  
-#&gt;  Mean   : 94.98         Mean   :  8441.6                     
-#&gt;  3rd Qu.:100.00         3rd Qu.:   200.0                     
-#&gt;  Max.   :100.00         Max.   :940800.0                     
-#&gt;  NA's   :79065          NA's   :78943                        
+#&gt;  Min.   :     0         Min.   :     0.1   Length:81221      
+#&gt;  1st Qu.:   100         1st Qu.:     8.3   Class :character  
+#&gt;  Median :   100         Median :    40.0   Mode  :character  
+#&gt;  Mean   :  1908         Mean   :  7328.9                     
+#&gt;  3rd Qu.:   100         3rd Qu.:   200.0                     
+#&gt;  Max.   :100100         Max.   :940800.0                     
+#&gt;  NA's   :81166          NA's   :81024                        
 #&gt;  type_vac_amt_unit  type_vac_amt_gov_perc  type_text         institution_cat   
-#&gt;  Length:79113       Min.   :  0.00        Length:79113       Length:79113      
+#&gt;  Length:81221       Min.   :  0.00        Length:81221       Length:81221      
 #&gt;  Class :character   1st Qu.:100.00        Class :character   Class :character  
 #&gt;  Mode  :character   Median :100.00        Mode  :character   Mode  :character  
-#&gt;                     Mean   : 96.15                                             
+#&gt;                     Mean   : 94.62                                             
 #&gt;                     3rd Qu.:100.00                                             
 #&gt;                     Max.   :100.00                                             
-#&gt;                     NA's   :79009                                              
+#&gt;                     NA's   :81091                                              
 #&gt;  institution_status institution_conditions target_init_same  
-#&gt;  Length:79113       Length:79113           Length:79113      
+#&gt;  Length:81221       Length:81221           Length:81221      
 #&gt;  Class :character   Class :character       Class :character  
 #&gt;  Mode  :character   Mode  :character       Mode  :character  
 #&gt;                                                              
@@ -479,7 +480,7 @@ Pandemic.” SocArXiv. April 12. doi:10.31235/osf.io/dkvxy.</p><ul>
 #&gt;                                                              
 #&gt;                                                              
 #&gt;  target_country     target_geog_level  target_region      target_province   
-#&gt;  Length:79113       Length:79113       Length:79113       Length:79113      
+#&gt;  Length:81221       Length:81221       Length:81221       Length:81221      
 #&gt;  Class :character   Class :character   Class :character   Class :character  
 #&gt;  Mode  :character   Mode  :character   Mode  :character   Mode  :character  
 #&gt;                                                                             
@@ -487,15 +488,15 @@ Pandemic.” SocArXiv. April 12. doi:10.31235/osf.io/dkvxy.</p><ul>
 #&gt;                                                                             
 #&gt;                                                                             
 #&gt;  target_city        target_intl_org    target_other   target_who_what   
-#&gt;  Length:79113       Length:79113       Mode:logical   Length:79113      
-#&gt;  Class :character   Class :character   NA's:79113     Class :character  
+#&gt;  Length:81221       Length:81221       Mode:logical   Length:81221      
+#&gt;  Class :character   Class :character   NA's:81221     Class :character  
 #&gt;  Mode  :character   Mode  :character                  Mode  :character  
 #&gt;                                                                         
 #&gt;                                                                         
 #&gt;                                                                         
 #&gt;                                                                         
 #&gt;  target_who_gen     target_direction   travel_mechanism    compliance       
-#&gt;  Length:79113       Length:79113       Length:79113       Length:79113      
+#&gt;  Length:81221       Length:81221       Length:81221       Length:81221      
 #&gt;  Class :character   Class :character   Class :character   Class :character  
 #&gt;  Mode  :character   Mode  :character   Mode  :character   Mode  :character  
 #&gt;                                                                             
@@ -503,28 +504,28 @@ Pandemic.” SocArXiv. April 12. doi:10.31235/osf.io/dkvxy.</p><ul>
 #&gt;                                                                             
 #&gt;                                                                             
 #&gt;    enforcer         dist_index_high_est dist_index_med_est dist_index_low_est
-#&gt;  Length:79113       Min.   :13.30       Min.   : 9.893     Min.   : 3.146    
-#&gt;  Class :character   1st Qu.:58.62       1st Qu.:55.550     1st Qu.:52.377    
-#&gt;  Mode  :character   Median :67.62       Median :64.431     Median :61.232    
-#&gt;                     Mean   :66.33       Mean   :63.053     Mean   :59.691    
-#&gt;                     3rd Qu.:75.99       3rd Qu.:72.681     3rd Qu.:68.998    
+#&gt;  Length:81221       Min.   :13.30       Min.   : 9.893     Min.   : 3.146    
+#&gt;  Class :character   1st Qu.:58.72       1st Qu.:55.597     1st Qu.:52.412    
+#&gt;  Mode  :character   Median :67.77       Median :64.504     Median :61.366    
+#&gt;                     Mean   :66.43       Mean   :63.154     Mean   :59.792    
+#&gt;                     3rd Qu.:76.13       3rd Qu.:72.790     3rd Qu.:69.198    
 #&gt;                     Max.   :98.75       Max.   :98.298     Max.   :97.683    
-#&gt;                     NA's   :8733        NA's   :8733       NA's   :8733      
+#&gt;                     NA's   :9280        NA's   :9280       NA's   :9280      
 #&gt;  dist_index_country_rank   pdf_link             link          
-#&gt;  Min.   :  1.00          Length:79113       Length:79113      
-#&gt;  1st Qu.: 60.00          Class :character   Class :character  
+#&gt;  Min.   :  1.00          Length:81221       Length:81221      
+#&gt;  1st Qu.: 61.00          Class :character   Class :character  
 #&gt;  Median : 99.00          Mode  :character   Mode  :character  
-#&gt;  Mean   : 89.37                                               
+#&gt;  Mean   : 89.68                                               
 #&gt;  3rd Qu.:123.00                                               
 #&gt;  Max.   :139.00                                               
-#&gt;  NA's   :8733                                                 
+#&gt;  NA's   :9280                                                 
 #&gt;   date_updated        recorded_date                
 #&gt;  Min.   :2020-03-28   Min.   :2020-03-28 06:37:36  
-#&gt;  1st Qu.:2020-07-28   1st Qu.:2020-07-28 18:20:43  
-#&gt;  Median :2021-01-09   Median :2021-01-09 17:32:05  
-#&gt;  Mean   :2020-12-09   Mean   :2020-12-10 06:36:22  
-#&gt;  3rd Qu.:2021-04-18   3rd Qu.:2021-04-18 12:30:50  
-#&gt;  Max.   :2021-07-07   Max.   :2021-07-07 22:58:50  
+#&gt;  1st Qu.:2020-08-03   1st Qu.:2020-08-03 07:01:57  
+#&gt;  Median :2021-01-20   Median :2021-01-20 17:34:49  
+#&gt;  Mean   :2020-12-17   Mean   :2020-12-17 15:44:55  
+#&gt;  3rd Qu.:2021-04-26   3rd Qu.:2021-04-26 10:19:48  
+#&gt;  Max.   :2021-07-14   Max.   :2021-07-14 23:56:00  
 #&gt;                                                    </div><div class='input'>
 
 </div></pre>
