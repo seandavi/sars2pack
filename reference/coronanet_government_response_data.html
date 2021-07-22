@@ -246,13 +246,7 @@ Pandemic.” SocArXiv. April 12. doi:10.31235/osf.io/dkvxy.</p><ul>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='va'>res</span> <span class='op'>=</span> <span class='fu'>coronanet_government_response_data</span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='warning'>Warning: 5 parsing failures.</span>
-#&gt; <span class='warning'>  row               col               expected      actual                                                      file</span>
-#&gt; <span class='warning'> 6991 type_vac_cost_num no trailing characters 1-2         '~/.cache/sars2pack/78857fed200_coronanet_release.csv.gz'</span>
-#&gt; <span class='warning'> 7002 type_vac_cost_num no trailing characters 1.6-2.0     '~/.cache/sars2pack/78857fed200_coronanet_release.csv.gz'</span>
-#&gt; <span class='warning'> 7003 type_vac_cost_num no trailing characters 1.6-2.0     '~/.cache/sars2pack/78857fed200_coronanet_release.csv.gz'</span>
-#&gt; <span class='warning'>20080 type_vac_amt_num  no trailing characters 1.410.3     '~/.cache/sars2pack/78857fed200_coronanet_release.csv.gz'</span>
-#&gt; <span class='warning'>71236 type_vac_amt_num  no trailing characters 1.5 billion '~/.cache/sars2pack/78857fed200_coronanet_release.csv.gz'</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 6 x 65</span>
 #&gt;   record_id       policy_id entry_type update_type update_level update_level_var
 #&gt;   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>           <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>      <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>       <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>        <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>           
@@ -383,7 +377,7 @@ Pandemic.” SocArXiv. April 12. doi:10.31235/osf.io/dkvxy.</p><ul>
 #&gt; $ link                    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "https://www.etilaatroz.com/94246/fears-rumors…
 #&gt; $ date_updated            <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span> 2020-08-21, 2020-09-13, 2020-09-12, 2020-09-0…
 #&gt; $ recorded_date           <span style='color: #949494; font-style: italic;'>&lt;dttm&gt;</span> 2020-08-21 18:32:29, 2020-09-13 18:56:27, 202…</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;   record_id          policy_id          entry_type        update_type       
+</div><div class='output co'>#&gt; <span class='warning'>Warning: One or more parsing issues, see `problems()` for details</span></div><div class='output co'>#&gt;   record_id          policy_id          entry_type        update_type       
 #&gt;  Length:81221       Length:81221       Length:81221       Length:81221      
 #&gt;  Class :character   Class :character   Class :character   Class :character  
 #&gt;  Mode  :character   Mode  :character   Mode  :character   Mode  :character  
@@ -456,13 +450,13 @@ Pandemic.” SocArXiv. April 12. doi:10.31235/osf.io/dkvxy.</p><ul>
 #&gt;  Max.   :800000.0                                         
 #&gt;  NA's   :81190                                            
 #&gt;  type_vac_cost_gov_perc type_vac_amt_num   type_vac_amt_scale
-#&gt;  Min.   :     0         Min.   :     0.1   Length:81221      
-#&gt;  1st Qu.:   100         1st Qu.:     8.3   Class :character  
-#&gt;  Median :   100         Median :    40.0   Mode  :character  
-#&gt;  Mean   :  1908         Mean   :  7328.9                     
-#&gt;  3rd Qu.:   100         3rd Qu.:   200.0                     
-#&gt;  Max.   :100100         Max.   :940800.0                     
-#&gt;  NA's   :81166          NA's   :81024                        
+#&gt;  Min.   :  0.00         Min.   :     0.1   Length:81221      
+#&gt;  1st Qu.:100.00         1st Qu.:     8.3   Class :character  
+#&gt;  Median :100.00         Median :    40.0   Mode  :character  
+#&gt;  Mean   : 89.98         Mean   :  7328.9                     
+#&gt;  3rd Qu.:100.00         3rd Qu.:   200.0                     
+#&gt;  Max.   :100.00         Max.   :940800.0                     
+#&gt;  NA's   :81167          NA's   :81024                        
 #&gt;  type_vac_amt_unit  type_vac_amt_gov_perc  type_text         institution_cat   
 #&gt;  Length:81221       Min.   :  0.00        Length:81221       Length:81221      
 #&gt;  Class :character   1st Qu.:100.00        Class :character   Class :character  
