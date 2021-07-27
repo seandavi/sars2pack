@@ -227,7 +227,7 @@ as other parameters specific to each method.</p>
     <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>subset</span><span class='op'>==</span><span class='st'>'confirmed'</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
     <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/arrange.html'>arrange</a></span><span class='op'>(</span><span class='va'>state</span>,<span class='va'>date</span><span class='op'>)</span>
 <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>nyt</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 6 x 5</span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 6 × 5</span>
 #&gt;   date       state   fips  count subset   
 #&gt;   <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>    
 #&gt; <span style='color: #BCBCBC;'>1</span> 2020-03-13 Alabama 00001     6 confirmed
@@ -243,7 +243,7 @@ as other parameters specific to each method.</p>
     config <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>mean_si<span class='op'>=</span><span class='fl'>3.96</span>, std_si<span class='op'>=</span><span class='fl'>4.75</span><span class='op'>)</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; <span class='warning'>Warning: All elements of `...` must be named.</span>
 #&gt; <span class='warning'>Did you want `data = c(date, count)`?</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 6 x 17</span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 6 × 17</span>
 #&gt;   state  fips  subset  data    t_start t_end `Mean(R)` `Std(R)` `Quantile.0.025…
 #&gt;   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>  <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;list&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>            <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>
 #&gt; <span style='color: #BCBCBC;'>1</span> Alaba… 00001 confir… <span style='color: #949494;'>&lt;tibbl</span>…       2     8      2.44    0.242             1.98
