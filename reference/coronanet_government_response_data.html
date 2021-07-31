@@ -248,35 +248,21 @@ Pandemic.” SocArXiv. April 12. doi:10.31235/osf.io/dkvxy.</p><ul>
     <pre class="examples"><div class='input'><span class='va'>res</span> <span class='op'>=</span> <span class='fu'>coronanet_government_response_data</span><span class='op'>(</span><span class='op'>)</span>
 <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 6 × 65</span>
-#&gt;   record_id       policy_id entry_type update_type update_level update_level_var
-#&gt;   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>           <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>      <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>       <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>        <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>           
-#&gt; <span style='color: #BCBCBC;'>1</span> R_3nCudDknlhUI… 2975738   new_entry  <span style='color: #BB0000;'>NA</span>          <span style='color: #BB0000;'>NA</span>           <span style='color: #BB0000;'>NA</span>              
-#&gt; <span style='color: #BCBCBC;'>2</span> R_3OoySQxTamo8… 7024226   new_entry  <span style='color: #BB0000;'>NA</span>          <span style='color: #BB0000;'>NA</span>           <span style='color: #BB0000;'>NA</span>              
-#&gt; <span style='color: #BCBCBC;'>3</span> R_3kLn6IU4rQGH… 889484    new_entry  <span style='color: #BB0000;'>NA</span>          <span style='color: #BB0000;'>NA</span>           <span style='color: #BB0000;'>NA</span>              
-#&gt; <span style='color: #BCBCBC;'>4</span> R_1rAmwrNMSZPg… 129322    new_entry  <span style='color: #BB0000;'>NA</span>          <span style='color: #BB0000;'>NA</span>           <span style='color: #BB0000;'>NA</span>              
-#&gt; <span style='color: #BCBCBC;'>5</span> R_21oIyCpRWpNI… 6721435Ea new_entry  <span style='color: #BB0000;'>NA</span>          <span style='color: #BB0000;'>NA</span>           <span style='color: #BB0000;'>NA</span>              
-#&gt; <span style='color: #BCBCBC;'>6</span> R_21oIyCpRWpNI… 6721435Ec new_entry  <span style='color: #BB0000;'>NA</span>          <span style='color: #BB0000;'>NA</span>           <span style='color: #BB0000;'>NA</span>              
+#&gt;   record_id           policy_id entry_type update_type update_level update_level_var
+#&gt;   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>               <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>      <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>       <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>        <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>           
+#&gt; <span style='color: #BCBCBC;'>1</span> R_3nCudDknlhUIjpONA 2975738   new_entry  <span style='color: #BB0000;'>NA</span>          <span style='color: #BB0000;'>NA</span>           <span style='color: #BB0000;'>NA</span>              
+#&gt; <span style='color: #BCBCBC;'>2</span> R_3OoySQxTamo89oXNA 7024226   new_entry  <span style='color: #BB0000;'>NA</span>          <span style='color: #BB0000;'>NA</span>           <span style='color: #BB0000;'>NA</span>              
+#&gt; <span style='color: #BCBCBC;'>3</span> R_3kLn6IU4rQGHtCbNA 889484    new_entry  <span style='color: #BB0000;'>NA</span>          <span style='color: #BB0000;'>NA</span>           <span style='color: #BB0000;'>NA</span>              
+#&gt; <span style='color: #BCBCBC;'>4</span> R_1rAmwrNMSZPgFhrNA 129322    new_entry  <span style='color: #BB0000;'>NA</span>          <span style='color: #BB0000;'>NA</span>           <span style='color: #BB0000;'>NA</span>              
+#&gt; <span style='color: #BCBCBC;'>5</span> R_21oIyCpRWpNISIDEa 6721435Ea new_entry  <span style='color: #BB0000;'>NA</span>          <span style='color: #BB0000;'>NA</span>           <span style='color: #BB0000;'>NA</span>              
+#&gt; <span style='color: #BCBCBC;'>6</span> R_21oIyCpRWpNISIDEc 6721435Ec new_entry  <span style='color: #BB0000;'>NA</span>          <span style='color: #BB0000;'>NA</span>           <span style='color: #BB0000;'>NA</span>              
 #&gt; <span style='color: #949494;'># … with 59 more variables: description &lt;chr&gt;, date_announced &lt;date&gt;,</span>
 #&gt; <span style='color: #949494;'>#   date_start &lt;date&gt;, date_end &lt;date&gt;, date_end_spec &lt;chr&gt;, country &lt;chr&gt;,</span>
 #&gt; <span style='color: #949494;'>#   iso3c &lt;chr&gt;, iso2c &lt;chr&gt;, init_country_level &lt;chr&gt;, domestic_policy &lt;dbl&gt;,</span>
 #&gt; <span style='color: #949494;'>#   province &lt;chr&gt;, ISO_L2 &lt;chr&gt;, city &lt;chr&gt;, type &lt;chr&gt;, type_sub_cat &lt;chr&gt;,</span>
 #&gt; <span style='color: #949494;'>#   type_new_admin_coop &lt;chr&gt;, type_vac_cat &lt;chr&gt;, type_vac_mix &lt;chr&gt;,</span>
 #&gt; <span style='color: #949494;'>#   type_vac_reg &lt;chr&gt;, type_vac_purchase &lt;chr&gt;, type_vac_group &lt;chr&gt;,</span>
-#&gt; <span style='color: #949494;'>#   type_vac_group_rank &lt;dbl&gt;, type_vac_who_pays &lt;chr&gt;,</span>
-#&gt; <span style='color: #949494;'>#   type_vac_dist_admin &lt;chr&gt;, type_vac_loc &lt;chr&gt;, type_vac_cost_num &lt;chr&gt;,</span>
-#&gt; <span style='color: #949494;'>#   type_vac_cost_scale &lt;chr&gt;, type_vac_cost_unit &lt;chr&gt;,</span>
-#&gt; <span style='color: #949494;'>#   type_vac_cost_gov_perc &lt;dbl&gt;, type_vac_amt_num &lt;dbl&gt;,</span>
-#&gt; <span style='color: #949494;'>#   type_vac_amt_scale &lt;chr&gt;, type_vac_amt_unit &lt;chr&gt;,</span>
-#&gt; <span style='color: #949494;'>#   type_vac_amt_gov_perc &lt;dbl&gt;, type_text &lt;chr&gt;, institution_cat &lt;chr&gt;,</span>
-#&gt; <span style='color: #949494;'>#   institution_status &lt;chr&gt;, institution_conditions &lt;chr&gt;,</span>
-#&gt; <span style='color: #949494;'>#   target_init_same &lt;chr&gt;, target_country &lt;chr&gt;, target_geog_level &lt;chr&gt;,</span>
-#&gt; <span style='color: #949494;'>#   target_region &lt;chr&gt;, target_province &lt;chr&gt;, target_city &lt;chr&gt;,</span>
-#&gt; <span style='color: #949494;'>#   target_intl_org &lt;chr&gt;, target_other &lt;lgl&gt;, target_who_what &lt;chr&gt;,</span>
-#&gt; <span style='color: #949494;'>#   target_who_gen &lt;chr&gt;, target_direction &lt;chr&gt;, travel_mechanism &lt;chr&gt;,</span>
-#&gt; <span style='color: #949494;'>#   compliance &lt;chr&gt;, enforcer &lt;chr&gt;, dist_index_high_est &lt;dbl&gt;,</span>
-#&gt; <span style='color: #949494;'>#   dist_index_med_est &lt;dbl&gt;, dist_index_low_est &lt;dbl&gt;,</span>
-#&gt; <span style='color: #949494;'>#   dist_index_country_rank &lt;dbl&gt;, pdf_link &lt;chr&gt;, link &lt;chr&gt;,</span>
-#&gt; <span style='color: #949494;'>#   date_updated &lt;date&gt;, recorded_date &lt;dttm&gt;</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
+#&gt; <span style='color: #949494;'>#   type_vac_group_rank &lt;dbl&gt;, type_vac_who_pays &lt;chr&gt;, …</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;  [1] "record_id"               "policy_id"              
 #&gt;  [3] "entry_type"              "update_type"            
 #&gt;  [5] "update_level"            "update_level_var"       
