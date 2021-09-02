@@ -5,7 +5,7 @@
 #' been administered. As of December, 2020, this dataset is not complete.
 #' 
 #' @source 
-#' - \url{https://github.com/govex/COVID-19/tree/master/data_tables/vaccine_data}
+#' - \url{https://github.com/govex/COVID-19/}
 #' 
 #' @import data.table
 #' 
@@ -22,34 +22,28 @@
 #' 
 #' vacc = cci_us_vaccine_data()
 #' head(vacc)
-#' table(vacc$unit)
-#' table(vacc$status)
-#' table(vacc$entity)
 #' 
-#' us_pop = us_population_details(geography='state', product='population', year=2019)
+#' 
+#' us_pop = us_population_details(geography='state', product='population', 
+#'   year=2019)
 #' us_pop = us_pop[us_pop$variable=='POP',]
-#' vacc = vacc[vacc$variable=='people_admin_first-dose',]
 #' vac_pop = merge(us_pop,vacc,by.x="NAME",by.y="province_state")
 #'
 #' if(require('ggplot2')) {
-#'   ggplot(vac_pop, aes(x=date,y=count/value*100000, color=stabbr)) +
-#'     geom_line() + ggtitle("Number of first vaccine doses delivered by state",'Cumulative counts') +
+#'   vac_pop[vac_pop$vaccine_type=='All' & vac_pop$stage_one_doses<1e7,] %>%
+#'   ggplot(aes(x=date,y=stage_one_doses/value*100000, color=NAME)) +
+#'     geom_line() + 
+#'     ggtitle("Number of first vaccine doses delivered by state",'Cumulative counts') +
 #'     xlab("Date") +
 #'     ylab("Number of people vaccinated/100k population")
 #' }
 #'
 #' @export
 cci_us_vaccine_data = function() {
-    url = 'https://raw.githubusercontent.com/govex/COVID-19/master/data_tables/vaccine_data/raw_data/vaccine_data_us_state_timeline.csv'
+    url = 'https://raw.githubusercontent.com/govex/COVID-19/master/data_tables/vaccine_data/us_data/time_series/vaccine_data_us_timeline.csv'
     rpath = s2p_cached_url(url)
     dat = data.table::fread(rpath)
-    storage.mode(dat$people_total_2nd_dose)="integer"
     data.table::setnames(dat, names(dat), tolower(names(dat)))
-    data.table::setnames(dat, c('people_total', 'people_total_2nd_dose'),
-                         c('people_admin_first-dose','people_admin_second-dose'))
-    dat[['date']]=lubridate::mdy(dat$date,quiet = TRUE)
-    dat[, dashboard_available := NULL]
-    dat = data.table::melt(dat,id=1:3, value.name='count')
-    dat[, c("unit","status","entity"):= data.table::tstrsplit(variable,'_')]
-    dat[!is.na(dat$count)][]
+    dat[['date']]=lubridate::ymd(dat$date,quiet = TRUE)
+    return(dat)
 }
