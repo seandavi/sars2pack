@@ -4,10 +4,14 @@
 \alias{cdc_us_linelist_data}
 \title{COVID line list for United States from the CDC}
 \usage{
-cdc_us_linelist_data()
+cdc_us_linelist_data(nrows = 5e+05)
+}
+\arguments{
+\item{nrows}{integer(), default 500000, representing the total number of rows to fetch.
+Specify \code{Inf} to get everything.}
 }
 \description{
-COVID line list for United States from the CDC
+This dataset is huge, so limiting the number of rows is the default.
 }
 \details{
 Currently, CDC provides the public with COVID-19 case surveillance data in two ways: an 11 data element public use dataset of the line-listed dataset of all COVID-19 cases shared with CDC and a 31 data element restricted access dataset of the line-listed dataset of all COVID-19 cases shared with CDC.

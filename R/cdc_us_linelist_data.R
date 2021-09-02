@@ -1,7 +1,12 @@
 #' COVID line list for United States from the CDC
+#' 
+#' This dataset is huge, so limiting the number of rows is the default.
+#' 
+#' @param nrows integer(), default 500000, representing the total number of rows to fetch.
+#'   Specify `Inf` to get everything.
+#' 
 #'
 #' @details
-
 #' Currently, CDC provides the public with COVID-19 case surveillance data in two ways: an 11 data element public use dataset of the line-listed dataset of all COVID-19 cases shared with CDC and a 31 data element restricted access dataset of the line-listed dataset of all COVID-19 cases shared with CDC.
 #'
 #' The following are true for both the public use dataset and the restricted access dataset:
@@ -76,10 +81,10 @@
 #'
 #' @author Sean Davis <seandavi@gmail.com>
 #' @export
-cdc_us_linelist_data = function() {
+cdc_us_linelist_data = function(nrows=500000) {
   url = 'https://data.cdc.gov/api/views/vbim-akqf/rows.csv'
   rpath = s2p_cached_url(url)
-  res = data.table::fread(rpath)
+  res = data.table::fread(rpath,nrows=nrows)
   nm1 <- grep('.*_dt$',names(res))
   for(j in nm1){
     data.table::set(res, i = NULL, j = j, value = lubridate::ymd(res[[j]]))
@@ -95,5 +100,6 @@ cdc_us_linelist_data = function() {
   for(j in nm1){
     data.table::set(res, i = NULL, j = j, value = fix_yn_cols(res[[j]]))
   }
+  message('Only %d rows returned. See `nrows` parameter to increase')
   return(res)
 }
