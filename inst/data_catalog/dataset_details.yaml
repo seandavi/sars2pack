@@ -1213,13 +1213,13 @@ datasets:
       dateChecked:
       - POSIXct
       - POSIXt
-      dataQualityGrade: character
+      dataQualityGrade: logical
     dimensions:
-      nrow: 16483
+      nrow: 20780
       ncol: 16
     dates:
       min: '2020-01-13'
-      max: '2020-12-21'
+      max: '2021-03-07'
   us_healthcare_capacity:
     columns:
       Name: character
@@ -1497,41 +1497,41 @@ datasets:
       initclaims_count_regular: integer
       contclaims_count_regular: integer
       initclaims_count_pua: integer
-      contclaims_count_pua: integer
       contclaims_count_peuc: integer
+      contclaims_count_pua: integer
+      initclaims_count_combined: integer
+      contclaims_count_combined: integer
       initclaims_rate_regular: numeric
       contclaims_rate_regular: numeric
       initclaims_rate_pua: numeric
-      contclaims_rate_pua: numeric
       contclaims_rate_peuc: numeric
-      initclaims_count_combined: integer
-      contclaims_count_combined: integer
+      contclaims_rate_pua: numeric
       initclaims_rate_combined: numeric
       contclaims_rate_combined: numeric
       date:
       - IDate
       - Date
     dimensions:
-      nrow: 49
+      nrow: 85
       ncol: 15
     dates:
       min: '2020-01-04'
-      max: '2020-12-05'
+      max: '2021-08-14'
   econ_tracker_unemp_state_data:
     columns:
       statefips: character
       initclaims_count_regular: integer
-      initclaims_rate_regular: numeric
       contclaims_count_regular: integer
-      contclaims_rate_regular: numeric
       initclaims_count_pua: integer
-      contclaims_count_pua: integer
       contclaims_count_peuc: integer
-      initclaims_rate_pua: numeric
-      contclaims_rate_pua: numeric
-      contclaims_rate_peuc: numeric
+      contclaims_count_pua: integer
       initclaims_count_combined: integer
       contclaims_count_combined: integer
+      initclaims_rate_regular: numeric
+      contclaims_rate_regular: numeric
+      initclaims_rate_pua: numeric
+      contclaims_rate_peuc: numeric
+      contclaims_rate_pua: numeric
       initclaims_rate_combined: numeric
       contclaims_rate_combined: numeric
       date:
@@ -1541,11 +1541,11 @@ datasets:
       stateabbrev: character
       state_pop2019: integer
     dimensions:
-      nrow: 2499
+      nrow: 4335
       ncol: 19
     dates:
       min: '2020-01-04'
-      max: '2020-12-05'
+      max: '2021-08-14'
   econ_tracker_unemp_city_data:
     columns:
       cityid: integer
@@ -1555,11 +1555,11 @@ datasets:
       - IDate
       - Date
     dimensions:
-      nrow: 1219
+      nrow: 1839
       ncol: 4
     dates:
-      min: '2020-01-11'
-      max: '2020-11-28'
+      min: '2020-01-04'
+      max: '2021-08-28'
   econ_tracker_unemp_county_data:
     columns:
       countyfips: character
@@ -1569,6 +1569,8 @@ datasets:
       - IDate
       - Date
       countyname: character
+      cityid: integer
+      cityname: character
       cz: integer
       czname: character
       statename: character
@@ -1576,11 +1578,11 @@ datasets:
       stateabbrev: character
       county_pop2019: integer
     dimensions:
-      nrow: 60808
-      ncol: 11
+      nrow: 103728
+      ncol: 13
     dates:
-      min: '2020-01-11'
-      max: '2020-11-28'
+      min: '2020-01-04'
+      max: '2021-08-28'
   econ_tracker_consumer_spending_city_data:
     columns:
       cityid: integer
@@ -1588,14 +1590,24 @@ datasets:
       stateabbrev: character
       statename: character
       statefips: character
+      lat: numeric
+      lon: numeric
       city_pop2019: integer
       freq: character
+      spend_all: numeric
+      spend_aap: numeric
       spend_acf: numeric
       spend_aer: numeric
-      spend_all: numeric
       spend_apg: numeric
+      spend_durables: numeric
+      spend_nondurables: numeric
       spend_grf: numeric
+      spend_gen: numeric
+      spend_hic: numeric
       spend_hcs: numeric
+      spend_inpersonmisc: numeric
+      spend_remoteservices: numeric
+      spend_sgh: numeric
       spend_tws: numeric
       spend_retail_w_grocery: numeric
       spend_retail_no_grocery: numeric
@@ -1604,15 +1616,17 @@ datasets:
       - IDate
       - Date
     dimensions:
-      nrow: 16750
-      ncol: 18
+      nrow: 29937
+      ncol: 28
     dates:
       min: '2020-01-01'
-      max: '2020-12-06'
+      max: '2021-08-15'
   econ_tracker_consumer_spending_county_data:
     columns:
       countyfips: character
       countyname: character
+      cityid: integer
+      cityname: character
       cz: integer
       czname: character
       statename: character
@@ -1626,11 +1640,11 @@ datasets:
       - IDate
       - Date
     dimensions:
-      nrow: 559923
-      ncol: 12
+      nrow: 1009664
+      ncol: 14
     dates:
       min: '2020-01-01'
-      max: '2020-12-06'
+      max: '2021-08-15'
   econ_tracker_consumer_spending_state_data:
     columns:
       statefips: character
@@ -1638,55 +1652,159 @@ datasets:
       stateabbrev: character
       state_pop2019: integer
       freq: character
+      spend_all: numeric
+      spend_aap: numeric
       spend_acf: numeric
       spend_aer: numeric
-      spend_all: numeric
       spend_apg: numeric
+      spend_durables: numeric
+      spend_nondurables: numeric
       spend_grf: numeric
+      spend_gen: numeric
+      spend_hic: numeric
       spend_hcs: numeric
+      spend_inpersonmisc: numeric
+      spend_remoteservices: numeric
+      spend_sgh: numeric
       spend_tws: numeric
-      spend_all_inchigh: numeric
-      spend_all_inclow: numeric
-      spend_all_incmiddle: numeric
       spend_retail_w_grocery: numeric
       spend_retail_no_grocery: numeric
+      spend_all_incmiddle: numeric
+      spend_all_q1: numeric
+      spend_all_q2: numeric
+      spend_all_q3: numeric
+      spend_all_q4: numeric
       provisional: integer
       date:
       - IDate
       - Date
     dimensions:
-      nrow: 17085
-      ncol: 19
+      nrow: 29937
+      ncol: 29
     dates:
       min: '2020-01-01'
-      max: '2020-12-06'
+      max: '2021-08-15'
   econ_tracker_consumer_spending_national_data:
     columns:
       freq: character
       spend_all: numeric
-      spend_apg: numeric
-      spend_aer: numeric
-      spend_grf: numeric
-      spend_hcs: numeric
+      spend_aap: numeric
       spend_acf: numeric
+      spend_aer: numeric
+      spend_apg: numeric
+      spend_durables: numeric
+      spend_nondurables: numeric
+      spend_grf: numeric
+      spend_gen: numeric
+      spend_hic: numeric
+      spend_hcs: numeric
+      spend_inpersonmisc: numeric
+      spend_remoteservices: numeric
+      spend_sgh: numeric
       spend_tws: numeric
-      spend_retail_no_grocery: numeric
       spend_retail_w_grocery: numeric
-      spend_all_inclow: numeric
+      spend_retail_no_grocery: numeric
       spend_all_incmiddle: numeric
-      spend_all_inchigh: numeric
+      spend_all_q1: numeric
       spend_all_q2: numeric
       spend_all_q3: numeric
+      spend_all_q4: numeric
+      spend_aap_q1: numeric
+      spend_acf_q1: numeric
+      spend_aer_q1: numeric
+      spend_apg_q1: numeric
+      spend_durables_q1: numeric
+      spend_gen_q1: numeric
+      spend_grf_q1: numeric
+      spend_hcs_q1: numeric
+      spend_hic_q1: numeric
+      spend_inpersonmisc_q1: numeric
+      spend_nondurables_q1: numeric
+      spend_remoteservices_q1: numeric
+      spend_sgh_q1: numeric
+      spend_tws_q1: numeric
+      spend_retail_no_grocery_q1: numeric
+      spend_retail_w_grocery_q1: numeric
+      spend_aap_q2: numeric
+      spend_acf_q2: numeric
+      spend_aer_q2: numeric
+      spend_apg_q2: numeric
+      spend_durables_q2: numeric
+      spend_gen_q2: numeric
+      spend_grf_q2: numeric
+      spend_hcs_q2: numeric
+      spend_hic_q2: numeric
+      spend_inpersonmisc_q2: numeric
+      spend_nondurables_q2: numeric
+      spend_remoteservices_q2: numeric
+      spend_sgh_q2: numeric
+      spend_tws_q2: numeric
+      spend_retail_no_grocery_q2: numeric
+      spend_retail_w_grocery_q2: numeric
+      spend_aap_q3: numeric
+      spend_acf_q3: numeric
+      spend_aer_q3: numeric
+      spend_apg_q3: numeric
+      spend_durables_q3: numeric
+      spend_gen_q3: numeric
+      spend_grf_q3: numeric
+      spend_hcs_q3: numeric
+      spend_hic_q3: numeric
+      spend_inpersonmisc_q3: numeric
+      spend_nondurables_q3: numeric
+      spend_remoteservices_q3: numeric
+      spend_sgh_q3: numeric
+      spend_tws_q3: numeric
+      spend_retail_no_grocery_q3: numeric
+      spend_retail_w_grocery_q3: numeric
+      spend_aap_q4: numeric
+      spend_acf_q4: numeric
+      spend_aer_q4: numeric
+      spend_apg_q4: numeric
+      spend_durables_q4: numeric
+      spend_gen_q4: numeric
+      spend_grf_q4: numeric
+      spend_hcs_q4: numeric
+      spend_hic_q4: numeric
+      spend_inpersonmisc_q4: numeric
+      spend_nondurables_q4: numeric
+      spend_remoteservices_q4: numeric
+      spend_sgh_q4: numeric
+      spend_tws_q4: numeric
+      spend_retail_no_grocery_q4: numeric
+      spend_retail_w_grocery_q4: numeric
+      spend_s_aap: numeric
+      spend_s_acf: numeric
+      spend_s_aer: numeric
+      spend_s_all: numeric
+      spend_s_apg: numeric
+      spend_s_durables: numeric
+      spend_s_gen: numeric
+      spend_s_grf: numeric
+      spend_s_hcs: numeric
+      spend_s_hic: numeric
+      spend_s_inpersonmisc: numeric
+      spend_s_nondurables: numeric
+      spend_s_remoteservices: numeric
+      spend_s_sgh: numeric
+      spend_s_tws: numeric
+      spend_s_all_incmiddle: numeric
+      spend_s_all_q1: numeric
+      spend_s_all_q2: numeric
+      spend_s_all_q3: numeric
+      spend_s_all_q4: numeric
+      spend_s_retail_no_grocery: numeric
+      spend_s_retail_w_grocery: numeric
       provisional: integer
       date:
       - IDate
       - Date
     dimensions:
-      nrow: 694
-      ncol: 17
+      nrow: 946
+      ncol: 111
     dates:
       min: '2019-01-07'
-      max: '2020-12-06'
+      max: '2021-08-15'
   econ_tracker_employment_national_data:
     columns:
       date:
@@ -1696,11 +1814,11 @@ datasets:
       value: numeric
       variable_type: character
     dimensions:
-      nrow: 2488
+      nrow: 13925
       ncol: 4
     dates:
       min: '2020-01-14'
-      max: '2020-11-19'
+      max: '2021-07-23'
   econ_tracker_employment_city_data:
     columns:
       cityid: integer
@@ -1708,6 +1826,8 @@ datasets:
       stateabbrev: character
       statename: character
       statefips: character
+      lat: numeric
+      lon: numeric
       city_pop2019: integer
       date:
       - IDate
@@ -1716,11 +1836,11 @@ datasets:
       value: numeric
       variable_type: character
     dimensions:
-      nrow: 58512
-      ncol: 10
+      nrow: 225144
+      ncol: 12
     dates:
       min: '2020-01-14'
-      max: '2020-10-15'
+      max: '2021-06-27'
   econ_tracker_employment_state_data:
     columns:
       statefips: character
@@ -1734,15 +1854,17 @@ datasets:
       value: numeric
       variable_type: character
     dimensions:
-      nrow: 112608
+      nrow: 324972
       ncol: 8
     dates:
       min: '2020-01-14'
-      max: '2020-10-15'
+      max: '2021-06-27'
   econ_tracker_employment_county_data:
     columns:
       countyfips: character
       countyname: character
+      cityid: integer
+      cityname: character
       cz: integer
       czname: character
       statename: character
@@ -1756,10 +1878,10 @@ datasets:
       value: numeric
       variable_type: character
     dimensions:
-      nrow: 3302064
-      ncol: 12
+      nrow: 12930912
+      ncol: 14
     dates:
       min: '2020-01-14'
-      max: '2020-10-15'
+      max: '2021-06-27'
 eval_date: '2021-09-02'
 

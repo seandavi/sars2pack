@@ -1,6 +1,7 @@
 #' Check a dataset to see if it matches the expected output
 #' 
 #' @keywords internal
+#' @importFrom yaml yaml.load_file
 #' 
 #' @param accessor character(1) the accessor function name of the dataset to check. 
 #' @param ... passed to accessor directly
@@ -13,7 +14,7 @@
 #' 
 test_data_accessor = function(accessor,...) {
     dset = accessor
-    yml = yaml.load_file(system.file(package='sars2pack', path='data_catalog/dataset_details.yaml'))
+    yml = yaml::yaml.load_file(system.file(package='sars2pack', path='data_catalog/dataset_details.yaml'))
     dsets = yml$datasets
     
     #if(dset=='apple_mobility_data') next ## skip for now

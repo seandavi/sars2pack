@@ -51,7 +51,7 @@
 #'
 #' @export
 financial_times_excess_deaths <- function() {
-    url = 'https://github.com/Financial-Times/coronavirus-excess-mortality-data/raw/master/data/ft_excess_deaths.csv'
+    url = 'https://raw.githubusercontent.com/Financial-Times/coronavirus-excess-mortality-data/main/data/ft_excess_deaths.csv'
     rpath = s2p_cached_url(url)
     readr::read_csv(rpath, col_types=readr::cols())
 }

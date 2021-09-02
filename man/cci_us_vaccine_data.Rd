@@ -5,7 +5,7 @@
 \title{Vaccine allocations and administrations in the United States}
 \source{
 \itemize{
-\item \url{https://github.com/govex/COVID-19/tree/master/data_tables/vaccine_data}
+\item \url{https://github.com/govex/COVID-19/}
 }
 }
 \usage{
@@ -23,18 +23,18 @@ been administered. As of December, 2020, this dataset is not complete.
 
 vacc = cci_us_vaccine_data()
 head(vacc)
-table(vacc$unit)
-table(vacc$status)
-table(vacc$entity)
 
-us_pop = us_population_details(geography='state', product='population', year=2019)
+
+us_pop = us_population_details(geography='state', product='population', 
+  year=2019)
 us_pop = us_pop[us_pop$variable=='POP',]
-vacc = vacc[vacc$variable=='people_admin_first-dose',]
 vac_pop = merge(us_pop,vacc,by.x="NAME",by.y="province_state")
 
 if(require('ggplot2')) {
-  ggplot(vac_pop, aes(x=date,y=count/value*100000, color=stabbr)) +
-    geom_line() + ggtitle("Number of first vaccine doses delivered by state",'Cumulative counts') +
+  vac_pop[vac_pop$vaccine_type=='All' & vac_pop$stage_one_doses<1e7,] \%>\%
+  ggplot(aes(x=date,y=stage_one_doses/value*100000, color=NAME)) +
+    geom_line() + 
+    ggtitle("Number of first vaccine doses delivered by state",'Cumulative counts') +
     xlab("Date") +
     ylab("Number of people vaccinated/100k population")
 }

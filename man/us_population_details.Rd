@@ -17,7 +17,8 @@ a \code{data.frame}
 Get data from the US Census Bureau Population Estimates APIs.
 }
 \examples{
-res = us_population_details(geography='county', product='population', year=2019)
+res = us_population_details(geography='county', 
+  product='population', year=2019)
 head(res)
 
 }

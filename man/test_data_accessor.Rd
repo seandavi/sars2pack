@@ -4,10 +4,12 @@
 \alias{test_data_accessor}
 \title{Check a dataset to see if it matches the expected output}
 \usage{
-test_data_accessor(accessor)
+test_data_accessor(accessor, ...)
 }
 \arguments{
 \item{accessor}{character(1) the accessor function name of the dataset to check.}
+
+\item{...}{passed to accessor directly}
 }
 \description{
 Check a dataset to see if it matches the expected output

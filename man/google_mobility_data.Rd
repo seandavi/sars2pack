@@ -9,12 +9,15 @@
 }
 }
 \usage{
-google_mobility_data(accept_terms = TRUE)
+google_mobility_data(accept_terms = TRUE, nrows = Inf)
 }
 \arguments{
 \item{accept_terms}{default is TRUE, but please make sure that you
 and any downstream users are aware that they are accepting
 Google's terms of service. See the note below.}
+
+\item{nrows}{default is Inf, but specify a smaller number to limit
+memory usage. This dataset is HUGE.}
 }
 \value{
 a data.frame

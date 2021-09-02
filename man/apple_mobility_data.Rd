@@ -4,7 +4,12 @@
 \alias{apple_mobility_data}
 \title{Access Apple mobility data}
 \usage{
-apple_mobility_data(agree_to_terms = TRUE, max_tries = 3, message_url = FALSE)
+apple_mobility_data(
+  agree_to_terms = TRUE,
+  max_tries = 3,
+  message_url = FALSE,
+  nrows = Inf
+)
 }
 \arguments{
 \item{agree_to_terms}{logical, when TRUE, implies that the user
@@ -14,6 +19,9 @@ has agreed to Apple's terms of use. See references and note.}
 
 \item{message_url}{logical, output a message with the URL for the day
 since Apple changes it daily.}
+
+\item{nrows}{default Inf, the approximate max number of rows to read
+to limit size for testing purposes, etc.}
 }
 \value{
 a data.frame

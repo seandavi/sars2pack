@@ -55,7 +55,7 @@
 econ_tracker_employment_city_data = function() {
   locs = econ_tracker_city_geo()
   setkey(locs,'cityid')
-  url = "https://raw.githubusercontent.com/OpportunityInsights/EconomicTracker/main/data/Employment%20Combined%20-%20City%20-%20Daily.csv"
+  url = "https://raw.githubusercontent.com/OpportunityInsights/EconomicTracker/main/data/Employment%20-%20City%20-%20Daily.csv"
   rpath = s2p_cached_url(url)
   dat = data.table::fread(rpath, na.strings = '.')
   data.table::set(dat, j="date", value=data.table::as.IDate(paste(dat$year,dat$month,dat$day,sep="-")))
@@ -75,7 +75,7 @@ econ_tracker_employment_city_data = function() {
 econ_tracker_employment_county_data = function() {
   locs = econ_tracker_county_geo()
   setkey(locs,'countyfips')
-  url = "https://raw.githubusercontent.com/OpportunityInsights/EconomicTracker/main/data/Employment%20Combined%20-%20County%20-%20Daily.csv"
+  url = "https://raw.githubusercontent.com/OpportunityInsights/EconomicTracker/main/data/Employment%20-%20County%20-%20Daily.csv"
   rpath = s2p_cached_url(url)
   dat = data.table::fread(rpath, na.strings = '.')
   data.table::set(dat, j="date", value=data.table::as.IDate(paste(dat$year,dat$month,dat$day,sep="-")))
@@ -95,14 +95,14 @@ econ_tracker_employment_county_data = function() {
 econ_tracker_employment_state_data = function() {
   locs = econ_tracker_state_geo()
   setkey(locs,'statefips')
-  url = "https://raw.githubusercontent.com/OpportunityInsights/EconomicTracker/main/data/Employment%20Combined%20-%20State%20-%20Daily.csv"
+  url = "https://raw.githubusercontent.com/OpportunityInsights/EconomicTracker/main/data/Employment%20-%20State%20-%20Daily.csv"
   rpath = s2p_cached_url(url)
   dat = data.table::fread(rpath, na.strings = '.')
   data.table::set(dat, j="date", value=data.table::as.IDate(paste(dat$year,dat$month,dat$day,sep="-")))
   data.table::set(dat, j=c('year','month','day'), value=NULL)
   data.table::set(dat, j='statefips', value=integer_to_fips(dat[['statefips']]))
   setkey(dat,'statefips')
-  .melt_econ_tracker_employment(locs[dat,all=TRUE])
+  .melt_econ_tracker_employment(locs[dat, all=TRUE])
 }
 
 #' @rdname econ_tracker_employment
@@ -120,12 +120,11 @@ econ_tracker_employment_state_data = function() {
 #' 
 #' @export
 econ_tracker_employment_national_data = function() {
-  url = "https://raw.githubusercontent.com/OpportunityInsights/EconomicTracker/main/data/Employment%20Combined%20-%20National%20-%20Daily.csv"
+  url = "https://raw.githubusercontent.com/OpportunityInsights/EconomicTracker/main/data/Employment%20-%20National%20-%20Daily.csv"
   rpath = s2p_cached_url(url)
   dat = data.table::fread(rpath, na.strings = '.')
   data.table::set(dat, j="date", value=data.table::as.IDate(paste(dat$year,dat$month,dat$day,sep="-")))
   data.table::set(dat, j=c('year','month','day'), value=NULL)
-  data.table::set(dat, j=c('emp_combined_advance'), value=NULL)
   .melt_econ_tracker_employment(dat)
 }
 
@@ -141,11 +140,13 @@ econ_tracker_employment_national_data = function() {
 #' 
 #' @keywords internal
 .melt_econ_tracker_employment = function(dtable) {
-  cols_to_stack = grep('emp_combined',colnames(dtable))
+  cols_to_stack = grep('^emp',colnames(dtable))
+  dtable[, (cols_to_stack) := lapply(.SD, as.numeric), .SDcols = cols_to_stack]
   tmp = data.table::melt(dtable, measure.vars=cols_to_stack)
-  tmp[, variable := sub('emp_combined[_]?','',tmp[['variable']])]
+  tmp[, variable := sub('emp[_]?','',tmp[['variable']])]
   tmp[variable=='', variable:='everyone']
   tmp[, variable_type := "total"]
   tmp[grepl('^ss',variable), variable_type := 'NAICS']
   tmp[grepl('^inc',variable), variable_type := 'wages']
+  return(tmp)
 }
