@@ -83,11 +83,11 @@ google_search_trends_data <- function(nrows=Inf) {
   message("This is a VERY large dataset that may take some time to load \nand requires multiple GB of free RAM to load. \nConsider setting nrows to a smaller value to test first. ")
   url = 'https://storage.googleapis.com/covid19-open-data/v2/index.csv'
   rpath = s2p_cached_url(url)
-  idx_data = data.table::fread(rpath,na.strings = '',nrows = nrows)
+  idx_data = data.table::fread(rpath,na.strings = '')
   data.table::setkey(idx_data,"key")
   url = "https://storage.googleapis.com/covid19-open-data/v2/google-search-trends.csv"
   rpath = s2p_cached_url(url)
-  dset = data.table::fread(rpath,na.strings='')
+  dset = data.table::fread(rpath,na.strings='', nrows=nrows)
   data.table::setnames(dset, colnames(dset), sub('search_trends_','',colnames(dset)))
   data.table::setkey(dset,"key")
   merge(dset,idx_data,on='key',all.x=FALSE)
