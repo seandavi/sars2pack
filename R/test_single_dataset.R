@@ -3,6 +3,7 @@
 #' @keywords internal
 #' 
 #' @param accessor character(1) the accessor function name of the dataset to check. 
+#' @param ... passed to accessor directly
 #' 
 #' @author Sean Davis <seandavi@gmail.com>
 #' 
@@ -10,14 +11,14 @@
 #' 
 #' test_data_accessor("nytimes_state_data")
 #' 
-test_data_accessor = function(accessor) {
+test_data_accessor = function(accessor,...) {
     dset = accessor
     yml = yaml.load_file(system.file(package='sars2pack', path='data_catalog/dataset_details.yaml'))
     dsets = yml$datasets
     
     #if(dset=='apple_mobility_data') next ## skip for now
     accessor = get(accessor)
-    invisible(capture_output(res <- accessor()))
+    invisible(capture_output(res <- accessor(...)))
     # skip non-data-frame-like objects for now
     if(inherits(res,'data.frame')) {
         context(sprintf("%s columns and datatypes",dset))

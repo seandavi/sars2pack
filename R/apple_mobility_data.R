@@ -32,6 +32,8 @@
 #' @param max_tries integer, the number of tries to attempt downloading
 #' @param message_url logical, output a message with the URL for the day
 #'     since Apple changes it daily.
+#' @param nrows default Inf, the approximate max number of rows to read
+#'     to limit size for testing purposes, etc.
 #' 
 #' @references
 #'
@@ -100,7 +102,7 @@
 #' 
 #' @export
 apple_mobility_data = function(agree_to_terms=TRUE, max_tries=3,
-                               message_url=FALSE) {
+                               message_url=FALSE, nrows=Inf) {
     ## apple uses javascript to change the download
     ## URL every day to force users to examine terms
     ## The code below uses webdriver to render the
@@ -138,7 +140,7 @@ apple_mobility_data = function(agree_to_terms=TRUE, max_tries=3,
                 next
             }
             surl = surl[[1]]
-            dat = readr::read_csv(surl, col_types = cols()) %>%
+            dat = readr::read_csv(surl, col_types = cols(), n_max = nrows) %>%
                 tidyr::pivot_longer(
                     cols = dplyr::starts_with('20'),
                     names_to = "date",

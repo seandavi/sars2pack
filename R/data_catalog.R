@@ -83,14 +83,14 @@ write_dataset_details = function(dd) {
   writeLines(yaml::as.yaml(dd),.dataset_details_file)
 }
 
-add_or_update_dataset_details = function(accessor_name) {
+add_or_update_dataset_details = function(accessor_name,...) {
   res = dataset_details()
-  res$datasets[[accessor_name]]=create_dataset_detail_record(accessor_name)
+  res$datasets[[accessor_name]]=create_dataset_detail_record(accessor_name,...)
   write_dataset_details(res)
 }
 
-create_dataset_detail_record = function(accessor_name) {
-  a = get(accessor_name)()
+create_dataset_detail_record = function(accessor_name,...) {
+  a = get(accessor_name)(...)
   ret = list(columns=lapply(a, class), 
              dimensions=list(nrow=nrow(a), ncol = ncol(a)))
   if('date' %in% colnames(a)) {

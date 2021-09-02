@@ -185,13 +185,13 @@ datasets:
       year: integer
       month: integer
       population: integer
-      total_deaths: integer
+      total_deaths: numeric
       covid_deaths: numeric
       expected_deaths: numeric
       quarter: integer
       week: integer
     dimensions:
-      nrow: 25086
+      nrow: 16890
       ncol: 14
   financial_times_excess_deaths:
     columns:
@@ -231,13 +231,14 @@ datasets:
       record_id: character
       policy_id: character
       entry_type: character
-      correct_type: character
       update_type: character
       update_level: character
+      update_level_var: character
       description: character
       date_announced: Date
       date_start: Date
       date_end: Date
+      date_end_spec: character
       country: character
       iso3c: character
       iso2c: character
@@ -248,15 +249,38 @@ datasets:
       city: character
       type: character
       type_sub_cat: character
+      type_new_admin_coop: character
+      type_vac_cat: character
+      type_vac_mix: character
+      type_vac_reg: character
+      type_vac_purchase: character
+      type_vac_group: character
+      type_vac_group_rank: numeric
+      type_vac_who_pays: character
+      type_vac_dist_admin: character
+      type_vac_loc: character
+      type_vac_cost_num: numeric
+      type_vac_cost_scale: character
+      type_vac_cost_unit: character
+      type_vac_cost_gov_perc: numeric
+      type_vac_amt_num: numeric
+      type_vac_amt_scale: character
+      type_vac_amt_unit: character
+      type_vac_amt_gov_perc: numeric
       type_text: character
+      institution_cat: character
       institution_status: character
+      institution_conditions: character
+      target_init_same: character
       target_country: character
       target_geog_level: character
       target_region: character
       target_province: character
       target_city: character
+      target_intl_org: character
       target_other: logical
       target_who_what: character
+      target_who_gen: character
       target_direction: character
       travel_mechanism: character
       compliance: character
@@ -265,14 +289,15 @@ datasets:
       dist_index_med_est: numeric
       dist_index_low_est: numeric
       dist_index_country_rank: numeric
+      pdf_link: character
       link: character
       date_updated: Date
       recorded_date:
       - POSIXct
       - POSIXt
     dimensions:
-      nrow: 69824
-      ncol: 40
+      nrow: 87810
+      ncol: 65
   country_metadata:
     columns:
       name: character
@@ -337,10 +362,12 @@ datasets:
       total_vaccinations: numeric
       people_vaccinated: numeric
       people_fully_vaccinated: numeric
+      total_boosters: numeric
       new_vaccinations: numeric
       total_vaccinations_per_hundred: numeric
       people_vaccinated_per_hundred: numeric
       people_fully_vaccinated_per_hundred: numeric
+      total_boosters_per_hundred: numeric
       stringency_index: numeric
       population: numeric
       population_density: numeric
@@ -357,12 +384,13 @@ datasets:
       hospital_beds_per_thousand: numeric
       life_expectancy: numeric
       human_development_index: numeric
+      excess_mortality: numeric
     dimensions:
-      nrow: 87950
-      ncol: 51
+      nrow: 113406
+      ncol: 54
     dates:
       min: '2020-01-01'
-      max: '2021-05-12'
+      max: '2021-08-31'
   cov_glue_lineage_data:
     columns:
       GISAID ID: character
@@ -471,7 +499,7 @@ datasets:
       admin2: character
       metro_area: character
       iso_3166_2_code: character
-      census_fips_code: integer
+      census_fips_code: logical
       place_id: character
       date:
       - IDate
@@ -480,11 +508,11 @@ datasets:
       places_category: character
       percent_change_from_baseline: integer
     dimensions:
-      nrow: 32012058
+      nrow: 6000000
       ncol: 12
     dates:
       min: '2020-02-15'
-      max: '2021-05-10'
+      max: '2021-08-28'
   google_search_trends_data:
     columns:
       key: character
@@ -913,6 +941,7 @@ datasets:
       xeroderma: numeric
       xerostomia: numeric
       yawn: numeric
+      place_id: character
       wikidata: character
       datacommons: character
       country_code: character
@@ -927,11 +956,11 @@ datasets:
       3166-1-alpha-3: character
       aggregation_level: integer
     dimensions:
-      nrow: 995622
-      ncol: 437
+      nrow: 1670415
+      ncol: 438
     dates:
       min: '2020-01-01'
-      max: '2020-12-27'
+      max: '2021-08-29'
   who_cases:
     columns:
       date:
@@ -951,20 +980,22 @@ datasets:
   ecdc_data:
     columns:
       date: Date
-      year_week: character
+      day: numeric
+      month: numeric
+      year: numeric
       location_name: character
       iso2c: character
       iso3c: character
       population_2019: numeric
       continent: character
-      notification_rate_per_100000_population_14-days: numeric
+      Cumulative_number_for_14_days_of_COVID-19_cases_per_100000: numeric
       subset: character
       count: numeric
     dimensions:
-      nrow: 17876
-      ncol: 10
+      nrow: 123800
+      ncol: 12
     dates:
-      min: '2020-01-06'
+      min: '2019-12-31'
       max: '2020-12-14'
   beoutbreakprepared_data:
     columns:
@@ -989,7 +1020,7 @@ datasets:
       chronic_disease_binary: logical
       chronic_disease: character
       source: character
-      sequence_available: character
+      sequence_available: logical
       outcome: character
       date_death_or_discharge: Date
       notes_for_discussion: character
@@ -1725,5 +1756,5 @@ datasets:
     dates:
       min: '2020-01-14'
       max: '2020-10-15'
-eval_date: '2021-05-13'
+eval_date: '2021-09-01'
 

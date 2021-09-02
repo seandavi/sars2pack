@@ -14,6 +14,8 @@
 #' @param accept_terms default is TRUE, but please make sure that you
 #'     and any downstream users are aware that they are accepting
 #'     Google's terms of service. See the note below.
+#' @param nrows default is Inf, but specify a smaller number to limit
+#'     memory usage. This dataset is HUGE. 
 #' 
 #' @details
 #'
@@ -99,7 +101,7 @@
 #' }
 #' 
 #' @export
-google_mobility_data <- function(accept_terms = TRUE) {
+google_mobility_data <- function(accept_terms = TRUE, nrows = Inf) {
     rpath = s2p_cached_url('https://www.gstatic.com/covid19/mobility/Global_Mobility_Report.csv')
     .admin_level = function(admin1, admin2) {
         admin_level=rep(0,length(admin1))
@@ -107,7 +109,7 @@ google_mobility_data <- function(accept_terms = TRUE) {
         admin_level[!is.na(admin2)] = 2
         admin_level
     }
-    dat = data.table::fread(rpath)
+    dat = data.table::fread(rpath, nrows=nrows)
     dat %>%
         dplyr::rename(iso2c = .data$country_region_code,
                       admin1 = .data$sub_region_1,
