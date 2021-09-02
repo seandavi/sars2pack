@@ -1406,20 +1406,25 @@ datasets:
       max: .na.character
   cci_us_vaccine_data:
     columns:
-      date: Date
       province_state: character
-      stabbr: character
-      variable: factor
-      count: integer
-      unit: character
-      status: character
-      entity: character
+      date: Date
+      vaccine_type: character
+      fips: integer
+      country_region: character
+      lat: numeric
+      long_: numeric
+      doses_alloc: integer
+      doses_shipped: integer
+      doses_admin: integer
+      stage_one_doses: integer
+      stage_two_doses: integer
+      combined_key: character
     dimensions:
-      nrow: 4606
-      ncol: 8
+      nrow: 84772
+      ncol: 13
     dates:
       min: '2020-12-10'
-      max: '2020-12-28'
+      max: '2021-09-01'
   coronadatascraper_data:
     columns:
       name: character
@@ -1756,5 +1761,5 @@ datasets:
     dates:
       min: '2020-01-14'
       max: '2020-10-15'
-eval_date: '2021-09-01'
+eval_date: '2021-09-02'
 
