@@ -153,7 +153,7 @@ been administered. As of December, 2020, this dataset is not complete.</p>
 
     
 <ul>
-<li><p><a href='https://github.com/govex/COVID-19/tree/master/data_tables/vaccine_data'>https://github.com/govex/COVID-19/tree/master/data_tables/vaccine_data</a></p></li>
+<li><p><a href='https://github.com/govex/COVID-19/'>https://github.com/govex/COVID-19/</a></p></li>
 </ul>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
@@ -206,29 +206,43 @@ been administered. As of December, 2020, this dataset is not complete.</p>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
 <span class='va'>vacc</span> <span class='op'>=</span> <span class='fu'>cci_us_vaccine_data</span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='warning'>Warning: download failed</span>
-#&gt; <span class='warning'>  web resource path: ‘https://raw.githubusercontent.com/govex/COVID-19/master/data_tables/vaccine_data/raw_data/vaccine_data_us_state_timeline.csv’</span>
-#&gt; <span class='warning'>  local file path: ‘~/.cache/sars2pack/74b20e53732_vaccine_data_us_state_timeline.csv’</span>
-#&gt; <span class='warning'>  reason: Not Found (HTTP 404).</span></div><div class='output co'>#&gt; <span class='warning'>Warning: bfcadd() failed; resource removed</span>
-#&gt; <span class='warning'>  rid: BFC11</span>
-#&gt; <span class='warning'>  fpath: ‘https://raw.githubusercontent.com/govex/COVID-19/master/data_tables/vaccine_data/raw_data/vaccine_data_us_state_timeline.csv’</span>
-#&gt; <span class='warning'>  reason: download failed</span></div><div class='output co'>#&gt; <span class='error'>Error in .util_download(x, rid[i], proxy, config, "bfcadd()", ...): bfcadd() failed; see warnings()</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>vacc</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='error'>Error in head(vacc): object 'vacc' not found</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>vacc</span><span class='op'>$</span><span class='va'>unit</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='error'>Error in table(vacc$unit): object 'vacc' not found</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>vacc</span><span class='op'>$</span><span class='va'>status</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='error'>Error in table(vacc$status): object 'vacc' not found</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>vacc</span><span class='op'>$</span><span class='va'>entity</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='error'>Error in table(vacc$entity): object 'vacc' not found</span></div><div class='input'>
-<span class='va'>us_pop</span> <span class='op'>=</span> <span class='fu'><a href='us_population_details.html'>us_population_details</a></span><span class='op'>(</span>geography<span class='op'>=</span><span class='st'>'state'</span>, product<span class='op'>=</span><span class='st'>'population'</span>, year<span class='op'>=</span><span class='fl'>2019</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>vacc</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;    province_state       date vaccine_type fips country_region     lat    long_
+#&gt; 1:        Alabama 2020-12-10          All    1             US 32.3182 -86.9023
+#&gt; 2:        Alabama 2020-12-10      Moderna    1             US 32.3182 -86.9023
+#&gt; 3:        Alabama 2020-12-10       Pfizer    1             US 32.3182 -86.9023
+#&gt; 4:        Alabama 2020-12-11          All    1             US 32.3182 -86.9023
+#&gt; 5:        Alabama 2020-12-11      Moderna    1             US 32.3182 -86.9023
+#&gt; 6:        Alabama 2020-12-11       Pfizer    1             US 32.3182 -86.9023
+#&gt;    doses_alloc doses_shipped doses_admin stage_one_doses stage_two_doses
+#&gt; 1:          NA            NA          NA              NA              NA
+#&gt; 2:          NA            NA          NA              NA              NA
+#&gt; 3:          NA            NA          NA              NA              NA
+#&gt; 4:          NA            NA          NA              NA              NA
+#&gt; 5:          NA            NA          NA              NA              NA
+#&gt; 6:          NA            NA          NA              NA              NA
+#&gt;    combined_key
+#&gt; 1:  Alabama, US
+#&gt; 2:  Alabama, US
+#&gt; 3:  Alabama, US
+#&gt; 4:  Alabama, US
+#&gt; 5:  Alabama, US
+#&gt; 6:  Alabama, US</div><div class='input'>
+
+<span class='va'>us_pop</span> <span class='op'>=</span> <span class='fu'><a href='us_population_details.html'>us_population_details</a></span><span class='op'>(</span>geography<span class='op'>=</span><span class='st'>'state'</span>, product<span class='op'>=</span><span class='st'>'population'</span>, 
+  year<span class='op'>=</span><span class='fl'>2019</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; <span class='message'>Loading required namespace: tidycensus</span></div><div class='input'><span class='va'>us_pop</span> <span class='op'>=</span> <span class='va'>us_pop</span><span class='op'>[</span><span class='va'>us_pop</span><span class='op'>$</span><span class='va'>variable</span><span class='op'>==</span><span class='st'>'POP'</span>,<span class='op'>]</span>
-<span class='va'>vacc</span> <span class='op'>=</span> <span class='va'>vacc</span><span class='op'>[</span><span class='va'>vacc</span><span class='op'>$</span><span class='va'>variable</span><span class='op'>==</span><span class='st'>'people_admin_first-dose'</span>,<span class='op'>]</span>
-</div><div class='output co'>#&gt; <span class='error'>Error in eval(expr, envir, enclos): object 'vacc' not found</span></div><div class='input'><span class='va'>vac_pop</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/merge.html'>merge</a></span><span class='op'>(</span><span class='va'>us_pop</span>,<span class='va'>vacc</span>,by.x<span class='op'>=</span><span class='st'>"NAME"</span>,by.y<span class='op'>=</span><span class='st'>"province_state"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='error'>Error in as.data.frame(y): object 'vacc' not found</span></div><div class='input'>
+<span class='va'>vac_pop</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/merge.html'>merge</a></span><span class='op'>(</span><span class='va'>us_pop</span>,<span class='va'>vacc</span>,by.x<span class='op'>=</span><span class='st'>"NAME"</span>,by.y<span class='op'>=</span><span class='st'>"province_state"</span><span class='op'>)</span>
+
 <span class='kw'>if</span><span class='op'>(</span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>require</a></span><span class='op'>(</span><span class='st'><a href='https://ggplot2.tidyverse.org'>'ggplot2'</a></span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>vac_pop</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>date</span>,y<span class='op'>=</span><span class='va'>count</span><span class='op'>/</span><span class='va'>value</span><span class='op'>*</span><span class='fl'>100000</span>, color<span class='op'>=</span><span class='va'>stabbr</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span><span class='op'>(</span><span class='st'>"Number of first vaccine doses delivered by state"</span>,<span class='st'>'Cumulative counts'</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='va'>vac_pop</span><span class='op'>[</span><span class='va'>vac_pop</span><span class='op'>$</span><span class='va'>vaccine_type</span><span class='op'>==</span><span class='st'>'All'</span> <span class='op'>&amp;</span> <span class='va'>vac_pop</span><span class='op'>$</span><span class='va'>stage_one_doses</span><span class='op'>&lt;</span><span class='fl'>1e7</span>,<span class='op'>]</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>date</span>,y<span class='op'>=</span><span class='va'>stage_one_doses</span><span class='op'>/</span><span class='va'>value</span><span class='op'>*</span><span class='fl'>100000</span>, color<span class='op'>=</span><span class='va'>NAME</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> 
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span><span class='op'>(</span><span class='st'>"Number of first vaccine doses delivered by state"</span>,<span class='st'>'Cumulative counts'</span><span class='op'>)</span> <span class='op'>+</span>
     <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>xlab</a></span><span class='op'>(</span><span class='st'>"Date"</span><span class='op'>)</span> <span class='op'>+</span>
     <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ylab</a></span><span class='op'>(</span><span class='st'>"Number of people vaccinated/100k population"</span><span class='op'>)</span>
 <span class='op'>}</span>
-</div><div class='output co'>#&gt; <span class='error'>Error in ggplot(vac_pop, aes(x = date, y = count/value * 1e+05, color = stabbr)): object 'vac_pop' not found</span></div><div class='input'>
+</div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 810 row(s) containing missing values (geom_path).</span></div><div class='img'><img src='cci_us_vaccine_data-1.png' alt='' width='700' height='433' /></div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

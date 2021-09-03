@@ -218,7 +218,7 @@
 #&gt;  [5] "end_date"        "days"            "year"            "month"          
 #&gt;  [9] "population"      "total_deaths"    "covid_deaths"    "expected_deaths"
 #&gt; [13] "quarter"         "week"           </div><div class='input'><span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://pillar.r-lib.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Rows: 16,032
+</div><div class='output co'>#&gt; Rows: 16,890
 #&gt; Columns: 14
 #&gt; $ country         <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "Albania", "Albania", "Albania", "Albania", "Albania",…
 #&gt; $ region          <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "Albania", "Albania", "Albania", "Albania", "Albania",…
@@ -227,7 +227,7 @@
 #&gt; $ end_date        <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span> 2020-01-31, 2020-02-29, 2020-03-31, 2020-04-30, 2020-…
 #&gt; $ days            <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31, 31, 28…
 #&gt; $ year            <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> 2020, 2020, 2020, 2020, 2020, 2020, 2020, 2020, 2020, …
-#&gt; $ month           <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 1, 2, 3, 1, 2, …
+#&gt; $ month           <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 1, 2, 3, 4, 5, …
 #&gt; $ population      <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> 2845955, 2845955, 2845955, 2845955, 2845955, 2845955, …
 #&gt; $ total_deaths    <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 2187, 2018, 1993, 1804, 1803, 1779, 2166, 2476, 1982, …
 #&gt; $ covid_deaths    <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 0, 0, 15, 16, 2, 29, 95, 127, 103, 122, 301, 371, 199,…
@@ -241,11 +241,11 @@
 #&gt;     4:    Albania    Albania           0 2020-04-01 2020-04-30   30 2020     4
 #&gt;     5:    Albania    Albania           0 2020-05-01 2020-05-31   31 2020     5
 #&gt;    ---                                                                        
-#&gt; 16028: Uzbekistan Uzbekistan           0 2020-11-01 2020-11-30   30 2020    11
-#&gt; 16029: Uzbekistan Uzbekistan           0 2020-12-01 2020-12-31   31 2020    12
-#&gt; 16030: Uzbekistan Uzbekistan           0 2021-01-01 2021-01-31   31 2021     1
-#&gt; 16031: Uzbekistan Uzbekistan           0 2021-02-01 2021-02-28   28 2021     2
-#&gt; 16032: Uzbekistan Uzbekistan           0 2021-03-01 2021-03-31   31 2021     3
+#&gt; 16886: Uzbekistan Uzbekistan           0 2021-02-01 2021-02-28   28 2021     2
+#&gt; 16887: Uzbekistan Uzbekistan           0 2021-03-01 2021-03-31   31 2021     3
+#&gt; 16888: Uzbekistan Uzbekistan           0 2021-04-01 2021-04-30   30 2021     4
+#&gt; 16889: Uzbekistan Uzbekistan           0 2021-05-01 2021-05-31   31 2021     5
+#&gt; 16890: Uzbekistan Uzbekistan           0 2021-06-01 2021-06-30   30 2021     6
 #&gt;        population total_deaths covid_deaths expected_deaths quarter week
 #&gt;     1:    2845955         2187            0              NA      NA   NA
 #&gt;     2:    2845955         2018            0              NA      NA   NA
@@ -253,11 +253,11 @@
 #&gt;     4:    2845955         1804           16              NA      NA   NA
 #&gt;     5:    2845955         1803            2              NA      NA   NA
 #&gt;    ---                                                                  
-#&gt; 16028:   33570609        14204           44              NA      NA   NA
-#&gt; 16029:   33570609        19938            4              NA      NA   NA
-#&gt; 16030:   33570609        11921            7              NA      NA   NA
-#&gt; 16031:   33570609        14002            1              NA      NA   NA
-#&gt; 16032:   33570609        13676            7              NA      NA   NA</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/unique.html'>unique</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>$</span><span class='va'>country</span><span class='op'>)</span>
+#&gt; 16886:   33570609        14702            1              NA      NA   NA
+#&gt; 16887:   33570609        13603            7              NA      NA   NA
+#&gt; 16888:   33570609        12432           20              NA      NA   NA
+#&gt; 16889:   33570609        12440           41              NA      NA   NA
+#&gt; 16890:   33570609        14629           46              NA      NA   NA</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/unique.html'>unique</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>$</span><span class='va'>country</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;  [1] "Albania"                "Armenia"                "Azerbaijan"            
 #&gt;  [4] "Belarus"                "Bolivia"                "Bosnia and Herzegovina"
 #&gt;  [7] "Brazil"                 "Costa Rica"             "Cuba"                  

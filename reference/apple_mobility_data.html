@@ -144,7 +144,12 @@
 "Learn about COVID‑19 mobility trends in countries/regions and cities. Reports are published daily and reflect requests for directions in Apple Maps. Privacy is one of our core values, so Maps doesn’t associate your data with your Apple ID, and Apple doesn’t keep a history of where you’ve been."</p>
     </div>
 
-    <pre class="usage"><span class='fu'>apple_mobility_data</span><span class='op'>(</span>agree_to_terms <span class='op'>=</span> <span class='cn'>TRUE</span>, max_tries <span class='op'>=</span> <span class='fl'>3</span>, message_url <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>apple_mobility_data</span><span class='op'>(</span>
+  agree_to_terms <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  max_tries <span class='op'>=</span> <span class='fl'>3</span>,
+  message_url <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  nrows <span class='op'>=</span> <span class='cn'>Inf</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -162,6 +167,11 @@ has agreed to Apple's terms of use. See references and note.</p></td>
       <th>message_url</th>
       <td><p>logical, output a message with the URL for the day
 since Apple changes it daily.</p></td>
+    </tr>
+    <tr>
+      <th>nrows</th>
+      <td><p>default Inf, the approximate max number of rows to read
+to limit size for testing purposes, etc.</p></td>
     </tr>
     </table>
 
@@ -264,7 +274,7 @@ See <a href='https://www.apple.com/covid19/mobility'>https://www.apple.com/covid
 #&gt; <span style='color: #949494;'># … with 2 more variables: date &lt;date&gt;, mobility_index &lt;dbl&gt;</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>$</span><span class='va'>transportation_type</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; 
 #&gt; driving transit walking 
-#&gt; 1722120  311315  616980 </div><div class='input'>
+#&gt; 1822704  329498  653016 </div><div class='input'>
 <span class='kw'><a href='https://rdrr.io/r/base/library.html'>require</a></span><span class='op'>(</span><span class='va'><a href='https://ggplot2.tidyverse.org'>ggplot2</a></span><span class='op'>)</span>
 
 <span class='va'>pl</span> <span class='op'>=</span> <span class='va'>res</span> <span class='op'>%&gt;%</span>
