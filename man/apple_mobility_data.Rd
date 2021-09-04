@@ -58,6 +58,7 @@ See \url{https://www.apple.com/covid19/mobility}.
 }
 \examples{
 
+\dontrun{
 res = apple_mobility_data(nrows=1000000)
 colnames(res)
 head(res)
@@ -98,7 +99,7 @@ res \%>\%
 if(require(plotly)) {
     ggplotly(pl)
 }
-
+}
 
 }
 \references{

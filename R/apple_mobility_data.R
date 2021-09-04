@@ -55,6 +55,7 @@
 #' 
 #' @examples
 #' 
+#' \dontrun{
 #' res = apple_mobility_data(nrows=1000000)
 #' colnames(res)
 #' head(res)
@@ -95,7 +96,7 @@
 #' if(require(plotly)) {
 #'     ggplotly(pl)
 #' }
-#'
+#' }
 #' 
 #' @family data-import
 #' @family mobility
