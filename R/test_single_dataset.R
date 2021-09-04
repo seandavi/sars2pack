@@ -10,7 +10,7 @@
 #' 
 #' @examples 
 #' 
-#' test_data_accessor("nytimes_state_data")
+#' # test_data_accessor("nytimes_state_data")
 #' 
 test_data_accessor = function(accessor,...) {
     dset = accessor

@@ -16,7 +16,7 @@ Check a dataset to see if it matches the expected output
 }
 \examples{
 
-test_data_accessor("nytimes_state_data")
+# test_data_accessor("nytimes_state_data")
 
 }
 \author{
