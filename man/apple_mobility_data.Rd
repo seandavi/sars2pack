@@ -58,7 +58,7 @@ See \url{https://www.apple.com/covid19/mobility}.
 }
 \examples{
 
-res = apple_mobility_data()
+res = apple_mobility_data(nrows=1000000)
 colnames(res)
 head(res)
 table(res$transportation_type)

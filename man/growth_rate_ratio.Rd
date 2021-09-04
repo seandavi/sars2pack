@@ -30,10 +30,12 @@ the longer Wl days. GR for any county j on a day t was calculated as follows:
 where Cjt is the number of new cases reported in county j on a day t.
 }
 \examples{
+
+if(requireNamespace("zoo")) {
 nyt= nytimes_state_data() \%>\% dplyr::filter(fips=='00053' & subset=='confirmed') \%>\%
      add_incidence_column()
 mgr = nyt \%>\% dplyr::pull(inc) \%>\% growth_rate_ratio()
-
+}
 }
 \references{
 \itemize{

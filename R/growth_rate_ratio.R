@@ -23,12 +23,17 @@
 #' @return a numeric vector
 #'
 #' @examples
+#' 
+#' if(requireNamespace("zoo")) {
 #' nyt= nytimes_state_data() %>% dplyr::filter(fips=='00053' & subset=='confirmed') %>%
 #'      add_incidence_column()
 #' mgr = nyt %>% dplyr::pull(inc) %>% growth_rate_ratio()
-#'
+#' }
 #' @export
 growth_rate_ratio = function(v, Ws=3, Wl=7, smooth_window=7) {
+  if(!requireNamespace('zoo',quietly=TRUE)) {
+    stop("This function requires the zoo package. Please `install.packages('zoo')` before use")
+  }
   v = zoo::rollmean(v,7,na.pad=TRUE,align='right')
   threeday = log(zoo::rollmean(v,3,na.pad=TRUE, align='right'))
   sevenday = log(zoo::rollmean(v,7,na.pad=TRUE, align='right'))

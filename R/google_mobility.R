@@ -71,7 +71,7 @@
 #' # requires significant memory to run
 #' 
 #' \dontrun{
-#' res = google_mobility_data()
+#' res = google_mobility_data(nrows=1000000)
 #' colnames(res)
 #' head(res)
 #' dplyr::glimpse(res)

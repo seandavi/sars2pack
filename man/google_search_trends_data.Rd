@@ -73,7 +73,7 @@ Use of this dataset implies acceptance of Google's terms of use \url{https://pol
 # Do not expect this example to run without sufficient
 # memory.
 \dontrun{
-res = google_search_trends_data(nrows=50000)
+res = google_search_trends_data(nrows=1000000)
 
 head(res[,1:10])
 colnames(res)
