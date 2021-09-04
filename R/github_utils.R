@@ -20,10 +20,13 @@
 #' ls_github('TheEconomist/covid-19-excess-deaths-tracker',
 #'           'output-data/excess-deaths')
 #' 
+#' 
 #' @export
 ls_github = function(repository, path='', ref='master') {
     path = stringr::str_replace(path,'/$','')
-    res = httr::GET(sprintf('https://api.github.com/repos/%s/contents/%s?ref=%s',
-                            repository, path, ref))
+    res = stop_for_status(
+        httr::GET(sprintf('https://api.github.com/repos/%s/contents/%s?ref=%s',
+                                repository, path, ref))
+    )
     tibble::as_tibble(jsonlite::fromJSON(httr::content(res,type='text',encoding='UTF-8')))
 }
