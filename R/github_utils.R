@@ -24,9 +24,14 @@
 #' @export
 ls_github = function(repository, path='', ref='master') {
     path = stringr::str_replace(path,'/$','')
-    res = stop_for_status(
-        httr::GET(sprintf('https://api.github.com/repos/%s/contents/%s?ref=%s',
-                                repository, path, ref))
-    )
-    tibble::as_tibble(jsonlite::fromJSON(httr::content(res,type='text',encoding='UTF-8')))
+    retry = 0
+    while(retry<5) {
+        res = httr::GET(sprintf('https://api.github.com/repos/%s/contents/%s?ref=%s',
+                                    repository, path, ref))
+        res2 = tibble::as_tibble(jsonlite::fromJSON(httr::content(res,type='text',encoding='UTF-8')))
+        if('type' %in% colnames(res2)) return(res2)
+        retry = retry+1
+        Sys.sleep(min(4,(2^retry)-1))
+    }
+    stop('github access was unsuccessful')
 }
