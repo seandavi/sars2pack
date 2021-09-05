@@ -257,24 +257,12 @@ See <a href='https://www.apple.com/covid19/mobility'>https://www.apple.com/covid
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
+<span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
 <span class='va'>res</span> <span class='op'>=</span> <span class='fu'>apple_mobility_data</span><span class='op'>(</span>nrows<span class='op'>=</span><span class='fl'>1000000</span><span class='op'>)</span>
 <span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "geo_type"            "region"              "transportation_type"
-#&gt; [4] "alternative_name"    "sub-region"          "country"            
-#&gt; [7] "date"                "mobility_index"     </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 6 × 8</span>
-#&gt;   geo_type       region  transportation_t… alternative_name `sub-region` country
-#&gt;   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>          <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>             <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>            <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>        <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>  
-#&gt; <span style='color: #BCBCBC;'>1</span> country/region Albania driving           <span style='color: #BB0000;'>NA</span>               <span style='color: #BB0000;'>NA</span>           <span style='color: #BB0000;'>NA</span>     
-#&gt; <span style='color: #BCBCBC;'>2</span> country/region Albania driving           <span style='color: #BB0000;'>NA</span>               <span style='color: #BB0000;'>NA</span>           <span style='color: #BB0000;'>NA</span>     
-#&gt; <span style='color: #BCBCBC;'>3</span> country/region Albania driving           <span style='color: #BB0000;'>NA</span>               <span style='color: #BB0000;'>NA</span>           <span style='color: #BB0000;'>NA</span>     
-#&gt; <span style='color: #BCBCBC;'>4</span> country/region Albania driving           <span style='color: #BB0000;'>NA</span>               <span style='color: #BB0000;'>NA</span>           <span style='color: #BB0000;'>NA</span>     
-#&gt; <span style='color: #BCBCBC;'>5</span> country/region Albania driving           <span style='color: #BB0000;'>NA</span>               <span style='color: #BB0000;'>NA</span>           <span style='color: #BB0000;'>NA</span>     
-#&gt; <span style='color: #BCBCBC;'>6</span> country/region Albania driving           <span style='color: #BB0000;'>NA</span>               <span style='color: #BB0000;'>NA</span>           <span style='color: #BB0000;'>NA</span>     
-#&gt; <span style='color: #949494;'># … with 2 more variables: date &lt;date&gt;, mobility_index &lt;dbl&gt;</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>$</span><span class='va'>transportation_type</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; 
-#&gt; driving transit walking 
-#&gt; 1828800  330600  655200 </div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>$</span><span class='va'>transportation_type</span><span class='op'>)</span>
+
 <span class='kw'><a href='https://rdrr.io/r/base/library.html'>require</a></span><span class='op'>(</span><span class='va'><a href='https://ggplot2.tidyverse.org'>ggplot2</a></span><span class='op'>)</span>
 
 <span class='va'>pl</span> <span class='op'>=</span> <span class='va'>res</span> <span class='op'>%&gt;%</span>
@@ -285,7 +273,7 @@ See <a href='https://www.apple.com/covid19/mobility'>https://www.apple.com/covid
         <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/facet_grid.html'>facet_grid</a></span><span class='op'>(</span>rows<span class='op'>=</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/vars.html'>vars</a></span><span class='op'>(</span><span class='va'>region</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
         <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span><span class='op'>(</span><span class='st'>'Changes in Apple Mobility Index over time'</span><span class='op'>)</span>
 <span class='va'>pl</span>
-</div><div class='img'><img src='apple_mobility_data-1.png' alt='' width='700' height='433' /></div><div class='input'>
+
 <span class='va'>regs_of_interest</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>'Seattle'</span>, <span class='st'>'New York City'</span>,
                      <span class='st'>'Chicago'</span>, <span class='st'>'Italy'</span>,
                      <span class='st'>'Russia'</span>, <span class='st'>'UK'</span>,
@@ -296,7 +284,7 @@ See <a href='https://www.apple.com/covid19/mobility'>https://www.apple.com/covid
         <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_tile.html'>geom_tile</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
         <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/facet_grid.html'>facet_grid</a></span><span class='op'>(</span>rows<span class='op'>=</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/vars.html'>vars</a></span><span class='op'>(</span><span class='va'>transportation_type</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
         <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span><span class='op'>(</span><span class='st'>'Changes in Apple Mobility Index over time'</span><span class='op'>)</span>
-</div><div class='img'><img src='apple_mobility_data-2.png' alt='' width='700' height='433' /></div><div class='input'>
+
 
 <span class='va'>res</span> <span class='op'>%&gt;%</span>
     <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>region</span> <span class='op'>%in%</span> <span class='va'>regs_of_interest</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
@@ -305,21 +293,12 @@ See <a href='https://www.apple.com/covid19/mobility'>https://www.apple.com/covid
         <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/facet_grid.html'>facet_grid</a></span><span class='op'>(</span>rows<span class='op'>=</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/vars.html'>vars</a></span><span class='op'>(</span><span class='va'>transportation_type</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
         <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_viridis.html'>scale_fill_viridis_b</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
         <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span><span class='op'>(</span><span class='st'>'Changes in Apple Mobility Index over time'</span><span class='op'>)</span>
-</div><div class='img'><img src='apple_mobility_data-3.png' alt='' width='700' height='433' /></div><div class='input'>
+
 
 <span class='kw'>if</span><span class='op'>(</span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>require</a></span><span class='op'>(</span><span class='va'><a href='https://plotly-r.com'>plotly</a></span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
     <span class='fu'><a href='https://docs.ropensci.org/plotly/reference/ggplotly.html'>ggplotly</a></span><span class='op'>(</span><span class='va'>pl</span><span class='op'>)</span>
 <span class='op'>}</span>
-</div><div class='output co'>#&gt; <span class='message'>Loading required package: plotly</span></div><div class='output co'>#&gt; <span class='message'></span>
-#&gt; <span class='message'>Attaching package: ‘plotly’</span></div><div class='output co'>#&gt; <span class='message'>The following object is masked from ‘package:ggplot2’:</span>
-#&gt; <span class='message'></span>
-#&gt; <span class='message'>    last_plot</span></div><div class='output co'>#&gt; <span class='message'>The following object is masked from ‘package:MASS’:</span>
-#&gt; <span class='message'></span>
-#&gt; <span class='message'>    select</span></div><div class='output co'>#&gt; <span class='message'>The following object is masked from ‘package:stats’:</span>
-#&gt; <span class='message'></span>
-#&gt; <span class='message'>    filter</span></div><div class='output co'>#&gt; <span class='message'>The following object is masked from ‘package:graphics’:</span>
-#&gt; <span class='message'></span>
-#&gt; <span class='message'>    layout</span></div><div class='input'>
+<span class='op'>}</span>
 
 </div></pre>
   </div>
