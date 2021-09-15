@@ -218,7 +218,7 @@
 #&gt;  [5] "end_date"        "days"            "year"            "month"          
 #&gt;  [9] "population"      "total_deaths"    "covid_deaths"    "expected_deaths"
 #&gt; [13] "quarter"         "week"           </div><div class='input'><span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://pillar.r-lib.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Rows: 17,576
+</div><div class='output co'>#&gt; Rows: 44,889
 #&gt; Columns: 14
 #&gt; $ country         <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "Albania", "Albania", "Albania", "Albania", "Albania",…
 #&gt; $ region          <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "Albania", "Albania", "Albania", "Albania", "Albania",…
@@ -228,7 +228,7 @@
 #&gt; $ days            <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31, 31, 28…
 #&gt; $ year            <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> 2020, 2020, 2020, 2020, 2020, 2020, 2020, 2020, 2020, …
 #&gt; $ month           <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 1, 2, 3, 4, 5, …
-#&gt; $ population      <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> 2845955, 2845955, 2845955, 2845955, 2845955, 2845955, …
+#&gt; $ population      <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> 2872934, 2872934, 2872934, 2872934, 2872934, 2872934, …
 #&gt; $ total_deaths    <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 2187, 2018, 1993, 1804, 1803, 1779, 2166, 2476, 1982, …
 #&gt; $ covid_deaths    <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 0, 0, 15, 16, 2, 29, 95, 127, 103, 122, 301, 371, 199,…
 #&gt; $ expected_deaths <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
@@ -241,23 +241,23 @@
 #&gt;     4:    Albania    Albania           0 2020-04-01 2020-04-30   30 2020     4
 #&gt;     5:    Albania    Albania           0 2020-05-01 2020-05-31   31 2020     5
 #&gt;    ---                                                                        
-#&gt; 17572: Uzbekistan Uzbekistan           0 2021-02-01 2021-02-28   28 2021     2
-#&gt; 17573: Uzbekistan Uzbekistan           0 2021-03-01 2021-03-31   31 2021     3
-#&gt; 17574: Uzbekistan Uzbekistan           0 2021-04-01 2021-04-30   30 2021     4
-#&gt; 17575: Uzbekistan Uzbekistan           0 2021-05-01 2021-05-31   31 2021     5
-#&gt; 17576: Uzbekistan Uzbekistan           0 2021-06-01 2021-06-30   30 2021     6
+#&gt; 44885: Uzbekistan Uzbekistan           0 2021-02-01 2021-02-28   28 2021     2
+#&gt; 44886: Uzbekistan Uzbekistan           0 2021-03-01 2021-03-31   31 2021     3
+#&gt; 44887: Uzbekistan Uzbekistan           0 2021-04-01 2021-04-30   30 2021     4
+#&gt; 44888: Uzbekistan Uzbekistan           0 2021-05-01 2021-05-31   31 2021     5
+#&gt; 44889: Uzbekistan Uzbekistan           0 2021-06-01 2021-06-30   30 2021     6
 #&gt;        population total_deaths covid_deaths expected_deaths quarter week
-#&gt;     1:    2845955         2187            0              NA      NA   NA
-#&gt;     2:    2845955         2018            0              NA      NA   NA
-#&gt;     3:    2845955         1993           15              NA      NA   NA
-#&gt;     4:    2845955         1804           16              NA      NA   NA
-#&gt;     5:    2845955         1803            2              NA      NA   NA
+#&gt;     1:    2872934         2187            0              NA      NA   NA
+#&gt;     2:    2872934         2018            0              NA      NA   NA
+#&gt;     3:    2872934         1993           15              NA      NA   NA
+#&gt;     4:    2872934         1804           16              NA      NA   NA
+#&gt;     5:    2872934         1803            2              NA      NA   NA
 #&gt;    ---                                                                  
-#&gt; 17572:   33570609        14702            1              NA      NA   NA
-#&gt; 17573:   33570609        13603            7              NA      NA   NA
-#&gt; 17574:   33570609        12432           20              NA      NA   NA
-#&gt; 17575:   33570609        12440           41              NA      NA   NA
-#&gt; 17576:   33570609        14629           46              NA      NA   NA</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/unique.html'>unique</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>$</span><span class='va'>country</span><span class='op'>)</span>
+#&gt; 44885:   33935765        14702            1              NA      NA   NA
+#&gt; 44886:   33935765        13603            7              NA      NA   NA
+#&gt; 44887:   33935765        12432           20              NA      NA   NA
+#&gt; 44888:   33935765        12440           41              NA      NA   NA
+#&gt; 44889:   33935765        14629           46              NA      NA   NA</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/unique.html'>unique</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>$</span><span class='va'>country</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;  [1] "Albania"                "Armenia"                "Azerbaijan"            
 #&gt;  [4] "Belarus"                "Bolivia"                "Bosnia and Herzegovina"
 #&gt;  [7] "Brazil"                 "Costa Rica"             "Cuba"                  
@@ -271,22 +271,25 @@
 #&gt; [31] "Qatar"                  "Russia"                 "Serbia"                
 #&gt; [34] "Singapore"              "Taiwan"                 "Thailand"              
 #&gt; [37] "Ukraine"                "Uruguay"                "Uzbekistan"            
-#&gt; [40] "Iran"                   "Tajikistan"             "Australia"             
-#&gt; [43] "Austria"                "Belgium"                "Britain"               
-#&gt; [46] "Bulgaria"               "Canada"                 "Chile"                 
-#&gt; [49] "Colombia"               "Croatia"                "Cyprus"                
-#&gt; [52] "Czech Republic"         "Denmark"                "Ecuador"               
-#&gt; [55] "Estonia"                "Finland"                "France"                
-#&gt; [58] "Germany"                "Greece"                 "Guatemala"             
-#&gt; [61] "Hungary"                "Iceland"                "Israel"                
-#&gt; [64] "Italy"                  "Latvia"                 "Lithuania"             
-#&gt; [67] "Luxembourg"             "Malta"                  "Mexico"                
-#&gt; [70] "Montenegro"             "Netherlands"            "New Zealand"           
-#&gt; [73] "Norway"                 "Peru"                   "Poland"                
-#&gt; [76] "Portugal"               "Romania"                "Slovakia"              
-#&gt; [79] "Slovenia"               "South Africa"           "South Korea"           
-#&gt; [82] "Spain"                  "Sweden"                 "Switzerland"           
-#&gt; [85] "Tunisia"                "Turkey"                 "United States"         </div><div class='input'>
+#&gt; [40] "Andorra"                "Antigua and Barbuda"    "Argentina"             
+#&gt; [43] "Hong Kong"              "Liechtenstein"          "Monaco"                
+#&gt; [46] "San Marino"             "Seychelles"             "Tajikistan"            
+#&gt; [49] "Australia"              "Austria"                "Belgium"               
+#&gt; [52] "Britain"                "Bulgaria"               "Canada"                
+#&gt; [55] "Chile"                  "Colombia"               "Croatia"               
+#&gt; [58] "Cyprus"                 "Czech Republic"         "Denmark"               
+#&gt; [61] "Ecuador"                "Estonia"                "Finland"               
+#&gt; [64] "France"                 "Germany"                "Greece"                
+#&gt; [67] "Guatemala"              "Hungary"                "Iceland"               
+#&gt; [70] "Iran"                   "Israel"                 "Italy"                 
+#&gt; [73] "Latvia"                 "Lithuania"              "Luxembourg"            
+#&gt; [76] "Malta"                  "Mexico"                 "Montenegro"            
+#&gt; [79] "Netherlands"            "New Zealand"            "Norway"                
+#&gt; [82] "Peru"                   "Poland"                 "Portugal"              
+#&gt; [85] "Romania"                "Slovakia"               "Slovenia"              
+#&gt; [88] "South Africa"           "South Korea"            "Spain"                 
+#&gt; [91] "Sweden"                 "Switzerland"            "Tunisia"               
+#&gt; [94] "Turkey"                 "United States"         </div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
