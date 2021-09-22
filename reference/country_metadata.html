@@ -161,38 +161,11 @@ to get country metadata.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='va'>cmd</span> <span class='op'>=</span> <span class='fu'>country_metadata</span><span class='op'>(</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>cmd</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;  [1] "name"           "topLevelDomain" "alpha2Code"     "alpha3Code"    
-#&gt;  [5] "callingCodes"   "capital"        "altSpellings"   "region"        
-#&gt;  [9] "subregion"      "population"     "latlng"         "demonym"       
-#&gt; [13] "area"           "gini"           "timezones"      "borders"       
-#&gt; [17] "nativeName"     "numericCode"    "currencies"     "languages"     
-#&gt; [21] "translations"   "flag"           "regionalBlocs"  "cioc"          </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>sapply</a></span><span class='op'>(</span><span class='va'>cmd</span>, <span class='va'>class</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;           name topLevelDomain     alpha2Code     alpha3Code   callingCodes 
-#&gt;    "character"         "list"    "character"    "character"         "list" 
-#&gt;        capital   altSpellings         region      subregion     population 
-#&gt;    "character"         "list"    "character"    "character"      "integer" 
-#&gt;         latlng        demonym           area           gini      timezones 
-#&gt;         "list"    "character"      "numeric"      "numeric"         "list" 
-#&gt;        borders     nativeName    numericCode     currencies      languages 
-#&gt;         "list"    "character"    "character"         "list"         "list" 
-#&gt;   translations           flag  regionalBlocs           cioc 
-#&gt;   "data.frame"    "character"         "list"    "character" </div><div class='input'>
+</div><div class='output co'>#&gt; <span class='error'>Error in curl::curl_fetch_memory(url, handle = handle): SSL: no alternative certificate subject name matches target host name 'restcountries.eu'</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>cmd</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='error'>Error in is.data.frame(x): object 'cmd' not found</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>sapply</a></span><span class='op'>(</span><span class='va'>cmd</span>, <span class='va'>class</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='error'>Error in lapply(X = X, FUN = FUN, ...): object 'cmd' not found</span></div><div class='input'>
 <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>cmd</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 6 × 24</span>
-#&gt;   name           topLevelDomain alpha2Code alpha3Code callingCodes capital altSpellings
-#&gt;   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>          <span style='color: #949494; font-style: italic;'>&lt;list&gt;</span>         <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>      <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>      <span style='color: #949494; font-style: italic;'>&lt;list&gt;</span>       <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;list&gt;</span>      
-#&gt; <span style='color: #BCBCBC;'>1</span> Afghanistan    <span style='color: #949494;'>&lt;chr [1]&gt;</span>      AF         AFG        <span style='color: #949494;'>&lt;chr [1]&gt;</span>    Kabul   <span style='color: #949494;'>&lt;chr [2]&gt;</span>   
-#&gt; <span style='color: #BCBCBC;'>2</span> Åland Islands  <span style='color: #949494;'>&lt;chr [1]&gt;</span>      AX         ALA        <span style='color: #949494;'>&lt;chr [1]&gt;</span>    Marieh… <span style='color: #949494;'>&lt;chr [4]&gt;</span>   
-#&gt; <span style='color: #BCBCBC;'>3</span> Albania        <span style='color: #949494;'>&lt;chr [1]&gt;</span>      AL         ALB        <span style='color: #949494;'>&lt;chr [1]&gt;</span>    Tirana  <span style='color: #949494;'>&lt;chr [4]&gt;</span>   
-#&gt; <span style='color: #BCBCBC;'>4</span> Algeria        <span style='color: #949494;'>&lt;chr [1]&gt;</span>      DZ         DZA        <span style='color: #949494;'>&lt;chr [1]&gt;</span>    Algiers <span style='color: #949494;'>&lt;chr [3]&gt;</span>   
-#&gt; <span style='color: #BCBCBC;'>5</span> American Samoa <span style='color: #949494;'>&lt;chr [1]&gt;</span>      AS         ASM        <span style='color: #949494;'>&lt;chr [1]&gt;</span>    Pago P… <span style='color: #949494;'>&lt;chr [4]&gt;</span>   
-#&gt; <span style='color: #BCBCBC;'>6</span> Andorra        <span style='color: #949494;'>&lt;chr [1]&gt;</span>      AD         AND        <span style='color: #949494;'>&lt;chr [1]&gt;</span>    Andorr… <span style='color: #949494;'>&lt;chr [3]&gt;</span>   
-#&gt; <span style='color: #949494;'># … with 17 more variables: region &lt;chr&gt;, subregion &lt;chr&gt;, population &lt;int&gt;,</span>
-#&gt; <span style='color: #949494;'>#   latlng &lt;list&gt;, demonym &lt;chr&gt;, area &lt;dbl&gt;, gini &lt;dbl&gt;, timezones &lt;list&gt;,</span>
-#&gt; <span style='color: #949494;'>#   borders &lt;list&gt;, nativeName &lt;chr&gt;, numericCode &lt;chr&gt;, currencies &lt;list&gt;,</span>
-#&gt; <span style='color: #949494;'>#   languages &lt;list&gt;, translations &lt;df[,10]&gt;, flag &lt;chr&gt;, regionalBlocs &lt;list&gt;,</span>
-#&gt; <span style='color: #949494;'>#   cioc &lt;chr&gt;</span></div><div class='input'>
+</div><div class='output co'>#&gt; <span class='error'>Error in head(cmd): object 'cmd' not found</span></div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
