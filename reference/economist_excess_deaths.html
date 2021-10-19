@@ -218,7 +218,7 @@
 #&gt;  [5] "end_date"        "days"            "year"            "month"          
 #&gt;  [9] "population"      "total_deaths"    "covid_deaths"    "expected_deaths"
 #&gt; [13] "quarter"         "week"           </div><div class='input'><span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://pillar.r-lib.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Rows: 18,314
+</div><div class='output co'>#&gt; Rows: 18,848
 #&gt; Columns: 14
 #&gt; $ country         <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "Albania", "Albania", "Albania", "Albania", "Albania",…
 #&gt; $ region          <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "Albania", "Albania", "Albania", "Albania", "Albania",…
@@ -241,11 +241,11 @@
 #&gt;     4:    Albania    Albania           0 2020-04-01 2020-04-30   30 2020     4
 #&gt;     5:    Albania    Albania           0 2020-05-01 2020-05-31   31 2020     5
 #&gt;    ---                                                                        
-#&gt; 18310: Uzbekistan Uzbekistan           0 2021-02-01 2021-02-28   28 2021     2
-#&gt; 18311: Uzbekistan Uzbekistan           0 2021-03-01 2021-03-31   31 2021     3
-#&gt; 18312: Uzbekistan Uzbekistan           0 2021-04-01 2021-04-30   30 2021     4
-#&gt; 18313: Uzbekistan Uzbekistan           0 2021-05-01 2021-05-31   31 2021     5
-#&gt; 18314: Uzbekistan Uzbekistan           0 2021-06-01 2021-06-30   30 2021     6
+#&gt; 18844: Uzbekistan Uzbekistan           0 2021-02-01 2021-02-28   28 2021     2
+#&gt; 18845: Uzbekistan Uzbekistan           0 2021-03-01 2021-03-31   31 2021     3
+#&gt; 18846: Uzbekistan Uzbekistan           0 2021-04-01 2021-04-30   30 2021     4
+#&gt; 18847: Uzbekistan Uzbekistan           0 2021-05-01 2021-05-31   31 2021     5
+#&gt; 18848: Uzbekistan Uzbekistan           0 2021-06-01 2021-06-30   30 2021     6
 #&gt;        population total_deaths covid_deaths expected_deaths quarter week
 #&gt;     1:    2872934         2187            0              NA      NA   NA
 #&gt;     2:    2872934         2018            0              NA      NA   NA
@@ -253,45 +253,46 @@
 #&gt;     4:    2872934         1804           16              NA      NA   NA
 #&gt;     5:    2872934         1803            2              NA      NA   NA
 #&gt;    ---                                                                  
-#&gt; 18310:   33935765        14702            1              NA      NA   NA
-#&gt; 18311:   33935765        13603            7              NA      NA   NA
-#&gt; 18312:   33935765        12432           20              NA      NA   NA
-#&gt; 18313:   33935765        12440           41              NA      NA   NA
-#&gt; 18314:   33935765        14629           46              NA      NA   NA</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/unique.html'>unique</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>$</span><span class='va'>country</span><span class='op'>)</span>
+#&gt; 18844:   33935765        14702            1              NA      NA   NA
+#&gt; 18845:   33935765        13603            7              NA      NA   NA
+#&gt; 18846:   33935765        12432           20              NA      NA   NA
+#&gt; 18847:   33935765        12440           41              NA      NA   NA
+#&gt; 18848:   33935765        14629           46              NA      NA   NA</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/unique.html'>unique</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>$</span><span class='va'>country</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;   [1] "Albania"                "Andorra"                "Antigua and Barbuda"   
 #&gt;   [4] "Argentina"              "Armenia"                "Aruba"                 
-#&gt;   [7] "Azerbaijan"             "Belarus"                "Bermuda"               
-#&gt;  [10] "Bolivia"                "Bosnia and Herzegovina" "Brazil"                
-#&gt;  [13] "Costa Rica"             "Cuba"                   "Egypt"                 
-#&gt;  [16] "El Salvador"            "Faroe Islands"          "French Polynesia"      
-#&gt;  [19] "Georgia"                "Gibraltar"              "Greenland"             
-#&gt;  [22] "Hong Kong"              "Indonesia"              "Ireland"               
-#&gt;  [25] "Jamaica"                "Japan"                  "Kazakhstan"            
-#&gt;  [28] "Kosovo"                 "Kyrgyzstan"             "Lebanon"               
-#&gt;  [31] "Liechtenstein"          "Macao"                  "Malaysia"              
-#&gt;  [34] "Mauritius"              "Moldova"                "Monaco"                
-#&gt;  [37] "Mongolia"               "Nicaragua"              "North Macedonia"       
-#&gt;  [40] "Oman"                   "Panama"                 "Paraguay"              
-#&gt;  [43] "Philippines"            "Qatar"                  "Russia"                
-#&gt;  [46] "San Marino"             "Serbia"                 "Seychelles"            
-#&gt;  [49] "Singapore"              "Taiwan"                 "Thailand"              
-#&gt;  [52] "Ukraine"                "Uruguay"                "Uzbekistan"            
-#&gt;  [55] "Tajikistan"             "Australia"              "Austria"               
-#&gt;  [58] "Belgium"                "Britain"                "Bulgaria"              
-#&gt;  [61] "Canada"                 "Chile"                  "Colombia"              
-#&gt;  [64] "Croatia"                "Cyprus"                 "Czech Republic"        
-#&gt;  [67] "Denmark"                "Ecuador"                "Estonia"               
-#&gt;  [70] "Finland"                "France"                 "Germany"               
-#&gt;  [73] "Greece"                 "Guatemala"              "Hungary"               
-#&gt;  [76] "Iceland"                "Iran"                   "Israel"                
-#&gt;  [79] "Italy"                  "Latvia"                 "Lithuania"             
-#&gt;  [82] "Luxembourg"             "Malta"                  "Mexico"                
-#&gt;  [85] "Montenegro"             "Netherlands"            "New Zealand"           
-#&gt;  [88] "Norway"                 "Peru"                   "Poland"                
-#&gt;  [91] "Portugal"               "Romania"                "Slovakia"              
-#&gt;  [94] "Slovenia"               "South Africa"           "South Korea"           
-#&gt;  [97] "Spain"                  "Sweden"                 "Switzerland"           
-#&gt; [100] "Tunisia"                "Turkey"                 "United States"         </div><div class='input'>
+#&gt;   [7] "Azerbaijan"             "Belarus"                "Belize"                
+#&gt;  [10] "Bermuda"                "Bolivia"                "Bosnia and Herzegovina"
+#&gt;  [13] "Brazil"                 "Costa Rica"             "Cuba"                  
+#&gt;  [16] "Egypt"                  "El Salvador"            "Faroe Islands"         
+#&gt;  [19] "French Polynesia"       "Georgia"                "Gibraltar"             
+#&gt;  [22] "Greenland"              "Hong Kong"              "Indonesia"             
+#&gt;  [25] "Ireland"                "Jamaica"                "Japan"                 
+#&gt;  [28] "Kazakhstan"             "Kosovo"                 "Kyrgyzstan"            
+#&gt;  [31] "Lebanon"                "Liechtenstein"          "Macao"                 
+#&gt;  [34] "Malaysia"               "Mauritius"              "Moldova"               
+#&gt;  [37] "Monaco"                 "Mongolia"               "Nicaragua"             
+#&gt;  [40] "North Macedonia"        "Oman"                   "Panama"                
+#&gt;  [43] "Paraguay"               "Philippines"            "Qatar"                 
+#&gt;  [46] "Russia"                 "San Marino"             "Serbia"                
+#&gt;  [49] "Seychelles"             "Singapore"              "Taiwan"                
+#&gt;  [52] "Thailand"               "Ukraine"                "Uruguay"               
+#&gt;  [55] "Uzbekistan"             "Tajikistan"             "Australia"             
+#&gt;  [58] "Austria"                "Belgium"                "Britain"               
+#&gt;  [61] "Bulgaria"               "Canada"                 "Chile"                 
+#&gt;  [64] "Colombia"               "Croatia"                "Cyprus"                
+#&gt;  [67] "Czech Republic"         "Denmark"                "Ecuador"               
+#&gt;  [70] "Estonia"                "Finland"                "France"                
+#&gt;  [73] "Germany"                "Greece"                 "Guatemala"             
+#&gt;  [76] "Hungary"                "Iceland"                "Iran"                  
+#&gt;  [79] "Israel"                 "Italy"                  "Latvia"                
+#&gt;  [82] "Lithuania"              "Luxembourg"             "Malta"                 
+#&gt;  [85] "Mexico"                 "Montenegro"             "Netherlands"           
+#&gt;  [88] "New Zealand"            "Norway"                 "Peru"                  
+#&gt;  [91] "Poland"                 "Portugal"               "Romania"               
+#&gt;  [94] "Slovakia"               "Slovenia"               "South Africa"          
+#&gt;  [97] "South Korea"            "Spain"                  "Sweden"                
+#&gt; [100] "Switzerland"            "Tunisia"                "Turkey"                
+#&gt; [103] "United States"         </div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
