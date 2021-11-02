@@ -222,246 +222,249 @@ Retrieved from: 'https://ourworldindata.org/coronavirus'</p>
     <p>Sean Davis <a href='mailto:seandavi@gmail.com'>seandavi@gmail.com</a></p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='va'>res</span> <span class='op'>=</span> <span class='fu'>owid_data</span><span class='op'>(</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;  [1] "iso3c"                                  
-#&gt;  [2] "continent"                              
-#&gt;  [3] "country"                                
-#&gt;  [4] "date"                                   
-#&gt;  [5] "confirmed"                              
-#&gt;  [6] "new_cases"                              
-#&gt;  [7] "deaths"                                 
-#&gt;  [8] "new_deaths"                             
-#&gt;  [9] "total_cases_per_million"                
-#&gt; [10] "new_cases_per_million"                  
-#&gt; [11] "total_deaths_per_million"               
-#&gt; [12] "new_deaths_per_million"                 
-#&gt; [13] "reproduction_rate"                      
-#&gt; [14] "icu_patients"                           
-#&gt; [15] "icu_patients_per_million"               
-#&gt; [16] "hosp_patients"                          
-#&gt; [17] "hosp_patients_per_million"              
-#&gt; [18] "weekly_icu_admissions"                  
-#&gt; [19] "weekly_icu_admissions_per_million"      
-#&gt; [20] "weekly_hosp_admissions"                 
-#&gt; [21] "weekly_hosp_admissions_per_million"     
-#&gt; [22] "new_tests"                              
-#&gt; [23] "tests"                                  
-#&gt; [24] "total_tests_per_thousand"               
-#&gt; [25] "new_tests_per_thousand"                 
-#&gt; [26] "positive_rate"                          
-#&gt; [27] "tests_per_case"                         
-#&gt; [28] "tests_units"                            
-#&gt; [29] "total_vaccinations"                     
-#&gt; [30] "people_vaccinated"                      
-#&gt; [31] "people_fully_vaccinated"                
-#&gt; [32] "total_boosters"                         
-#&gt; [33] "new_vaccinations"                       
-#&gt; [34] "total_vaccinations_per_hundred"         
-#&gt; [35] "people_vaccinated_per_hundred"          
-#&gt; [36] "people_fully_vaccinated_per_hundred"    
-#&gt; [37] "total_boosters_per_hundred"             
-#&gt; [38] "stringency_index"                       
-#&gt; [39] "population"                             
-#&gt; [40] "population_density"                     
-#&gt; [41] "median_age"                             
-#&gt; [42] "aged_65_older"                          
-#&gt; [43] "aged_70_older"                          
-#&gt; [44] "gdp_per_capita"                         
-#&gt; [45] "extreme_poverty"                        
-#&gt; [46] "cardiovasc_death_rate"                  
-#&gt; [47] "diabetes_prevalence"                    
-#&gt; [48] "female_smokers"                         
-#&gt; [49] "male_smokers"                           
-#&gt; [50] "handwashing_facilities"                 
-#&gt; [51] "hospital_beds_per_thousand"             
-#&gt; [52] "life_expectancy"                        
-#&gt; [53] "human_development_index"                
-#&gt; [54] "excess_mortality_cumulative_absolute"   
-#&gt; [55] "excess_mortality_cumulative"            
-#&gt; [56] "excess_mortality"                       
-#&gt; [57] "excess_mortality_cumulative_per_million"</div><div class='input'>
-<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;    iso3c continent     country       date confirmed new_cases deaths new_deaths
-#&gt; 1:   AFG      Asia Afghanistan 2020-02-24         5         5     NA         NA
-#&gt; 2:   AFG      Asia Afghanistan 2020-02-25         5         0     NA         NA
-#&gt; 3:   AFG      Asia Afghanistan 2020-02-26         5         0     NA         NA
-#&gt; 4:   AFG      Asia Afghanistan 2020-02-27         5         0     NA         NA
-#&gt; 5:   AFG      Asia Afghanistan 2020-02-28         5         0     NA         NA
-#&gt; 6:   AFG      Asia Afghanistan 2020-02-29         5         0     NA         NA
-#&gt;    total_cases_per_million new_cases_per_million total_deaths_per_million
-#&gt; 1:                   0.126                 0.126                       NA
-#&gt; 2:                   0.126                 0.000                       NA
-#&gt; 3:                   0.126                 0.000                       NA
-#&gt; 4:                   0.126                 0.000                       NA
-#&gt; 5:                   0.126                 0.000                       NA
-#&gt; 6:                   0.126                 0.000                       NA
-#&gt;    new_deaths_per_million reproduction_rate icu_patients
-#&gt; 1:                     NA                NA           NA
-#&gt; 2:                     NA                NA           NA
-#&gt; 3:                     NA                NA           NA
-#&gt; 4:                     NA                NA           NA
-#&gt; 5:                     NA                NA           NA
-#&gt; 6:                     NA                NA           NA
-#&gt;    icu_patients_per_million hosp_patients hosp_patients_per_million
-#&gt; 1:                       NA            NA                        NA
-#&gt; 2:                       NA            NA                        NA
-#&gt; 3:                       NA            NA                        NA
-#&gt; 4:                       NA            NA                        NA
-#&gt; 5:                       NA            NA                        NA
-#&gt; 6:                       NA            NA                        NA
-#&gt;    weekly_icu_admissions weekly_icu_admissions_per_million
-#&gt; 1:                    NA                                NA
-#&gt; 2:                    NA                                NA
-#&gt; 3:                    NA                                NA
-#&gt; 4:                    NA                                NA
-#&gt; 5:                    NA                                NA
-#&gt; 6:                    NA                                NA
-#&gt;    weekly_hosp_admissions weekly_hosp_admissions_per_million new_tests tests
-#&gt; 1:                     NA                                 NA        NA    NA
-#&gt; 2:                     NA                                 NA        NA    NA
-#&gt; 3:                     NA                                 NA        NA    NA
-#&gt; 4:                     NA                                 NA        NA    NA
-#&gt; 5:                     NA                                 NA        NA    NA
-#&gt; 6:                     NA                                 NA        NA    NA
-#&gt;    total_tests_per_thousand new_tests_per_thousand positive_rate tests_per_case
-#&gt; 1:                       NA                     NA            NA             NA
-#&gt; 2:                       NA                     NA            NA             NA
-#&gt; 3:                       NA                     NA            NA             NA
-#&gt; 4:                       NA                     NA            NA             NA
-#&gt; 5:                       NA                     NA            NA             NA
-#&gt; 6:                       NA                     NA            NA             NA
-#&gt;    tests_units total_vaccinations people_vaccinated people_fully_vaccinated
-#&gt; 1:                             NA                NA                      NA
-#&gt; 2:                             NA                NA                      NA
-#&gt; 3:                             NA                NA                      NA
-#&gt; 4:                             NA                NA                      NA
-#&gt; 5:                             NA                NA                      NA
-#&gt; 6:                             NA                NA                      NA
-#&gt;    total_boosters new_vaccinations total_vaccinations_per_hundred
-#&gt; 1:             NA               NA                             NA
-#&gt; 2:             NA               NA                             NA
-#&gt; 3:             NA               NA                             NA
-#&gt; 4:             NA               NA                             NA
-#&gt; 5:             NA               NA                             NA
-#&gt; 6:             NA               NA                             NA
-#&gt;    people_vaccinated_per_hundred people_fully_vaccinated_per_hundred
-#&gt; 1:                            NA                                  NA
-#&gt; 2:                            NA                                  NA
-#&gt; 3:                            NA                                  NA
-#&gt; 4:                            NA                                  NA
-#&gt; 5:                            NA                                  NA
-#&gt; 6:                            NA                                  NA
-#&gt;    total_boosters_per_hundred stringency_index population population_density
-#&gt; 1:                         NA             8.33   39835428             54.422
-#&gt; 2:                         NA             8.33   39835428             54.422
-#&gt; 3:                         NA             8.33   39835428             54.422
-#&gt; 4:                         NA             8.33   39835428             54.422
-#&gt; 5:                         NA             8.33   39835428             54.422
-#&gt; 6:                         NA             8.33   39835428             54.422
-#&gt;    median_age aged_65_older aged_70_older gdp_per_capita extreme_poverty
-#&gt; 1:       18.6         2.581         1.337       1803.987              NA
-#&gt; 2:       18.6         2.581         1.337       1803.987              NA
-#&gt; 3:       18.6         2.581         1.337       1803.987              NA
-#&gt; 4:       18.6         2.581         1.337       1803.987              NA
-#&gt; 5:       18.6         2.581         1.337       1803.987              NA
-#&gt; 6:       18.6         2.581         1.337       1803.987              NA
-#&gt;    cardiovasc_death_rate diabetes_prevalence female_smokers male_smokers
-#&gt; 1:               597.029                9.59             NA           NA
-#&gt; 2:               597.029                9.59             NA           NA
-#&gt; 3:               597.029                9.59             NA           NA
-#&gt; 4:               597.029                9.59             NA           NA
-#&gt; 5:               597.029                9.59             NA           NA
-#&gt; 6:               597.029                9.59             NA           NA
-#&gt;    handwashing_facilities hospital_beds_per_thousand life_expectancy
-#&gt; 1:                 37.746                        0.5           64.83
-#&gt; 2:                 37.746                        0.5           64.83
-#&gt; 3:                 37.746                        0.5           64.83
-#&gt; 4:                 37.746                        0.5           64.83
-#&gt; 5:                 37.746                        0.5           64.83
-#&gt; 6:                 37.746                        0.5           64.83
-#&gt;    human_development_index excess_mortality_cumulative_absolute
-#&gt; 1:                   0.511                                   NA
-#&gt; 2:                   0.511                                   NA
-#&gt; 3:                   0.511                                   NA
-#&gt; 4:                   0.511                                   NA
-#&gt; 5:                   0.511                                   NA
-#&gt; 6:                   0.511                                   NA
-#&gt;    excess_mortality_cumulative excess_mortality
-#&gt; 1:                          NA               NA
-#&gt; 2:                          NA               NA
-#&gt; 3:                          NA               NA
-#&gt; 4:                          NA               NA
-#&gt; 5:                          NA               NA
-#&gt; 6:                          NA               NA
-#&gt;    excess_mortality_cumulative_per_million
-#&gt; 1:                                      NA
-#&gt; 2:                                      NA
-#&gt; 3:                                      NA
-#&gt; 4:                                      NA
-#&gt; 5:                                      NA
-#&gt; 6:                                      NA</div><div class='input'>
-<span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://pillar.r-lib.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Rows: 127,314
-#&gt; Columns: 57
-#&gt; $ iso3c                                   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "AFG", "AFG", "AFG", "AFG", "A…
-#&gt; $ continent                               <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "Asia", "Asia", "Asia", "Asia"…
-#&gt; $ country                                 <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "Afghanistan", "Afghanistan", …
-#&gt; $ date                                    <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span> 2020-02-24, 2020-02-25, 2020-…
-#&gt; $ confirmed                               <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, …
-#&gt; $ new_cases                               <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-#&gt; $ deaths                                  <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA…
-#&gt; $ new_deaths                              <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA…
-#&gt; $ total_cases_per_million                 <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 0.126, 0.126, 0.126, 0.126, 0.…
-#&gt; $ new_cases_per_million                   <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 0.126, 0.000, 0.000, 0.000, 0.…
-#&gt; $ total_deaths_per_million                <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA…
-#&gt; $ new_deaths_per_million                  <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA…
-#&gt; $ reproduction_rate                       <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA…
-#&gt; $ icu_patients                            <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA…
-#&gt; $ icu_patients_per_million                <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA…
-#&gt; $ hosp_patients                           <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA…
-#&gt; $ hosp_patients_per_million               <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA…
-#&gt; $ weekly_icu_admissions                   <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA…
-#&gt; $ weekly_icu_admissions_per_million       <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA…
-#&gt; $ weekly_hosp_admissions                  <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA…
-#&gt; $ weekly_hosp_admissions_per_million      <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA…
-#&gt; $ new_tests                               <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA…
-#&gt; $ tests                                   <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA…
-#&gt; $ total_tests_per_thousand                <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA…
-#&gt; $ new_tests_per_thousand                  <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA…
-#&gt; $ positive_rate                           <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA…
-#&gt; $ tests_per_case                          <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA…
-#&gt; $ tests_units                             <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "", "", "", "", "", "", "", ""…
-#&gt; $ total_vaccinations                      <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA…
-#&gt; $ people_vaccinated                       <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA…
-#&gt; $ people_fully_vaccinated                 <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA…
-#&gt; $ total_boosters                          <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA…
-#&gt; $ new_vaccinations                        <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA…
-#&gt; $ total_vaccinations_per_hundred          <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA…
-#&gt; $ people_vaccinated_per_hundred           <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA…
-#&gt; $ people_fully_vaccinated_per_hundred     <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA…
-#&gt; $ total_boosters_per_hundred              <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA…
-#&gt; $ stringency_index                        <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 8.33, 8.33, 8.33, 8.33, 8.33, …
-#&gt; $ population                              <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 39835428, 39835428, 39835428, …
-#&gt; $ population_density                      <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 54.422, 54.422, 54.422, 54.422…
-#&gt; $ median_age                              <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 18.6, 18.6, 18.6, 18.6, 18.6, …
-#&gt; $ aged_65_older                           <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 2.581, 2.581, 2.581, 2.581, 2.…
-#&gt; $ aged_70_older                           <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 1.337, 1.337, 1.337, 1.337, 1.…
-#&gt; $ gdp_per_capita                          <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 1803.987, 1803.987, 1803.987, …
-#&gt; $ extreme_poverty                         <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA…
-#&gt; $ cardiovasc_death_rate                   <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 597.029, 597.029, 597.029, 597…
-#&gt; $ diabetes_prevalence                     <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 9.59, 9.59, 9.59, 9.59, 9.59, …
-#&gt; $ female_smokers                          <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA…
-#&gt; $ male_smokers                            <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA…
-#&gt; $ handwashing_facilities                  <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 37.746, 37.746, 37.746, 37.746…
-#&gt; $ hospital_beds_per_thousand              <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, …
-#&gt; $ life_expectancy                         <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 64.83, 64.83, 64.83, 64.83, 64…
-#&gt; $ human_development_index                 <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 0.511, 0.511, 0.511, 0.511, 0.…
-#&gt; $ excess_mortality_cumulative_absolute    <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA…
-#&gt; $ excess_mortality_cumulative             <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA…
-#&gt; $ excess_mortality                        <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA…
-#&gt; $ excess_mortality_cumulative_per_million <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA…</div><div class='input'>  
-</div></pre>
+    <pre class="examples"><span class='r-in'><span class='va'>res</span> <span class='op'>=</span> <span class='fu'>owid_data</span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [1] "iso3c"                                  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [2] "continent"                              </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [3] "country"                                </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [4] "date"                                   </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [5] "confirmed"                              </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [6] "new_cases"                              </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [7] "deaths"                                 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [8] "new_deaths"                             </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [9] "total_cases_per_million"                </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [10] "new_cases_per_million"                  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [11] "total_deaths_per_million"               </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [12] "new_deaths_per_million"                 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [13] "reproduction_rate"                      </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [14] "icu_patients"                           </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [15] "icu_patients_per_million"               </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [16] "hosp_patients"                          </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [17] "hosp_patients_per_million"              </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [18] "weekly_icu_admissions"                  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [19] "weekly_icu_admissions_per_million"      </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [20] "weekly_hosp_admissions"                 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [21] "weekly_hosp_admissions_per_million"     </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [22] "new_tests"                              </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [23] "tests"                                  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [24] "total_tests_per_thousand"               </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [25] "new_tests_per_thousand"                 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [26] "positive_rate"                          </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [27] "tests_per_case"                         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [28] "tests_units"                            </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [29] "total_vaccinations"                     </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [30] "people_vaccinated"                      </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [31] "people_fully_vaccinated"                </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [32] "total_boosters"                         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [33] "new_vaccinations"                       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [34] "total_vaccinations_per_hundred"         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [35] "people_vaccinated_per_hundred"          </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [36] "people_fully_vaccinated_per_hundred"    </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [37] "total_boosters_per_hundred"             </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [38] "stringency_index"                       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [39] "population"                             </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [40] "population_density"                     </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [41] "median_age"                             </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [42] "aged_65_older"                          </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [43] "aged_70_older"                          </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [44] "gdp_per_capita"                         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [45] "extreme_poverty"                        </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [46] "cardiovasc_death_rate"                  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [47] "diabetes_prevalence"                    </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [48] "female_smokers"                         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [49] "male_smokers"                           </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [50] "handwashing_facilities"                 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [51] "hospital_beds_per_thousand"             </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [52] "life_expectancy"                        </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [53] "human_development_index"                </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [54] "excess_mortality_cumulative_absolute"   </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [55] "excess_mortality_cumulative"            </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [56] "excess_mortality"                       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [57] "excess_mortality_cumulative_per_million"</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    iso3c continent     country       date confirmed new_cases deaths new_deaths</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1:   AFG      Asia Afghanistan 2020-02-24         5         5     NA         NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2:   AFG      Asia Afghanistan 2020-02-25         5         0     NA         NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3:   AFG      Asia Afghanistan 2020-02-26         5         0     NA         NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4:   AFG      Asia Afghanistan 2020-02-27         5         0     NA         NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5:   AFG      Asia Afghanistan 2020-02-28         5         0     NA         NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6:   AFG      Asia Afghanistan 2020-02-29         5         0     NA         NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    total_cases_per_million new_cases_per_million total_deaths_per_million</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1:                   0.126                 0.126                       NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2:                   0.126                 0.000                       NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3:                   0.126                 0.000                       NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4:                   0.126                 0.000                       NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5:                   0.126                 0.000                       NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6:                   0.126                 0.000                       NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    new_deaths_per_million reproduction_rate icu_patients</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1:                     NA                NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2:                     NA                NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3:                     NA                NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4:                     NA                NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5:                     NA                NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6:                     NA                NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    icu_patients_per_million hosp_patients hosp_patients_per_million</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1:                       NA            NA                        NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2:                       NA            NA                        NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3:                       NA            NA                        NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4:                       NA            NA                        NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5:                       NA            NA                        NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6:                       NA            NA                        NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    weekly_icu_admissions weekly_icu_admissions_per_million</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1:                    NA                                NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2:                    NA                                NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3:                    NA                                NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4:                    NA                                NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5:                    NA                                NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6:                    NA                                NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    weekly_hosp_admissions weekly_hosp_admissions_per_million new_tests tests</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1:                     NA                                 NA        NA    NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2:                     NA                                 NA        NA    NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3:                     NA                                 NA        NA    NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4:                     NA                                 NA        NA    NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5:                     NA                                 NA        NA    NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6:                     NA                                 NA        NA    NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    total_tests_per_thousand new_tests_per_thousand positive_rate tests_per_case</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1:                       NA                     NA            NA             NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2:                       NA                     NA            NA             NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3:                       NA                     NA            NA             NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4:                       NA                     NA            NA             NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5:                       NA                     NA            NA             NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6:                       NA                     NA            NA             NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    tests_units total_vaccinations people_vaccinated people_fully_vaccinated</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1:                             NA                NA                      NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2:                             NA                NA                      NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3:                             NA                NA                      NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4:                             NA                NA                      NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5:                             NA                NA                      NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6:                             NA                NA                      NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    total_boosters new_vaccinations total_vaccinations_per_hundred</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1:             NA               NA                             NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2:             NA               NA                             NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3:             NA               NA                             NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4:             NA               NA                             NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5:             NA               NA                             NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6:             NA               NA                             NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    people_vaccinated_per_hundred people_fully_vaccinated_per_hundred</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1:                            NA                                  NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2:                            NA                                  NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3:                            NA                                  NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4:                            NA                                  NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5:                            NA                                  NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6:                            NA                                  NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    total_boosters_per_hundred stringency_index population population_density</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1:                         NA             8.33   39835428             54.422</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2:                         NA             8.33   39835428             54.422</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3:                         NA             8.33   39835428             54.422</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4:                         NA             8.33   39835428             54.422</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5:                         NA             8.33   39835428             54.422</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6:                         NA             8.33   39835428             54.422</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    median_age aged_65_older aged_70_older gdp_per_capita extreme_poverty</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1:       18.6         2.581         1.337       1803.987              NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2:       18.6         2.581         1.337       1803.987              NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3:       18.6         2.581         1.337       1803.987              NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4:       18.6         2.581         1.337       1803.987              NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5:       18.6         2.581         1.337       1803.987              NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6:       18.6         2.581         1.337       1803.987              NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    cardiovasc_death_rate diabetes_prevalence female_smokers male_smokers</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1:               597.029                9.59             NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2:               597.029                9.59             NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3:               597.029                9.59             NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4:               597.029                9.59             NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5:               597.029                9.59             NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6:               597.029                9.59             NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    handwashing_facilities hospital_beds_per_thousand life_expectancy</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1:                 37.746                        0.5           64.83</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2:                 37.746                        0.5           64.83</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3:                 37.746                        0.5           64.83</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4:                 37.746                        0.5           64.83</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5:                 37.746                        0.5           64.83</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6:                 37.746                        0.5           64.83</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    human_development_index excess_mortality_cumulative_absolute</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1:                   0.511                                   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2:                   0.511                                   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3:                   0.511                                   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4:                   0.511                                   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5:                   0.511                                   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6:                   0.511                                   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    excess_mortality_cumulative excess_mortality</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1:                          NA               NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2:                          NA               NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3:                          NA               NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4:                          NA               NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5:                          NA               NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6:                          NA               NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    excess_mortality_cumulative_per_million</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1:                                      NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2:                                      NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3:                                      NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4:                                      NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5:                                      NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6:                                      NA</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://pillar.r-lib.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Rows: 127,553</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Columns: 57</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ iso3c                                   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "AFG", "AFG", "AFG", "AFG", "A…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ continent                               <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "Asia", "Asia", "Asia", "Asia"…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ country                                 <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "Afghanistan", "Afghanistan", …</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ date                                    <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span> 2020-02-24, 2020-02-25, 2020-…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ confirmed                               <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, …</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ new_cases                               <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, …</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ deaths                                  <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ new_deaths                              <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ total_cases_per_million                 <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 0.126, 0.126, 0.126, 0.126, 0.…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ new_cases_per_million                   <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 0.126, 0.000, 0.000, 0.000, 0.…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ total_deaths_per_million                <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ new_deaths_per_million                  <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ reproduction_rate                       <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ icu_patients                            <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ icu_patients_per_million                <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ hosp_patients                           <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ hosp_patients_per_million               <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ weekly_icu_admissions                   <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ weekly_icu_admissions_per_million       <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ weekly_hosp_admissions                  <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ weekly_hosp_admissions_per_million      <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ new_tests                               <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ tests                                   <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ total_tests_per_thousand                <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ new_tests_per_thousand                  <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ positive_rate                           <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ tests_per_case                          <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ tests_units                             <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "", "", "", "", "", "", "", ""…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ total_vaccinations                      <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ people_vaccinated                       <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ people_fully_vaccinated                 <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ total_boosters                          <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ new_vaccinations                        <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ total_vaccinations_per_hundred          <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ people_vaccinated_per_hundred           <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ people_fully_vaccinated_per_hundred     <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ total_boosters_per_hundred              <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ stringency_index                        <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 8.33, 8.33, 8.33, 8.33, 8.33, …</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ population                              <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 39835428, 39835428, 39835428, …</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ population_density                      <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 54.422, 54.422, 54.422, 54.422…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ median_age                              <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 18.6, 18.6, 18.6, 18.6, 18.6, …</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ aged_65_older                           <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 2.581, 2.581, 2.581, 2.581, 2.…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ aged_70_older                           <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 1.337, 1.337, 1.337, 1.337, 1.…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ gdp_per_capita                          <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 1803.987, 1803.987, 1803.987, …</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ extreme_poverty                         <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ cardiovasc_death_rate                   <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 597.029, 597.029, 597.029, 597…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ diabetes_prevalence                     <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 9.59, 9.59, 9.59, 9.59, 9.59, …</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ female_smokers                          <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ male_smokers                            <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ handwashing_facilities                  <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 37.746, 37.746, 37.746, 37.746…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ hospital_beds_per_thousand              <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, …</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ life_expectancy                         <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 64.83, 64.83, 64.83, 64.83, 64…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ human_development_index                 <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 0.511, 0.511, 0.511, 0.511, 0.…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ excess_mortality_cumulative_absolute    <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ excess_mortality_cumulative             <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ excess_mortality                        <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ excess_mortality_cumulative_per_million <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA…</span>
+<span class='r-in'>  </span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

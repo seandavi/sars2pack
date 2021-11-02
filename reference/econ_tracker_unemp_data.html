@@ -229,135 +229,139 @@ for the reported data.</p><ul>
 <code><a href='us_county_health_rankings.html'>us_county_health_rankings</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>
-<span class='co'># City Level data</span>
-
-<span class='va'>res</span> <span class='op'>=</span> <span class='fu'>econ_tracker_unemp_city_data</span><span class='op'>(</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;    cityid initclaims_count_regular initclaims_rate_regular       date
-#&gt; 1:      8                     1827                  0.1610 2020-01-04
-#&gt; 2:     15                      607                  0.0870 2020-01-04
-#&gt; 3:     18                      453                  0.0919 2020-01-04
-#&gt; 4:     37                      545                  0.1500 2020-01-04
-#&gt; 5:     46                      845                  0.1380 2020-01-04
-#&gt; 6:     49                      405                  0.1590 2020-01-04</div><div class='input'>
-
-
-<span class='co'># County Level data</span>
-
-<span class='va'>res</span> <span class='op'>=</span> <span class='fu'>econ_tracker_unemp_county_data</span><span class='op'>(</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;    countyfips initclaims_count_regular initclaims_rate_regular       date
-#&gt; 1:      01001                       21                  0.0802 2020-03-14
-#&gt; 2:      01001                       99                  0.3780 2020-03-21
-#&gt; 3:      01001                      843                  3.2200 2020-03-28
-#&gt; 4:      01001                     1088                  4.1600 2020-04-04
-#&gt; 5:      01001                      812                  3.1000 2020-04-11
-#&gt; 6:      01001                      675                  2.5800 2020-04-18
-#&gt;    countyname cityid cityname    cz     czname statename statefips stateabbrev
-#&gt; 1:    Autauga     NA          11101 Montgomery   Alabama     00001          AL
-#&gt; 2:    Autauga     NA          11101 Montgomery   Alabama     00001          AL
-#&gt; 3:    Autauga     NA          11101 Montgomery   Alabama     00001          AL
-#&gt; 4:    Autauga     NA          11101 Montgomery   Alabama     00001          AL
-#&gt; 5:    Autauga     NA          11101 Montgomery   Alabama     00001          AL
-#&gt; 6:    Autauga     NA          11101 Montgomery   Alabama     00001          AL
-#&gt;    county_pop2019
-#&gt; 1:          55869
-#&gt; 2:          55869
-#&gt; 3:          55869
-#&gt; 4:          55869
-#&gt; 5:          55869
-#&gt; 6:          55869</div><div class='input'>
-
-
-<span class='co'># State Level data</span>
-
-<span class='va'>res</span> <span class='op'>=</span> <span class='fu'>econ_tracker_unemp_state_data</span><span class='op'>(</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;    statefips initclaims_count_regular contclaims_count_regular
-#&gt; 1:     00001                     4578                    18523
-#&gt; 2:     00001                     3629                    21143
-#&gt; 3:     00001                     2483                    17402
-#&gt; 4:     00001                     2129                    18390
-#&gt; 5:     00001                     2170                    17284
-#&gt; 6:     00001                     2176                    16745
-#&gt;    initclaims_count_pua contclaims_count_peuc contclaims_count_pua
-#&gt; 1:                    0                     0                    0
-#&gt; 2:                    0                     0                    0
-#&gt; 3:                    0                     0                    0
-#&gt; 4:                    0                     0                    0
-#&gt; 5:                    0                     0                    0
-#&gt; 6:                    0                     0                    0
-#&gt;    initclaims_count_combined contclaims_count_combined initclaims_rate_regular
-#&gt; 1:                      4578                     18523                  0.2040
-#&gt; 2:                      3629                     21143                  0.1620
-#&gt; 3:                      2483                     17402                  0.1110
-#&gt; 4:                      2129                     18390                  0.0950
-#&gt; 5:                      2170                     17284                  0.0968
-#&gt; 6:                      2176                     16745                  0.0971
-#&gt;    contclaims_rate_regular initclaims_rate_pua contclaims_rate_peuc
-#&gt; 1:                   0.826                   0                    0
-#&gt; 2:                   0.943                   0                    0
-#&gt; 3:                   0.776                   0                    0
-#&gt; 4:                   0.820                   0                    0
-#&gt; 5:                   0.771                   0                    0
-#&gt; 6:                   0.747                   0                    0
-#&gt;    contclaims_rate_pua initclaims_rate_combined contclaims_rate_combined
-#&gt; 1:                   0                   0.2040                    0.826
-#&gt; 2:                   0                   0.1620                    0.943
-#&gt; 3:                   0                   0.1110                    0.776
-#&gt; 4:                   0                   0.0950                    0.820
-#&gt; 5:                   0                   0.0968                    0.771
-#&gt; 6:                   0                   0.0971                    0.747
-#&gt;          date statename stateabbrev state_pop2019
-#&gt; 1: 2020-01-04   Alabama          AL       4903185
-#&gt; 2: 2020-01-11   Alabama          AL       4903185
-#&gt; 3: 2020-01-18   Alabama          AL       4903185
-#&gt; 4: 2020-01-25   Alabama          AL       4903185
-#&gt; 5: 2020-02-01   Alabama          AL       4903185
-#&gt; 6: 2020-02-08   Alabama          AL       4903185</div><div class='input'>
-
-
-<span class='co'># National Level data</span>
-
-<span class='va'>res</span> <span class='op'>=</span> <span class='fu'>econ_tracker_unemp_national_data</span><span class='op'>(</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;    initclaims_count_regular contclaims_count_regular initclaims_count_pua
-#&gt; 1:                   334431                  2128086                    0
-#&gt; 2:                   337023                  2235006                    0
-#&gt; 3:                   278482                  2119858                    0
-#&gt; 4:                   226064                  2059139                    0
-#&gt; 5:                   222528                  2130493                    0
-#&gt; 6:                   217644                  2065014                    0
-#&gt;    contclaims_count_peuc contclaims_count_pua initclaims_count_combined
-#&gt; 1:                     0                    0                    334431
-#&gt; 2:                     0                    0                    337023
-#&gt; 3:                     0                    0                    278482
-#&gt; 4:                     0                    0                    226064
-#&gt; 5:                     0                    0                    222528
-#&gt; 6:                     0                    0                    217644
-#&gt;    contclaims_count_combined initclaims_rate_regular contclaims_rate_regular
-#&gt; 1:                   2128086                   0.205                    1.30
-#&gt; 2:                   2235006                   0.207                    1.37
-#&gt; 3:                   2119858                   0.171                    1.30
-#&gt; 4:                   2059139                   0.139                    1.26
-#&gt; 5:                   2130493                   0.136                    1.31
-#&gt; 6:                   2065014                   0.133                    1.27
-#&gt;    initclaims_rate_pua contclaims_rate_peuc contclaims_rate_pua
-#&gt; 1:                   0                    0                   0
-#&gt; 2:                   0                    0                   0
-#&gt; 3:                   0                    0                   0
-#&gt; 4:                   0                    0                   0
-#&gt; 5:                   0                    0                   0
-#&gt; 6:                   0                    0                   0
-#&gt;    initclaims_rate_combined contclaims_rate_combined       date
-#&gt; 1:                    0.205                     1.30 2020-01-04
-#&gt; 2:                    0.207                     1.37 2020-01-11
-#&gt; 3:                    0.171                     1.30 2020-01-18
-#&gt; 4:                    0.139                     1.26 2020-01-25
-#&gt; 5:                    0.136                     1.31 2020-02-01
-#&gt; 6:                    0.133                     1.27 2020-02-08</div><div class='input'>
-</div></pre>
+    <pre class="examples"><span class='r-in'></span>
+<span class='r-in'><span class='co'># City Level data</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='va'>res</span> <span class='op'>=</span> <span class='fu'>econ_tracker_unemp_city_data</span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    cityid initclaims_count_regular initclaims_rate_regular       date</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1:      8                     1827                  0.1610 2020-01-04</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2:     15                      607                  0.0870 2020-01-04</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3:     18                      453                  0.0919 2020-01-04</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4:     37                      545                  0.1500 2020-01-04</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5:     46                      845                  0.1380 2020-01-04</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6:     49                      405                  0.1590 2020-01-04</span>
+<span class='r-in'></span>
+<span class='r-in'></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># County Level data</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='va'>res</span> <span class='op'>=</span> <span class='fu'>econ_tracker_unemp_county_data</span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    countyfips initclaims_count_regular initclaims_rate_regular       date</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1:      01001                       21                  0.0802 2020-03-14</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2:      01001                       99                  0.3780 2020-03-21</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3:      01001                      843                  3.2200 2020-03-28</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4:      01001                     1088                  4.1600 2020-04-04</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5:      01001                      812                  3.1000 2020-04-11</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6:      01001                      675                  2.5800 2020-04-18</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    countyname cityid cityname    cz     czname statename statefips stateabbrev</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1:    Autauga     NA          11101 Montgomery   Alabama     00001          AL</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2:    Autauga     NA          11101 Montgomery   Alabama     00001          AL</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3:    Autauga     NA          11101 Montgomery   Alabama     00001          AL</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4:    Autauga     NA          11101 Montgomery   Alabama     00001          AL</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5:    Autauga     NA          11101 Montgomery   Alabama     00001          AL</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6:    Autauga     NA          11101 Montgomery   Alabama     00001          AL</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    county_pop2019</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1:          55869</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2:          55869</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3:          55869</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4:          55869</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5:          55869</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6:          55869</span>
+<span class='r-in'></span>
+<span class='r-in'></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># State Level data</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='va'>res</span> <span class='op'>=</span> <span class='fu'>econ_tracker_unemp_state_data</span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    statefips initclaims_count_regular contclaims_count_regular</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1:     00001                     4578                    18523</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2:     00001                     3629                    21143</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3:     00001                     2483                    17402</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4:     00001                     2129                    18390</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5:     00001                     2170                    17284</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6:     00001                     2176                    16745</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    initclaims_count_pua contclaims_count_peuc contclaims_count_pua</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1:                    0                     0                    0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2:                    0                     0                    0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3:                    0                     0                    0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4:                    0                     0                    0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5:                    0                     0                    0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6:                    0                     0                    0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    initclaims_count_combined contclaims_count_combined initclaims_rate_regular</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1:                      4578                     18523                  0.2040</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2:                      3629                     21143                  0.1620</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3:                      2483                     17402                  0.1110</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4:                      2129                     18390                  0.0950</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5:                      2170                     17284                  0.0968</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6:                      2176                     16745                  0.0971</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    contclaims_rate_regular initclaims_rate_pua contclaims_rate_peuc</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1:                   0.826                   0                    0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2:                   0.943                   0                    0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3:                   0.776                   0                    0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4:                   0.820                   0                    0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5:                   0.771                   0                    0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6:                   0.747                   0                    0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    contclaims_rate_pua initclaims_rate_combined contclaims_rate_combined</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1:                   0                   0.2040                    0.826</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2:                   0                   0.1620                    0.943</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3:                   0                   0.1110                    0.776</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4:                   0                   0.0950                    0.820</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5:                   0                   0.0968                    0.771</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6:                   0                   0.0971                    0.747</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>          date statename stateabbrev state_pop2019</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1: 2020-01-04   Alabama          AL       4903185</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2: 2020-01-11   Alabama          AL       4903185</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3: 2020-01-18   Alabama          AL       4903185</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4: 2020-01-25   Alabama          AL       4903185</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5: 2020-02-01   Alabama          AL       4903185</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6: 2020-02-08   Alabama          AL       4903185</span>
+<span class='r-in'></span>
+<span class='r-in'></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># National Level data</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='va'>res</span> <span class='op'>=</span> <span class='fu'>econ_tracker_unemp_national_data</span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    initclaims_count_regular contclaims_count_regular initclaims_count_pua</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1:                   334431                  2128086                    0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2:                   337023                  2235006                    0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3:                   278482                  2119858                    0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4:                   226064                  2059139                    0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5:                   222528                  2130493                    0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6:                   217644                  2065014                    0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    contclaims_count_peuc contclaims_count_pua initclaims_count_combined</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1:                     0                    0                    334431</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2:                     0                    0                    337023</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3:                     0                    0                    278482</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4:                     0                    0                    226064</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5:                     0                    0                    222528</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6:                     0                    0                    217644</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    contclaims_count_combined initclaims_rate_regular contclaims_rate_regular</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1:                   2128086                   0.205                    1.30</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2:                   2235006                   0.207                    1.37</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3:                   2119858                   0.171                    1.30</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4:                   2059139                   0.139                    1.26</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5:                   2130493                   0.136                    1.31</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6:                   2065014                   0.133                    1.27</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    initclaims_rate_pua contclaims_rate_peuc contclaims_rate_pua</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1:                   0                    0                   0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2:                   0                    0                   0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3:                   0                    0                   0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4:                   0                    0                   0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5:                   0                    0                   0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6:                   0                    0                   0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    initclaims_rate_combined contclaims_rate_combined       date</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1:                    0.205                     1.30 2020-01-04</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2:                    0.207                     1.37 2020-01-11</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3:                    0.171                     1.30 2020-01-18</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4:                    0.139                     1.26 2020-01-25</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5:                    0.136                     1.31 2020-02-01</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6:                    0.133                     1.27 2020-02-08</span>
+<span class='r-in'></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

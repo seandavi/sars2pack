@@ -205,47 +205,49 @@ resolution (by facility, daily, all USA to start).</p>
 <code><a href='who_cases.html'>who_cases</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='va'>res</span> <span class='op'>=</span> <span class='fu'>us_healthcare_capacity</span><span class='op'>(</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;  [1] "Name"                            "Hospital Type"                  
-#&gt;  [3] "Address"                         "Address_2"                      
-#&gt;  [5] "City"                            "State"                          
-#&gt;  [7] "Zipcode"                         "County"                         
-#&gt;  [9] "Latitude"                        "Longitude"                      
-#&gt; [11] "Staffed All Beds"                "Staffed ICU Beds"               
-#&gt; [13] "Licensed All Beds"               "All Bed Occupancy Rate"         
-#&gt; [15] "ICU Bed Occupancy Rate"          "Staffed All Beds - SOURCE"      
-#&gt; [17] "Staffed ICU Beds - SOURCE"       "Licensed All Beds - SOURCE"     
-#&gt; [19] "All Bed Occupancy Rate - SOURCE" "ICU Bed Occupancy Rate - SOURCE"
-#&gt; [21] "CCM_ID"                          "DH-ID"                          
-#&gt; [23] "HCRIS-ID"                        "HIFLD-ID"                       </div><div class='input'><span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://pillar.r-lib.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Rows: 7,154
-#&gt; Columns: 24
-#&gt; $ Name                              <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "IU HEALTH UNIVERSITY HOSPITAL", "HE…
-#&gt; $ `Hospital Type`                   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "GENERAL ACUTE CARE", "REHABILITATIO…
-#&gt; $ Address                           <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "550 UNIVERSITY BLVD", "800 CUMMINGS…
-#&gt; $ Address_2                         <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "", "", "", "", "", "", "", "", "", …
-#&gt; $ City                              <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "INDIANAPOLIS", "BEVERLY", "HIGHLAND…
-#&gt; $ State                             <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "IN", "MA", "IL", "PR", "NJ", "NY", …
-#&gt; $ Zipcode                           <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> 46202, 1915, 62249, 676, 7701, 10993…
-#&gt; $ County                            <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "MARION", "ESSEX", "MADISON", "MOCA"…
-#&gt; $ Latitude                          <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 39.77528, 42.56099, 38.75458, 18.390…
-#&gt; $ Longitude                         <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> -86.17656, -70.88724, -89.66760, -67…
-#&gt; $ `Staffed All Beds`                <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, 106, 274, 155, NA, 161, …
-#&gt; $ `Staffed ICU Beds`                <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, 7, 27, NA, NA, 11, 98, 0…
-#&gt; $ `Licensed All Beds`               <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, 20, NA, 106, 468, 155, NA, 213, …
-#&gt; $ `All Bed Occupancy Rate`          <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, 0.4900000, 0.5900000, NA…
-#&gt; $ `ICU Bed Occupancy Rate`          <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, 0.73, 0.42, NA, NA, 0.52…
-#&gt; $ `Staffed All Beds - SOURCE`       <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "None", "None", "None", "HCRIS-Total…
-#&gt; $ `Staffed ICU Beds - SOURCE`       <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "None", "None", "None", "HCRIS-ICU T…
-#&gt; $ `Licensed All Beds - SOURCE`      <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "", "HIFLD-BEDS", "", "DH-NUM_LICENS…
-#&gt; $ `All Bed Occupancy Rate - SOURCE` <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "None", "None", "None", "HCRIS-Total…
-#&gt; $ `ICU Bed Occupancy Rate - SOURCE` <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "None", "None", "None", "HCRIS-ICU O…
-#&gt; $ CCM_ID                            <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "100", "10001915", "100062249", "100…
-#&gt; $ `DH-ID`                           <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> NA, NA, NA, 4294, 2512, 2695, 2705, …
-#&gt; $ `HCRIS-ID`                        <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> NA, NA, NA, 400111, 310034, 330405, …
-#&gt; $ `HIFLD-ID`                        <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 100, 10001915, 100062249, 1000676, 1…</div><div class='input'>
-</div></pre>
+    <pre class="examples"><span class='r-in'><span class='va'>res</span> <span class='op'>=</span> <span class='fu'>us_healthcare_capacity</span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [1] "Name"                            "Hospital Type"                  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [3] "Address"                         "Address_2"                      </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [5] "City"                            "State"                          </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [7] "Zipcode"                         "County"                         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [9] "Latitude"                        "Longitude"                      </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [11] "Staffed All Beds"                "Staffed ICU Beds"               </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [13] "Licensed All Beds"               "All Bed Occupancy Rate"         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [15] "ICU Bed Occupancy Rate"          "Staffed All Beds - SOURCE"      </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [17] "Staffed ICU Beds - SOURCE"       "Licensed All Beds - SOURCE"     </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [19] "All Bed Occupancy Rate - SOURCE" "ICU Bed Occupancy Rate - SOURCE"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [21] "CCM_ID"                          "DH-ID"                          </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [23] "HCRIS-ID"                        "HIFLD-ID"                       </span>
+<span class='r-in'><span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://pillar.r-lib.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Rows: 7,154</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Columns: 24</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ Name                              <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "IU HEALTH UNIVERSITY HOSPITAL", "HE…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ `Hospital Type`                   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "GENERAL ACUTE CARE", "REHABILITATIO…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ Address                           <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "550 UNIVERSITY BLVD", "800 CUMMINGS…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ Address_2                         <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "", "", "", "", "", "", "", "", "", …</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ City                              <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "INDIANAPOLIS", "BEVERLY", "HIGHLAND…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ State                             <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "IN", "MA", "IL", "PR", "NJ", "NY", …</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ Zipcode                           <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> 46202, 1915, 62249, 676, 7701, 10993…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ County                            <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "MARION", "ESSEX", "MADISON", "MOCA"…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ Latitude                          <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 39.77528, 42.56099, 38.75458, 18.390…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ Longitude                         <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> -86.17656, -70.88724, -89.66760, -67…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ `Staffed All Beds`                <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, 106, 274, 155, NA, 161, …</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ `Staffed ICU Beds`                <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, 7, 27, NA, NA, 11, 98, 0…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ `Licensed All Beds`               <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, 20, NA, 106, 468, 155, NA, 213, …</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ `All Bed Occupancy Rate`          <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, 0.4900000, 0.5900000, NA…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ `ICU Bed Occupancy Rate`          <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, 0.73, 0.42, NA, NA, 0.52…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ `Staffed All Beds - SOURCE`       <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "None", "None", "None", "HCRIS-Total…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ `Staffed ICU Beds - SOURCE`       <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "None", "None", "None", "HCRIS-ICU T…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ `Licensed All Beds - SOURCE`      <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "", "HIFLD-BEDS", "", "DH-NUM_LICENS…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ `All Bed Occupancy Rate - SOURCE` <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "None", "None", "None", "HCRIS-Total…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ `ICU Bed Occupancy Rate - SOURCE` <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "None", "None", "None", "HCRIS-ICU O…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ CCM_ID                            <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "100", "10001915", "100062249", "100…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ `DH-ID`                           <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> NA, NA, NA, 4294, 2512, 2695, 2705, …</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ `HCRIS-ID`                        <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> NA, NA, NA, 400111, 310034, 330405, …</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ `HIFLD-ID`                        <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 100, 10001915, 100062249, 1000676, 1…</span>
+<span class='r-in'></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

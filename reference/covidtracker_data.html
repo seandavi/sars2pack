@@ -224,46 +224,54 @@ district currently reporting that data.</p>
 <code><a href='who_cases.html'>who_cases</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://dplyr.tidyverse.org'>dplyr</a></span><span class='op'>)</span>
-<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://ggplot2.tidyverse.org'>ggplot2</a></span><span class='op'>)</span>
-
-<span class='va'>res</span> <span class='op'>=</span> <span class='fu'>covidtracker_data</span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='warning'>Warning: One or more parsing issues, see `problems()` for details</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;  [1] "date"                   "fips"                   "state"                 
-#&gt;  [4] "positive"               "negative"               "death"                 
-#&gt;  [7] "pending"                "hospitalized"           "hospitalizedCurrently" 
-#&gt; [10] "recovered"              "inIcuCumulative"        "inIcuCurrently"        
-#&gt; [13] "onVentilatorCurrently"  "onVentilatorCumulative" "dateChecked"           
-#&gt; [16] "dataQualityGrade"      </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/dim.html'>dim</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] 20780    16</div><div class='input'><span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://pillar.r-lib.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Rows: 20,780
-#&gt; Columns: 16
-#&gt; $ date                   <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span> 2021-03-07, 2021-03-07, 2021-03-07, 2021-03-07…
-#&gt; $ fips                   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "00002", "00001", "00005", "00060", "00004", "0…
-#&gt; $ state                  <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "AK", "AL", "AR", "AS", "AZ", "CA", "CO", "CT",…
-#&gt; $ positive               <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> 56886, 499819, 324818, 0, 826454, 3501394, 4366…
-#&gt; $ negative               <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> NA, 1931711, 2480716, 2140, 3073010, NA, 219945…
-#&gt; $ death                  <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> 305, 10148, 5319, 0, 16328, 54124, 5989, 7704, …
-#&gt; $ pending                <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 8544, N…
-#&gt; $ hospitalized           <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> 1293, 45976, 14926, NA, 57907, NA, 23904, NA, N…
-#&gt; $ hospitalizedCurrently  <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> 33, 494, 335, NA, 963, 4291, 326, 428, 150, 104…
-#&gt; $ recovered              <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> NA, 295690, 315517, NA, NA, NA, NA, NA, 29570, …
-#&gt; $ inIcuCumulative        <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> NA, 2676, NA, NA, NA, NA, NA, NA, NA, NA, NA, 9…
-#&gt; $ inIcuCurrently         <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> NA, NA, 141, NA, 273, 1159, NA, NA, 38, 13, NA,…
-#&gt; $ onVentilatorCurrently  <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> 2, NA, 65, NA, 143, NA, NA, NA, 16, NA, NA, NA,…
-#&gt; $ onVentilatorCumulative <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> NA, 1515, 1533, NA, NA, NA, NA, NA, NA, NA, NA,…
-#&gt; $ dateChecked            <span style='color: #949494; font-style: italic;'>&lt;dttm&gt;</span> 2021-03-05 03:59:00, 2021-03-07 11:00:00, 2021…
-#&gt; $ dataQualityGrade       <span style='color: #949494; font-style: italic;'>&lt;lgl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…</div><div class='input'>
-<span class='co'># Hospitalizations by day in Maryland</span>
-<span class='fu'>covidtracker_data</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-    <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>state</span><span class='op'>==</span><span class='st'>'MD'</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-    <span class='fu'><a href='add_incidence_column.html'>add_incidence_column</a></span><span class='op'>(</span>count_column<span class='op'>=</span><span class='st'>'hospitalized'</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>date</span>,y<span class='op'>=</span><span class='va'>inc</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_smooth.html'>geom_smooth</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
-    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ylab</a></span><span class='op'>(</span><span class='st'>"New Hospitalizations per day"</span><span class='op'>)</span> <span class='op'>+</span>
-    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span><span class='op'>(</span><span class='st'>'Hospitalizations in Maryland'</span>, subtitle <span class='op'>=</span> <span class='st'>'From covidtracker'</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='warning'>Warning: One or more parsing issues, see `problems()` for details</span></div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using method = 'loess' and formula 'y ~ x'</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 22 rows containing non-finite values (stat_smooth).</span></div><div class='img'><img src='covidtracker_data-1.png' alt='' width='700' height='433' /></div><div class='input'>
-
-</div></pre>
+    <pre class="examples"><span class='r-in'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://dplyr.tidyverse.org'>dplyr</a></span><span class='op'>)</span></span>
+<span class='r-in'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://ggplot2.tidyverse.org'>ggplot2</a></span><span class='op'>)</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='va'>res</span> <span class='op'>=</span> <span class='fu'>covidtracker_data</span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>One or more parsing issues, see `problems()` for details</span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [1] "date"                   "fips"                   "state"                 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [4] "positive"               "negative"               "death"                 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [7] "pending"                "hospitalized"           "hospitalizedCurrently" </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [10] "recovered"              "inIcuCumulative"        "inIcuCurrently"        </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [13] "onVentilatorCurrently"  "onVentilatorCumulative" "dateChecked"           </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [16] "dataQualityGrade"      </span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/dim.html'>dim</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] 20780    16</span>
+<span class='r-in'><span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://pillar.r-lib.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Rows: 20,780</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Columns: 16</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ date                   <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span> 2021-03-07, 2021-03-07, 2021-03-07, 2021-03-07…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ fips                   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "00002", "00001", "00005", "00060", "00004", "0…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ state                  <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "AK", "AL", "AR", "AS", "AZ", "CA", "CO", "CT",…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ positive               <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> 56886, 499819, 324818, 0, 826454, 3501394, 4366…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ negative               <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> NA, 1931711, 2480716, 2140, 3073010, NA, 219945…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ death                  <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> 305, 10148, 5319, 0, 16328, 54124, 5989, 7704, …</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ pending                <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 8544, N…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ hospitalized           <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> 1293, 45976, 14926, NA, 57907, NA, 23904, NA, N…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ hospitalizedCurrently  <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> 33, 494, 335, NA, 963, 4291, 326, 428, 150, 104…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ recovered              <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> NA, 295690, 315517, NA, NA, NA, NA, NA, 29570, …</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ inIcuCumulative        <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> NA, 2676, NA, NA, NA, NA, NA, NA, NA, NA, NA, 9…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ inIcuCurrently         <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> NA, NA, 141, NA, 273, 1159, NA, NA, 38, 13, NA,…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ onVentilatorCurrently  <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> 2, NA, 65, NA, 143, NA, NA, NA, 16, NA, NA, NA,…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ onVentilatorCumulative <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> NA, 1515, 1533, NA, NA, NA, NA, NA, NA, NA, NA,…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ dateChecked            <span style='color: #949494; font-style: italic;'>&lt;dttm&gt;</span> 2021-03-05 03:59:00, 2021-03-07 11:00:00, 2021…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ dataQualityGrade       <span style='color: #949494; font-style: italic;'>&lt;lgl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># Hospitalizations by day in Maryland</span></span>
+<span class='r-in'><span class='fu'>covidtracker_data</span><span class='op'>(</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span class='r-in'>    <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>state</span><span class='op'>==</span><span class='st'>'MD'</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span class='r-in'>    <span class='fu'><a href='add_incidence_column.html'>add_incidence_column</a></span><span class='op'>(</span>count_column<span class='op'>=</span><span class='st'>'hospitalized'</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span class='r-in'>    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>date</span>,y<span class='op'>=</span><span class='va'>inc</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_smooth.html'>geom_smooth</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span class='r-in'>    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ylab</a></span><span class='op'>(</span><span class='st'>"New Hospitalizations per day"</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span class='r-in'>    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span><span class='op'>(</span><span class='st'>'Hospitalizations in Maryland'</span>, subtitle <span class='op'>=</span> <span class='st'>'From covidtracker'</span><span class='op'>)</span></span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>One or more parsing issues, see `problems()` for details</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> `geom_smooth()` using method = 'loess' and formula 'y ~ x'</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>Removed 22 rows containing non-finite values (stat_smooth).</span>
+<span class='r-plt img'><img src='covidtracker_data-1.png' alt='' width='700' height='433' /></span>
+<span class='r-in'></span>
+<span class='r-in'></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

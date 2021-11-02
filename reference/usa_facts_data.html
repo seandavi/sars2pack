@@ -258,47 +258,52 @@ data-loving community.</p>
 <code><a href='who_cases.html'>who_cases</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='va'>res</span> <span class='op'>=</span> <span class='fu'>usa_facts_data</span><span class='op'>(</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "fips"   "county" "state"  "subset" "date"   "count" </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 6 × 6</span>
-#&gt;   fips  county                state subset    date   count
-#&gt;   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>                 <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span>
-#&gt; <span style='color: #BCBCBC;'>1</span> 00000 Statewide Unallocated AL    confirmed <span style='color: #BB0000;'>NA</span>         1
-#&gt; <span style='color: #BCBCBC;'>2</span> 00000 Statewide Unallocated AL    confirmed <span style='color: #BB0000;'>NA</span>         0
-#&gt; <span style='color: #BCBCBC;'>3</span> 00000 Statewide Unallocated AL    confirmed <span style='color: #BB0000;'>NA</span>         0
-#&gt; <span style='color: #BCBCBC;'>4</span> 00000 Statewide Unallocated AL    confirmed <span style='color: #BB0000;'>NA</span>         0
-#&gt; <span style='color: #BCBCBC;'>5</span> 00000 Statewide Unallocated AL    confirmed <span style='color: #BB0000;'>NA</span>         0
-#&gt; <span style='color: #BCBCBC;'>6</span> 00000 Statewide Unallocated AL    confirmed <span style='color: #BB0000;'>NA</span>         0</div><div class='input'><span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://pillar.r-lib.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Rows: 4,137,480
-#&gt; Columns: 6
-#&gt; $ fips   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "00000", "00000", "00000", "00000", "00000", "00000", "00000", …
-#&gt; $ county <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "Statewide Unallocated", "Statewide Unallocated", "Statewide Un…
-#&gt; $ state  <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "AL", "AL", "AL", "AL", "AL", "AL", "AL", "AL", "AL", "AL", "AL…
-#&gt; $ subset <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "confirmed", "confirmed", "confirmed", "confirmed", "confirmed"…
-#&gt; $ date   <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
-#&gt; $ count  <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;      fips              county             state              subset         
-#&gt;  Length:4137480     Length:4137480     Length:4137480     Length:4137480    
-#&gt;  Class :character   Class :character   Class :character   Class :character  
-#&gt;  Mode  :character   Mode  :character   Mode  :character   Mode  :character  
-#&gt;                                                                             
-#&gt;                                                                             
-#&gt;                                                                             
-#&gt;                                                                             
-#&gt;       date             count        
-#&gt;  Min.   :NA        Min.   :     -6  
-#&gt;  1st Qu.:NA        1st Qu.:      4  
-#&gt;  Median :NA        Median :     59  
-#&gt;  Mean   :NA        Mean   :   2879  
-#&gt;  3rd Qu.:NA        3rd Qu.:    881  
-#&gt;  Max.   :NA        Max.   :1424065  
-#&gt;  NA's   :4137480                    </div><div class='input'>
-<span class='co'># dataset inclusion as of this build</span>
-<span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>$</span><span class='va'>date</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] NA</div><div class='input'>
-
-</div></pre>
+    <pre class="examples"><span class='r-in'><span class='va'>res</span> <span class='op'>=</span> <span class='fu'>usa_facts_data</span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "fips"   "county" "state"  "subset" "date"   "count" </span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 6 × 6</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   fips  county                state subset    date   count</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>                 <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>1</span> 00000 Statewide Unallocated AL    confirmed <span style='color: #BB0000;'>NA</span>         1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>2</span> 00000 Statewide Unallocated AL    confirmed <span style='color: #BB0000;'>NA</span>         0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>3</span> 00000 Statewide Unallocated AL    confirmed <span style='color: #BB0000;'>NA</span>         0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>4</span> 00000 Statewide Unallocated AL    confirmed <span style='color: #BB0000;'>NA</span>         0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>5</span> 00000 Statewide Unallocated AL    confirmed <span style='color: #BB0000;'>NA</span>         0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>6</span> 00000 Statewide Unallocated AL    confirmed <span style='color: #BB0000;'>NA</span>         0</span>
+<span class='r-in'><span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://pillar.r-lib.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Rows: 4,150,250</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Columns: 6</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ fips   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "00000", "00000", "00000", "00000", "00000", "00000", "00000", …</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ county <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "Statewide Unallocated", "Statewide Unallocated", "Statewide Un…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ state  <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "AL", "AL", "AL", "AL", "AL", "AL", "AL", "AL", "AL", "AL", "AL…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ subset <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "confirmed", "confirmed", "confirmed", "confirmed", "confirmed"…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ date   <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ count  <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …</span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      fips              county             state              subset         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  Length:4150250     Length:4150250     Length:4150250     Length:4150250    </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  Class :character   Class :character   Class :character   Class :character  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  Mode  :character   Mode  :character   Mode  :character   Mode  :character  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                             </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                             </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                             </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                             </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       date             count        </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  Min.   :NA        Min.   :     -6  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  1st Qu.:NA        1st Qu.:      4  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  Median :NA        Median :     59  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  Mean   :NA        Mean   :   2892  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  3rd Qu.:NA        3rd Qu.:    887  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  Max.   :NA        Max.   :1424065  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  NA's   :4150250                    </span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># dataset inclusion as of this build</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>$</span><span class='va'>date</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] NA</span>
+<span class='r-in'></span>
+<span class='r-in'></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

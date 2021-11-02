@@ -240,120 +240,125 @@
     <p>Sean Davis <a href='mailto:seandavi@gmail.com'>seandavi@gmail.com</a></p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>
-<span class='va'>res</span> <span class='op'>=</span> <span class='fu'>econ_tracker_employment_city_data</span><span class='op'>(</span><span class='op'>)</span>
-<span class='va'>res</span>
-</div><div class='output co'>#&gt;         cityid    cityname stateabbrev  statename statefips   lat     lon
-#&gt;      1:      1 Los Angeles          CA California     00006 34.05 -118.24
-#&gt;      2:      1 Los Angeles          CA California     00006 34.05 -118.24
-#&gt;      3:      1 Los Angeles          CA California     00006 34.05 -118.24
-#&gt;      4:      1 Los Angeles          CA California     00006 34.05 -118.24
-#&gt;      5:      1 Los Angeles          CA California     00006 34.05 -118.24
-#&gt;     ---                                                                  
-#&gt; 243796:     53       Tulsa          OK   Oklahoma     00040 36.15  -95.99
-#&gt; 243797:     53       Tulsa          OK   Oklahoma     00040 36.15  -95.99
-#&gt; 243798:     53       Tulsa          OK   Oklahoma     00040 36.15  -95.99
-#&gt; 243799:     53       Tulsa          OK   Oklahoma     00040 36.15  -95.99
-#&gt; 243800:     53       Tulsa          OK   Oklahoma     00040 36.15  -95.99
-#&gt;         city_pop2019       date    variable     value variable_type
-#&gt;      1:     10039107 2020-01-14    everyone -1.29e-03         total
-#&gt;      2:     10039107 2020-01-15    everyone -5.18e-05         total
-#&gt;      3:     10039107 2020-01-16    everyone  1.04e-03         total
-#&gt;      4:     10039107 2020-01-17    everyone  1.95e-03         total
-#&gt;      5:     10039107 2020-01-18    everyone  2.63e-03         total
-#&gt;     ---                                                            
-#&gt; 243796:       651552 2021-08-06 incabovemed -4.74e-03         wages
-#&gt; 243797:       651552 2021-08-07 incabovemed -4.37e-03         wages
-#&gt; 243798:       651552 2021-08-08 incabovemed -3.92e-03         wages
-#&gt; 243799:       651552 2021-08-09 incabovemed -3.42e-03         wages
-#&gt; 243800:       651552 2021-08-10 incabovemed -2.90e-03         wages</div><div class='input'>
-<span class='va'>res</span> <span class='op'>=</span> <span class='fu'>econ_tracker_employment_county_data</span><span class='op'>(</span><span class='op'>)</span>
-<span class='va'>res</span>
-</div><div class='output co'>#&gt;           countyfips countyname cityid cityname    cz     czname statename
-#&gt;        1:      01001    Autauga     NA          11101 Montgomery   Alabama
-#&gt;        2:      01001    Autauga     NA          11101 Montgomery   Alabama
-#&gt;        3:      01001    Autauga     NA          11101 Montgomery   Alabama
-#&gt;        4:      01001    Autauga     NA          11101 Montgomery   Alabama
-#&gt;        5:      01001    Autauga     NA          11101 Montgomery   Alabama
-#&gt;       ---                                                                 
-#&gt; 13758596:      56045     Weston     NA          34601   Gillette   Wyoming
-#&gt; 13758597:      56045     Weston     NA          34601   Gillette   Wyoming
-#&gt; 13758598:      56045     Weston     NA          34601   Gillette   Wyoming
-#&gt; 13758599:      56045     Weston     NA          34601   Gillette   Wyoming
-#&gt; 13758600:      56045     Weston     NA          34601   Gillette   Wyoming
-#&gt;           statefips stateabbrev county_pop2019       date    variable value
-#&gt;        1:     00001          AL          55869 2020-01-14    everyone    NA
-#&gt;        2:     00001          AL          55869 2020-01-15    everyone    NA
-#&gt;        3:     00001          AL          55869 2020-01-16    everyone    NA
-#&gt;        4:     00001          AL          55869 2020-01-17    everyone    NA
-#&gt;        5:     00001          AL          55869 2020-01-18    everyone    NA
-#&gt;       ---                                                                  
-#&gt; 13758596:     00056          WY           6927 2021-08-06 incabovemed    NA
-#&gt; 13758597:     00056          WY           6927 2021-08-07 incabovemed    NA
-#&gt; 13758598:     00056          WY           6927 2021-08-08 incabovemed    NA
-#&gt; 13758599:     00056          WY           6927 2021-08-09 incabovemed    NA
-#&gt; 13758600:     00056          WY           6927 2021-08-10 incabovemed    NA
-#&gt;           variable_type
-#&gt;        1:         total
-#&gt;        2:         total
-#&gt;        3:         total
-#&gt;        4:         total
-#&gt;        5:         total
-#&gt;       ---              
-#&gt; 13758596:         wages
-#&gt; 13758597:         wages
-#&gt; 13758598:         wages
-#&gt; 13758599:         wages
-#&gt; 13758600:         wages</div><div class='input'>
-
-<span class='va'>res</span> <span class='op'>=</span> <span class='fu'>econ_tracker_employment_state_data</span><span class='op'>(</span><span class='op'>)</span>
-<span class='va'>res</span>
-</div><div class='output co'>#&gt;         statefips statename stateabbrev state_pop2019       date variable
-#&gt;      1:     00001   Alabama          AL       4903185 2020-01-14 everyone
-#&gt;      2:     00001   Alabama          AL       4903185 2020-01-15 everyone
-#&gt;      3:     00001   Alabama          AL       4903185 2020-01-16 everyone
-#&gt;      4:     00001   Alabama          AL       4903185 2020-01-17 everyone
-#&gt;      5:     00001   Alabama          AL       4903185 2020-01-18 everyone
-#&gt;     ---                                                                  
-#&gt; 351896:     00056   Wyoming          WY        578759 2021-08-06     ss70
-#&gt; 351897:     00056   Wyoming          WY        578759 2021-08-07     ss70
-#&gt; 351898:     00056   Wyoming          WY        578759 2021-08-08     ss70
-#&gt; 351899:     00056   Wyoming          WY        578759 2021-08-09     ss70
-#&gt; 351900:     00056   Wyoming          WY        578759 2021-08-10     ss70
-#&gt;            value variable_type
-#&gt;      1: -0.00371         total
-#&gt;      2: -0.00334         total
-#&gt;      3: -0.00285         total
-#&gt;      4: -0.00229         total
-#&gt;      5: -0.00177         total
-#&gt;     ---                       
-#&gt; 351896: -0.00824         NAICS
-#&gt; 351897: -0.01090         NAICS
-#&gt; 351898: -0.01360         NAICS
-#&gt; 351899: -0.01650         NAICS
-#&gt; 351900: -0.01950         NAICS</div><div class='input'>
-<span class='va'>res</span> <span class='op'>=</span> <span class='fu'>econ_tracker_employment_national_data</span><span class='op'>(</span><span class='op'>)</span>
-<span class='va'>res</span>
-</div><div class='output co'>#&gt;              date variable     value variable_type
-#&gt;     1: 2020-01-14 everyone -0.001090         total
-#&gt;     2: 2020-01-15 everyone -0.000671         total
-#&gt;     3: 2020-01-16 everyone -0.000244         total
-#&gt;     4: 2020-01-17 everyone  0.000155         total
-#&gt;     5: 2020-01-18 everyone  0.000492         total
-#&gt;    ---                                            
-#&gt; 16671: 2021-08-06  advance  0.000000         total
-#&gt; 16672: 2021-08-07  advance  0.000000         total
-#&gt; 16673: 2021-08-08  advance  0.000000         total
-#&gt; 16674: 2021-08-09  advance  0.000000         total
-#&gt; 16675: 2021-08-10  advance  0.000000         total</div><div class='input'>
-<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://ggplot2.tidyverse.org'>ggplot2</a></span><span class='op'>)</span>
-<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>res</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>date</span>,y<span class='op'>=</span><span class='va'>value</span>,color<span class='op'>=</span><span class='va'>variable</span>,lty<span class='op'>=</span><span class='va'>variable_type</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> 
-    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> 
-    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span><span class='op'>(</span><span class='st'>'Proportion of workforce employed in the United States'</span>, 
-            subtitle<span class='op'>=</span><span class='st'>'Broken down by industry and income level, normalized to January 2020'</span><span class='op'>)</span> <span class='op'>+</span>
-    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ylab</a></span><span class='op'>(</span><span class='st'>'Proportion of workforce'</span><span class='op'>)</span> 
-</div><div class='img'><img src='econ_tracker_employment-1.png' alt='' width='700' height='433' /></div><div class='input'>
-</div></pre>
+    <pre class="examples"><span class='r-in'></span>
+<span class='r-in'><span class='va'>res</span> <span class='op'>=</span> <span class='fu'>econ_tracker_employment_city_data</span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>res</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>         cityid    cityname stateabbrev  statename statefips   lat     lon</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      1:      1 Los Angeles          CA California     00006 34.05 -118.24</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      2:      1 Los Angeles          CA California     00006 34.05 -118.24</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      3:      1 Los Angeles          CA California     00006 34.05 -118.24</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      4:      1 Los Angeles          CA California     00006 34.05 -118.24</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      5:      1 Los Angeles          CA California     00006 34.05 -118.24</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     ---                                                                  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 243796:     53       Tulsa          OK   Oklahoma     00040 36.15  -95.99</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 243797:     53       Tulsa          OK   Oklahoma     00040 36.15  -95.99</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 243798:     53       Tulsa          OK   Oklahoma     00040 36.15  -95.99</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 243799:     53       Tulsa          OK   Oklahoma     00040 36.15  -95.99</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 243800:     53       Tulsa          OK   Oklahoma     00040 36.15  -95.99</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>         city_pop2019       date    variable     value variable_type</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      1:     10039107 2020-01-14    everyone -1.29e-03         total</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      2:     10039107 2020-01-15    everyone -5.18e-05         total</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      3:     10039107 2020-01-16    everyone  1.04e-03         total</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      4:     10039107 2020-01-17    everyone  1.95e-03         total</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      5:     10039107 2020-01-18    everyone  2.63e-03         total</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     ---                                                            </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 243796:       651552 2021-08-06 incabovemed -4.74e-03         wages</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 243797:       651552 2021-08-07 incabovemed -4.37e-03         wages</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 243798:       651552 2021-08-08 incabovemed -3.92e-03         wages</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 243799:       651552 2021-08-09 incabovemed -3.42e-03         wages</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 243800:       651552 2021-08-10 incabovemed -2.90e-03         wages</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='va'>res</span> <span class='op'>=</span> <span class='fu'>econ_tracker_employment_county_data</span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>res</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>           countyfips countyname cityid cityname    cz     czname statename</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>        1:      01001    Autauga     NA          11101 Montgomery   Alabama</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>        2:      01001    Autauga     NA          11101 Montgomery   Alabama</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>        3:      01001    Autauga     NA          11101 Montgomery   Alabama</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>        4:      01001    Autauga     NA          11101 Montgomery   Alabama</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>        5:      01001    Autauga     NA          11101 Montgomery   Alabama</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       ---                                                                 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 13758596:      56045     Weston     NA          34601   Gillette   Wyoming</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 13758597:      56045     Weston     NA          34601   Gillette   Wyoming</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 13758598:      56045     Weston     NA          34601   Gillette   Wyoming</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 13758599:      56045     Weston     NA          34601   Gillette   Wyoming</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 13758600:      56045     Weston     NA          34601   Gillette   Wyoming</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>           statefips stateabbrev county_pop2019       date    variable value</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>        1:     00001          AL          55869 2020-01-14    everyone    NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>        2:     00001          AL          55869 2020-01-15    everyone    NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>        3:     00001          AL          55869 2020-01-16    everyone    NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>        4:     00001          AL          55869 2020-01-17    everyone    NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>        5:     00001          AL          55869 2020-01-18    everyone    NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       ---                                                                  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 13758596:     00056          WY           6927 2021-08-06 incabovemed    NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 13758597:     00056          WY           6927 2021-08-07 incabovemed    NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 13758598:     00056          WY           6927 2021-08-08 incabovemed    NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 13758599:     00056          WY           6927 2021-08-09 incabovemed    NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 13758600:     00056          WY           6927 2021-08-10 incabovemed    NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>           variable_type</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>        1:         total</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>        2:         total</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>        3:         total</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>        4:         total</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>        5:         total</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       ---              </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 13758596:         wages</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 13758597:         wages</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 13758598:         wages</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 13758599:         wages</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 13758600:         wages</span>
+<span class='r-in'></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='va'>res</span> <span class='op'>=</span> <span class='fu'>econ_tracker_employment_state_data</span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>res</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>         statefips statename stateabbrev state_pop2019       date variable</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      1:     00001   Alabama          AL       4903185 2020-01-14 everyone</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      2:     00001   Alabama          AL       4903185 2020-01-15 everyone</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      3:     00001   Alabama          AL       4903185 2020-01-16 everyone</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      4:     00001   Alabama          AL       4903185 2020-01-17 everyone</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      5:     00001   Alabama          AL       4903185 2020-01-18 everyone</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     ---                                                                  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 351896:     00056   Wyoming          WY        578759 2021-08-06     ss70</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 351897:     00056   Wyoming          WY        578759 2021-08-07     ss70</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 351898:     00056   Wyoming          WY        578759 2021-08-08     ss70</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 351899:     00056   Wyoming          WY        578759 2021-08-09     ss70</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 351900:     00056   Wyoming          WY        578759 2021-08-10     ss70</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>            value variable_type</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      1: -0.00371         total</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      2: -0.00334         total</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      3: -0.00285         total</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      4: -0.00229         total</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      5: -0.00177         total</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     ---                       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 351896: -0.00824         NAICS</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 351897: -0.01090         NAICS</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 351898: -0.01360         NAICS</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 351899: -0.01650         NAICS</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 351900: -0.01950         NAICS</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='va'>res</span> <span class='op'>=</span> <span class='fu'>econ_tracker_employment_national_data</span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>res</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>              date variable     value variable_type</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     1: 2020-01-14 everyone -0.001090         total</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     2: 2020-01-15 everyone -0.000671         total</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     3: 2020-01-16 everyone -0.000244         total</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     4: 2020-01-17 everyone  0.000155         total</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     5: 2020-01-18 everyone  0.000492         total</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    ---                                            </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 16671: 2021-08-06  advance  0.000000         total</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 16672: 2021-08-07  advance  0.000000         total</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 16673: 2021-08-08  advance  0.000000         total</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 16674: 2021-08-09  advance  0.000000         total</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 16675: 2021-08-10  advance  0.000000         total</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://ggplot2.tidyverse.org'>ggplot2</a></span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>res</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>date</span>,y<span class='op'>=</span><span class='va'>value</span>,color<span class='op'>=</span><span class='va'>variable</span>,lty<span class='op'>=</span><span class='va'>variable_type</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> </span>
+<span class='r-in'>    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> </span>
+<span class='r-in'>    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span><span class='op'>(</span><span class='st'>'Proportion of workforce employed in the United States'</span>, </span>
+<span class='r-in'>            subtitle<span class='op'>=</span><span class='st'>'Broken down by industry and income level, normalized to January 2020'</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span class='r-in'>    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ylab</a></span><span class='op'>(</span><span class='st'>'Proportion of workforce'</span><span class='op'>)</span> </span>
+<span class='r-plt img'><img src='econ_tracker_employment-1.png' alt='' width='700' height='433' /></span>
+<span class='r-in'></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

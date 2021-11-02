@@ -204,46 +204,50 @@ been administered. As of December, 2020, this dataset is not complete.</p>
     <p>Sean Davis <a href='mailto:seandavi@gmail.com'>seandavi@gmail.com</a></p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>
-<span class='va'>vacc</span> <span class='op'>=</span> <span class='fu'>cci_us_vaccine_data</span><span class='op'>(</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>vacc</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;    province_state       date vaccine_type fips country_region     lat    long_
-#&gt; 1:        Alabama 2020-12-10          All    1             US 32.3182 -86.9023
-#&gt; 2:        Alabama 2020-12-10      Moderna    1             US 32.3182 -86.9023
-#&gt; 3:        Alabama 2020-12-10       Pfizer    1             US 32.3182 -86.9023
-#&gt; 4:        Alabama 2020-12-11          All    1             US 32.3182 -86.9023
-#&gt; 5:        Alabama 2020-12-11      Moderna    1             US 32.3182 -86.9023
-#&gt; 6:        Alabama 2020-12-11       Pfizer    1             US 32.3182 -86.9023
-#&gt;    doses_alloc doses_shipped doses_admin stage_one_doses stage_two_doses
-#&gt; 1:          NA            NA          NA              NA              NA
-#&gt; 2:          NA            NA          NA              NA              NA
-#&gt; 3:          NA            NA          NA              NA              NA
-#&gt; 4:          NA            NA          NA              NA              NA
-#&gt; 5:          NA            NA          NA              NA              NA
-#&gt; 6:          NA            NA          NA              NA              NA
-#&gt;    combined_key
-#&gt; 1:  Alabama, US
-#&gt; 2:  Alabama, US
-#&gt; 3:  Alabama, US
-#&gt; 4:  Alabama, US
-#&gt; 5:  Alabama, US
-#&gt; 6:  Alabama, US</div><div class='input'>
-
-<span class='va'>us_pop</span> <span class='op'>=</span> <span class='fu'><a href='us_population_details.html'>us_population_details</a></span><span class='op'>(</span>geography<span class='op'>=</span><span class='st'>'state'</span>, product<span class='op'>=</span><span class='st'>'population'</span>, 
-  year<span class='op'>=</span><span class='fl'>2019</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='message'>Loading required namespace: tidycensus</span></div><div class='input'><span class='va'>us_pop</span> <span class='op'>=</span> <span class='va'>us_pop</span><span class='op'>[</span><span class='va'>us_pop</span><span class='op'>$</span><span class='va'>variable</span><span class='op'>==</span><span class='st'>'POP'</span>,<span class='op'>]</span>
-<span class='va'>vac_pop</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/merge.html'>merge</a></span><span class='op'>(</span><span class='va'>us_pop</span>,<span class='va'>vacc</span>,by.x<span class='op'>=</span><span class='st'>"NAME"</span>,by.y<span class='op'>=</span><span class='st'>"province_state"</span><span class='op'>)</span>
-
-<span class='kw'>if</span><span class='op'>(</span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>require</a></span><span class='op'>(</span><span class='st'><a href='https://ggplot2.tidyverse.org'>'ggplot2'</a></span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
-  <span class='va'>vac_pop</span><span class='op'>[</span><span class='va'>vac_pop</span><span class='op'>$</span><span class='va'>vaccine_type</span><span class='op'>==</span><span class='st'>'All'</span> <span class='op'>&amp;</span> <span class='va'>vac_pop</span><span class='op'>$</span><span class='va'>stage_one_doses</span><span class='op'>&lt;</span><span class='fl'>1e7</span>,<span class='op'>]</span> <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>date</span>,y<span class='op'>=</span><span class='va'>stage_one_doses</span><span class='op'>/</span><span class='va'>value</span><span class='op'>*</span><span class='fl'>100000</span>, color<span class='op'>=</span><span class='va'>NAME</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> 
-    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span><span class='op'>(</span><span class='st'>"Number of first vaccine doses delivered by state"</span>,<span class='st'>'Cumulative counts'</span><span class='op'>)</span> <span class='op'>+</span>
-    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>xlab</a></span><span class='op'>(</span><span class='st'>"Date"</span><span class='op'>)</span> <span class='op'>+</span>
-    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ylab</a></span><span class='op'>(</span><span class='st'>"Number of people vaccinated/100k population"</span><span class='op'>)</span>
-<span class='op'>}</span>
-</div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 829 row(s) containing missing values (geom_path).</span></div><div class='img'><img src='cci_us_vaccine_data-1.png' alt='' width='700' height='433' /></div><div class='input'>
-</div></pre>
+    <pre class="examples"><span class='r-in'></span>
+<span class='r-in'><span class='va'>vacc</span> <span class='op'>=</span> <span class='fu'>cci_us_vaccine_data</span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>vacc</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    province_state       date vaccine_type fips country_region     lat    long_</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1:        Alabama 2020-12-10          All    1             US 32.3182 -86.9023</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2:        Alabama 2020-12-10      Moderna    1             US 32.3182 -86.9023</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3:        Alabama 2020-12-10       Pfizer    1             US 32.3182 -86.9023</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4:        Alabama 2020-12-11          All    1             US 32.3182 -86.9023</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5:        Alabama 2020-12-11      Moderna    1             US 32.3182 -86.9023</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6:        Alabama 2020-12-11       Pfizer    1             US 32.3182 -86.9023</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    doses_alloc doses_shipped doses_admin stage_one_doses stage_two_doses</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1:          NA            NA          NA              NA              NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2:          NA            NA          NA              NA              NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3:          NA            NA          NA              NA              NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4:          NA            NA          NA              NA              NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5:          NA            NA          NA              NA              NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6:          NA            NA          NA              NA              NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    combined_key</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1:  Alabama, US</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2:  Alabama, US</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3:  Alabama, US</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4:  Alabama, US</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5:  Alabama, US</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6:  Alabama, US</span>
+<span class='r-in'></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='va'>us_pop</span> <span class='op'>=</span> <span class='fu'><a href='us_population_details.html'>us_population_details</a></span><span class='op'>(</span>geography<span class='op'>=</span><span class='st'>'state'</span>, product<span class='op'>=</span><span class='st'>'population'</span>, </span>
+<span class='r-in'>  year<span class='op'>=</span><span class='fl'>2019</span><span class='op'>)</span></span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> Loading required namespace: tidycensus</span>
+<span class='r-in'><span class='va'>us_pop</span> <span class='op'>=</span> <span class='va'>us_pop</span><span class='op'>[</span><span class='va'>us_pop</span><span class='op'>$</span><span class='va'>variable</span><span class='op'>==</span><span class='st'>'POP'</span>,<span class='op'>]</span></span>
+<span class='r-in'><span class='va'>vac_pop</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/merge.html'>merge</a></span><span class='op'>(</span><span class='va'>us_pop</span>,<span class='va'>vacc</span>,by.x<span class='op'>=</span><span class='st'>"NAME"</span>,by.y<span class='op'>=</span><span class='st'>"province_state"</span><span class='op'>)</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='kw'>if</span><span class='op'>(</span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>require</a></span><span class='op'>(</span><span class='st'><a href='https://ggplot2.tidyverse.org'>'ggplot2'</a></span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span></span>
+<span class='r-in'>  <span class='va'>vac_pop</span><span class='op'>[</span><span class='va'>vac_pop</span><span class='op'>$</span><span class='va'>vaccine_type</span><span class='op'>==</span><span class='st'>'All'</span> <span class='op'>&amp;</span> <span class='va'>vac_pop</span><span class='op'>$</span><span class='va'>stage_one_doses</span><span class='op'>&lt;</span><span class='fl'>1e7</span>,<span class='op'>]</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span class='r-in'>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>date</span>,y<span class='op'>=</span><span class='va'>stage_one_doses</span><span class='op'>/</span><span class='va'>value</span><span class='op'>*</span><span class='fl'>100000</span>, color<span class='op'>=</span><span class='va'>NAME</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span class='r-in'>    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> </span>
+<span class='r-in'>    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span><span class='op'>(</span><span class='st'>"Number of first vaccine doses delivered by state"</span>,<span class='st'>'Cumulative counts'</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span class='r-in'>    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>xlab</a></span><span class='op'>(</span><span class='st'>"Date"</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span class='r-in'>    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ylab</a></span><span class='op'>(</span><span class='st'>"Number of people vaccinated/100k population"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='op'>}</span></span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>Removed 830 row(s) containing missing values (geom_path).</span>
+<span class='r-plt img'><img src='cci_us_vaccine_data-1.png' alt='' width='700' height='433' /></span>
+<span class='r-in'></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

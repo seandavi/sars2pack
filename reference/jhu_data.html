@@ -247,29 +247,32 @@ in the source data</p></li>
 <code><a href='who_cases.html'>who_cases</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='va'>res</span> <span class='op'>=</span> <span class='fu'>jhu_data</span><span class='op'>(</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "ProvinceState" "CountryRegion" "Lat"           "Long"         
-#&gt; [5] "date"          "count"         "subset"       </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 6 × 7</span>
-#&gt;   ProvinceState CountryRegion   Lat  Long date       count subset   
-#&gt;   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>         <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>         <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>    
-#&gt; <span style='color: #BCBCBC;'>1</span> <span style='color: #BB0000;'>NA</span>            Afghanistan    33.9  67.7 2020-01-22     0 confirmed
-#&gt; <span style='color: #BCBCBC;'>2</span> <span style='color: #BB0000;'>NA</span>            Afghanistan    33.9  67.7 2020-01-23     0 confirmed
-#&gt; <span style='color: #BCBCBC;'>3</span> <span style='color: #BB0000;'>NA</span>            Afghanistan    33.9  67.7 2020-01-24     0 confirmed
-#&gt; <span style='color: #BCBCBC;'>4</span> <span style='color: #BB0000;'>NA</span>            Afghanistan    33.9  67.7 2020-01-25     0 confirmed
-#&gt; <span style='color: #BCBCBC;'>5</span> <span style='color: #BB0000;'>NA</span>            Afghanistan    33.9  67.7 2020-01-26     0 confirmed
-#&gt; <span style='color: #BCBCBC;'>6</span> <span style='color: #BB0000;'>NA</span>            Afghanistan    33.9  67.7 2020-01-27     0 confirmed</div><div class='input'><span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://pillar.r-lib.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Rows: 532,656
-#&gt; Columns: 7
-#&gt; $ ProvinceState <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
-#&gt; $ CountryRegion <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "Afghanistan", "Afghanistan", "Afghanistan", "Afghanista…
-#&gt; $ Lat           <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 33.93911, 33.93911, 33.93911, 33.93911, 33.93911, 33.939…
-#&gt; $ Long          <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 67.70995, 67.70995, 67.70995, 67.70995, 67.70995, 67.709…
-#&gt; $ date          <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span> 2020-01-22, 2020-01-23, 2020-01-24, 2020-01-25, 2020-01…
-#&gt; $ count         <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…
-#&gt; $ subset        <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "confirmed", "confirmed", "confirmed", "confirmed", "con…</div><div class='input'>
-</div></pre>
+    <pre class="examples"><span class='r-in'><span class='va'>res</span> <span class='op'>=</span> <span class='fu'>jhu_data</span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "ProvinceState" "CountryRegion" "Lat"           "Long"         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [5] "date"          "count"         "subset"       </span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 6 × 7</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   ProvinceState CountryRegion   Lat  Long date       count subset   </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>         <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>         <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>    </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>1</span> <span style='color: #BB0000;'>NA</span>            Afghanistan    33.9  67.7 2020-01-22     0 confirmed</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>2</span> <span style='color: #BB0000;'>NA</span>            Afghanistan    33.9  67.7 2020-01-23     0 confirmed</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>3</span> <span style='color: #BB0000;'>NA</span>            Afghanistan    33.9  67.7 2020-01-24     0 confirmed</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>4</span> <span style='color: #BB0000;'>NA</span>            Afghanistan    33.9  67.7 2020-01-25     0 confirmed</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>5</span> <span style='color: #BB0000;'>NA</span>            Afghanistan    33.9  67.7 2020-01-26     0 confirmed</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>6</span> <span style='color: #BB0000;'>NA</span>            Afghanistan    33.9  67.7 2020-01-27     0 confirmed</span>
+<span class='r-in'><span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://pillar.r-lib.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Rows: 534,776</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Columns: 7</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ ProvinceState <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ CountryRegion <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "Afghanistan", "Afghanistan", "Afghanistan", "Afghanista…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ Lat           <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 33.93911, 33.93911, 33.93911, 33.93911, 33.93911, 33.939…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ Long          <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 67.70995, 67.70995, 67.70995, 67.70995, 67.70995, 67.709…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ date          <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span> 2020-01-22, 2020-01-23, 2020-01-24, 2020-01-25, 2020-01…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ count         <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ subset        <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "confirmed", "confirmed", "confirmed", "confirmed", "con…</span>
+<span class='r-in'></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

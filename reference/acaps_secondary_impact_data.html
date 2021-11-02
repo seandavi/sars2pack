@@ -213,52 +213,57 @@
     <p>Sean Davis <a href='mailto:seandavi@gmail.com'>seandavi@gmail.com</a></p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>
-<span class='va'>res</span> <span class='op'>=</span> <span class='fu'>acaps_secondary_impact_data</span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='warning'>Warning: Expecting date in T2135 / R2135C20: got '1/12/0014'</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expecting date in T5921 / R5921C20: got '24/2/0020'</span></div><div class='input'>
-<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 6 × 24</span>
-#&gt;        id iso3  country     `_data_type` pillar block         indicator  infogap
-#&gt;     <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>       <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>        <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>  <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>         <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>      <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>  
-#&gt; <span style='color: #BCBCBC;'>1</span> 1<span style='text-decoration: underline;'>000</span>020 AFG   Afghanistan Quantitative Health Health Sector % Most re… checked
-#&gt; <span style='color: #BCBCBC;'>2</span>    <span style='text-decoration: underline;'>3</span>820 AFG   Afghanistan Qualitative  Health Health Sector Access to… <span style='color: #BB0000;'>NA</span>     
-#&gt; <span style='color: #BCBCBC;'>3</span>    <span style='text-decoration: underline;'>2</span>390 AFG   Afghanistan Qualitative  Health Health Sector Access to… <span style='color: #BB0000;'>NA</span>     
-#&gt; <span style='color: #BCBCBC;'>4</span>    <span style='text-decoration: underline;'>3</span>069 AFG   Afghanistan Qualitative  Health Health Sector Availabil… <span style='color: #BB0000;'>NA</span>     
-#&gt; <span style='color: #BCBCBC;'>5</span>     485 AFG   Afghanistan Qualitative  Health Health Sector Mortality… checked
-#&gt; <span style='color: #BCBCBC;'>6</span>    <span style='text-decoration: underline;'>3</span>886 AFG   Afghanistan Qualitative  Health Mental Health Alcohol c… checked
-#&gt; <span style='color: #949494;'># … with 16 more variables: not_applicable &lt;chr&gt;, field_type &lt;chr&gt;,</span>
-#&gt; <span style='color: #949494;'>#   values &lt;chr&gt;, number_value &lt;dbl&gt;, percentage_value &lt;dbl&gt;, value_date &lt;chr&gt;,</span>
-#&gt; <span style='color: #949494;'>#   drivers_of_covid-19_impact &lt;chr&gt;, localised_geographic_impact &lt;chr&gt;,</span>
-#&gt; <span style='color: #949494;'>#   justification &lt;chr&gt;, source &lt;chr&gt;, source_type &lt;chr&gt;, source_date &lt;dttm&gt;,</span>
-#&gt; <span style='color: #949494;'>#   link &lt;chr&gt;, alternative_source &lt;chr&gt;, entry_date &lt;dttm&gt;, date &lt;date&gt;</span></div><div class='input'><span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://pillar.r-lib.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Rows: 6,460
-#&gt; Columns: 24
-#&gt; $ id                           <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 1000020, 3820, 2390, 3069, 485, 3886, 386…
-#&gt; $ iso3                         <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "AFG", "AFG", "AFG", "AFG", "AFG", "AFG",…
-#&gt; $ country                      <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "Afghanistan", "Afghanistan", "Afghanista…
-#&gt; $ `_data_type`                 <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "Quantitative", "Qualitative", "Qualitati…
-#&gt; $ pillar                       <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "Health", "Health", "Health", "Health", "…
-#&gt; $ block                        <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "Health Sector", "Health Sector", "Health…
-#&gt; $ indicator                    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "% Most recent mortality rate in 2020", "…
-#&gt; $ infogap                      <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "checked", NA, NA, NA, "checked", "checke…
-#&gt; $ not_applicable               <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
-#&gt; $ field_type                   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "Percent", "Qualitative", "Qualitative", …
-#&gt; $ values                       <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> NA, "Yes", "Yes", "Yes", NA, NA, "Yes", N…
-#&gt; $ number_value                 <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
-#&gt; $ percentage_value             <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, 0.063, NA…
-#&gt; $ value_date                   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "_", "_", "_", "_", "_", "_", "_", "_", "…
-#&gt; $ `drivers_of_covid-19_impact` <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> NA, "Government Measures", "Government Me…
-#&gt; $ localised_geographic_impact  <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
-#&gt; $ justification                <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "UN data only offers a projection and doe…
-#&gt; $ source                       <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> NA, "UNICEF", "UN Women", "WHO", NA, NA, …
-#&gt; $ source_type                  <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> NA, "United Nations", "United Nations", "…
-#&gt; $ source_date                  <span style='color: #949494; font-style: italic;'>&lt;dttm&gt;</span> NA, 2020-08-11, 2020-06-18, 2020-07-05, …
-#&gt; $ link                         <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> NA, "https://news.un.org/en/story/2020/08…
-#&gt; $ alternative_source           <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
-#&gt; $ entry_date                   <span style='color: #949494; font-style: italic;'>&lt;dttm&gt;</span> 2020-08-14, 2020-09-29, 2020-09-18, 2020…
-#&gt; $ date                         <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/dim.html'>dim</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] 6460   24</div><div class='input'>
-</div></pre>
+    <pre class="examples"><span class='r-in'></span>
+<span class='r-in'><span class='va'>res</span> <span class='op'>=</span> <span class='fu'>acaps_secondary_impact_data</span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>Expecting date in T2135 / R2135C20: got '1/12/0014'</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>Expecting date in T5921 / R5921C20: got '24/2/0020'</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 6 × 24</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>        id iso3  country     `_data_type` pillar block         indicator  infogap</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>       <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>        <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>  <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>         <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>      <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>1</span> 1<span style='text-decoration: underline;'>000</span>020 AFG   Afghanistan Quantitative Health Health Sector % Most re… checked</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>2</span>    <span style='text-decoration: underline;'>3</span>820 AFG   Afghanistan Qualitative  Health Health Sector Access to… <span style='color: #BB0000;'>NA</span>     </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>3</span>    <span style='text-decoration: underline;'>2</span>390 AFG   Afghanistan Qualitative  Health Health Sector Access to… <span style='color: #BB0000;'>NA</span>     </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>4</span>    <span style='text-decoration: underline;'>3</span>069 AFG   Afghanistan Qualitative  Health Health Sector Availabil… <span style='color: #BB0000;'>NA</span>     </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>5</span>     485 AFG   Afghanistan Qualitative  Health Health Sector Mortality… checked</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>6</span>    <span style='text-decoration: underline;'>3</span>886 AFG   Afghanistan Qualitative  Health Mental Health Alcohol c… checked</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># … with 16 more variables: not_applicable &lt;chr&gt;, field_type &lt;chr&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   values &lt;chr&gt;, number_value &lt;dbl&gt;, percentage_value &lt;dbl&gt;, value_date &lt;chr&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   drivers_of_covid-19_impact &lt;chr&gt;, localised_geographic_impact &lt;chr&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   justification &lt;chr&gt;, source &lt;chr&gt;, source_type &lt;chr&gt;, source_date &lt;dttm&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   link &lt;chr&gt;, alternative_source &lt;chr&gt;, entry_date &lt;dttm&gt;, date &lt;date&gt;</span></span>
+<span class='r-in'><span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://pillar.r-lib.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Rows: 6,460</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Columns: 24</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ id                           <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 1000020, 3820, 2390, 3069, 485, 3886, 386…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ iso3                         <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "AFG", "AFG", "AFG", "AFG", "AFG", "AFG",…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ country                      <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "Afghanistan", "Afghanistan", "Afghanista…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ `_data_type`                 <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "Quantitative", "Qualitative", "Qualitati…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ pillar                       <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "Health", "Health", "Health", "Health", "…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ block                        <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "Health Sector", "Health Sector", "Health…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ indicator                    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "% Most recent mortality rate in 2020", "…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ infogap                      <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "checked", NA, NA, NA, "checked", "checke…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ not_applicable               <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ field_type                   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "Percent", "Qualitative", "Qualitative", …</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ values                       <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> NA, "Yes", "Yes", "Yes", NA, NA, "Yes", N…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ number_value                 <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ percentage_value             <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, 0.063, NA…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ value_date                   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "_", "_", "_", "_", "_", "_", "_", "_", "…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ `drivers_of_covid-19_impact` <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> NA, "Government Measures", "Government Me…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ localised_geographic_impact  <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ justification                <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "UN data only offers a projection and doe…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ source                       <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> NA, "UNICEF", "UN Women", "WHO", NA, NA, …</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ source_type                  <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> NA, "United Nations", "United Nations", "…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ source_date                  <span style='color: #949494; font-style: italic;'>&lt;dttm&gt;</span> NA, 2020-08-11, 2020-06-18, 2020-07-05, …</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ link                         <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> NA, "https://news.un.org/en/story/2020/08…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ alternative_source           <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ entry_date                   <span style='color: #949494; font-style: italic;'>&lt;dttm&gt;</span> 2020-08-14, 2020-09-29, 2020-09-18, 2020…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ date                         <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/dim.html'>dim</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] 6460   24</span>
+<span class='r-in'></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

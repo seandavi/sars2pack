@@ -200,63 +200,67 @@
 <code><a href='us_hospital_details.html'>us_hospital_details</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='va'>res</span> <span class='op'>=</span> <span class='fu'>kff_icu_beds</span><span class='op'>(</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;  [1] "fips"                      "county"                   
-#&gt;  [3] "st"                        "state"                    
-#&gt;  [5] "hospitals_in_cost_reports" "Hospitals_in_HC"          
-#&gt;  [7] "all_icu"                   "Total_pop"                
-#&gt;  [9] "60plus"                    "60plus_pct"               
-#&gt; [11] "60plus_per_each_icu_bed"  </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 6 × 11</span>
-#&gt;   fips  county  st    state   hospitals_in_co… Hospitals_in_HC all_icu Total_pop
-#&gt;   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>              <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>           <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>
-#&gt; <span style='color: #BCBCBC;'>1</span> 01001 Autauga AL    Alabama                1               1       6     <span style='text-decoration: underline;'>55</span>036
-#&gt; <span style='color: #BCBCBC;'>2</span> 01003 Baldwin AL    Alabama                3               3      51    <span style='text-decoration: underline;'>203</span>360
-#&gt; <span style='color: #BCBCBC;'>3</span> 01005 Barbour AL    Alabama                1               1       5     <span style='text-decoration: underline;'>26</span>201
-#&gt; <span style='color: #BCBCBC;'>4</span> 01007 Bibb    AL    Alabama                1               1       0     <span style='text-decoration: underline;'>22</span>580
-#&gt; <span style='color: #BCBCBC;'>5</span> 01009 Blount  AL    Alabama                1               1       6     <span style='text-decoration: underline;'>57</span>667
-#&gt; <span style='color: #BCBCBC;'>6</span> 01011 Bullock AL    Alabama                1               1       0     <span style='text-decoration: underline;'>10</span>478
-#&gt; <span style='color: #949494;'># … with 3 more variables: 60plus &lt;dbl&gt;, 60plus_pct &lt;dbl&gt;,</span>
-#&gt; <span style='color: #949494;'>#   60plus_per_each_icu_bed &lt;dbl&gt;</span></div><div class='input'><span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://pillar.r-lib.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Rows: 3,142
-#&gt; Columns: 11
-#&gt; $ fips                      <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "01001", "01003", "01005", "01007", "01009",…
-#&gt; $ county                    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "Autauga", "Baldwin", "Barbour", "Bibb", "Bl…
-#&gt; $ st                        <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "AL", "AL", "AL", "AL", "AL", "AL", "AL", "A…
-#&gt; $ state                     <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "Alabama", "Alabama", "Alabama", "Alabama", …
-#&gt; $ hospitals_in_cost_reports <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 1, 3, 1, 1, 1, 1, 1, 2, 0, 1, 1, 1, 2, 1, 0,…
-#&gt; $ Hospitals_in_HC           <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 1, 3, 1, 1, 1, 1, 1, 2, 0, 1, 1, 1, 2, 1, 0,…
-#&gt; $ all_icu                   <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 6, 51, 5, 0, 6, 0, 7, 24, 0, 0, 6, 0, 0, 4, …
-#&gt; $ Total_pop                 <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 55036, 203360, 26201, 22580, 57667, 10478, 2…
-#&gt; $ `60plus`                  <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 10523, 53519, 6150, 4773, 13600, 2371, 5151,…
-#&gt; $ `60plus_pct`              <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 0.191, 0.263, 0.235, 0.211, 0.236, 0.226, 0.…
-#&gt; $ `60plus_per_each_icu_bed` <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 1754, 1049, 1230, NA, 2267, NA, 736, 1130, N…</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;      fips              county               st               state          
-#&gt;  Length:3142        Length:3142        Length:3142        Length:3142       
-#&gt;  Class :character   Class :character   Class :character   Class :character  
-#&gt;  Mode  :character   Mode  :character   Mode  :character   Mode  :character  
-#&gt;                                                                             
-#&gt;                                                                             
-#&gt;                                                                             
-#&gt;                                                                             
-#&gt;  hospitals_in_cost_reports Hospitals_in_HC     all_icu       
-#&gt;  Min.   : 0.000            Min.   : 0.000   Min.   :   0.00  
-#&gt;  1st Qu.: 1.000            1st Qu.: 1.000   1st Qu.:   0.00  
-#&gt;  Median : 1.000            Median : 1.000   Median :   0.00  
-#&gt;  Mean   : 1.439            Mean   : 1.457   Mean   :  23.64  
-#&gt;  3rd Qu.: 2.000            3rd Qu.: 2.000   3rd Qu.:  12.00  
-#&gt;  Max.   :74.000            Max.   :76.000   Max.   :2126.00  
-#&gt;                                                              
-#&gt;    Total_pop            60plus          60plus_pct     60plus_per_each_icu_bed
-#&gt;  Min.   :      74   Min.   :     27   Min.   :0.0580   Min.   :  40           
-#&gt;  1st Qu.:   10945   1st Qu.:   2813   1st Qu.:0.2120   1st Qu.: 715           
-#&gt;  Median :   25692   Median :   6307   Median :0.2440   Median :1089           
-#&gt;  Mean   :  102166   Mean   :  21310   Mean   :0.2473   Mean   :1300           
-#&gt;  3rd Qu.:   67445   3rd Qu.:  16084   3rd Qu.:0.2780   3rd Qu.:1639           
-#&gt;  Max.   :10105722   Max.   :1800341   Max.   :0.6420   Max.   :8469           
-#&gt;                                                        NA's   :1665           </div><div class='input'>
-</div></pre>
+    <pre class="examples"><span class='r-in'><span class='va'>res</span> <span class='op'>=</span> <span class='fu'>kff_icu_beds</span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [1] "fips"                      "county"                   </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [3] "st"                        "state"                    </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [5] "hospitals_in_cost_reports" "Hospitals_in_HC"          </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [7] "all_icu"                   "Total_pop"                </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [9] "60plus"                    "60plus_pct"               </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [11] "60plus_per_each_icu_bed"  </span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 6 × 11</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   fips  county  st    state   hospitals_in_co… Hospitals_in_HC all_icu Total_pop</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>              <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>           <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>1</span> 01001 Autauga AL    Alabama                1               1       6     <span style='text-decoration: underline;'>55</span>036</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>2</span> 01003 Baldwin AL    Alabama                3               3      51    <span style='text-decoration: underline;'>203</span>360</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>3</span> 01005 Barbour AL    Alabama                1               1       5     <span style='text-decoration: underline;'>26</span>201</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>4</span> 01007 Bibb    AL    Alabama                1               1       0     <span style='text-decoration: underline;'>22</span>580</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>5</span> 01009 Blount  AL    Alabama                1               1       6     <span style='text-decoration: underline;'>57</span>667</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>6</span> 01011 Bullock AL    Alabama                1               1       0     <span style='text-decoration: underline;'>10</span>478</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># … with 3 more variables: 60plus &lt;dbl&gt;, 60plus_pct &lt;dbl&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   60plus_per_each_icu_bed &lt;dbl&gt;</span></span>
+<span class='r-in'><span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://pillar.r-lib.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Rows: 3,142</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Columns: 11</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ fips                      <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "01001", "01003", "01005", "01007", "01009",…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ county                    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "Autauga", "Baldwin", "Barbour", "Bibb", "Bl…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ st                        <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "AL", "AL", "AL", "AL", "AL", "AL", "AL", "A…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ state                     <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "Alabama", "Alabama", "Alabama", "Alabama", …</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ hospitals_in_cost_reports <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 1, 3, 1, 1, 1, 1, 1, 2, 0, 1, 1, 1, 2, 1, 0,…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ Hospitals_in_HC           <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 1, 3, 1, 1, 1, 1, 1, 2, 0, 1, 1, 1, 2, 1, 0,…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ all_icu                   <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 6, 51, 5, 0, 6, 0, 7, 24, 0, 0, 6, 0, 0, 4, …</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ Total_pop                 <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 55036, 203360, 26201, 22580, 57667, 10478, 2…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ `60plus`                  <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 10523, 53519, 6150, 4773, 13600, 2371, 5151,…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ `60plus_pct`              <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 0.191, 0.263, 0.235, 0.211, 0.236, 0.226, 0.…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ `60plus_per_each_icu_bed` <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 1754, 1049, 1230, NA, 2267, NA, 736, 1130, N…</span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      fips              county               st               state          </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  Length:3142        Length:3142        Length:3142        Length:3142       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  Class :character   Class :character   Class :character   Class :character  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  Mode  :character   Mode  :character   Mode  :character   Mode  :character  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                             </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                             </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                             </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                             </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  hospitals_in_cost_reports Hospitals_in_HC     all_icu       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  Min.   : 0.000            Min.   : 0.000   Min.   :   0.00  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  1st Qu.: 1.000            1st Qu.: 1.000   1st Qu.:   0.00  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  Median : 1.000            Median : 1.000   Median :   0.00  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  Mean   : 1.439            Mean   : 1.457   Mean   :  23.64  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  3rd Qu.: 2.000            3rd Qu.: 2.000   3rd Qu.:  12.00  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  Max.   :74.000            Max.   :76.000   Max.   :2126.00  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                              </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    Total_pop            60plus          60plus_pct     60plus_per_each_icu_bed</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  Min.   :      74   Min.   :     27   Min.   :0.0580   Min.   :  40           </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  1st Qu.:   10945   1st Qu.:   2813   1st Qu.:0.2120   1st Qu.: 715           </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  Median :   25692   Median :   6307   Median :0.2440   Median :1089           </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  Mean   :  102166   Mean   :  21310   Mean   :0.2473   Mean   :1300           </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  3rd Qu.:   67445   3rd Qu.:  16084   3rd Qu.:0.2780   3rd Qu.:1639           </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  Max.   :10105722   Max.   :1800341   Max.   :0.6420   Max.   :8469           </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                        NA's   :1665           </span>
+<span class='r-in'></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

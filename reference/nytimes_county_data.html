@@ -277,31 +277,35 @@ you would link to our U.S. tracking page at
     <p>Sean Davis <a href='mailto:seandavi@gmail.com'>seandavi@gmail.com</a></p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># state data</span>
-<span class='va'>res</span> <span class='op'>=</span> <span class='fu'>nytimes_state_data</span><span class='op'>(</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "date"   "state"  "fips"   "count"  "subset"</div><div class='input'><span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://pillar.r-lib.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Rows: 66,876
-#&gt; Columns: 5
-#&gt; $ date   <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span> 2020-01-21, 2020-01-22, 2020-01-23, 2020-01-24, 2020-01-24, 20…
-#&gt; $ state  <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "Washington", "Washington", "Washington", "Illinois", "Washingt…
-#&gt; $ fips   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "00053", "00053", "00053", "00017", "00053", "00006", "00017", …
-#&gt; $ count  <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, …
-#&gt; $ subset <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "confirmed", "confirmed", "confirmed", "confirmed", "confirmed"…</div><div class='input'>
-<span class='co'># county data</span>
-<span class='va'>res</span> <span class='op'>=</span> <span class='fu'>nytimes_county_data</span><span class='op'>(</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "date"   "county" "state"  "fips"   "count"  "subset"</div><div class='input'><span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://pillar.r-lib.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Rows: 3,706,434
-#&gt; Columns: 6
-#&gt; $ date   <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span> 2020-01-21, 2020-01-22, 2020-01-23, 2020-01-24, 2020-01-24, 20…
-#&gt; $ county <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "Snohomish", "Snohomish", "Snohomish", "Cook", "Snohomish", "Or…
-#&gt; $ state  <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "Washington", "Washington", "Washington", "Illinois", "Washingt…
-#&gt; $ fips   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "53061", "53061", "53061", "17031", "53061", "06059", "17031", …
-#&gt; $ count  <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, …
-#&gt; $ subset <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "confirmed", "confirmed", "confirmed", "confirmed", "confirmed"…</div><div class='input'>
- 
-</div></pre>
+    <pre class="examples"><span class='r-in'><span class='co'># state data</span></span>
+<span class='r-in'><span class='va'>res</span> <span class='op'>=</span> <span class='fu'>nytimes_state_data</span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "date"   "state"  "fips"   "count"  "subset"</span>
+<span class='r-in'><span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://pillar.r-lib.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Rows: 66,988</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Columns: 5</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ date   <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span> 2020-01-21, 2020-01-22, 2020-01-23, 2020-01-24, 2020-01-24, 20…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ state  <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "Washington", "Washington", "Washington", "Illinois", "Washingt…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ fips   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "00053", "00053", "00053", "00017", "00053", "00006", "00017", …</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ count  <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, …</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ subset <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "confirmed", "confirmed", "confirmed", "confirmed", "confirmed"…</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># county data</span></span>
+<span class='r-in'><span class='va'>res</span> <span class='op'>=</span> <span class='fu'>nytimes_county_data</span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "date"   "county" "state"  "fips"   "count"  "subset"</span>
+<span class='r-in'><span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://pillar.r-lib.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Rows: 3,712,876</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Columns: 6</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ date   <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span> 2020-01-21, 2020-01-22, 2020-01-23, 2020-01-24, 2020-01-24, 20…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ county <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "Snohomish", "Snohomish", "Snohomish", "Cook", "Snohomish", "Or…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ state  <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "Washington", "Washington", "Washington", "Illinois", "Washingt…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ fips   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "53061", "53061", "53061", "17031", "53061", "06059", "17031", …</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ count  <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, …</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ subset <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "confirmed", "confirmed", "confirmed", "confirmed", "confirmed"…</span>
+<span class='r-in'></span>
+<span class='r-in'> </span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

@@ -169,133 +169,138 @@ in the list. See examples for details and for viewing suggestions.</p>
 </ul>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='va'>res</span> <span class='op'>=</span> <span class='fu'>available_datasets</span><span class='op'>(</span><span class='op'>)</span>
-<span class='va'>res</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 50 × 8</span>
-#&gt;    name     accessor data_type geographical geospatial region resolution url    
-#&gt;    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;list&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;lgl&gt;</span>        <span style='color: #949494; font-style: italic;'>&lt;lgl&gt;</span>      <span style='color: #949494; font-style: italic;'>&lt;list&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;list&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>  
-#&gt; <span style='color: #BCBCBC;'> 1</span> United … cdc_soc… <span style='color: #949494;'>&lt;chr [1]&gt;</span> TRUE         FALSE      <span style='color: #949494;'>&lt;chr </span>… <span style='color: #949494;'>&lt;chr [1]&gt;</span>  https:…
-#&gt; <span style='color: #BCBCBC;'> 2</span> Extensi… us_hosp… <span style='color: #949494;'>&lt;chr [1]&gt;</span> TRUE         TRUE       <span style='color: #949494;'>&lt;chr </span>… <span style='color: #949494;'>&lt;chr [1]&gt;</span>  https:…
-#&gt; <span style='color: #BCBCBC;'> 3</span> The Eco… economi… <span style='color: #949494;'>&lt;chr [3]&gt;</span> TRUE         FALSE      <span style='color: #949494;'>&lt;chr </span>… <span style='color: #949494;'>&lt;chr [2]&gt;</span>  https:…
-#&gt; <span style='color: #BCBCBC;'> 4</span> The : E… financi… <span style='color: #949494;'>&lt;chr [3]&gt;</span> TRUE         FALSE      <span style='color: #949494;'>&lt;chr </span>… <span style='color: #949494;'>&lt;chr [2]&gt;</span>  https:…
-#&gt; <span style='color: #BCBCBC;'> 5</span> US coun… us_coun… <span style='color: #949494;'>&lt;chr [1]&gt;</span> TRUE         FALSE      <span style='color: #949494;'>&lt;chr </span>… <span style='color: #949494;'>&lt;chr [3]&gt;</span>  https:…
-#&gt; <span style='color: #BCBCBC;'> 6</span> CoronaN… coronan… <span style='color: #949494;'>&lt;chr [1]&gt;</span> TRUE         FALSE      <span style='color: #949494;'>&lt;chr </span>… <span style='color: #949494;'>&lt;chr [2]&gt;</span>  https:…
-#&gt; <span style='color: #BCBCBC;'> 7</span> Country… country… <span style='color: #949494;'>&lt;chr [1]&gt;</span> TRUE         FALSE      <span style='color: #949494;'>&lt;chr </span>… <span style='color: #949494;'>&lt;chr [1]&gt;</span>  https:…
-#&gt; <span style='color: #BCBCBC;'> 8</span> Our Wor… owid_da… <span style='color: #949494;'>&lt;chr [4]&gt;</span> TRUE         FALSE      <span style='color: #949494;'>&lt;chr </span>… <span style='color: #949494;'>&lt;chr [1]&gt;</span>  https:…
-#&gt; <span style='color: #BCBCBC;'> 9</span> GISAID … cov_glu… <span style='color: #949494;'>&lt;chr [1]&gt;</span> TRUE         FALSE      <span style='color: #949494;'>&lt;chr </span>… <span style='color: #949494;'>&lt;chr [1]&gt;</span>  https:…
-#&gt; <span style='color: #BCBCBC;'>10</span> Newick … cov_glu… <span style='color: #949494;'>&lt;chr [1]&gt;</span> FALSE        FALSE      <span style='color: #949494;'>&lt;chr </span>… <span style='color: #949494;'>&lt;chr [1]&gt;</span>  https:…
-#&gt; <span style='color: #949494;'># … with 40 more rows</span></div><div class='input'><span class='co'># and how to use the accessor programmatically</span>
-<span class='fu'><a href='https://rdrr.io/r/base/get.html'>get</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>[</span><span class='fl'>1</span>,<span class='op'>]</span><span class='op'>$</span><span class='va'>accessor</span><span class='op'>)</span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 3,142 × 126</span>
-#&gt;    grasp_id state_fips state   st_abbr county  fips  location area_sqmi e_totpop
-#&gt;       <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>      <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>        <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>
-#&gt; <span style='color: #BCBCBC;'> 1</span>        1 00001      Alabama AL      Autauga 01001 Autauga…      594.    <span style='text-decoration: underline;'>55</span>200
-#&gt; <span style='color: #BCBCBC;'> 2</span>        2 00001      Alabama AL      Baldwin 01003 Baldwin…     <span style='text-decoration: underline;'>1</span>590.   <span style='text-decoration: underline;'>208</span>107
-#&gt; <span style='color: #BCBCBC;'> 3</span>        3 00001      Alabama AL      Barbour 01005 Barbour…      885.    <span style='text-decoration: underline;'>25</span>782
-#&gt; <span style='color: #BCBCBC;'> 4</span>        4 00001      Alabama AL      Bibb    01007 Bibb Co…      622.    <span style='text-decoration: underline;'>22</span>527
-#&gt; <span style='color: #BCBCBC;'> 5</span>        5 00001      Alabama AL      Blount  01009 Blount …      645.    <span style='text-decoration: underline;'>57</span>645
-#&gt; <span style='color: #BCBCBC;'> 6</span>        6 00001      Alabama AL      Bullock 01011 Bullock…      623.    <span style='text-decoration: underline;'>10</span>352
-#&gt; <span style='color: #BCBCBC;'> 7</span>        7 00001      Alabama AL      Butler  01013 Butler …      777.    <span style='text-decoration: underline;'>20</span>025
-#&gt; <span style='color: #BCBCBC;'> 8</span>        8 00001      Alabama AL      Calhoun 01015 Calhoun…      606.   <span style='text-decoration: underline;'>115</span>098
-#&gt; <span style='color: #BCBCBC;'> 9</span>        9 00001      Alabama AL      Chambe… 01017 Chamber…      597.    <span style='text-decoration: underline;'>33</span>826
-#&gt; <span style='color: #BCBCBC;'>10</span>       10 00001      Alabama AL      Cherok… 01019 Cheroke…      554.    <span style='text-decoration: underline;'>25</span>853
-#&gt; <span style='color: #949494;'># … with 3,132 more rows, and 117 more variables: m_totpop &lt;dbl&gt;, e_hu &lt;dbl&gt;,</span>
-#&gt; <span style='color: #949494;'>#   m_hu &lt;dbl&gt;, e_hh &lt;dbl&gt;, m_hh &lt;dbl&gt;, e_pov &lt;dbl&gt;, m_pov &lt;dbl&gt;,</span>
-#&gt; <span style='color: #949494;'>#   e_unemp &lt;dbl&gt;, m_unemp &lt;dbl&gt;, e_pci &lt;dbl&gt;, m_pci &lt;dbl&gt;, e_nohsdp &lt;dbl&gt;,</span>
-#&gt; <span style='color: #949494;'>#   m_nohsdp &lt;dbl&gt;, e_age65 &lt;dbl&gt;, m_age65 &lt;dbl&gt;, e_age17 &lt;dbl&gt;, m_age17 &lt;dbl&gt;,</span>
-#&gt; <span style='color: #949494;'>#   e_disabl &lt;dbl&gt;, m_disabl &lt;dbl&gt;, e_sngpnt &lt;dbl&gt;, m_sngpnt &lt;dbl&gt;,</span>
-#&gt; <span style='color: #949494;'>#   e_minrty &lt;dbl&gt;, m_minrty &lt;dbl&gt;, e_limeng &lt;dbl&gt;, m_limeng &lt;dbl&gt;,</span>
-#&gt; <span style='color: #949494;'>#   e_munit &lt;dbl&gt;, m_munit &lt;dbl&gt;, e_mobile &lt;dbl&gt;, m_mobile &lt;dbl&gt;, …</span></div><div class='input'>
-
-
-
-<span class='va'>dd</span> <span class='op'>=</span> <span class='fu'>dataset_details</span><span class='op'>(</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/str.html'>str</a></span><span class='op'>(</span><span class='va'>dd</span>,list.len<span class='op'>=</span><span class='fl'>3</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; List of 2
-#&gt;  $ datasets :List of 50
-#&gt;   ..$ cdc_social_vulnerability_index              :List of 2
-#&gt;   .. ..$ columns   :List of 126
-#&gt;   .. .. ..$ grasp_id    : chr "numeric"
-#&gt;   .. .. ..$ state_fips  : chr "character"
-#&gt;   .. .. ..$ state       : chr "character"
-#&gt;   .. .. .. [list output truncated]
-#&gt;   .. ..$ dimensions:List of 2
-#&gt;   .. .. ..$ nrow: int 3142
-#&gt;   .. .. ..$ ncol: int 126
-#&gt;   ..$ us_hospital_details                         :List of 2
-#&gt;   .. ..$ columns   :List of 33
-#&gt;   .. .. ..$ x         : chr "numeric"
-#&gt;   .. .. ..$ y         : chr "numeric"
-#&gt;   .. .. ..$ objectid  : chr "numeric"
-#&gt;   .. .. .. [list output truncated]
-#&gt;   .. ..$ dimensions:List of 2
-#&gt;   .. .. ..$ nrow: int 7596
-#&gt;   .. .. ..$ ncol: int 33
-#&gt;   ..$ economist_excess_deaths                     :List of 2
-#&gt;   .. ..$ columns   :List of 14
-#&gt;   .. .. ..$ country        : chr "character"
-#&gt;   .. .. ..$ region         : chr "character"
-#&gt;   .. .. ..$ region_code    : chr "character"
-#&gt;   .. .. .. [list output truncated]
-#&gt;   .. ..$ dimensions:List of 2
-#&gt;   .. .. ..$ nrow: int 16890
-#&gt;   .. .. ..$ ncol: int 14
-#&gt;   .. [list output truncated]
-#&gt;  $ eval_date: chr "2021-09-02"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>dd</span><span class='op'>$</span><span class='va'>datasets</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;  [1] "cdc_social_vulnerability_index"              
-#&gt;  [2] "us_hospital_details"                         
-#&gt;  [3] "economist_excess_deaths"                     
-#&gt;  [4] "financial_times_excess_deaths"               
-#&gt;  [5] "us_county_health_rankings"                   
-#&gt;  [6] "coronanet_government_response_data"          
-#&gt;  [7] "country_metadata"                            
-#&gt;  [8] "owid_data"                                   
-#&gt;  [9] "cov_glue_lineage_data"                       
-#&gt; [10] "cov_glue_newick_data"                        
-#&gt; [11] "cdc_excess_deaths"                           
-#&gt; [12] "param_estimates_published"                   
-#&gt; [13] "cdc_aggregated_projections"                  
-#&gt; [14] "google_mobility_data"                        
-#&gt; [15] "google_search_trends_data"                   
-#&gt; [16] "who_cases"                                   
-#&gt; [17] "ecdc_data"                                   
-#&gt; [18] "beoutbreakprepared_data"                     
-#&gt; [19] "descartes_mobility_data"                     
-#&gt; [20] "apple_mobility_data"                         
-#&gt; [21] "usa_facts_data"                              
-#&gt; [22] "jhu_data"                                    
-#&gt; [23] "jhu_us_data"                                 
-#&gt; [24] "nytimes_county_data"                         
-#&gt; [25] "nytimes_state_data"                          
-#&gt; [26] "kff_icu_beds"                                
-#&gt; [27] "world_population_data"                       
-#&gt; [28] "us_county_geo_details"                       
-#&gt; [29] "covidtracker_data"                           
-#&gt; [30] "us_healthcare_capacity"                      
-#&gt; [31] "government_policy_timeline"                  
-#&gt; [32] "us_state_distancing_policy"                  
-#&gt; [33] "oecd_unemployment_data"                      
-#&gt; [34] "acaps_secondary_impact_data"                 
-#&gt; [35] "cci_us_vaccine_data"                         
-#&gt; [36] "coronadatascraper_data"                      
-#&gt; [37] "test_and_trace_data"                         
-#&gt; [38] "cdc_us_linelist_data"                        
-#&gt; [39] "econ_tracker_unemp_national_data"            
-#&gt; [40] "econ_tracker_unemp_state_data"               
-#&gt; [41] "econ_tracker_unemp_city_data"                
-#&gt; [42] "econ_tracker_unemp_county_data"              
-#&gt; [43] "econ_tracker_consumer_spending_city_data"    
-#&gt; [44] "econ_tracker_consumer_spending_county_data"  
-#&gt; [45] "econ_tracker_consumer_spending_state_data"   
-#&gt; [46] "econ_tracker_consumer_spending_national_data"
-#&gt; [47] "econ_tracker_employment_national_data"       
-#&gt; [48] "econ_tracker_employment_city_data"           
-#&gt; [49] "econ_tracker_employment_state_data"          
-#&gt; [50] "econ_tracker_employment_county_data"         </div><div class='input'><span class='co'># evaluated</span>
-<span class='va'>dd</span><span class='op'>$</span><span class='va'>eval_date</span>
-</div><div class='output co'>#&gt; [1] "2021-09-02"</div><div class='input'>
-
-</div></pre>
+    <pre class="examples"><span class='r-in'><span class='va'>res</span> <span class='op'>=</span> <span class='fu'>available_datasets</span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>res</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 50 × 8</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    name     accessor data_type geographical geospatial region resolution url    </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;list&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;lgl&gt;</span>        <span style='color: #949494; font-style: italic;'>&lt;lgl&gt;</span>      <span style='color: #949494; font-style: italic;'>&lt;list&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;list&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 1</span> United … cdc_soc… <span style='color: #949494;'>&lt;chr [1]&gt;</span> TRUE         FALSE      <span style='color: #949494;'>&lt;chr </span>… <span style='color: #949494;'>&lt;chr [1]&gt;</span>  https:…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 2</span> Extensi… us_hosp… <span style='color: #949494;'>&lt;chr [1]&gt;</span> TRUE         TRUE       <span style='color: #949494;'>&lt;chr </span>… <span style='color: #949494;'>&lt;chr [1]&gt;</span>  https:…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 3</span> The Eco… economi… <span style='color: #949494;'>&lt;chr [3]&gt;</span> TRUE         FALSE      <span style='color: #949494;'>&lt;chr </span>… <span style='color: #949494;'>&lt;chr [2]&gt;</span>  https:…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 4</span> The : E… financi… <span style='color: #949494;'>&lt;chr [3]&gt;</span> TRUE         FALSE      <span style='color: #949494;'>&lt;chr </span>… <span style='color: #949494;'>&lt;chr [2]&gt;</span>  https:…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 5</span> US coun… us_coun… <span style='color: #949494;'>&lt;chr [1]&gt;</span> TRUE         FALSE      <span style='color: #949494;'>&lt;chr </span>… <span style='color: #949494;'>&lt;chr [3]&gt;</span>  https:…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 6</span> CoronaN… coronan… <span style='color: #949494;'>&lt;chr [1]&gt;</span> TRUE         FALSE      <span style='color: #949494;'>&lt;chr </span>… <span style='color: #949494;'>&lt;chr [2]&gt;</span>  https:…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 7</span> Country… country… <span style='color: #949494;'>&lt;chr [1]&gt;</span> TRUE         FALSE      <span style='color: #949494;'>&lt;chr </span>… <span style='color: #949494;'>&lt;chr [1]&gt;</span>  https:…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 8</span> Our Wor… owid_da… <span style='color: #949494;'>&lt;chr [4]&gt;</span> TRUE         FALSE      <span style='color: #949494;'>&lt;chr </span>… <span style='color: #949494;'>&lt;chr [1]&gt;</span>  https:…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 9</span> GISAID … cov_glu… <span style='color: #949494;'>&lt;chr [1]&gt;</span> TRUE         FALSE      <span style='color: #949494;'>&lt;chr </span>… <span style='color: #949494;'>&lt;chr [1]&gt;</span>  https:…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>10</span> Newick … cov_glu… <span style='color: #949494;'>&lt;chr [1]&gt;</span> FALSE        FALSE      <span style='color: #949494;'>&lt;chr </span>… <span style='color: #949494;'>&lt;chr [1]&gt;</span>  https:…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># … with 40 more rows</span></span>
+<span class='r-in'><span class='co'># and how to use the accessor programmatically</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/get.html'>get</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>[</span><span class='fl'>1</span>,<span class='op'>]</span><span class='op'>$</span><span class='va'>accessor</span><span class='op'>)</span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 3,142 × 126</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    grasp_id state_fips state   st_abbr county  fips  location area_sqmi e_totpop</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>      <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>        <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 1</span>        1 00001      Alabama AL      Autauga 01001 Autauga…      594.    <span style='text-decoration: underline;'>55</span>200</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 2</span>        2 00001      Alabama AL      Baldwin 01003 Baldwin…     <span style='text-decoration: underline;'>1</span>590.   <span style='text-decoration: underline;'>208</span>107</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 3</span>        3 00001      Alabama AL      Barbour 01005 Barbour…      885.    <span style='text-decoration: underline;'>25</span>782</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 4</span>        4 00001      Alabama AL      Bibb    01007 Bibb Co…      622.    <span style='text-decoration: underline;'>22</span>527</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 5</span>        5 00001      Alabama AL      Blount  01009 Blount …      645.    <span style='text-decoration: underline;'>57</span>645</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 6</span>        6 00001      Alabama AL      Bullock 01011 Bullock…      623.    <span style='text-decoration: underline;'>10</span>352</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 7</span>        7 00001      Alabama AL      Butler  01013 Butler …      777.    <span style='text-decoration: underline;'>20</span>025</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 8</span>        8 00001      Alabama AL      Calhoun 01015 Calhoun…      606.   <span style='text-decoration: underline;'>115</span>098</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 9</span>        9 00001      Alabama AL      Chambe… 01017 Chamber…      597.    <span style='text-decoration: underline;'>33</span>826</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>10</span>       10 00001      Alabama AL      Cherok… 01019 Cheroke…      554.    <span style='text-decoration: underline;'>25</span>853</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># … with 3,132 more rows, and 117 more variables: m_totpop &lt;dbl&gt;, e_hu &lt;dbl&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   m_hu &lt;dbl&gt;, e_hh &lt;dbl&gt;, m_hh &lt;dbl&gt;, e_pov &lt;dbl&gt;, m_pov &lt;dbl&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   e_unemp &lt;dbl&gt;, m_unemp &lt;dbl&gt;, e_pci &lt;dbl&gt;, m_pci &lt;dbl&gt;, e_nohsdp &lt;dbl&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   m_nohsdp &lt;dbl&gt;, e_age65 &lt;dbl&gt;, m_age65 &lt;dbl&gt;, e_age17 &lt;dbl&gt;, m_age17 &lt;dbl&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   e_disabl &lt;dbl&gt;, m_disabl &lt;dbl&gt;, e_sngpnt &lt;dbl&gt;, m_sngpnt &lt;dbl&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   e_minrty &lt;dbl&gt;, m_minrty &lt;dbl&gt;, e_limeng &lt;dbl&gt;, m_limeng &lt;dbl&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   e_munit &lt;dbl&gt;, m_munit &lt;dbl&gt;, e_mobile &lt;dbl&gt;, m_mobile &lt;dbl&gt;, …</span></span>
+<span class='r-in'></span>
+<span class='r-in'></span>
+<span class='r-in'></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='va'>dd</span> <span class='op'>=</span> <span class='fu'>dataset_details</span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/str.html'>str</a></span><span class='op'>(</span><span class='va'>dd</span>,list.len<span class='op'>=</span><span class='fl'>3</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> List of 2</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  $ datasets :List of 50</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   ..$ cdc_social_vulnerability_index              :List of 2</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   .. ..$ columns   :List of 126</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   .. .. ..$ grasp_id    : chr "numeric"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   .. .. ..$ state_fips  : chr "character"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   .. .. ..$ state       : chr "character"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   .. .. .. [list output truncated]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   .. ..$ dimensions:List of 2</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   .. .. ..$ nrow: int 3142</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   .. .. ..$ ncol: int 126</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   ..$ us_hospital_details                         :List of 2</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   .. ..$ columns   :List of 33</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   .. .. ..$ x         : chr "numeric"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   .. .. ..$ y         : chr "numeric"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   .. .. ..$ objectid  : chr "numeric"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   .. .. .. [list output truncated]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   .. ..$ dimensions:List of 2</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   .. .. ..$ nrow: int 7596</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   .. .. ..$ ncol: int 33</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   ..$ economist_excess_deaths                     :List of 2</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   .. ..$ columns   :List of 14</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   .. .. ..$ country        : chr "character"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   .. .. ..$ region         : chr "character"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   .. .. ..$ region_code    : chr "character"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   .. .. .. [list output truncated]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   .. ..$ dimensions:List of 2</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   .. .. ..$ nrow: int 16890</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   .. .. ..$ ncol: int 14</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   .. [list output truncated]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  $ eval_date: chr "2021-09-02"</span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>dd</span><span class='op'>$</span><span class='va'>datasets</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [1] "cdc_social_vulnerability_index"              </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [2] "us_hospital_details"                         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [3] "economist_excess_deaths"                     </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [4] "financial_times_excess_deaths"               </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [5] "us_county_health_rankings"                   </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [6] "coronanet_government_response_data"          </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [7] "country_metadata"                            </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [8] "owid_data"                                   </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [9] "cov_glue_lineage_data"                       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [10] "cov_glue_newick_data"                        </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [11] "cdc_excess_deaths"                           </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [12] "param_estimates_published"                   </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [13] "cdc_aggregated_projections"                  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [14] "google_mobility_data"                        </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [15] "google_search_trends_data"                   </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [16] "who_cases"                                   </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [17] "ecdc_data"                                   </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [18] "beoutbreakprepared_data"                     </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [19] "descartes_mobility_data"                     </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [20] "apple_mobility_data"                         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [21] "usa_facts_data"                              </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [22] "jhu_data"                                    </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [23] "jhu_us_data"                                 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [24] "nytimes_county_data"                         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [25] "nytimes_state_data"                          </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [26] "kff_icu_beds"                                </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [27] "world_population_data"                       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [28] "us_county_geo_details"                       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [29] "covidtracker_data"                           </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [30] "us_healthcare_capacity"                      </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [31] "government_policy_timeline"                  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [32] "us_state_distancing_policy"                  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [33] "oecd_unemployment_data"                      </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [34] "acaps_secondary_impact_data"                 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [35] "cci_us_vaccine_data"                         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [36] "coronadatascraper_data"                      </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [37] "test_and_trace_data"                         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [38] "cdc_us_linelist_data"                        </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [39] "econ_tracker_unemp_national_data"            </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [40] "econ_tracker_unemp_state_data"               </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [41] "econ_tracker_unemp_city_data"                </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [42] "econ_tracker_unemp_county_data"              </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [43] "econ_tracker_consumer_spending_city_data"    </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [44] "econ_tracker_consumer_spending_county_data"  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [45] "econ_tracker_consumer_spending_state_data"   </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [46] "econ_tracker_consumer_spending_national_data"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [47] "econ_tracker_employment_national_data"       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [48] "econ_tracker_employment_city_data"           </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [49] "econ_tracker_employment_state_data"          </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [50] "econ_tracker_employment_county_data"         </span>
+<span class='r-in'><span class='co'># evaluated</span></span>
+<span class='r-in'><span class='va'>dd</span><span class='op'>$</span><span class='va'>eval_date</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "2021-09-02"</span>
+<span class='r-in'></span>
+<span class='r-in'></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

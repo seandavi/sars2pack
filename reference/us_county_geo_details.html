@@ -194,62 +194,65 @@
 <code><a href='who_cases.html'>who_cases</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='va'>usc</span> <span class='op'>=</span> <span class='fu'>us_county_geo_details</span><span class='op'>(</span><span class='op'>)</span>
-<span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://pillar.r-lib.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>usc</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Rows: 3,220
-#&gt; Columns: 9
-#&gt; $ state           <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "AL", "AL", "AL", "AL", "AL", "AL", "AL", "AL", "AL", …
-#&gt; $ fips            <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "01001", "01003", "01005", "01007", "01009", "01011", …
-#&gt; $ ansicode        <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "00161526", "00161527", "00161528", "00161529", "00161…
-#&gt; $ county          <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "Autauga County", "Baldwin County", "Barbour County", …
-#&gt; $ area_land       <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 1539602137, 4117621645, 2292160139, 1612167476, 167010…
-#&gt; $ area_water      <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 25706961, 1132980868, 50523213, 9602089, 15015467, 603…
-#&gt; $ area_land_sqmi  <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 594.444, 1589.823, 885.008, 622.461, 644.831, 622.812,…
-#&gt; $ area_water_sqmi <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 9.926, 437.446, 19.507, 3.707, 5.798, 2.331, 1.043, 6.…
-#&gt; $ geometry        <span style='color: #949494; font-style: italic;'>&lt;POINT&gt;</span> POINT (-86.64644 32.53224), POINT (-87.74607 30.6592…</div><div class='input'><span class='va'>usc</span>
-</div><div class='output co'>#&gt; Simple feature collection with 3220 features and 8 fields
-#&gt; Geometry type: POINT
-#&gt; Dimension:     XY
-#&gt; Bounding box:  xmin: -164.1889 ymin: 17.94805 xmax: 179.6212 ymax: 69.44934
-#&gt; CRS:           NA
-#&gt; <span style='color: #949494;'># A tibble: 3,220 × 9</span>
-#&gt;    state fips  ansicode county           area_land area_water area_land_sqmi
-#&gt;    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>                <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>      <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>          <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>
-#&gt; <span style='color: #BCBCBC;'> 1</span> AL    01001 00161526 Autauga County  <span style='text-decoration: underline;'>1</span>539<span style='text-decoration: underline;'>602</span>137   25<span style='text-decoration: underline;'>706</span>961           594.
-#&gt; <span style='color: #BCBCBC;'> 2</span> AL    01003 00161527 Baldwin County  <span style='text-decoration: underline;'>4</span>117<span style='text-decoration: underline;'>621</span>645 <span style='text-decoration: underline;'>1</span>132<span style='text-decoration: underline;'>980</span>868          <span style='text-decoration: underline;'>1</span>590.
-#&gt; <span style='color: #BCBCBC;'> 3</span> AL    01005 00161528 Barbour County  <span style='text-decoration: underline;'>2</span>292<span style='text-decoration: underline;'>160</span>139   50<span style='text-decoration: underline;'>523</span>213           885.
-#&gt; <span style='color: #BCBCBC;'> 4</span> AL    01007 00161529 Bibb County     <span style='text-decoration: underline;'>1</span>612<span style='text-decoration: underline;'>167</span>476    9<span style='text-decoration: underline;'>602</span>089           622.
-#&gt; <span style='color: #BCBCBC;'> 5</span> AL    01009 00161530 Blount County   <span style='text-decoration: underline;'>1</span>670<span style='text-decoration: underline;'>103</span>866   15<span style='text-decoration: underline;'>015</span>467           645.
-#&gt; <span style='color: #BCBCBC;'> 6</span> AL    01011 00161531 Bullock County  <span style='text-decoration: underline;'>1</span>613<span style='text-decoration: underline;'>076</span>054    6<span style='text-decoration: underline;'>038</span>093           623.
-#&gt; <span style='color: #BCBCBC;'> 7</span> AL    01013 00161532 Butler County   <span style='text-decoration: underline;'>2</span>012<span style='text-decoration: underline;'>002</span>531    2<span style='text-decoration: underline;'>701</span>198           777.
-#&gt; <span style='color: #BCBCBC;'> 8</span> AL    01015 00161533 Calhoun County  <span style='text-decoration: underline;'>1</span>569<span style='text-decoration: underline;'>195</span>268   16<span style='text-decoration: underline;'>587</span>192           606.
-#&gt; <span style='color: #BCBCBC;'> 9</span> AL    01017 00161534 Chambers County <span style='text-decoration: underline;'>1</span>545<span style='text-decoration: underline;'>085</span>607   16<span style='text-decoration: underline;'>971</span>700           597.
-#&gt; <span style='color: #BCBCBC;'>10</span> AL    01019 00161535 Cherokee County <span style='text-decoration: underline;'>1</span>433<span style='text-decoration: underline;'>623</span>319  120<span style='text-decoration: underline;'>308</span>342           554.
-#&gt; <span style='color: #949494;'># … with 3,210 more rows, and 2 more variables: area_water_sqmi &lt;dbl&gt;,</span>
-#&gt; <span style='color: #949494;'>#   geometry &lt;POINT&gt;</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>usc</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;     state               fips             ansicode            county         
-#&gt;  Length:3220        Length:3220        Length:3220        Length:3220       
-#&gt;  Class :character   Class :character   Class :character   Class :character  
-#&gt;  Mode  :character   Mode  :character   Mode  :character   Mode  :character  
-#&gt;                                                                             
-#&gt;                                                                             
-#&gt;                                                                             
-#&gt;    area_land           area_water        area_land_sqmi     
-#&gt;  Min.   :5.300e+06   Min.   :0.000e+00   Min.   :     2.05  
-#&gt;  1st Qu.:1.085e+09   1st Qu.:7.005e+06   1st Qu.:   419.02  
-#&gt;  Median :1.566e+09   Median :1.930e+07   Median :   604.52  
-#&gt;  Mean   :2.845e+09   Mean   :2.140e+08   Mean   :  1098.28  
-#&gt;  3rd Qu.:2.369e+09   3rd Qu.:6.022e+07   3rd Qu.:   914.64  
-#&gt;  Max.   :3.770e+11   Max.   :2.597e+10   Max.   :145575.52  
-#&gt;  area_water_sqmi        geometry   
-#&gt;  Min.   :    0.000   POINT  :3220  
-#&gt;  1st Qu.:    2.705   epsg:NA:   0  
-#&gt;  Median :    7.452                 
-#&gt;  Mean   :   82.617                 
-#&gt;  3rd Qu.:   23.252                 
-#&gt;  Max.   :10028.348                 </div><div class='input'>
-
-</div></pre>
+    <pre class="examples"><span class='r-in'><span class='va'>usc</span> <span class='op'>=</span> <span class='fu'>us_county_geo_details</span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://pillar.r-lib.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>usc</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Rows: 3,220</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Columns: 9</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ state           <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "AL", "AL", "AL", "AL", "AL", "AL", "AL", "AL", "AL", …</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ fips            <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "01001", "01003", "01005", "01007", "01009", "01011", …</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ ansicode        <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "00161526", "00161527", "00161528", "00161529", "00161…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ county          <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "Autauga County", "Baldwin County", "Barbour County", …</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ area_land       <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 1539602137, 4117621645, 2292160139, 1612167476, 167010…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ area_water      <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 25706961, 1132980868, 50523213, 9602089, 15015467, 603…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ area_land_sqmi  <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 594.444, 1589.823, 885.008, 622.461, 644.831, 622.812,…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ area_water_sqmi <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 9.926, 437.446, 19.507, 3.707, 5.798, 2.331, 1.043, 6.…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ geometry        <span style='color: #949494; font-style: italic;'>&lt;POINT&gt;</span> POINT (-86.64644 32.53224), POINT (-87.74607 30.6592…</span>
+<span class='r-in'><span class='va'>usc</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Simple feature collection with 3220 features and 8 fields</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Geometry type: POINT</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Dimension:     XY</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Bounding box:  xmin: -164.1889 ymin: 17.94805 xmax: 179.6212 ymax: 69.44934</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> CRS:           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 3,220 × 9</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    state fips  ansicode county           area_land area_water area_land_sqmi</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>                <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>      <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>          <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 1</span> AL    01001 00161526 Autauga County  <span style='text-decoration: underline;'>1</span>539<span style='text-decoration: underline;'>602</span>137   25<span style='text-decoration: underline;'>706</span>961           594.</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 2</span> AL    01003 00161527 Baldwin County  <span style='text-decoration: underline;'>4</span>117<span style='text-decoration: underline;'>621</span>645 <span style='text-decoration: underline;'>1</span>132<span style='text-decoration: underline;'>980</span>868          <span style='text-decoration: underline;'>1</span>590.</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 3</span> AL    01005 00161528 Barbour County  <span style='text-decoration: underline;'>2</span>292<span style='text-decoration: underline;'>160</span>139   50<span style='text-decoration: underline;'>523</span>213           885.</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 4</span> AL    01007 00161529 Bibb County     <span style='text-decoration: underline;'>1</span>612<span style='text-decoration: underline;'>167</span>476    9<span style='text-decoration: underline;'>602</span>089           622.</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 5</span> AL    01009 00161530 Blount County   <span style='text-decoration: underline;'>1</span>670<span style='text-decoration: underline;'>103</span>866   15<span style='text-decoration: underline;'>015</span>467           645.</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 6</span> AL    01011 00161531 Bullock County  <span style='text-decoration: underline;'>1</span>613<span style='text-decoration: underline;'>076</span>054    6<span style='text-decoration: underline;'>038</span>093           623.</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 7</span> AL    01013 00161532 Butler County   <span style='text-decoration: underline;'>2</span>012<span style='text-decoration: underline;'>002</span>531    2<span style='text-decoration: underline;'>701</span>198           777.</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 8</span> AL    01015 00161533 Calhoun County  <span style='text-decoration: underline;'>1</span>569<span style='text-decoration: underline;'>195</span>268   16<span style='text-decoration: underline;'>587</span>192           606.</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 9</span> AL    01017 00161534 Chambers County <span style='text-decoration: underline;'>1</span>545<span style='text-decoration: underline;'>085</span>607   16<span style='text-decoration: underline;'>971</span>700           597.</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>10</span> AL    01019 00161535 Cherokee County <span style='text-decoration: underline;'>1</span>433<span style='text-decoration: underline;'>623</span>319  120<span style='text-decoration: underline;'>308</span>342           554.</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># … with 3,210 more rows, and 2 more variables: area_water_sqmi &lt;dbl&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   geometry &lt;POINT&gt;</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>usc</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     state               fips             ansicode            county         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  Length:3220        Length:3220        Length:3220        Length:3220       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  Class :character   Class :character   Class :character   Class :character  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  Mode  :character   Mode  :character   Mode  :character   Mode  :character  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                             </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                             </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                             </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    area_land           area_water        area_land_sqmi     </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  Min.   :5.300e+06   Min.   :0.000e+00   Min.   :     2.05  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  1st Qu.:1.085e+09   1st Qu.:7.005e+06   1st Qu.:   419.02  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  Median :1.566e+09   Median :1.930e+07   Median :   604.52  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  Mean   :2.845e+09   Mean   :2.140e+08   Mean   :  1098.28  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  3rd Qu.:2.369e+09   3rd Qu.:6.022e+07   3rd Qu.:   914.64  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  Max.   :3.770e+11   Max.   :2.597e+10   Max.   :145575.52  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  area_water_sqmi        geometry   </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  Min.   :    0.000   POINT  :3220  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  1st Qu.:    2.705   epsg:NA:   0  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  Median :    7.452                 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  Mean   :   82.617                 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  3rd Qu.:   23.252                 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  Max.   :10028.348                 </span>
+<span class='r-in'></span>
+<span class='r-in'></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

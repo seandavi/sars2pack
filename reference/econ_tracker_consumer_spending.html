@@ -265,580 +265,584 @@
     <p>Sean Davis <a href='mailto:seandavi@gmail.com'>seandavi@gmail.com</a></p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='va'>res</span> <span class='op'>=</span> <span class='fu'>econ_tracker_consumer_spending_city_data</span><span class='op'>(</span><span class='op'>)</span>
-<span class='va'>res</span>
-</div><div class='output co'>#&gt;        cityid    cityname stateabbrev  statename statefips   lat     lon
-#&gt;     1:      1 Los Angeles          CA California     00006 34.05 -118.24
-#&gt;     2:      1 Los Angeles          CA California     00006 34.05 -118.24
-#&gt;     3:      1 Los Angeles          CA California     00006 34.05 -118.24
-#&gt;     4:      1 Los Angeles          CA California     00006 34.05 -118.24
-#&gt;     5:      1 Los Angeles          CA California     00006 34.05 -118.24
-#&gt;    ---                                                                  
-#&gt; 33146:     53       Tulsa          OK   Oklahoma     00040 36.15  -95.99
-#&gt; 33147:     53       Tulsa          OK   Oklahoma     00040 36.15  -95.99
-#&gt; 33148:     53       Tulsa          OK   Oklahoma     00040 36.15  -95.99
-#&gt; 33149:     53       Tulsa          OK   Oklahoma     00040 36.15  -95.99
-#&gt; 33150:     53       Tulsa          OK   Oklahoma     00040 36.15  -95.99
-#&gt;        city_pop2019 freq spend_all spend_aap spend_acf spend_aer spend_apg
-#&gt;     1:     10039107    d        NA        NA        NA        NA        NA
-#&gt;     2:     10039107    d        NA        NA        NA        NA        NA
-#&gt;     3:     10039107    d        NA        NA        NA        NA        NA
-#&gt;     4:     10039107    d        NA        NA        NA        NA        NA
-#&gt;     5:     10039107    d        NA        NA        NA        NA        NA
-#&gt;    ---                                                                    
-#&gt; 33146:       651552    d     0.214   0.00930     0.215    0.1160     0.252
-#&gt; 33147:       651552    d     0.233   0.01840     0.273    0.2270     0.274
-#&gt; 33148:       651552    d     0.203   0.00412     0.198    0.0798     0.271
-#&gt; 33149:       651552    d     0.243   0.02560     0.202    0.1100     0.272
-#&gt; 33150:       651552    w     0.175   0.10500     0.150    0.0502     0.296
-#&gt;        spend_durables spend_nondurables spend_grf spend_gen spend_hic spend_hcs
-#&gt;     1:             NA                NA        NA        NA        NA        NA
-#&gt;     2:             NA                NA        NA        NA        NA        NA
-#&gt;     3:             NA                NA        NA        NA        NA        NA
-#&gt;     4:             NA                NA        NA        NA        NA        NA
-#&gt;     5:             NA                NA        NA        NA        NA        NA
-#&gt;    ---                                                                         
-#&gt; 33146:          0.237            0.0545    0.0381     0.359   0.05870    0.0811
-#&gt; 33147:          0.256            0.0468    0.0541     0.280  -0.08180    0.1240
-#&gt; 33148:          0.256            0.0718    0.0449     0.366  -0.01820    0.1170
-#&gt; 33149:          0.292            0.1210    0.0485     0.488   0.00514    0.1100
-#&gt; 33150:          0.253            0.1280    0.0921     0.469        NA    0.1180
-#&gt;        spend_inpersonmisc spend_remoteservices spend_sgh spend_tws
-#&gt;     1:                 NA                   NA        NA        NA
-#&gt;     2:                 NA                   NA        NA        NA
-#&gt;     3:                 NA                   NA        NA        NA
-#&gt;     4:                 NA                   NA        NA        NA
-#&gt;     5:                 NA                   NA        NA        NA
-#&gt;    ---                                                            
-#&gt; 33146:                 NA                0.307        NA        NA
-#&gt; 33147:                 NA                0.444        NA        NA
-#&gt; 33148:                 NA                0.414        NA        NA
-#&gt; 33149:                 NA                0.422        NA        NA
-#&gt; 33150:                 NA                0.212        NA        NA
-#&gt;        spend_retail_w_grocery spend_retail_no_grocery provisional       date
-#&gt;     1:                     NA                      NA           0 2020-01-01
-#&gt;     2:                     NA                      NA           0 2020-01-02
-#&gt;     3:                     NA                      NA           0 2020-01-03
-#&gt;     4:                     NA                      NA           0 2020-01-04
-#&gt;     5:                     NA                      NA           0 2020-01-05
-#&gt;    ---                                                                      
-#&gt; 33146:                  0.116                   0.185           1 2021-10-07
-#&gt; 33147:                  0.123                   0.189           1 2021-10-08
-#&gt; 33148:                  0.139                   0.217           1 2021-10-09
-#&gt; 33149:                  0.183                   0.281           1 2021-10-10
-#&gt; 33150:                  0.182                   0.247           1 2021-10-17</div><div class='input'>
-<span class='va'>res</span> <span class='op'>=</span> <span class='fu'>econ_tracker_consumer_spending_county_data</span><span class='op'>(</span><span class='op'>)</span>
-<span class='va'>res</span>
-</div><div class='output co'>#&gt;          countyfips countyname cityid cityname    cz     czname statename
-#&gt;       1:      01001    Autauga     NA          11101 Montgomery   Alabama
-#&gt;       2:      01001    Autauga     NA          11101 Montgomery   Alabama
-#&gt;       3:      01001    Autauga     NA          11101 Montgomery   Alabama
-#&gt;       4:      01001    Autauga     NA          11101 Montgomery   Alabama
-#&gt;       5:      01001    Autauga     NA          11101 Montgomery   Alabama
-#&gt;      ---                                                                 
-#&gt; 1104934:      56045     Weston     NA          34601   Gillette   Wyoming
-#&gt; 1104935:      56045     Weston     NA          34601   Gillette   Wyoming
-#&gt; 1104936:      56045     Weston     NA          34601   Gillette   Wyoming
-#&gt; 1104937:      56045     Weston     NA          34601   Gillette   Wyoming
-#&gt; 1104938:      56045     Weston     NA          34601   Gillette   Wyoming
-#&gt;          statefips stateabbrev county_pop2019 freq spend_all provisional
-#&gt;       1:     00001          AL          55869    d        NA           0
-#&gt;       2:     00001          AL          55869    d        NA           0
-#&gt;       3:     00001          AL          55869    d        NA           0
-#&gt;       4:     00001          AL          55869    d        NA           0
-#&gt;       5:     00001          AL          55869    d        NA           0
-#&gt;      ---                                                                
-#&gt; 1104934:     00056          WY           6927    d     0.148           0
-#&gt; 1104935:     00056          WY           6927    d     0.130           0
-#&gt; 1104936:     00056          WY           6927    d     0.241           0
-#&gt; 1104937:     00056          WY           6927    d     0.264           0
-#&gt; 1104938:     00056          WY           6927    w     0.106           0
-#&gt;                date
-#&gt;       1: 2020-01-01
-#&gt;       2: 2020-01-02
-#&gt;       3: 2020-01-03
-#&gt;       4: 2020-01-04
-#&gt;       5: 2020-01-05
-#&gt;      ---           
-#&gt; 1104934: 2021-10-07
-#&gt; 1104935: 2021-10-08
-#&gt; 1104936: 2021-10-09
-#&gt; 1104937: 2021-10-10
-#&gt; 1104938: 2021-10-17</div><div class='input'>
-
-<span class='va'>res</span> <span class='op'>=</span> <span class='fu'>econ_tracker_consumer_spending_state_data</span><span class='op'>(</span><span class='op'>)</span>
-<span class='va'>res</span>
-</div><div class='output co'>#&gt;        statefips statename stateabbrev state_pop2019 freq spend_all spend_aap
-#&gt;     1:     00001   Alabama          AL       4903185    d        NA        NA
-#&gt;     2:     00001   Alabama          AL       4903185    d        NA        NA
-#&gt;     3:     00001   Alabama          AL       4903185    d        NA        NA
-#&gt;     4:     00001   Alabama          AL       4903185    d        NA        NA
-#&gt;     5:     00001   Alabama          AL       4903185    d        NA        NA
-#&gt;    ---                                                                       
-#&gt; 33146:     00056   Wyoming          WY        578759    d     0.170   -0.0627
-#&gt; 33147:     00056   Wyoming          WY        578759    d     0.161   -0.0601
-#&gt; 33148:     00056   Wyoming          WY        578759    d     0.183   -0.0199
-#&gt; 33149:     00056   Wyoming          WY        578759    d     0.197   -0.0333
-#&gt; 33150:     00056   Wyoming          WY        578759    w     0.190    0.1750
-#&gt;        spend_acf spend_aer spend_apg spend_durables spend_nondurables spend_grf
-#&gt;     1:        NA        NA        NA             NA                NA        NA
-#&gt;     2:        NA        NA        NA             NA                NA        NA
-#&gt;     3:        NA        NA        NA             NA                NA        NA
-#&gt;     4:        NA        NA        NA             NA                NA        NA
-#&gt;     5:        NA        NA        NA             NA                NA        NA
-#&gt;    ---                                                                         
-#&gt; 33146:        NA     0.231     0.336          0.233             0.136    0.0475
-#&gt; 33147:        NA     0.544     0.357          0.244             0.138    0.0329
-#&gt; 33148:        NA     0.410     0.361          0.254             0.146    0.0431
-#&gt; 33149:        NA     0.523     0.345          0.273             0.164    0.0698
-#&gt; 33150:        NA     0.235     0.489          0.244             0.238    0.1470
-#&gt;        spend_gen spend_hic spend_hcs spend_inpersonmisc spend_remoteservices
-#&gt;     1:        NA        NA        NA                 NA                   NA
-#&gt;     2:        NA        NA        NA                 NA                   NA
-#&gt;     3:        NA        NA        NA                 NA                   NA
-#&gt;     4:        NA        NA        NA                 NA                   NA
-#&gt;     5:        NA        NA        NA                 NA                   NA
-#&gt;    ---                                                                      
-#&gt; 33146:     0.764     0.142        NA              0.110                0.243
-#&gt; 33147:     0.840     0.122        NA              0.220                0.214
-#&gt; 33148:     0.805     0.161        NA              0.235                0.230
-#&gt; 33149:     0.794     0.238        NA              0.209                0.246
-#&gt; 33150:     0.854     0.171        NA              0.118                0.224
-#&gt;        spend_sgh spend_tws spend_retail_w_grocery spend_retail_no_grocery
-#&gt;     1:        NA        NA                     NA                      NA
-#&gt;     2:        NA        NA                     NA                      NA
-#&gt;     3:        NA        NA                     NA                      NA
-#&gt;     4:        NA        NA                     NA                      NA
-#&gt;     5:        NA        NA                     NA                      NA
-#&gt;    ---                                                                   
-#&gt; 33146:     0.524    0.1340                  0.164                   0.239
-#&gt; 33147:     0.614    0.0831                  0.166                   0.253
-#&gt; 33148:     0.482    0.0983                  0.178                   0.266
-#&gt; 33149:     0.397    0.1220                  0.199                   0.281
-#&gt; 33150:     0.399    0.1750                  0.223                   0.270
-#&gt;        spend_all_incmiddle spend_all_q1 spend_all_q2 spend_all_q3 spend_all_q4
-#&gt;     1:                  NA           NA           NA           NA           NA
-#&gt;     2:                  NA           NA           NA           NA           NA
-#&gt;     3:                  NA           NA           NA           NA           NA
-#&gt;     4:                  NA           NA           NA           NA           NA
-#&gt;     5:                  NA           NA           NA           NA           NA
-#&gt;    ---                                                                        
-#&gt; 33146:               0.157        0.113        0.172        0.146        0.293
-#&gt; 33147:               0.139        0.155        0.149        0.132        0.286
-#&gt; 33148:               0.161        0.165        0.173        0.151        0.305
-#&gt; 33149:               0.175        0.174        0.189        0.164        0.323
-#&gt; 33150:               0.177        0.221        0.170        0.182        0.249
-#&gt;        provisional       date
-#&gt;     1:           0 2020-01-01
-#&gt;     2:           0 2020-01-02
-#&gt;     3:           0 2020-01-03
-#&gt;     4:           0 2020-01-04
-#&gt;     5:           0 2020-01-05
-#&gt;    ---                       
-#&gt; 33146:           1 2021-10-07
-#&gt; 33147:           1 2021-10-08
-#&gt; 33148:           1 2021-10-09
-#&gt; 33149:           1 2021-10-10
-#&gt; 33150:           1 2021-10-17</div><div class='input'>
-<span class='va'>res</span> <span class='op'>=</span> <span class='fu'>econ_tracker_consumer_spending_national_data</span><span class='op'>(</span><span class='op'>)</span>
-<span class='va'>res</span>
-</div><div class='output co'>#&gt;       freq spend_all spend_aap spend_acf spend_aer spend_apg spend_durables
-#&gt;    1:    d        NA        NA        NA        NA        NA             NA
-#&gt;    2:    d        NA        NA        NA        NA        NA             NA
-#&gt;    3:    d        NA        NA        NA        NA        NA             NA
-#&gt;    4:    d        NA        NA        NA        NA        NA             NA
-#&gt;    5:    d        NA        NA        NA        NA        NA             NA
-#&gt;   ---                                                                      
-#&gt; 1005:    d     0.218     0.215     0.144  -0.00497     0.296          0.306
-#&gt; 1006:    d     0.228     0.225     0.151   0.08320     0.303          0.316
-#&gt; 1007:    d     0.240     0.231     0.155   0.12800     0.309          0.321
-#&gt; 1008:    d     0.242     0.227     0.156   0.14300     0.307          0.321
-#&gt; 1009:    w     0.230     0.264     0.159   0.02520     0.328          0.330
-#&gt;       spend_nondurables spend_grf spend_gen spend_hic spend_hcs
-#&gt;    1:                NA        NA        NA        NA        NA
-#&gt;    2:                NA        NA        NA        NA        NA
-#&gt;    3:                NA        NA        NA        NA        NA
-#&gt;    4:                NA        NA        NA        NA        NA
-#&gt;    5:                NA        NA        NA        NA        NA
-#&gt;   ---                                                          
-#&gt; 1005:             0.249     0.234     0.375     0.364     0.141
-#&gt; 1006:             0.254     0.236     0.384     0.376     0.195
-#&gt; 1007:             0.262     0.246     0.389     0.371     0.205
-#&gt; 1008:             0.264     0.249     0.389     0.369     0.200
-#&gt; 1009:             0.277     0.264     0.392     0.385     0.156
-#&gt;       spend_inpersonmisc spend_remoteservices spend_sgh spend_tws
-#&gt;    1:                 NA                   NA        NA        NA
-#&gt;    2:                 NA                   NA        NA        NA
-#&gt;    3:                 NA                   NA        NA        NA
-#&gt;    4:                 NA                   NA        NA        NA
-#&gt;    5:                 NA                   NA        NA        NA
-#&gt;   ---                                                            
-#&gt; 1005:              0.204                0.192     0.477   0.00192
-#&gt; 1006:              0.218                0.220     0.472   0.00927
-#&gt; 1007:              0.228                0.236     0.473   0.02410
-#&gt; 1008:              0.246                0.237     0.477   0.03660
-#&gt; 1009:              0.168                0.188     0.500   0.04450
-#&gt;       spend_retail_w_grocery spend_retail_no_grocery spend_all_incmiddle
-#&gt;    1:                     NA                      NA                  NA
-#&gt;    2:                     NA                      NA                  NA
-#&gt;    3:                     NA                      NA                  NA
-#&gt;    4:                     NA                      NA                  NA
-#&gt;    5:                     NA                      NA                  NA
-#&gt;   ---                                                                   
-#&gt; 1005:                  0.291                   0.317               0.212
-#&gt; 1006:                  0.298                   0.327               0.221
-#&gt; 1007:                  0.306                   0.334               0.233
-#&gt; 1008:                  0.307                   0.333               0.233
-#&gt; 1009:                  0.317                   0.342               0.222
-#&gt;       spend_all_q1 spend_all_q2 spend_all_q3 spend_all_q4 spend_19_aap
-#&gt;    1:           NA           NA           NA           NA           NA
-#&gt;    2:           NA           NA           NA           NA           NA
-#&gt;    3:           NA           NA           NA           NA           NA
-#&gt;    4:           NA           NA           NA           NA           NA
-#&gt;    5:           NA           NA           NA           NA           NA
-#&gt;   ---                                                                 
-#&gt; 1005:        0.244        0.193        0.228        0.210        0.603
-#&gt; 1006:        0.250        0.201        0.239        0.224        0.606
-#&gt; 1007:        0.260        0.212        0.250        0.237        0.616
-#&gt; 1008:        0.264        0.212        0.251        0.241        0.623
-#&gt; 1009:        0.263        0.207        0.234        0.224        0.696
-#&gt;       spend_19_acf spend_19_aer spend_19_all spend_19_apg spend_19_durables
-#&gt;    1:           NA           NA           NA           NA                NA
-#&gt;    2:           NA           NA           NA           NA                NA
-#&gt;    3:           NA           NA           NA           NA                NA
-#&gt;    4:           NA           NA           NA           NA                NA
-#&gt;    5:           NA           NA           NA           NA                NA
-#&gt;   ---                                                                      
-#&gt; 1005:        0.475        0.514        0.471        0.678             0.555
-#&gt; 1006:        0.479        0.359        0.429        0.681             0.542
-#&gt; 1007:        0.483        0.343        0.419        0.684             0.541
-#&gt; 1008:        0.489        0.375        0.419        0.689             0.545
-#&gt; 1009:        0.516        0.382        0.436        0.742             0.579
-#&gt;       spend_19_gen spend_19_grf spend_19_hcs spend_19_hic spend_19_inpersonmisc
-#&gt;    1:           NA           NA           NA           NA                    NA
-#&gt;    2:           NA           NA           NA           NA                    NA
-#&gt;    3:           NA           NA           NA           NA                    NA
-#&gt;    4:           NA           NA           NA           NA                    NA
-#&gt;    5:           NA           NA           NA           NA                    NA
-#&gt;   ---                                                                          
-#&gt; 1005:        0.748        0.371        0.299        0.732                 0.625
-#&gt; 1006:        0.751        0.363        0.270        0.737                 0.458
-#&gt; 1007:        0.749        0.360        0.268        0.742                 0.398
-#&gt; 1008:        0.752        0.356        0.270        0.745                 0.373
-#&gt; 1009:        0.785        0.401        0.282        0.782                 0.294
-#&gt;       spend_19_nondurables spend_19_remoteservices spend_19_sgh spend_19_tws
-#&gt;    1:                   NA                      NA           NA           NA
-#&gt;    2:                   NA                      NA           NA           NA
-#&gt;    3:                   NA                      NA           NA           NA
-#&gt;    4:                   NA                      NA           NA           NA
-#&gt;    5:                   NA                      NA           NA           NA
-#&gt;   ---                                                                       
-#&gt; 1005:                0.450                   0.435        0.676        0.277
-#&gt; 1006:                0.446                   0.342        0.680        0.246
-#&gt; 1007:                0.445                   0.317        0.680        0.240
-#&gt; 1008:                0.444                   0.316        0.683        0.237
-#&gt; 1009:                0.485                   0.320        0.731        0.252
-#&gt;       spend_19_all_q4 spend_19_all_q1 spend_19_all_incmiddle spend_19_all_q2
-#&gt;    1:              NA              NA                     NA              NA
-#&gt;    2:              NA              NA                     NA              NA
-#&gt;    3:              NA              NA                     NA              NA
-#&gt;    4:              NA              NA                     NA              NA
-#&gt;    5:              NA              NA                     NA              NA
-#&gt;   ---                                                                       
-#&gt; 1005:           0.412           0.572                  0.482           0.484
-#&gt; 1006:           0.368           0.525                  0.441           0.443
-#&gt; 1007:           0.358           0.510                  0.431           0.433
-#&gt; 1008:           0.359           0.509                  0.431           0.433
-#&gt; 1009:           0.378           0.526                  0.447           0.452
-#&gt;       spend_19_all_q3 spend_aap_q1 spend_acf_q1 spend_aer_q1 spend_apg_q1
-#&gt;    1:              NA           NA           NA           NA           NA
-#&gt;    2:              NA           NA           NA           NA           NA
-#&gt;    3:              NA           NA           NA           NA           NA
-#&gt;    4:              NA           NA           NA           NA           NA
-#&gt;    5:              NA           NA           NA           NA           NA
-#&gt;   ---                                                                    
-#&gt; 1005:           0.480        0.337        0.155        0.120        0.402
-#&gt; 1006:           0.440        0.332        0.158        0.151        0.397
-#&gt; 1007:           0.430        0.332        0.167        0.187        0.402
-#&gt; 1008:           0.429        0.321        0.171        0.186        0.394
-#&gt; 1009:           0.444        0.351        0.189        0.142        0.405
-#&gt;       spend_durables_q1 spend_gen_q1 spend_grf_q1 spend_hcs_q1 spend_hic_q1
-#&gt;    1:                NA           NA           NA           NA           NA
-#&gt;    2:                NA           NA           NA           NA           NA
-#&gt;    3:                NA           NA           NA           NA           NA
-#&gt;    4:                NA           NA           NA           NA           NA
-#&gt;    5:                NA           NA           NA           NA           NA
-#&gt;   ---                                                                      
-#&gt; 1005:             0.304        0.460        0.171        0.129        0.368
-#&gt; 1006:             0.310        0.445        0.175        0.165        0.390
-#&gt; 1007:             0.313        0.453        0.183        0.174        0.385
-#&gt; 1008:             0.316        0.452        0.191        0.171        0.370
-#&gt; 1009:             0.337        0.449        0.209        0.141        0.416
-#&gt;       spend_inpersonmisc_q1 spend_nondurables_q1 spend_remoteservices_q1
-#&gt;    1:                    NA                   NA                      NA
-#&gt;    2:                    NA                   NA                      NA
-#&gt;    3:                    NA                   NA                      NA
-#&gt;    4:                    NA                   NA                      NA
-#&gt;    5:                    NA                   NA                      NA
-#&gt;   ---                                                                   
-#&gt; 1005:                 0.283                0.240                   0.225
-#&gt; 1006:                 0.297                0.239                   0.242
-#&gt; 1007:                 0.307                0.246                   0.253
-#&gt; 1008:                 0.322                0.250                   0.258
-#&gt; 1009:                 0.241                0.265                   0.220
-#&gt;       spend_sgh_q1 spend_tws_q1 spend_retail_no_grocery_q1
-#&gt;    1:           NA           NA                         NA
-#&gt;    2:           NA           NA                         NA
-#&gt;    3:           NA           NA                         NA
-#&gt;    4:           NA           NA                         NA
-#&gt;    5:           NA           NA                         NA
-#&gt;   ---                                                     
-#&gt; 1005:        0.395       0.0443                      0.355
-#&gt; 1006:        0.380       0.0513                      0.358
-#&gt; 1007:        0.397       0.0643                      0.364
-#&gt; 1008:        0.399       0.0756                      0.363
-#&gt; 1009:        0.385       0.0948                      0.375
-#&gt;       spend_retail_w_grocery_q1 spend_aap_q2 spend_acf_q2 spend_aer_q2
-#&gt;    1:                        NA           NA           NA           NA
-#&gt;    2:                        NA           NA           NA           NA
-#&gt;    3:                        NA           NA           NA           NA
-#&gt;    4:                        NA           NA           NA           NA
-#&gt;    5:                        NA           NA           NA           NA
-#&gt;   ---                                                                 
-#&gt; 1005:                     0.289        0.101        0.120     -0.00258
-#&gt; 1006:                     0.292        0.150        0.129      0.06570
-#&gt; 1007:                     0.299        0.153        0.135      0.12300
-#&gt; 1008:                     0.302        0.131        0.137      0.13200
-#&gt; 1009:                     0.316        0.179        0.151      0.03810
-#&gt;       spend_apg_q2 spend_durables_q2 spend_gen_q2 spend_grf_q2 spend_hcs_q2
-#&gt;    1:           NA                NA           NA           NA           NA
-#&gt;    2:           NA                NA           NA           NA           NA
-#&gt;    3:           NA                NA           NA           NA           NA
-#&gt;    4:           NA                NA           NA           NA           NA
-#&gt;    5:           NA                NA           NA           NA           NA
-#&gt;   ---                                                                      
-#&gt; 1005:        0.273             0.260        0.421        0.183       0.0992
-#&gt; 1006:        0.294             0.270        0.398        0.184       0.1540
-#&gt; 1007:        0.296             0.274        0.417        0.195       0.1650
-#&gt; 1008:        0.287             0.274        0.427        0.198       0.1550
-#&gt; 1009:        0.312             0.280        0.431        0.214       0.1270
-#&gt;       spend_hic_q2 spend_inpersonmisc_q2 spend_nondurables_q2
-#&gt;    1:           NA                    NA                   NA
-#&gt;    2:           NA                    NA                   NA
-#&gt;    3:           NA                    NA                   NA
-#&gt;    4:           NA                    NA                   NA
-#&gt;    5:           NA                    NA                   NA
-#&gt;   ---                                                        
-#&gt; 1005:        0.279                 0.189                0.204
-#&gt; 1006:        0.275                 0.207                0.205
-#&gt; 1007:        0.273                 0.209                0.217
-#&gt; 1008:        0.274                 0.227                0.219
-#&gt; 1009:        0.303                 0.163                0.240
-#&gt;       spend_remoteservices_q2 spend_sgh_q2 spend_tws_q2
-#&gt;    1:                      NA           NA           NA
-#&gt;    2:                      NA           NA           NA
-#&gt;    3:                      NA           NA           NA
-#&gt;    4:                      NA           NA           NA
-#&gt;    5:                      NA           NA           NA
-#&gt;   ---                                                  
-#&gt; 1005:                   0.146        0.405       0.0110
-#&gt; 1006:                   0.164        0.410       0.0188
-#&gt; 1007:                   0.179        0.416           NA
-#&gt; 1008:                   0.179        0.420           NA
-#&gt; 1009:                   0.144        0.456           NA
-#&gt;       spend_retail_no_grocery_q2 spend_retail_w_grocery_q2 spend_aap_q3
-#&gt;    1:                         NA                        NA           NA
-#&gt;    2:                         NA                        NA           NA
-#&gt;    3:                         NA                        NA           NA
-#&gt;    4:                         NA                        NA           NA
-#&gt;    5:                         NA                        NA           NA
-#&gt;   ---                                                                  
-#&gt; 1005:                      0.275                     0.244        0.228
-#&gt; 1006:                      0.280                     0.248        0.228
-#&gt; 1007:                      0.289                     0.257        0.223
-#&gt; 1008:                      0.288                     0.258        0.218
-#&gt; 1009:                      0.302                     0.273        0.263
-#&gt;       spend_acf_q3 spend_aer_q3 spend_apg_q3 spend_durables_q3 spend_gen_q3
-#&gt;    1:           NA           NA           NA                NA           NA
-#&gt;    2:           NA           NA           NA                NA           NA
-#&gt;    3:           NA           NA           NA                NA           NA
-#&gt;    4:           NA           NA           NA                NA           NA
-#&gt;    5:           NA           NA           NA                NA           NA
-#&gt;   ---                                                                      
-#&gt; 1005:        0.159       0.0384        0.309             0.296        0.362
-#&gt; 1006:        0.167       0.1120        0.309             0.309        0.387
-#&gt; 1007:        0.172       0.1480        0.310             0.321        0.399
-#&gt; 1008:        0.167       0.1640        0.310             0.318        0.401
-#&gt; 1009:        0.160       0.0593        0.333             0.313        0.403
-#&gt;       spend_grf_q3 spend_hcs_q3 spend_hic_q3 spend_inpersonmisc_q3
-#&gt;    1:           NA           NA           NA                    NA
-#&gt;    2:           NA           NA           NA                    NA
-#&gt;    3:           NA           NA           NA                    NA
-#&gt;    4:           NA           NA           NA                    NA
-#&gt;    5:           NA           NA           NA                    NA
-#&gt;   ---                                                             
-#&gt; 1005:        0.240        0.107        0.350                 0.197
-#&gt; 1006:        0.242        0.167        0.354                 0.206
-#&gt; 1007:        0.252        0.171        0.367                 0.219
-#&gt; 1008:        0.258        0.168        0.365                 0.235
-#&gt; 1009:        0.268        0.121        0.336                 0.140
-#&gt;       spend_nondurables_q3 spend_remoteservices_q3 spend_sgh_q3 spend_tws_q3
-#&gt;    1:                   NA                      NA           NA           NA
-#&gt;    2:                   NA                      NA           NA           NA
-#&gt;    3:                   NA                      NA           NA           NA
-#&gt;    4:                   NA                      NA           NA           NA
-#&gt;    5:                   NA                      NA           NA           NA
-#&gt;   ---                                                                       
-#&gt; 1005:                0.256                   0.198        0.467       0.0129
-#&gt; 1006:                0.263                   0.218        0.483       0.0164
-#&gt; 1007:                0.272                   0.228        0.486       0.0297
-#&gt; 1008:                0.275                   0.222        0.475       0.0414
-#&gt; 1009:                0.283                   0.172        0.470       0.0501
-#&gt;       spend_retail_no_grocery_q3 spend_retail_w_grocery_q3 spend_aap_q4
-#&gt;    1:                         NA                        NA           NA
-#&gt;    2:                         NA                        NA           NA
-#&gt;    3:                         NA                        NA           NA
-#&gt;    4:                         NA                        NA           NA
-#&gt;    5:                         NA                        NA           NA
-#&gt;   ---                                                                  
-#&gt; 1005:                      0.315                     0.292        0.203
-#&gt; 1006:                      0.328                     0.300        0.212
-#&gt; 1007:                      0.339                     0.311        0.228
-#&gt; 1008:                      0.339                     0.313        0.233
-#&gt; 1009:                      0.337                     0.315        0.259
-#&gt;       spend_acf_q4 spend_aer_q4 spend_apg_q4 spend_durables_q4 spend_gen_q4
-#&gt;    1:           NA           NA           NA                NA           NA
-#&gt;    2:           NA           NA           NA                NA           NA
-#&gt;    3:           NA           NA           NA                NA           NA
-#&gt;    4:           NA           NA           NA                NA           NA
-#&gt;    5:           NA           NA           NA                NA           NA
-#&gt;   ---                                                                      
-#&gt; 1005:        0.130      -0.0894        0.235             0.322        0.289
-#&gt; 1006:        0.138       0.0153        0.246             0.334        0.291
-#&gt; 1007:        0.141           NA        0.257             0.336        0.295
-#&gt; 1008:        0.143           NA        0.261             0.335        0.296
-#&gt; 1009:        0.139           NA        0.278             0.353        0.301
-#&gt;       spend_grf_q4 spend_hcs_q4 spend_hic_q4 spend_inpersonmisc_q4
-#&gt;    1:           NA           NA           NA                    NA
-#&gt;    2:           NA           NA           NA                    NA
-#&gt;    3:           NA           NA           NA                    NA
-#&gt;    4:           NA           NA           NA                    NA
-#&gt;    5:           NA           NA           NA                    NA
-#&gt;   ---                                                             
-#&gt; 1005:        0.298        0.185        0.414                 0.168
-#&gt; 1006:        0.298        0.214        0.442                 0.183
-#&gt; 1007:        0.307        0.235        0.409                 0.195
-#&gt; 1008:        0.307        0.236        0.411                 0.214
-#&gt; 1009:        0.323        0.186        0.436                 0.148
-#&gt;       spend_nondurables_q4 spend_remoteservices_q4 spend_sgh_q4 spend_tws_q4
-#&gt;    1:                   NA                      NA           NA           NA
-#&gt;    2:                   NA                      NA           NA           NA
-#&gt;    3:                   NA                      NA           NA           NA
-#&gt;    4:                   NA                      NA           NA           NA
-#&gt;    5:                   NA                      NA           NA           NA
-#&gt;   ---                                                                       
-#&gt; 1005:                0.267                   0.191        0.541     -0.04720
-#&gt; 1006:                0.269                   0.219        0.540     -0.03770
-#&gt; 1007:                0.278                   0.244        0.534     -0.02190
-#&gt; 1008:                0.279                   0.252        0.533     -0.00552
-#&gt; 1009:                0.290                   0.186        0.576     -0.00393
-#&gt;       spend_retail_no_grocery_q4 spend_retail_w_grocery_q4 spend_s_aap
-#&gt;    1:                         NA                        NA          NA
-#&gt;    2:                         NA                        NA          NA
-#&gt;    3:                         NA                        NA          NA
-#&gt;    4:                         NA                        NA          NA
-#&gt;    5:                         NA                        NA          NA
-#&gt;   ---                                                                 
-#&gt; 1005:                      0.311                     0.308       0.561
-#&gt; 1006:                      0.323                     0.315       0.564
-#&gt; 1007:                      0.327                     0.321       0.574
-#&gt; 1008:                      0.327                     0.322       0.581
-#&gt; 1009:                      0.337                     0.333       0.652
-#&gt;       spend_s_acf spend_s_aer spend_s_all spend_s_apg spend_s_durables
-#&gt;    1:          NA          NA          NA          NA               NA
-#&gt;    2:          NA          NA          NA          NA               NA
-#&gt;    3:          NA          NA          NA          NA               NA
-#&gt;    4:          NA          NA          NA          NA               NA
-#&gt;    5:          NA          NA          NA          NA               NA
-#&gt;   ---                                                                 
-#&gt; 1005:       0.363          NA       0.387       0.617            0.472
-#&gt; 1006:       0.366          NA       0.347       0.619            0.459
-#&gt; 1007:       0.370          NA       0.337       0.622            0.458
-#&gt; 1008:       0.375          NA       0.337       0.627            0.462
-#&gt; 1009:       0.400          NA       0.354       0.678            0.495
-#&gt;       spend_s_gen spend_s_grf spend_s_hcs spend_s_hic spend_s_inpersonmisc
-#&gt;    1:          NA          NA          NA          NA                   NA
-#&gt;    2:          NA          NA          NA          NA                   NA
-#&gt;    3:          NA          NA          NA          NA                   NA
-#&gt;    4:          NA          NA          NA          NA                   NA
-#&gt;    5:          NA          NA          NA          NA                   NA
-#&gt;   ---                                                                     
-#&gt; 1005:       0.667       0.321       0.203       0.681                0.548
-#&gt; 1006:       0.670       0.313       0.176       0.686                0.388
-#&gt; 1007:       0.668       0.310       0.173       0.691                0.331
-#&gt; 1008:       0.671       0.306       0.175       0.695                0.308
-#&gt; 1009:       0.702       0.350       0.186       0.730                0.232
-#&gt;       spend_s_nondurables spend_s_remoteservices spend_s_sgh spend_s_tws
-#&gt;    1:                  NA                     NA          NA          NA
-#&gt;    2:                  NA                     NA          NA          NA
-#&gt;    3:                  NA                     NA          NA          NA
-#&gt;    4:                  NA                     NA          NA          NA
-#&gt;    5:                  NA                     NA          NA          NA
-#&gt;   ---                                                                   
-#&gt; 1005:               0.398                  0.335       0.636       0.187
-#&gt; 1006:               0.394                  0.246       0.640       0.157
-#&gt; 1007:               0.393                  0.223       0.641       0.152
-#&gt; 1008:               0.392                  0.222       0.643       0.149
-#&gt; 1009:               0.431                  0.226       0.690       0.163
-#&gt;       spend_s_all_incmiddle spend_s_all_q1 spend_s_all_q2 spend_s_all_q3
-#&gt;    1:                    NA             NA             NA             NA
-#&gt;    2:                    NA             NA             NA             NA
-#&gt;    3:                    NA             NA             NA             NA
-#&gt;    4:                    NA             NA             NA             NA
-#&gt;    5:                    NA             NA             NA             NA
-#&gt;   ---                                                                   
-#&gt; 1005:                 0.385          0.455          0.377          0.392
-#&gt; 1006:                 0.346          0.410          0.338          0.353
-#&gt; 1007:                 0.337          0.397          0.329          0.344
-#&gt; 1008:                 0.337          0.395          0.329          0.344
-#&gt; 1009:                 0.353          0.412          0.347          0.357
-#&gt;       spend_s_all_q4 spend_s_retail_no_grocery spend_s_retail_w_grocery
-#&gt;    1:             NA                        NA                       NA
-#&gt;    2:             NA                        NA                       NA
-#&gt;    3:             NA                        NA                       NA
-#&gt;    4:             NA                        NA                       NA
-#&gt;    5:             NA                        NA                       NA
-#&gt;   ---                                                                  
-#&gt; 1005:          0.358                     0.505                    0.444
-#&gt; 1006:          0.316                     0.495                    0.435
-#&gt; 1007:          0.307                     0.494                    0.433
-#&gt; 1008:          0.308                     0.498                    0.435
-#&gt; 1009:          0.326                     0.532                    0.471
-#&gt;       spend_19_retail_no_grocery spend_19_retail_w_grocery provisional
-#&gt;    1:                         NA                        NA           0
-#&gt;    2:                         NA                        NA           0
-#&gt;    3:                         NA                        NA           0
-#&gt;    4:                         NA                        NA           0
-#&gt;    5:                         NA                        NA           0
-#&gt;   ---                                                                 
-#&gt; 1005:                      0.577                     0.509           1
-#&gt; 1006:                      0.566                     0.499           1
-#&gt; 1007:                      0.566                     0.498           1
-#&gt; 1008:                      0.570                     0.499           1
-#&gt; 1009:                      0.605                     0.537           1
-#&gt;             date
-#&gt;    1: 2019-01-07
-#&gt;    2: 2019-01-08
-#&gt;    3: 2019-01-09
-#&gt;    4: 2019-01-10
-#&gt;    5: 2019-01-11
-#&gt;   ---           
-#&gt; 1005: 2021-10-07
-#&gt; 1006: 2021-10-08
-#&gt; 1007: 2021-10-09
-#&gt; 1008: 2021-10-10
-#&gt; 1009: 2021-10-17</div><div class='input'>
-</div></pre>
+    <pre class="examples"><span class='r-in'><span class='va'>res</span> <span class='op'>=</span> <span class='fu'>econ_tracker_consumer_spending_city_data</span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>res</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>        cityid    cityname stateabbrev  statename statefips   lat     lon</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     1:      1 Los Angeles          CA California     00006 34.05 -118.24</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     2:      1 Los Angeles          CA California     00006 34.05 -118.24</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     3:      1 Los Angeles          CA California     00006 34.05 -118.24</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     4:      1 Los Angeles          CA California     00006 34.05 -118.24</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     5:      1 Los Angeles          CA California     00006 34.05 -118.24</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    ---                                                                  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 33146:     53       Tulsa          OK   Oklahoma     00040 36.15  -95.99</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 33147:     53       Tulsa          OK   Oklahoma     00040 36.15  -95.99</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 33148:     53       Tulsa          OK   Oklahoma     00040 36.15  -95.99</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 33149:     53       Tulsa          OK   Oklahoma     00040 36.15  -95.99</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 33150:     53       Tulsa          OK   Oklahoma     00040 36.15  -95.99</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>        city_pop2019 freq spend_all spend_aap spend_acf spend_aer spend_apg</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     1:     10039107    d        NA        NA        NA        NA        NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     2:     10039107    d        NA        NA        NA        NA        NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     3:     10039107    d        NA        NA        NA        NA        NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     4:     10039107    d        NA        NA        NA        NA        NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     5:     10039107    d        NA        NA        NA        NA        NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    ---                                                                    </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 33146:       651552    d     0.214   0.00930     0.215    0.1160     0.252</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 33147:       651552    d     0.233   0.01840     0.273    0.2270     0.274</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 33148:       651552    d     0.203   0.00412     0.198    0.0798     0.271</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 33149:       651552    d     0.243   0.02560     0.202    0.1100     0.272</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 33150:       651552    w     0.175   0.10500     0.150    0.0502     0.296</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>        spend_durables spend_nondurables spend_grf spend_gen spend_hic spend_hcs</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     1:             NA                NA        NA        NA        NA        NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     2:             NA                NA        NA        NA        NA        NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     3:             NA                NA        NA        NA        NA        NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     4:             NA                NA        NA        NA        NA        NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     5:             NA                NA        NA        NA        NA        NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    ---                                                                         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 33146:          0.237            0.0545    0.0381     0.359   0.05870    0.0811</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 33147:          0.256            0.0468    0.0541     0.280  -0.08180    0.1240</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 33148:          0.256            0.0718    0.0449     0.366  -0.01820    0.1170</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 33149:          0.292            0.1210    0.0485     0.488   0.00514    0.1100</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 33150:          0.253            0.1280    0.0921     0.469        NA    0.1180</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>        spend_inpersonmisc spend_remoteservices spend_sgh spend_tws</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     1:                 NA                   NA        NA        NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     2:                 NA                   NA        NA        NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     3:                 NA                   NA        NA        NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     4:                 NA                   NA        NA        NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     5:                 NA                   NA        NA        NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    ---                                                            </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 33146:                 NA                0.307        NA        NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 33147:                 NA                0.444        NA        NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 33148:                 NA                0.414        NA        NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 33149:                 NA                0.422        NA        NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 33150:                 NA                0.212        NA        NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>        spend_retail_w_grocery spend_retail_no_grocery provisional       date</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     1:                     NA                      NA           0 2020-01-01</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     2:                     NA                      NA           0 2020-01-02</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     3:                     NA                      NA           0 2020-01-03</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     4:                     NA                      NA           0 2020-01-04</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     5:                     NA                      NA           0 2020-01-05</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    ---                                                                      </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 33146:                  0.116                   0.185           1 2021-10-07</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 33147:                  0.123                   0.189           1 2021-10-08</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 33148:                  0.139                   0.217           1 2021-10-09</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 33149:                  0.183                   0.281           1 2021-10-10</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 33150:                  0.182                   0.247           1 2021-10-17</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='va'>res</span> <span class='op'>=</span> <span class='fu'>econ_tracker_consumer_spending_county_data</span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>res</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>          countyfips countyname cityid cityname    cz     czname statename</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       1:      01001    Autauga     NA          11101 Montgomery   Alabama</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       2:      01001    Autauga     NA          11101 Montgomery   Alabama</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       3:      01001    Autauga     NA          11101 Montgomery   Alabama</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       4:      01001    Autauga     NA          11101 Montgomery   Alabama</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       5:      01001    Autauga     NA          11101 Montgomery   Alabama</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      ---                                                                 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1104934:      56045     Weston     NA          34601   Gillette   Wyoming</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1104935:      56045     Weston     NA          34601   Gillette   Wyoming</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1104936:      56045     Weston     NA          34601   Gillette   Wyoming</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1104937:      56045     Weston     NA          34601   Gillette   Wyoming</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1104938:      56045     Weston     NA          34601   Gillette   Wyoming</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>          statefips stateabbrev county_pop2019 freq spend_all provisional</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       1:     00001          AL          55869    d        NA           0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       2:     00001          AL          55869    d        NA           0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       3:     00001          AL          55869    d        NA           0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       4:     00001          AL          55869    d        NA           0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       5:     00001          AL          55869    d        NA           0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      ---                                                                </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1104934:     00056          WY           6927    d     0.148           0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1104935:     00056          WY           6927    d     0.130           0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1104936:     00056          WY           6927    d     0.241           0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1104937:     00056          WY           6927    d     0.264           0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1104938:     00056          WY           6927    w     0.106           0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                date</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       1: 2020-01-01</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       2: 2020-01-02</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       3: 2020-01-03</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       4: 2020-01-04</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       5: 2020-01-05</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      ---           </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1104934: 2021-10-07</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1104935: 2021-10-08</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1104936: 2021-10-09</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1104937: 2021-10-10</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1104938: 2021-10-17</span>
+<span class='r-in'></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='va'>res</span> <span class='op'>=</span> <span class='fu'>econ_tracker_consumer_spending_state_data</span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>res</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>        statefips statename stateabbrev state_pop2019 freq spend_all spend_aap</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     1:     00001   Alabama          AL       4903185    d        NA        NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     2:     00001   Alabama          AL       4903185    d        NA        NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     3:     00001   Alabama          AL       4903185    d        NA        NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     4:     00001   Alabama          AL       4903185    d        NA        NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     5:     00001   Alabama          AL       4903185    d        NA        NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    ---                                                                       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 33146:     00056   Wyoming          WY        578759    d     0.170   -0.0627</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 33147:     00056   Wyoming          WY        578759    d     0.161   -0.0601</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 33148:     00056   Wyoming          WY        578759    d     0.183   -0.0199</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 33149:     00056   Wyoming          WY        578759    d     0.197   -0.0333</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 33150:     00056   Wyoming          WY        578759    w     0.190    0.1750</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>        spend_acf spend_aer spend_apg spend_durables spend_nondurables spend_grf</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     1:        NA        NA        NA             NA                NA        NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     2:        NA        NA        NA             NA                NA        NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     3:        NA        NA        NA             NA                NA        NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     4:        NA        NA        NA             NA                NA        NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     5:        NA        NA        NA             NA                NA        NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    ---                                                                         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 33146:        NA     0.231     0.336          0.233             0.136    0.0475</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 33147:        NA     0.544     0.357          0.244             0.138    0.0329</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 33148:        NA     0.410     0.361          0.254             0.146    0.0431</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 33149:        NA     0.523     0.345          0.273             0.164    0.0698</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 33150:        NA     0.235     0.489          0.244             0.238    0.1470</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>        spend_gen spend_hic spend_hcs spend_inpersonmisc spend_remoteservices</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     1:        NA        NA        NA                 NA                   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     2:        NA        NA        NA                 NA                   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     3:        NA        NA        NA                 NA                   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     4:        NA        NA        NA                 NA                   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     5:        NA        NA        NA                 NA                   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    ---                                                                      </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 33146:     0.764     0.142        NA              0.110                0.243</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 33147:     0.840     0.122        NA              0.220                0.214</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 33148:     0.805     0.161        NA              0.235                0.230</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 33149:     0.794     0.238        NA              0.209                0.246</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 33150:     0.854     0.171        NA              0.118                0.224</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>        spend_sgh spend_tws spend_retail_w_grocery spend_retail_no_grocery</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     1:        NA        NA                     NA                      NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     2:        NA        NA                     NA                      NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     3:        NA        NA                     NA                      NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     4:        NA        NA                     NA                      NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     5:        NA        NA                     NA                      NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    ---                                                                   </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 33146:     0.524    0.1340                  0.164                   0.239</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 33147:     0.614    0.0831                  0.166                   0.253</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 33148:     0.482    0.0983                  0.178                   0.266</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 33149:     0.397    0.1220                  0.199                   0.281</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 33150:     0.399    0.1750                  0.223                   0.270</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>        spend_all_incmiddle spend_all_q1 spend_all_q2 spend_all_q3 spend_all_q4</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     1:                  NA           NA           NA           NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     2:                  NA           NA           NA           NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     3:                  NA           NA           NA           NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     4:                  NA           NA           NA           NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     5:                  NA           NA           NA           NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    ---                                                                        </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 33146:               0.157        0.113        0.172        0.146        0.293</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 33147:               0.139        0.155        0.149        0.132        0.286</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 33148:               0.161        0.165        0.173        0.151        0.305</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 33149:               0.175        0.174        0.189        0.164        0.323</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 33150:               0.177        0.221        0.170        0.182        0.249</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>        provisional       date</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     1:           0 2020-01-01</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     2:           0 2020-01-02</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     3:           0 2020-01-03</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     4:           0 2020-01-04</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     5:           0 2020-01-05</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    ---                       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 33146:           1 2021-10-07</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 33147:           1 2021-10-08</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 33148:           1 2021-10-09</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 33149:           1 2021-10-10</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 33150:           1 2021-10-17</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='va'>res</span> <span class='op'>=</span> <span class='fu'>econ_tracker_consumer_spending_national_data</span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>res</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       freq spend_all spend_aap spend_acf spend_aer spend_apg spend_durables</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    1:    d        NA        NA        NA        NA        NA             NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    2:    d        NA        NA        NA        NA        NA             NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    3:    d        NA        NA        NA        NA        NA             NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    4:    d        NA        NA        NA        NA        NA             NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    5:    d        NA        NA        NA        NA        NA             NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   ---                                                                      </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1005:    d     0.218     0.215     0.144  -0.00497     0.296          0.306</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1006:    d     0.228     0.225     0.151   0.08320     0.303          0.316</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1007:    d     0.240     0.231     0.155   0.12800     0.309          0.321</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1008:    d     0.242     0.227     0.156   0.14300     0.307          0.321</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1009:    w     0.230     0.264     0.159   0.02520     0.328          0.330</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       spend_nondurables spend_grf spend_gen spend_hic spend_hcs</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    1:                NA        NA        NA        NA        NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    2:                NA        NA        NA        NA        NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    3:                NA        NA        NA        NA        NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    4:                NA        NA        NA        NA        NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    5:                NA        NA        NA        NA        NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   ---                                                          </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1005:             0.249     0.234     0.375     0.364     0.141</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1006:             0.254     0.236     0.384     0.376     0.195</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1007:             0.262     0.246     0.389     0.371     0.205</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1008:             0.264     0.249     0.389     0.369     0.200</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1009:             0.277     0.264     0.392     0.385     0.156</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       spend_inpersonmisc spend_remoteservices spend_sgh spend_tws</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    1:                 NA                   NA        NA        NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    2:                 NA                   NA        NA        NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    3:                 NA                   NA        NA        NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    4:                 NA                   NA        NA        NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    5:                 NA                   NA        NA        NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   ---                                                            </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1005:              0.204                0.192     0.477   0.00192</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1006:              0.218                0.220     0.472   0.00927</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1007:              0.228                0.236     0.473   0.02410</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1008:              0.246                0.237     0.477   0.03660</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1009:              0.168                0.188     0.500   0.04450</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       spend_retail_w_grocery spend_retail_no_grocery spend_all_incmiddle</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    1:                     NA                      NA                  NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    2:                     NA                      NA                  NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    3:                     NA                      NA                  NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    4:                     NA                      NA                  NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    5:                     NA                      NA                  NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   ---                                                                   </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1005:                  0.291                   0.317               0.212</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1006:                  0.298                   0.327               0.221</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1007:                  0.306                   0.334               0.233</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1008:                  0.307                   0.333               0.233</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1009:                  0.317                   0.342               0.222</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       spend_all_q1 spend_all_q2 spend_all_q3 spend_all_q4 spend_19_aap</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    1:           NA           NA           NA           NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    2:           NA           NA           NA           NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    3:           NA           NA           NA           NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    4:           NA           NA           NA           NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    5:           NA           NA           NA           NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   ---                                                                 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1005:        0.244        0.193        0.228        0.210        0.603</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1006:        0.250        0.201        0.239        0.224        0.606</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1007:        0.260        0.212        0.250        0.237        0.616</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1008:        0.264        0.212        0.251        0.241        0.623</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1009:        0.263        0.207        0.234        0.224        0.696</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       spend_19_acf spend_19_aer spend_19_all spend_19_apg spend_19_durables</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    1:           NA           NA           NA           NA                NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    2:           NA           NA           NA           NA                NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    3:           NA           NA           NA           NA                NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    4:           NA           NA           NA           NA                NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    5:           NA           NA           NA           NA                NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   ---                                                                      </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1005:        0.475        0.514        0.471        0.678             0.555</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1006:        0.479        0.359        0.429        0.681             0.542</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1007:        0.483        0.343        0.419        0.684             0.541</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1008:        0.489        0.375        0.419        0.689             0.545</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1009:        0.516        0.382        0.436        0.742             0.579</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       spend_19_gen spend_19_grf spend_19_hcs spend_19_hic spend_19_inpersonmisc</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    1:           NA           NA           NA           NA                    NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    2:           NA           NA           NA           NA                    NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    3:           NA           NA           NA           NA                    NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    4:           NA           NA           NA           NA                    NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    5:           NA           NA           NA           NA                    NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   ---                                                                          </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1005:        0.748        0.371        0.299        0.732                 0.625</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1006:        0.751        0.363        0.270        0.737                 0.458</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1007:        0.749        0.360        0.268        0.742                 0.398</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1008:        0.752        0.356        0.270        0.745                 0.373</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1009:        0.785        0.401        0.282        0.782                 0.294</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       spend_19_nondurables spend_19_remoteservices spend_19_sgh spend_19_tws</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    1:                   NA                      NA           NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    2:                   NA                      NA           NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    3:                   NA                      NA           NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    4:                   NA                      NA           NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    5:                   NA                      NA           NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   ---                                                                       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1005:                0.450                   0.435        0.676        0.277</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1006:                0.446                   0.342        0.680        0.246</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1007:                0.445                   0.317        0.680        0.240</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1008:                0.444                   0.316        0.683        0.237</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1009:                0.485                   0.320        0.731        0.252</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       spend_19_all_q4 spend_19_all_q1 spend_19_all_incmiddle spend_19_all_q2</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    1:              NA              NA                     NA              NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    2:              NA              NA                     NA              NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    3:              NA              NA                     NA              NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    4:              NA              NA                     NA              NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    5:              NA              NA                     NA              NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   ---                                                                       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1005:           0.412           0.572                  0.482           0.484</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1006:           0.368           0.525                  0.441           0.443</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1007:           0.358           0.510                  0.431           0.433</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1008:           0.359           0.509                  0.431           0.433</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1009:           0.378           0.526                  0.447           0.452</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       spend_19_all_q3 spend_aap_q1 spend_acf_q1 spend_aer_q1 spend_apg_q1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    1:              NA           NA           NA           NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    2:              NA           NA           NA           NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    3:              NA           NA           NA           NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    4:              NA           NA           NA           NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    5:              NA           NA           NA           NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   ---                                                                    </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1005:           0.480        0.337        0.155        0.120        0.402</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1006:           0.440        0.332        0.158        0.151        0.397</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1007:           0.430        0.332        0.167        0.187        0.402</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1008:           0.429        0.321        0.171        0.186        0.394</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1009:           0.444        0.351        0.189        0.142        0.405</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       spend_durables_q1 spend_gen_q1 spend_grf_q1 spend_hcs_q1 spend_hic_q1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    1:                NA           NA           NA           NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    2:                NA           NA           NA           NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    3:                NA           NA           NA           NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    4:                NA           NA           NA           NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    5:                NA           NA           NA           NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   ---                                                                      </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1005:             0.304        0.460        0.171        0.129        0.368</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1006:             0.310        0.445        0.175        0.165        0.390</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1007:             0.313        0.453        0.183        0.174        0.385</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1008:             0.316        0.452        0.191        0.171        0.370</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1009:             0.337        0.449        0.209        0.141        0.416</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       spend_inpersonmisc_q1 spend_nondurables_q1 spend_remoteservices_q1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    1:                    NA                   NA                      NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    2:                    NA                   NA                      NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    3:                    NA                   NA                      NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    4:                    NA                   NA                      NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    5:                    NA                   NA                      NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   ---                                                                   </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1005:                 0.283                0.240                   0.225</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1006:                 0.297                0.239                   0.242</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1007:                 0.307                0.246                   0.253</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1008:                 0.322                0.250                   0.258</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1009:                 0.241                0.265                   0.220</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       spend_sgh_q1 spend_tws_q1 spend_retail_no_grocery_q1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    1:           NA           NA                         NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    2:           NA           NA                         NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    3:           NA           NA                         NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    4:           NA           NA                         NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    5:           NA           NA                         NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   ---                                                     </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1005:        0.395       0.0443                      0.355</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1006:        0.380       0.0513                      0.358</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1007:        0.397       0.0643                      0.364</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1008:        0.399       0.0756                      0.363</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1009:        0.385       0.0948                      0.375</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       spend_retail_w_grocery_q1 spend_aap_q2 spend_acf_q2 spend_aer_q2</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    1:                        NA           NA           NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    2:                        NA           NA           NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    3:                        NA           NA           NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    4:                        NA           NA           NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    5:                        NA           NA           NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   ---                                                                 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1005:                     0.289        0.101        0.120     -0.00258</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1006:                     0.292        0.150        0.129      0.06570</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1007:                     0.299        0.153        0.135      0.12300</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1008:                     0.302        0.131        0.137      0.13200</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1009:                     0.316        0.179        0.151      0.03810</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       spend_apg_q2 spend_durables_q2 spend_gen_q2 spend_grf_q2 spend_hcs_q2</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    1:           NA                NA           NA           NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    2:           NA                NA           NA           NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    3:           NA                NA           NA           NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    4:           NA                NA           NA           NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    5:           NA                NA           NA           NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   ---                                                                      </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1005:        0.273             0.260        0.421        0.183       0.0992</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1006:        0.294             0.270        0.398        0.184       0.1540</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1007:        0.296             0.274        0.417        0.195       0.1650</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1008:        0.287             0.274        0.427        0.198       0.1550</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1009:        0.312             0.280        0.431        0.214       0.1270</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       spend_hic_q2 spend_inpersonmisc_q2 spend_nondurables_q2</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    1:           NA                    NA                   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    2:           NA                    NA                   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    3:           NA                    NA                   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    4:           NA                    NA                   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    5:           NA                    NA                   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   ---                                                        </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1005:        0.279                 0.189                0.204</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1006:        0.275                 0.207                0.205</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1007:        0.273                 0.209                0.217</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1008:        0.274                 0.227                0.219</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1009:        0.303                 0.163                0.240</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       spend_remoteservices_q2 spend_sgh_q2 spend_tws_q2</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    1:                      NA           NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    2:                      NA           NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    3:                      NA           NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    4:                      NA           NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    5:                      NA           NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   ---                                                  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1005:                   0.146        0.405       0.0110</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1006:                   0.164        0.410       0.0188</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1007:                   0.179        0.416           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1008:                   0.179        0.420           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1009:                   0.144        0.456           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       spend_retail_no_grocery_q2 spend_retail_w_grocery_q2 spend_aap_q3</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    1:                         NA                        NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    2:                         NA                        NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    3:                         NA                        NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    4:                         NA                        NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    5:                         NA                        NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   ---                                                                  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1005:                      0.275                     0.244        0.228</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1006:                      0.280                     0.248        0.228</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1007:                      0.289                     0.257        0.223</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1008:                      0.288                     0.258        0.218</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1009:                      0.302                     0.273        0.263</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       spend_acf_q3 spend_aer_q3 spend_apg_q3 spend_durables_q3 spend_gen_q3</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    1:           NA           NA           NA                NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    2:           NA           NA           NA                NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    3:           NA           NA           NA                NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    4:           NA           NA           NA                NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    5:           NA           NA           NA                NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   ---                                                                      </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1005:        0.159       0.0384        0.309             0.296        0.362</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1006:        0.167       0.1120        0.309             0.309        0.387</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1007:        0.172       0.1480        0.310             0.321        0.399</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1008:        0.167       0.1640        0.310             0.318        0.401</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1009:        0.160       0.0593        0.333             0.313        0.403</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       spend_grf_q3 spend_hcs_q3 spend_hic_q3 spend_inpersonmisc_q3</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    1:           NA           NA           NA                    NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    2:           NA           NA           NA                    NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    3:           NA           NA           NA                    NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    4:           NA           NA           NA                    NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    5:           NA           NA           NA                    NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   ---                                                             </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1005:        0.240        0.107        0.350                 0.197</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1006:        0.242        0.167        0.354                 0.206</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1007:        0.252        0.171        0.367                 0.219</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1008:        0.258        0.168        0.365                 0.235</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1009:        0.268        0.121        0.336                 0.140</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       spend_nondurables_q3 spend_remoteservices_q3 spend_sgh_q3 spend_tws_q3</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    1:                   NA                      NA           NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    2:                   NA                      NA           NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    3:                   NA                      NA           NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    4:                   NA                      NA           NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    5:                   NA                      NA           NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   ---                                                                       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1005:                0.256                   0.198        0.467       0.0129</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1006:                0.263                   0.218        0.483       0.0164</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1007:                0.272                   0.228        0.486       0.0297</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1008:                0.275                   0.222        0.475       0.0414</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1009:                0.283                   0.172        0.470       0.0501</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       spend_retail_no_grocery_q3 spend_retail_w_grocery_q3 spend_aap_q4</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    1:                         NA                        NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    2:                         NA                        NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    3:                         NA                        NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    4:                         NA                        NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    5:                         NA                        NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   ---                                                                  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1005:                      0.315                     0.292        0.203</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1006:                      0.328                     0.300        0.212</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1007:                      0.339                     0.311        0.228</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1008:                      0.339                     0.313        0.233</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1009:                      0.337                     0.315        0.259</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       spend_acf_q4 spend_aer_q4 spend_apg_q4 spend_durables_q4 spend_gen_q4</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    1:           NA           NA           NA                NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    2:           NA           NA           NA                NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    3:           NA           NA           NA                NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    4:           NA           NA           NA                NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    5:           NA           NA           NA                NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   ---                                                                      </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1005:        0.130      -0.0894        0.235             0.322        0.289</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1006:        0.138       0.0153        0.246             0.334        0.291</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1007:        0.141           NA        0.257             0.336        0.295</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1008:        0.143           NA        0.261             0.335        0.296</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1009:        0.139           NA        0.278             0.353        0.301</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       spend_grf_q4 spend_hcs_q4 spend_hic_q4 spend_inpersonmisc_q4</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    1:           NA           NA           NA                    NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    2:           NA           NA           NA                    NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    3:           NA           NA           NA                    NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    4:           NA           NA           NA                    NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    5:           NA           NA           NA                    NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   ---                                                             </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1005:        0.298        0.185        0.414                 0.168</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1006:        0.298        0.214        0.442                 0.183</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1007:        0.307        0.235        0.409                 0.195</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1008:        0.307        0.236        0.411                 0.214</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1009:        0.323        0.186        0.436                 0.148</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       spend_nondurables_q4 spend_remoteservices_q4 spend_sgh_q4 spend_tws_q4</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    1:                   NA                      NA           NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    2:                   NA                      NA           NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    3:                   NA                      NA           NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    4:                   NA                      NA           NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    5:                   NA                      NA           NA           NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   ---                                                                       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1005:                0.267                   0.191        0.541     -0.04720</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1006:                0.269                   0.219        0.540     -0.03770</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1007:                0.278                   0.244        0.534     -0.02190</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1008:                0.279                   0.252        0.533     -0.00552</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1009:                0.290                   0.186        0.576     -0.00393</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       spend_retail_no_grocery_q4 spend_retail_w_grocery_q4 spend_s_aap</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    1:                         NA                        NA          NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    2:                         NA                        NA          NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    3:                         NA                        NA          NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    4:                         NA                        NA          NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    5:                         NA                        NA          NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   ---                                                                 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1005:                      0.311                     0.308       0.561</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1006:                      0.323                     0.315       0.564</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1007:                      0.327                     0.321       0.574</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1008:                      0.327                     0.322       0.581</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1009:                      0.337                     0.333       0.652</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       spend_s_acf spend_s_aer spend_s_all spend_s_apg spend_s_durables</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    1:          NA          NA          NA          NA               NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    2:          NA          NA          NA          NA               NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    3:          NA          NA          NA          NA               NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    4:          NA          NA          NA          NA               NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    5:          NA          NA          NA          NA               NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   ---                                                                 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1005:       0.363          NA       0.387       0.617            0.472</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1006:       0.366          NA       0.347       0.619            0.459</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1007:       0.370          NA       0.337       0.622            0.458</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1008:       0.375          NA       0.337       0.627            0.462</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1009:       0.400          NA       0.354       0.678            0.495</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       spend_s_gen spend_s_grf spend_s_hcs spend_s_hic spend_s_inpersonmisc</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    1:          NA          NA          NA          NA                   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    2:          NA          NA          NA          NA                   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    3:          NA          NA          NA          NA                   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    4:          NA          NA          NA          NA                   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    5:          NA          NA          NA          NA                   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   ---                                                                     </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1005:       0.667       0.321       0.203       0.681                0.548</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1006:       0.670       0.313       0.176       0.686                0.388</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1007:       0.668       0.310       0.173       0.691                0.331</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1008:       0.671       0.306       0.175       0.695                0.308</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1009:       0.702       0.350       0.186       0.730                0.232</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       spend_s_nondurables spend_s_remoteservices spend_s_sgh spend_s_tws</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    1:                  NA                     NA          NA          NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    2:                  NA                     NA          NA          NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    3:                  NA                     NA          NA          NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    4:                  NA                     NA          NA          NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    5:                  NA                     NA          NA          NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   ---                                                                   </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1005:               0.398                  0.335       0.636       0.187</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1006:               0.394                  0.246       0.640       0.157</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1007:               0.393                  0.223       0.641       0.152</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1008:               0.392                  0.222       0.643       0.149</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1009:               0.431                  0.226       0.690       0.163</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       spend_s_all_incmiddle spend_s_all_q1 spend_s_all_q2 spend_s_all_q3</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    1:                    NA             NA             NA             NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    2:                    NA             NA             NA             NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    3:                    NA             NA             NA             NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    4:                    NA             NA             NA             NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    5:                    NA             NA             NA             NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   ---                                                                   </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1005:                 0.385          0.455          0.377          0.392</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1006:                 0.346          0.410          0.338          0.353</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1007:                 0.337          0.397          0.329          0.344</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1008:                 0.337          0.395          0.329          0.344</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1009:                 0.353          0.412          0.347          0.357</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       spend_s_all_q4 spend_s_retail_no_grocery spend_s_retail_w_grocery</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    1:             NA                        NA                       NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    2:             NA                        NA                       NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    3:             NA                        NA                       NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    4:             NA                        NA                       NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    5:             NA                        NA                       NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   ---                                                                  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1005:          0.358                     0.505                    0.444</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1006:          0.316                     0.495                    0.435</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1007:          0.307                     0.494                    0.433</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1008:          0.308                     0.498                    0.435</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1009:          0.326                     0.532                    0.471</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       spend_19_retail_no_grocery spend_19_retail_w_grocery provisional</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    1:                         NA                        NA           0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    2:                         NA                        NA           0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    3:                         NA                        NA           0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    4:                         NA                        NA           0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    5:                         NA                        NA           0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   ---                                                                 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1005:                      0.577                     0.509           1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1006:                      0.566                     0.499           1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1007:                      0.566                     0.498           1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1008:                      0.570                     0.499           1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1009:                      0.605                     0.537           1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>             date</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    1: 2019-01-07</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    2: 2019-01-08</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    3: 2019-01-09</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    4: 2019-01-10</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    5: 2019-01-11</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   ---           </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1005: 2021-10-07</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1006: 2021-10-08</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1007: 2021-10-09</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1008: 2021-10-10</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1009: 2021-10-17</span>
+<span class='r-in'></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

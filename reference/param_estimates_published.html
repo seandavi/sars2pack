@@ -210,136 +210,141 @@ estimate, see the actual dataset items.</p>
 <code><a href='who_cases.html'>who_cases</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://dplyr.tidyverse.org'>dplyr</a></span><span class='op'>)</span>
-<span class='va'>params</span> <span class='op'>=</span> <span class='fu'>param_estimates_published</span><span class='op'>(</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>params</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;  [1] "id"                   "peer_review"          "peer_review_location"
-#&gt;  [4] "name"                 "abbreviation"         "units"               
-#&gt;  [7] "country"              "location_name"        "location_type"       
-#&gt; [10] "start_date"           "end_date"             "value_type"          
-#&gt; [13] "value"                "uncertainty_type"     "lower_bound"         
-#&gt; [16] "upper_bound"          "population"           "age_range"           
-#&gt; [19] "method_description"   "data_description"     "data_URL"            
-#&gt; [22] "date_publication"     "title_publication"    "type_publication"    
-#&gt; [25] "authors"              "publication_URL"      "entry_date"          
-#&gt; [28] "entry_person"         "entry_email"         </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>params</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 6 × 29</span>
-#&gt;   id     peer_review peer_review_location name        abbreviation units country
-#&gt;   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>  <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>       <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>                <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>       <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>        <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>  
-#&gt; <span style='color: #BCBCBC;'>1</span> covid1 <span style='color: #BB0000;'>NA</span>          <span style='color: #BB0000;'>NA</span>                   cumulative… <span style='color: #BB0000;'>NA</span>           pers… China  
-#&gt; <span style='color: #BCBCBC;'>2</span> covid2 <span style='color: #BB0000;'>NA</span>          MedRxiv              cumulative… <span style='color: #BB0000;'>NA</span>           pers… China  
-#&gt; <span style='color: #BCBCBC;'>3</span> covid3 <span style='color: #BB0000;'>NA</span>          <span style='color: #BB0000;'>NA</span>                   date of em… <span style='color: #BB0000;'>NA</span>           <span style='color: #BB0000;'>NA</span>    China  
-#&gt; <span style='color: #BCBCBC;'>4</span> covid4 positive    Eurosurveillance     basic repr… R0           Nb    China  
-#&gt; <span style='color: #BCBCBC;'>5</span> covid5 <span style='color: #BB0000;'>NA</span>          BioRxiv              basic repr… R0           Nb    China  
-#&gt; <span style='color: #BCBCBC;'>6</span> covid6 <span style='color: #BB0000;'>NA</span>          <span style='color: #BB0000;'>NA</span>                   basic repr… R0           Nb    China  
-#&gt; <span style='color: #949494;'># … with 22 more variables: location_name &lt;chr&gt;, location_type &lt;chr&gt;,</span>
-#&gt; <span style='color: #949494;'>#   start_date &lt;date&gt;, end_date &lt;date&gt;, value_type &lt;chr&gt;, value &lt;chr&gt;,</span>
-#&gt; <span style='color: #949494;'>#   uncertainty_type &lt;chr&gt;, lower_bound &lt;chr&gt;, upper_bound &lt;chr&gt;,</span>
-#&gt; <span style='color: #949494;'>#   population &lt;chr&gt;, age_range &lt;chr&gt;, method_description &lt;chr&gt;,</span>
-#&gt; <span style='color: #949494;'>#   data_description &lt;chr&gt;, data_URL &lt;chr&gt;, date_publication &lt;date&gt;,</span>
-#&gt; <span style='color: #949494;'>#   title_publication &lt;chr&gt;, type_publication &lt;chr&gt;, authors &lt;chr&gt;,</span>
-#&gt; <span style='color: #949494;'>#   publication_URL &lt;chr&gt;, entry_date &lt;date&gt;, entry_person &lt;chr&gt;, …</span></div><div class='input'><span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://pillar.r-lib.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>params</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Rows: 845
-#&gt; Columns: 29
-#&gt; $ id                   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "covid1", "covid2", "covid3", "covid4", "covid5",…
-#&gt; $ peer_review          <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> NA, NA, NA, "positive", NA, NA, "positive", NA, N…
-#&gt; $ peer_review_location <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> NA, "MedRxiv", NA, "Eurosurveillance", "BioRxiv",…
-#&gt; $ name                 <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "cumulative case count", "cumulative case count",…
-#&gt; $ abbreviation         <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> NA, NA, NA, "R0", "R0", "R0", "R0", "R0", "k", NA…
-#&gt; $ units                <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "persons", "persons", NA, "Nb", "Nb", "Nb", "Nb",…
-#&gt; $ country              <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "China", "China", "China", "China", "China", "Chi…
-#&gt; $ location_name        <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "Wuhan City", "Wuhan City", "Wuhan City", "Wuhan …
-#&gt; $ location_type        <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "city", "metropolitan area", "city", "city", "cit…
-#&gt; $ start_date           <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span> 2020-01-18, 2019-12-31, NA, 2020-01-09, 2019-11-…
-#&gt; $ end_date             <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span> 2020-01-18, 2020-01-29, NA, 2020-01-11, 2020-01-…
-#&gt; $ value_type           <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "central estimate, unspecified", "median", NA, NA…
-#&gt; $ value                <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "4000", "31200", NA, "0.3", "2.2", "2.6", "2.24",…
-#&gt; $ uncertainty_type     <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "confidence interval 95%", "confidence interval 9…
-#&gt; $ lower_bound          <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "1000", "23400", "2020-11-19", "0.17", "1.4", "1.…
-#&gt; $ upper_bound          <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "9700", "40400", "2020-12-19", "0.44", "3.8", "3.…
-#&gt; $ population           <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "general population", "general population", "gene…
-#&gt; $ age_range            <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
-#&gt; $ method_description   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> NA, "mobility model assuming travelers are expose…
-#&gt; $ data_description     <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "7 imported cases internationally as of  9:00 GMT…
-#&gt; $ data_URL             <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> NA, NA, NA, NA, "https://github.com/jriou/wcov", …
-#&gt; $ date_publication     <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span> 2020-01-22, 2020-01-29, 2020-01-23, 2020-01-12, …
-#&gt; $ title_publication    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "Report 3: Transmissibility of 2019-nCoV", "Early…
-#&gt; $ type_publication     <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "report", "report", "executive summary", "report"…
-#&gt; $ authors              <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "Imai N., Dorigatti I., Cori A., Donnelly C., Ril…
-#&gt; $ publication_URL      <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "https://www.imperial.ac.uk/mrc-global-infectious…
-#&gt; $ entry_date           <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span> 2020-01-24, 2020-01-24, 2020-01-24, 2020-01-24, …
-#&gt; $ entry_person         <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "Cecile Viboud", "Cecile Viboud", "Cecile Viboud"…
-#&gt; $ entry_email          <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "viboudc@mail.nih.gov", "viboudc@mail.nih.gov", "…</div><div class='input'>
-<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>params</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;       id            peer_review        peer_review_location     name          
-#&gt;  Length:845         Length:845         Length:845           Length:845        
-#&gt;  Class :character   Class :character   Class :character     Class :character  
-#&gt;  Mode  :character   Mode  :character   Mode  :character     Mode  :character  
-#&gt;                                                                               
-#&gt;                                                                               
-#&gt;                                                                               
-#&gt;                                                                               
-#&gt;  abbreviation          units             country          location_name     
-#&gt;  Length:845         Length:845         Length:845         Length:845        
-#&gt;  Class :character   Class :character   Class :character   Class :character  
-#&gt;  Mode  :character   Mode  :character   Mode  :character   Mode  :character  
-#&gt;                                                                             
-#&gt;                                                                             
-#&gt;                                                                             
-#&gt;                                                                             
-#&gt;  location_type        start_date            end_date         
-#&gt;  Length:845         Min.   :2019-11-01   Min.   :2019-02-04  
-#&gt;  Class :character   1st Qu.:2019-12-31   1st Qu.:2020-02-13  
-#&gt;  Mode  :character   Median :2020-01-14   Median :2020-04-16  
-#&gt;                     Mean   :2020-01-21   Mean   :2020-03-26  
-#&gt;                     3rd Qu.:2020-01-23   3rd Qu.:2020-04-24  
-#&gt;                     Max.   :2020-12-24   Max.   :2020-07-25  
-#&gt;                     NA's   :324          NA's   :131         
-#&gt;   value_type           value           uncertainty_type   lower_bound       
-#&gt;  Length:845         Length:845         Length:845         Length:845        
-#&gt;  Class :character   Class :character   Class :character   Class :character  
-#&gt;  Mode  :character   Mode  :character   Mode  :character   Mode  :character  
-#&gt;                                                                             
-#&gt;                                                                             
-#&gt;                                                                             
-#&gt;                                                                             
-#&gt;  upper_bound         population         age_range         method_description
-#&gt;  Length:845         Length:845         Length:845         Length:845        
-#&gt;  Class :character   Class :character   Class :character   Class :character  
-#&gt;  Mode  :character   Mode  :character   Mode  :character   Mode  :character  
-#&gt;                                                                             
-#&gt;                                                                             
-#&gt;                                                                             
-#&gt;                                                                             
-#&gt;  data_description     data_URL         date_publication     title_publication 
-#&gt;  Length:845         Length:845         Min.   :2020-01-12   Length:845        
-#&gt;  Class :character   Class :character   1st Qu.:2020-03-19   Class :character  
-#&gt;  Mode  :character   Mode  :character   Median :2020-04-01   Mode  :character  
-#&gt;                                        Mean   :2020-04-04                     
-#&gt;                                        3rd Qu.:2020-04-26                     
-#&gt;                                        Max.   :2020-06-08                     
-#&gt;                                                                               
-#&gt;  type_publication     authors          publication_URL      entry_date        
-#&gt;  Length:845         Length:845         Length:845         Min.   :2020-01-24  
-#&gt;  Class :character   Class :character   Class :character   1st Qu.:2020-03-24  
-#&gt;  Mode  :character   Mode  :character   Mode  :character   Median :2020-04-02  
-#&gt;                                                           Mean   :2020-04-09  
-#&gt;                                                           3rd Qu.:2020-04-29  
-#&gt;                                                           Max.   :2020-06-19  
-#&gt;                                                                               
-#&gt;  entry_person       entry_email       
-#&gt;  Length:845         Length:845        
-#&gt;  Class :character   Class :character  
-#&gt;  Mode  :character   Mode  :character  
-#&gt;                                       
-#&gt;                                       
-#&gt;                                       
-#&gt;                                       </div><div class='input'>
-<span class='kw'>if</span><span class='op'>(</span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>require</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/rstudio/DT'>DT</a></span><span class='op'>)</span> <span class='op'>&amp;</span> <span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
-    <span class='fu'><a href='https://rdrr.io/pkg/DT/man/datatable.html'>datatable</a></span><span class='op'>(</span><span class='va'>params</span><span class='op'>)</span>
-<span class='op'>}</span>
-</div><div class='output co'>#&gt; <span class='message'>Loading required package: DT</span></div><div class='input'>
-</div></pre>
+    <pre class="examples"><span class='r-in'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://dplyr.tidyverse.org'>dplyr</a></span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>params</span> <span class='op'>=</span> <span class='fu'>param_estimates_published</span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>params</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [1] "id"                   "peer_review"          "peer_review_location"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [4] "name"                 "abbreviation"         "units"               </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [7] "country"              "location_name"        "location_type"       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [10] "start_date"           "end_date"             "value_type"          </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [13] "value"                "uncertainty_type"     "lower_bound"         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [16] "upper_bound"          "population"           "age_range"           </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [19] "method_description"   "data_description"     "data_URL"            </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [22] "date_publication"     "title_publication"    "type_publication"    </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [25] "authors"              "publication_URL"      "entry_date"          </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [28] "entry_person"         "entry_email"         </span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>params</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 6 × 29</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   id     peer_review peer_review_location name        abbreviation units country</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>  <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>       <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>                <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>       <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>        <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>1</span> covid1 <span style='color: #BB0000;'>NA</span>          <span style='color: #BB0000;'>NA</span>                   cumulative… <span style='color: #BB0000;'>NA</span>           pers… China  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>2</span> covid2 <span style='color: #BB0000;'>NA</span>          MedRxiv              cumulative… <span style='color: #BB0000;'>NA</span>           pers… China  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>3</span> covid3 <span style='color: #BB0000;'>NA</span>          <span style='color: #BB0000;'>NA</span>                   date of em… <span style='color: #BB0000;'>NA</span>           <span style='color: #BB0000;'>NA</span>    China  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>4</span> covid4 positive    Eurosurveillance     basic repr… R0           Nb    China  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>5</span> covid5 <span style='color: #BB0000;'>NA</span>          BioRxiv              basic repr… R0           Nb    China  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>6</span> covid6 <span style='color: #BB0000;'>NA</span>          <span style='color: #BB0000;'>NA</span>                   basic repr… R0           Nb    China  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># … with 22 more variables: location_name &lt;chr&gt;, location_type &lt;chr&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   start_date &lt;date&gt;, end_date &lt;date&gt;, value_type &lt;chr&gt;, value &lt;chr&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   uncertainty_type &lt;chr&gt;, lower_bound &lt;chr&gt;, upper_bound &lt;chr&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   population &lt;chr&gt;, age_range &lt;chr&gt;, method_description &lt;chr&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   data_description &lt;chr&gt;, data_URL &lt;chr&gt;, date_publication &lt;date&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   title_publication &lt;chr&gt;, type_publication &lt;chr&gt;, authors &lt;chr&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   publication_URL &lt;chr&gt;, entry_date &lt;date&gt;, entry_person &lt;chr&gt;, …</span></span>
+<span class='r-in'><span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://pillar.r-lib.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>params</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Rows: 845</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Columns: 29</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ id                   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "covid1", "covid2", "covid3", "covid4", "covid5",…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ peer_review          <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> NA, NA, NA, "positive", NA, NA, "positive", NA, N…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ peer_review_location <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> NA, "MedRxiv", NA, "Eurosurveillance", "BioRxiv",…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ name                 <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "cumulative case count", "cumulative case count",…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ abbreviation         <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> NA, NA, NA, "R0", "R0", "R0", "R0", "R0", "k", NA…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ units                <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "persons", "persons", NA, "Nb", "Nb", "Nb", "Nb",…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ country              <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "China", "China", "China", "China", "China", "Chi…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ location_name        <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "Wuhan City", "Wuhan City", "Wuhan City", "Wuhan …</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ location_type        <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "city", "metropolitan area", "city", "city", "cit…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ start_date           <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span> 2020-01-18, 2019-12-31, NA, 2020-01-09, 2019-11-…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ end_date             <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span> 2020-01-18, 2020-01-29, NA, 2020-01-11, 2020-01-…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ value_type           <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "central estimate, unspecified", "median", NA, NA…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ value                <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "4000", "31200", NA, "0.3", "2.2", "2.6", "2.24",…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ uncertainty_type     <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "confidence interval 95%", "confidence interval 9…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ lower_bound          <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "1000", "23400", "2020-11-19", "0.17", "1.4", "1.…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ upper_bound          <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "9700", "40400", "2020-12-19", "0.44", "3.8", "3.…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ population           <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "general population", "general population", "gene…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ age_range            <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ method_description   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> NA, "mobility model assuming travelers are expose…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ data_description     <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "7 imported cases internationally as of  9:00 GMT…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ data_URL             <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> NA, NA, NA, NA, "https://github.com/jriou/wcov", …</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ date_publication     <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span> 2020-01-22, 2020-01-29, 2020-01-23, 2020-01-12, …</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ title_publication    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "Report 3: Transmissibility of 2019-nCoV", "Early…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ type_publication     <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "report", "report", "executive summary", "report"…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ authors              <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "Imai N., Dorigatti I., Cori A., Donnelly C., Ril…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ publication_URL      <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "https://www.imperial.ac.uk/mrc-global-infectious…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ entry_date           <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span> 2020-01-24, 2020-01-24, 2020-01-24, 2020-01-24, …</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ entry_person         <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "Cecile Viboud", "Cecile Viboud", "Cecile Viboud"…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ entry_email          <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "viboudc@mail.nih.gov", "viboudc@mail.nih.gov", "…</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>params</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       id            peer_review        peer_review_location     name          </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  Length:845         Length:845         Length:845           Length:845        </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  Class :character   Class :character   Class :character     Class :character  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  Mode  :character   Mode  :character   Mode  :character     Mode  :character  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                               </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                               </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                               </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                               </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  abbreviation          units             country          location_name     </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  Length:845         Length:845         Length:845         Length:845        </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  Class :character   Class :character   Class :character   Class :character  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  Mode  :character   Mode  :character   Mode  :character   Mode  :character  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                             </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                             </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                             </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                             </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  location_type        start_date            end_date         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  Length:845         Min.   :2019-11-01   Min.   :2019-02-04  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  Class :character   1st Qu.:2019-12-31   1st Qu.:2020-02-13  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  Mode  :character   Median :2020-01-14   Median :2020-04-16  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                     Mean   :2020-01-21   Mean   :2020-03-26  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                     3rd Qu.:2020-01-23   3rd Qu.:2020-04-24  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                     Max.   :2020-12-24   Max.   :2020-07-25  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                     NA's   :324          NA's   :131         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   value_type           value           uncertainty_type   lower_bound       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  Length:845         Length:845         Length:845         Length:845        </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  Class :character   Class :character   Class :character   Class :character  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  Mode  :character   Mode  :character   Mode  :character   Mode  :character  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                             </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                             </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                             </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                             </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  upper_bound         population         age_range         method_description</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  Length:845         Length:845         Length:845         Length:845        </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  Class :character   Class :character   Class :character   Class :character  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  Mode  :character   Mode  :character   Mode  :character   Mode  :character  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                             </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                             </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                             </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                             </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  data_description     data_URL         date_publication     title_publication </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  Length:845         Length:845         Min.   :2020-01-12   Length:845        </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  Class :character   Class :character   1st Qu.:2020-03-19   Class :character  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  Mode  :character   Mode  :character   Median :2020-04-01   Mode  :character  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                        Mean   :2020-04-04                     </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                        3rd Qu.:2020-04-26                     </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                        Max.   :2020-06-08                     </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                               </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  type_publication     authors          publication_URL      entry_date        </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  Length:845         Length:845         Length:845         Min.   :2020-01-24  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  Class :character   Class :character   Class :character   1st Qu.:2020-03-24  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  Mode  :character   Mode  :character   Mode  :character   Median :2020-04-02  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                           Mean   :2020-04-09  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                           3rd Qu.:2020-04-29  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                           Max.   :2020-06-19  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                               </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  entry_person       entry_email       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  Length:845         Length:845        </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  Class :character   Class :character  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  Mode  :character   Mode  :character  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                       </span>
+<span class='r-in'></span>
+<span class='r-in'><span class='kw'>if</span><span class='op'>(</span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>require</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/rstudio/DT'>DT</a></span><span class='op'>)</span> <span class='op'>&amp;</span> <span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span></span>
+<span class='r-in'>    <span class='fu'><a href='https://rdrr.io/pkg/DT/man/datatable.html'>datatable</a></span><span class='op'>(</span><span class='va'>params</span><span class='op'>)</span></span>
+<span class='r-in'><span class='op'>}</span></span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> Loading required package: DT</span>
+<span class='r-in'></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

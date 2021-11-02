@@ -296,36 +296,38 @@ territories listed are aggregated in our database.</p>
     <p>Sean Davis <a href='mailto:seandavi@gmail.com'>seandavi@gmail.com</a></p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='va'>ecdc</span> <span class='op'>=</span> <span class='fu'>ecdc_data</span><span class='op'>(</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>ecdc</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;  [1] "date"                                                      
-#&gt;  [2] "day"                                                       
-#&gt;  [3] "month"                                                     
-#&gt;  [4] "year"                                                      
-#&gt;  [5] "location_name"                                             
-#&gt;  [6] "iso2c"                                                     
-#&gt;  [7] "iso3c"                                                     
-#&gt;  [8] "population_2019"                                           
-#&gt;  [9] "continent"                                                 
-#&gt; [10] "Cumulative_number_for_14_days_of_COVID-19_cases_per_100000"
-#&gt; [11] "subset"                                                    
-#&gt; [12] "count"                                                     </div><div class='input'><span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://pillar.r-lib.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>ecdc</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Rows: 123,800
-#&gt; Columns: 12
-#&gt; Groups: location_name, subset [428]
-#&gt; $ date                                                         <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span> 2019-12-…
-#&gt; $ day                                                          <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 31, 31, 3…
-#&gt; $ month                                                        <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 12, 12, 1…
-#&gt; $ year                                                         <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 2019, 201…
-#&gt; $ location_name                                                <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "Afghanis…
-#&gt; $ iso2c                                                        <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "AF", "AF…
-#&gt; $ iso3c                                                        <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "AFG", "A…
-#&gt; $ population_2019                                              <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 38041757,…
-#&gt; $ continent                                                    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "Asia", "…
-#&gt; $ `Cumulative_number_for_14_days_of_COVID-19_cases_per_100000` <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, N…
-#&gt; $ subset                                                       <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "cases", …
-#&gt; $ count                                                        <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 0, 0, 0, …</div><div class='input'>
-</div></pre>
+    <pre class="examples"><span class='r-in'><span class='va'>ecdc</span> <span class='op'>=</span> <span class='fu'>ecdc_data</span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>ecdc</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [1] "date"                                                      </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [2] "day"                                                       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [3] "month"                                                     </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [4] "year"                                                      </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [5] "location_name"                                             </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [6] "iso2c"                                                     </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [7] "iso3c"                                                     </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [8] "population_2019"                                           </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [9] "continent"                                                 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [10] "Cumulative_number_for_14_days_of_COVID-19_cases_per_100000"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [11] "subset"                                                    </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [12] "count"                                                     </span>
+<span class='r-in'><span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://pillar.r-lib.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>ecdc</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Rows: 123,800</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Columns: 12</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Groups: location_name, subset [428]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ date                                                         <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span> 2019-12-…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ day                                                          <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 31, 31, 3…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ month                                                        <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 12, 12, 1…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ year                                                         <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 2019, 201…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ location_name                                                <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "Afghanis…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ iso2c                                                        <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "AF", "AF…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ iso3c                                                        <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "AFG", "A…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ population_2019                                              <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 38041757,…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ continent                                                    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "Asia", "…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ `Cumulative_number_for_14_days_of_COVID-19_cases_per_100000` <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> NA, NA, N…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ subset                                                       <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> "cases", …</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $ count                                                        <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> 0, 0, 0, …</span>
+<span class='r-in'></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

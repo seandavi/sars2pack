@@ -253,42 +253,45 @@ pmc      = "PMC7158984"</p>
 <code><a href='cov_glue_newick_data.html'>cov_glue_newick_data</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='va'>res</span> <span class='op'>=</span> <span class='fu'>beoutbreakprepared_data</span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='warning'>Warning: One or more parsing issues, see `problems()` for details</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;  [1] "ID"                       "age"                     
-#&gt;  [3] "sex"                      "city"                    
-#&gt;  [5] "province"                 "country"                 
-#&gt;  [7] "latitude"                 "longitude"               
-#&gt;  [9] "geo_resolution"           "date_onset_symptoms"     
-#&gt; [11] "date_admission_hospital"  "date_confirmation"       
-#&gt; [13] "symptoms"                 "lives_in_Wuhan"          
-#&gt; [15] "travel_history_dates"     "travel_history_location" 
-#&gt; [17] "reported_market_exposure" "additional_information"  
-#&gt; [19] "chronic_disease_binary"   "chronic_disease"         
-#&gt; [21] "source"                   "sequence_available"      
-#&gt; [23] "outcome"                  "date_death_or_discharge" 
-#&gt; [25] "notes_for_discussion"     "location"                
-#&gt; [27] "admin3"                   "admin2"                  
-#&gt; [29] "admin1"                   "country_new"             
-#&gt; [31] "admin_id"                 "data_moderator_initials" 
-#&gt; [33] "travel_history_binary"   </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 6 × 33</span>
-#&gt;   ID      age   sex    city   province country latitude longitude geo_resolution
-#&gt;   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>  <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>  <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>      <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>         
-#&gt; <span style='color: #BCBCBC;'>1</span> 000-1-1 <span style='color: #BB0000;'>NA</span>    male   Shek … Hong Ko… China      22.4      114.  point         
-#&gt; <span style='color: #BCBCBC;'>2</span> 000-1-… 78    male   Vo Eu… Veneto   Italy      45.3       11.7 point         
-#&gt; <span style='color: #BCBCBC;'>3</span> 000-1-… 61    female <span style='color: #BB0000;'>NA</span>     <span style='color: #BB0000;'>NA</span>       Singap…     1.35     104.  admin0        
-#&gt; <span style='color: #BCBCBC;'>4</span> 000-1-… <span style='color: #BB0000;'>NA</span>    <span style='color: #BB0000;'>NA</span>     Zheng… Henan    China      34.6      113.  admin2        
-#&gt; <span style='color: #BCBCBC;'>5</span> 000-1-… <span style='color: #BB0000;'>NA</span>    <span style='color: #BB0000;'>NA</span>     Pingx… Jiangxi  China      27.5      114.  admin2        
-#&gt; <span style='color: #BCBCBC;'>6</span> 000-1-… <span style='color: #BB0000;'>NA</span>    <span style='color: #BB0000;'>NA</span>     Yichu… Jiangxi  China      28.3      115.  admin2        
-#&gt; <span style='color: #949494;'># … with 24 more variables: date_onset_symptoms &lt;date&gt;,</span>
-#&gt; <span style='color: #949494;'>#   date_admission_hospital &lt;date&gt;, date_confirmation &lt;date&gt;, symptoms &lt;chr&gt;,</span>
-#&gt; <span style='color: #949494;'>#   lives_in_Wuhan &lt;chr&gt;, travel_history_dates &lt;date&gt;,</span>
-#&gt; <span style='color: #949494;'>#   travel_history_location &lt;chr&gt;, reported_market_exposure &lt;chr&gt;,</span>
-#&gt; <span style='color: #949494;'>#   additional_information &lt;chr&gt;, chronic_disease_binary &lt;lgl&gt;,</span>
-#&gt; <span style='color: #949494;'>#   chronic_disease &lt;chr&gt;, source &lt;chr&gt;, sequence_available &lt;lgl&gt;,</span>
-#&gt; <span style='color: #949494;'>#   outcome &lt;chr&gt;, date_death_or_discharge &lt;date&gt;, …</span></div><div class='input'>
-</div></pre>
+    <pre class="examples"><span class='r-in'><span class='va'>res</span> <span class='op'>=</span> <span class='fu'>beoutbreakprepared_data</span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>One or more parsing issues, see `problems()` for details</span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [1] "ID"                       "age"                     </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [3] "sex"                      "city"                    </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [5] "province"                 "country"                 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [7] "latitude"                 "longitude"               </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [9] "geo_resolution"           "date_onset_symptoms"     </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [11] "date_admission_hospital"  "date_confirmation"       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [13] "symptoms"                 "lives_in_Wuhan"          </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [15] "travel_history_dates"     "travel_history_location" </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [17] "reported_market_exposure" "additional_information"  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [19] "chronic_disease_binary"   "chronic_disease"         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [21] "source"                   "sequence_available"      </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [23] "outcome"                  "date_death_or_discharge" </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [25] "notes_for_discussion"     "location"                </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [27] "admin3"                   "admin2"                  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [29] "admin1"                   "country_new"             </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [31] "admin_id"                 "data_moderator_initials" </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [33] "travel_history_binary"   </span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 6 × 33</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   ID      age   sex    city   province country latitude longitude geo_resolution</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>  <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>  <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>      <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>1</span> 000-1-1 <span style='color: #BB0000;'>NA</span>    male   Shek … Hong Ko… China      22.4      114.  point         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>2</span> 000-1-… 78    male   Vo Eu… Veneto   Italy      45.3       11.7 point         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>3</span> 000-1-… 61    female <span style='color: #BB0000;'>NA</span>     <span style='color: #BB0000;'>NA</span>       Singap…     1.35     104.  admin0        </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>4</span> 000-1-… <span style='color: #BB0000;'>NA</span>    <span style='color: #BB0000;'>NA</span>     Zheng… Henan    China      34.6      113.  admin2        </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>5</span> 000-1-… <span style='color: #BB0000;'>NA</span>    <span style='color: #BB0000;'>NA</span>     Pingx… Jiangxi  China      27.5      114.  admin2        </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>6</span> 000-1-… <span style='color: #BB0000;'>NA</span>    <span style='color: #BB0000;'>NA</span>     Yichu… Jiangxi  China      28.3      115.  admin2        </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># … with 24 more variables: date_onset_symptoms &lt;date&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   date_admission_hospital &lt;date&gt;, date_confirmation &lt;date&gt;, symptoms &lt;chr&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   lives_in_Wuhan &lt;chr&gt;, travel_history_dates &lt;date&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   travel_history_location &lt;chr&gt;, reported_market_exposure &lt;chr&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   additional_information &lt;chr&gt;, chronic_disease_binary &lt;lgl&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   chronic_disease &lt;chr&gt;, source &lt;chr&gt;, sequence_available &lt;lgl&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   outcome &lt;chr&gt;, date_death_or_discharge &lt;date&gt;, …</span></span>
+<span class='r-in'></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
