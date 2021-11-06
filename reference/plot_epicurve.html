@@ -255,26 +255,22 @@ curves on the same plot. See examples.</p>
 <span class='r-in'><span class='va'>cc</span> <span class='op'>=</span> <span class='fu'><a href='covidtracker_data.html'>covidtracker_data</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
 <span class='r-in'>    <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>total_tests <span class='op'>=</span> <span class='va'>positive</span><span class='op'>+</span><span class='va'>negative</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
 <span class='r-in'>    <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>total_tests</span><span class='op'>&gt;</span><span class='fl'>0</span><span class='op'>)</span></span>
-<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>One or more parsing issues, see `problems()` for details</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>download failed</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span>   web resource path: ‘http://covidtracking.com/api/v1/states/daily.csv’</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span>   local file path: ‘~/.cache/sars2pack/8037fd288ff_daily.csv’</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span>   reason: Timeout was reached: [covidtracking.com] Connection timed out after 10001 milliseconds</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>bfcadd() failed; resource removed</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span>   rid: BFC150</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span>   fpath: ‘http://covidtracking.com/api/v1/states/daily.csv’</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span>   reason: download failed</span>
+<span class='r-err co'><span class='r-pr'>#&gt;</span> <span class='error'>Error in .util_download(x, rid[i], proxy, config, "bfcadd()", ...):</span> bfcadd() failed; see warnings()</span>
 <span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>cc</span><span class='op'>)</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 6 × 17</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>   date       fips  state positive negative death pending hospitalized</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span>        <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>1</span> 2021-03-07 00001 AL      <span style='text-decoration: underline;'>499</span>819  1<span style='text-decoration: underline;'>931</span>711 <span style='text-decoration: underline;'>10</span>148      <span style='color: #BB0000;'>NA</span>        <span style='text-decoration: underline;'>45</span>976</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>2</span> 2021-03-07 00005 AR      <span style='text-decoration: underline;'>324</span>818  2<span style='text-decoration: underline;'>480</span>716  <span style='text-decoration: underline;'>5</span>319      <span style='color: #BB0000;'>NA</span>        <span style='text-decoration: underline;'>14</span>926</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>3</span> 2021-03-07 00060 AS           0     <span style='text-decoration: underline;'>2</span>140     0      <span style='color: #BB0000;'>NA</span>           <span style='color: #BB0000;'>NA</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>4</span> 2021-03-07 00004 AZ      <span style='text-decoration: underline;'>826</span>454  3<span style='text-decoration: underline;'>073</span>010 <span style='text-decoration: underline;'>16</span>328      <span style='color: #BB0000;'>NA</span>        <span style='text-decoration: underline;'>57</span>907</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>5</span> 2021-03-07 00008 CO      <span style='text-decoration: underline;'>436</span>602  2<span style='text-decoration: underline;'>199</span>458  <span style='text-decoration: underline;'>5</span>989      <span style='color: #BB0000;'>NA</span>        <span style='text-decoration: underline;'>23</span>904</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>6</span> 2021-03-07 00010 DE       <span style='text-decoration: underline;'>88</span>354   <span style='text-decoration: underline;'>545</span>070  <span style='text-decoration: underline;'>1</span>473      <span style='color: #BB0000;'>NA</span>           <span style='color: #BB0000;'>NA</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># … with 9 more variables: hospitalizedCurrently &lt;int&gt;, recovered &lt;int&gt;,</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   inIcuCumulative &lt;int&gt;, inIcuCurrently &lt;int&gt;, onVentilatorCurrently &lt;int&gt;,</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   onVentilatorCumulative &lt;int&gt;, dateChecked &lt;dttm&gt;, dataQualityGrade &lt;lgl&gt;,</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   total_tests &lt;int&gt;</span></span>
+<span class='r-err co'><span class='r-pr'>#&gt;</span> <span class='error'>Error in head(cc):</span> object 'cc' not found</span>
 <span class='r-in'></span>
 <span class='r-in'><span class='fu'>plot_epicurve</span><span class='op'>(</span><span class='va'>cc</span>, case_column<span class='op'>=</span><span class='st'>'total_tests'</span>, color<span class='op'>=</span><span class='st'>'state'</span>, log<span class='op'>=</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>+</span></span>
 <span class='r-in'>    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span><span class='op'>(</span><span class='st'>'Total tests by state'</span><span class='op'>)</span> <span class='op'>+</span></span>
 <span class='r-in'>    <span class='fu'>ggplot2</span><span class='fu'>::</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>legend.position<span class='op'>=</span><span class='st'>'bottom'</span><span class='op'>)</span></span>
-<span class='r-plt img'><img src='plot_epicurve-3.png' alt='' width='700' height='433' /></span>
+<span class='r-err co'><span class='r-pr'>#&gt;</span> <span class='error'>Error in ggplot(df, aes_string(x = date_column, y = case_column, ...)):</span> object 'cc' not found</span>
 <span class='r-in'></span>
 <span class='r-in'><span class='co'># get tests per 100k population</span></span>
 <span class='r-in'><span class='co'># use the tidycensus package to get</span></span>
@@ -292,7 +288,7 @@ curves on the same plot. See examples.</p>
 <span class='r-in'>        <span class='fu'>ggplot2</span><span class='fu'>::</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>legend.position<span class='op'>=</span><span class='st'>'bottom'</span><span class='op'>)</span></span>
 <span class='r-in'><span class='op'>}</span></span>
 <span class='r-msg co'><span class='r-pr'>#&gt;</span> Loading required package: tidycensus</span>
-<span class='r-plt img'><img src='plot_epicurve-4.png' alt='' width='700' height='433' /></span>
+<span class='r-err co'><span class='r-pr'>#&gt;</span> <span class='error'>Error in merge(cc, pop, by.x = "fips", by.y = "GEOID", all.x = FALSE,     all.y = FALSE):</span> object 'cc' not found</span>
 <span class='r-in'></span>
 </pre>
   </div>
