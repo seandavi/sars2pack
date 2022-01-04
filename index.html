@@ -49,6 +49,8 @@
 </script>
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-home">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -67,12 +69,6 @@
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-<li>
-  <a href="index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
 <li>
   <a href="reference/index.html">Reference</a>
 </li>
@@ -94,7 +90,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/seandavi/sars2pack">
+  <a href="https://github.com/seandavi/sars2pack" class="external-link">
     <span class="fa fa-github"></span>
      
   </a>
@@ -111,15 +107,15 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
-<div id="sars2pack" class="section level1">
-<div class="page-header"><h1 class="hasAnchor">
-<a href="#sars2pack" class="anchor"></a>sars2pack</h1></div>
+<div class="section level1">
+<div class="page-header"><h1 id="sars2pack">sars2pack<a class="anchor" aria-label="anchor" href="#sars2pack"></a>
+</h1></div>
 <!-- badges: start -->
 
 <!-- badges: end -->
-<div id="overview" class="section level2">
-<h2 class="hasAnchor">
-<a href="#overview" class="anchor"></a>Overview</h2>
+<div class="section level2">
+<h2 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
+</h2>
 <p>The sars2pack R package provides one-line access to over 40 COVID-related datasets. Datasets are accessed in real time directly from their sources and then transformed to <code>tidy-data</code> form where possible and applicable. The result of each dataset accessor is a ready-to-use R dataset, often a dataframe. Documentation includes dataset descriptions, sources and references, and examples. Online documentation is available in two locations:</p>
 <ul>
 <li>
@@ -127,9 +123,9 @@
 <li><a href="https://seandavi.github.io/sars2pack-book/">Extended workflows and use cases, as an online book</a></li>
 </ul>
 </div>
-<div id="questions-addressed-by-sars2pack" class="section level2">
-<h2 class="hasAnchor">
-<a href="#questions-addressed-by-sars2pack" class="anchor"></a>Questions addressed by sars2pack</h2>
+<div class="section level2">
+<h2 id="questions-addressed-by-sars2pack">Questions addressed by sars2pack<a class="anchor" aria-label="anchor" href="#questions-addressed-by-sars2pack"></a>
+</h2>
 <ul>
 <li>What are the current and historical total, new cases, and deaths of COVID-19 at the city, county, state, national, and international levels?</li>
 <li>How do changes in infection rates differ across locations?</li>
@@ -138,9 +134,9 @@
 <li>What are the published values of key epidemic parameters, as curated from the literature?</li>
 </ul>
 </div>
-<div id="installation" class="section level2">
-<h2 class="hasAnchor">
-<a href="#installation" class="anchor"></a>Installation</h2>
+<div class="section level2">
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h2>
 <div class="sourceCode" id="cb1"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># If you do not have BiocManager installed:</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">'BiocManager'</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -149,10 +145,10 @@
 <p>After the one-time installation, load the packge to get started.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sars2pack)</span></code></pre></div>
 </div>
-<div id="available-datasets" class="section level2">
-<h2 class="hasAnchor">
-<a href="#available-datasets" class="anchor"></a>Available datasets</h2>
-<table class="table table table-striped">
+<div class="section level2">
+<h2 id="available-datasets">Available datasets<a class="anchor" aria-label="anchor" href="#available-datasets"></a>
+</h2>
+<table class="table table table-striped" style="margin-left: auto; margin-right: auto;">
 <thead><tr>
 <th style="text-align:left;">
 name
@@ -203,7 +199,7 @@ United States
 admin2
 </td>
 <td style="text-align:left;">
-<a href="https://github.com/josh-byster/fips_lat_long">LINK</a>
+<a href="https://github.com/josh-byster/fips_lat_long" class="external-link">LINK</a>
 </td>
 </tr>
 <tr>
@@ -229,7 +225,7 @@ World
 admin0
 </td>
 <td style="text-align:left;">
-<a href="https://oecd.org">LINK</a>
+<a href="https://oecd.org" class="external-link">LINK</a>
 </td>
 </tr>
 <tr>
@@ -255,7 +251,7 @@ International
 c(“admin0”, “admin1”)
 </td>
 <td style="text-align:left;">
-<a href="https://covid19.healthdata.org/projections">LINK</a>
+<a href="https://covid19.healthdata.org/projections" class="external-link">LINK</a>
 </td>
 </tr>
 <tr>
@@ -281,7 +277,7 @@ International
 c(“admin0”, “admin1”)
 </td>
 <td style="text-align:left;">
-<a href="https://covid19.healthdata.org/projections">LINK</a>
+<a href="https://covid19.healthdata.org/projections" class="external-link">LINK</a>
 </td>
 </tr>
 <tr>
@@ -307,7 +303,7 @@ World
 admin0
 </td>
 <td style="text-align:left;">
-<a href="https://ourworldindata.org/coronavirus">LINK</a>
+<a href="https://ourworldindata.org/coronavirus" class="external-link">LINK</a>
 </td>
 </tr>
 <tr>
@@ -333,7 +329,7 @@ United States
 admin1
 </td>
 <td style="text-align:left;">
-<a href="https://covidtracking.com/">LINK</a>
+<a href="https://covidtracking.com/" class="external-link">LINK</a>
 </td>
 </tr>
 <tr>
@@ -359,7 +355,7 @@ World
 admin0
 </td>
 <td style="text-align:left;">
-<a href="https://www.ecdc.europa.eu/en/covid-19">LINK</a>
+<a href="https://www.ecdc.europa.eu/en/covid-19" class="external-link">LINK</a>
 </td>
 </tr>
 <tr>
@@ -385,7 +381,7 @@ Europe
 c(“admin0”, “admin1”)
 </td>
 <td style="text-align:left;">
-<a href="https://github.com/covid19-eu-zh/covid19-eu-data">LINK</a>
+<a href="https://github.com/covid19-eu-zh/covid19-eu-data" class="external-link">LINK</a>
 </td>
 </tr>
 <tr>
@@ -411,7 +407,7 @@ United States
 admin1
 </td>
 <td style="text-align:left;">
-<a href="https://usafacts.org/visualizations/coronavirus-covid-19-spread-map/">LINK</a>
+<a href="https://usafacts.org/visualizations/coronavirus-covid-19-spread-map/" class="external-link">LINK</a>
 </td>
 </tr>
 <tr>
@@ -437,7 +433,7 @@ World
 admin0
 </td>
 <td style="text-align:left;">
-<a href="https://github.com/CSSEGISandData/COVID-19">LINK</a>
+<a href="https://github.com/CSSEGISandData/COVID-19" class="external-link">LINK</a>
 </td>
 </tr>
 <tr>
@@ -463,7 +459,7 @@ United States
 c(“admin1”, “admin2”)
 </td>
 <td style="text-align:left;">
-<a href="https://github.com/CSSEGISandData/COVID-19">LINK</a>
+<a href="https://github.com/CSSEGISandData/COVID-19" class="external-link">LINK</a>
 </td>
 </tr>
 <tr>
@@ -489,7 +485,7 @@ United States
 admin2
 </td>
 <td style="text-align:left;">
-<a href="https://raw.githubusercontent.com/nytimes/covid-19-data">LINK</a>
+<a href="https://raw.githubusercontent.com/nytimes/covid-19-data" class="external-link">LINK</a>
 </td>
 </tr>
 <tr>
@@ -515,7 +511,7 @@ United States
 admin1
 </td>
 <td style="text-align:left;">
-<a href="https://raw.githubusercontent.com/nytimes/covid-19-data">LINK</a>
+<a href="https://raw.githubusercontent.com/nytimes/covid-19-data" class="external-link">LINK</a>
 </td>
 </tr>
 <tr>
@@ -541,7 +537,7 @@ International
 c(“admin0”, “admin1”)
 </td>
 <td style="text-align:left;">
-<a href="https://github.com/TheEconomist/covid-19-excess-deaths-tracker">LINK</a>
+<a href="https://github.com/TheEconomist/covid-19-excess-deaths-tracker" class="external-link">LINK</a>
 </td>
 </tr>
 <tr>
@@ -567,7 +563,7 @@ International
 c(“admin0”, “admin1”)
 </td>
 <td style="text-align:left;">
-<a href="https://github.com/Financial-Times/coronavirus-excess-mortality-data">LINK</a>
+<a href="https://github.com/Financial-Times/coronavirus-excess-mortality-data" class="external-link">LINK</a>
 </td>
 </tr>
 <tr>
@@ -593,7 +589,7 @@ United States
 admin1
 </td>
 <td style="text-align:left;">
-<a href="https://www.cdc.gov/nchs/nvss/vsrr/covid19/excess_deaths.html">LINK</a>
+<a href="https://www.cdc.gov/nchs/nvss/vsrr/covid19/excess_deaths.html" class="external-link">LINK</a>
 </td>
 </tr>
 <tr>
@@ -619,7 +615,7 @@ United States
 admin1
 </td>
 <td style="text-align:left;">
-<a href="https://raw.githubusercontent.com/descarteslabs/DL-COVID-19">LINK</a>
+<a href="https://raw.githubusercontent.com/descarteslabs/DL-COVID-19" class="external-link">LINK</a>
 </td>
 </tr>
 <tr>
@@ -645,7 +641,7 @@ World
 c(“admin0”, “admin1”, “admin2”, “admin3”)
 </td>
 <td style="text-align:left;">
-<a href="https://www.apple.com/covid19/mobility">LINK</a>
+<a href="https://www.apple.com/covid19/mobility" class="external-link">LINK</a>
 </td>
 </tr>
 <tr>
@@ -671,7 +667,7 @@ c(“United States”, “World”)
 c(“admin1”, “admin2”)
 </td>
 <td style="text-align:left;">
-<a href="http://www.healthdata.org/covid">LINK</a>
+<a href="http://www.healthdata.org/covid" class="external-link">LINK</a>
 </td>
 </tr>
 <tr>
@@ -697,7 +693,7 @@ c(“United States”, “World”)
 c(“admin1”, “admin2”)
 </td>
 <td style="text-align:left;">
-<a href="http://www.healthdata.org/covid">LINK</a>
+<a href="http://www.healthdata.org/covid" class="external-link">LINK</a>
 </td>
 </tr>
 <tr>
@@ -723,12 +719,12 @@ United States
 admin2
 </td>
 <td style="text-align:left;">
-<a href="https://svi.cdc.gov/">LINK</a>
+<a href="https://svi.cdc.gov/" class="external-link">LINK</a>
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-US county health rankings from ‘<a href="https://www.countyhealthrankings.org" class="uri">https://www.countyhealthrankings.org</a>’
+US county health rankings from ‘<a href="https://www.countyhealthrankings.org" class="external-link uri">https://www.countyhealthrankings.org</a>’
 </td>
 <td style="text-align:left;">
 us_county_health_rankings
@@ -749,7 +745,7 @@ United States
 c(“admin0”, “admin1”, “admin2”)
 </td>
 <td style="text-align:left;">
-<a href="https://www.countyhealthrankings.org">LINK</a>
+<a href="https://www.countyhealthrankings.org" class="external-link">LINK</a>
 </td>
 </tr>
 <tr>
@@ -775,7 +771,7 @@ World
 admin0
 </td>
 <td style="text-align:left;">
-<a href="https://restcountries.eu">LINK</a>
+<a href="https://restcountries.eu" class="external-link">LINK</a>
 </td>
 </tr>
 <tr>
@@ -801,7 +797,7 @@ United States
 individual hospital
 </td>
 <td style="text-align:left;">
-<a href="https://hub.arcgis.com/datasets/geoplatform::hospitals">LINK</a>
+<a href="https://hub.arcgis.com/datasets/geoplatform::hospitals" class="external-link">LINK</a>
 </td>
 </tr>
 <tr>
@@ -827,7 +823,7 @@ United States
 Individual hospital
 </td>
 <td style="text-align:left;">
-<a href="https://khn.org/news/as-coronavirus-spreads-widely-millions-of-older-americans-live-in-counties-with-no-icu-beds">LINK</a>
+<a href="https://khn.org/news/as-coronavirus-spreads-widely-millions-of-older-americans-live-in-counties-with-no-icu-beds" class="external-link">LINK</a>
 </td>
 </tr>
 <tr>
@@ -853,7 +849,7 @@ United States
 Individual hospital
 </td>
 <td style="text-align:left;">
-<a href="https://github.com/covidcaremap/covid19-healthsystemcapacity">LINK</a>
+<a href="https://github.com/covidcaremap/covid19-healthsystemcapacity" class="external-link">LINK</a>
 </td>
 </tr>
 <tr>
@@ -879,7 +875,7 @@ World
 multiple
 </td>
 <td style="text-align:left;">
-<a href="https://github.com/hCoV-2019/lineages">LINK</a>
+<a href="https://github.com/hCoV-2019/lineages" class="external-link">LINK</a>
 </td>
 </tr>
 <tr>
@@ -905,7 +901,7 @@ World
 patient
 </td>
 <td style="text-align:left;">
-<a href="https://github.com/beoutbreakprepared/nCoV2019">LINK</a>
+<a href="https://github.com/beoutbreakprepared/nCoV2019" class="external-link">LINK</a>
 </td>
 </tr>
 <tr>
@@ -931,7 +927,7 @@ list()
 list()
 </td>
 <td style="text-align:left;">
-<a href="https://github.com/midas-network/COVID-19/blob/master/parameter_estimates/2019_novel_coronavirus/estimates.csv">LINK</a>
+<a href="https://github.com/midas-network/COVID-19/blob/master/parameter_estimates/2019_novel_coronavirus/estimates.csv" class="external-link">LINK</a>
 </td>
 </tr>
 <tr>
@@ -957,7 +953,7 @@ World
 c(“admin0”, “admin1”, “admin2”)
 </td>
 <td style="text-align:left;">
-<a href="https://www.google.com/covid19/mobility/">LINK</a>
+<a href="https://www.google.com/covid19/mobility/" class="external-link">LINK</a>
 </td>
 </tr>
 <tr>
@@ -983,7 +979,7 @@ World
 multiple
 </td>
 <td style="text-align:left;">
-<a href="https://github.com/hCoV-2019/lineages">LINK</a>
+<a href="https://github.com/hCoV-2019/lineages" class="external-link">LINK</a>
 </td>
 </tr>
 <tr>
@@ -1009,7 +1005,7 @@ list()
 c(“admin0”, “admin1”)
 </td>
 <td style="text-align:left;">
-<a href="https://www.cdc.gov/coronavirus/2019-ncov/covid-data/forecasting-us.html">LINK</a>
+<a href="https://www.cdc.gov/coronavirus/2019-ncov/covid-data/forecasting-us.html" class="external-link">LINK</a>
 </td>
 </tr>
 <tr>
@@ -1035,7 +1031,7 @@ World
 c(“admin0”, “admin1”)
 </td>
 <td style="text-align:left;">
-<a href="https://coronanet-project.org/index.html">LINK</a>
+<a href="https://coronanet-project.org/index.html" class="external-link">LINK</a>
 </td>
 </tr>
 <tr>
@@ -1061,7 +1057,7 @@ World
 admin0
 </td>
 <td style="text-align:left;">
-<a href="https://www.bsg.ox.ac.uk/research/research-projects/oxford-covid-19-government-response-tracker">LINK</a>
+<a href="https://www.bsg.ox.ac.uk/research/research-projects/oxford-covid-19-government-response-tracker" class="external-link">LINK</a>
 </td>
 </tr>
 <tr>
@@ -1087,15 +1083,15 @@ United States
 admin1
 </td>
 <td style="text-align:left;">
-<a href="https://github.com/COVID19StatePolicy/SocialDistancing/">LINK</a>
+<a href="https://github.com/COVID19StatePolicy/SocialDistancing/" class="external-link">LINK</a>
 </td>
 </tr>
 </tbody>
 </table>
 </div>
-<div id="case-tracking" class="section level2">
-<h2 class="hasAnchor">
-<a href="#case-tracking" class="anchor"></a>Case tracking</h2>
+<div class="section level2">
+<h2 id="case-tracking">Case tracking<a class="anchor" aria-label="anchor" href="#case-tracking"></a>
+</h2>
 <p>Updated tracking of city, county, state, national, and international confirmed cases, deaths, and testing is critical to driving policy, implementing interventions, and measuring their effectiveness. Case tracking datasets include date, a count of cases, and usually numerous other pieces of information related to location of reporting, etc.</p>
 <p>Accessing case-tracking datasets is typically done with one function per dataset. The example here is data from the European Centers for Disease Control, or ECDC.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ecdc <span class="ot">=</span> <span class="fu">ecdc_data</span>()</span></code></pre></div>
@@ -1330,27 +1326,27 @@ India
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">plot_epicurve</span>(<span class="at">date_column =</span> <span class="st">'index'</span>,<span class="at">color=</span><span class="st">'location_name'</span>)</span></code></pre></div>
 <p><img src="https://i.imgur.com/sDHPp2t.png" width="100%"></p>
 </div>
-<div id="contributions" class="section level2">
-<h2 class="hasAnchor">
-<a href="#contributions" class="anchor"></a>Contributions</h2>
-<p>Pull requests are gladly accepted on <a href="https://github.com/seandavi/sars2pack">Github</a>.</p>
-<div id="adding-new-datasets" class="section level3">
-<h3 class="hasAnchor">
-<a href="#adding-new-datasets" class="anchor"></a>Adding new datasets</h3>
+<div class="section level2">
+<h2 id="contributions">Contributions<a class="anchor" aria-label="anchor" href="#contributions"></a>
+</h2>
+<p>Pull requests are gladly accepted on <a href="https://github.com/seandavi/sars2pack" class="external-link">Github</a>.</p>
+<div class="section level3">
+<h3 id="adding-new-datasets">Adding new datasets<a class="anchor" aria-label="anchor" href="#adding-new-datasets"></a>
+</h3>
 <p>See the <strong>Adding new datasets</strong> vignette.</p>
 </div>
 </div>
-<div id="similar-work" class="section level2">
-<h2 class="hasAnchor">
-<a href="#similar-work" class="anchor"></a>Similar work</h2>
+<div class="section level2">
+<h2 id="similar-work">Similar work<a class="anchor" aria-label="anchor" href="#similar-work"></a>
+</h2>
 <ul>
-<li><a href="https://github.com/emanuele-guidotti/COVID19" class="uri">https://github.com/emanuele-guidotti/COVID19</a></li>
-<li><a href="https://towardsdatascience.com/top-5-r-resources-on-covid-19-coronavirus-1d4c8df6d85f">Top 25 R resources on Novel COVID-19 Coronavirus</a></li>
-<li><a href="https://rviews.rstudio.com/2020/03/05/covid-19-epidemiology-with-r/">COVID-19 epidemiology with R</a></li>
-<li><a href="https://github.com/RamiKrispin/coronavirus" class="uri">https://github.com/RamiKrispin/coronavirus</a></li>
-<li><a href="https://www.youtube.com/watch?v=D_CNmYkGRUc">Youtube: Using R to analyze COVID-19</a></li>
-<li><a href="https://www.datacamp.com/projects/870">DataCamp: Visualize the rise of COVID-19 cases globally with ggplot2</a></li>
-<li><a href="https://github.com/MarcLavielle/covidix/">MackLavielle/covidix R package</a></li>
+<li><a href="https://github.com/emanuele-guidotti/COVID19" class="external-link uri">https://github.com/emanuele-guidotti/COVID19</a></li>
+<li><a href="https://towardsdatascience.com/top-5-r-resources-on-covid-19-coronavirus-1d4c8df6d85f" class="external-link">Top 25 R resources on Novel COVID-19 Coronavirus</a></li>
+<li><a href="https://rviews.rstudio.com/2020/03/05/covid-19-epidemiology-with-r/" class="external-link">COVID-19 epidemiology with R</a></li>
+<li><a href="https://github.com/RamiKrispin/coronavirus" class="external-link uri">https://github.com/RamiKrispin/coronavirus</a></li>
+<li><a href="https://www.youtube.com/watch?v=D_CNmYkGRUc" class="external-link">Youtube: Using R to analyze COVID-19</a></li>
+<li><a href="https://www.datacamp.com/projects/870" class="external-link">DataCamp: Visualize the rise of COVID-19 cases globally with ggplot2</a></li>
+<li><a href="https://github.com/MarcLavielle/covidix/" class="external-link">MackLavielle/covidix R package</a></li>
 </ul>
 </div>
 </div>
@@ -1358,46 +1354,57 @@ India
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <div class="links">
-<h2>Links</h2>
+<h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
-<li>Browse source code at <br><a href="https://github.com/seandavi/sars2pack/">https://​github.com/​seandavi/​sars2pack/​</a>
-</li>
-<li>Report a bug at <br><a href="https://github.com/seandavi/sars2pack/issues/new">https://​github.com/​seandavi/​sars2pack/​issues/​new</a>
-</li>
-</ul>
-</div>
-<div class="license">
-<h2>License</h2>
-<ul class="list-unstyled">
-<li><a href="LICENSE.html">Full license</a></li>
-<li><small><a href="https://opensource.org/licenses/mit-license.php">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a></small></li>
-</ul>
-</div>
-<div class="developers">
-<h2>Developers</h2>
-<ul class="list-unstyled">
-<li>Sean Davis <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0002-8991-6458" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
-<li>VJ Carey <br><small class="roles"> Author </small>  </li>
-<li><a href="authors.html">All authors...</a></li>
+<li><a href="https://github.com/seandavi/sars2pack/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/seandavi/sars2pack/issues/new" class="external-link">Report a bug</a></li>
 </ul>
 </div>
 
-  <div class="dev-status">
-<h2>Dev status</h2>
+<div class="license">
+<h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
-<li><a href="https://codecov.io/gh/seandavi/sars2pack"><img src="https://codecov.io/gh/seandavi/sars2pack/branch/main/graph/badge.svg?token=CHJSMJXAYL" alt="codecov"></a></li>
+<li><a href="LICENSE.html">Full license</a></li>
+<li><small><a href="https://opensource.org/licenses/mit-license.php" class="external-link">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a></small></li>
 </ul>
 </div>
+
+
+<div class="citation">
+<h2 data-toc-skip>Citation</h2>
+<ul class="list-unstyled">
+<li><a href="authors.html#citation">Citing sars2pack</a></li>
+</ul>
 </div>
+
+<div class="developers">
+<h2 data-toc-skip>Developers</h2>
+<ul class="list-unstyled">
+<li>Sean Davis <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0002-8991-6458" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li>VJ Carey <br><small class="roles"> Author </small>  </li>
+<li><a href="authors.html">More about authors...</a></li>
+</ul>
+</div>
+
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://codecov.io/gh/seandavi/sars2pack" class="external-link"><img src="https://codecov.io/gh/seandavi/sars2pack/branch/main/graph/badge.svg?token=CHJSMJXAYL" alt="codecov"></a></li>
+</ul>
+</div>
+
+  </div>
 </div>
 
 
       <footer><div class="copyright">
-  <p>Developed by Sean Davis, VJ Carey.</p>
+  <p></p>
+<p>Developed by Sean Davis, VJ Carey.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
 </div>
 
       </footer>
@@ -1405,6 +1412,8 @@ India
 
   
 
+
+  
 
   </body>
 </html>
