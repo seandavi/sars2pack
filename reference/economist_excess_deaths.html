@@ -140,23 +140,91 @@
     <div id="ref-examples">
     <h2>Examples</h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">res</span> <span class="op">=</span> <span class="fu">economist_excess_deaths</span><span class="op">(</span><span class="op">)</span></span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>download failed</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span>   web resource path: ‘https://raw.githubusercontent.com/TheEconomist/covid-19-excess-deaths-tracker/master/output-data/excess-deaths/antigua_and_barbuda_excess_deaths.csv’</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span>   local file path: ‘~/.cache/sars2pack/76153a7987d_antigua_and_barbuda_excess_deaths.csv’</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span>   reason: Service Unavailable (HTTP 503).</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>bfcadd() failed; resource removed</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span>   rid: BFC39</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span>   fpath: ‘https://raw.githubusercontent.com/TheEconomist/covid-19-excess-deaths-tracker/master/output-data/excess-deaths/antigua_and_barbuda_excess_deaths.csv’</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span>   reason: download failed</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in .util_download(x, rid[i], proxy, config, "bfcadd()", ...):</span> bfcadd() failed; see warnings()</span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">res</span><span class="op">)</span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in is.data.frame(x):</span> object 'res' not found</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "country"         "region"          "region_code"     "start_date"     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [5] "end_date"        "days"            "year"            "month"          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [9] "population"      "total_deaths"    "covid_deaths"    "expected_deaths"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [13] "quarter"         "week"           </span>
 <span class="r-in"><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="va">res</span><span class="op">)</span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in dplyr::glimpse(res):</span> object 'res' not found</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Rows: 21,787</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Columns: 14</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ country         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Albania", "Albania", "Albania", "Albania", "Albania",…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ region          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Albania", "Albania", "Albania", "Albania", "Albania",…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ region_code     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0",…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ start_date      <span style="color: #949494; font-style: italic;">&lt;date&gt;</span> 2020-01-01, 2020-02-01, 2020-03-01, 2020-04-01, 2020-…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ end_date        <span style="color: #949494; font-style: italic;">&lt;date&gt;</span> 2020-01-31, 2020-02-29, 2020-03-31, 2020-04-30, 2020-…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ days            <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31, 31, 28…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ year            <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 2020, 2020, 2020, 2020, 2020, 2020, 2020, 2020, 2020, …</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ month           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 1, 2, 3, 4, 5, …</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ population      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 2872934, 2872934, 2872934, 2872934, 2872934, 2872934, …</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ total_deaths    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 2187, 2018, 1993, 1804, 1803, 1779, 2166, 2476, 1982, …</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ covid_deaths    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 0, 0, 15, 16, 2, 29, 95, 127, 103, 122, 301, 371, 199,…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ expected_deaths <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ quarter         <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ week            <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
 <span class="r-in"><span class="va">res</span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in eval(expr, envir, enclos):</span> object 'res' not found</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           country     region region_code start_date   end_date days year month</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     1:    Albania    Albania           0 2020-01-01 2020-01-31   31 2020     1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     2:    Albania    Albania           0 2020-02-01 2020-02-29   29 2020     2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     3:    Albania    Albania           0 2020-03-01 2020-03-31   31 2020     3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     4:    Albania    Albania           0 2020-04-01 2020-04-30   30 2020     4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     5:    Albania    Albania           0 2020-05-01 2020-05-31   31 2020     5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    ---                                                                        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21783: Uzbekistan Uzbekistan           0 2021-05-01 2021-05-31   31 2021     5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21784: Uzbekistan Uzbekistan           0 2021-06-01 2021-06-30   30 2021     6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21785: Uzbekistan Uzbekistan           0 2021-07-01 2021-07-31   31 2021     7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21786: Uzbekistan Uzbekistan           0 2021-08-01 2021-08-31   31 2021     8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21787: Uzbekistan Uzbekistan           0 2021-09-01 2021-09-30   30 2021     9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        population total_deaths covid_deaths expected_deaths quarter week</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     1:    2872934         2187            0              NA      NA   NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     2:    2872934         2018            0              NA      NA   NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     3:    2872934         1993           15              NA      NA   NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     4:    2872934         1804           16              NA      NA   NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     5:    2872934         1803            2              NA      NA   NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    ---                                                                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21783:   33935765        12440           41              NA      NA   NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21784:   33935765        14629           46              NA      NA   NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21785:   33935765        17458          138              NA      NA   NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21786:   33935765        17458          208              NA      NA   NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21787:   33935765        17458          157              NA      NA   NA</span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">res</span><span class="op">$</span><span class="va">country</span><span class="op">)</span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in unique(res$country):</span> object 'res' not found</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] "Albania"                "Andorra"                "Antigua and Barbuda"   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [4] "Argentina"              "Armenia"                "Aruba"                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [7] "Azerbaijan"             "Barbados"               "Belarus"               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [10] "Belize"                 "Bermuda"                "Bolivia"               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [13] "Bosnia and Herzegovina" "Brazil"                 "Brunei"                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [16] "Costa Rica"             "Cuba"                   "Dominican Republic"    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [19] "Egypt"                  "El Salvador"            "Faroe Islands"         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [22] "French Polynesia"       "Georgia"                "Gibraltar"             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [25] "Greenland"              "Hong Kong"              "Indonesia"             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [28] "Ireland"                "Jamaica"                "Japan"                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [31] "Jordan"                 "Kazakhstan"             "Kosovo"                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [34] "Kuwait"                 "Kyrgyzstan"             "Lebanon"               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [37] "Liechtenstein"          "Macao"                  "Malaysia"              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [40] "Maldives"               "Mauritius"              "Moldova"               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [43] "Monaco"                 "Mongolia"               "Nicaragua"             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [46] "North Macedonia"        "Oman"                   "Palestine"             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [49] "Panama"                 "Paraguay"               "Philippines"           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [52] "Qatar"                  "Russia"                 "San Marino"            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [55] "Serbia"                 "Seychelles"             "Singapore"             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [58] "Taiwan"                 "Thailand"               "Ukraine"               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [61] "Uruguay"                "Uzbekistan"             "Tajikistan"            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [64] "Australia"              "Austria"                "Belgium"               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [67] "Britain"                "Bulgaria"               "Canada"                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [70] "Chile"                  "Colombia"               "Croatia"               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [73] "Cyprus"                 "Czech Republic"         "Denmark"               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [76] "Ecuador"                "Estonia"                "Finland"               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [79] "France"                 "Germany"                "Greece"                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [82] "Guatemala"              "Hungary"                "Iceland"               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [85] "Iran"                   "Israel"                 "Italy"                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [88] "Latvia"                 "Lithuania"              "Luxembourg"            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [91] "Malta"                  "Mexico"                 "Montenegro"            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [94] "Netherlands"            "New Zealand"            "Norway"                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [97] "Peru"                   "Poland"                 "Portugal"              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [100] "Romania"                "Slovakia"               "Slovenia"              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [103] "South Africa"           "South Korea"            "Spain"                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [106] "Sweden"                 "Switzerland"            "Tunisia"               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [109] "Turkey"                 "United States"         </span>
 <span class="r-in"></span>
 </code></pre></div>
     </div>
