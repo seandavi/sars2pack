@@ -170,302 +170,165 @@ Pandemic.” SocArXiv. April 12. doi:10.31235/osf.io/dkvxy.</p><ul><li><p><a hre
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">res</span> <span class="op">=</span> <span class="fu">coronanet_government_response_data</span><span class="op">(</span><span class="op">)</span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>One or more parsing issues, see `problems()` for details</span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">res</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 6 × 102</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   ra_name  record_id  policy_id entry_type correct_type update_type update_level</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> Forogh … R_3FKlACY… 2975738   new_entry  correction   <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span>          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> Forogh … R_2arWTem… 7024226   new_entry  correction   <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span>          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> Wissam … R_1reUk0m… 1850843   new_entry  original     <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span>          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> Forogh … R_pMJfXPN… 889484    new_entry  correction   <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span>          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span> Wissam … R_1eJC2cH… 769460    new_entry  original     <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span>          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span> Forogh … R_2y9GMTX… 129322    new_entry  correction   <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span>          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 95 more variables: update_level_var &lt;chr&gt;, description &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   date_announced &lt;date&gt;, date_start &lt;date&gt;, date_end_spec &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   date_end &lt;date&gt;, country &lt;chr&gt;, iso3c &lt;chr&gt;, iso2c &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   init_country_level &lt;chr&gt;, domestic_policy &lt;dbl&gt;, province &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ISO_L2 &lt;chr&gt;, city &lt;chr&gt;, init_other &lt;lgl&gt;, type &lt;chr&gt;, type_sub_cat &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   type_text &lt;chr&gt;, type_quarantine_days &lt;dbl&gt;, type_mass_gathering &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   type_curfew_start &lt;dbl&gt;, type_curfew_end &lt;dbl&gt;, …</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 6 × 64</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   record_id       policy_id entry_type update_type update_level update_level_var</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> R_3FKlACY6Djr1… 2975738   new_entry  <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span>           <span style="color: #BB0000;">NA</span>              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> R_2arWTemRbMLK… 7024226   new_entry  <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span>           <span style="color: #BB0000;">NA</span>              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> R_1reUk0mSCc6q… 1850843   new_entry  <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span>           <span style="color: #BB0000;">NA</span>              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> R_pMJfXPNXIYRV… 889484    new_entry  <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span>           <span style="color: #BB0000;">NA</span>              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span> R_1eJC2cHJL6SX… 769460    new_entry  <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span>           <span style="color: #BB0000;">NA</span>              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span> R_2y9GMTXGfnZh… 129322    new_entry  <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span>           <span style="color: #BB0000;">NA</span>              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 58 more variables: description &lt;chr&gt;, date_announced &lt;date&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   date_start &lt;date&gt;, date_end &lt;date&gt;, date_end_spec &lt;chr&gt;, country &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   iso3c &lt;chr&gt;, iso2c &lt;chr&gt;, init_country_level &lt;chr&gt;, domestic_policy &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   province &lt;chr&gt;, ISO_L2 &lt;chr&gt;, city &lt;chr&gt;, type &lt;chr&gt;, type_sub_cat &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   type_new_admin_coop &lt;chr&gt;, type_vac_cat &lt;chr&gt;, type_vac_mix &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   type_vac_reg &lt;chr&gt;, type_vac_purchase &lt;chr&gt;, type_vac_group &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   type_vac_group_rank &lt;dbl&gt;, type_vac_who_pays &lt;chr&gt;, …</span></span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">res</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] "ra_name"                         "record_id"                      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   [3] "policy_id"                       "entry_type"                     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   [5] "correct_type"                    "update_type"                    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   [7] "update_level"                    "update_level_var"               </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   [9] "description"                     "date_announced"                 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [11] "date_start"                      "date_end_spec"                  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [13] "date_end"                        "country"                        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [15] "iso3c"                           "iso2c"                          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [17] "init_country_level"              "domestic_policy"                </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [19] "province"                        "ISO_L2"                         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [21] "city"                            "init_other"                     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [23] "type"                            "type_sub_cat"                   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [25] "type_text"                       "type_quarantine_days"           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [27] "type_mass_gathering"             "type_curfew_start"              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [29] "type_curfew_end"                 "type_health_resource_conditions"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [31] "type_health_test_cat"            "type_health_test_cat_text"      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [33] "type_health_test_hrs"            "type_health_test_hrs_text"      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [35] "type_health_test_res"            "type_health_test_res_text"      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [37] "type_health_test_eco"            "type_health_test_loc"           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [39] "type_health_test_loc_text"       "type_health_mon_snap"           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [41] "type_health_mon_snap_text"       "type_health_mon_loc"            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [43] "type_health_mon_loc_text"        "type_health_mon_hum"            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [45] "type_health_mon_hum_text"        "type_health_mon_stra"           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [47] "type_health_mon_stra_text"       "type_health_mon_tech"           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [49] "type_health_mon_tech_text"       "type_pub_cat"                   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [51] "type_pub_content"                "type_pub_format"                </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [53] "type_pub_source"                 "type_new_admin_coop"            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [55] "type_vac_cat"                    "type_vac_mix"                   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [57] "type_vac_reg"                    "type_vac_purchase"              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [59] "type_vac_group"                  "type_vac_group_rank"            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [61] "type_vac_who_pays"               "type_vac_dist_admin"            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [63] "type_vac_loc"                    "type_vac_cost_num"              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [65] "type_vac_cost_scale"             "type_vac_cost_unit"             </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [67] "type_vac_cost_gov_perc"          "type_vac_amt_num"               </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [69] "type_vac_amt_scale"              "type_vac_amt_unit"              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [71] "type_vac_amt_gov_perc"           "institution_cat"                </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [73] "institution_status"              "institution_conditions"         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] "institution_conditions_text"     "target_init_same"               </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [77] "target_geog_level"               "target_country"                 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [79] "target_region"                   "target_province"                </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [81] "target_city"                     "target_other"                   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [83] "target_intl_org_text"            "target_who_what"                </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [85] "target_who_gen"                  "target_who_gen_text"            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [87] "target_direction"                "travel_mechanism"               </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [89] "compliance"                      "enforcer"                       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [91] "dist_index_high_est"             "dist_index_med_est"             </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [93] "dist_index_low_est"              "dist_index_country_rank"        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [95] "link"                            "pdf_link"                       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [97] "source_title"                    "source_date"                    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [99] "source_institution"              "date_updated"                   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [101] "recorded_date"                   "country_overwrite"              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "record_id"               "policy_id"              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [3] "entry_type"              "update_type"            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [5] "update_level"            "update_level_var"       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] "description"             "date_announced"         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [9] "date_start"              "date_end"               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [11] "date_end_spec"           "country"                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [13] "iso3c"                   "iso2c"                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [15] "init_country_level"      "domestic_policy"        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [17] "province"                "ISO_L2"                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [19] "city"                    "type"                   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [21] "type_sub_cat"            "type_new_admin_coop"    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [23] "type_vac_cat"            "type_vac_mix"           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [25] "type_vac_reg"            "type_vac_purchase"      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [27] "type_vac_group"          "type_vac_group_rank"    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [29] "type_vac_who_pays"       "type_vac_dist_admin"    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [31] "type_vac_loc"            "type_vac_cost_num"      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [33] "type_vac_cost_scale"     "type_vac_cost_unit"     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [35] "type_vac_cost_gov_perc"  "type_vac_amt_num"       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [37] "type_vac_amt_scale"      "type_vac_amt_unit"      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [39] "type_vac_amt_gov_perc"   "type_text"              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [41] "institution_cat"         "institution_status"     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [43] "institution_conditions"  "target_init_same"       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [45] "target_country"          "target_geog_level"      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [47] "target_region"           "target_province"        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [49] "target_city"             "target_other"           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [51] "target_who_what"         "target_who_gen"         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [53] "target_direction"        "travel_mechanism"       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [55] "compliance"              "enforcer"               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [57] "dist_index_high_est"     "dist_index_med_est"     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [59] "dist_index_low_est"      "dist_index_country_rank"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [61] "pdf_link"                "link"                   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [63] "date_updated"            "recorded_date"          </span>
 <span class="r-in"><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="va">res</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Rows: 103,224</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Columns: 102</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ ra_name                         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Forogh Akbari", "Forogh Akbari", "Wis…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ record_id                       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "R_3FKlACY6Djr1sjcNA", "R_2arWTemRbMLK…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ policy_id                       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "2975738", "7024226", "1850843", "8894…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ entry_type                      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "new_entry", "new_entry", "new_entry",…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ correct_type                    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "correction", "correction", "original"…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ update_type                     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ update_level                    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ update_level_var                <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ description                     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "March 6, Afghanistan \"Measures have …</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ date_announced                  <span style="color: #949494; font-style: italic;">&lt;date&gt;</span> 2020-03-06, 2020-03-16, 2020-05-14, 2…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ date_start                      <span style="color: #949494; font-style: italic;">&lt;date&gt;</span> 2020-03-06, 2020-03-16, 2020-05-14, 2…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ date_end_spec                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "The policy has an unlimited time span…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ date_end                        <span style="color: #949494; font-style: italic;">&lt;date&gt;</span> 2022-01-03, 2020-03-16, 2020-05-15, N…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ country                         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Afghanistan", "Afghanistan", "Afghani…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ iso3c                           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "AFG", "AFG", "AFG", "AFG", "AFG", "AF…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ iso2c                           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "AF", "AF", "AF", "AF", "AF", "AF", "A…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ init_country_level              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "National", "National", "National", "N…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ domestic_policy                 <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ province                        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, "Herat", "Hera…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ ISO_L2                          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ city                            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ init_other                      <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ type                            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Anti-Disinformation Measures", "Anti-…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ type_sub_cat                    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, "Preschool or …</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ type_text                       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ type_quarantine_days            <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ type_mass_gathering             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ type_curfew_start               <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ type_curfew_end                 <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ type_health_resource_conditions <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ type_health_test_cat            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ type_health_test_cat_text       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ type_health_test_hrs            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ type_health_test_hrs_text       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ type_health_test_res            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ type_health_test_res_text       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ type_health_test_eco            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ type_health_test_loc            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ type_health_test_loc_text       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ type_health_mon_snap            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ type_health_mon_snap_text       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ type_health_mon_loc             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ type_health_mon_loc_text        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ type_health_mon_hum             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ type_health_mon_hum_text        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ type_health_mon_stra            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ type_health_mon_stra_text       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ type_health_mon_tech            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ type_health_mon_tech_text       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ type_pub_cat                    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ type_pub_content                <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ type_pub_format                 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ type_pub_source                 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ type_new_admin_coop             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ type_vac_cat                    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ type_vac_mix                    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ type_vac_reg                    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ type_vac_purchase               <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ type_vac_group                  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ type_vac_group_rank             <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ type_vac_who_pays               <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ type_vac_dist_admin             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ type_vac_loc                    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ type_vac_cost_num               <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ type_vac_cost_scale             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ type_vac_cost_unit              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ type_vac_cost_gov_perc          <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ type_vac_amt_num                <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ type_vac_amt_scale              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ type_vac_amt_unit               <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ type_vac_amt_gov_perc           <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ institution_cat                 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ institution_status              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, "P…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ institution_conditions          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ institution_conditions_text     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ target_init_same                <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Yes", "Yes", "Yes", "No", "Yes", "Yes…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ target_geog_level               <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "One or more countries, but not all co…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ target_country                  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Afghanistan", "Afghanistan", "Afghani…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ target_region                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ target_province                 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, "Balkh; Kabul; Nangarhar; …</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ target_city                     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ target_other                    <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ target_intl_org_text            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ target_who_what                 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "All Residents (Citizen Residents + Fo…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ target_who_gen                  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "No special population targeted", "No …</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ target_who_gen_text             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, "Religious Leaders", NA, "Ultr…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ target_direction                <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ travel_mechanism                <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ compliance                      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Voluntary/Recommended but No Penaltie…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ enforcer                        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Ministry/Department of Health,Other (…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ dist_index_high_est             <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 52.91608, 52.68646, 84.67092, 85.83168…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ dist_index_med_est              <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 44.30324, 45.55852, 77.76448, 79.82725…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ dist_index_low_est              <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 34.85850, 36.72021, 70.08431, 73.13763…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ dist_index_country_rank         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 123, 60, 125, 131, 131, 135, 121, 121,…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ link                            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "https://www.etilaatroz.com/94246/fear…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ pdf_link                        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "https://tummgmt.eu.qualtrics.com/Q/Fi…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ source_title                    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "«ترس، شایعه و باورهای نادرست مبارزه ب…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ source_date                     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "03-06-2020", "03-16-2020", "05-14-202…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ source_institution              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Etilaatroz", "Government Media Inform…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ date_updated                    <span style="color: #949494; font-style: italic;">&lt;date&gt;</span> 2021-08-15, 2021-08-15, 2021-12-11, 2…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ recorded_date                   <span style="color: #949494; font-style: italic;">&lt;dttm&gt;</span> 2021-08-15 16:53:01, 2021-08-15 16:57…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ country_overwrite               <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Rows: 104,006</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Columns: 64</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ record_id               <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "R_3FKlACY6Djr1sjcNA", "R_2arWTemRbMLKdk0NA", …</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ policy_id               <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "2975738", "7024226", "1850843", "889484", "76…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ entry_type              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "new_entry", "new_entry", "new_entry", "new_en…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ update_type             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ update_level            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ update_level_var        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ description             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "March 6, Afghanistan \"Measures have been tak…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ date_announced          <span style="color: #949494; font-style: italic;">&lt;date&gt;</span> 2020-03-06, 2020-03-16, 2020-05-14, 2020-05-2…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ date_start              <span style="color: #949494; font-style: italic;">&lt;date&gt;</span> 2020-03-06, 2020-03-16, 2020-05-14, 2020-05-2…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ date_end                <span style="color: #949494; font-style: italic;">&lt;date&gt;</span> 2022-01-21, 2020-03-16, 2020-05-15, NA, 2020-…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ date_end_spec           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "The policy has an unlimited time span (e.g. r…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ country                 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Afghanistan", "Afghanistan", "Afghanistan", "…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ iso3c                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "AFG", "AFG", "AFG", "AFG", "AFG", "AFG", "AFG…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ iso2c                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "AF", "AF", "AF", "AF", "AF", "AF", "AF", "AF"…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ init_country_level      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "National", "National", "National", "National"…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ domestic_policy         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ province                <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, "Herat", "Herat", "Her…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ ISO_L2                  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ city                    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ type                    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Anti-Disinformation Measures", "Anti-Disinfor…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ type_sub_cat            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, "Preschool or childcar…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ type_new_admin_coop     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ type_vac_cat            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ type_vac_mix            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ type_vac_reg            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ type_vac_purchase       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ type_vac_group          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ type_vac_group_rank     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ type_vac_who_pays       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ type_vac_dist_admin     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ type_vac_loc            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ type_vac_cost_num       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ type_vac_cost_scale     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ type_vac_cost_unit      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ type_vac_cost_gov_perc  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ type_vac_amt_num        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ type_vac_amt_scale      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ type_vac_amt_unit       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ type_vac_amt_gov_perc   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ type_text               <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ institution_cat         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ institution_status      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, "Primary S…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ institution_conditions  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ target_init_same        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Yes", "Yes", "Yes", "No", "Yes", "Yes", "Yes"…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ target_country          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Afghanistan", "Afghanistan", "Afghanistan", "…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ target_geog_level       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "One or more countries, but not all countries"…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ target_region           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ target_province         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, "Balkh; Kabul; Nangarhar; Kunar; P…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ target_city             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ target_other            <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ target_who_what         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "All Residents (Citizen Residents + Foreign Re…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ target_who_gen          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "No special population targeted", "No special …</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ target_direction        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ travel_mechanism        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ compliance              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Voluntary/Recommended but No Penalties", "Man…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ enforcer                <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Ministry/Department of Health,Other (Please s…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ dist_index_high_est     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 52.91608, 52.68646, 84.67092, 85.83168, 85.831…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ dist_index_med_est      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 44.30324, 45.55852, 77.76448, 79.82725, 79.827…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ dist_index_low_est      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 34.85850, 36.72021, 70.08431, 73.13763, 73.137…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ dist_index_country_rank <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 123, 60, 125, 131, 131, 135, 121, 121, 121, 10…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ pdf_link                <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "https://tummgmt.eu.qualtrics.com/Q/File.php?F…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ link                    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "https://www.etilaatroz.com/94246/fears-rumors…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ date_updated            <span style="color: #949494; font-style: italic;">&lt;date&gt;</span> 2021-08-15, 2021-08-15, 2021-12-11, 2021-08-1…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ recorded_date           <span style="color: #949494; font-style: italic;">&lt;dttm&gt;</span> 2021-08-15 16:53:01, 2021-08-15 16:57:33, 202…</span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">res</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    ra_name           record_id          policy_id          entry_type       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Length:103224      Length:103224      Length:103224      Length:103224     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   record_id          policy_id          entry_type        update_type       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Length:104006      Length:104006      Length:104006      Length:104006     </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  Class :character   Class :character   Class :character   Class :character  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  Mode  :character   Mode  :character   Mode  :character   Mode  :character  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                                             </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                                             </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                                             </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                                             </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  correct_type       update_type        update_level       update_level_var  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Length:103224      Length:103224      Length:103224      Length:103224     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  update_level       update_level_var   description        date_announced      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Length:104006      Length:104006      Length:104006      Min.   :2019-12-31  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Class :character   Class :character   Class :character   1st Qu.:2020-03-28  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Mode  :character   Mode  :character   Mode  :character   Median :2020-05-16  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                           Mean   :2020-07-06  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                           3rd Qu.:2020-09-04  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                           Max.   :2022-12-28  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                           NA's   :9           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    date_start            date_end          date_end_spec     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Min.   :2019-12-31   Min.   :2020-01-01   Length:104006     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  1st Qu.:2020-03-29   1st Qu.:2020-04-30   Class :character  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Median :2020-05-18   Median :2020-07-05   Mode  :character  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Mean   :2020-07-08   Mean   :2020-09-11                     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  3rd Qu.:2020-09-10   3rd Qu.:2020-12-03                     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Max.   :2024-05-29   Max.   :2027-07-01                     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                       NA's   :43417                          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    country             iso3c              iso2c           init_country_level</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Length:104006      Length:104006      Length:104006      Length:104006     </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  Class :character   Class :character   Class :character   Class :character  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  Mode  :character   Mode  :character   Mode  :character   Mode  :character  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                                             </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                                             </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                                             </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                                             </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  description        date_announced         date_start        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Length:103224      Min.   :2019-12-31   Min.   :2019-12-31  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Class :character   1st Qu.:2020-03-28   1st Qu.:2020-03-29  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Mode  :character   Median :2020-05-15   Median :2020-05-18  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                     Mean   :2020-07-05   Mean   :2020-07-07  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                     3rd Qu.:2020-09-02   3rd Qu.:2020-09-08  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                     Max.   :2022-12-22   Max.   :2024-05-29  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                     NA's   :78           NA's   :69          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  date_end_spec         date_end            country             iso3c          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Length:103224      Min.   :2020-01-01   Length:103224      Length:103224     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Class :character   1st Qu.:2020-04-30   Class :character   Class :character  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Mode  :character   Median :2020-07-03   Mode  :character   Mode  :character  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                     Mean   :2020-09-10                                        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                     3rd Qu.:2020-12-01                                        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                     Max.   :2027-07-01                                        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                     NA's   :43116                                             </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     iso2c           init_country_level domestic_policy    province        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Length:103224      Length:103224      Min.   :0.0000   Length:103224     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Class :character   Class :character   1st Qu.:0.0000   Class :character  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Mode  :character   Mode  :character   Median :1.0000   Mode  :character  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                        Mean   :0.7098                     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                        3rd Qu.:1.0000                     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                        Max.   :1.0000                     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     ISO_L2              city           init_other         type          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Length:103224      Length:103224      Mode:logical   Length:103224     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Class :character   Class :character   NA's:103224    Class :character  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Mode  :character   Mode  :character                  Mode  :character  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  type_sub_cat        type_text         type_quarantine_days type_mass_gathering</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Length:103224      Length:103224      Min.   :   1.00      Length:103224      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Class :character   Class :character   1st Qu.:  12.00      Class :character   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Mode  :character   Mode  :character   Median :  14.00      Mode  :character   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                        Mean   :  24.21                         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                        3rd Qu.:  14.00                         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                        Max.   :9999.00                         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                        NA's   :101144                          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  type_curfew_start type_curfew_end  type_health_resource_conditions</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Min.   :    0     Min.   :    0    Length:103224                  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  1st Qu.:57600     1st Qu.:18000    Class :character               </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Median :72000     Median :18000    Mode  :character               </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Mean   :63060     Mean   :24353                                   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  3rd Qu.:76500     3rd Qu.:21600                                   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Max.   :86340     Max.   :86340                                   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  NA's   :102305    NA's   :102391                                  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  type_health_test_cat type_health_test_cat_text type_health_test_hrs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Length:103224        Length:103224             Length:103224       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Class :character     Class :character          Class :character    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Mode  :character     Mode  :character          Mode  :character    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  type_health_test_hrs_text type_health_test_res type_health_test_res_text</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Length:103224             Length:103224        Length:103224            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Class :character          Class :character     Class :character         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Mode  :character          Mode  :character     Mode  :character         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  domestic_policy   province            ISO_L2              city          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Min.   :0.00    Length:104006      Length:104006      Length:104006     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  1st Qu.:0.00    Class :character   Class :character   Class :character  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Median :1.00    Mode  :character   Mode  :character   Mode  :character  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Mean   :0.71                                                            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  3rd Qu.:1.00                                                            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Max.   :1.00                                                            </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                                          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  type_health_test_eco type_health_test_loc type_health_test_loc_text</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Length:103224        Length:103224        Length:103224            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Class :character     Class :character     Class :character         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Mode  :character     Mode  :character     Mode  :character         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  type_health_mon_snap type_health_mon_snap_text type_health_mon_loc</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Length:103224        Length:103224             Length:103224      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Class :character     Class :character          Class :character   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Mode  :character     Mode  :character          Mode  :character   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  type_health_mon_loc_text type_health_mon_hum type_health_mon_hum_text</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Length:103224            Length:103224       Length:103224           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Class :character         Class :character    Class :character        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Mode  :character         Mode  :character    Mode  :character        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  type_health_mon_stra type_health_mon_stra_text type_health_mon_tech</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Length:103224        Length:103224             Length:103224       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Class :character     Class :character          Class :character    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Mode  :character     Mode  :character          Mode  :character    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  type_health_mon_tech_text type_pub_cat       type_pub_content  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Length:103224             Length:103224      Length:103224     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Class :character          Class :character   Class :character  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Mode  :character          Mode  :character   Mode  :character  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  type_pub_format    type_pub_source    type_new_admin_coop type_vac_cat      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Length:103224      Length:103224      Length:103224       Length:103224     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      type           type_sub_cat       type_new_admin_coop type_vac_cat      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Length:104006      Length:104006      Length:104006       Length:104006     </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  Class :character   Class :character   Class :character    Class :character  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  Mode  :character   Mode  :character   Mode  :character    Mode  :character  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                                              </span>
@@ -473,7 +336,7 @@ Pandemic.” SocArXiv. April 12. doi:10.31235/osf.io/dkvxy.</p><ul><li><p><a hre
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                                              </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                                              </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  type_vac_mix       type_vac_reg       type_vac_purchase  type_vac_group    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Length:103224      Length:103224      Length:103224      Length:103224     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Length:104006      Length:104006      Length:104006      Length:104006     </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  Class :character   Class :character   Class :character   Class :character  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  Mode  :character   Mode  :character   Mode  :character   Mode  :character  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                                             </span>
@@ -481,101 +344,93 @@ Pandemic.” SocArXiv. April 12. doi:10.31235/osf.io/dkvxy.</p><ul><li><p><a hre
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                                             </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                                             </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  type_vac_group_rank type_vac_who_pays  type_vac_dist_admin type_vac_loc      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Min.   :1.00        Length:103224      Length:103224       Length:103224     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Min.   :1.00        Length:104006      Length:104006       Length:104006     </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  1st Qu.:1.00        Class :character   Class :character    Class :character  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  Median :1.00        Mode  :character   Mode  :character    Mode  :character  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Mean   :1.88                                                                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Mean   :1.87                                                                 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  3rd Qu.:2.00                                                                 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  Max.   :9.00                                                                 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  NA's   :102911                                                               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  NA's   :103689                                                               </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  type_vac_cost_num  type_vac_cost_scale type_vac_cost_unit</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Min.   :     0.0   Length:103224       Length:103224     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  1st Qu.:     2.6   Class :character    Class :character  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Median :    54.5   Mode  :character    Mode  :character  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Mean   : 14962.2                                         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Min.   :     0.0   Length:104006       Length:104006     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  1st Qu.:     2.8   Class :character    Class :character  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Median :    75.0   Mode  :character    Mode  :character  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Mean   : 14695.6                                         </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  3rd Qu.:   200.0                                         </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  Max.   :800000.0                                         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  NA's   :103170                                           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  NA's   :103951                                           </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  type_vac_cost_gov_perc type_vac_amt_num   type_vac_amt_scale</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Min.   :  0.00         Min.   :     0.1   Length:103224     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  1st Qu.:100.00         1st Qu.:     9.0   Class :character  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Min.   :  0.00         Min.   :     0.1   Length:104006     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  1st Qu.:100.00         1st Qu.:     8.5   Class :character  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  Median :100.00         Median :    50.0   Mode  :character  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Mean   : 90.96         Mean   :  6182.8                     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  3rd Qu.:100.00         3rd Qu.:   405.0                     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Mean   : 91.18         Mean   :  6134.4                     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  3rd Qu.:100.00         3rd Qu.:   399.4                     </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  Max.   :100.00         Max.   :940800.0                     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  NA's   :103142         NA's   :102844                       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  type_vac_amt_unit  type_vac_amt_gov_perc institution_cat    institution_status</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Length:103224      Min.   :  0.00        Length:103224      Length:103224     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  NA's   :103922         NA's   :103623                       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  type_vac_amt_unit  type_vac_amt_gov_perc  type_text         institution_cat   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Length:104006      Min.   :  0.00        Length:104006      Length:104006     </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  Class :character   1st Qu.:100.00        Class :character   Class :character  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  Mode  :character   Median :100.00        Mode  :character   Mode  :character  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                     Mean   : 93.33                                             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                     Mean   : 93.42                                             </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                     3rd Qu.:100.00                                             </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                     Max.   :100.00                                             </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                     NA's   :102999                                             </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  institution_conditions institution_conditions_text target_init_same  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Length:103224          Length:103224               Length:103224     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Class :character       Class :character            Class :character  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Mode  :character       Mode  :character            Mode  :character  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  target_geog_level  target_country     target_region      target_province   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Length:103224      Length:103224      Length:103224      Length:103224     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                     NA's   :103778                                             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  institution_status institution_conditions target_init_same  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Length:104006      Length:104006          Length:104006     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Class :character   Class :character       Class :character  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Mode  :character   Mode  :character       Mode  :character  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  target_country     target_geog_level  target_region      target_province   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Length:104006      Length:104006      Length:104006      Length:104006     </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  Class :character   Class :character   Class :character   Class :character  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  Mode  :character   Mode  :character   Mode  :character   Mode  :character  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                                             </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                                             </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                                             </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                                             </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  target_city        target_other   target_intl_org_text target_who_what   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Length:103224      Mode:logical   Length:103224        Length:103224     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Class :character   NA's:103224    Class :character     Class :character  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Mode  :character                  Mode  :character     Mode  :character  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  target_who_gen     target_who_gen_text target_direction   travel_mechanism  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Length:103224      Length:103224       Length:103224      Length:103224     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Class :character   Class :character    Class :character   Class :character  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Mode  :character   Mode  :character    Mode  :character   Mode  :character  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   compliance          enforcer         dist_index_high_est dist_index_med_est</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Length:103224      Length:103224      Min.   :13.30       Min.   : 9.893    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Class :character   Class :character   1st Qu.:58.64       1st Qu.:55.567    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Mode  :character   Mode  :character   Median :68.19       Median :64.981    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                        Mean   :66.86       Mean   :63.593    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                        3rd Qu.:77.11       3rd Qu.:73.698    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                        Max.   :98.75       Max.   :98.298    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                        NA's   :18242       NA's   :18242     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  dist_index_low_est dist_index_country_rank     link          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Min.   : 3.146     Min.   :  1.00          Length:103224     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  1st Qu.:52.381     1st Qu.: 60.00          Class :character  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Median :61.822     Median :100.00          Mode  :character  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Mean   :60.228     Mean   : 90.66                            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  3rd Qu.:70.132     3rd Qu.:126.00                            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Max.   :97.683     Max.   :139.00                            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  NA's   :18242      NA's   :18242                             </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    pdf_link         source_title       source_date        source_institution</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Length:103224      Length:103224      Length:103224      Length:103224     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  target_city        target_other   target_who_what    target_who_gen    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Length:104006      Mode:logical   Length:104006      Length:104006     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Class :character   NA's:104006    Class :character   Class :character  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Mode  :character                  Mode  :character   Mode  :character  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  target_direction   travel_mechanism    compliance          enforcer        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Length:104006      Length:104006      Length:104006      Length:104006     </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  Class :character   Class :character   Class :character   Class :character  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  Mode  :character   Mode  :character   Mode  :character   Mode  :character  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                                             </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                                             </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                                             </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                                             </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   date_updated        recorded_date                 country_overwrite</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Min.   :2020-03-28   Min.   :2020-03-28 06:37:36   Min.   :1        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  1st Qu.:2020-10-23   1st Qu.:2020-10-23 06:28:44   1st Qu.:1        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Median :2021-04-16   Median :2021-04-16 06:24:41   Median :1        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Mean   :2021-03-13   Mean   :2021-03-13 16:48:21   Mean   :1        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  3rd Qu.:2021-07-31   3rd Qu.:2021-07-31 20:48:24   3rd Qu.:1        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Max.   :2022-01-03   Max.   :2022-01-03 16:05:29   Max.   :1        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                     NA's   :102919   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  dist_index_high_est dist_index_med_est dist_index_low_est</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Min.   :13.30       Min.   : 9.893     Min.   : 3.146    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  1st Qu.:58.64       1st Qu.:55.567     1st Qu.:52.381    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Median :68.19       Median :65.010     Median :61.826    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Mean   :66.86       Mean   :63.590     Mean   :60.227    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  3rd Qu.:77.08       3rd Qu.:73.661     3rd Qu.:70.132    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Max.   :98.75       Max.   :98.298     Max.   :97.683    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  NA's   :18615       NA's   :18615      NA's   :18615     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  dist_index_country_rank   pdf_link             link          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Min.   :  1.00          Length:104006      Length:104006     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  1st Qu.: 60.00          Class :character   Class :character  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Median :100.00          Mode  :character   Mode  :character  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Mean   : 90.64                                               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  3rd Qu.:126.00                                               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Max.   :139.00                                               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  NA's   :18615                                                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   date_updated        recorded_date                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Min.   :2020-03-28   Min.   :2020-03-28 06:37:36  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  1st Qu.:2020-10-29   1st Qu.:2020-10-29 11:17:13  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Median :2021-04-18   Median :2021-04-18 17:38:54  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Mean   :2021-03-16   Mean   :2021-03-16 23:12:35  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  3rd Qu.:2021-08-04   3rd Qu.:2021-08-04 15:43:59  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Max.   :2022-01-18   Max.   :2022-01-18 22:30:59  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                    </span>
 <span class="r-in"></span>
 <span class="r-in"></span>
 </code></pre></div>
