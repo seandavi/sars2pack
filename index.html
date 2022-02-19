@@ -116,22 +116,36 @@
 <div class="section level2">
 <h2 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
 </h2>
-<p>The sars2pack R package provides one-line access to over 40 COVID-related datasets. Datasets are accessed in real time directly from their sources and then transformed to <code>tidy-data</code> form where possible and applicable. The result of each dataset accessor is a ready-to-use R dataset, often a dataframe. Documentation includes dataset descriptions, sources and references, and examples. Online documentation is available in two locations:</p>
+<p>The sars2pack R package provides one-line access to over 40
+COVID-related datasets. Datasets are accessed in real time directly from
+their sources and then transformed to <code>tidy-data</code> form where
+possible and applicable. The result of each dataset accessor is a
+ready-to-use R dataset, often a dataframe. Documentation includes
+dataset descriptions, sources and references, and examples. Online
+documentation is available in two locations:</p>
 <ul>
 <li>
-<a href="https://seandavi.github.io/sars2pack">The sars2pack documentation</a>, which includes reference docs and detailed dataset descriptions.</li>
-<li><a href="https://seandavi.github.io/sars2pack-book/">Extended workflows and use cases, as an online book</a></li>
+<a href="https://seandavi.github.io/sars2pack">The sars2pack
+documentation</a>, which includes reference docs and detailed dataset
+descriptions.</li>
+<li><a href="https://seandavi.github.io/sars2pack-book/">Extended
+workflows and use cases, as an online book</a></li>
 </ul>
 </div>
 <div class="section level2">
 <h2 id="questions-addressed-by-sars2pack">Questions addressed by sars2pack<a class="anchor" aria-label="anchor" href="#questions-addressed-by-sars2pack"></a>
 </h2>
 <ul>
-<li>What are the current and historical total, new cases, and deaths of COVID-19 at the city, county, state, national, and international levels?</li>
+<li>What are the current and historical total, new cases, and deaths of
+COVID-19 at the city, county, state, national, and international
+levels?</li>
 <li>How do changes in infection rates differ across locations?</li>
-<li>What are the non-pharmacological interventions in place at the local and national levels?</li>
-<li>In the United States, what is the geographical distribution of healthcare capacity (ICU beds, total beds, doctors, etc.)?</li>
-<li>What are the published values of key epidemic parameters, as curated from the literature?</li>
+<li>What are the non-pharmacological interventions in place at the local
+and national levels?</li>
+<li>In the United States, what is the geographical distribution of
+healthcare capacity (ICU beds, total beds, doctors, etc.)?</li>
+<li>What are the published values of key epidemic parameters, as curated
+from the literature?</li>
 </ul>
 </div>
 <div class="section level2">
@@ -1092,8 +1106,14 @@ admin1
 <div class="section level2">
 <h2 id="case-tracking">Case tracking<a class="anchor" aria-label="anchor" href="#case-tracking"></a>
 </h2>
-<p>Updated tracking of city, county, state, national, and international confirmed cases, deaths, and testing is critical to driving policy, implementing interventions, and measuring their effectiveness. Case tracking datasets include date, a count of cases, and usually numerous other pieces of information related to location of reporting, etc.</p>
-<p>Accessing case-tracking datasets is typically done with one function per dataset. The example here is data from the European Centers for Disease Control, or ECDC.</p>
+<p>Updated tracking of city, county, state, national, and international
+confirmed cases, deaths, and testing is critical to driving policy,
+implementing interventions, and measuring their effectiveness. Case
+tracking datasets include date, a count of cases, and usually numerous
+other pieces of information related to location of reporting, etc.</p>
+<p>Accessing case-tracking datasets is typically done with one function
+per dataset. The example here is data from the European Centers for
+Disease Control, or ECDC.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ecdc <span class="ot">=</span> <span class="fu">ecdc_data</span>()</span></code></pre></div>
 <p>Get a quick overview of the dataset.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ecdc)</span>
@@ -1108,7 +1128,12 @@ admin1
 <span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="do">## 4 2019-12-31 Algeria       DZ    DZA          43053054 Africa    deaths        0</span></span>
 <span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="do">## 5 2019-12-31 Armenia       AM    ARM           2957728 Europe    confirmed     0</span></span>
 <span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="do">## 6 2019-12-31 Armenia       AM    ARM           2957728 Europe    deaths        0</span></span></code></pre></div>
-<p>The <code>ecdc</code> dataset is just a <code>data.frame</code> (actually, a <code>tibble</code>), so applying standard R or tidyverse functionality can get answers to basic questions with little code. The next code block generates a <code>top10</code> of countries with the most deaths recorded to date. Note that if you do this on your own computer, the data will be updated to today’s data values.</p>
+<p>The <code>ecdc</code> dataset is just a <code>data.frame</code>
+(actually, a <code>tibble</code>), so applying standard R or tidyverse
+functionality can get answers to basic questions with little code. The
+next code block generates a <code>top10</code> of countries with the
+most deaths recorded to date. Note that if you do this on your own
+computer, the data will be updated to today’s data values.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>top10 <span class="ot">=</span> ecdc <span class="sc">%&gt;%</span> <span class="fu">filter</span>(subset<span class="sc">==</span><span class="st">'deaths'</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(location_name) <span class="sc">%&gt;%</span></span>
@@ -1315,13 +1340,20 @@ India
 </tr>
 </tbody>
 </table>
-<p>Examine the spread of the pandemic throughout the world by examining cumulative deaths reported for the top 10 countries above.</p>
+<p>Examine the spread of the pandemic throughout the world by examining
+cumulative deaths reported for the top 10 countries above.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>ecdc_top10 <span class="ot">=</span> ecdc <span class="sc">%&gt;%</span> <span class="fu">filter</span>(location_name <span class="sc">%in%</span> top10<span class="sc">$</span>location_name <span class="sc">&amp;</span> subset<span class="sc">==</span><span class="st">'deaths'</span>)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_epicurve</span>(ecdc_top10,</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">filter_expression =</span> count <span class="sc">&gt;</span> <span class="dv">10</span>, </span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">color=</span><span class="st">'location_name'</span>)</span></code></pre></div>
 <p><img src="https://i.imgur.com/KilVPg5.png" width="100%"></p>
-<p>Comparing the features of disease spread is easiest if all curves are shifted to “start” at the same absolute level of infection. In this case, shift the origin for all countries to start at the first time point when more than 100 cumulative cases had been observed. Note how some curves cross others which is evidence of less infection control at the same relative time in the pandemic for that country (eg., Brazil).</p>
+<p>Comparing the features of disease spread is easiest if all curves are
+shifted to “start” at the same absolute level of infection. In this
+case, shift the origin for all countries to start at the first time
+point when more than 100 cumulative cases had been observed. Note how
+some curves cross others which is evidence of less infection control at
+the same relative time in the pandemic for that country (eg.,
+Brazil).</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>ecdc_top10 <span class="sc">%&gt;%</span> <span class="fu">align_to_baseline</span>(count<span class="sc">&gt;</span><span class="dv">100</span>,<span class="at">group_vars=</span><span class="fu">c</span>(<span class="st">'location_name'</span>)) <span class="sc">%&gt;%</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">plot_epicurve</span>(<span class="at">date_column =</span> <span class="st">'index'</span>,<span class="at">color=</span><span class="st">'location_name'</span>)</span></code></pre></div>
 <p><img src="https://i.imgur.com/sDHPp2t.png" width="100%"></p>
@@ -1341,12 +1373,17 @@ India
 </h2>
 <ul>
 <li><a href="https://github.com/emanuele-guidotti/COVID19" class="external-link uri">https://github.com/emanuele-guidotti/COVID19</a></li>
-<li><a href="https://towardsdatascience.com/top-5-r-resources-on-covid-19-coronavirus-1d4c8df6d85f" class="external-link">Top 25 R resources on Novel COVID-19 Coronavirus</a></li>
-<li><a href="https://rviews.rstudio.com/2020/03/05/covid-19-epidemiology-with-r/" class="external-link">COVID-19 epidemiology with R</a></li>
+<li><a href="https://towardsdatascience.com/top-5-r-resources-on-covid-19-coronavirus-1d4c8df6d85f" class="external-link">Top
+25 R resources on Novel COVID-19 Coronavirus</a></li>
+<li><a href="https://rviews.rstudio.com/2020/03/05/covid-19-epidemiology-with-r/" class="external-link">COVID-19
+epidemiology with R</a></li>
 <li><a href="https://github.com/RamiKrispin/coronavirus" class="external-link uri">https://github.com/RamiKrispin/coronavirus</a></li>
-<li><a href="https://www.youtube.com/watch?v=D_CNmYkGRUc" class="external-link">Youtube: Using R to analyze COVID-19</a></li>
-<li><a href="https://www.datacamp.com/projects/870" class="external-link">DataCamp: Visualize the rise of COVID-19 cases globally with ggplot2</a></li>
-<li><a href="https://github.com/MarcLavielle/covidix/" class="external-link">MackLavielle/covidix R package</a></li>
+<li><a href="https://www.youtube.com/watch?v=D_CNmYkGRUc" class="external-link">Youtube: Using
+R to analyze COVID-19</a></li>
+<li><a href="https://www.datacamp.com/projects/870" class="external-link">DataCamp: Visualize
+the rise of COVID-19 cases globally with ggplot2</a></li>
+<li><a href="https://github.com/MarcLavielle/covidix/" class="external-link">MackLavielle/covidix R
+package</a></li>
 </ul>
 </div>
 </div>
@@ -1404,7 +1441,8 @@ India
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a>
+2.0.2.</p>
 </div>
 
       </footer>
