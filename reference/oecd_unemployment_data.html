@@ -146,7 +146,7 @@ improvement in the labour market.</p>
     <h2>Examples</h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">unemp</span> <span class="op">=</span> <span class="fu">oecd_unemployment_data</span><span class="op">(</span><span class="op">)</span></span>
 <span class="r-in"><span class="va">unemp</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 41,772 × 10</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 41,780 × 10</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    iso3c indicator subject measure frequency value `flag codes` date      </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>    </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> GBR   unemp     15_24   PC_LF   annual    19.6  <span style="color: #BB0000;">NA</span>           1983-01-01</span>
@@ -159,37 +159,37 @@ improvement in the labour market.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> GBR   unemp     15_24   PC_LF   annual    10.4  <span style="color: #BB0000;">NA</span>           1990-01-01</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> GBR   unemp     15_24   PC_LF   annual    13.9  <span style="color: #BB0000;">NA</span>           1991-01-01</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> GBR   unemp     15_24   PC_LF   annual    16.4  <span style="color: #BB0000;">NA</span>           1992-01-01</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 41,762 more rows, and 2 more variables: country &lt;chr&gt;, region &lt;chr&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 41,770 more rows, and 2 more variables: country &lt;chr&gt;, region &lt;chr&gt;</span></span>
 <span class="r-in"><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="va">unemp</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Rows: 41,772</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Rows: 41,780</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Columns: 10</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ iso3c        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "GBR", "GBR", "GBR", "GBR", "GBR", "GBR", "GBR", "GBR", "…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ indicator    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "unemp", "unemp", "unemp", "unemp", "unemp", "unemp", "un…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ subject      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "15_24", "15_24", "15_24", "15_24", "15_24", "15_24", "15…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ measure      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "PC_LF", "PC_LF", "PC_LF", "PC_LF", "PC_LF", "PC_LF", "PC…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ frequency    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "annual", "annual", "annual", "annual", "annual", "annual…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ value        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 19.62500, 18.72500, 17.97500, 17.72500, 15.12500, 12.2000…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ value        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 19.625, 18.725, 17.975, 17.725, 15.125, 12.200, 9.950, 10…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ `flag codes` <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ date         <span style="color: #949494; font-style: italic;">&lt;date&gt;</span> 1983-01-01, 1984-01-01, 1985-01-01, 1986-01-01, 1987-01-…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ country      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "United Kingdom", "United Kingdom", "United Kingdom", "Un…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ region       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Europe &amp; Central Asia", "Europe &amp; Central Asia", "Europe…</span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">unemp</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     iso3c            indicator           subject            measure         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Length:41772       Length:41772       Length:41772       Length:41772      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Length:41780       Length:41780       Length:41780       Length:41780      </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  Class :character   Class :character   Class :character   Class :character  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  Mode  :character   Mode  :character   Mode  :character   Mode  :character  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                                             </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                                             </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                                             </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   frequency             value          flag codes             date           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Length:41772       Min.   : 0.7931   Length:41772       Min.   :1955-01-01  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Length:41780       Min.   : 0.7931   Length:41780       Min.   :1955-01-01  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  Class :character   1st Qu.: 5.6000   Class :character   1st Qu.:1997-01-01  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  Mode  :character   Median : 9.0000   Mode  :character   Median :2006-06-01  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                     Mean   :11.5885                      Mean   :2004-07-02  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                     3rd Qu.:15.7043                      3rd Qu.:2014-03-01  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                     Mean   :11.5876                      Mean   :2004-07-03  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                     3rd Qu.:15.7000                      3rd Qu.:2014-03-01  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                     Max.   :62.2000                      Max.   :2022-01-01  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    country             region         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Length:41772       Length:41772      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Length:41780       Length:41780      </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  Class :character   Class :character  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  Mode  :character   Mode  :character  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                       </span>
