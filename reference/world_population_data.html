@@ -89,14 +89,36 @@
     <div id="ref-examples">
     <h2>Examples</h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">res</span> <span class="op">=</span> <span class="fu">world_population_data</span><span class="op">(</span><span class="op">)</span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> Evaluation error: zip file '/tmp/Rtmpmvk4fO/file7e2787b99e1.xlsx' cannot be opened.</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">res</span><span class="op">)</span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in is.data.frame(x):</span> object 'res' not found</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "gender"             "variant"            "region_type"       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [4] "notes"              "region_code"        "data_category"     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] "parent_region_code" "year"               "age_group"         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "population"        </span>
 <span class="r-in"><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="va">res</span><span class="op">)</span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in dplyr::glimpse(res):</span> object 'res' not found</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Rows: 760,410</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Columns: 10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ gender             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "male", "male", "male", "male", "male", "male", "ma…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ variant            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Estimates", "Estimates", "Estimates", "Estimates",…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ region_type        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "WORLD", "WORLD", "WORLD", "WORLD", "WORLD", "WORLD…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ notes              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ region_code        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 900, 900, 900, 900, 900, 900, 900, 900, 900, 900, 9…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ data_category      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "World", "World", "World", "World", "World", "World…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ parent_region_code <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ year               <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1950, 1950, 1950, 1950, 1950, 1950, 1950, 1950, 195…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ age_group          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "0-4", "5-9", "10-14", "15-19", "20-24", "25-29", "…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ population         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 172419832, 138298389, 133685702, 122155285, 1132065…</span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">res</span><span class="op">)</span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in head(res):</span> object 'res' not found</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 6 × 10</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   gender variant   region_type notes region_code data_category parent_region_co…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> male   Estimates WORLD       <span style="color: #BB0000;">NA</span>            900 World                         0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> male   Estimates WORLD       <span style="color: #BB0000;">NA</span>            900 World                         0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> male   Estimates WORLD       <span style="color: #BB0000;">NA</span>            900 World                         0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> male   Estimates WORLD       <span style="color: #BB0000;">NA</span>            900 World                         0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span> male   Estimates WORLD       <span style="color: #BB0000;">NA</span>            900 World                         0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span> male   Estimates WORLD       <span style="color: #BB0000;">NA</span>            900 World                         0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 3 more variables: year &lt;dbl&gt;, age_group &lt;chr&gt;, population &lt;dbl&gt;</span></span>
 <span class="r-in"></span>
 <span class="r-in"></span>
 </code></pre></div>
