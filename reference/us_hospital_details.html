@@ -136,21 +136,100 @@
     <div id="ref-examples">
     <h2>Examples</h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">res</span> <span class="op">=</span> <span class="fu">us_hospital_details</span><span class="op">(</span><span class="op">)</span></span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>download failed</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span>   web resource path: ‘https://opendata.arcgis.com/datasets/6ac5e325468c4cb9b905f1728d6fbf0f_0.csv’</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span>   local file path: ‘~/.cache/sars2pack/75b61dde7c0_6ac5e325468c4cb9b905f1728d6fbf0f_0.csv’</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span>   reason: Not Found (HTTP 404).</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>bfcadd() failed; resource removed</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span>   rid: BFC159</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span>   fpath: ‘https://opendata.arcgis.com/datasets/6ac5e325468c4cb9b905f1728d6fbf0f_0.csv’</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span>   reason: download failed</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in .util_download(x, rid[i], proxy, config, "bfcadd()", ...):</span> bfcadd() failed; see warnings()</span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">res</span><span class="op">)</span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in head(res):</span> object 'res' not found</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Simple feature collection with 6 features and 33 fields</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Attribute-geometry relationship: 33 constant, 0 aggregate, 0 identity</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Geometry type: POINT</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Dimension:     XY</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: -119.6457 ymin: 33.85971 xmax: -117.9674 ymax: 36.33616</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Geodetic CRS:  WGS 84</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 6 × 34</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       x     y objectid id        name  address city  state zip   zip4  telephone</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> -<span style="color: #BB0000;">120.</span>  36.3        1 00057932… CENT… 1025 N… HANF… CA    93230 NOT … NOT AVAI…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> -<span style="color: #BB0000;">119.</span>  34.2        2 00533913… LOS … 150 VI… WEST… CA    91362 NOT … NOT AVAI…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> -<span style="color: #BB0000;">118.</span>  34.0        3 00111900… EAST… 4060 W… LOS … CA    90023 NOT … NOT AVAI…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> -<span style="color: #BB0000;">118.</span>  34.1        4 00170900… SOUT… 6245 D… HOLL… CA    90028 NOT … (323) 46…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span> -<span style="color: #BB0000;">118.</span>  34.1        5 00236917… KIND… 14148 … BALD… CA    91706 NOT … NOT AVAI…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span> -<span style="color: #BB0000;">118.</span>  33.9        6 00251907… LAKE… 3700 E… LAKE… CA    90712 NOT … NOT AVAI…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 23 more variables: type &lt;chr&gt;, status &lt;chr&gt;, population &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   county &lt;chr&gt;, countyfips &lt;chr&gt;, country &lt;chr&gt;, naics_code &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   naics_desc &lt;chr&gt;, source &lt;chr&gt;, sourcedate &lt;chr&gt;, val_method &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   val_date &lt;chr&gt;, website &lt;chr&gt;, state_id &lt;chr&gt;, alt_name &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   st_fips &lt;chr&gt;, owner &lt;chr&gt;, ttl_staff &lt;dbl&gt;, beds &lt;dbl&gt;, trauma &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   helipad &lt;chr&gt;, globalid &lt;chr&gt;, geometry &lt;POINT [°]&gt;</span></span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">res</span><span class="op">)</span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in is.data.frame(x):</span> object 'res' not found</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "x"          "y"          "objectid"   "id"         "name"      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [6] "address"    "city"       "state"      "zip"        "zip4"      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [11] "telephone"  "type"       "status"     "population" "county"    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [16] "countyfips" "country"    "naics_code" "naics_desc" "source"    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [21] "sourcedate" "val_method" "val_date"   "website"    "state_id"  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [26] "alt_name"   "st_fips"    "owner"      "ttl_staff"  "beds"      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [31] "trauma"     "helipad"    "globalid"   "geometry"  </span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">res</span><span class="op">)</span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in summary(res):</span> object 'res' not found</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        x                 y             objectid          id           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Min.   :-176.64   Min.   :-14.29   Min.   :    1   Length:61152      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  1st Qu.: -98.23   1st Qu.: 33.45   1st Qu.:15304   Class :character  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Median : -90.14   Median : 37.98   Median :30592   Mode  :character  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Mean   : -92.45   Mean   : 37.33   Mean   :30590                     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  3rd Qu.: -81.80   3rd Qu.: 41.35   3rd Qu.:45879                     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Max.   : 145.72   Max.   : 71.30   Max.   :61167                     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      name             address              city              state          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Length:61152       Length:61152       Length:61152       Length:61152      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Class :character   Class :character   Class :character   Class :character  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Mode  :character   Mode  :character   Mode  :character   Mode  :character  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      zip                zip4            telephone             type          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Length:61152       Length:61152       Length:61152       Length:61152      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Class :character   Class :character   Class :character   Class :character  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Mode  :character   Mode  :character   Mode  :character   Mode  :character  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     status            population         county           countyfips       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Length:61152       Min.   :-999.00   Length:61152       Length:61152      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Class :character   1st Qu.:  25.00   Class :character   Class :character  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Mode  :character   Median :  70.00   Mode  :character   Mode  :character  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                     Mean   :  90.25                                        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                     3rd Qu.: 184.00                                        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                     Max.   :1592.00                                        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    country            naics_code      naics_desc           source         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Length:61152       Min.   :622110   Length:61152       Length:61152      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Class :character   1st Qu.:622110   Class :character   Class :character  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Mode  :character   Median :622110   Mode  :character   Mode  :character  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                     Mean   :622142                                        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                     3rd Qu.:622110                                        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                     Max.   :622310                                        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   sourcedate         val_method          val_date           website         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Length:61152       Length:61152       Length:61152       Length:61152      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Class :character   Class :character   Class :character   Class :character  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Mode  :character   Mode  :character   Mode  :character   Mode  :character  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    state_id           alt_name           st_fips             owner          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Length:61152       Length:61152       Length:61152       Length:61152      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Class :character   Class :character   Class :character   Class :character  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Mode  :character   Mode  :character   Mode  :character   Mode  :character  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    ttl_staff         beds            trauma            helipad         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Min.   :-999   Min.   :-999.00   Length:61152       Length:61152      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  1st Qu.:-999   1st Qu.:  25.00   Class :character   Class :character  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Median :-999   Median :  70.00   Mode  :character   Mode  :character  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Mean   :-999   Mean   :  90.25                                        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  3rd Qu.:-999   3rd Qu.: 184.00                                        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Max.   :-999   Max.   :1592.00                                        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    globalid                  geometry    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Length:61152       POINT        :61152  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Class :character   epsg:4326    :    0  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Mode  :character   +proj=long...:    0  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                          </span>
 <span class="r-in"></span>
 <span class="r-in"></span>
 <span class="r-in"></span>
