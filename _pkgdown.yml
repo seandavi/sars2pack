@@ -1,126 +1,88 @@
-url: https://seandavi.github.io/sars2pack
-
+url: https://seandavi.github.io/sars2pack/
 template:
   params:
     bootswatch: flatly
     ganalytics: UA-93043521-4
-
 home:
-  title: "sars2pack"
+  title: sars2pack
   type: inverse
-
-
 reference:
-  - title: Overview of the package
-    contents:
-      - sars2pack-package
-  - title: Data resources
-    desc: >-
-      Data resources that are accessible from this package are somewhat
-      arbitrarily divided into general groupings. For details of each
-      dataset, click on the link. For an overview of data resources, see
-      the Datasets vignette.
-
-  - subtitle: Case/test tracking data resources
-    desc: >-
-      Access datasets that provide insight into how much and where
-      people are moving and how those metrics change over time.
-    contents:
-      - has_concept("case-tracking")
-
-  - subtitle: Mobility data resources
-    desc: >-
-      Access datasets that provide insight into how much and where
-      people are moving and how those metrics change over time.
-    contents:
-      - has_concept("mobility")
-
-  - subtitle: projections
-    contents:
-      - has_concept("projections")
-
-  - subtitle: healthcare systems and capacity
-    contents:
-      - has_concept("healthcare-systems")
-
-  - subtitle: genetic lineage
-    contents:
-      - has_concept("lineage")
-
-  - subtitle: Non-pharmaceutical interventions
-    desc: >-
-      Datasets that catalog details of NPI in the US and Internationally.
-    contents:
-      - has_concept("NPI")
-
-  - subtitle: Line lists
-    desc: >-
-      Line lists are collections of individual cases and their
-      characteristics.
-    contents:
-      - has_concept("individual-cases")
-
-  - subtitle: Social and economic impacts
-    desc: >-
-      These datasets help to understand the economic and societal
-      impacts of COVID and associated policy interventions.
-    contents:
-      - has_concept("economics")
-
-
-  - subtitle: Excess deaths
-    desc: >-
-      'Excess mortality' refers to the difference between deaths from all causes during the pandemic and the historic seasonal average. For many jurisdictions for which data are available, this figure is higher than the official Covid-19 fatalities that are published by governments each day. While not all of these deaths are necessarily attributable to the disease, it does leave a number of unexplained deaths that suggests that the official figures of deaths attributed may significant undercounts of the pandemic's impact.
-    contents:
-      - has_concept("excess-deaths")
-      
-  - title: Plotting and visualization
-    desc: >-
-      These are special purpose helper plots for sars2pack. Note
-      that most are simply wrappers around ggplot2 and friends.
-    contents:
-      - has_concept("plotting")
-
-  - title: Additional datasets
-    desc: >-
-      These datasets include miscellaneous enrichment datasets for
-      joining with COVID-19 datasets or represent one-off data types.
-    contents:
-      - has_concept("data-import")
-      - -has_concept("individual-cases")
-      - -has_concept("plotting")
-      - -has_concept("healthcare-systems")
-      - -has_concept("lineage")
-      - -has_concept("projections")
-      - -has_concept("mobility")
-      - -has_concept("NPI")
-      - -has_concept("economics")
-      - -has_concept("case-tracking")
-
-      
-  - title: Additional functionality
-    desc: >-
-      Find additional functionality related to analysis, plotting, and
-      data included with the package. These extra datasets include miscellaneous 
-      enrichment datasets for
-      joining with COVID-19 datasets or represent one-off data types.
-    contents:
-      - -has_concept("individual-cases")
-      - -has_concept("data-import")
-      - -has_concept("plotting")
-      - -has_concept("healthcare-systems")
-      - -has_concept("lineage")
-      - -has_concept("projections")
-      - -has_concept("mobility")
-      - -has_concept("NPI")
-      - -has_concept("economics")
-      - -has_concept("case-tracking")
-  
+- title: Overview of the package
+  contents: sars2pack-package
+- title: Data resources
+  desc: Data resources that are accessible from this package are somewhat arbitrarily
+    divided into general groupings. For details of each dataset, click on the link.
+    For an overview of data resources, see the Datasets vignette.
+- subtitle: Case/test tracking data resources
+  desc: Access datasets that provide insight into how much and where people are moving
+    and how those metrics change over time.
+  contents: has_concept("case-tracking")
+- subtitle: Mobility data resources
+  desc: Access datasets that provide insight into how much and where people are moving
+    and how those metrics change over time.
+  contents: has_concept("mobility")
+- subtitle: projections
+  contents: has_concept("projections")
+- subtitle: healthcare systems and capacity
+  contents: has_concept("healthcare-systems")
+- subtitle: genetic lineage
+  contents: has_concept("lineage")
+- subtitle: Non-pharmaceutical interventions
+  desc: Datasets that catalog details of NPI in the US and Internationally.
+  contents: has_concept("NPI")
+- subtitle: Line lists
+  desc: Line lists are collections of individual cases and their characteristics.
+  contents: has_concept("individual-cases")
+- subtitle: Social and economic impacts
+  desc: These datasets help to understand the economic and societal impacts of COVID
+    and associated policy interventions.
+  contents: has_concept("economics")
+- subtitle: Excess deaths
+  desc: '''Excess mortality'' refers to the difference between deaths from all causes
+    during the pandemic and the historic seasonal average. For many jurisdictions
+    for which data are available, this figure is higher than the official Covid-19
+    fatalities that are published by governments each day. While not all of these
+    deaths are necessarily attributable to the disease, it does leave a number of
+    unexplained deaths that suggests that the official figures of deaths attributed
+    may significant undercounts of the pandemic''s impact.'
+  contents: has_concept("excess-deaths")
+- title: Plotting and visualization
+  desc: These are special purpose helper plots for sars2pack. Note that most are simply
+    wrappers around ggplot2 and friends.
+  contents: has_concept("plotting")
+- title: Additional datasets
+  desc: These datasets include miscellaneous enrichment datasets for joining with
+    COVID-19 datasets or represent one-off data types.
+  contents:
+  - has_concept("data-import")
+  - -has_concept("individual-cases")
+  - -has_concept("plotting")
+  - -has_concept("healthcare-systems")
+  - -has_concept("lineage")
+  - -has_concept("projections")
+  - -has_concept("mobility")
+  - -has_concept("NPI")
+  - -has_concept("economics")
+  - -has_concept("case-tracking")
+- title: Additional functionality
+  desc: Find additional functionality related to analysis, plotting, and data included
+    with the package. These extra datasets include miscellaneous  enrichment datasets
+    for joining with COVID-19 datasets or represent one-off data types.
+  contents:
+  - -has_concept("individual-cases")
+  - -has_concept("data-import")
+  - -has_concept("plotting")
+  - -has_concept("healthcare-systems")
+  - -has_concept("lineage")
+  - -has_concept("projections")
+  - -has_concept("mobility")
+  - -has_concept("NPI")
+  - -has_concept("economics")
+  - -has_concept("case-tracking")
 navbar:
   right:
-   - icon: fa-github
-     href: https://github.com/seandavi/sars2pack
-     
+  - icon: fa-github
+    href: https://github.com/seandavi/sars2pack
 development:
   mode: auto
 
