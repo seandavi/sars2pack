@@ -111,994 +111,402 @@
 <div class="page-header"><h1 id="sars2pack">sars2pack<a class="anchor" aria-label="anchor" href="#sars2pack"></a>
 </h1></div>
 <!-- badges: start -->
-
-<!-- badges: end -->
-<div class="section level2">
+<!-- badges: end --><div class="section level2">
 <h2 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
 </h2>
-<p>The sars2pack R package provides one-line access to over 40
-COVID-related datasets. Datasets are accessed in real time directly from
-their sources and then transformed to <code>tidy-data</code> form where
-possible and applicable. The result of each dataset accessor is a
-ready-to-use R dataset, often a dataframe. Documentation includes
-dataset descriptions, sources and references, and examples. Online
-documentation is available in two locations:</p>
+<p>The sars2pack R package provides one-line access to over 40 COVID-related datasets. Datasets are accessed in real time directly from their sources and then transformed to <code>tidy-data</code> form where possible and applicable. The result of each dataset accessor is a ready-to-use R dataset, often a dataframe. Documentation includes dataset descriptions, sources and references, and examples. Online documentation is available in two locations:</p>
 <ul>
 <li>
-<a href="https://seandavi.github.io/sars2pack">The sars2pack
-documentation</a>, which includes reference docs and detailed dataset
-descriptions.</li>
-<li><a href="https://seandavi.github.io/sars2pack-book/">Extended
-workflows and use cases, as an online book</a></li>
+<a href="https://seandavi.github.io/sars2pack">The sars2pack documentation</a>, which includes reference docs and detailed dataset descriptions.</li>
+<li><a href="https://seandavi.github.io/sars2pack-book/">Extended workflows and use cases, as an online book</a></li>
 </ul>
 </div>
 <div class="section level2">
 <h2 id="questions-addressed-by-sars2pack">Questions addressed by sars2pack<a class="anchor" aria-label="anchor" href="#questions-addressed-by-sars2pack"></a>
 </h2>
 <ul>
-<li>What are the current and historical total, new cases, and deaths of
-COVID-19 at the city, county, state, national, and international
-levels?</li>
+<li>What are the current and historical total, new cases, and deaths of COVID-19 at the city, county, state, national, and international levels?</li>
 <li>How do changes in infection rates differ across locations?</li>
-<li>What are the non-pharmacological interventions in place at the local
-and national levels?</li>
-<li>In the United States, what is the geographical distribution of
-healthcare capacity (ICU beds, total beds, doctors, etc.)?</li>
-<li>What are the published values of key epidemic parameters, as curated
-from the literature?</li>
+<li>What are the non-pharmacological interventions in place at the local and national levels?</li>
+<li>In the United States, what is the geographical distribution of healthcare capacity (ICU beds, total beds, doctors, etc.)?</li>
+<li>What are the published values of key epidemic parameters, as curated from the literature?</li>
 </ul>
 </div>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># If you do not have BiocManager installed:</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">'BiocManager'</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Then, if sars2pack is not already installed:</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">'seandavi/sars2pack'</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># If you do not have BiocManager installed:</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="kw">install.packages</span>(<span class="st">'BiocManager'</span>)</span>
+<span id="cb1-3"><a href="#cb1-3"></a></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="co"># Then, if sars2pack is not already installed:</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a>BiocManager<span class="op">::</span><span class="kw">install</span>(<span class="st">'seandavi/sars2pack'</span>)</span></code></pre></div>
 <p>After the one-time installation, load the packge to get started.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sars2pack)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">library</span>(sars2pack)</span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="available-datasets">Available datasets<a class="anchor" aria-label="anchor" href="#available-datasets"></a>
 </h2>
 <table class="table table table-striped" style="margin-left: auto; margin-right: auto;">
 <thead><tr>
-<th style="text-align:left;">
-name
-</th>
-<th style="text-align:left;">
-accessor
-</th>
-<th style="text-align:left;">
-data_type
-</th>
-<th style="text-align:left;">
-geographical
-</th>
-<th style="text-align:left;">
-geospatial
-</th>
-<th style="text-align:left;">
-region
-</th>
-<th style="text-align:left;">
-resolution
-</th>
-<th style="text-align:left;">
-url
-</th>
+<th style="text-align:left;">name</th>
+<th style="text-align:left;">accessor</th>
+<th style="text-align:left;">data_type</th>
+<th style="text-align:left;">geographical</th>
+<th style="text-align:left;">geospatial</th>
+<th style="text-align:left;">region</th>
+<th style="text-align:left;">resolution</th>
+<th style="text-align:left;">url</th>
 </tr></thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
-United States county-level geographic details
-</td>
-<td style="text-align:left;">
-us_county_geo_details
-</td>
-<td style="text-align:left;">
-c(“demographics”, “geographic”)
-</td>
-<td style="text-align:left;">
-TRUE
-</td>
-<td style="text-align:left;">
-TRUE
-</td>
-<td style="text-align:left;">
-United States
-</td>
-<td style="text-align:left;">
-admin2
-</td>
-<td style="text-align:left;">
-<a href="https://github.com/josh-byster/fips_lat_long" class="external-link">LINK</a>
-</td>
+<td style="text-align:left;">United States county-level geographic details</td>
+<td style="text-align:left;">us_county_geo_details</td>
+<td style="text-align:left;">c(“demographics”, “geographic”)</td>
+<td style="text-align:left;">TRUE</td>
+<td style="text-align:left;">TRUE</td>
+<td style="text-align:left;">United States</td>
+<td style="text-align:left;">admin2</td>
+<td style="text-align:left;"><a href="https://github.com/josh-byster/fips_lat_long" class="external-link">LINK</a></td>
 </tr>
 <tr>
-<td style="text-align:left;">
-OECD International Unemployment Data
-</td>
-<td style="text-align:left;">
-oecd_unemployment_data
-</td>
-<td style="text-align:left;">
-c(“economics”, “time series”)
-</td>
-<td style="text-align:left;">
-TRUE
-</td>
-<td style="text-align:left;">
-FALSE
-</td>
-<td style="text-align:left;">
-World
-</td>
-<td style="text-align:left;">
-admin0
-</td>
-<td style="text-align:left;">
-<a href="https://oecd.org" class="external-link">LINK</a>
-</td>
+<td style="text-align:left;">OECD International Unemployment Data</td>
+<td style="text-align:left;">oecd_unemployment_data</td>
+<td style="text-align:left;">c(“economics”, “time series”)</td>
+<td style="text-align:left;">TRUE</td>
+<td style="text-align:left;">FALSE</td>
+<td style="text-align:left;">World</td>
+<td style="text-align:left;">admin0</td>
+<td style="text-align:left;"><a href="https://oecd.org" class="external-link">LINK</a></td>
 </tr>
 <tr>
-<td style="text-align:left;">
-healthdata.org COVID-19 Mobility Observations and Projections
-</td>
-<td style="text-align:left;">
-healthdata_mobility_data
-</td>
-<td style="text-align:left;">
-c(“mobility”, “time series”, “projections”)
-</td>
-<td style="text-align:left;">
-TRUE
-</td>
-<td style="text-align:left;">
-FALSE
-</td>
-<td style="text-align:left;">
-International
-</td>
-<td style="text-align:left;">
-c(“admin0”, “admin1”)
-</td>
-<td style="text-align:left;">
-<a href="https://covid19.healthdata.org/projections" class="external-link">LINK</a>
-</td>
+<td style="text-align:left;">healthdata.org COVID-19 Mobility Observations and Projections</td>
+<td style="text-align:left;">healthdata_mobility_data</td>
+<td style="text-align:left;">c(“mobility”, “time series”, “projections”)</td>
+<td style="text-align:left;">TRUE</td>
+<td style="text-align:left;">FALSE</td>
+<td style="text-align:left;">International</td>
+<td style="text-align:left;">c(“admin0”, “admin1”)</td>
+<td style="text-align:left;"><a href="https://covid19.healthdata.org/projections" class="external-link">LINK</a></td>
 </tr>
 <tr>
-<td style="text-align:left;">
-healthdata.org COVID-19 Testing Observations and Projections
-</td>
-<td style="text-align:left;">
-healthdata_testing_data
-</td>
-<td style="text-align:left;">
-c(“testing”, “time series”, “projections”)
-</td>
-<td style="text-align:left;">
-TRUE
-</td>
-<td style="text-align:left;">
-FALSE
-</td>
-<td style="text-align:left;">
-International
-</td>
-<td style="text-align:left;">
-c(“admin0”, “admin1”)
-</td>
-<td style="text-align:left;">
-<a href="https://covid19.healthdata.org/projections" class="external-link">LINK</a>
-</td>
+<td style="text-align:left;">healthdata.org COVID-19 Testing Observations and Projections</td>
+<td style="text-align:left;">healthdata_testing_data</td>
+<td style="text-align:left;">c(“testing”, “time series”, “projections”)</td>
+<td style="text-align:left;">TRUE</td>
+<td style="text-align:left;">FALSE</td>
+<td style="text-align:left;">International</td>
+<td style="text-align:left;">c(“admin0”, “admin1”)</td>
+<td style="text-align:left;"><a href="https://covid19.healthdata.org/projections" class="external-link">LINK</a></td>
 </tr>
 <tr>
-<td style="text-align:left;">
-Our World In Data testing and cases reporting
-</td>
-<td style="text-align:left;">
-owid_data
-</td>
-<td style="text-align:left;">
-c(“time series”, “cases”, “deaths”, “testing”)
-</td>
-<td style="text-align:left;">
-TRUE
-</td>
-<td style="text-align:left;">
-FALSE
-</td>
-<td style="text-align:left;">
-World
-</td>
-<td style="text-align:left;">
-admin0
-</td>
-<td style="text-align:left;">
-<a href="https://ourworldindata.org/coronavirus" class="external-link">LINK</a>
-</td>
+<td style="text-align:left;">Our World In Data testing and cases reporting</td>
+<td style="text-align:left;">owid_data</td>
+<td style="text-align:left;">c(“time series”, “cases”, “deaths”, “testing”)</td>
+<td style="text-align:left;">TRUE</td>
+<td style="text-align:left;">FALSE</td>
+<td style="text-align:left;">World</td>
+<td style="text-align:left;">admin0</td>
+<td style="text-align:left;"><a href="https://ourworldindata.org/coronavirus" class="external-link">LINK</a></td>
 </tr>
 <tr>
-<td style="text-align:left;">
-CovidTracker data
-</td>
-<td style="text-align:left;">
-covidtracker_data
-</td>
-<td style="text-align:left;">
-c(“time series”, “cases”, “deaths”, “testing”)
-</td>
-<td style="text-align:left;">
-TRUE
-</td>
-<td style="text-align:left;">
-FALSE
-</td>
-<td style="text-align:left;">
-United States
-</td>
-<td style="text-align:left;">
-admin1
-</td>
-<td style="text-align:left;">
-<a href="https://covidtracking.com/" class="external-link">LINK</a>
-</td>
+<td style="text-align:left;">CovidTracker data</td>
+<td style="text-align:left;">covidtracker_data</td>
+<td style="text-align:left;">c(“time series”, “cases”, “deaths”, “testing”)</td>
+<td style="text-align:left;">TRUE</td>
+<td style="text-align:left;">FALSE</td>
+<td style="text-align:left;">United States</td>
+<td style="text-align:left;">admin1</td>
+<td style="text-align:left;"><a href="https://covidtracking.com/" class="external-link">LINK</a></td>
 </tr>
 <tr>
-<td style="text-align:left;">
-European CDC world tracking
-</td>
-<td style="text-align:left;">
-ecdc_data
-</td>
-<td style="text-align:left;">
-c(“time series”, “cases”, “deaths”)
-</td>
-<td style="text-align:left;">
-TRUE
-</td>
-<td style="text-align:left;">
-FALSE
-</td>
-<td style="text-align:left;">
-World
-</td>
-<td style="text-align:left;">
-admin0
-</td>
-<td style="text-align:left;">
-<a href="https://www.ecdc.europa.eu/en/covid-19" class="external-link">LINK</a>
-</td>
+<td style="text-align:left;">European CDC world tracking</td>
+<td style="text-align:left;">ecdc_data</td>
+<td style="text-align:left;">c(“time series”, “cases”, “deaths”)</td>
+<td style="text-align:left;">TRUE</td>
+<td style="text-align:left;">FALSE</td>
+<td style="text-align:left;">World</td>
+<td style="text-align:left;">admin0</td>
+<td style="text-align:left;"><a href="https://www.ecdc.europa.eu/en/covid-19" class="external-link">LINK</a></td>
 </tr>
 <tr>
-<td style="text-align:left;">
-EU data Github aggregator
-</td>
-<td style="text-align:left;">
-eu_data_cache_data
-</td>
-<td style="text-align:left;">
-c(“time series”, “cases”, “deaths”)
-</td>
-<td style="text-align:left;">
-TRUE
-</td>
-<td style="text-align:left;">
-FALSE
-</td>
-<td style="text-align:left;">
-Europe
-</td>
-<td style="text-align:left;">
-c(“admin0”, “admin1”)
-</td>
-<td style="text-align:left;">
-<a href="https://github.com/covid19-eu-zh/covid19-eu-data" class="external-link">LINK</a>
-</td>
+<td style="text-align:left;">EU data Github aggregator</td>
+<td style="text-align:left;">eu_data_cache_data</td>
+<td style="text-align:left;">c(“time series”, “cases”, “deaths”)</td>
+<td style="text-align:left;">TRUE</td>
+<td style="text-align:left;">FALSE</td>
+<td style="text-align:left;">Europe</td>
+<td style="text-align:left;">c(“admin0”, “admin1”)</td>
+<td style="text-align:left;"><a href="https://github.com/covid19-eu-zh/covid19-eu-data" class="external-link">LINK</a></td>
 </tr>
 <tr>
-<td style="text-align:left;">
-USA Facts
-</td>
-<td style="text-align:left;">
-usa_facts_data
-</td>
-<td style="text-align:left;">
-c(“time series”, “cases”, “deaths”)
-</td>
-<td style="text-align:left;">
-TRUE
-</td>
-<td style="text-align:left;">
-FALSE
-</td>
-<td style="text-align:left;">
-United States
-</td>
-<td style="text-align:left;">
-admin1
-</td>
-<td style="text-align:left;">
-<a href="https://usafacts.org/visualizations/coronavirus-covid-19-spread-map/" class="external-link">LINK</a>
-</td>
+<td style="text-align:left;">USA Facts</td>
+<td style="text-align:left;">usa_facts_data</td>
+<td style="text-align:left;">c(“time series”, “cases”, “deaths”)</td>
+<td style="text-align:left;">TRUE</td>
+<td style="text-align:left;">FALSE</td>
+<td style="text-align:left;">United States</td>
+<td style="text-align:left;">admin1</td>
+<td style="text-align:left;"><a href="https://usafacts.org/visualizations/coronavirus-covid-19-spread-map/" class="external-link">LINK</a></td>
 </tr>
 <tr>
-<td style="text-align:left;">
-Johns Hopkins dataset
-</td>
-<td style="text-align:left;">
-jhu_data
-</td>
-<td style="text-align:left;">
-c(“time series”, “cases”, “deaths”)
-</td>
-<td style="text-align:left;">
-TRUE
-</td>
-<td style="text-align:left;">
-FALSE
-</td>
-<td style="text-align:left;">
-World
-</td>
-<td style="text-align:left;">
-admin0
-</td>
-<td style="text-align:left;">
-<a href="https://github.com/CSSEGISandData/COVID-19" class="external-link">LINK</a>
-</td>
+<td style="text-align:left;">Johns Hopkins dataset</td>
+<td style="text-align:left;">jhu_data</td>
+<td style="text-align:left;">c(“time series”, “cases”, “deaths”)</td>
+<td style="text-align:left;">TRUE</td>
+<td style="text-align:left;">FALSE</td>
+<td style="text-align:left;">World</td>
+<td style="text-align:left;">admin0</td>
+<td style="text-align:left;"><a href="https://github.com/CSSEGISandData/COVID-19" class="external-link">LINK</a></td>
 </tr>
 <tr>
-<td style="text-align:left;">
-Johns Hopkins US-centric data
-</td>
-<td style="text-align:left;">
-jhu_us_data
-</td>
-<td style="text-align:left;">
-c(“time series”, “cases”, “deaths”)
-</td>
-<td style="text-align:left;">
-TRUE
-</td>
-<td style="text-align:left;">
-FALSE
-</td>
-<td style="text-align:left;">
-United States
-</td>
-<td style="text-align:left;">
-c(“admin1”, “admin2”)
-</td>
-<td style="text-align:left;">
-<a href="https://github.com/CSSEGISandData/COVID-19" class="external-link">LINK</a>
-</td>
+<td style="text-align:left;">Johns Hopkins US-centric data</td>
+<td style="text-align:left;">jhu_us_data</td>
+<td style="text-align:left;">c(“time series”, “cases”, “deaths”)</td>
+<td style="text-align:left;">TRUE</td>
+<td style="text-align:left;">FALSE</td>
+<td style="text-align:left;">United States</td>
+<td style="text-align:left;">c(“admin1”, “admin2”)</td>
+<td style="text-align:left;"><a href="https://github.com/CSSEGISandData/COVID-19" class="external-link">LINK</a></td>
 </tr>
 <tr>
-<td style="text-align:left;">
-New York Times county level data
-</td>
-<td style="text-align:left;">
-nytimes_county_data
-</td>
-<td style="text-align:left;">
-c(“time series”, “cases”, “deaths”)
-</td>
-<td style="text-align:left;">
-TRUE
-</td>
-<td style="text-align:left;">
-FALSE
-</td>
-<td style="text-align:left;">
-United States
-</td>
-<td style="text-align:left;">
-admin2
-</td>
-<td style="text-align:left;">
-<a href="https://raw.githubusercontent.com/nytimes/covid-19-data" class="external-link">LINK</a>
-</td>
+<td style="text-align:left;">New York Times county level data</td>
+<td style="text-align:left;">nytimes_county_data</td>
+<td style="text-align:left;">c(“time series”, “cases”, “deaths”)</td>
+<td style="text-align:left;">TRUE</td>
+<td style="text-align:left;">FALSE</td>
+<td style="text-align:left;">United States</td>
+<td style="text-align:left;">admin2</td>
+<td style="text-align:left;"><a href="https://raw.githubusercontent.com/nytimes/covid-19-data" class="external-link">LINK</a></td>
 </tr>
 <tr>
-<td style="text-align:left;">
-New York Times state level data
-</td>
-<td style="text-align:left;">
-nytimes_state_data
-</td>
-<td style="text-align:left;">
-c(“time series”, “cases”, “deaths”)
-</td>
-<td style="text-align:left;">
-TRUE
-</td>
-<td style="text-align:left;">
-FALSE
-</td>
-<td style="text-align:left;">
-United States
-</td>
-<td style="text-align:left;">
-admin1
-</td>
-<td style="text-align:left;">
-<a href="https://raw.githubusercontent.com/nytimes/covid-19-data" class="external-link">LINK</a>
-</td>
+<td style="text-align:left;">New York Times state level data</td>
+<td style="text-align:left;">nytimes_state_data</td>
+<td style="text-align:left;">c(“time series”, “cases”, “deaths”)</td>
+<td style="text-align:left;">TRUE</td>
+<td style="text-align:left;">FALSE</td>
+<td style="text-align:left;">United States</td>
+<td style="text-align:left;">admin1</td>
+<td style="text-align:left;"><a href="https://raw.githubusercontent.com/nytimes/covid-19-data" class="external-link">LINK</a></td>
 </tr>
 <tr>
-<td style="text-align:left;">
-The Economist: Excess deaths during COVID pandemic
-</td>
-<td style="text-align:left;">
-economist_excess_deaths
-</td>
-<td style="text-align:left;">
-c(“time series”, “deaths”, “excess deaths”)
-</td>
-<td style="text-align:left;">
-TRUE
-</td>
-<td style="text-align:left;">
-FALSE
-</td>
-<td style="text-align:left;">
-International
-</td>
-<td style="text-align:left;">
-c(“admin0”, “admin1”)
-</td>
-<td style="text-align:left;">
-<a href="https://github.com/TheEconomist/covid-19-excess-deaths-tracker" class="external-link">LINK</a>
-</td>
+<td style="text-align:left;">The Economist: Excess deaths during COVID pandemic</td>
+<td style="text-align:left;">economist_excess_deaths</td>
+<td style="text-align:left;">c(“time series”, “deaths”, “excess deaths”)</td>
+<td style="text-align:left;">TRUE</td>
+<td style="text-align:left;">FALSE</td>
+<td style="text-align:left;">International</td>
+<td style="text-align:left;">c(“admin0”, “admin1”)</td>
+<td style="text-align:left;"><a href="https://github.com/TheEconomist/covid-19-excess-deaths-tracker" class="external-link">LINK</a></td>
 </tr>
 <tr>
-<td style="text-align:left;">
-The : Excess deaths during COVID pandemic
-</td>
-<td style="text-align:left;">
-financial_times_excess_deaths
-</td>
-<td style="text-align:left;">
-c(“time series”, “deaths”, “excess deaths”)
-</td>
-<td style="text-align:left;">
-TRUE
-</td>
-<td style="text-align:left;">
-FALSE
-</td>
-<td style="text-align:left;">
-International
-</td>
-<td style="text-align:left;">
-c(“admin0”, “admin1”)
-</td>
-<td style="text-align:left;">
-<a href="https://github.com/Financial-Times/coronavirus-excess-mortality-data" class="external-link">LINK</a>
-</td>
+<td style="text-align:left;">The : Excess deaths during COVID pandemic</td>
+<td style="text-align:left;">financial_times_excess_deaths</td>
+<td style="text-align:left;">c(“time series”, “deaths”, “excess deaths”)</td>
+<td style="text-align:left;">TRUE</td>
+<td style="text-align:left;">FALSE</td>
+<td style="text-align:left;">International</td>
+<td style="text-align:left;">c(“admin0”, “admin1”)</td>
+<td style="text-align:left;"><a href="https://github.com/Financial-Times/coronavirus-excess-mortality-data" class="external-link">LINK</a></td>
 </tr>
 <tr>
-<td style="text-align:left;">
-US CDC excess deaths dataset
-</td>
-<td style="text-align:left;">
-cdc_excess_deaths
-</td>
-<td style="text-align:left;">
-c(“time series”, “deaths”, “excess deaths”)
-</td>
-<td style="text-align:left;">
-TRUE
-</td>
-<td style="text-align:left;">
-FALSE
-</td>
-<td style="text-align:left;">
-United States
-</td>
-<td style="text-align:left;">
-admin1
-</td>
-<td style="text-align:left;">
-<a href="https://www.cdc.gov/nchs/nvss/vsrr/covid19/excess_deaths.html" class="external-link">LINK</a>
-</td>
+<td style="text-align:left;">US CDC excess deaths dataset</td>
+<td style="text-align:left;">cdc_excess_deaths</td>
+<td style="text-align:left;">c(“time series”, “deaths”, “excess deaths”)</td>
+<td style="text-align:left;">TRUE</td>
+<td style="text-align:left;">FALSE</td>
+<td style="text-align:left;">United States</td>
+<td style="text-align:left;">admin1</td>
+<td style="text-align:left;"><a href="https://www.cdc.gov/nchs/nvss/vsrr/covid19/excess_deaths.html" class="external-link">LINK</a></td>
 </tr>
 <tr>
-<td style="text-align:left;">
-Descartes Labs Mobility Data
-</td>
-<td style="text-align:left;">
-descartes_mobility_data
-</td>
-<td style="text-align:left;">
-c(“time series”, “mobility”)
-</td>
-<td style="text-align:left;">
-TRUE
-</td>
-<td style="text-align:left;">
-FALSE
-</td>
-<td style="text-align:left;">
-United States
-</td>
-<td style="text-align:left;">
-admin1
-</td>
-<td style="text-align:left;">
-<a href="https://raw.githubusercontent.com/descarteslabs/DL-COVID-19" class="external-link">LINK</a>
-</td>
+<td style="text-align:left;">Descartes Labs Mobility Data</td>
+<td style="text-align:left;">descartes_mobility_data</td>
+<td style="text-align:left;">c(“time series”, “mobility”)</td>
+<td style="text-align:left;">TRUE</td>
+<td style="text-align:left;">FALSE</td>
+<td style="text-align:left;">United States</td>
+<td style="text-align:left;">admin1</td>
+<td style="text-align:left;"><a href="https://raw.githubusercontent.com/descarteslabs/DL-COVID-19" class="external-link">LINK</a></td>
 </tr>
 <tr>
-<td style="text-align:left;">
-Apple mobility data from maps
-</td>
-<td style="text-align:left;">
-apple_mobility_data
-</td>
-<td style="text-align:left;">
-c(“time series”, “mobility”)
-</td>
-<td style="text-align:left;">
-TRUE
-</td>
-<td style="text-align:left;">
-FALSE
-</td>
-<td style="text-align:left;">
-World
-</td>
-<td style="text-align:left;">
-c(“admin0”, “admin1”, “admin2”, “admin3”)
-</td>
-<td style="text-align:left;">
-<a href="https://www.apple.com/covid19/mobility" class="external-link">LINK</a>
-</td>
+<td style="text-align:left;">Apple mobility data from maps</td>
+<td style="text-align:left;">apple_mobility_data</td>
+<td style="text-align:left;">c(“time series”, “mobility”)</td>
+<td style="text-align:left;">TRUE</td>
+<td style="text-align:left;">FALSE</td>
+<td style="text-align:left;">World</td>
+<td style="text-align:left;">c(“admin0”, “admin1”, “admin2”, “admin3”)</td>
+<td style="text-align:left;"><a href="https://www.apple.com/covid19/mobility" class="external-link">LINK</a></td>
 </tr>
 <tr>
-<td style="text-align:left;">
-Healthdata.org projections of hospital utilization and deaths
-</td>
-<td style="text-align:left;">
-healthdata_projections_data
-</td>
-<td style="text-align:left;">
-c(“time series”, “projections”, “cases”, “deaths”)
-</td>
-<td style="text-align:left;">
-TRUE
-</td>
-<td style="text-align:left;">
-FALSE
-</td>
-<td style="text-align:left;">
-c(“United States”, “World”)
-</td>
-<td style="text-align:left;">
-c(“admin1”, “admin2”)
-</td>
-<td style="text-align:left;">
-<a href="http://www.healthdata.org/covid" class="external-link">LINK</a>
-</td>
+<td style="text-align:left;">Healthdata.org projections of hospital utilization and deaths</td>
+<td style="text-align:left;">healthdata_projections_data</td>
+<td style="text-align:left;">c(“time series”, “projections”, “cases”, “deaths”)</td>
+<td style="text-align:left;">TRUE</td>
+<td style="text-align:left;">FALSE</td>
+<td style="text-align:left;">c(“United States”, “World”)</td>
+<td style="text-align:left;">c(“admin1”, “admin2”)</td>
+<td style="text-align:left;"><a href="http://www.healthdata.org/covid" class="external-link">LINK</a></td>
 </tr>
 <tr>
-<td style="text-align:left;">
-Healthdata.org mobility data
-</td>
-<td style="text-align:left;">
-healthdata_mobility_data
-</td>
-<td style="text-align:left;">
-c(“time series”, “projections”, “mobility”)
-</td>
-<td style="text-align:left;">
-TRUE
-</td>
-<td style="text-align:left;">
-FALSE
-</td>
-<td style="text-align:left;">
-c(“United States”, “World”)
-</td>
-<td style="text-align:left;">
-c(“admin1”, “admin2”)
-</td>
-<td style="text-align:left;">
-<a href="http://www.healthdata.org/covid" class="external-link">LINK</a>
-</td>
+<td style="text-align:left;">Healthdata.org mobility data</td>
+<td style="text-align:left;">healthdata_mobility_data</td>
+<td style="text-align:left;">c(“time series”, “projections”, “mobility”)</td>
+<td style="text-align:left;">TRUE</td>
+<td style="text-align:left;">FALSE</td>
+<td style="text-align:left;">c(“United States”, “World”)</td>
+<td style="text-align:left;">c(“admin1”, “admin2”)</td>
+<td style="text-align:left;"><a href="http://www.healthdata.org/covid" class="external-link">LINK</a></td>
 </tr>
 <tr>
-<td style="text-align:left;">
-United States CDC Social Vulnerability Index
-</td>
-<td style="text-align:left;">
-cdc_social_vulnerability_index
-</td>
-<td style="text-align:left;">
-demographics
-</td>
-<td style="text-align:left;">
-TRUE
-</td>
-<td style="text-align:left;">
-FALSE
-</td>
-<td style="text-align:left;">
-United States
-</td>
-<td style="text-align:left;">
-admin2
-</td>
-<td style="text-align:left;">
-<a href="https://svi.cdc.gov/" class="external-link">LINK</a>
-</td>
+<td style="text-align:left;">United States CDC Social Vulnerability Index</td>
+<td style="text-align:left;">cdc_social_vulnerability_index</td>
+<td style="text-align:left;">demographics</td>
+<td style="text-align:left;">TRUE</td>
+<td style="text-align:left;">FALSE</td>
+<td style="text-align:left;">United States</td>
+<td style="text-align:left;">admin2</td>
+<td style="text-align:left;"><a href="https://svi.cdc.gov/" class="external-link">LINK</a></td>
 </tr>
 <tr>
-<td style="text-align:left;">
-US county health rankings from ‘<a href="https://www.countyhealthrankings.org" class="external-link uri">https://www.countyhealthrankings.org</a>’
-</td>
-<td style="text-align:left;">
-us_county_health_rankings
-</td>
-<td style="text-align:left;">
-demographics
-</td>
-<td style="text-align:left;">
-TRUE
-</td>
-<td style="text-align:left;">
-FALSE
-</td>
-<td style="text-align:left;">
-United States
-</td>
-<td style="text-align:left;">
-c(“admin0”, “admin1”, “admin2”)
-</td>
-<td style="text-align:left;">
-<a href="https://www.countyhealthrankings.org" class="external-link">LINK</a>
-</td>
+<td style="text-align:left;">US county health rankings from ‘<a href="https://www.countyhealthrankings.org" class="external-link uri">https://www.countyhealthrankings.org</a>’</td>
+<td style="text-align:left;">us_county_health_rankings</td>
+<td style="text-align:left;">demographics</td>
+<td style="text-align:left;">TRUE</td>
+<td style="text-align:left;">FALSE</td>
+<td style="text-align:left;">United States</td>
+<td style="text-align:left;">c(“admin0”, “admin1”, “admin2”)</td>
+<td style="text-align:left;"><a href="https://www.countyhealthrankings.org" class="external-link">LINK</a></td>
 </tr>
 <tr>
-<td style="text-align:left;">
-Country metadata from restcountries.eu
-</td>
-<td style="text-align:left;">
-country_metadata
-</td>
-<td style="text-align:left;">
-demographics
-</td>
-<td style="text-align:left;">
-TRUE
-</td>
-<td style="text-align:left;">
-FALSE
-</td>
-<td style="text-align:left;">
-World
-</td>
-<td style="text-align:left;">
-admin0
-</td>
-<td style="text-align:left;">
-<a href="https://restcountries.eu" class="external-link">LINK</a>
-</td>
+<td style="text-align:left;">Country metadata from restcountries.eu</td>
+<td style="text-align:left;">country_metadata</td>
+<td style="text-align:left;">demographics</td>
+<td style="text-align:left;">TRUE</td>
+<td style="text-align:left;">FALSE</td>
+<td style="text-align:left;">World</td>
+<td style="text-align:left;">admin0</td>
+<td style="text-align:left;"><a href="https://restcountries.eu" class="external-link">LINK</a></td>
 </tr>
 <tr>
-<td style="text-align:left;">
-Extensive United States hospital capabilities
-</td>
-<td style="text-align:left;">
-us_hospital_details
-</td>
-<td style="text-align:left;">
-healthcare capacity
-</td>
-<td style="text-align:left;">
-TRUE
-</td>
-<td style="text-align:left;">
-TRUE
-</td>
-<td style="text-align:left;">
-United States
-</td>
-<td style="text-align:left;">
-individual hospital
-</td>
-<td style="text-align:left;">
-<a href="https://hub.arcgis.com/datasets/geoplatform::hospitals" class="external-link">LINK</a>
-</td>
+<td style="text-align:left;">Extensive United States hospital capabilities</td>
+<td style="text-align:left;">us_hospital_details</td>
+<td style="text-align:left;">healthcare capacity</td>
+<td style="text-align:left;">TRUE</td>
+<td style="text-align:left;">TRUE</td>
+<td style="text-align:left;">United States</td>
+<td style="text-align:left;">individual hospital</td>
+<td style="text-align:left;"><a href="https://hub.arcgis.com/datasets/geoplatform::hospitals" class="external-link">LINK</a></td>
 </tr>
 <tr>
-<td style="text-align:left;">
-Kaiser Family Foundation ICU bed data
-</td>
-<td style="text-align:left;">
-kff_icu_beds
-</td>
-<td style="text-align:left;">
-healthcare capacity
-</td>
-<td style="text-align:left;">
-TRUE
-</td>
-<td style="text-align:left;">
-TRUE
-</td>
-<td style="text-align:left;">
-United States
-</td>
-<td style="text-align:left;">
-Individual hospital
-</td>
-<td style="text-align:left;">
-<a href="https://khn.org/news/as-coronavirus-spreads-widely-millions-of-older-americans-live-in-counties-with-no-icu-beds" class="external-link">LINK</a>
-</td>
+<td style="text-align:left;">Kaiser Family Foundation ICU bed data</td>
+<td style="text-align:left;">kff_icu_beds</td>
+<td style="text-align:left;">healthcare capacity</td>
+<td style="text-align:left;">TRUE</td>
+<td style="text-align:left;">TRUE</td>
+<td style="text-align:left;">United States</td>
+<td style="text-align:left;">Individual hospital</td>
+<td style="text-align:left;"><a href="https://khn.org/news/as-coronavirus-spreads-widely-millions-of-older-americans-live-in-counties-with-no-icu-beds" class="external-link">LINK</a></td>
 </tr>
 <tr>
-<td style="text-align:left;">
-CovidCare United States Healthcare Capacity
-</td>
-<td style="text-align:left;">
-us_healthcare_capacity
-</td>
-<td style="text-align:left;">
-healthcare capacity
-</td>
-<td style="text-align:left;">
-TRUE
-</td>
-<td style="text-align:left;">
-TRUE
-</td>
-<td style="text-align:left;">
-United States
-</td>
-<td style="text-align:left;">
-Individual hospital
-</td>
-<td style="text-align:left;">
-<a href="https://github.com/covidcaremap/covid19-healthsystemcapacity" class="external-link">LINK</a>
-</td>
+<td style="text-align:left;">CovidCare United States Healthcare Capacity</td>
+<td style="text-align:left;">us_healthcare_capacity</td>
+<td style="text-align:left;">healthcare capacity</td>
+<td style="text-align:left;">TRUE</td>
+<td style="text-align:left;">TRUE</td>
+<td style="text-align:left;">United States</td>
+<td style="text-align:left;">Individual hospital</td>
+<td style="text-align:left;"><a href="https://github.com/covidcaremap/covid19-healthsystemcapacity" class="external-link">LINK</a></td>
 </tr>
 <tr>
-<td style="text-align:left;">
-GISAID metadata from thousands of SARS-CoV-2 sequences
-</td>
-<td style="text-align:left;">
-cov_glue_lineage_data
-</td>
-<td style="text-align:left;">
-line list
-</td>
-<td style="text-align:left;">
-TRUE
-</td>
-<td style="text-align:left;">
-FALSE
-</td>
-<td style="text-align:left;">
-World
-</td>
-<td style="text-align:left;">
-multiple
-</td>
-<td style="text-align:left;">
-<a href="https://github.com/hCoV-2019/lineages" class="external-link">LINK</a>
-</td>
+<td style="text-align:left;">GISAID metadata from thousands of SARS-CoV-2 sequences</td>
+<td style="text-align:left;">cov_glue_lineage_data</td>
+<td style="text-align:left;">line list</td>
+<td style="text-align:left;">TRUE</td>
+<td style="text-align:left;">FALSE</td>
+<td style="text-align:left;">World</td>
+<td style="text-align:left;">multiple</td>
+<td style="text-align:left;"><a href="https://github.com/hCoV-2019/lineages" class="external-link">LINK</a></td>
 </tr>
 <tr>
-<td style="text-align:left;">
-beoutbreakprepared
-</td>
-<td style="text-align:left;">
-beoutbreakprepared_data
-</td>
-<td style="text-align:left;">
-line list
-</td>
-<td style="text-align:left;">
-TRUE
-</td>
-<td style="text-align:left;">
-FALSE
-</td>
-<td style="text-align:left;">
-World
-</td>
-<td style="text-align:left;">
-patient
-</td>
-<td style="text-align:left;">
-<a href="https://github.com/beoutbreakprepared/nCoV2019" class="external-link">LINK</a>
-</td>
+<td style="text-align:left;">beoutbreakprepared</td>
+<td style="text-align:left;">beoutbreakprepared_data</td>
+<td style="text-align:left;">line list</td>
+<td style="text-align:left;">TRUE</td>
+<td style="text-align:left;">FALSE</td>
+<td style="text-align:left;">World</td>
+<td style="text-align:left;">patient</td>
+<td style="text-align:left;"><a href="https://github.com/beoutbreakprepared/nCoV2019" class="external-link">LINK</a></td>
 </tr>
 <tr>
-<td style="text-align:left;">
-Published epidemic parameters for COVID-19
-</td>
-<td style="text-align:left;">
-param_estimates_published
-</td>
-<td style="text-align:left;">
-miscellaneous
-</td>
-<td style="text-align:left;">
-FALSE
-</td>
-<td style="text-align:left;">
-FALSE
-</td>
-<td style="text-align:left;">
-list()
-</td>
-<td style="text-align:left;">
-list()
-</td>
-<td style="text-align:left;">
-<a href="https://github.com/midas-network/COVID-19/blob/master/parameter_estimates/2019_novel_coronavirus/estimates.csv" class="external-link">LINK</a>
-</td>
+<td style="text-align:left;">Published epidemic parameters for COVID-19</td>
+<td style="text-align:left;">param_estimates_published</td>
+<td style="text-align:left;">miscellaneous</td>
+<td style="text-align:left;">FALSE</td>
+<td style="text-align:left;">FALSE</td>
+<td style="text-align:left;">list()</td>
+<td style="text-align:left;">list()</td>
+<td style="text-align:left;"><a href="https://github.com/midas-network/COVID-19/blob/master/parameter_estimates/2019_novel_coronavirus/estimates.csv" class="external-link">LINK</a></td>
 </tr>
 <tr>
-<td style="text-align:left;">
-Google mobility data
-</td>
-<td style="text-align:left;">
-google_mobility_data
-</td>
-<td style="text-align:left;">
-mobility
-</td>
-<td style="text-align:left;">
-TRUE
-</td>
-<td style="text-align:left;">
-FALSE
-</td>
-<td style="text-align:left;">
-World
-</td>
-<td style="text-align:left;">
-c(“admin0”, “admin1”, “admin2”)
-</td>
-<td style="text-align:left;">
-<a href="https://www.google.com/covid19/mobility/" class="external-link">LINK</a>
-</td>
+<td style="text-align:left;">Google mobility data</td>
+<td style="text-align:left;">google_mobility_data</td>
+<td style="text-align:left;">mobility</td>
+<td style="text-align:left;">TRUE</td>
+<td style="text-align:left;">FALSE</td>
+<td style="text-align:left;">World</td>
+<td style="text-align:left;">c(“admin0”, “admin1”, “admin2”)</td>
+<td style="text-align:left;"><a href="https://www.google.com/covid19/mobility/" class="external-link">LINK</a></td>
 </tr>
 <tr>
-<td style="text-align:left;">
-Newick tree from thousands of SARS-CoV-2 sequences
-</td>
-<td style="text-align:left;">
-cov_glue_newick_data
-</td>
-<td style="text-align:left;">
-phylogenetic
-</td>
-<td style="text-align:left;">
-FALSE
-</td>
-<td style="text-align:left;">
-FALSE
-</td>
-<td style="text-align:left;">
-World
-</td>
-<td style="text-align:left;">
-multiple
-</td>
-<td style="text-align:left;">
-<a href="https://github.com/hCoV-2019/lineages" class="external-link">LINK</a>
-</td>
+<td style="text-align:left;">Newick tree from thousands of SARS-CoV-2 sequences</td>
+<td style="text-align:left;">cov_glue_newick_data</td>
+<td style="text-align:left;">phylogenetic</td>
+<td style="text-align:left;">FALSE</td>
+<td style="text-align:left;">FALSE</td>
+<td style="text-align:left;">World</td>
+<td style="text-align:left;">multiple</td>
+<td style="text-align:left;"><a href="https://github.com/hCoV-2019/lineages" class="external-link">LINK</a></td>
 </tr>
 <tr>
-<td style="text-align:left;">
-Aggregated projections from US CDC
-</td>
-<td style="text-align:left;">
-cdc_aggregated_projections
-</td>
-<td style="text-align:left;">
-projections
-</td>
-<td style="text-align:left;">
-TRUE
-</td>
-<td style="text-align:left;">
-FALSE
-</td>
-<td style="text-align:left;">
-list()
-</td>
-<td style="text-align:left;">
-c(“admin0”, “admin1”)
-</td>
-<td style="text-align:left;">
-<a href="https://www.cdc.gov/coronavirus/2019-ncov/covid-data/forecasting-us.html" class="external-link">LINK</a>
-</td>
+<td style="text-align:left;">Aggregated projections from US CDC</td>
+<td style="text-align:left;">cdc_aggregated_projections</td>
+<td style="text-align:left;">projections</td>
+<td style="text-align:left;">TRUE</td>
+<td style="text-align:left;">FALSE</td>
+<td style="text-align:left;">list()</td>
+<td style="text-align:left;">c(“admin0”, “admin1”)</td>
+<td style="text-align:left;"><a href="https://www.cdc.gov/coronavirus/2019-ncov/covid-data/forecasting-us.html" class="external-link">LINK</a></td>
 </tr>
 <tr>
-<td style="text-align:left;">
-CoronaNet government response database
-</td>
-<td style="text-align:left;">
-coronanet_government_response_data
-</td>
-<td style="text-align:left;">
-public policy
-</td>
-<td style="text-align:left;">
-TRUE
-</td>
-<td style="text-align:left;">
-FALSE
-</td>
-<td style="text-align:left;">
-World
-</td>
-<td style="text-align:left;">
-c(“admin0”, “admin1”)
-</td>
-<td style="text-align:left;">
-<a href="https://coronanet-project.org/index.html" class="external-link">LINK</a>
-</td>
+<td style="text-align:left;">CoronaNet government response database</td>
+<td style="text-align:left;">coronanet_government_response_data</td>
+<td style="text-align:left;">public policy</td>
+<td style="text-align:left;">TRUE</td>
+<td style="text-align:left;">FALSE</td>
+<td style="text-align:left;">World</td>
+<td style="text-align:left;">c(“admin0”, “admin1”)</td>
+<td style="text-align:left;"><a href="https://coronanet-project.org/index.html" class="external-link">LINK</a></td>
 </tr>
 <tr>
-<td style="text-align:left;">
-Oxford Government Policy Intervention time series
-</td>
-<td style="text-align:left;">
-government_policy_timeline
-</td>
-<td style="text-align:left;">
-public policy
-</td>
-<td style="text-align:left;">
-TRUE
-</td>
-<td style="text-align:left;">
-FALSE
-</td>
-<td style="text-align:left;">
-World
-</td>
-<td style="text-align:left;">
-admin0
-</td>
-<td style="text-align:left;">
-<a href="https://www.bsg.ox.ac.uk/research/research-projects/oxford-covid-19-government-response-tracker" class="external-link">LINK</a>
-</td>
+<td style="text-align:left;">Oxford Government Policy Intervention time series</td>
+<td style="text-align:left;">government_policy_timeline</td>
+<td style="text-align:left;">public policy</td>
+<td style="text-align:left;">TRUE</td>
+<td style="text-align:left;">FALSE</td>
+<td style="text-align:left;">World</td>
+<td style="text-align:left;">admin0</td>
+<td style="text-align:left;"><a href="https://www.bsg.ox.ac.uk/research/research-projects/oxford-covid-19-government-response-tracker" class="external-link">LINK</a></td>
 </tr>
 <tr>
-<td style="text-align:left;">
-United States social distancing policies
-</td>
-<td style="text-align:left;">
-us_state_distancing_policy
-</td>
-<td style="text-align:left;">
-public policy
-</td>
-<td style="text-align:left;">
-TRUE
-</td>
-<td style="text-align:left;">
-FALSE
-</td>
-<td style="text-align:left;">
-United States
-</td>
-<td style="text-align:left;">
-admin1
-</td>
-<td style="text-align:left;">
-<a href="https://github.com/COVID19StatePolicy/SocialDistancing/" class="external-link">LINK</a>
-</td>
+<td style="text-align:left;">United States social distancing policies</td>
+<td style="text-align:left;">us_state_distancing_policy</td>
+<td style="text-align:left;">public policy</td>
+<td style="text-align:left;">TRUE</td>
+<td style="text-align:left;">FALSE</td>
+<td style="text-align:left;">United States</td>
+<td style="text-align:left;">admin1</td>
+<td style="text-align:left;"><a href="https://github.com/COVID19StatePolicy/SocialDistancing/" class="external-link">LINK</a></td>
 </tr>
 </tbody>
 </table>
@@ -1106,256 +514,126 @@ admin1
 <div class="section level2">
 <h2 id="case-tracking">Case tracking<a class="anchor" aria-label="anchor" href="#case-tracking"></a>
 </h2>
-<p>Updated tracking of city, county, state, national, and international
-confirmed cases, deaths, and testing is critical to driving policy,
-implementing interventions, and measuring their effectiveness. Case
-tracking datasets include date, a count of cases, and usually numerous
-other pieces of information related to location of reporting, etc.</p>
-<p>Accessing case-tracking datasets is typically done with one function
-per dataset. The example here is data from the European Centers for
-Disease Control, or ECDC.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ecdc <span class="ot">=</span> <span class="fu">ecdc_data</span>()</span></code></pre></div>
+<p>Updated tracking of city, county, state, national, and international confirmed cases, deaths, and testing is critical to driving policy, implementing interventions, and measuring their effectiveness. Case tracking datasets include date, a count of cases, and usually numerous other pieces of information related to location of reporting, etc.</p>
+<p>Accessing case-tracking datasets is typically done with one function per dataset. The example here is data from the European Centers for Disease Control, or ECDC.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>ecdc =<span class="st"> </span><span class="kw">ecdc_data</span>()</span></code></pre></div>
 <p>Get a quick overview of the dataset.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ecdc)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="do">## # A tibble: 6 x 8</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="do">## # Groups:   location_name, subset [6]</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="do">##   date       location_name iso2c iso3c population_2019 continent subset    count</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="do">##   &lt;date&gt;     &lt;chr&gt;         &lt;chr&gt; &lt;chr&gt;           &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;     &lt;dbl&gt;</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="do">## 1 2019-12-31 Afghanistan   AF    AFG          38041757 Asia      confirmed     0</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="do">## 2 2019-12-31 Afghanistan   AF    AFG          38041757 Asia      deaths        0</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="do">## 3 2019-12-31 Algeria       DZ    DZA          43053054 Africa    confirmed     0</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="do">## 4 2019-12-31 Algeria       DZ    DZA          43053054 Africa    deaths        0</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="do">## 5 2019-12-31 Armenia       AM    ARM           2957728 Europe    confirmed     0</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="do">## 6 2019-12-31 Armenia       AM    ARM           2957728 Europe    deaths        0</span></span></code></pre></div>
-<p>The <code>ecdc</code> dataset is just a <code>data.frame</code>
-(actually, a <code>tibble</code>), so applying standard R or tidyverse
-functionality can get answers to basic questions with little code. The
-next code block generates a <code>top10</code> of countries with the
-most deaths recorded to date. Note that if you do this on your own
-computer, the data will be updated to today’s data values.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>top10 <span class="ot">=</span> ecdc <span class="sc">%&gt;%</span> <span class="fu">filter</span>(subset<span class="sc">==</span><span class="st">'deaths'</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(location_name) <span class="sc">%&gt;%</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(count<span class="sc">==</span><span class="fu">max</span>(count)) <span class="sc">%&gt;%</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">arrange</span>(<span class="fu">desc</span>(count)) <span class="sc">%&gt;%</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">head</span>(<span class="dv">10</span>) <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span><span class="fu">starts_with</span>(<span class="st">'iso'</span>),<span class="sc">-</span>continent,<span class="sc">-</span>subset) <span class="sc">%&gt;%</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">rate_per_100k =</span> <span class="fl">1e5</span><span class="sc">*</span>count<span class="sc">/</span>population_2019)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">head</span>(ecdc)</span>
+<span id="cb4-2"><a href="#cb4-2"></a></span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="co">## # A tibble: 6 x 8</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="co">## # Groups:   location_name, subset [6]</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a><span class="co">##   date       location_name iso2c iso3c population_2019 continent subset    count</span></span>
+<span id="cb4-6"><a href="#cb4-6"></a><span class="co">##   &lt;date&gt;     &lt;chr&gt;         &lt;chr&gt; &lt;chr&gt;           &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;     &lt;dbl&gt;</span></span>
+<span id="cb4-7"><a href="#cb4-7"></a><span class="co">## 1 2019-12-31 Afghanistan   AF    AFG          38041757 Asia      confirmed     0</span></span>
+<span id="cb4-8"><a href="#cb4-8"></a><span class="co">## 2 2019-12-31 Afghanistan   AF    AFG          38041757 Asia      deaths        0</span></span>
+<span id="cb4-9"><a href="#cb4-9"></a><span class="co">## 3 2019-12-31 Algeria       DZ    DZA          43053054 Africa    confirmed     0</span></span>
+<span id="cb4-10"><a href="#cb4-10"></a><span class="co">## 4 2019-12-31 Algeria       DZ    DZA          43053054 Africa    deaths        0</span></span>
+<span id="cb4-11"><a href="#cb4-11"></a><span class="co">## 5 2019-12-31 Armenia       AM    ARM           2957728 Europe    confirmed     0</span></span>
+<span id="cb4-12"><a href="#cb4-12"></a><span class="co">## 6 2019-12-31 Armenia       AM    ARM           2957728 Europe    deaths        0</span></span></code></pre></div>
+<p>The <code>ecdc</code> dataset is just a <code>data.frame</code> (actually, a <code>tibble</code>), so applying standard R or tidyverse functionality can get answers to basic questions with little code. The next code block generates a <code>top10</code> of countries with the most deaths recorded to date. Note that if you do this on your own computer, the data will be updated to today’s data values.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb5-2"><a href="#cb5-2"></a>top10 =<span class="st"> </span>ecdc <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(subset<span class="op">==</span><span class="st">'deaths'</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="st">    </span><span class="kw">group_by</span>(location_name) <span class="op">%&gt;%</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="st">    </span><span class="kw">filter</span>(count<span class="op">==</span><span class="kw">max</span>(count)) <span class="op">%&gt;%</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a><span class="st">    </span><span class="kw">arrange</span>(<span class="kw">desc</span>(count)) <span class="op">%&gt;%</span></span>
+<span id="cb5-6"><a href="#cb5-6"></a><span class="st">    </span><span class="kw">head</span>(<span class="dv">10</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="op">-</span><span class="kw">starts_with</span>(<span class="st">'iso'</span>),<span class="op">-</span>continent,<span class="op">-</span>subset) <span class="op">%&gt;%</span></span>
+<span id="cb5-7"><a href="#cb5-7"></a><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">rate_per_100k =</span> <span class="fl">1e5</span><span class="op">*</span>count<span class="op">/</span>population_<span class="dv">2019</span>)</span></code></pre></div>
 <p>Finally, present a nice table of those countries:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    top10,</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Reported COVID-19-related deaths in ten most affected countries."</span>,</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">format =</span> <span class="st">'pandoc'</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>knitr<span class="op">::</span><span class="kw">kable</span>(</span>
+<span id="cb6-2"><a href="#cb6-2"></a>    top10,</span>
+<span id="cb6-3"><a href="#cb6-3"></a>    <span class="dt">caption =</span> <span class="st">"Reported COVID-19-related deaths in ten most affected countries."</span>,</span>
+<span id="cb6-4"><a href="#cb6-4"></a>    <span class="dt">format =</span> <span class="st">'pandoc'</span>)</span></code></pre></div>
 <table class="table">
-<caption>
-Reported COVID-19-related deaths in ten most affected countries.
-</caption>
+<caption>Reported COVID-19-related deaths in ten most affected countries.</caption>
 <thead><tr class="header">
-<th style="text-align: left;">
-date
-</th>
-<th style="text-align: left;">
-location_name
-</th>
-<th style="text-align: right;">
-population_2019
-</th>
-<th style="text-align: right;">
-count
-</th>
-<th style="text-align: right;">
-rate_per_100k
-</th>
+<th style="text-align: left;">date</th>
+<th style="text-align: left;">location_name</th>
+<th style="text-align: right;">population_2019</th>
+<th style="text-align: right;">count</th>
+<th style="text-align: right;">rate_per_100k</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">
-2020-07-06
-</td>
-<td style="text-align: left;">
-United_States_of_America
-</td>
-<td style="text-align: right;">
-329064917
-</td>
-<td style="text-align: right;">
-129947
-</td>
-<td style="text-align: right;">
-39.489776
-</td>
+<td style="text-align: left;">2020-07-06</td>
+<td style="text-align: left;">United_States_of_America</td>
+<td style="text-align: right;">329064917</td>
+<td style="text-align: right;">129947</td>
+<td style="text-align: right;">39.489776</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">
-2020-07-06
-</td>
-<td style="text-align: left;">
-Brazil
-</td>
-<td style="text-align: right;">
-211049519
-</td>
-<td style="text-align: right;">
-64867
-</td>
-<td style="text-align: right;">
-30.735441
-</td>
+<td style="text-align: left;">2020-07-06</td>
+<td style="text-align: left;">Brazil</td>
+<td style="text-align: right;">211049519</td>
+<td style="text-align: right;">64867</td>
+<td style="text-align: right;">30.735441</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">
-2020-07-06
-</td>
-<td style="text-align: left;">
-United_Kingdom
-</td>
-<td style="text-align: right;">
-66647112
-</td>
-<td style="text-align: right;">
-44220
-</td>
-<td style="text-align: right;">
-66.349462
-</td>
+<td style="text-align: left;">2020-07-06</td>
+<td style="text-align: left;">United_Kingdom</td>
+<td style="text-align: right;">66647112</td>
+<td style="text-align: right;">44220</td>
+<td style="text-align: right;">66.349462</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">
-2020-07-06
-</td>
-<td style="text-align: left;">
-Italy
-</td>
-<td style="text-align: right;">
-60359546
-</td>
-<td style="text-align: right;">
-34861
-</td>
-<td style="text-align: right;">
-57.755570
-</td>
+<td style="text-align: left;">2020-07-06</td>
+<td style="text-align: left;">Italy</td>
+<td style="text-align: right;">60359546</td>
+<td style="text-align: right;">34861</td>
+<td style="text-align: right;">57.755570</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">
-2020-07-06
-</td>
-<td style="text-align: left;">
-Mexico
-</td>
-<td style="text-align: right;">
-127575529
-</td>
-<td style="text-align: right;">
-30639
-</td>
-<td style="text-align: right;">
-24.016361
-</td>
+<td style="text-align: left;">2020-07-06</td>
+<td style="text-align: left;">Mexico</td>
+<td style="text-align: right;">127575529</td>
+<td style="text-align: right;">30639</td>
+<td style="text-align: right;">24.016361</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">
-2020-07-04
-</td>
-<td style="text-align: left;">
-France
-</td>
-<td style="text-align: right;">
-67012883
-</td>
-<td style="text-align: right;">
-29893
-</td>
-<td style="text-align: right;">
-44.607841
-</td>
+<td style="text-align: left;">2020-07-04</td>
+<td style="text-align: left;">France</td>
+<td style="text-align: right;">67012883</td>
+<td style="text-align: right;">29893</td>
+<td style="text-align: right;">44.607841</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">
-2020-07-05
-</td>
-<td style="text-align: left;">
-France
-</td>
-<td style="text-align: right;">
-67012883
-</td>
-<td style="text-align: right;">
-29893
-</td>
-<td style="text-align: right;">
-44.607841
-</td>
+<td style="text-align: left;">2020-07-05</td>
+<td style="text-align: left;">France</td>
+<td style="text-align: right;">67012883</td>
+<td style="text-align: right;">29893</td>
+<td style="text-align: right;">44.607841</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">
-2020-07-06
-</td>
-<td style="text-align: left;">
-France
-</td>
-<td style="text-align: right;">
-67012883
-</td>
-<td style="text-align: right;">
-29893
-</td>
-<td style="text-align: right;">
-44.607841
-</td>
+<td style="text-align: left;">2020-07-06</td>
+<td style="text-align: left;">France</td>
+<td style="text-align: right;">67012883</td>
+<td style="text-align: right;">29893</td>
+<td style="text-align: right;">44.607841</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">
-2020-05-24
-</td>
-<td style="text-align: left;">
-Spain
-</td>
-<td style="text-align: right;">
-46937060
-</td>
-<td style="text-align: right;">
-28752
-</td>
-<td style="text-align: right;">
-61.256500
-</td>
+<td style="text-align: left;">2020-05-24</td>
+<td style="text-align: left;">Spain</td>
+<td style="text-align: right;">46937060</td>
+<td style="text-align: right;">28752</td>
+<td style="text-align: right;">61.256500</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">
-2020-07-06
-</td>
-<td style="text-align: left;">
-India
-</td>
-<td style="text-align: right;">
-1366417756
-</td>
-<td style="text-align: right;">
-19693
-</td>
-<td style="text-align: right;">
-1.441214
-</td>
+<td style="text-align: left;">2020-07-06</td>
+<td style="text-align: left;">India</td>
+<td style="text-align: right;">1366417756</td>
+<td style="text-align: right;">19693</td>
+<td style="text-align: right;">1.441214</td>
 </tr>
 </tbody>
 </table>
-<p>Examine the spread of the pandemic throughout the world by examining
-cumulative deaths reported for the top 10 countries above.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>ecdc_top10 <span class="ot">=</span> ecdc <span class="sc">%&gt;%</span> <span class="fu">filter</span>(location_name <span class="sc">%in%</span> top10<span class="sc">$</span>location_name <span class="sc">&amp;</span> subset<span class="sc">==</span><span class="st">'deaths'</span>)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_epicurve</span>(ecdc_top10,</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">filter_expression =</span> count <span class="sc">&gt;</span> <span class="dv">10</span>, </span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">color=</span><span class="st">'location_name'</span>)</span></code></pre></div>
+<p>Examine the spread of the pandemic throughout the world by examining cumulative deaths reported for the top 10 countries above.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>ecdc_top10 =<span class="st"> </span>ecdc <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(location_name <span class="op">%in%</span><span class="st"> </span>top10<span class="op">$</span>location_name <span class="op">&amp;</span><span class="st"> </span>subset<span class="op">==</span><span class="st">'deaths'</span>)</span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="kw">plot_epicurve</span>(ecdc_top10,</span>
+<span id="cb7-3"><a href="#cb7-3"></a>              <span class="dt">filter_expression =</span> count <span class="op">&gt;</span><span class="st"> </span><span class="dv">10</span>, </span>
+<span id="cb7-4"><a href="#cb7-4"></a>              <span class="dt">color=</span><span class="st">'location_name'</span>)</span></code></pre></div>
 <p><img src="https://i.imgur.com/KilVPg5.png" width="100%"></p>
-<p>Comparing the features of disease spread is easiest if all curves are
-shifted to “start” at the same absolute level of infection. In this
-case, shift the origin for all countries to start at the first time
-point when more than 100 cumulative cases had been observed. Note how
-some curves cross others which is evidence of less infection control at
-the same relative time in the pandemic for that country (eg.,
-Brazil).</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>ecdc_top10 <span class="sc">%&gt;%</span> <span class="fu">align_to_baseline</span>(count<span class="sc">&gt;</span><span class="dv">100</span>,<span class="at">group_vars=</span><span class="fu">c</span>(<span class="st">'location_name'</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">plot_epicurve</span>(<span class="at">date_column =</span> <span class="st">'index'</span>,<span class="at">color=</span><span class="st">'location_name'</span>)</span></code></pre></div>
+<p>Comparing the features of disease spread is easiest if all curves are shifted to “start” at the same absolute level of infection. In this case, shift the origin for all countries to start at the first time point when more than 100 cumulative cases had been observed. Note how some curves cross others which is evidence of less infection control at the same relative time in the pandemic for that country (eg., Brazil).</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>ecdc_top10 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">align_to_baseline</span>(count<span class="op">&gt;</span><span class="dv">100</span>,<span class="dt">group_vars=</span><span class="kw">c</span>(<span class="st">'location_name'</span>)) <span class="op">%&gt;%</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="st">    </span><span class="kw">plot_epicurve</span>(<span class="dt">date_column =</span> <span class="st">'index'</span>,<span class="dt">color=</span><span class="st">'location_name'</span>)</span></code></pre></div>
 <p><img src="https://i.imgur.com/sDHPp2t.png" width="100%"></p>
 </div>
 <div class="section level2">
@@ -1373,17 +651,12 @@ Brazil).</p>
 </h2>
 <ul>
 <li><a href="https://github.com/emanuele-guidotti/COVID19" class="external-link uri">https://github.com/emanuele-guidotti/COVID19</a></li>
-<li><a href="https://towardsdatascience.com/top-5-r-resources-on-covid-19-coronavirus-1d4c8df6d85f" class="external-link">Top
-25 R resources on Novel COVID-19 Coronavirus</a></li>
-<li><a href="https://rviews.rstudio.com/2020/03/05/covid-19-epidemiology-with-r/" class="external-link">COVID-19
-epidemiology with R</a></li>
+<li><a href="https://towardsdatascience.com/top-5-r-resources-on-covid-19-coronavirus-1d4c8df6d85f" class="external-link">Top 25 R resources on Novel COVID-19 Coronavirus</a></li>
+<li><a href="https://rviews.rstudio.com/2020/03/05/covid-19-epidemiology-with-r/" class="external-link">COVID-19 epidemiology with R</a></li>
 <li><a href="https://github.com/RamiKrispin/coronavirus" class="external-link uri">https://github.com/RamiKrispin/coronavirus</a></li>
-<li><a href="https://www.youtube.com/watch?v=D_CNmYkGRUc" class="external-link">Youtube: Using
-R to analyze COVID-19</a></li>
-<li><a href="https://www.datacamp.com/projects/870" class="external-link">DataCamp: Visualize
-the rise of COVID-19 cases globally with ggplot2</a></li>
-<li><a href="https://github.com/MarcLavielle/covidix/" class="external-link">MackLavielle/covidix R
-package</a></li>
+<li><a href="https://www.youtube.com/watch?v=D_CNmYkGRUc" class="external-link">Youtube: Using R to analyze COVID-19</a></li>
+<li><a href="https://www.datacamp.com/projects/870" class="external-link">DataCamp: Visualize the rise of COVID-19 cases globally with ggplot2</a></li>
+<li><a href="https://github.com/MarcLavielle/covidix/" class="external-link">MackLavielle/covidix R package</a></li>
 </ul>
 </div>
 </div>
@@ -1441,8 +714,7 @@ package</a></li>
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a>
-2.0.2.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
 </div>
 
       </footer>
